@@ -38,13 +38,14 @@ body:has(.wash-world) .menu-toggle span { background:white; }
 @keyframes bead-slide { 0% { transform:translate3d(0,0,0) scaleY(.95); } 55% { transform:translate3d(8px,calc(var(--wash-distance) * .54),0) scaleY(1.08); } 100% { transform:translate3d(-3px,var(--wash-distance),0) scaleY(1); } }
 
 /* A consistent photo mount: white mat, ink edge, blue shadow, and a moving rinse. */
-.wash-world .rinse-photo { position:relative; display:block; overflow:hidden; --photo-progress:.5; --rinse-progress:1; --tilt-x:0deg; --tilt-y:0deg; --shine-x:50%; --shine-y:50%; transform:perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); transform-origin:center; transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s; }
+.wash-world .rinse-photo { position:relative; display:block; overflow:hidden; --photo-progress:.5; --tilt-x:0deg; --tilt-y:0deg; --shine-x:50%; --shine-y:50%; transform:perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); transform-origin:center; transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s; }
 .wash-world .rinse-photo>img { display:block; width:100%; height:100%; object-fit:cover; transform:scale(calc(1.16 - var(--photo-progress) * .08)) translateY(calc((.5 - var(--photo-progress)) * 28px)); transition:transform .5s cubic-bezier(.2,.7,.3,1); }
 .wash-world .rinse-photo.is-polishing>img { transform:scale(1.13) translateY(calc((.5 - var(--photo-progress)) * 28px)); }
 .photo-glint { position:absolute; inset:0; pointer-events:none; z-index:3; opacity:0; background:radial-gradient(ellipse at var(--shine-x) var(--shine-y),#ffffff50,transparent 58%); mix-blend-mode:screen; transition:opacity .3s; }
 .is-polishing .photo-glint { opacity:1; }
-.photo-rinse { position:absolute; inset:-15% -8%; z-index:2; pointer-events:none; background:linear-gradient(176deg,transparent 5%,#f4ffff04 20%,#e5ffff63 48%,#faffffb0 56%,#fafffff0 57%,#b5efff48 58%,transparent 64%); transform:translate3d(0,calc(-110% + var(--rinse-progress) * 215%),0); }
-.is-polishing .photo-rinse { animation:photo-polish 1.3s cubic-bezier(.2,.65,.2,1) both; }
+/* The rinse sheet is a hover reward, not something that flashes past as you scroll. */
+.photo-rinse { position:absolute; inset:-15% -8%; z-index:2; pointer-events:none; opacity:0; background:linear-gradient(176deg,transparent 5%,#f4ffff04 20%,#e5ffff63 48%,#faffffb0 56%,#fafffff0 57%,#b5efff48 58%,transparent 64%); transform:translate3d(0,-115%,0); }
+.is-polishing .photo-rinse { opacity:1; animation:photo-polish 1.3s cubic-bezier(.2,.65,.2,1) both; }
 @keyframes photo-polish { from { transform:translate3d(0,-85%,0); } to { transform:translate3d(0,105%,0); } }
 .wash-world .intro-visual figure { padding:9px; background:var(--paper); border:1px solid var(--navy); box-shadow:10px 12px 0 #101c2e; }
 .wash-world .intro-visual .intro-photo { aspect-ratio:1.28; }
@@ -147,6 +148,7 @@ body:has(.wash-world) .menu-toggle span { background:white; }
 
 .wash-motion-toggle { position:fixed; right:18px; bottom:18px; z-index:85; display:flex; align-items:center; gap:8px; background:#102333e8; border:1px solid #b4ebf08f; color:#f6f5ef; padding:8px 11px; min-height:36px; font-size:9px; letter-spacing:.045em; backdrop-filter:blur(8px); }
 .wash-motion-toggle i { font-size:15px; font-style:normal; line-height:1; }
+body:has(.sticky-cta.at-hero) .wash-motion-toggle { display:none; }
 body:has(.clean-stage.is-in-view) .wash-motion-toggle { opacity:0; pointer-events:none; }
 .wash-motion-paused .wash-world :is(.soap-flow,.water-bead,.territory-sun,.brand-marquee>div,.photo-rinse),.wash-tab-hidden .wash-world :is(.soap-flow,.water-bead,.territory-sun,.brand-marquee>div,.photo-rinse) { animation-play-state:paused!important; }
 .wash-motion-paused .wash-world .is-polishing .photo-glint { opacity:0; }
@@ -260,4 +262,66 @@ body:has(.clean-stage.is-in-view) .wash-motion-toggle { opacity:0; pointer-event
  .wash-world .rinse-photo,.wash-world .rinse-photo>img,.wash-world .home-review { transform:none!important; transition:none!important; }
  .wash-world .rinse-photo>img { object-fit:cover; }
  .wash-motion-toggle { display:none; }
+}
+
+/* ——— SCATTERED WASH MOMENTS ———
+   The squeegee idea, repeated in small ways: grime on the headlines, desert dust
+   on the photographs, and a few stubborn spots left for you to find. */
+@property --headline-wipe { syntax:'<percentage>'; inherits:true; initial-value:0%; }
+@property --wipe-r { syntax:'<length-percentage>'; inherits:true; initial-value:0%; }
+
+/* Headlines arrive behind a film of grime, then a wet edge clears them. */
+.wash-world .impact-heading[data-wipe] { position:relative; }
+.wash-world .impact-heading[data-wipe]:before,.wash-world .impact-heading[data-wipe]:after { content:''; position:absolute; inset:-9px -15px; z-index:1; pointer-events:none; }
+.wash-world .impact-heading[data-wipe]:before { background:linear-gradient(161deg,#cdbb9433,#9fb3ab38 52%,#c8bb9a2e); backdrop-filter:blur(3px) saturate(.75); -webkit-backdrop-filter:blur(3px) saturate(.75); -webkit-mask-image:linear-gradient(101deg,transparent calc(var(--headline-wipe) - 7%),#000 calc(var(--headline-wipe) + 2%)),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(101deg,transparent calc(var(--headline-wipe) - 7%),#000 calc(var(--headline-wipe) + 2%)),linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent),linear-gradient(90deg,#000 88%,transparent); -webkit-mask-composite:source-in; mask-composite:intersect; }
+.wash-world .impact-heading[data-wipe]:after { opacity:.92; background:linear-gradient(101deg,transparent calc(var(--headline-wipe) - 7%),#eafdff00 calc(var(--headline-wipe) - 5%),#ffffffdb calc(var(--headline-wipe) - .6%),#3cc9ee85 calc(var(--headline-wipe) + 1.2%),transparent calc(var(--headline-wipe) + 5%)); -webkit-mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent); mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent); }
+.wash-world .impact-heading.is-wiping { animation:headline-wipe 1.05s cubic-bezier(.38,.05,.18,1) both; }
+@keyframes headline-wipe { from { --headline-wipe:0%; } to { --headline-wipe:117%; } }
+
+/* Tucson dust settles on every photograph. Your pointer wipes a clean circle through it. */
+.wash-world .rinse-photo { --wipe-r:0%; cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect x='13.2' y='2' width='3.6' height='12' rx='1.4' fill='%230d2032'/%3E%3Crect x='6' y='13.4' width='18' height='6.2' rx='1.5' fill='%233cc9ee' stroke='%230d2032' stroke-width='1.3'/%3E%3Crect x='6.7' y='19.8' width='16.6' height='3' rx='1' fill='%23f6f5ef' stroke='%230d2032' stroke-width='1'/%3E%3C/svg%3E") 15 23,pointer; transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s,--wipe-r .55s ease; }
+.wash-world .rinse-photo.is-polishing { --wipe-r:60%; }
+.photo-dust { position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.7; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23d)' opacity='.26'/%3E%3C/svg%3E"),linear-gradient(148deg,#d9c49a55,#cbbd9c38 46%,#e6d8b548); background-size:150px 150px,cover; -webkit-mask-image:radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%),transparent 0 calc(var(--wipe-r) * .55),#000 var(--wipe-r)); mask-image:radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%),transparent 0 calc(var(--wipe-r) * .55),#000 var(--wipe-r)); }
+
+/* A few stubborn water spots, left in the quiet corners for anyone who looks. */
+.wash-spot { position:absolute; left:var(--spot-x); top:var(--spot-y); z-index:1; width:var(--spot-size,52px); height:calc(var(--spot-size,52px) * 1.15); padding:0; border:0; background:none; cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect x='13.2' y='2' width='3.6' height='12' rx='1.4' fill='%230d2032'/%3E%3Crect x='6' y='13.4' width='18' height='6.2' rx='1.5' fill='%233cc9ee' stroke='%230d2032' stroke-width='1.3'/%3E%3Crect x='6.7' y='19.8' width='16.6' height='3' rx='1' fill='%23f6f5ef' stroke='%230d2032' stroke-width='1'/%3E%3C/svg%3E") 15 23,pointer; }
+.wash-spot>span { position:absolute; inset:0; border-radius:49% 51% 44% 56% / 62% 58% 42% 38%; background:radial-gradient(ellipse at 30% 25%,#ffffffbf 0 7%,#ffffff00 26%),radial-gradient(ellipse at 63% 75%,#9fd4dc00 38%,#7fb6bd42 87%,#eafeffa8); border:1px solid #ffffffa6; box-shadow:inset 2px 2px 4px #fff9,inset -2px -4px 5px #17465536,2px 5px 6px #16415b1c; transition:transform .3s cubic-bezier(.2,.7,.3,1); }
+.wash-spot:hover>span { transform:scale(1.06); }
+.wash-spot:after { content:'WIPE ME'; position:absolute; left:50%; top:calc(100% + 8px); transform:translateX(-50%); white-space:nowrap; font-size:8px; font-weight:800; letter-spacing:.1em; color:#13728d; opacity:0; transition:opacity .25s; }
+.wash-spot:is(:hover,:focus-visible):after { opacity:1; }
+.wash-spot-dark:after { color:#8fe4f5; }
+.wash-spot-dark>span { border-color:#bfeef670; box-shadow:inset 2px 2px 4px #ffffff85,inset -2px -4px 5px #0007,2px 6px 7px #0002; }
+.wash-spot.is-wiped { pointer-events:none; }
+.wash-spot.is-wiped>span { animation:spot-wipe .55s cubic-bezier(.3,.7,.2,1) forwards; }
+.wash-spot.is-wiped:before { content:'SPOTLESS ✳'; position:absolute; left:50%; top:-4px; transform:translateX(-50%); white-space:nowrap; font-size:8px; font-weight:800; letter-spacing:.1em; color:#13728d; animation:spot-tag 1.7s ease forwards; }
+.wash-spot-dark.is-wiped:before { color:#8fe4f5; }
+.wash-spot.is-wiped:after { content:none; }
+@keyframes spot-wipe { 45% { transform:translateX(10px) scale(1.45,.66); opacity:.8; } 100% { transform:translateX(38px) scale(2.3,.24); opacity:0; } }
+@keyframes spot-tag { 0% { opacity:0; transform:translate(-50%,6px); } 25% { opacity:1; transform:translate(-50%,-8px); } 70% { opacity:1; transform:translate(-50%,-12px); } 100% { opacity:0; transform:translate(-50%,-20px); } }
+
+/* The payoff: the stamp certifies you, and a small note says so wherever you are. */
+.wildcat-stamp { transition:background .4s,box-shadow .4s; }
+.wash-world .wildcat-stamp.is-certified { background:var(--paper); box-shadow:0 0 0 7px var(--paper),0 0 0 9px var(--navy); animation:stamp-thunk .65s cubic-bezier(.3,1.6,.45,1); }
+@keyframes stamp-thunk { 0% { scale:1; } 35% { scale:1.17; } 100% { scale:1; } }
+.wash-spot-toast { position:fixed; left:50%; bottom:22px; z-index:88; display:block; padding:11px 17px; background:#102333f2; border:1px solid #b4ebf08f; color:#f6f5ef; font-size:10px; font-weight:700; letter-spacing:.06em; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); pointer-events:none; animation:toast-rise .4s cubic-bezier(.2,.8,.3,1) both; }
+.wash-spot-toast:empty { display:none; }
+@keyframes toast-rise { from { opacity:0; transform:translate(-50%,14px); } to { opacity:1; transform:translate(-50%,0); } }
+
+/* Answers get a squeegee pass instead of simply appearing. */
+.wash-world .brand-faqs details[open]>p { -webkit-mask-image:linear-gradient(97deg,#000 42%,#0009 53%,transparent 61%); mask-image:linear-gradient(97deg,#000 42%,#0009 53%,transparent 61%); -webkit-mask-size:245% 100%; mask-size:245% 100%; animation:faq-rinse .62s cubic-bezier(.3,.7,.3,1) both; }
+@keyframes faq-rinse { from { -webkit-mask-position:100% 0; mask-position:100% 0; } to { -webkit-mask-position:0 0; mask-position:0 0; } }
+
+@media (max-width:800px) {
+ /* Stacked layouts leave no room mid-section, so the spots settle into the bottom margin. */
+ .wash-spot { --spot-size:44px; top:auto; left:auto; bottom:6px; right:7vw; }
+ .home-services .wash-spot { bottom:auto; top:12px; }
+ .wash-spot:after { top:auto; bottom:calc(100% + 7px); }
+ .wash-spot-toast { bottom:96px; font-size:9px; padding:10px 14px; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .wash-world .impact-heading.is-wiping,.wash-world .brand-faqs details[open]>p,.wash-world .wildcat-stamp.is-certified,.wash-spot-toast { animation:none!important; }
+ .wash-world .impact-heading[data-wipe]:before,.wash-world .impact-heading[data-wipe]:after,.photo-dust { display:none; }
+ .wash-world .brand-faqs details[open]>p { -webkit-mask-image:none; mask-image:none; }
+ .wash-spot.is-wiped { opacity:0; transition:opacity .2s; }
+ .wash-spot.is-wiped>span,.wash-spot.is-wiped:before { animation:none!important; }
 }

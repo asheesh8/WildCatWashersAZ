@@ -55,7 +55,6 @@ export function mountWashWorld() {
       const r = photo.getBoundingClientRect();
       const progress = clamp((innerHeight - r.top) / (innerHeight + r.height));
       photo.style.setProperty('--photo-progress', progress.toFixed(4));
-      photo.style.setProperty('--rinse-progress', clamp((innerHeight - r.top) / (r.height + innerHeight * .3)).toFixed(4));
     });
     if (activePhoto && pointer) {
       const r = activePhoto.getBoundingClientRect();
@@ -87,6 +86,57 @@ export function mountWashWorld() {
     photo.addEventListener('pointercancel', reset);
   });
 
+  // Tucson dust settles on every photograph; the pointer wipes a clean circle through it.
+  photos.forEach(photo => {
+    if (photo.querySelector('.photo-dust')) return;
+    const dust = document.createElement('span');
+    dust.className = 'photo-dust';
+    dust.setAttribute('aria-hidden', 'true');
+    photo.append(dust);
+  });
+
+  // Section headlines arrive behind a film of grime, cleared by a passing squeegee edge.
+  const headlines = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      headlines.unobserve(entry.target);
+      const headline = entry.target as HTMLElement;
+      if (paused || reduced.matches) return;
+      headline.dataset.wipe = '';
+      headline.classList.add('is-wiping');
+      headline.addEventListener('animationend', () => {
+        headline.classList.remove('is-wiping');
+        delete headline.dataset.wipe;
+      }, { once: true });
+    });
+  }, { threshold: .3 });
+  if (!reduced.matches) world.querySelectorAll('.impact-heading').forEach(h => headlines.observe(h));
+
+  // A few stubborn spots hide in the quiet corners; clearing them all earns the stamp.
+  const spots = [...world.querySelectorAll<HTMLButtonElement>('[data-wash-spot]')];
+  const toast = world.querySelector<HTMLElement>('[data-spot-toast]');
+  let toastTimer = 0;
+  let cleared = 0;
+  function say(message: string, hold: number) {
+    if (!toast) return;
+    toast.textContent = message;
+    clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => { toast.textContent = ''; }, hold);
+  }
+  spots.forEach(spot => spot.addEventListener('click', () => {
+    if (spot.classList.contains('is-wiped')) return;
+    spot.classList.add('is-wiped');
+    spot.setAttribute('aria-disabled', 'true');
+    spot.setAttribute('aria-label', 'Water spot wiped away');
+    cleared += 1;
+    if (cleared < spots.length) { say(`SPOT WIPED. ${cleared} OF ${spots.length}.`, 2600); return; }
+    const stamp = world.querySelector<HTMLElement>('.wildcat-stamp');
+    stamp?.classList.add('is-certified');
+    const badge = stamp?.querySelector('span');
+    if (badge) badge.textContent = 'CERTIFIED SPOTLESS';
+    say('EVERY SPOT GONE. YOU’D MAKE A FINE WILDCAT. ✳', 6500);
+  }));
+
   // The review row is naturally swipeable on small screens; buttons offer the same control.
   const reviews = world.querySelector<HTMLElement>('[data-review-track]');
   world.querySelectorAll<HTMLButtonElement>('[data-review-step]').forEach(button => {
@@ -113,6 +163,6 @@ export function mountWashWorld() {
     document.documentElement.classList.toggle('wash-tab-hidden', document.hidden);
     if (!document.hidden) schedule();
   });
-  addEventListener('pagehide', event => { if (!event.persisted) { observer.disconnect(); resizeObserver.disconnect(); cancelAnimationFrame(frame); } });
+  addEventListener('pagehide', event => { if (!event.persisted) { observer.disconnect(); resizeObserver.disconnect(); headlines.disconnect(); cancelAnimationFrame(frame); } });
   syncMotion(); syncReviewButtons(); schedule();
 }
