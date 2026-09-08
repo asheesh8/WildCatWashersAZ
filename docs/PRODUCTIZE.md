@@ -10,12 +10,12 @@ Contract §8:
 
 > Upon full payment of all amounts due, Client owns the final custom website content and deliverables created specifically for Client. Provider retains its pre-existing tools, code, templates, processes, know-how, and reusable components.
 
-Wildcat owns their pages, their copy, their site. **ArkiTech owns the engine, the rubric, the templates, the process.** That's the clause the resale business rests on, and it's clean as long as the two things stay separable. It gets murky if the engine's code and history live inside a repo the client owns.
+Wildcat owns their pages, their copy, their site. **The engine, the rubric, the templates and the process sit outside that** — owned jointly by ArkiTech and Michael, 50/50, under the separate collaboration agreement. That's the clause the resale business rests on, and it's clean as long as the two things stay separable. It gets murky if the engine's code and history live inside a repo the client owns.
 
 Hence two repos:
 
 ```
-arkitech/aeo-engine            ← ArkiTech IP. Generic. Reusable. Sellable.
+arkitech/aeo-engine            ← jointly owned. Generic. Reusable. Sellable.
   clients/wildcat-washers.json ← config: one file per client
   
 asheesh8/WildCatWashersAZ      ← the client's site. Owns rendering + output.
@@ -27,7 +27,7 @@ asheesh8/WildCatWashersAZ      ← the client's site. Owns rendering + output.
 
 ## What's engine and what's config
 
-**Engine (generic, ArkiTech's):**
+**Engine (generic, jointly owned):**
 - The six pipeline stages and the file contracts between them.
 - The judge rubric's *structure* — criteria, weights, thresholds, the automatic-rejection list.
 - Prompt templates with slots.

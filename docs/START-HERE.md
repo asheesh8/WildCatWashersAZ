@@ -78,7 +78,7 @@ arkitech/aeo-engine     ← yours. The generator, rubric, adapters, CLI.
 asheesh8/WildCatWashersAZ ← the website. Consumes generated content as files.
 ```
 
-This isn't bureaucracy. Contract §8: on full payment the client owns "the final custom website content and deliverables created specifically for Client," while ArkiTech "retains its pre-existing tools, code, templates, processes, know-how, and reusable components." The generated Wildcat pages are theirs. **The engine is ours** — which is the whole basis for reselling it. Keeping the engine's code and history in a repo the client owns muddies that line for no benefit.
+This isn't bureaucracy. Contract §8: on full payment the client owns "the final custom website content and deliverables created specifically for Client," while ArkiTech "retains its pre-existing tools, code, templates, processes, know-how, and reusable components." The generated Wildcat pages are theirs. **The engine isn't** — it's owned jointly by ArkiTech and you, 50/50, under the separate collaboration agreement, and that's the basis for reselling it. Keeping the engine's code and history in a repo the client owns muddies that line for no benefit.
 
 The practical rule: **if it mentions Wildcat, it's config or output, not engine.** A hardcoded "Tucson" in engine code is a bug. See [`PRODUCTIZE.md`](PRODUCTIZE.md).
 
