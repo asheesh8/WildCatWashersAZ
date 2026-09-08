@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import sonoranView from '@/assets/img/sonoran-reveal.png';
+---
+<section class="clean-chapter" id="clean-sweep" aria-labelledby="glass-title" data-clean-chapter>
+  <div class="clean-stage" data-glass-scene>
+    <Image class="clean-view" src={sonoranView} alt="AI-created brand scene: a sunlit Sonoran Desert terrace with mountain views" widths={[700,1200,1920]} sizes="100vw" quality={85} loading="lazy" data-clean-image />
+    <canvas class="clean-frost" data-clean-frost aria-hidden="true"></canvas>
+    <div class="clean-vignette" aria-hidden="true"></div>
+    <div class="clean-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="clean-topline"><span>THE WILDCAT TOUCH</span><span>01 / A CLEARER PERSPECTIVE</span></div>
+    <div class="clean-intro"><p class="brand-label">A LITTLE WILDCAT MAGIC.</p><h2 id="glass-title">Let the<br/><em>light in.</em></h2><p class="clean-instruction" data-clean-instruction>Move your mouse. Make yourself a better view.</p></div>
+    <div class="clean-surface" data-clean-surface tabindex="0" role="group" aria-label="Interactive window. Move your mouse to clean. Use arrow keys to move the squeegee, or use Reveal the view below." aria-describedby="clean-help"></div>
+    <div class="clean-tool-layer" data-tool-layer aria-hidden="true"></div>
+    <div class="clean-tool-fallback" data-tool-fallback aria-hidden="true"><span></span><i></i></div>
+    <div class="clean-bottomline"><span class="clean-scene-label">A SONORAN DAYDREAM</span><div class="clean-actions"><button type="button" data-touch-clean>TRY CLEANING <span aria-hidden="true">↗</span></button><button type="button" data-reveal-view>REVEAL THE VIEW <span aria-hidden="true">↗</span></button><button type="button" data-reset-clean hidden>ONE MORE SWEEP <span aria-hidden="true">↻</span></button></div><a class="clean-continue" href="#real-results">KEEP EXPLORING <span aria-hidden="true">↓</span></a></div>
+    <p id="clean-help" class="sr-only">Move across the glass to wipe it clean. On a touchscreen, choose Try cleaning first, then drag. Choose Done cleaning to resume scrolling. You can also use the arrow keys while the glass is focused, or Reveal the view.</p>
+    <p class="sr-only" role="status" aria-live="polite" data-clean-announcement></p>
+  </div>
+</section>
+<noscript><style>
+ .clean-chapter{height:auto}.clean-stage{position:relative;top:0}.clean-actions,.clean-surface{display:none}.clean-intro,.clean-intro h2,.clean-intro h2 em,.clean-instruction{color:white;text-shadow:0 2px 30px #0008}
+</style></noscript>
+<script>
+ const stage=document.querySelector<HTMLElement>('[data-glass-scene]');
+ if(stage){const io=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){io.disconnect();import('../scripts/glass-scene').then(m=>m.mountGlassScene(stage)).catch(()=>stage.classList.add('clean-unavailable'));}},{rootMargin:'500px'});io.observe(stage);}
+</script>

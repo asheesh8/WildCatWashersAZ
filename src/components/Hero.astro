@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import { img } from '@/data/media';
+---
+<section class="brand-hero immersive-hero" aria-labelledby="hero-title" data-hero-scene>
+  <div class="hero-media" aria-hidden="true">
+    <Image src={img('hero-film-poster')} alt="" widths={[640,1280,1920]} sizes="100vw" loading="eager" fetchpriority="high" class="hero-poster" />
+    <video class="hero-film" muted loop playsinline preload="none" data-film data-desktop="/video/hero-film.mp4" data-mobile="/video/hero-film-sm.mp4"></video>
+    <div class="hero-shade"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-topline"><span>TUCSON, ARIZONA</span><span>GOOD PEOPLE. SPOTLESS WORK.</span></div>
+    <div class="hero-center">
+      <p class="hero-eyebrow"><span></span> TUCSON RAISED. WILDCAT CLEAN. <span></span></p>
+      <h1 id="hero-title">A spotless<br/><span>reputation.</span></h1>
+      <p class="hero-subtitle">A local crew. A little obsession. A whole new view.</p>
+      <a class="wild-button wild-button-blue" href="/quote/"><span>GET MY FREE QUOTE</span><span class="button-arrow" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-bottomline"><span class="hero-service-note">WINDOWS · SOLAR · EXTERIOR CARE</span><a class="hero-scroll-cue" href="#the-wildcat-way"><span>THERE’S MORE TO SEE</span><i aria-hidden="true">↓</i></a><button class="film-toggle" data-film-toggle aria-label="Pause background video"><span data-film-icon aria-hidden="true">Ⅱ</span><span data-film-label>PAUSE FILM</span></button></div>
+  </div>
+</section>
+<script>
+ const film=document.querySelector<HTMLVideoElement>('[data-film]');
+ const toggle=document.querySelector<HTMLButtonElement>('[data-film-toggle]');
+ if(film&&toggle){
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const saveData=(navigator as Navigator & {connection?:{saveData?:boolean}}).connection?.saveData;
+  let userPaused=reduced.matches||!!saveData,visible=true,pagePaused=document.documentElement.classList.contains('wash-motion-paused');
+  const sync=()=>{toggle.setAttribute('aria-label',`${film.paused?'Play':'Pause'} background video`);toggle.querySelector('[data-film-label]')!.textContent=film.paused?'PLAY FILM':'PAUSE FILM';toggle.querySelector('[data-film-icon]')!.textContent=film.paused?'▷':'Ⅱ';};
+  const start=()=>{if(!film.src)film.src=innerWidth<700?film.dataset.mobile!:film.dataset.desktop!;film.play().catch(sync);};
+  const visibility=()=>{if(visible&&!document.hidden&&!userPaused&&!pagePaused)start();else film.pause();};
+  document.addEventListener('wildcat:motion',event=>{pagePaused=(event as CustomEvent).detail.paused;visibility();});
+  film.addEventListener('playing',()=>{film.classList.add('playing');sync();});film.addEventListener('pause',sync);
+  toggle.addEventListener('click',()=>{userPaused=!film.paused;if(userPaused)film.pause();else start();});
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;visibility();}).observe(film);
+  document.addEventListener('visibilitychange',visibility);
+  reduced.addEventListener('change',()=>{if(reduced.matches){userPaused=true;film.pause();}});
+  if(!userPaused)start();else sync();
+ }
+</script>

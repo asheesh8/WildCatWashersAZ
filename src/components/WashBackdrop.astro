@@ -1,0 +1,15 @@
+---
+interface Props { dark?: boolean; seed?: number; }
+const { dark = false, seed = 0 } = Astro.props;
+const drops = Array.from({ length: 11 }, (_, i) => ({
+  x: (i * 31 + seed * 17) % 100,
+  size: 13 + ((i * 13 + seed * 7) % 29),
+  duration: 24 + ((i * 7 + seed) % 23),
+  delay: -((i * 3.7 + seed * 5) % 37),
+}));
+---
+<div class:list={['wash-backdrop', dark && 'wash-backdrop-dark']} aria-hidden="true" data-wash-backdrop>
+  <div class="soap-flow soap-flow-one"><svg viewBox="0 0 1200 480" preserveAspectRatio="none"><path d="M-40 0H1240V175C1120 230 1120 132 1010 195S920 240 830 196 720 180 695 315 610 420 595 300 550 190 450 265 390 220 365 155 280 250 190 210 55 255-40 185Z"/><path class="soap-edge" d="M-40 185C55 255 115 180 190 210S345 140 365 155 375 320 450 265 575 180 595 300 680 445 695 315 735 155 830 196 895 280 1010 195 1110 245 1240 175"/></svg></div>
+  <div class="soap-flow soap-flow-two"><svg viewBox="0 0 1200 480" preserveAspectRatio="none"><path d="M-40 0H1240V175C1120 230 1120 132 1010 195S920 240 830 196 720 180 695 315 610 420 595 300 550 190 450 265 390 220 365 155 280 250 190 210 55 255-40 185Z"/></svg></div>
+  {drops.map(d => <i class="water-bead" style={`--drop-x:${d.x}%;--drop-size:${d.size}px;--drop-time:${d.duration}s;--drop-delay:${d.delay}s`}></i>)}
+</div>

@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import Hero from '@/components/Hero.astro';
+import GlassStudio from '@/components/GlassStudio.astro';
+import WashBackdrop from '@/components/WashBackdrop.astro';
+import '@/styles/wash-world.css';
+import QuoteForm from '@/components/QuoteForm.astro';
+import { company, locations } from '@/data/business';
+import { img, altFor } from '@/data/media';
+import { publishedReviews } from '@/data/reviews';
+const cards = [
+ {n:'01',title:'WINDOW\nCLEANING',image:'tech-squeegee-desert-view',href:'/services/window-cleaning/',line:'The kind of clean you can see right through.',tags:'INSIDE + OUT · SCREENS · TRACKS'},
+ {n:'02',title:'SOLAR PANEL\nCLEANING',image:'tech-cleaning-solar-mountains',href:'/services/solar-panel-cleaning/',line:'Less desert dust. More Arizona sunshine.',tags:'PURE WATER · PANEL-SAFE CARE'},
+ {n:'03',title:'PRESSURE\nWASHING',image:'before-after-patio-split',href:'/services/pressure-washing/',line:'A fresh start for everything underfoot.',tags:'DRIVEWAYS · PATIOS · WALKWAYS'},
+];
+const questions = [
+ {q:'What’s included in a window clean?',a:'We clean the glass inside and out, with screen, track and sill care available to suit your home. Tell us what you need and we’ll make the scope clear in your quote.'},
+ {q:'What if it rains after my clean?',a:'You’re covered by our 10-day rainproof guarantee. If rain leaves spots on the exterior glass we cleaned, get in touch within 10 days and we’ll arrange a touch-up.'},
+ {q:'Do you clean businesses, too?',a:'Absolutely. Storefronts, offices and commercial properties are part of our regular routes. We’ll work with you on access, timing and a recurring schedule.'},
+ {q:'How do I get a price?',a:'Tell us a little about your property and the services you have in mind. We’ll follow up with a clear quote before you book. Prefer a conversation? Call (520) 450-9500.'},
+];
+---
+<Base title="Wildcat Washers | A Spotless Reputation. Tucson, AZ." description="Tucson raised. Wildcat clean. Window cleaning, solar panel cleaning and pressure washing from your local crew. Get a free quote and 10% off your first clean." canonical="/">
+ <div class="wash-world">
+ <Hero />
+ <div class="reputation-strip"><div><span class="rating-stars" aria-label="Five stars">★★★★★</span><strong>A REPUTATION THAT SHINES.</strong></div><span>500+ HAPPY CLIENTS</span><span>LICENSED &amp; INSURED</span><span>10-DAY RAINPROOF GUARANTEE</span></div>
+ <section class="home-intro brand-section" id="the-wildcat-way">
+  <WashBackdrop seed={1} />
+  <div class="intro-copy reveal"><p class="brand-label">GOOD PEOPLE. REALLY CLEAN WINDOWS.</p><h2 class="impact-heading">THE DESERT’S<br/>TOUGH.<br/><span class="outline-type">WE’RE TOUGHER.</span></h2><p>Sun-baked dust. Monsoon spots. That one window you stopped looking through. We know Tucson—and we know what it takes to bring your view back.</p><p>We’re Wildcat Washers. A local crew with a lot of pride in a job done right. Friendly faces, sleeves rolled up, every detail taken care of.</p><a class="underlined-link" href="/about/">MEET THE CREW <span aria-hidden="true">↗</span></a></div>
+  <div class="intro-visual reveal"><figure><div class="rinse-photo intro-photo" data-photo-motion><Image src={img('team-truck-lineup-tucson')} alt={altFor('team-truck-lineup-tucson')} widths={[540,850,1100]} sizes="(max-width: 800px) 90vw, 45vw" quality={82}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span></div><figcaption><span>YOUR NEIGHBORS. YOUR CLEAN CREW.</span><span>TUCSON, AZ ↗</span></figcaption></figure><div class="wildcat-stamp" aria-label="Wildcat approved"><span>WILDCAT APPROVED</span><img src="/brand/wildcat-mascot.png" alt="" width="100" height="100" loading="lazy"/><span>NOT A SPOT MISSED.</span></div></div>
+ </section>
+ <section class="home-services brand-section" id="services"><WashBackdrop dark seed={2} /><div class="section-heading-row reveal"><div><p class="brand-label">A LITTLE ELBOW GREASE. A BIG DIFFERENCE.</p><h2 class="impact-heading">DIRT HAS MET<br/>ITS MATCH.</h2></div><div class="section-heading-aside"><p>Three ways to make your place<br/>feel like your place again.</p><a class="underlined-link" href="/services/">EXPLORE OUR SERVICES <span aria-hidden="true">↗</span></a></div></div>
+ <div class="brand-services-grid">{cards.map(c=><a class="brand-service-card reveal" href={c.href}><div class="service-image rinse-photo" data-photo-motion><Image src={img(c.image)} alt={altFor(c.image)} widths={[400,650,900]} sizes="(max-width: 650px) 90vw, 30vw" quality={78}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="service-number">/{c.n}</span><span class="service-open" aria-hidden="true">↗</span></div><p class="service-tags">{c.tags}</p><h3>{c.title.split('\n').map(line=><span>{line}</span>)}</h3><p>{c.line}</p></a>)}</div>
+ <div class="service-audience"><span>GOOD FOR YOUR HOME. GREAT FOR YOUR BUSINESS.</span><div><a href="/residential/">RESIDENTIAL <span aria-hidden="true">↗</span></a><a href="/commercial/">COMMERCIAL <span aria-hidden="true">↗</span></a></div></div>
+ </section>
+ <GlassStudio />
+ <section class="home-proof brand-section" id="real-results">
+  <WashBackdrop seed={3} />
+  <div class="section-heading-row reveal"><div><p class="brand-label">THE PROOF IS IN THE PANES.</p><h2 class="impact-heading">LESS GRIME.<br/>MORE “WOW.”</h2></div><p class="section-heading-aside">Real homes. Real elbow grease.<br/>A few views we’ve made a whole lot brighter.</p></div>
+  <div class="proof-editorial">
+   <figure class="proof-main"><a href="/services/window-cleaning/" class="proof-photo rinse-photo" data-photo-motion><Image src={img('clean-glass-wall-golf-course')} alt={altFor('clean-glass-wall-golf-course')} widths={[650,1100,1500]} sizes="(max-width: 750px) 90vw, 55vw" quality={80}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="photo-sticker">A BETTER<br/>POINT OF VIEW. <i aria-hidden="true">✳</i></span></a><figcaption><span>01 / THE VIEW, RESTORED</span><span>WINDOW CLEANING ↗</span></figcaption></figure>
+   <figure class="proof-small"><a href="/services/solar-panel-cleaning/" class="proof-photo rinse-photo" data-photo-motion><Image src={img('before-after-solar-2')} alt={altFor('before-after-solar-2')} widths={[400,700,950]} sizes="(max-width: 750px) 90vw, 35vw" quality={80}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="photo-corner" aria-hidden="true">↗</span></a><figcaption><span>02 / LET THE SUN DO ITS THING</span><span>SOLAR CARE ↗</span></figcaption></figure>
+  </div>
+ </section>
+ <section class="home-promise brand-section"><WashBackdrop dark seed={4} /><p class="brand-label">OUR WORD IS OUR WORD.</p><div class="promise-head"><h2 class="impact-heading">NOT HAPPY?<br/><span>NOT DONE.</span></h2><p>It’s your home. We treat it that way.<br/>We don’t pack up until you’re smiling.</p></div><div class="brand-promises"><article><span>/01</span><h3>SHOW UP. <br/>FOLLOW THROUGH.</h3><p>A real appointment. A friendly introduction. A crew that respects your time and your space.</p></article><article><span>/02</span><h3>THE DETAILS <br/>MAKE THE DIFFERENCE.</h3><p>From protecting your floors to the final walkthrough, the little things are part of the job.</p></article><article><span>/03</span><h3>RAIN HAPPENS. <br/>WE’VE GOT YOU.</h3><p>Our 10-day rainproof guarantee means a little Tucson weather won’t spoil your freshly cleaned view.</p></article></div><a class="underlined-link" href="/guarantee/">THE WILDCAT PROMISE <span aria-hidden="true">↗</span></a></section>
+ <section class="home-reviews brand-section" aria-labelledby="neighbors-title">
+  <WashBackdrop seed={5} />
+  <div class="review-intro"><div><p class="brand-label">WORD GETS AROUND.</p><h2 class="impact-heading" id="neighbors-title">THE NEIGHBORHOOD<br/>HAS SPOKEN.</h2></div><div class="review-heading-end"><a class="underlined-link" href="/reviews/">MORE GOOD WORDS <span aria-hidden="true">↗</span></a><div class="review-arrows"><button type="button" data-review-step="-1" aria-label="Previous customer review">←</button><button type="button" data-review-step="1" aria-label="Next customer review">→</button></div></div></div>
+  <div class="home-review-list" data-review-track>{publishedReviews.slice(0,3).map((r,i)=><article class="home-review"><div class="review-top"><span class="rating-stars" aria-label="Five out of five stars">★★★★★</span><span>GOOD WORD NO. 0{i+1}</span></div><blockquote>“{r.text}”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">{r.name.charAt(0)}</span><p><strong>{r.name}</strong><span>{r.town} · {r.source}</span></p><span class="review-mark" aria-hidden="true">✳</span></div></article>)}</div>
+ </section>
+ <div class="brand-marquee" aria-hidden="true"><div>{[0,1,2,3].map(()=><span>STAY WILD. STAY SPOTLESS. <i>✳</i> </span>)}</div></div>
+ <section class="home-territory" aria-labelledby="territory-title">
+  <div class="territory-portrait rinse-photo" data-photo-motion><Image src={img('team-on-truck-desert')} alt={altFor('team-on-truck-desert')} widths={[650,1000,1400]} sizes="(max-width: 800px) 100vw, 48vw" quality={83}/><div class="territory-shade" aria-hidden="true"></div><div class="territory-photo-copy"><p class="brand-label">BORN HERE. CLEANING HERE.</p><h2 class="impact-heading" id="territory-title">TUCSON.<br/>THROUGH &amp; THROUGH.</h2></div><span class="territory-photo-note">OUR CREW. OUR CORNER OF ARIZONA. <i aria-hidden="true">↗</i></span><span class="photo-glint" aria-hidden="true"></span></div>
+  <div class="territory-directory"><WashBackdrop dark seed={6} /><div class="territory-directory-head"><span class="brand-label">THIS IS OUR TURF.</span><span class="territory-sun" aria-hidden="true">✳</span></div><p>From the foothills to Green Valley.<br/>A local crew, right around your corner.</p><div class="territory-towns">{locations.map((l,i)=><a href={`/areas/${l.slug}/`}><span class="town-number">{String(i+1).padStart(2,'0')}</span><span>{l.name}</span><span aria-hidden="true">↗</span></a>)}</div><div class="territory-directory-foot"><a class="underlined-link" href="/areas/">ALL OUR NEIGHBORHOODS <span aria-hidden="true">↗</span></a><p>A little further out? <a href="/contact/">Let’s talk.</a></p></div></div>
+ </section>
+ <section class="home-faq brand-section"><WashBackdrop seed={7} /><div class="faq-heading"><div><p class="brand-label">NO STREAKS. NO QUESTION MARKS.</p><h2 class="impact-heading">LET’S CLEAR THINGS UP.</h2></div><a class="underlined-link" href="/faq/">ALL THE ANSWERS <span aria-hidden="true">↗</span></a></div><div class="brand-faqs">{questions.map((q,i)=><details name="home-questions"><summary><span class="faq-number">0{i+1}</span>{q.q}<span aria-hidden="true">+</span></summary><p>{q.a}</p></details>)}</div></section>
+ <section class="home-quote brand-section" id="get-quote"><WashBackdrop seed={8} /><div class="home-quote-copy"><p class="brand-label">YOUR BETTER VIEW STARTS HERE.</p><h2 class="impact-heading">LET’S MAKE<br/>YOUR PLACE<br/><span class="outline-type">SHINE.</span></h2><p>A few details. A clear price. A cleaner home.<br/>Get your free quote and 10% off your first service.</p><a href={`tel:${company.phoneRaw}`} class="quote-phone">{company.phone} <span aria-hidden="true">↗</span></a><span class="quote-phone-caption">REAL PEOPLE. RIGHT HERE IN TUCSON.</span></div><div class="home-quote-form"><div class="quote-form-heading"><span>YOUR FREE QUOTE</span><span>NO OBLIGATION ↗</span></div><QuoteForm id="home-quote" compact /></div></section>
+ <button class="wash-motion-toggle" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause page animations"><i aria-hidden="true">Ⅱ</i><span>PAUSE MOTION</span></button>
+ </div>
+</Base>
+<script>
+ import { mountImmersiveScroll } from '@/scripts/immersive-scroll';
+ import { mountWashWorld } from '@/scripts/wash-world';
+ mountImmersiveScroll();
+ mountWashWorld();
+</script>

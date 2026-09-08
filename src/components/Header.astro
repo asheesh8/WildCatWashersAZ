@@ -1,0 +1,29 @@
+---
+import { company } from '@/data/business';
+const path = Astro.url.pathname;
+const links = [{ label: 'OUR SERVICES', href: '/services/' }, { label: 'THE WILDCAT WAY', href: '/about/' }, { label: 'HAPPY NEIGHBORS', href: '/reviews/' }];
+---
+<div class="announcement"><span>YOUR FIRST CLEAN? THAT’S 10% OFF.</span><a href="/quote/">LET’S MAKE IT SHINE <span aria-hidden="true">↗</span></a></div>
+<header class="brand-header" id="site-header">
+  <a class="brand-logo" href="/" aria-label="Wildcat Washers home"><img src="/brand/logo-long.svg" alt="Wildcat Washers" width="190" height="64" /></a>
+  <nav class="brand-nav" aria-label="Primary">{links.map(l => <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>)}<a href="/areas/">OUR TURF</a></nav>
+  <a class="header-call" href={`tel:${company.phoneRaw}`}>{company.phone}</a>
+  <a class="header-quote" href="/quote/">FREE QUOTE <span aria-hidden="true">↗</span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span><span></span></button>
+  <nav class="brand-mobile-nav" id="mobile-menu" aria-label="Mobile" hidden>{links.map(l => <a href={l.href}>{l.label}<span aria-hidden="true">↗</span></a>)}<a href="/areas/">OUR TURF <span aria-hidden="true">↗</span></a><a href="/quote/">GET A FREE QUOTE <span aria-hidden="true">↗</span></a><a href={`tel:${company.phoneRaw}`}>{company.phone}</a></nav>
+</header>
+<script>
+ const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
+ const menu = document.querySelector<HTMLElement>('#mobile-menu');
+ const header = document.querySelector<HTMLElement>('.brand-header');
+ if(document.querySelector('.wash-world') && header) {
+  const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 45);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+ }
+ const closeMenu = () => { if(menuButton && menu) { menuButton.setAttribute('aria-expanded','false'); menuButton.setAttribute('aria-label','Open navigation'); menu.hidden = true; }};
+ menuButton?.addEventListener('click', () => { if(!menu) return; const open = menuButton.getAttribute('aria-expanded') !== 'true'; menuButton.setAttribute('aria-expanded',String(open)); menuButton.setAttribute('aria-label',open ? 'Close navigation' : 'Open navigation'); menu.hidden = !open; });
+ document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu && !menu.hidden) { closeMenu(); menuButton?.focus(); } });
+ document.addEventListener('click', e => { if(e.target instanceof Node && !document.querySelector('.brand-header')?.contains(e.target)) closeMenu(); });
+ matchMedia('(min-width: 1061px)').addEventListener('change', e => { if(e.matches) closeMenu(); });
+</script>

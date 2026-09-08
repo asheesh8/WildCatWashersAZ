@@ -1,0 +1,9 @@
+---
+import { company } from '@/data/business';
+const year = new Date().getFullYear();
+---
+<footer class="wild-footer">
+ <div class="wild-footer-top"><div class="footer-brand"><img src="/brand/logo-long-outline.svg" alt="Wildcat Washers" width="225" height="85" loading="lazy"/><p>GOOD PEOPLE.<br/>SPOTLESS WORK.</p></div><nav aria-label="Explore"><h3>TAKE A LOOK AROUND</h3><a href="/services/">Our services</a><a href="/about/">The Wildcat way</a><a href="/reviews/">Happy neighbors</a><a href="/areas/">Our turf</a></nav><nav aria-label="Helpful links"><h3>THE GOOD STUFF</h3><a href="/residential/">For your home</a><a href="/commercial/">For your business</a><a href="/guarantee/">Our guarantee</a><a href="/faq/">Your questions, answered</a></nav><div class="footer-contact"><h3>GIVE US A SHOUT</h3><a class="footer-tel" href={`tel:${company.phoneRaw}`}>{company.phone}</a><a href={`mailto:${company.email}`}>{company.email}</a><p>Greater Tucson, Arizona<br/>Locally owned. Licensed &amp; insured.</p><a class="underlined-link" href="/quote/">GET A FREE QUOTE <span aria-hidden="true">↗</span></a></div></div>
+ <a class="footer-bigtype" href="/" aria-label="Wildcat Washers home">WILDCAT<span aria-hidden="true">✳</span></a>
+ <div class="footer-bottom"><p>© {year} WILDCAT WASHERS. ALL RIGHTS RESERVED.</p><span>TUCSON RAISED. WILDCAT CLEAN.</span><nav aria-label="Legal"><a href="/privacy/">PRIVACY</a><a href="/contact/">CONTACT</a><a href="/sitemap-index.xml">SITEMAP</a></nav><a href="#main">BACK TO TOP ↑</a></div>
+</footer>
