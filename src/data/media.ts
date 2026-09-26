@@ -2,7 +2,8 @@
  * MEDIA LIBRARY
  * -----------------------------------------------------------------------------
  * Job, crew and award photos are supplied Wildcat Washers assets.
- * sonoran-reveal is an AI brand illustration; see ASSET-PROVENANCE.md.
+ * Photos showing the retired (520) 450-9500 number (truck wraps, yard signs,
+ * shirt backs) have it blurred or painted out, or are not in the library.
  * Images are imported eagerly so any page (including programmatic ones) can look
  * one up by key and hand it to <Image /> for automatic AVIF/WebP + srcset.
  *
@@ -23,7 +24,6 @@ for (const [path, mod] of Object.entries(files)) {
 
 /** Human alt text, keyed the same as the image files. */
 export const alt: Record<string, string> = {
-  'sonoran-reveal': 'AI-created brand scene: a sunlit Sonoran Desert terrace with mountain views',
   'hero-poster': 'Wildcat Washers technician squeegeeing a window with the Tucson desert behind',
 
   // Team & brand
@@ -161,13 +161,14 @@ export const allKeys = Object.keys(byKey).sort();
 /** Curated pools that programmatic pages draw from, so no page repeats another. */
 export const pools = {
   windowAction: [
-    'tech-squeegee-window-uniform',
-    'tech-squeegee-desert-view',
-    'two-techs-modern-home-glass',
-    'tech-waterfed-pole-exterior',
-    'tech-front-door-ladder',
-    'tech-high-window-reach',
-    'two-techs-window-ladder',
+    'tech-squeegee-desert-window',
+    'tech-kneeling-window-detail',
+    'two-techs-tall-glass',
+    'tech-waterfed-stucco-window',
+    'tech-arched-door-ladder',
+    'two-techs-front-window',
+    'tech-slider-squeegee',
+    'two-techs-interior-modern',
     'tech-interior-window-golf-course',
   ],
   windowResult: [
