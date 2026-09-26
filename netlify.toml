@@ -25,45 +25,81 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/video/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
   for = "/brand/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
 # ------------------------------------------------------------- redirects
-# Old site paths that already have inbound links and Google history.
+# Canonical host is wildcatwashers.com (no www). Old paths map to their new homes.
+[[redirects]]
+  from = "https://www.wildcatwashers.com/*"
+  to = "https://wildcatwashers.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/residential.html"
-  to = "/residential/"
+  to = "/services/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/residential/"
+  to = "/services/"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/commercial.html"
   to = "/commercial/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/about.html"
   to = "/about/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/contact.html"
   to = "/contact/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/reviews.html"
   to = "/reviews/"
   status = 301
+  force = true
 
-# Non-www -> www, matching the canonical set in astro.config.mjs.
 [[redirects]]
-  from = "https://wildcatwashers.com/*"
-  to = "https://www.wildcatwashers.com/:splat"
+  from = "/guarantees/"
+  to = "/guarantee/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/services/window-cleaning/tucson/"
+  to = "/services/window-cleaning/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/solar-panel-cleaning/:town/"
+  to = "/areas/:town/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/pressure-washing/:town/"
+  to = "/areas/:town/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+  force = true
+
