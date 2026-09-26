@@ -83,13 +83,13 @@ const path = Astro.url.pathname;
     animation: drop .45s var(--ease) both;
   }
   .site-header.is-floating .bar {
-    height: 70px; padding: 0 .6rem 0 1rem;
+    height: 78px; padding: 0 .6rem 0 .8rem;
     background: rgb(255 255 255 / 90%);
     backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
     border-radius: 999px; border: 1px solid rgb(18 24 50 / 8%);
     box-shadow: 0 12px 30px -12px rgb(18 24 50 / 30%);
   }
-  .site-header.is-floating .brand img { height: 54px; }
+  .site-header.is-floating .brand img { height: 64px; }
   .site-header.is-hidden { transform: translateY(-140%); transition: transform .35s var(--ease); }
   @keyframes drop { from { transform: translateY(-120%); } to { transform: none; } }
   @media (prefers-reduced-motion: reduce) { .site-header.is-floating { animation: none; } }

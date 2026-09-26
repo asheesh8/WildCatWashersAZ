@@ -203,6 +203,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .btn-lg { min-height: 68px; font-size: 1.22rem; padding-left: 1.9rem; }
 .btn-lg .chip { width: 52px; height: 52px; }
 .btn-block { width: 100%; }
+@media (max-width: 480px) { .btn { white-space: normal; text-align: left; line-height: 1.2; } }
 
 /* Phone link: the number itself is a primary element (Doc 7). */
 .phone-link {
