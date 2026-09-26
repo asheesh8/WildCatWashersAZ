@@ -74,8 +74,8 @@ const path = Astro.url.pathname;
   }
   .site-header.is-overlay { position: absolute; inset: 0 0 auto; background: transparent; border: 0; }
   .bar { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .brand img { height: 62px; width: auto; }
-  @media (min-width: 900px) { .brand img { height: 70px; } }
+  .brand img { height: 78px; width: auto; }
+  @media (min-width: 900px) { .brand img { height: 88px; } }
 
   /* Floating state after scroll */
   .site-header.is-floating {
@@ -83,13 +83,13 @@ const path = Astro.url.pathname;
     animation: drop .45s var(--ease) both;
   }
   .site-header.is-floating .bar {
-    height: 78px; padding: 0 .6rem 0 .8rem;
+    height: 90px; padding: 0 .6rem 0 .8rem;
     background: rgb(255 255 255 / 90%);
     backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
     border-radius: 999px; border: 1px solid rgb(18 24 50 / 8%);
     box-shadow: 0 12px 30px -12px rgb(18 24 50 / 30%);
   }
-  .site-header.is-floating .brand img { height: 64px; }
+  .site-header.is-floating .brand img { height: 74px; }
   .site-header.is-hidden { transform: translateY(-140%); transition: transform .35s var(--ease); }
   @keyframes drop { from { transform: translateY(-120%); } to { transform: none; } }
   @media (prefers-reduced-motion: reduce) { .site-header.is-floating { animation: none; } }
@@ -111,7 +111,7 @@ const path = Astro.url.pathname;
   .head-phone { display: none; align-items: center; gap: .6rem; text-decoration: none; color: var(--navy); }
   .head-phone-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: var(--navy); }
   .head-phone-text { display: grid; line-height: 1.1; font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
-  .head-phone-text small { font-family: var(--font-body); font-weight: 600; font-size: .78rem; color: var(--ink-3); letter-spacing: .02em; }
+  .head-phone-text small { font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--ink-3); letter-spacing: .02em; }
   .head-quote { display: none; }
   .menu-btn {
     display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
@@ -139,9 +139,9 @@ const path = Astro.url.pathname;
   @keyframes slide { from { transform: translateX(40px); opacity: 0; } }
   .menu-inner { min-height: 100%; display: flex; flex-direction: column; padding: 1rem 1.25rem 2rem; gap: 1.2rem; }
   .menu-top { display: flex; align-items: center; justify-content: space-between; }
-  .menu-top img { height: 56px; width: auto; }
+  .menu-top img { height: 70px; width: auto; }
   .menu-close { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--line); background: #fff; display: grid; place-items: center; color: var(--navy); }
-  .menu-label { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .85rem; color: var(--blue-700); margin: .6rem 0 .3rem; }
+  .menu-label { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 1rem; color: var(--blue-700); margin: .6rem 0 .3rem; }
   .menu ul { list-style: none; padding: 0; }
   .menu-services a {
     display: block; padding: .55rem 0; text-decoration: none;
