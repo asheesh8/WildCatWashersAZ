@@ -1,0 +1,60 @@
+---
+/** Inner-page hero: light blue, big type, one CTA, the phone number, and a photo. */
+import { Image } from 'astro:assets';
+import Breadcrumbs from './Breadcrumbs.astro';
+import Icon from './Icon.astro';
+import { img, altFor, hasImg } from '@/data/media';
+import { company, cta, telHref, proof } from '@/data/business';
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  crumbs?: { name: string; href: string }[];
+  image?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  rating?: boolean;
+}
+const { eyebrow, title, lede, crumbs = [], image, ctaLabel = cta.primary, ctaHref = cta.quoteHref, rating = true } = Astro.props;
+const photo = image && hasImg(image) ? img(image) : null;
+---
+<section class:list={['phero', photo && 'has-photo']}>
+  <div class="wrap phero-grid">
+    <div class="phero-copy">
+      {crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
+      {rating && (
+        <p class="pill"><span class="stars" aria-hidden="true">★★★★★</span><span>{proof.reviews} five-star reviews</span></p>
+      )}
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 class="h1 sweep">{title}</h1>
+      {lede && <p class="lede">{lede}</p>}
+      <slot />
+      <div class="cta-row">
+        <a class="btn btn-lg" href={ctaHref} data-track="quote-page-hero"><span>{ctaLabel}</span><span class="chip"><Icon name="arrow" /></span></a>
+        <a class="phone-link" href={telHref} data-track="call-page-hero"><Icon name="phone" /><span>{company.phone}</span></a>
+      </div>
+    </div>
+    {photo && (
+      <div class="phero-photo photo">
+        <Image src={photo} alt={altFor(image!)} widths={[480, 720, 960, 1200]} sizes="(min-width: 1000px) 46vw, 100vw" loading="eager" fetchpriority="high" quality={72} />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .phero {
+    background: linear-gradient(180deg, var(--blue-100) 0%, var(--blue-50) 60%, #fff 100%);
+    padding-top: calc(var(--header-h) * 0 + clamp(1.5rem, 1rem + 2vw, 3rem));
+    padding-bottom: clamp(2.5rem, 2rem + 3vw, 5rem);
+    overflow: hidden;
+  }
+  .phero-grid { display: grid; gap: clamp(1.8rem, 1rem + 3vw, 3.5rem); align-items: center; }
+  @media (min-width: 1000px) { .has-photo .phero-grid { grid-template-columns: 1.1fr 1fr; } }
+  .phero-copy { display: grid; gap: 1.1rem; justify-items: start; }
+  .phero .h1 { font-size: clamp(2.3rem, 1.6rem + 3vw, 4.4rem); max-width: 18ch; }
+  .phero .lede { max-width: 52ch; }
+  .phero-photo { aspect-ratio: 4 / 3.3; transform: rotate(1.2deg); border: 6px solid #fff; }
+  .phero-photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .cta-row { margin-top: .4rem; }
+</style>

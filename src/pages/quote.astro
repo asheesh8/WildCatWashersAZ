@@ -1,8 +1,0 @@
----
-import Base from '@/layouts/Base.astro';
-import QuoteForm from '@/components/QuoteForm.astro';
-import { company } from '@/data/business';
----
-<Base title="Your Free Quote | Wildcat Washers, Tucson" description="Tell the Wildcat crew what needs cleaning. Get a free quote for windows, solar panels or pressure washing, with 10% off your first service." canonical="/quote/" breadcrumbs={[{name:'Get a quote',href:'/quote/'}]}>
- <section class="home-quote brand-section quote-page"><div class="home-quote-copy"><p class="brand-label">A FRESH START FOR YOUR PLACE.</p><h1 class="impact-heading">GOODBYE,<br/>GRIME. <br/><span class="outline-type">HELLO, VIEW.</span></h1><p>Tell us what needs a little Wildcat attention.<br/>We’ll take it from there.</p><ol class="quote-next-steps"><li><span>01</span><div><strong>Tell us about your place.</strong><p>A few details help us get your quote right.</p></div></li><li><span>02</span><div><strong>Get a clear price.</strong><p>Know the scope and the cost before you book.</p></div></li><li><span>03</span><div><strong>Leave the dirty work to us.</strong><p>A friendly crew. A proper clean. A better view.</p></div></li></ol><a href={`tel:${company.phoneRaw}`} class="quote-phone">{company.phone} <span aria-hidden="true">↗</span></a><span class="quote-phone-caption">RATHER JUST TALK? WE’RE RIGHT HERE IN TUCSON.</span></div><div class="home-quote-form"><div class="quote-form-heading"><span>YOUR FREE QUOTE</span><span>FIRST CLEAN? SAVE 10% ↗</span></div><QuoteForm id="main-quote" /><p class="quote-reassurance">LOCAL CREW · LICENSED &amp; INSURED · NO OBLIGATION</p></div></section>
-</Base>

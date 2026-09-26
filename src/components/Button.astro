@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+export interface Props {
+  href: string;
+  variant?: 'navy' | 'blue' | 'red' | 'white';
+  size?: 'md' | 'lg';
+  icon?: string;
+  block?: boolean;
+  class?: string;
+  track?: string;
+}
+const { href, variant = 'navy', size = 'md', icon = 'arrow', block = false, class: cls, track } = Astro.props;
+---
+<a
+  href={href}
+  class:list={['btn', variant !== 'navy' && `btn-${variant}`, size === 'lg' && 'btn-lg', block && 'btn-block', cls]}
+  data-track={track}
+>
+  <span><slot /></span>
+  <span class="chip"><Icon name={icon} /></span>
+</a>

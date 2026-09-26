@@ -1,11 +1,13 @@
 ---
 import '@/styles/global.css';
-import '@/styles/brand.css';
-import '@/styles/immersive.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import StickyCTA from '@/components/StickyCTA.astro';
-import { company } from '@/data/business';
+import StickyBar from '@/components/StickyBar.astro';
+import CtaShine from '@/components/CtaShine.astro';
+import { company, services } from '@/data/business';
+import { towns } from '@/data/areas';
+import archivo from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
+import figtree from '@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url';
 
 export interface Props {
   title: string;
@@ -14,19 +16,19 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
-  /** Extra JSON-LD nodes to merge into the page graph. */
+  /** Extra JSON-LD nodes merged into the page graph. */
   schema?: Record<string, any>[];
   breadcrumbs?: { name: string; href: string }[];
+  /** Header floats over a full-bleed hero (homepage). */
+  overlay?: boolean;
+  /** Hide the closing "Let's make your place shine" band (quote page). */
+  hideCta?: boolean;
+  ctaService?: string;
 }
 
 const {
-  title,
-  description,
-  canonical = Astro.url.pathname,
-  ogImage = '/og-default.jpg',
-  noindex = false,
-  schema = [],
-  breadcrumbs = [],
+  title, description, canonical = Astro.url.pathname, ogImage = '/og-default.jpg',
+  noindex = false, schema = [], breadcrumbs = [], overlay = false, hideCta = false, ctaService,
 } = Astro.props;
 
 const site = company.url;
@@ -38,67 +40,62 @@ const localBusiness = {
   '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': `${site}/#business`,
   name: company.name,
+  legalName: company.legalName,
   description: company.shortDescription,
   slogan: company.tagline,
   url: site,
   telephone: company.phoneRaw,
   email: company.email,
-  image: `${site}/brand/logo-stacked.svg`,
-  logo: `${site}/brand/logo-stacked.svg`,
-  priceRange: '$$',
+  image: `${site}/brand/logo-stacked.webp`,
+  logo: `${site}/brand/logo-stacked.webp`,
+  foundingDate: String(company.founded),
   address: {
     '@type': 'PostalAddress',
-    addressLocality: company.city,
-    addressRegion: company.state,
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    addressRegion: company.address.state,
+    postalCode: company.address.zip,
     addressCountry: 'US',
   },
   geo: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng },
-  areaServed: { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng }, geoRadius: company.serviceRadiusM },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  },
+  areaServed: towns.map((t) => ({ '@type': 'Place', name: `${t.name === 'Vail AZ' ? 'Vail' : t.name}, AZ` })),
   founder: company.founders.map((n) => ({ '@type': 'Person', name: n })),
   sameAs: Object.values(company.social).filter(Boolean),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Exterior cleaning services',
+    itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.name, url: `${site}/services/${s.slug}/` } })),
+  },
 };
 
-const website = {
-  '@type': 'WebSite',
-  '@id': `${site}/#website`,
-  url: site,
-  name: company.name,
-  publisher: { '@id': `${site}/#business` },
-};
+const website = { '@type': 'WebSite', '@id': `${site}/#website`, url: site, name: company.name, publisher: { '@id': `${site}/#business` } };
 
-const breadcrumbNode =
-  breadcrumbs.length > 0
-    ? [
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((b, i) => ({
-            '@type': 'ListItem',
-            position: i + 1,
-            name: b.name,
-            item: new URL(b.href, site).href,
-          })),
-        },
-      ]
-    : [];
+const breadcrumbNode = breadcrumbs.length
+  ? [{
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((b, i) => ({
+        '@type': 'ListItem', position: i + 1, name: b.name, item: new URL(b.href, site).href,
+      })),
+    }]
+  : [];
 
-const graph = {
-  '@context': 'https://schema.org',
-  '@graph': [localBusiness, website, ...breadcrumbNode, ...schema],
-};
+const graph = { '@context': 'https://schema.org', '@graph': [localBusiness, website, ...breadcrumbNode, ...schema] };
+const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PROVIDER === 'netlify';
 ---
-
 <!doctype html>
-<html lang="en-US" data-netlify={process.env.NETLIFY === "true" || import.meta.env.PUBLIC_FORM_PROVIDER === "netlify" ? "true" : undefined}>
+<html lang="en-US" data-netlify={netlify ? 'true' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
-
-    <meta name="theme-color" content="#121832" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
+    <meta name="theme-color" content="#36c6f4" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="geo.region" content="US-AZ" />
     <meta name="geo.placename" content="Tucson, Arizona" />
@@ -111,59 +108,37 @@ const graph = {
     <meta property="og:image" content={ogUrl} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogUrl} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Chivo:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Figtree:wght@400;500;600;700;800&display=swap"
-    />
-
+    <link rel="preload" href={archivo} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={figtree} as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />
   </head>
 
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    {/* Pages can push a full-bleed element above the navigation — the homepage
-        puts its film here, so the header sits beneath it and sticks on scroll. */}
-    <slot name="above-header" />
-    <Header />
+    <Header overlay={overlay} />
     <main id="main">
       <slot />
     </main>
+    {!hideCta && <CtaShine service={ctaService} />}
     <Footer />
-    <StickyCTA />
-
-
+    <StickyBar />
 
     <script is:inline>
-      // Scroll reveal — progressive enhancement only.
+      // Fade-up and the one-time light "swipe". Progressive enhancement only:
+      // without JS (or with reduced motion) everything is simply visible.
       (() => {
-        const els = document.querySelectorAll('.reveal');
-        if (!els.length) return;
-        if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          els.forEach((e) => e.classList.add('in'));
-          return;
-        }
-        document.documentElement.classList.add('js-reveals');
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('in');
-                io.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
-        );
+        const els = document.querySelectorAll('.reveal, .sweep');
+        const show = (e) => e.classList.add('in');
+        if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return els.forEach(show);
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((en) => { if (en.isIntersecting) { show(en.target); io.unobserve(en.target); } });
+        }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
         els.forEach((e) => io.observe(e));
       })();
     </script>

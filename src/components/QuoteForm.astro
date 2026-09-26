@@ -1,259 +1,123 @@
 ---
-import { company, services, locations, cta } from '@/data/business';
-
-export interface Props {
-  /** Pre-selects a service when the form is dropped on a service page. */
-  service?: string;
-  /** Pre-selects an area when the form is dropped on a location page. */
-  area?: string;
-  compact?: boolean;
-  id?: string;
-}
-const { service, area, compact = false, id = 'quote-form' } = Astro.props;
-
 /**
- * Where the form posts.
+ * Short quote form: name, phone, service, town, optional note. A form gets a
+ * call back right away (C§), so the promise under the button is a phone call,
+ * not a price by email.
  *
- * Set PUBLIC_QUOTE_ENDPOINT to any service that accepts a plain POST — Formspree,
- * Basin, a Zapier/Make catch hook, your own function. Netlify Forms works with no
- * endpoint at all, via the data-netlify attributes below.
- *
- * On a host that is neither (Vercel with nothing configured), the submit handler
- * does NOT pretend to succeed: it shows the visitor a call/email fallback with
- * their answers preserved, so a lead is never silently swallowed.
+ * Where it posts: PUBLIC_QUOTE_ENDPOINT (Formspree, Basin, a Zapier hook...) if
+ * set; Netlify Forms natively on Netlify. On a host with neither, the submit
+ * handler never fakes success: it shows a call/email fallback with the answers
+ * already written into the email.
  */
+import Icon from './Icon.astro';
+import { company, services, cta, telHref } from '@/data/business';
+import { towns } from '@/data/areas';
+export interface Props { service?: string; area?: string; id?: string }
+const { service, area, id = 'quote-form' } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT ?? '';
-const nativeNetlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PROVIDER === 'netlify';
 ---
-
 <form
-  class:list={['qf', compact && 'qf-compact']}
-  id={id}
-  method="POST"
-  action="/thank-you/"
-  name="quote"
-  data-netlify="true"
-  netlify-honeypot="company-website"
-  data-quote-form
-  data-endpoint={endpoint}
-  data-phone={company.phoneRaw}
-  data-email={company.email}
+  class="qf" id={id} method="POST" action="/thank-you/" name="quote"
+  data-netlify="true" netlify-honeypot="company-website" data-quote-form
+  data-endpoint={endpoint} data-email={company.email}
 >
-  {/* Netlify/most static hosts need the form name echoed as a hidden field. */}
   <input type="hidden" name="form-name" value="quote" />
-  {/* Honeypot — real people never see or fill this. */}
-  <p class="qf-hp" aria-hidden="true">
-    <label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off" /></label>
-  </p>
+  <p class="qf-hp" aria-hidden="true"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
 
   <div class="qf-grid">
-    <div class="qf-field">
-      <label for={`${id}-name`}>Your name <span aria-hidden="true">*</span></label>
-      <input id={`${id}-name`} name="name" type="text" required autocomplete="name" placeholder="Jane Miller" />
+    <div class="field">
+      <label for={`${id}-name`}>Your name <span class="req" aria-hidden="true">*</span></label>
+      <input id={`${id}-name`} name="name" type="text" required autocomplete="name" />
     </div>
-
-    <div class="qf-field">
-      <label for={`${id}-phone`}>Phone <span aria-hidden="true">*</span></label>
-      <input
-        id={`${id}-phone`}
-        name="phone"
-        type="tel"
-        required
-        autocomplete="tel"
-        inputmode="tel"
-        placeholder="(520) 555-0134"
-      />
+    <div class="field">
+      <label for={`${id}-phone`}>Phone <span class="req" aria-hidden="true">*</span></label>
+      <input id={`${id}-phone`} name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
     </div>
-
-    <div class="qf-field">
-      <label for={`${id}-service`}>What do you need cleaned?</label>
+    <div class="field">
+      <label for={`${id}-service`}>What can we clean?</label>
       <select id={`${id}-service`} name="service" data-qf-service>
-        <option value="">Choose a service…</option>
-        {services.map((s) => (
-          <option value={s.slug} selected={s.slug === service}>{s.name}</option>
-        ))}
-        <option value="multiple" selected={service === 'multiple'}>More than one of these</option>
-        <option value="not-sure" selected={service === 'not-sure'}>Not sure — help me decide</option>
+        <option value="">Choose a service</option>
+        {services.map((s) => <option value={s.slug} selected={s.slug === service}>{s.name}</option>)}
+        <option value="multiple">More than one of these</option>
+        <option value="commercial">A business or HOA property</option>
       </select>
     </div>
-
-    <div class="qf-field">
-      <label for={`${id}-area`}>Where are you?</label>
+    <div class="field">
+      <label for={`${id}-area`}>Your town</label>
       <select id={`${id}-area`} name="area" data-qf-area>
-        <option value="">Choose your town…</option>
-        {locations.map((l) => (
-          <option value={l.slug} selected={l.slug === area}>{l.name}</option>
-        ))}
-        <option value="other" selected={area === 'other'}>Somewhere else nearby</option>
+        <option value="">Choose your town</option>
+        {towns.map((t) => <option value={t.slug} selected={t.slug === area}>{t.name}</option>)}
+        <option value="other">Somewhere else nearby</option>
       </select>
     </div>
-
-    <div class="qf-field qf-full">
-      <label for={`${id}-email`}>Email <small>(optional — we’ll text or call otherwise)</small></label>
-      <input id={`${id}-email`} name="email" type="email" autocomplete="email" placeholder="jane@example.com" />
-    </div>
-
-    <div class="qf-field qf-full">
+    <div class="field qf-full">
       <label for={`${id}-details`}>Anything we should know? <small>(optional)</small></label>
-      <textarea
-        id={`${id}-details`}
-        name="details"
-        rows={compact ? 2 : 3}
-        placeholder="Single storey, about 20 windows, screens too. Sprinkler spotting on the front."
-      ></textarea>
+      <textarea id={`${id}-details`} name="details" rows="3"></textarea>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-lg btn-block">{cta.primary}</button>
-
-  <p class="qf-note">
-    {endpoint || nativeNetlify ? 'We’ll follow up with a clear price before you book. No obligation.' : 'We’ll prepare your request for you to send by email. No obligation to book.'}
-  </p>
-
-  <p class="qf-alt">
-    Rather just talk to someone? <a class="tel-link" href={`tel:${company.phoneRaw}`} data-track="call-form">{company.phone}</a>
-  </p>
+  <button type="submit" class="btn btn-lg btn-block btn-red"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></button>
+  <p class="qf-note"><Icon name="phone" size={18} /> {cta.responseLine}</p>
 
   <div class="qf-fallback" data-qf-fallback hidden role="alert">
     <p class="qf-fallback-head">Your quote request is ready.</p>
-    <p>One last step: open the email below and press Send to share your details with our crew. Or give us a call.</p>
+    <p>One last step: open the email below and press Send, or just give us a call.</p>
     <div class="qf-fallback-actions">
-      <a class="btn btn-sm" href={`tel:${company.phoneRaw}`} data-track="call-form-fallback">Call {company.phone}</a>
-      <a class="btn btn-sm btn-ghost" data-qf-mailto href={`mailto:${company.email}`}>Open email to send request</a>
+      <a class="phone-link" href={telHref}><Icon name="phone" /><span>{company.phone}</span></a>
+      <a class="text-link" data-qf-mailto href={`mailto:${company.email}`}>Open the email</a>
     </div>
   </div>
 </form>
 
 <style>
   .qf { display: grid; gap: 1.1rem; }
-  .qf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; }
+  .qf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .qf-full { grid-column: 1 / -1; }
   @media (max-width: 620px) { .qf-grid { grid-template-columns: 1fr; } }
-
-  .qf-field { display: grid; gap: .35rem; }
-  .qf-field label {
-    font-family: var(--font-display); font-weight: 700; font-size: .93rem;
-    color: var(--navy); letter-spacing: -.01em;
-  }
-  .qf-field label span { color: var(--red); }
-  .qf-field label small { font-family: var(--font-body); font-weight: 500; color: var(--ink-3); font-size: .84rem; }
-
-  .qf input, .qf select, .qf textarea {
-    width: 100%;
-    min-height: 54px;
-    padding: .75rem 1rem;
-    border: 2px solid var(--line);
-    border-radius: 12px;
-    background: #fff;
-    font-size: 1.02rem;
-    color: var(--ink);
-    transition: border-color .16s var(--ease), box-shadow .16s var(--ease);
-  }
-  .qf textarea { min-height: 0; line-height: 1.5; resize: vertical; }
-  .qf input::placeholder, .qf textarea::placeholder { color: #9aa3bd; }
-  .qf input:focus, .qf select:focus, .qf textarea:focus {
-    outline: none;
-    border-color: var(--cyan);
-    box-shadow: 0 0 0 4px rgba(54, 198, 244, .20);
-  }
-  .qf select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23626b8a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 18px;
-    padding-right: 2.8rem;
-  }
-  .qf input:user-invalid, .qf select:user-invalid { border-color: var(--red); }
-
+  .field small { font-weight: 500; color: var(--ink-3); }
   .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-
-  .qf-note { font-size: .9rem; color: var(--ink-3); line-height: 1.5; text-align: center; }
-
-  .qf-fallback {
-    background: #fff8e6; border: 1px solid #f0d489; border-left: 5px solid #e0a800;
-    border-radius: 12px; padding: 1rem 1.15rem; display: grid; gap: .5rem;
-  }
-  .qf-fallback-head { font-family: var(--font-display); font-weight: 800; color: #6b5200; }
-  .qf-fallback p { font-size: .93rem; color: #6b5200; line-height: 1.5; }
-  .qf-fallback-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
-  .qf-alt { font-size: .95rem; color: var(--ink-2); text-align: center; }
-  .qf-alt .tel-link { font-size: 1.05rem; }
-
+  .qf-note { display: flex; gap: .5rem; align-items: center; justify-content: center; text-align: center; color: var(--ink-2); font-weight: 600; font-size: 1.02rem; }
+  .qf-fallback { background: #fff8e6; border: 1px solid #f0d489; border-left: 5px solid #e0a800; border-radius: 12px; padding: 1rem 1.15rem; display: grid; gap: .5rem; color: #5b4500; }
+  .qf-fallback[hidden] { display: none; }
+  .qf-fallback-head { font-family: var(--font-display); font-weight: 800; }
+  .qf-fallback-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 </style>
 
 <script is:inline>
-  // Carry ?service= / ?area= from a CTA link straight into the form, so a visitor
-  // who clicked "Solar panel cleaning in Marana" doesn't re-answer what we know.
   (() => {
     const params = new URLSearchParams(location.search);
-    const service = params.get('service');
-    const area = params.get('area');
-    if (!service && !area) return;
-    document.querySelectorAll('[data-quote-form]').forEach((form) => {
-      if (service) {
-        const el = form.querySelector('[data-qf-service]');
-        if (el && [...el.options].some((o) => o.value === service)) el.value = service;
-      }
-      if (area) {
-        const el = form.querySelector('[data-qf-area]');
-        if (el && [...el.options].some((o) => o.value === area)) el.value = area;
-      }
-    });
-  })();
-
-  /**
-   * Submit handling.
-   *
-   * With an endpoint configured we POST there and send the visitor to the thank-you
-   * page. With nothing configured we do not fake a success — we show the call/email
-   * fallback with their answers already written into the mail body.
-   *
-   * On Netlify the native form handler takes over before any of this matters.
-   */
-  (() => {
     const onNetlify = /netlify\.app$/.test(location.hostname) || document.documentElement.dataset.netlify === 'true';
-
     document.querySelectorAll('[data-quote-form]').forEach((form) => {
+      for (const [key, sel] of [['service', '[data-qf-service]'], ['area', '[data-qf-area]']]) {
+        const v = params.get(key); const el = form.querySelector(sel);
+        if (v && el && [...el.options].some((o) => o.value === v)) el.value = v;
+      }
       const endpoint = form.dataset.endpoint || '';
+      if (onNetlify && !endpoint) return;
       const fallback = form.querySelector('[data-qf-fallback]');
       const mailto = form.querySelector('[data-qf-mailto]');
-      if (onNetlify && !endpoint) return; // let Netlify Forms handle it natively
-
       form.addEventListener('submit', async (e) => {
         if (!form.reportValidity()) return;
         e.preventDefault();
-
         const data = new FormData(form);
-        if (data.get('company-website')) return; // honeypot tripped
-
-        const submit = form.querySelector('button[type=submit]');
+        if (data.get('company-website')) return;
+        const submit = form.querySelector('button[type=submit] span');
         const label = submit ? submit.textContent : '';
-        if (submit) { submit.disabled = true; submit.textContent = 'Sending…'; }
-
+        if (submit) submit.textContent = 'Sending…';
         const showFallback = () => {
-          if (mailto) {
-            const lines = ['name', 'phone', 'email', 'service', 'area', 'details']
-              .map((k) => `${k}: ${data.get(k) || '—'}`)
-              .join('\n');
-            mailto.href =
-              `mailto:${form.dataset.email}` +
-              `?subject=${encodeURIComponent('Quote request — ' + (data.get('name') || 'website'))}` +
-              `&body=${encodeURIComponent(lines)}`;
-          }
+          const lines = ['name', 'phone', 'service', 'area', 'details'].map((k) => `${k}: ${data.get(k) || '-'}`).join('\n');
+          if (mailto) mailto.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('Quote request: ' + (data.get('name') || 'website'))}&body=${encodeURIComponent(lines)}`;
           if (fallback) { fallback.hidden = false; fallback.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
-          if (submit) { submit.disabled = false; submit.textContent = label; }
+          if (submit) submit.textContent = label;
         };
-
         if (!endpoint) return showFallback();
-
         try {
           const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
           if (!res.ok) throw new Error(String(res.status));
           location.assign('/thank-you/');
         } catch {
-          const heading = fallback?.querySelector('.qf-fallback-head');
-          if (heading) heading.textContent = 'We couldn’t send that automatically.';
+          const h = fallback && fallback.querySelector('.qf-fallback-head');
+          if (h) h.textContent = 'We couldn’t send that automatically.';
           showFallback();
         }
       });

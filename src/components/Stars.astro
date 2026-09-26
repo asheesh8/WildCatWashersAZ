@@ -1,0 +1,5 @@
+---
+export interface Props { label?: string; class?: string }
+const { label = 'Five out of five stars', class: cls } = Astro.props;
+---
+<span class:list={['stars', cls]} role="img" aria-label={label}>★★★★★</span>

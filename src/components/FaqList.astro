@@ -1,0 +1,40 @@
+---
+/** Plain details/summary FAQ; the page adds FAQPage JSON-LD from the same list. */
+import type { Faq } from '@/data/faq';
+export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string }
+const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq' } = Astro.props;
+---
+<section class="section" aria-labelledby={`${id}-title`}>
+  <div class="wrap-narrow">
+    <div class="section-head center">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id={`${id}-title`} class="h2 sweep">{title}</h2>
+    </div>
+    <div class="faq">
+      {items.map((f, i) => (
+        <details open={i === 0}>
+          <summary><span>{f.q}</span><span class="plus" aria-hidden="true"></span></summary>
+          <div class="faq-a"><p>{f.a}</p></div>
+        </details>
+      ))}
+    </div>
+    <slot />
+  </div>
+</section>
+<style>
+  .faq { display: grid; gap: .7rem; }
+  details { background: #fff; border: 2px solid var(--line); border-radius: var(--radius); transition: border-color .2s; }
+  details[open] { border-color: var(--blue); }
+  summary {
+    list-style: none; cursor: pointer; display: flex; gap: 1rem; align-items: center; justify-content: space-between;
+    padding: 1.2rem 1.3rem; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.15rem, 1.05rem + .4vw, 1.35rem); color: var(--navy); line-height: 1.25;
+  }
+  summary::-webkit-details-marker { display: none; }
+  .plus { position: relative; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--blue-50); }
+  .plus::before, .plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 3px; border-radius: 3px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+  .plus::after { rotate: 90deg; }
+  details[open] .plus { background: var(--blue); }
+  details[open] .plus::after { rotate: 0deg; }
+  .faq-a { padding: 0 1.3rem 1.3rem; }
+  .faq-a p { font-size: 1.12rem; color: var(--ink-2); max-width: 64ch; }
+</style>

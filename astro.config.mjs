@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.wildcatwashers.com',
+  site: 'https://wildcatwashers.com',
   trailingSlash: 'always',
   devToolbar: { enabled: false },
   integrations: [
@@ -15,7 +15,6 @@ export default defineConfig({
   ],
   build: { inlineStylesheets: 'auto', format: 'directory' },
   image: { responsiveStyles: true },
-  prefetch: { prefetchAll: true, defaultStrategy: 'viewport' },
+  prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   compressHTML: true,
-  vite: { optimizeDeps: { include: ['three', 'three/addons/environments/RoomEnvironment.js'] } },
 });

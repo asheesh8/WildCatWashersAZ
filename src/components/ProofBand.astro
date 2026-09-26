@@ -1,0 +1,73 @@
+---
+/**
+ * Trust, right under the hero (Cooper: "awards and credibility near the top").
+ * A 2x2 stat grid beside a row of real award badges. The Arizona Daily Star
+ * award has no supplied badge, so it gets a typeset tile rather than a copy of
+ * their logo.
+ */
+import { stats, awards, proof } from '@/data/business';
+import Icon from './Icon.astro';
+export interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const star = awards.find((a) => a.id === 'az-daily-star-2026')!;
+const badges = awards.filter((a) => a.badge);
+---
+<section class:list={['proof', compact && 'proof-compact']} aria-label="Awards and reviews">
+  <div class="wrap proof-grid">
+    <ul class="stats" role="list">
+      {stats.map((s) => (
+        <li class="stat reveal">
+          <span class="stat-num">{s.value}</span>
+          <span class="stat-label">{s.label}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="awards">
+      <a class="star-tile reveal" href="/awards/">
+        <span class="star-ribbon"><Icon name="award" size={20} /> {star.year} Winner</span>
+        <span class="star-title">{star.title}</span>
+        <span class="star-detail">{star.detail}</span>
+        <span class="star-issuer">{star.issuer}</span>
+      </a>
+      <ul class="badges" role="list">
+        {badges.map((a) => (
+          <li class="reveal"><img src={a.badge!} alt={`${a.issuer} ${a.title}${a.year ? ` ${a.year}` : ''}`} width="120" height="120" loading="lazy" /></li>
+        ))}
+      </ul>
+      <p class="proof-note">Independent, community-voted recognition from separate platforms. Review counts as of {proof.asOf}.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proof { background: #fff; padding-block: clamp(2.5rem, 2rem + 3vw, 5rem); position: relative; }
+  .proof-grid { display: grid; gap: clamp(1.5rem, 1rem + 2vw, 3rem); align-items: center; }
+  @media (min-width: 1000px) { .proof-grid { grid-template-columns: 1fr 1.05fr; } }
+  .stats { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .stat {
+    display: grid; gap: .3rem; padding: clamp(1.1rem, .9rem + 1vw, 1.8rem);
+    background: var(--blue-50); border-radius: var(--radius); border: 1px solid var(--blue-100);
+  }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 900; line-height: .9; color: var(--navy);
+    font-size: clamp(2.4rem, 1.8rem + 2.4vw, 4rem); font-variation-settings: 'wdth' 100; letter-spacing: -.02em;
+  }
+  .stat:nth-child(3) .stat-num::after { content: '★'; color: var(--gold); font-size: .6em; vertical-align: .45em; margin-left: .1em; }
+  .stat-label { font-weight: 650; color: var(--ink-2); font-size: 1.05rem; line-height: 1.3; }
+  .awards { display: grid; gap: 1rem; }
+  .star-tile {
+    display: grid; gap: .15rem; text-decoration: none; color: #fff;
+    padding: 1.3rem 1.5rem; border-radius: var(--radius);
+    background: var(--navy) radial-gradient(120% 140% at 100% 0%, rgb(54 198 244 / 35%), transparent 55%);
+    box-shadow: var(--shadow);
+  }
+  .star-ribbon { display: inline-flex; align-items: center; gap: .4rem; color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: .9rem; }
+  .star-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem); line-height: 1; font-variation-settings: 'wdth' 108; }
+  .star-detail { font-size: 1.1rem; color: #d7e3f5; }
+  .star-issuer { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--blue); margin-top: .2rem; }
+  .badges { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .6rem; }
+  .badges li { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: .5rem; display: grid; place-items: center; aspect-ratio: 1; }
+  .badges img { width: 100%; height: 100%; object-fit: contain; }
+  @media (max-width: 520px) { .badges { grid-template-columns: repeat(3, 1fr); } }
+  .proof-note { font-size: .95rem; color: var(--ink-3); }
+</style>

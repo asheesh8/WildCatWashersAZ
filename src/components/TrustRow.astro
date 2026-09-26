@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { proof } from '@/data/business';
+const items = [
+  { icon: 'star', text: `${proof.reviews} five-star reviews` },
+  { icon: 'award', text: '2026 Readers’ Choice Winner' },
+  { icon: 'shield', text: 'You don’t pay until you’re happy' },
+  { icon: 'calendar', text: '14-Day Spotless Guarantee' },
+];
+---
+<div class="trow">
+  <ul class="wrap" role="list">
+    {items.map((i) => <li><span class="ti"><Icon name={i.icon} size={20} /></span>{i.text}</li>)}
+  </ul>
+</div>
+<style>
+  .trow { background: var(--navy); color: #fff; }
+  .trow ul { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem 1.2rem; padding-block: 1.1rem; }
+  @media (min-width: 900px) { .trow ul { grid-template-columns: repeat(4, auto); justify-content: space-between; } }
+  .trow li { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.02rem; line-height: 1.25; }
+  .ti { width: 34px; height: 34px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
+</style>

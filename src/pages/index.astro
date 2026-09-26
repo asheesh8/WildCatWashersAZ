@@ -1,69 +1,132 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
-import Hero from '@/components/Hero.astro';
-import GlassStudio from '@/components/GlassStudio.astro';
-import WashBackdrop from '@/components/WashBackdrop.astro';
-import '@/styles/wash-world.css';
-import QuoteForm from '@/components/QuoteForm.astro';
-import { company, locations } from '@/data/business';
+import HomeHero from '@/components/HomeHero.astro';
+import ProofBand from '@/components/ProofBand.astro';
+import ReviewTicker from '@/components/ReviewTicker.astro';
+import ServiceGrid from '@/components/ServiceGrid.astro';
+import FiveInOne from '@/components/FiveInOne.astro';
+import WildcatPromise from '@/components/Promise.astro';
+import ReviewCard from '@/components/ReviewCard.astro';
+import ClubBlock from '@/components/ClubBlock.astro';
+import ProcessSteps from '@/components/ProcessSteps.astro';
+import AreaTurf from '@/components/AreaTurf.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import { company, proof, press } from '@/data/business';
+import { featured, arroyoGardens, displayName, placeLabel } from '@/data/reviews';
+import { faqList } from '@/data/faq';
 import { img, altFor } from '@/data/media';
-import { publishedReviews } from '@/data/reviews';
-const cards = [
- {n:'01',title:'WINDOW\nCLEANING',image:'tech-squeegee-desert-view',href:'/services/window-cleaning/',line:'The kind of clean you can see right through.',tags:'INSIDE + OUT · SCREENS · TRACKS'},
- {n:'02',title:'SOLAR PANEL\nCLEANING',image:'tech-cleaning-solar-mountains',href:'/services/solar-panel-cleaning/',line:'Less desert dust. More Arizona sunshine.',tags:'PURE WATER · PANEL-SAFE CARE'},
- {n:'03',title:'PRESSURE\nWASHING',image:'before-after-patio-split',href:'/services/pressure-washing/',line:'A fresh start for everything underfoot.',tags:'DRIVEWAYS · PATIOS · WALKWAYS'},
-];
-const questions = [
- {q:'What’s included in a window clean?',a:'We clean the glass inside and out, with screen, track and sill care available to suit your home. Tell us what you need and we’ll make the scope clear in your quote.'},
- {q:'What if it rains after my clean?',a:'You’re covered by our 10-day rainproof guarantee. If rain leaves spots on the exterior glass we cleaned, get in touch within 10 days and we’ll arrange a touch-up.'},
- {q:'Do you clean businesses, too?',a:'Absolutely. Storefronts, offices and commercial properties are part of our regular routes. We’ll work with you on access, timing and a recurring schedule.'},
- {q:'How do I get a price?',a:'Tell us a little about your property and the services you have in mind. We’ll follow up with a clear quote before you book. Prefer a conversation? Call (520) 450-9500.'},
-];
+import { faqSchema } from '@/lib/schema';
+
+const homeFaq = faqList([25, 159, 201, 152, 144, 187, 123, 241]);
+const lead = featured.anneWebb;
+const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
 ---
-<Base title="Wildcat Washers | A Spotless Reputation. Tucson, AZ." description="Tucson raised. Wildcat clean. Window cleaning, solar panel cleaning and pressure washing from your local crew. Get a free quote and 10% off your first clean." canonical="/">
- <div class="wash-world">
- <Hero />
- <div class="reputation-strip"><div><span class="rating-stars" aria-label="Five stars">★★★★★</span><strong>A REPUTATION THAT SHINES.</strong></div><span>500+ HAPPY CLIENTS</span><span>LICENSED &amp; INSURED</span><span>10-DAY RAINPROOF GUARANTEE</span></div>
- <section class="home-intro brand-section" id="the-wildcat-way">
-  <WashBackdrop seed={1} />
-  <button class="wash-spot" type="button" data-wash-spot style="--spot-x:46.5%;--spot-y:7%" aria-label="A stubborn water spot. Wipe it away."><span aria-hidden="true"></span></button>
-  <div class="intro-copy reveal"><p class="brand-label">GOOD PEOPLE. REALLY CLEAN WINDOWS.</p><h2 class="impact-heading">THE DESERT’S<br/>TOUGH.<br/><span class="outline-type">WE’RE TOUGHER.</span></h2><p>Sun-baked dust. Monsoon spots. That one window you stopped looking through. We know Tucson—and we know what it takes to bring your view back.</p><p>We’re Wildcat Washers. A local crew with a lot of pride in a job done right. Friendly faces, sleeves rolled up, every detail taken care of.</p><a class="underlined-link" href="/about/">MEET THE CREW <span aria-hidden="true">↗</span></a></div>
-  <div class="intro-visual reveal"><figure><div class="rinse-photo intro-photo" data-photo-motion><Image src={img('team-truck-lineup-tucson')} alt={altFor('team-truck-lineup-tucson')} widths={[540,850,1100]} sizes="(max-width: 800px) 90vw, 45vw" quality={82}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span></div><figcaption><span>YOUR NEIGHBORS. YOUR CLEAN CREW.</span><span>TUCSON, AZ ↗</span></figcaption></figure><div class="wildcat-stamp" aria-label="Wildcat approved"><span>WILDCAT APPROVED</span><img src="/brand/wildcat-mascot.png" alt="" width="100" height="100" loading="lazy"/><span>NOT A SPOT MISSED.</span></div></div>
- </section>
- <section class="home-services brand-section" id="services"><WashBackdrop dark seed={2} /><button class="wash-spot wash-spot-dark" type="button" data-wash-spot style="--spot-x:53%;--spot-y:9%;--spot-size:44px" aria-label="A stubborn water spot. Wipe it away."><span aria-hidden="true"></span></button><div class="section-heading-row reveal"><div><p class="brand-label">A LITTLE ELBOW GREASE. A BIG DIFFERENCE.</p><h2 class="impact-heading">DIRT HAS MET<br/>ITS MATCH.</h2></div><div class="section-heading-aside"><p>Three ways to make your place<br/>feel like your place again.</p><a class="underlined-link" href="/services/">EXPLORE OUR SERVICES <span aria-hidden="true">↗</span></a></div></div>
- <div class="brand-services-grid">{cards.map(c=><a class="brand-service-card reveal" href={c.href}><div class="service-image rinse-photo" data-photo-motion><Image src={img(c.image)} alt={altFor(c.image)} widths={[400,650,900]} sizes="(max-width: 650px) 90vw, 30vw" quality={78}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="service-number">/{c.n}</span><span class="service-open" aria-hidden="true">↗</span></div><p class="service-tags">{c.tags}</p><h3>{c.title.split('\n').map(line=><span>{line}</span>)}</h3><p>{c.line}</p></a>)}</div>
- <div class="service-audience"><span>GOOD FOR YOUR HOME. GREAT FOR YOUR BUSINESS.</span><div><a href="/residential/">RESIDENTIAL <span aria-hidden="true">↗</span></a><a href="/commercial/">COMMERCIAL <span aria-hidden="true">↗</span></a></div></div>
- </section>
- <GlassStudio />
- <section class="home-proof brand-section" id="real-results">
-  <WashBackdrop seed={3} />
-  <div class="section-heading-row reveal"><div><p class="brand-label">THE PROOF IS IN THE PANES.</p><h2 class="impact-heading">LESS GRIME.<br/>MORE “WOW.”</h2></div><p class="section-heading-aside">Real homes. Real elbow grease.<br/>A few views we’ve made a whole lot brighter.</p></div>
-  <div class="proof-editorial">
-   <figure class="proof-main"><a href="/services/window-cleaning/" class="proof-photo rinse-photo" data-photo-motion><Image src={img('clean-glass-wall-golf-course')} alt={altFor('clean-glass-wall-golf-course')} widths={[650,1100,1500]} sizes="(max-width: 750px) 90vw, 55vw" quality={80}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="photo-sticker">A BETTER<br/>POINT OF VIEW. <i aria-hidden="true">✳</i></span></a><figcaption><span>01 / THE VIEW, RESTORED</span><span>WINDOW CLEANING ↗</span></figcaption></figure>
-   <figure class="proof-small"><a href="/services/solar-panel-cleaning/" class="proof-photo rinse-photo" data-photo-motion><Image src={img('before-after-solar-2')} alt={altFor('before-after-solar-2')} widths={[400,700,950]} sizes="(max-width: 750px) 90vw, 35vw" quality={80}/><span class="photo-rinse" aria-hidden="true"></span><span class="photo-glint" aria-hidden="true"></span><span class="photo-corner" aria-hidden="true">↗</span></a><figcaption><span>02 / LET THE SUN DO ITS THING</span><span>SOLAR CARE ↗</span></figcaption></figure>
-  </div>
- </section>
- <section class="home-promise brand-section"><WashBackdrop dark seed={4} /><button class="wash-spot wash-spot-dark" type="button" data-wash-spot style="--spot-x:80%;--spot-y:11%" aria-label="A stubborn water spot. Wipe it away."><span aria-hidden="true"></span></button><p class="brand-label">OUR WORD IS OUR WORD.</p><div class="promise-head"><h2 class="impact-heading">NOT HAPPY?<br/><span>NOT DONE.</span></h2><p>It’s your home. We treat it that way.<br/>We don’t pack up until you’re smiling.</p></div><div class="brand-promises"><article><span>/01</span><h3>SHOW UP. <br/>FOLLOW THROUGH.</h3><p>A real appointment. A friendly introduction. A crew that respects your time and your space.</p></article><article><span>/02</span><h3>THE DETAILS <br/>MAKE THE DIFFERENCE.</h3><p>From protecting your floors to the final walkthrough, the little things are part of the job.</p></article><article><span>/03</span><h3>RAIN HAPPENS. <br/>WE’VE GOT YOU.</h3><p>Our 10-day rainproof guarantee means a little Tucson weather won’t spoil your freshly cleaned view.</p></article></div><a class="underlined-link" href="/guarantee/">THE WILDCAT PROMISE <span aria-hidden="true">↗</span></a></section>
- <section class="home-reviews brand-section" aria-labelledby="neighbors-title">
-  <WashBackdrop seed={5} />
-  <div class="review-intro"><div><p class="brand-label">WORD GETS AROUND.</p><h2 class="impact-heading" id="neighbors-title">THE NEIGHBORHOOD<br/>HAS SPOKEN.</h2></div><div class="review-heading-end"><a class="underlined-link" href="/reviews/">MORE GOOD WORDS <span aria-hidden="true">↗</span></a><div class="review-arrows"><button type="button" data-review-step="-1" aria-label="Previous customer review">←</button><button type="button" data-review-step="1" aria-label="Next customer review">→</button></div></div></div>
-  <div class="home-review-list" data-review-track>{publishedReviews.slice(0,3).map((r,i)=><article class="home-review"><div class="review-top"><span class="rating-stars" aria-label="Five out of five stars">★★★★★</span><span>GOOD WORD NO. 0{i+1}</span></div><blockquote>“{r.text}”</blockquote><div class="review-person"><span class="review-avatar" aria-hidden="true">{r.name.charAt(0)}</span><p><strong>{r.name}</strong><span>{r.town} · {r.source}</span></p><span class="review-mark" aria-hidden="true">✳</span></div></article>)}</div>
- </section>
- <div class="brand-marquee" aria-hidden="true"><div>{[0,1,2,3].map(()=><span>STAY WILD. STAY SPOTLESS. <i>✳</i> </span>)}</div></div>
- <section class="home-territory" aria-labelledby="territory-title">
-  <div class="territory-portrait rinse-photo" data-photo-motion><Image src={img('team-on-truck-desert')} alt={altFor('team-on-truck-desert')} widths={[650,1000,1400]} sizes="(max-width: 800px) 100vw, 48vw" quality={83}/><div class="territory-shade" aria-hidden="true"></div><div class="territory-photo-copy"><p class="brand-label">BORN HERE. CLEANING HERE.</p><h2 class="impact-heading" id="territory-title">TUCSON.<br/>THROUGH &amp; THROUGH.</h2></div><span class="territory-photo-note">OUR CREW. OUR CORNER OF ARIZONA. <i aria-hidden="true">↗</i></span><span class="photo-glint" aria-hidden="true"></span></div>
-  <div class="territory-directory"><WashBackdrop dark seed={6} /><div class="territory-directory-head"><span class="brand-label">THIS IS OUR TURF.</span><span class="territory-sun" aria-hidden="true">✳</span></div><p>From the foothills to Green Valley.<br/>A local crew, right around your corner.</p><div class="territory-towns">{locations.map((l,i)=><a href={`/areas/${l.slug}/`}><span class="town-number">{String(i+1).padStart(2,'0')}</span><span>{l.name}</span><span aria-hidden="true">↗</span></a>)}</div><div class="territory-directory-foot"><a class="underlined-link" href="/areas/">ALL OUR NEIGHBORHOODS <span aria-hidden="true">↗</span></a><p>A little further out? <a href="/contact/">Let’s talk.</a></p></div></div>
- </section>
- <section class="home-faq brand-section"><WashBackdrop seed={7} /><div class="faq-heading"><div><p class="brand-label">NO STREAKS. NO QUESTION MARKS.</p><h2 class="impact-heading">LET’S CLEAR THINGS UP.</h2></div><a class="underlined-link" href="/faq/">ALL THE ANSWERS <span aria-hidden="true">↗</span></a></div><div class="brand-faqs">{questions.map((q,i)=><details name="home-questions"><summary><span class="faq-number">0{i+1}</span>{q.q}<span aria-hidden="true">+</span></summary><p>{q.a}</p></details>)}</div></section>
- <section class="home-quote brand-section" id="get-quote"><WashBackdrop seed={8} /><div class="home-quote-copy"><p class="brand-label">YOUR BETTER VIEW STARTS HERE.</p><h2 class="impact-heading">LET’S MAKE<br/>YOUR PLACE<br/><span class="outline-type">SHINE.</span></h2><p>A few details. A clear price. A cleaner home.<br/>Get your free quote and 10% off your first service.</p><a href={`tel:${company.phoneRaw}`} class="quote-phone">{company.phone} <span aria-hidden="true">↗</span></a><span class="quote-phone-caption">REAL PEOPLE. RIGHT HERE IN TUCSON.</span></div><div class="home-quote-form"><div class="quote-form-heading"><span>YOUR FREE QUOTE</span><span>NO OBLIGATION ↗</span></div><QuoteForm id="home-quote" compact /></div></section>
- <p class="wash-spot-toast" role="status" aria-live="polite" data-spot-toast></p>
- <button class="wash-motion-toggle" type="button" data-motion-toggle aria-pressed="false" aria-label="Pause page animations"><i aria-hidden="true">Ⅱ</i><span>PAUSE MOTION</span></button>
- </div>
+<Base
+  title="Window Cleaning Tucson | Wildcat Washers, Award-Winning Window Cleaners"
+  description={`Tucson’s 2026 Readers’ Choice window cleaners. Windows, solar panels, solar screens and pressure washing across Southern Arizona. ${proof.reviews} five-star reviews. Call ${company.phone}.`}
+  overlay
+  schema={[faqSchema(homeFaq)]}
+>
+  <HomeHero />
+  <ProofBand />
+  <ReviewTicker />
+
+  <section class="section" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we clean</p>
+        <h2 id="services-title" class="h2 sweep">Everything outside,<br /><span class="accent">cleaned by hand</span></h2>
+        <p class="lede">Six services, one crew, one visit if you like. Background-checked, uniformed technicians, with shoe covers on before anyone steps inside.</p>
+      </div>
+      <ServiceGrid />
+    </div>
+  </section>
+
+  <FiveInOne />
+
+  <WildcatPromise />
+
+  <section class="section" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">{proof.reviewsLong}</p>
+        <h2 id="reviews-title" class="h2 sweep">Neighbors say it better</h2>
+      </div>
+      <div class="rev-layout">
+        <figure class="rev-lead reveal">
+          <span class="rev-quote" aria-hidden="true">“</span>
+          <blockquote><p>{lead.text}</p></blockquote>
+          <figcaption><strong>{displayName(lead)}</strong> · {placeLabel(lead)} · {lead.platform}</figcaption>
+        </figure>
+        <div class="rev-grid">
+          {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
+        </div>
+      </div>
+      <figure class="rev-inst reveal">
+        <blockquote><p>“{arroyoGardens.quote}”</p></blockquote>
+        <figcaption><strong>{arroyoGardens.name}</strong><span>{arroyoGardens.role}</span></figcaption>
+      </figure>
+      <div class="cta-row center" style="margin-top:2rem">
+        <a class="btn btn-lg btn-white" href="/reviews/"><span>Read all {proof.reviews} reviews</span><span class="chip"><Icon name="arrow" /></span></a>
+      </div>
+    </div>
+  </section>
+
+  <ClubBlock />
+
+  <section class="section bg-mist story" aria-labelledby="story-title">
+    <div class="wrap story-grid">
+      <div class="story-photos">
+        <div class="photo sp-1"><Image src={img('crew-chamber-of-commerce')} alt={altFor('crew-chamber-of-commerce')} widths={[480, 800, 1100]} sizes="(min-width: 1000px) 45vw, 100vw" quality={70} /></div>
+        <div class="photo sp-2"><Image src={img('crew-firefighters-santa-rita')} alt={altFor('crew-firefighters-santa-rita')} widths={[400, 640]} sizes="(min-width: 1000px) 25vw, 60vw" quality={70} /></div>
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow">Local, and it shows</p>
+        <h2 id="story-title" class="h2 sweep">Founded in {company.founded}. Voted Tucson’s best in under two years.</h2>
+        <p class="lede">{company.founders.join(' and ')} built Wildcat Washers around one idea: set a new standard for blue collar. Show up when promised, communicate clearly, do the work thoroughly and leave nothing behind. A small, highly trained team led by crew leaders {company.crewLeaders.join(' and ')} does exactly that.</p>
+        <p>Through <a href="/wash-it-forward/">Wash It Forward</a> we clean for the people who look after our community, starting with the Santa Rita Fire Department in Green Valley. And KGVY’s Spring Home &amp; Life 2026 called us “{press.quote.replace(/\.$/, '')}.”</p>
+        <div class="cta-row">
+          <a class="text-link" href="/about/">Meet the crew <Icon name="arrow" size={20} /></a>
+          <a class="text-link" href="/awards/">See our awards <Icon name="arrow" size={20} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ProcessSteps />
+  <AreaTurf />
+  <FaqList items={homeFaq} title="Good questions, straight answers">
+    <p class="center" style="margin-top:1.6rem"><a class="text-link" href="/faq/">See all our answers <Icon name="arrow" size={20} /></a></p>
+  </FaqList>
 </Base>
-<script>
- import { mountImmersiveScroll } from '@/scripts/immersive-scroll';
- import { mountWashWorld } from '@/scripts/wash-world';
- mountImmersiveScroll();
- mountWashWorld();
-</script>
+
+<style>
+  .rev-layout { display: grid; gap: 1rem; }
+  @media (min-width: 1000px) { .rev-layout { grid-template-columns: 1fr 1.25fr; } }
+  .rev-lead {
+    position: relative; background: var(--blue); color: var(--navy); border-radius: var(--radius-lg);
+    padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1.2rem; align-content: start; overflow: hidden;
+  }
+  .rev-quote { font-family: var(--font-display); font-weight: 900; font-size: 9rem; line-height: .6; height: 3.4rem; color: #fff; }
+  .rev-lead p { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; font-weight: 550; }
+  .rev-lead figcaption { font-weight: 650; }
+  .rev-lead strong { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; }
+  .rev-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .rev-inst { margin-top: 1rem; background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1rem; }
+  .rev-inst p { font-size: var(--step-1); line-height: 1.5; max-width: 70ch; }
+  .rev-inst figcaption { display: grid; }
+  .rev-inst strong { font-family: var(--font-display); font-size: 1.2rem; color: var(--blue); }
+  .rev-inst span { color: #cfdaf0; }
+
+  .story-grid { display: grid; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
+  @media (min-width: 1000px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+  .story-photos { position: relative; padding-bottom: 18%; }
+  .sp-1 { aspect-ratio: 4 / 3; }
+  .sp-2 { position: absolute; width: 52%; aspect-ratio: 4 / 3; right: -4%; bottom: 0; border: 6px solid #fff; transform: rotate(3deg); }
+  .story-photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .story-copy { display: grid; gap: 1.1rem; justify-items: start; }
+  .story-copy .h2 { font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); }
+  .story-copy a:not(.text-link) { font-weight: 700; }
+</style>

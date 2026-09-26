@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+import { club } from '@/data/business';
+---
+<section class="section" aria-labelledby="club-title">
+  <div class="wrap">
+    <div class="club reveal">
+      <div class="club-copy">
+        <p class="eyebrow">Our recommendation for Tucson</p>
+        <h2 id="club-title" class="h2">{club.name}</h2>
+        <p class="lede">{club.lede}</p>
+        <ul class="club-points" role="list">
+          {club.points.map((p) => <li><Icon name="check-circle" size={26} /><div><strong>{p.title}</strong><p>{p.body}</p></div></li>)}
+        </ul>
+        <p class="club-note">{club.oneTime}</p>
+        <a class="btn btn-lg btn-blue" href="/wildcat-club/"><span>Join the Wildcat Club</span><span class="chip"><Icon name="arrow" /></span></a>
+      </div>
+      <div class="club-art"><img src="/brand/wildcat-club.webp" alt="The Wildcat Club logo" width="520" height="520" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+<style>
+  .club {
+    display: grid; gap: 2rem; align-items: center; border-radius: calc(var(--radius-lg) + 8px);
+    padding: clamp(1.8rem, 1rem + 4vw, 4.5rem); color: #fff;
+    background: var(--navy) radial-gradient(90% 120% at 100% 100%, rgb(54 198 244 / 30%), transparent 60%);
+  }
+  @media (min-width: 1000px) { .club { grid-template-columns: 1.4fr 1fr; } }
+  .club .h2 { color: #fff; }
+  .club .eyebrow { color: var(--blue); }
+  .club .lede { color: #d7e3f5; }
+  .club-copy { display: grid; gap: 1.2rem; justify-items: start; }
+  .club-points { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .club-points li { display: grid; grid-template-columns: auto 1fr; gap: .8rem; }
+  .club-points :global(svg) { color: var(--blue); margin-top: .15rem; }
+  .club-points strong { font-family: var(--font-display); font-size: 1.2rem; }
+  .club-points p { color: #cfdaf0; }
+  .club-note { color: #b8c6e3; font-size: 1.02rem; }
+  .club-art img { width: min(100%, 420px); margin-inline: auto; filter: drop-shadow(0 20px 40px rgb(0 0 0 / 35%)); }
+</style>

@@ -1,0 +1,54 @@
+---
+/** Quiet review ticker with a pause button (Doc 7: okay if calm and pausable). */
+import Icon from './Icon.astro';
+import { tickerQuotes, review, displayName } from '@/data/reviews';
+const items = tickerQuotes.map((q) => ({ ...q, who: displayName(review(q.n)) }));
+---
+<section class="ticker" aria-label="What customers say" data-ticker>
+  <div class="ticker-track" aria-hidden="false">
+    {[0, 1].map((copy) => (
+      <ul class="ticker-list" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {items.map((q) => (
+          <li><span class="stars" aria-hidden="true">★★★★★</span> “{q.text}” <span class="who">{q.who}</span></li>
+        ))}
+      </ul>
+    ))}
+  </div>
+  <button class="ticker-toggle" type="button" aria-pressed="false" aria-label="Pause scrolling reviews" data-ticker-toggle>
+    <span class="i-pause"><Icon name="pause" size={18} /></span><span class="i-play"><Icon name="play" size={18} /></span>
+  </button>
+</section>
+
+<style>
+  .ticker { position: relative; background: var(--navy); color: #fff; overflow: hidden; border-block: 1px solid rgb(255 255 255 / 8%); }
+  .ticker-track { display: flex; width: max-content; animation: tick 70s linear infinite; }
+  .ticker.is-paused .ticker-track { animation-play-state: paused; }
+  .ticker-list { list-style: none; display: flex; gap: 3rem; padding: 1.05rem 1.5rem; margin: 0; }
+  .ticker-list li { white-space: nowrap; font-size: 1.1rem; font-weight: 550; display: flex; align-items: center; gap: .7rem; }
+  .who { color: var(--blue); font-weight: 750; }
+  @keyframes tick { to { transform: translateX(-50%); } }
+  .ticker-toggle {
+    position: absolute; right: .6rem; top: 50%; translate: 0 -50%;
+    width: 44px; height: 44px; border-radius: 50%; border: 0; display: grid; place-items: center;
+    background: var(--blue); color: var(--navy); box-shadow: 0 0 0 8px var(--navy);
+  }
+  .i-play { display: none; }
+  .ticker.is-paused .i-play { display: block; }
+  .ticker.is-paused .i-pause { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+    .ticker-list { flex-wrap: wrap; }
+    .ticker-list[aria-hidden] , .ticker-toggle { display: none; }
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('[data-ticker]').forEach((t) => {
+    const b = t.querySelector('[data-ticker-toggle]');
+    b?.addEventListener('click', () => {
+      const p = t.classList.toggle('is-paused');
+      b.setAttribute('aria-pressed', String(p));
+      b.setAttribute('aria-label', p ? 'Play scrolling reviews' : 'Pause scrolling reviews');
+    });
+  });
+</script>

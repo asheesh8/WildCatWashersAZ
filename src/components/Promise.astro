@@ -1,0 +1,84 @@
+---
+/**
+ * The Wildcat Promise: an ownable, certificate-style trust asset in the spirit
+ * of Pink's Promise (Doc 7), signed by the founders, with the two guarantees
+ * beside it.
+ */
+import Icon from './Icon.astro';
+import { promise, guarantees, company } from '@/data/business';
+export interface Props { showGuarantees?: boolean; headingLevel?: 'h1' | 'h2' }
+const { showGuarantees = true, headingLevel = 'h2' } = Astro.props;
+const H = headingLevel;
+---
+<section class="section promise-sec" aria-labelledby="promise-title">
+  <div class="wrap promise-grid">
+    <article class="cert reveal">
+      <div class="cert-inner">
+        <img class="cert-seal" src="/brand/wildcat-mascot.webp" alt="" width="120" height="120" loading="lazy" />
+        <p class="cert-kicker">Our word, in writing</p>
+        <H id="promise-title" class="cert-title">The Wildcat <span>Promise</span></H>
+        <ol class="cert-list" role="list">
+          {promise.map((p, i) => (
+            <li>
+              <span class="cert-n">{i + 1}</span>
+              <div><strong>{p.title}</strong><p>{p.body}</p></div>
+            </li>
+          ))}
+        </ol>
+        <div class="cert-sign">
+          {company.founders.map((f) => (
+            <div><span class="sig">{f}</span><span class="sig-role">{f}, Co-founder</span></div>
+          ))}
+        </div>
+      </div>
+    </article>
+    {showGuarantees && (
+      <div class="guar">
+        <p class="eyebrow">Two guarantees on every job</p>
+        {guarantees.map((g, i) => (
+          <div class="guar-card reveal">
+            <span class="guar-icon"><Icon name={i === 0 ? 'shield' : 'calendar'} size={30} /></span>
+            <h3 class="h3">{g.name}</h3>
+            <p class="guar-head">{g.headline}</p>
+            <p>{g.body}</p>
+          </div>
+        ))}
+        <a class="text-link" href="/guarantee/">How our guarantees work <Icon name="arrow" size={20} /></a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .promise-sec { background: var(--mist); }
+  .promise-grid { display: grid; gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: start; }
+  @media (min-width: 1000px) { .promise-grid { grid-template-columns: 1.25fr .9fr; } }
+  .cert {
+    background: #fff; border-radius: 8px; padding: 12px;
+    box-shadow: var(--shadow-lg);
+    background-image: repeating-linear-gradient(45deg, var(--blue-50) 0 10px, #fff 10px 20px);
+  }
+  .cert-inner {
+    position: relative; background: #fffdf8; border: 3px double var(--blue-600); border-radius: 4px;
+    padding: clamp(1.6rem, 1rem + 3vw, 3.4rem) clamp(1.2rem, .8rem + 3vw, 3.4rem);
+    text-align: center;
+  }
+  .cert-seal { width: 104px; height: 104px; margin: -4.8rem auto .6rem; border-radius: 50%; background: #fff; border: 4px solid var(--blue); padding: 6px; box-shadow: var(--shadow); }
+  .cert-kicker { font-family: var(--font-script); color: var(--red); font-size: 1.8rem; }
+  .cert-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 1.6rem + 3vw, 4rem); line-height: .95; color: var(--navy); font-variation-settings: 'wdth' 112; margin: .2rem 0 1.6rem; }
+  .cert-title span { color: transparent; -webkit-text-stroke: 2px var(--navy); }
+  .cert-list { list-style: none; padding: 0; display: grid; gap: 1.1rem; text-align: left; max-width: 620px; margin-inline: auto; }
+  .cert-list li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+  .cert-n { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--navy); font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; }
+  .cert-list strong { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--navy); }
+  .cert-list p { color: var(--ink-2); font-size: 1.08rem; }
+  .cert-sign { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem 3rem; margin-top: 2.2rem; }
+  .cert-sign div { display: grid; justify-items: center; }
+  .sig { font-family: var(--font-script); font-size: 2.1rem; color: var(--navy); padding: 0 .6rem; border-bottom: 2px solid var(--navy); line-height: 1.3; }
+  .sig-role { font-size: .9rem; color: var(--ink-3); margin-top: .35rem; font-weight: 650; }
+  .guar { display: grid; gap: 1.1rem; }
+  .guar-card { background: #fff; border-radius: var(--radius-lg); padding: 1.6rem; border: 1px solid var(--line); box-shadow: var(--shadow-sm); display: grid; gap: .5rem; }
+  .guar-icon { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
+  .guar-head { font-weight: 750; font-size: 1.2rem; color: var(--navy); }
+  .guar-card p:last-child { color: var(--ink-2); }
+</style>

@@ -1,0 +1,30 @@
+---
+/** Slim mobile bar: Call and Free Quote only (Doc 7: no Text button, less bulk). */
+import Icon from './Icon.astro';
+import { telHref, cta } from '@/data/business';
+---
+<nav class="sticky-bar" aria-label="Call or get a quote">
+  <a class="sb-call" href={telHref} data-track="call-sticky"><Icon name="phone" size={22} /><span>Call</span></a>
+  <a class="sb-quote" href={cta.quoteHref} data-track="quote-sticky"><span>Free Quote</span><Icon name="arrow" size={22} /></a>
+</nav>
+
+<style>
+  .sticky-bar {
+    position: fixed; z-index: 60; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom));
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 6px; padding: 6px;
+    height: var(--bar-h);
+    background: rgb(255 255 255 / 94%);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(18 24 50 / 10%); border-radius: 999px;
+    box-shadow: 0 14px 34px -12px rgb(18 24 50 / 40%);
+  }
+  .sticky-bar a {
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    border-radius: 999px; text-decoration: none;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.12rem;
+  }
+  .sb-call { color: var(--navy); background: var(--blue-50); }
+  .sb-quote { background: var(--navy); color: #fff; }
+  .sb-quote :global(svg) { color: var(--blue); }
+  @media (min-width: 900px) { .sticky-bar { display: none; } }
+</style>

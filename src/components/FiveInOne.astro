@@ -1,0 +1,62 @@
+---
+/** The numbered /01–/05 section Cooper liked, with larger type for 55+ readers. */
+import { Image } from 'astro:assets';
+import { img, altFor } from '@/data/media';
+import { serviceBySlug } from '@/data/business';
+export interface Props { title?: string; lede?: string; image?: string; eyebrow?: string; items?: { title: string; body: string }[] }
+const win = serviceBySlug['window-cleaning'];
+const {
+  title = 'The 5-in-1 Deep Clean',
+  lede = 'Most window cleaning stops at the glass. Ours cleans the whole window, by hand, so there’s no dust left to blow back on. Hard water removal is included.',
+  image = 'tech-kneeling-window-detail',
+  eyebrow = 'Every window job',
+  items = win.included,
+} = Astro.props;
+---
+<section class="section five" aria-labelledby="five-title">
+  <div class="wrap five-grid">
+    <div class="five-head">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id="five-title" class="h2 sweep">{title}</h2>
+      <p class="lede">{lede}</p>
+      <div class="five-photo photo">
+        <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} />
+      </div>
+    </div>
+    <ol class="five-list" role="list">
+      {items.map((item, i) => (
+        <li class="reveal">
+          <span class="five-num">/{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3 class="five-title">{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .five-grid { display: grid; gap: clamp(2rem, 1rem + 4vw, 5rem); }
+  @media (min-width: 1000px) {
+    .five-grid { grid-template-columns: .9fr 1.1fr; }
+    .five-head { position: sticky; top: 110px; align-self: start; }
+  }
+  .five-head { display: grid; gap: 1.1rem; }
+  .five-photo { aspect-ratio: 4 / 3; margin-top: .8rem; }
+  .five-photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .five-list { list-style: none; padding: 0; display: grid; }
+  .five-list li {
+    display: grid; grid-template-columns: auto 1fr; gap: clamp(1rem, .6rem + 2vw, 2.4rem); align-items: start;
+    padding: clamp(1.4rem, 1rem + 1.5vw, 2.4rem) 0; border-top: 2px solid var(--line);
+  }
+  .five-list li:last-child { border-bottom: 2px solid var(--line); }
+  .five-num {
+    font-family: var(--font-display); font-weight: 900; line-height: .85; letter-spacing: -.03em;
+    font-size: clamp(3rem, 2rem + 4vw, 5.6rem); color: transparent; -webkit-text-stroke: 2px var(--blue-600);
+    font-variation-settings: 'wdth' 90; min-width: 2.2ch;
+  }
+  .five-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.8rem); line-height: 1; color: var(--navy); margin-bottom: .5rem; font-variation-settings: 'wdth' 110; }
+  .five-list p { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 46ch; }
+</style>
