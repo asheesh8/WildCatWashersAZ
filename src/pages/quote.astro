@@ -1,0 +1,44 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import QuoteForm from '@/components/QuoteForm.astro';
+import Icon from '@/components/Icon.astro';
+import { company, telHref, guarantees, proof, cta } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Free quote', href: '/quote/' }];
+---
+<Base title="Get Your Free Quote | Wildcat Washers Tucson" description={`Call ${company.phone} for a quote in a few minutes, or send the short form and we’ll call you right back. ${proof.approvedLine}`} breadcrumbs={crumbs} hideCta>
+  <section class="q">
+    <div class="wrap q-grid">
+      <div class="q-copy">
+        <Breadcrumbs items={crumbs} />
+        <h1 class="h1">{h1For('/quote/', 'Get Your Free Quote')}</h1>
+        <p class="lede">The fastest way is a phone call. For windows we count panes together and quote in a few minutes, no site visit needed.</p>
+        <a class="q-phone" href={telHref} data-track="call-quote"><span><Icon name="phone" size={30} /></span>{company.phone}</a>
+        <p class="muted">{company.availabilityLong}</p>
+        <ul class="q-g" role="list">
+          {guarantees.map((g) => <li><Icon name="check-circle" size={24} /><div><strong>{g.name}</strong><span>{g.headline}</span></div></li>)}
+        </ul>
+      </div>
+      <div class="q-card">
+        <h2 class="q-card-title">Or send the short form</h2>
+        <p class="muted" style="margin-bottom:1.2rem">{cta.responseLine}</p>
+        <QuoteForm id="quote-page-form" />
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .q { background: linear-gradient(180deg, var(--blue-100), var(--blue-50) 60%, #fff); padding-block: clamp(2rem, 1.5rem + 3vw, 5rem); }
+  .q-grid { display: grid; gap: 2.5rem; align-items: start; }
+  @media (min-width: 1000px) { .q-grid { grid-template-columns: 1fr 1.1fr; } }
+  .q-copy { display: grid; gap: 1.2rem; }
+  .q-phone { display: inline-flex; align-items: center; gap: .9rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.4rem); color: var(--navy); text-decoration: none; }
+  .q-phone span { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: var(--blue); display: grid; place-items: center; }
+  .q-g { list-style: none; padding: 0; display: grid; gap: .8rem; }
+  .q-g li { display: flex; gap: .7rem; }
+  .q-g :global(svg) { color: var(--blue-700); flex: none; margin-top: .2rem; }
+  .q-g div { display: grid; }
+  .q-card { background: #fff; border-radius: calc(var(--radius-lg) + 4px); padding: clamp(1.4rem, 1rem + 2vw, 2.6rem); box-shadow: var(--shadow-lg); }
+  .q-card-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.7rem; }
+</style>

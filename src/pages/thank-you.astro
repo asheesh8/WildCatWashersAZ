@@ -1,0 +1,8 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { company } from '@/data/business';
+---
+<Base title="Thanks! We’ll call you right back | Wildcat Washers" description="Your quote request is in." noindex hideCta>
+  <PageHero eyebrow="Request received" title="Thanks! We’ll call you right back." lede={`Keep your phone handy. We usually call within a couple of minutes. In a hurry? Call us at ${company.phone}.`} rating={false} ctaLabel="Back to the homepage" ctaHref="/" />
+</Base>

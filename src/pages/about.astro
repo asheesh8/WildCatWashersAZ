@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ProofBand from '@/components/ProofBand.astro';
+import WhyGrid from '@/components/WhyGrid.astro';
+import Icon from '@/components/Icon.astro';
+import { company, proof } from '@/data/business';
+import { img, altFor } from '@/data/media';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'About', href: '/about/' }];
+const standard = [
+  { title: 'We show up when we say', body: 'Clear, proactive communication, reminders before every visit, and a crew that arrives when promised.' },
+  { title: 'We look the part', body: 'Suit pants, black Oxford shoes, polos and matching hats, in branded, marked trucks. You always know who is at your door.' },
+  { title: 'We’re trained, not just hired', body: 'A defined training period, shadowing, ride-alongs and checklists. Technicians work at customers’ homes only once they perform at an elite level. Every hire is background checked.' },
+  { title: 'We build our own tools', body: 'Custom software behind every job keeps the standard the same every time, paired with top professional window cleaning equipment in the field.' },
+];
+---
+<Base title="About Wildcat Washers | Tucson Window Cleaning Since 2024" description={`Founded in Tucson in ${company.founded} by ${company.founders.join(' and ')}. ${proof.approvedLine}`} breadcrumbs={crumbs}>
+  <PageHero eyebrow={`Tucson, since ${company.founded}`} title={h1For('/about/', 'About Wildcat Washers')} lede="Our mission is simple: do the best window cleaning work in Tucson, and give you the best experience you’ve ever had with a home service company. Genuinely friendly, and even fun to deal with." crumbs={crumbs} image="crew-chamber-of-commerce" />
+  <ProofBand />
+  <section class="section bg-mist">
+    <div class="wrap story">
+      <div class="photo" style="aspect-ratio:4/3"><Image src={img('award-presentation-team')} alt={altFor('award-presentation-team')} widths={[480, 800, 1100]} sizes="(min-width: 1000px) 45vw, 100vw" quality={70} /></div>
+      <div class="stack-lg">
+        <p class="eyebrow">Our story</p>
+        <h2 class="h2">A new standard for blue collar</h2>
+        <p class="lede">{company.founders.join(' and ')} founded Wildcat Washers in Tucson in {company.founded}, built on doing genuinely great work and treating people well. It grew quickly.</p>
+        <p>In under two years, Wildcat Washers became the community-voted best window cleaning company in Tucson, the 2026 Arizona Daily Star Readers’ Choice Winner, with over 1,000 customers served and not a single customer review below five stars. Those results aren’t the goal. They’re the evidence that every customer is treated well, every time.</p>
+        <p>We’re a small, highly trained team on purpose. We’d rather be the best than the biggest, and we keep the team tight so every job gets the same attention, with fast, flexible scheduling seven days a week.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">The people you’ll meet</p><h2 class="h2 sweep">Founders and crew leaders</h2></div>
+      <ul class="people" role="list">
+        {company.founders.map((n) => <li class="reveal"><span class="av">{n.split(' ').map((w) => w[0]).join('')}</span><strong>{n}</strong><span>Co-founder</span></li>)}
+        {company.crewLeaders.map((n) => <li class="reveal"><span class="av av-b">{n.split(' ').map((w) => w[0]).join('')}</span><strong>{n}</strong><span>Crew Leader</span></li>)}
+      </ul>
+      <p class="muted" style="margin-top:1.2rem">You might meet a founder, a crew leader or one of our fully trained technicians. All are held to the same standard.</p>
+    </div>
+  </section>
+  <WhyGrid eyebrow="What that means for you" title="How we do things differently" items={standard} tone="mist" />
+  <section class="section-tight"><div class="wrap cta-row">
+    <a class="text-link" href="/awards/">Our awards <Icon name="arrow" size={20} /></a>
+    <a class="text-link" href="/wash-it-forward/">Wash It Forward <Icon name="arrow" size={20} /></a>
+    <a class="text-link" href="/reviews/">Reviews <Icon name="arrow" size={20} /></a>
+  </div></section>
+</Base>
+<style>
+  .story { display: grid; gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: center; }
+  @media (min-width: 1000px) { .story { grid-template-columns: 1fr 1.1fr; } }
+  .story :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .people { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .people li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.6rem; display: grid; gap: .3rem; justify-items: start; }
+  .av { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); color: var(--blue); display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; margin-bottom: .6rem; }
+  .av-b { background: var(--blue); color: var(--navy); }
+  .people strong { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; }
+  .people span:last-child { color: var(--ink-3); font-weight: 650; }
+</style>

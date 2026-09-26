@@ -3,15 +3,15 @@
 import Icon from './Icon.astro';
 import QuoteForm from './QuoteForm.astro';
 import { company, telHref, guarantees } from '@/data/business';
-export interface Props { service?: string }
-const { service } = Astro.props;
+export interface Props { service?: string; area?: string; place?: string }
+const { service, area, place } = Astro.props;
 ---
 <section class="shine" id="get-quote" aria-labelledby="shine-title">
   <div class="wrap shine-grid">
     <div class="shine-copy">
       <h2 id="shine-title" class="shine-title">
         <span class="l1">Let’s make</span>
-        <span class="l2">your place</span>
+        <span class="l2">{place ? `your ${place} home` : 'your place'}</span>
         <span class="l3 sweep">Shine</span>
       </h2>
       <p class="shine-lede">Call and we’ll quote most homes in a few minutes, right on the phone. Or send the form and we’ll call you right back.</p>
@@ -23,7 +23,7 @@ const { service } = Astro.props;
     </div>
     <div class="shine-card">
       <p class="shine-card-title">Get your free quote</p>
-      <QuoteForm service={service} id="shine-form" />
+      <QuoteForm service={service} area={area} id="shine-form" />
     </div>
   </div>
 </section>

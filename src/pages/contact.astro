@@ -1,0 +1,24 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import { company, telHref } from '@/data/business';
+const crumbs = [{ name: 'Contact', href: '/contact/' }];
+---
+<Base title="Contact Wildcat Washers | (520) 525-0084 | Tucson" description={`Call ${company.phone}, email ${company.email}, or visit ${company.address.street}, ${company.address.city}. ${company.availability}.`} breadcrumbs={crumbs}>
+  <PageHero eyebrow={company.availability} title="Contact us" lede={company.availabilityLong} crumbs={crumbs} rating={false} />
+  <section class="section-tight">
+    <div class="wrap ct">
+      <a href={telHref} class="card"><Icon name="phone" size={30} /><strong>{company.phone}</strong><span>Call for a quote in minutes</span></a>
+      <a href={`mailto:${company.email}`} class="card"><Icon name="mail" size={30} /><strong>{company.email}</strong><span>We reply fast</span></a>
+      <div class="card"><Icon name="pin" size={30} /><strong>{company.address.street}</strong><span>{company.address.city}, {company.address.state} {company.address.zip}</span></div>
+    </div>
+  </section>
+</Base>
+<style>
+  .ct { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .ct .card { display: grid; gap: .4rem; text-decoration: none; color: var(--navy); }
+  .ct :global(svg) { color: var(--blue-700); }
+  .ct strong { font-family: var(--font-display); font-size: 1.3rem; overflow-wrap: anywhere; }
+  .ct span { color: var(--ink-2); }
+</style>

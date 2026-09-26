@@ -1,0 +1,31 @@
+---
+import ReviewGrid from './ReviewGrid.astro';
+import Icon from './Icon.astro';
+import type { ReviewSet } from '@/lib/local';
+export interface Props { set: ReviewSet; title: string }
+const { set, title } = Astro.props;
+---
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{set.count > 0 ? `${set.count} local review${set.count === 1 ? '' : 's'}` : 'Five-star reviews'}</p>
+      <h2 class="h2 sweep">{title}</h2>
+    </div>
+    {set.local.length > 0 && (
+      <>
+        <p class="rs-label">{set.localLabel}</p>
+        <ReviewGrid reviews={set.local} />
+      </>
+    )}
+    {set.more.length > 0 && (
+      <>
+        <p class="rs-label" style="margin-top:2rem">{set.moreLabel}</p>
+        <ReviewGrid reviews={set.more} />
+      </>
+    )}
+    <p style="margin-top:1.6rem"><a class="text-link" href="/reviews/">Read all our reviews <Icon name="arrow" size={20} /></a></p>
+  </div>
+</section>
+<style>
+  .rs-label { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; margin-bottom: 1rem; color: var(--navy); }
+</style>

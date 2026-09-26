@@ -1,0 +1,74 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ProofBand from '@/components/ProofBand.astro';
+import { reviews, displayName, placeLabel, featured } from '@/data/reviews';
+import { proof } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Reviews', href: '/reviews/' }];
+const filters = [
+  { id: 'all', label: 'All' },
+  { id: 'windows', label: 'Windows', tags: ['Window Cleaning', 'Window Washing', 'Windows', 'Track Cleaning'] },
+  { id: 'solar', label: 'Solar panels', tags: ['Solar Panel Cleaning', 'Solar Panels', 'Solar Panel Washing', 'Pigeon Proofing'] },
+  { id: 'screens', label: 'Screens & solar screens', tags: ['Solar Screens', 'Sun Screens', 'Screen Replacement', 'Screen Repair'] },
+  { id: 'pressure', label: 'Pressure washing', tags: ['Pressure Washing', 'Power Washing', 'Pressure/Power Washing', 'Arizona Room', 'Screened Porch'] },
+];
+const cats = (svc: string[]) => filters.filter((f) => f.tags && svc.some((s) => f.tags!.includes(s))).map((f) => f.id).join(' ');
+const ordered = [featured.anneWebb, featured.rainTest, ...reviews.filter((r) => r.n !== featured.anneWebb.n && r.n !== featured.rainTest.n)];
+---
+<Base title={`Reviews: ${proof.reviews} Five-Star Reviews | Wildcat Washers Tucson`} description={`${proof.approvedLine} Read every review from Google, Nextdoor, Facebook and Yelp.`} breadcrumbs={crumbs}>
+  <PageHero eyebrow={proof.recordClaim} title={h1For('/reviews/', 'Reviews')} lede={`${proof.approvedLine} Here they are, word for word.`} crumbs={crumbs} image="clean-french-doors-golf-view" rating={false} />
+  <ProofBand compact />
+  <section class="section-tight bg-mist">
+    <div class="wrap">
+      <ul class="plat" role="list">
+        {proof.platforms.map((p) => <li><strong>{p.count}</strong><span>{p.name}</span><small>{p.note}</small></li>)}
+      </ul>
+      <p class="muted" style="margin-top:.8rem">Counts as of {proof.asOf}. Crew names are spelled consistently; everything else is exactly as written.</p>
+    </div>
+  </section>
+  <section class="section-tight" data-rev>
+    <div class="wrap">
+      <div class="filt" role="group" aria-label="Filter reviews by service">
+        {filters.map((f, i) => <button type="button" data-f={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>)}
+      </div>
+      <div class="wall">
+        {ordered.map((r) => (
+          <figure class="rv" data-c={cats(r.services)}>
+            <div class="rv-top"><span class="stars" aria-label="Five stars" role="img">★★★★★</span><span>{r.platform}</span></div>
+            <blockquote><p>{r.text}</p></blockquote>
+            <figcaption><strong>{displayName(r)}</strong>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).length > 0 && <span>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).join(' · ')}</span>}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .plat { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .plat li { background: #fff; border-radius: var(--radius); border: 1px solid var(--line); padding: 1.2rem; display: grid; }
+  .plat strong { font-family: var(--font-display); font-weight: 900; font-size: 2.6rem; line-height: 1; }
+  .plat span { font-weight: 800; }
+  .plat small { color: var(--ink-3); font-size: .95rem; }
+  .filt { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.6rem; }
+  .filt button { min-height: 48px; padding: .5rem 1.1rem; border-radius: 999px; border: 2px solid var(--line); background: #fff; font-weight: 750; }
+  .filt button[aria-pressed='true'] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .wall { columns: 3 320px; column-gap: 1rem; }
+  .rv { break-inside: avoid; margin: 0 0 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.4rem; display: grid; gap: .8rem; }
+  .rv[hidden] { display: none; }
+  .rv-top { display: flex; justify-content: space-between; font-size: .9rem; font-weight: 750; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
+  .rv p { font-size: 1.08rem; }
+  .rv figcaption { display: grid; }
+  .rv figcaption strong { font-family: var(--font-display); font-weight: 800; }
+  .rv figcaption span { color: var(--ink-3); font-size: .95rem; }
+</style>
+<script is:inline>
+  document.querySelectorAll('[data-rev]').forEach((root) => {
+    const btns = root.querySelectorAll('[data-f]');
+    btns.forEach((b) => b.addEventListener('click', () => {
+      btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      const f = b.dataset.f;
+      root.querySelectorAll('.rv').forEach((r) => { r.hidden = f !== 'all' && !(r.dataset.c || '').split(' ').includes(f); });
+    }));
+  });
+</script>

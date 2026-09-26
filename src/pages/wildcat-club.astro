@@ -1,0 +1,19 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ClubBlock from '@/components/ClubBlock.astro';
+import FiveInOne from '@/components/FiveInOne.astro';
+import FaqList from '@/components/FaqList.astro';
+import { club } from '@/data/business';
+import { faqList } from '@/data/faq';
+import { h1For } from '@/data/plan';
+import { faqSchema } from '@/lib/schema';
+const crumbs = [{ name: 'The Wildcat Club', href: '/wildcat-club/' }];
+const faqs = faqList([202, 209, 203, 205, 206, 156, 155, 159]);
+---
+<Base title="The Wildcat Club: Three Window Cleanings a Year in Tucson | Wildcat Washers" description={`${club.lede} Members get ${club.perk}.`} breadcrumbs={crumbs} schema={[faqSchema(faqs)]} ctaService="window-cleaning">
+  <PageHero eyebrow={club.visits} title={h1For('/wildcat-club/', club.name)} lede={`${club.lede} ${club.oneTime}`} crumbs={crumbs} image="clean-three-windows-reflection" ctaLabel="Join the Wildcat Club" ctaHref="/quote/?service=window-cleaning" />
+  <ClubBlock />
+  <FiveInOne title="Every visit is the 5-in-1" />
+  <FaqList items={faqs} title="Club questions" />
+</Base>

@@ -1,0 +1,65 @@
+---
+/** Window cleaning × town (wave 2). Only built where the plan lists it. */
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import FiveInOne from '@/components/FiveInOne.astro';
+import Conditions from '@/components/Conditions.astro';
+import FactsTrio from '@/components/FactsTrio.astro';
+import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
+import FaqList from '@/components/FaqList.astro';
+import ClubBlock from '@/components/ClubBlock.astro';
+import Icon from '@/components/Icon.astro';
+import { serviceBySlug, serviceHref } from '@/data/business';
+import { townBySlug, windowTownSlugs, childrenOf, townHref, communityHref, type Town } from '@/data/areas';
+import { reviewsForService, pick } from '@/data/reviews';
+import { faqList } from '@/data/faq';
+import { h1For } from '@/data/plan';
+import { townReviews, areaFaqs, namesFor, type ReviewSet } from '@/lib/local';
+import { faqSchema, serviceSchema } from '@/lib/schema';
+import { pools, pickFrom } from '@/data/media';
+
+export function getStaticPaths() {
+  return windowTownSlugs.map((slug) => ({ params: { service: 'window-cleaning', location: slug }, props: { t: townBySlug[slug] } }));
+}
+const { t } = Astro.props as { t: Town };
+const s = serviceBySlug['window-cleaning'];
+const url = `/services/window-cleaning/${t.slug}/`;
+const title = h1For(url, `Window cleaning in ${t.name}`);
+const base = townReviews(t, 12, 3);
+const tags = s.reviewTags;
+const windowFirst = (list: typeof base.local) => [...list.filter((r) => r.services.some((x) => tags.includes(x))), ...list.filter((r) => !r.services.some((x) => tags.includes(x)))].slice(0, 6);
+const set: ReviewSet = { ...base, local: windowFirst(base.local), more: base.local.length >= 3 ? [] : pick(reviewsForService(tags), 6 - Math.min(6, base.local.length), { seed: t.slug.length }), moreLabel: 'Window cleaning reviews from across the metro' };
+const faqs = [...areaFaqs(namesFor(t)), ...faqList([25, 159, 34, 144])].slice(0, 7);
+const photo = pickFrom(pools.windowAction, t.slug);
+const kids = childrenOf(t.slug);
+const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
+---
+<Base
+  title={`Window Cleaning ${t.name} | Wildcat Washers 5-in-1 Deep Clean`}
+  description={`Window cleaning in ${t.name}: glass, frames, sills, tracks and screens, hard water removal included. You don’t pay until you’re happy. Call (520) 525-0084.`}
+  breadcrumbs={crumbs}
+  schema={[serviceSchema(s, t.name.replace(/ AZ$/, ''), url), faqSchema(faqs)]}
+  ctaService="window-cleaning"
+  ctaArea={t.slug}
+  ctaPlace={t.name.replace(/ AZ$/, '')}
+>
+  <PageHero eyebrow={`Window washing in ${t.name}`} title={title} lede={`${s.lede}`} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=window-cleaning&area=${t.slug}`} />
+  <TrustRow />
+  <Conditions title={`Why ${t.name} windows get dirty fast`} items={t.conditions} lede={t.intro} />
+  <FiveInOne />
+  <FactsTrio pricing={s.pricing} frequency={s.frequency} duration={s.duration} limits={s.limits} />
+  <ReviewSetBlock set={set} title={`${t.name} window cleaning reviews`} />
+  <ClubBlock />
+  <FaqList items={faqs} title={`Window cleaning in ${t.name}: questions`} />
+  <section class="section-tight">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">More for {t.name}</h2>
+      <ul class="chips" role="list">
+        <li><a href={townHref(t.slug)}><Icon name="pin" size={18} />All services in {t.name}</a></li>
+        {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
+        <li><a href="/services/window-cleaning/"><Icon name="sparkle" size={18} />Window cleaning in Tucson</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

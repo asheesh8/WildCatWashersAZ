@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import Conditions from '@/components/Conditions.astro';
+import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
+import { serviceBySlug, serviceHref } from '@/data/business';
+import { img, altFor } from '@/data/media';
+import { h1For } from '@/data/plan';
+import { townReviews, areaFaqs, namesFor } from '@/lib/local';
+import { faqSchema } from '@/lib/schema';
+
+export function getStaticPaths() {
+  return towns.map((t) => ({ params: { town: t.slug }, props: { t } }));
+}
+const { t } = Astro.props as { t: Town };
+const url = townHref(t.slug);
+const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
+const kids = childrenOf(t.slug);
+const set = townReviews(t, 6, t.slug.length);
+const faqs = areaFaqs(namesFor(t), [117, 119, 145, 159]).slice(0, 7);
+const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
+const hasWindowPage = windowTownSlugs.includes(t.slug);
+const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowPage ? `/services/window-cleaning/${t.slug}/` : serviceHref(slug));
+const place = {
+  '@type': 'Place',
+  name: `${t.name.replace(/ AZ$/, '')}, AZ`,
+  containedInPlace: { '@type': 'State', name: 'Arizona' },
+};
+---
+<Base
+  title={`Window Cleaning ${t.name} | Wildcat Washers`}
+  description={`Window cleaning, solar panel cleaning, solar screens and pressure washing in ${t.name}. ${set.count ? `${set.count} five-star reviews from ${t.name} customers. ` : ''}Call (520) 525-0084.`}
+  breadcrumbs={crumbs}
+  schema={[{ '@type': 'WebPage', name: title, about: place, url: `https://wildcatwashers.com${url}` }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
+  ctaArea={t.slug}
+  ctaPlace={t.name.replace(/ AZ$/, '')}
+>
+  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={t.intro} crumbs={crumbs} image={t.photo} ctaHref={`/quote/?area=${t.slug}`} />
+  <TrustRow />
+
+  <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we do most here</p>
+        <h2 class="h2 sweep">Our {t.name} services</h2>
+      </div>
+      <ul class="emph" role="list">
+        {t.emphasis.map((e) => {
+          const s = serviceBySlug[e.service];
+          return (
+            <li class="reveal">
+              <a href={emphasisHref(e.service)}>
+                <span class="emph-img"><Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 700]} sizes="(min-width: 900px) 33vw, 100vw" quality={68} /></span>
+                <span class="emph-body">
+                  <span class="h3">{s.name}{e.service === 'window-cleaning' && hasWindowPage ? ` in ${t.name}` : ''}</span>
+                  <span>{e.why}</span>
+                  <span class="text-link">Learn more <Icon name="arrow" size={18} /></span>
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <p class="also">We also do <a href="/services/screen-repair/">screen repair</a>, <a href="/services/solar-panel-pigeon-proofing/">solar panel pigeon proofing</a> and every other service in {t.name}. <a href="/services/">See all services</a>.</p>
+    </div>
+  </section>
+
+  {(kids.length > 0 || t.sections.length > 0) && (
+    <section class="section-tight bg-mist">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Neighborhoods</p>
+          <h2 class="h2">Where we work in {t.name}</h2>
+        </div>
+        {kids.length > 0 && (
+          <ul class="kids" role="list">
+            {kids.map((c) => (
+              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>{c.kind === 'hoa' ? 'Neighborhood page' : 'Community page'}</span><Icon name="arrow" size={20} /></a></li>
+            ))}
+          </ul>
+        )}
+        {t.sections.filter((s) => !kids.some((k) => k.name === s.name)).length > 0 && (
+          <dl class="secs">
+            {t.sections.filter((s) => !kids.some((k) => k.name === s.name)).map((s) => (
+              <div><dt>{s.name}</dt><dd>{s.body}</dd></div>
+            ))}
+          </dl>
+        )}
+      </div>
+    </section>
+  )}
+
+  <ReviewSetBlock set={set} title={`What ${t.name} neighbors say`} />
+
+  {faqs.length > 0 && <FaqList items={faqs} title={`${t.name} questions`} />}
+
+  <section class="section-tight">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">Nearby areas we serve</h2>
+      <ul class="chips" role="list">
+        {t.nearby.map((n) => townBySlug[n]).filter(Boolean).map((n) => <li><a href={townHref(n.slug)}><Icon name="pin" size={18} />{n.name}</a></li>)}
+        <li><a href="/areas/"><Icon name="plus" size={18} />All areas</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .emph { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .emph a { display: grid; height: 100%; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+  .emph a:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .emph-img { aspect-ratio: 16 / 10; overflow: hidden; }
+  .emph-img :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .emph-body { display: grid; gap: .6rem; padding: 1.4rem; align-content: start; color: var(--ink-2); }
+  .emph-body .h3 { color: var(--navy); }
+  .emph-body .text-link { justify-self: start; margin-top: .3rem; }
+  .also { margin-top: 1.6rem; font-size: 1.1rem; }
+  .also a { font-weight: 700; }
+  .kids { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); margin-bottom: 1.6rem; }
+  .kids a { display: grid; grid-template-columns: 1fr auto; gap: 0 1rem; align-items: center; padding: 1.2rem 1.4rem; background: #fff; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+  .kids a:hover { border-color: var(--blue); }
+  .kids strong { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; }
+  .kids span { grid-row: 2; color: var(--ink-3); font-size: .98rem; }
+  .kids :global(svg) { grid-row: 1 / 3; grid-column: 2; color: var(--blue-700); }
+  .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .secs dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+  .secs dd { margin: .2rem 0 0; color: var(--ink-2); }
+</style>

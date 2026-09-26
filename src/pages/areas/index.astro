@@ -1,0 +1,51 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import Icon from '@/components/Icon.astro';
+import { towns, childrenOf, townHref, communityHref } from '@/data/areas';
+import { company } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Areas', href: '/areas/' }];
+const tiers = [
+  { t: 1, label: 'Where we work most' },
+  { t: 2, label: 'Across the metro' },
+  { t: 3, label: 'Further out' },
+];
+---
+<Base title="Service Areas: Greater Tucson & Southern Arizona | Wildcat Washers" description={`${company.serviceAreaStatement}. Green Valley, SaddleBrooke, Oro Valley, Catalina Foothills, Marana, Sahuarita, Vail AZ and more.`} breadcrumbs={crumbs}>
+  <PageHero eyebrow="Where we work" title={h1For('/areas/', 'Service Areas Across Greater Tucson and Southern Arizona')} lede={`Based in Tucson at ${company.address.street}, and out across the metro seven days a week. If you don’t see your neighborhood, call. We probably cover it.`} crumbs={crumbs} image="crew-chamber-of-commerce" />
+  <TrustRow />
+  {tiers.map((tier) => {
+    const list = towns.filter((x) => x.tier === tier.t);
+    return list.length ? (
+      <section class="section-tight">
+        <div class="wrap">
+          <h2 class="h2" style="margin-bottom:1.4rem">{tier.label}</h2>
+          <ul class="towns" role="list">
+            {list.map((town) => (
+              <li class="reveal">
+                <a class="town-name" href={townHref(town.slug)}><Icon name="pin" size={22} />{town.name}<Icon name="arrow" size={20} /></a>
+                <p>{town.intro.split('. ')[0]}.</p>
+                {childrenOf(town.slug).length > 0 && (
+                  <ul class="subs" role="list">{childrenOf(town.slug).map((c) => <li><a href={communityHref(c)}>{c.name}</a></li>)}</ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ) : null;
+  })}
+</Base>
+<style>
+  .towns { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  .towns > li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem; display: grid; gap: .7rem; align-content: start; box-shadow: var(--shadow-sm); }
+  .town-name { display: flex; align-items: center; gap: .5rem; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.5rem; text-decoration: none; color: var(--navy); }
+  .town-name :global(svg:first-child) { color: var(--blue-700); }
+  .town-name :global(svg:last-child) { margin-left: auto; }
+  .towns p { color: var(--ink-2); }
+  .subs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .subs a { display: inline-block; padding: .35rem .8rem; border-radius: 999px; background: var(--blue-50); font-weight: 650; font-size: .98rem; text-decoration: none; }
+  .subs a:hover { background: var(--blue-100); }
+</style>

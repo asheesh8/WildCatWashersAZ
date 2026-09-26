@@ -14,7 +14,7 @@ const { title, eyebrow, items, tone = 'white' } = Astro.props;
         <li class="card reveal">
           <span class="why-i"><Icon name="check" size={26} /></span>
           <h3 class="h3">{w.title}</h3>
-          <p>{w.body}</p>
+          {w.body && <p>{w.body}</p>}
         </li>
       ))}
     </ul>

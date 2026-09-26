@@ -1,0 +1,45 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import WhyGrid from '@/components/WhyGrid.astro';
+import FaqList from '@/components/FaqList.astro';
+import { arroyoGardens } from '@/data/reviews';
+import { proof } from '@/data/business';
+import { faqList } from '@/data/faq';
+import { h1For } from '@/data/plan';
+import { faqSchema } from '@/lib/schema';
+const crumbs = [{ name: 'Commercial', href: '/commercial/' }];
+const faqs = faqList([189, 190, 191, 193, 194, 195, 196, 197, 199, 68]);
+const who = [
+  { title: 'Storefronts and offices', body: 'Glass that customers see first, cleaned before open, after close or on weekends.' },
+  { title: 'Senior living', body: 'Large buildings cleaned carefully and on schedule, with residents in mind.' },
+  { title: 'HOAs and clubhouses', body: 'Clubhouses, common areas, leasing offices and community facilities on a recurring schedule.' },
+  { title: 'Property managers', body: 'Multi-property portfolios on a single schedule with one point of contact.' },
+  { title: 'Real estate agents', body: `Listing prep and pre-sale cleaning. ${proof.agentRebook}` },
+  { title: 'Commercial solar', body: 'Rooftop and ground-mount arrays, cleaned with panel-safe methods.' },
+];
+---
+<Base title="Commercial Window Cleaning Tucson | Wildcat Washers" description="Commercial window cleaning, solar array cleaning and pressure washing for storefronts, offices, senior living, HOAs and property managers across Greater Tucson." breadcrumbs={crumbs} schema={[faqSchema(faqs)]} ctaService="commercial">
+  <PageHero eyebrow="For businesses, HOAs and property managers" title={h1For('/commercial/', 'Commercial Window Cleaning and Exterior Services')} lede="We handle window washing for local businesses across a wide range of industries. Before open, after close or weekends, seven days a week, with insurance paperwork ready before we start." crumbs={crumbs} image="fire-station-windows" ctaLabel="Get a Commercial Quote" ctaHref="/quote/?service=commercial" />
+  <TrustRow />
+  <section class="section">
+    <div class="wrap">
+      <figure class="inst reveal">
+        <p class="eyebrow">Senior living, Green Valley</p>
+        <blockquote><p>“{arroyoGardens.quote}”</p></blockquote>
+        <figcaption><strong>{arroyoGardens.name}</strong><span>{arroyoGardens.role}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+  <WhyGrid eyebrow="Who we work with" title="Built for properties that need to look right" items={who} tone="mist" />
+  <FaqList items={faqs} title="Commercial questions" />
+</Base>
+<style>
+  .inst { background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.8rem, 1rem + 4vw, 4rem); display: grid; gap: 1.2rem; }
+  .inst .eyebrow { color: var(--blue); }
+  .inst p:not(.eyebrow) { font-size: var(--step-2); line-height: 1.35; font-family: var(--font-display); font-weight: 700; }
+  .inst figcaption { display: grid; }
+  .inst strong { color: var(--blue); font-family: var(--font-display); font-size: 1.2rem; }
+  .inst span { color: #cfdaf0; }
+</style>

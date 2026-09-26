@@ -1,0 +1,42 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { faqs, faqCategories } from '@/data/faq';
+import { h1For } from '@/data/plan';
+import { faqSchema } from '@/lib/schema';
+const crumbs = [{ name: 'FAQ', href: '/faq/' }];
+const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+<Base title="Window Cleaning FAQ: Straight Answers | Wildcat Washers Tucson" description="Straight answers on window cleaning, solar panels, solar screens, pressure washing, pricing, scheduling and our guarantees in Tucson." breadcrumbs={crumbs} schema={[faqSchema(faqs)]}>
+  <PageHero eyebrow={`${faqs.length} answers`} title={h1For('/faq/', 'Frequently Asked Questions')} lede="Honest answers to what people actually ask us. Don’t see yours? Call, and a real person will answer it." crumbs={crumbs} rating={false} />
+  <section class="section-tight">
+    <div class="wrap faq-layout">
+      <nav class="toc" aria-label="FAQ topics">
+        <p class="eyebrow">Topics</p>
+        <ul role="list">{faqCategories.map((c) => <li><a href={`#${slug(c)}`}>{c}</a></li>)}</ul>
+      </nav>
+      <div>
+        {faqCategories.map((c) => (
+          <section id={slug(c)} class="cat">
+            <h2 class="h3">{c}</h2>
+            {faqs.filter((f) => f.category === c).map((f) => (
+              <details id={`q${f.n}`}><summary>{f.q}</summary><p>{f.a}</p></details>
+            ))}
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .faq-layout { display: grid; gap: 2rem; }
+  @media (min-width: 1000px) { .faq-layout { grid-template-columns: 280px 1fr; } .toc { position: sticky; top: 110px; align-self: start; } }
+  .toc ul { list-style: none; padding: 0; display: grid; gap: .2rem; margin-top: .6rem; }
+  .toc a { display: block; padding: .4rem 0; font-weight: 650; text-decoration: none; color: var(--ink-2); }
+  .toc a:hover { color: var(--navy); text-decoration: underline; }
+  .cat { margin-bottom: 2.4rem; scroll-margin-top: 110px; }
+  .cat h2 { margin-bottom: .8rem; }
+  details { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; padding: 1rem 0; font-weight: 750; font-size: 1.15rem; color: var(--navy); }
+  details p { padding: 0 0 1.2rem; color: var(--ink-2); max-width: 70ch; }
+</style>

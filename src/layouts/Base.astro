@@ -24,11 +24,13 @@ export interface Props {
   /** Hide the closing "Let's make your place shine" band (quote page). */
   hideCta?: boolean;
   ctaService?: string;
+  ctaArea?: string;
+  ctaPlace?: string;
 }
 
 const {
   title, description, canonical = Astro.url.pathname, ogImage = '/og-default.jpg',
-  noindex = false, schema = [], breadcrumbs = [], overlay = false, hideCta = false, ctaService,
+  noindex = false, schema = [], breadcrumbs = [], overlay = false, hideCta = false, ctaService, ctaArea, ctaPlace,
 } = Astro.props;
 
 const site = company.url;
@@ -125,7 +127,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
     <main id="main">
       <slot />
     </main>
-    {!hideCta && <CtaShine service={ctaService} />}
+    {!hideCta && <CtaShine service={ctaService} area={ctaArea} place={ctaPlace} />}
     <Footer />
     <StickyBar />
 

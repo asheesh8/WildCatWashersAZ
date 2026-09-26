@@ -1,0 +1,68 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import Conditions from '@/components/Conditions.astro';
+import FiveInOne from '@/components/FiveInOne.astro';
+import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import { communities, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Community } from '@/data/areas';
+import { h1For } from '@/data/plan';
+import { communityReviews, areaFaqs } from '@/lib/local';
+import { faqSchema } from '@/lib/schema';
+
+export function getStaticPaths() {
+  return communities.map((c) => ({ params: { town: c.parent, community: c.slug }, props: { c } }));
+}
+const { c } = Astro.props as { c: Community };
+const town = townBySlug[c.parent];
+const url = communityHref(c);
+const title = h1For(url, c.kind === 'hoa' ? `Window cleaning for ${c.name} residents` : `Window cleaning in ${c.name}`);
+const set = communityReviews(c, 6, c.slug.length);
+const faqs = areaFaqs([c.name, ...(c.sections ?? []).map((s) => s.name)], [122, 144, 145, 159, 187]).slice(0, 6);
+const siblings = childrenOf(town.slug).filter((s) => s.slug !== c.slug);
+const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: town.name, href: townHref(town.slug) }, { name: c.name, href: url }];
+const townWindow = windowTownSlugs.includes(town.slug) ? `/services/window-cleaning/${town.slug}/` : '/services/window-cleaning/';
+---
+<Base
+  title={`Window Cleaning ${c.name}, ${town.name.replace(/ AZ$/, '')} | Wildcat Washers`}
+  description={`Window cleaning, solar panels, solar screens and pressure washing for ${c.name} in ${town.name}. ${set.count ? `Reviewed by ${c.name} residents. ` : ''}You don’t pay until you’re happy. (520) 525-0084.`}
+  breadcrumbs={crumbs}
+  schema={[{ '@type': 'WebPage', name: title, about: { '@type': 'Place', name: c.name, containedInPlace: { '@type': 'Place', name: `${town.name.replace(/ AZ$/, '')}, AZ` } } }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
+  ctaArea={town.slug}
+  ctaPlace={c.name}
+>
+  <PageHero eyebrow={`${c.name} · ${town.name}`} title={title} lede={c.intro} crumbs={crumbs} image={c.photo} ctaHref={`/quote/?area=${town.slug}`} />
+  <TrustRow />
+  <Conditions title={`Cleaning in ${c.name}: what we plan for`} items={c.angle} />
+  <FiveInOne lede={`Every ${c.name} window job is our 5-in-1 Deep Clean. Glass, frames, sills, tracks and screens, cleaned by hand, with hard water removal included.`} />
+
+  {c.sections && c.sections.length > 0 && (
+    <section class="section-tight bg-mist">
+      <div class="wrap">
+        <h2 class="h2" style="margin-bottom:1.4rem">Neighborhoods in and around {c.name}</h2>
+        <dl class="secs">{c.sections.map((s) => <div><dt>{s.name}</dt><dd>{s.body}</dd></div>)}</dl>
+      </div>
+    </section>
+  )}
+
+  <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${town.name} neighbors say`} />
+  {faqs.length > 0 && <FaqList items={faqs} title="Questions neighbors ask" />}
+
+  <section class="section-tight">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">More in {town.name}</h2>
+      <ul class="chips" role="list">
+        <li><a href={townHref(town.slug)}><Icon name="pin" size={18} />{town.name}</a></li>
+        <li><a href={townWindow}><Icon name="sparkle" size={18} />Window cleaning in {town.name}</a></li>
+        {siblings.map((s) => <li><a href={communityHref(s)}><Icon name="home" size={18} />{s.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+<style>
+  .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .secs dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+  .secs dd { margin: .2rem 0 0; color: var(--ink-2); }
+</style>
