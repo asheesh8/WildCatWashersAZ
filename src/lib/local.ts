@@ -36,6 +36,9 @@ export function townReviews(t: Town, count = 6, seed = 0): ReviewSet {
   };
 }
 
+/** Parent-town reviews already used as fill on a community page (build-wide). */
+const borrowed = new Set<number>();
+
 export function communityReviews(c: Community, count = 6, seed = 0): ReviewSet {
   const own = [
     ...reviewsByDetail(c.reviewDetails ?? []),
@@ -44,8 +47,11 @@ export function communityReviews(c: Community, count = 6, seed = 0): ReviewSet {
   const shown = pick(own, count, { min: 40, seed });
   const parent = townBySlug[c.parent];
   const pool = parent.reviewArea ? reviewsByArea(parent.reviewArea).filter((r) => !own.includes(r)) : metroReviews(parent.slug);
-  /* Siblings pass different seeds, so pages in one town don't show the same neighbors' reviews. */
-  const more = shown.length < 3 ? pick(pool, 3, { seed: seed * 3 + 1 }) : [];
+  /* Siblings pass different seeds, and a parent-town review fills in on at most one
+     community page, so the same neighbor's words don't repeat across a whole cluster. */
+  const fresh = pool.filter((r) => !borrowed.has(r.n));
+  const more = shown.length < 3 ? pick(fresh, 3, { seed: seed * 3 + 1 }) : [];
+  more.forEach((r) => borrowed.add(r.n));
   return {
     local: shown, localLabel: `From ${c.name} residents`,
     more, moreLabel: `From neighbors in ${parent.name}`,
