@@ -23,7 +23,7 @@ const {
         <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} />
       </div>
     </div>
-    <ol class="five-list" role="list">
+    <ol class="five-list m-swipe" role="list">
       {items.map((item, i) => (
         <li class="reveal">
           <span class="five-num">/{String(i + 1).padStart(2, '0')}</span>
@@ -59,4 +59,15 @@ const {
   }
   .five-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.8rem); line-height: 1; color: var(--navy); margin-bottom: .5rem; font-variation-settings: 'wdth' 110; }
   .five-list p { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 46ch; }
+  /* Phones: the five steps become a swipe row of cards; the photo becomes a short banner. */
+  @media (max-width: 759px) {
+    .five-grid { gap: 1.4rem; }
+    .five-photo { aspect-ratio: 16 / 9; }
+    .five-list li, .five-list li:last-child {
+      grid-template-columns: 1fr; gap: .6rem; padding: 1.4rem; border: 1px solid var(--line);
+      border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);
+    }
+    .five-num { font-size: 3rem; }
+    .five-title { font-size: 1.6rem; }
+  }
 </style>

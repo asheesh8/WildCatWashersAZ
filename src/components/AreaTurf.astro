@@ -39,9 +39,15 @@ const names = towns.map((t) => t.name);
   .turf-head { display: grid; gap: 1.1rem; justify-items: start; }
   .turf .eyebrow { color: var(--navy); }
   .turf-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.2rem; }
-  @media (max-width: 480px) { .turf-list { grid-template-columns: 1fr; } }
   .turf-list a { display: flex; align-items: center; gap: .6rem; padding: .85rem .2rem; border-bottom: 2px solid rgb(18 24 50 / 16%); text-decoration: none; font-weight: 750; font-size: 1.15rem; }
   .turf-list a span { flex: 1; }
   .turf-list a :global(.go) { transition: transform .25s var(--ease); }
   .turf-list a:hover :global(.go) { transform: translateX(4px); }
+  @media (max-width: 759px) {
+    .turf-marquee { padding: 1rem 0 1.6rem; }
+    .turf-track span { font-size: 2.2rem; }
+    .turf-list, .turf-list { grid-template-columns: 1fr 1fr; gap: 0 .8rem; }
+    .turf-list a { font-size: 1.05rem; padding: .7rem 0; gap: .4rem; }
+    .turf-list a :global(.go) { display: none; }
+  }
 </style>

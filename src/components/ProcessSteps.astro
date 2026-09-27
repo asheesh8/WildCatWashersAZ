@@ -9,7 +9,7 @@ const { title = 'Booking takes one phone call' } = Astro.props;
       <p class="eyebrow">How it works</p>
       <h2 id="process-title" class="h2 sweep">{title}</h2>
     </div>
-    <ol class="steps" role="list">
+    <ol class="steps m-swipe" role="list">
       {processSteps.map((s, i) => (
         <li class="step reveal">
           <span class="step-n">{String(i + 1).padStart(2, '0')}</span>

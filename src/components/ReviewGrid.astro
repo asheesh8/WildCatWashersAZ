@@ -4,7 +4,7 @@ import type { Review } from '@/data/reviews';
 export interface Props { reviews: Review[] }
 const { reviews } = Astro.props;
 ---
-<div class="rgrid">
+<div class="rgrid m-swipe">
   {reviews.map((r) => <ReviewCard review={r} />)}
 </div>
 <style>

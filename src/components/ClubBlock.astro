@@ -37,4 +37,10 @@ import { club } from '@/data/business';
   .club-points p { color: #cfdaf0; }
   .club-note { color: #b8c6e3; font-size: 1.02rem; }
   .club-art img { width: min(100%, 420px); margin-inline: auto; filter: drop-shadow(0 20px 40px rgb(0 0 0 / 35%)); }
+  @media (max-width: 999px) {
+    .club { grid-template-columns: 1fr auto; }
+    .club-copy { grid-column: 1 / -1; grid-row: 2; }
+    .club-art { grid-column: 2; grid-row: 1; justify-self: end; margin: -.5rem -.5rem -1.5rem 0; }
+    .club-art img { width: 120px; }
+  }
 </style>

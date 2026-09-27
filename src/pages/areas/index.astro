@@ -48,4 +48,9 @@ const tiers = [
   .subs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
   .subs a { display: inline-block; padding: .35rem .8rem; border-radius: 999px; background: var(--blue-50); font-weight: 650; font-size: 1rem; text-decoration: none; }
   .subs a:hover { background: var(--blue-100); }
+  @media (max-width: 759px) {
+    .towns { gap: .7rem; }
+    .towns > li { padding: 1.1rem 1.2rem; gap: .5rem; }
+    .town-name { font-size: 1.3rem; }
+  }
 </style>

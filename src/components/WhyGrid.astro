@@ -9,7 +9,7 @@ const { title, eyebrow, items, tone = 'white' } = Astro.props;
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h2 class="h2 sweep">{title}</h2>
     </div>
-    <ul class="why" role="list">
+    <ul class="why m-swipe" role="list">
       {items.map((w) => (
         <li class="card reveal">
           <span class="why-i"><Icon name="check" size={26} /></span>
@@ -25,4 +25,7 @@ const { title, eyebrow, items, tone = 'white' } = Astro.props;
   .why li { display: grid; gap: .7rem; align-content: start; }
   .why-i { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--blue-50); color: var(--blue-700); }
   .why p { color: var(--ink-2); }
+  @media (max-width: 759px) {
+    .why li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.3rem; box-shadow: var(--shadow-sm); }
+  }
 </style>

@@ -21,6 +21,7 @@ const { service, area, place } = Astro.props;
         <li><Icon name="check-circle" size={24} />{company.availability}</li>
       </ul>
     </div>
+    <a class="btn btn-lg btn-block shine-mbtn" href={`/quote/${service ? `?service=${service}` : ''}`}><span>Get my free quote online</span><span class="chip"><Icon name="arrow" /></span></a>
     <div class="shine-card">
       <p class="shine-card-title">Get your free quote</p>
       <QuoteForm service={service} area={area} id="shine-form" />
@@ -51,4 +52,11 @@ const { service, area, place } = Astro.props;
   .shine-g li { display: flex; align-items: center; gap: .6rem; }
   .shine-card { background: #fff; border-radius: calc(var(--radius-lg) + 4px); padding: clamp(1.3rem, 1rem + 2vw, 2.4rem); box-shadow: 0 30px 60px -24px rgb(18 24 50 / 45%); }
   .shine-card-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.7rem; margin-bottom: 1.2rem; color: var(--navy); }
+  .shine-mbtn { display: none; }
+  @media (max-width: 759px) {
+    .shine-card { display: none; }
+    .shine-mbtn { display: inline-flex; }
+    .shine-grid { gap: 1.2rem; }
+    .shine-lede { margin: 1rem 0; }
+  }
 </style>

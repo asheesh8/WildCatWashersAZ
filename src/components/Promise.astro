@@ -35,6 +35,7 @@ const H = headingLevel;
     {showGuarantees && (
       <div class="guar">
         <p class="eyebrow">Two guarantees on every job</p>
+        <div class="guar-row m-swipe">
         {guarantees.map((g, i) => (
           <div class="guar-card reveal">
             <span class="guar-icon"><Icon name={i === 0 ? 'shield' : 'calendar'} size={30} /></span>
@@ -43,6 +44,7 @@ const H = headingLevel;
             <p>{g.body}</p>
           </div>
         ))}
+        </div>
         <a class="text-link" href="/guarantee/">How our guarantees work <Icon name="arrow" size={20} /></a>
       </div>
     )}
@@ -81,4 +83,14 @@ const H = headingLevel;
   .guar-icon { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
   .guar-head { font-weight: 750; font-size: 1.2rem; color: var(--navy); }
   .guar-card p:last-child { color: var(--ink-2); }
+  .guar-row { display: grid; gap: 1.1rem; }
+  @media (max-width: 759px) {
+    .cert { padding: 8px; }
+    .cert-inner { padding: 1.4rem 1.1rem; }
+    .cert-seal { width: 84px; height: 84px; margin-top: -3.6rem; }
+    .cert-title { margin-bottom: 1.1rem; }
+    .cert-list { gap: .8rem; }
+    .cert-sign { margin-top: 1.4rem; gap: .8rem 2rem; }
+    .sig { font-size: 1.7rem; }
+  }
 </style>

@@ -143,6 +143,53 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
         }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
         els.forEach((e) => io.observe(e));
       })();
+      (() => {
+        // Phone swipe rows: add prev/next buttons and a live "1 of 6" count.
+        document.querySelectorAll('.m-swipe').forEach((row) => {
+          const items = [...row.children];
+          if (items.length < 2) return;
+          const ctrl = document.createElement('div');
+          ctrl.className = 'swipe-ctrl';
+          ctrl.innerHTML = '<button type="button" aria-label="Previous">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next">\u2192</button>';
+          row.after(ctrl);
+          const [prev, next] = ctrl.querySelectorAll('button');
+          const label = ctrl.querySelector('p');
+          const current = () => {
+            const left = row.getBoundingClientRect().left;
+            let best = 0, dist = Infinity;
+            items.forEach((el, i) => { const d = Math.abs(el.getBoundingClientRect().left - left - parseFloat(getComputedStyle(row).paddingLeft)); if (d < dist) { dist = d; best = i; } });
+            return best;
+          };
+          const update = () => {
+            const i = current();
+            label.textContent = `${i + 1} of ${items.length} \u00b7 swipe for more`;
+            prev.disabled = i === 0; next.disabled = i === items.length - 1;
+          };
+          const go = (d) => {
+            const el = items[Math.max(0, Math.min(items.length - 1, current() + d))];
+            row.scrollBy({ left: el.getBoundingClientRect().left - row.getBoundingClientRect().left - parseFloat(getComputedStyle(row).paddingLeft), behavior: 'smooth' });
+          };
+          prev.addEventListener('click', () => go(-1));
+          next.addEventListener('click', () => go(1));
+          let t; row.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+          update();
+        });
+      })();
+      (() => {
+        // "Read the whole review" for quotes clamped on phones.
+        if (!matchMedia('(max-width: 759px)').matches) return;
+        const add = () => document.querySelectorAll(':is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p').forEach((p) => {
+          if (p.dataset.more || p.scrollHeight <= p.clientHeight + 4) return;
+          p.dataset.more = '1';
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'more-btn'; b.textContent = 'Read the whole review';
+          b.setAttribute('aria-expanded', 'false');
+          b.addEventListener('click', () => { const o = p.classList.toggle('open'); b.textContent = o ? 'Show less' : 'Read the whole review'; b.setAttribute('aria-expanded', String(o)); });
+          p.closest('blockquote').after(b);
+        });
+        add();
+        document.addEventListener('click', (e) => { if (e.target.closest('[data-more], [data-f]')) setTimeout(add, 50); });
+      })();
     </script>
   </body>
 </html>

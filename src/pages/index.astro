@@ -59,7 +59,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
           <blockquote><p>{lead.text}</p></blockquote>
           <figcaption><strong>{displayName(lead)}</strong> · {placeLabel(lead)} · {lead.platform}</figcaption>
         </figure>
-        <div class="rev-grid">
+        <div class="rev-grid m-swipe">
           {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
         </div>
       </div>
@@ -111,7 +111,6 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   .rev-lead p { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; font-weight: 550; }
   .rev-lead figcaption { font-weight: 650; }
   .rev-lead strong { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; }
-  @media (max-width: 759px) { .rev-grid > :nth-child(n+3) { display: none; } }
   .rev-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .rev-inst { margin-top: 1rem; background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1rem; }
   .rev-inst p { font-size: var(--step-1); line-height: 1.5; max-width: 70ch; }

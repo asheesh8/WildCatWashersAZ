@@ -303,3 +303,43 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .chips a { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.1rem; border-radius: 999px; background: #fff; border: 2px solid var(--line); text-decoration: none; font-weight: 700; color: var(--navy); }
 .chips a:hover { border-color: var(--blue); background: var(--blue-50); }
 .chips svg { color: var(--blue-700); }
+
+/* ── Phone swipe rows ─────────────────────────────────────────────
+   Any grid marked .m-swipe becomes a sideways row of cards on phones,
+   so a stack of six tall cards takes one card's height instead of six.
+   Base.astro adds big prev/next buttons and a "2 of 6" count under it. */
+.swipe-ctrl { display: none; }
+@media (max-width: 759px) {
+  .m-swipe {
+    display: flex !important; gap: .9rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter)); padding: .2rem var(--gutter) .6rem;
+    scrollbar-width: none;
+  }
+  .m-swipe::-webkit-scrollbar { display: none; }
+  .m-swipe > * { flex: 0 0 86%; scroll-snap-align: start; min-width: 0; }
+  .js .m-swipe > .reveal, .js .m-swipe .reveal { opacity: 1; transform: none; }
+  .swipe-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
+  .swipe-ctrl button {
+    width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center;
+    border: 2px solid var(--line); background: #fff; color: var(--navy); font-size: 1.4rem; font-weight: 800;
+  }
+  .swipe-ctrl button:disabled { opacity: .35; }
+  .swipe-ctrl p { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); text-align: center; }
+  .bg-navy .swipe-ctrl p, .on-dark .swipe-ctrl p { color: #dbe6f5; }
+}
+
+/* Long reviews on phones: show the first lines with a "Read the whole review"
+   button (added in Base.astro) so one long quote doesn't fill three screens. */
+.more-btn { display: none; }
+@media (max-width: 759px) {
+  .js :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p:not(.open) {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden;
+  }
+  .more-btn {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none;
+    font-weight: 800; font-size: 1.05rem; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; justify-self: start;
+  }
+  .rev-lead .more-btn, .rev-inst .more-btn { color: inherit; }
+  .m-swipe { align-items: flex-start; }
+}

@@ -101,4 +101,11 @@ const badges = awards.filter((a) => a.badge);
   }
   .foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 2rem; padding: 1.6rem 0 2rem; font-size: 1rem; color: #9fb0cf; }
   .foot-legal a { color: inherit; }
+  @media (max-width: 699px) {
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
+    .foot-brand { grid-column: 1 / -1; }
+    .foot-col a { padding: .35rem 0; }
+    .foot-badges { margin-top: 2rem; }
+    .foot-badges img { height: 60px; }
+  }
 </style>
