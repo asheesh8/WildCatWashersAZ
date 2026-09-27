@@ -20,6 +20,8 @@ import { questionTitle, fitDescription } from '@/lib/seo';
 import DepthText from '@/components/DepthText.astro';
 import ReviewGrid from '@/components/ReviewGrid.astro';
 import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
+import { getImage } from 'astro:assets';
+import { img, hasImg } from '@/data/media';
 
 export function getStaticPaths() {
   return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
@@ -40,6 +42,13 @@ const related = g.related
 const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];
 const title = questionTitle(row.h1);
 const description = fitDescription(answer);
+/* Article rich results want an image and dates; the photo is the guide's service photo. */
+const photoKey = s && hasImg(s.image) ? s.image : undefined;
+const photo = photoKey ? await getImage({ src: img(photoKey), width: 1200, format: 'jpg', quality: 72 }) : undefined;
+const imageUrl = `${company.url}${photo ? photo.src : '/og-default.jpg'}`;
+const published = '2026-09-27';
+const modified = new Date().toISOString().slice(0, 10);
+const updatedLabel = new Date(`${modified}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 const article = {
   '@type': 'Article',
   headline: row.h1,
@@ -49,13 +58,17 @@ const article = {
   author: { '@id': `${company.url}/#business` },
   publisher: { '@id': `${company.url}/#business` },
   inLanguage: 'en-US',
+  image: [imageUrl],
+  datePublished: published,
+  dateModified: modified,
   ...(s ? { about: { '@type': 'Service', name: s.name, url: `${company.url}${serviceHref(s.slug)}` } } : {}),
 };
 ---
-<Base title={title} description={description} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
+<Base title={title} description={description} ogImage={imageUrl} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
   <div class="read-bar" aria-hidden="true"></div>
   <PageHero eyebrow={isGuide ? 'Guide' : 'Straight answer'} title={row.h1} crumbs={crumbs} rating={false} ctaHref={s ? `/quote/?service=${s.slug}` : '/quote/'}>
     <p class="answer"><strong>Short answer:</strong> {answer}</p>
+    <p class="updated">Updated <time datetime={modified}>{updatedLabel}</time></p>
   </PageHero>
 
   <article class="section">
@@ -113,6 +126,7 @@ const article = {
   }
   .answer { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; color: var(--navy); background: #fff; border-left: 6px solid var(--blue); border-radius: var(--radius); padding: 1.1rem 1.3rem; max-width: 60ch; }
   .answer strong { font-family: var(--font-display); }
+  .updated { margin-top: .8rem; font-size: 1rem; color: var(--ink-2); }
   .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
   .body section { display: grid; gap: .8rem; }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }

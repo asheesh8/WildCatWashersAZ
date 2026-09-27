@@ -8,6 +8,8 @@ import { company, services } from '@/data/business';
 import { towns } from '@/data/areas';
 import { faqs } from '@/data/faq';
 import { ownsFaq } from '@/lib/faqOwner';
+import { getImage } from 'astro:assets';
+import { img } from '@/data/media';
 import archivo from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
 import figtree from '@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url';
 
@@ -36,6 +38,8 @@ const {
 } = Astro.props;
 
 const site = company.url;
+/* Business image: a crew photo (the logo stays as logo). */
+const crewPhoto = await getImage({ src: img('crew-chamber-of-commerce'), width: 1200, format: 'jpg', quality: 72 });
 const canonicalUrl = new URL(canonical, site).href;
 const ogUrl = new URL(ogImage, site).href;
 
@@ -50,7 +54,7 @@ const localBusiness = {
   url: site,
   telephone: company.phoneRaw,
   email: company.email,
-  image: `${site}/brand/logo-stacked.webp`,
+  image: `${site}${crewPhoto.src}`,
   logo: `${site}/brand/logo-stacked.webp`,
   foundingDate: String(company.founded),
   address: {
