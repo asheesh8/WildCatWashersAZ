@@ -46,7 +46,7 @@ const place = {
   breadcrumbs={crumbs}
   schema={[{ '@type': 'WebPage', name: title, about: place, url: `https://wildcatwashers.com${url}` }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
   ctaArea={t.slug}
-  ctaPlace={t.name.replace(/ AZ$/, '')}
+  ctaPlace={t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, '')}
 >
   <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={t.photo} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />

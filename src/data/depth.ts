@@ -1,5 +1,5 @@
 /**
- * Depth copy from the research thread (/mnt/project-files/aeo-geo/depth-round-1..3.md),
+ * Depth copy from the research thread (/mnt/project-files/aeo-geo/depth-round-1..4.md),
  * keyed by page URL. Templates read it when present:
  * - answer: the 40–60 word direct answer, shown first under the H1 (it replaces the old lead in that slot).
  * - sections: short local sections. Links are written [label](/path/) and render as links
@@ -32,7 +32,7 @@ export type Depth = {
 /** FAQ shown on every window × town page, linked to its owner (no schema here). */
 const windowFaqs = [25, 34, 159, 187];
 const threeAYear = (club = true) =>
-  `Right after summer and monsoon season, around the holidays, and in spring. That spacing stops mineral buildup before it can etch the glass.${club ? ' The [Wildcat Club](/wildcat-club/) books all three visits for you.' : ''}`;
+  `Right after summer and monsoon season, around the holidays, and in spring. That spacing stops mineral buildup before it can etch the glass.${club ? ' The [Wildcat Club](/wildcat-club/) books all three visits for you, and one-time cleans are always available.' : ''}`;
 
 export const depth: Record<string, Depth> = {
   /* ============================== Round 1 ============================== */
@@ -44,7 +44,7 @@ export const depth: Record<string, Depth> = {
     heading: 'Green Valley, up close',
     sections: [
       { h: 'Why Green Valley glass gets dirty faster', p: 'Desert dust never really stops here, and the water is mineral heavy. Mining nearby adds to the dust in the air, so windows and solar panels in Green Valley collect more than homes in central Tucson. Rain doesn’t fix it either: it [moves dust around on panels rather than washing it off](/guides/does-rain-clean-solar-panels/).' },
-      { h: 'Here all year, or here for the season', p: 'Seasonal owners usually have us come right when they arrive, so the house is ready the day they get back. Tell us your arrival date and we’ll schedule it; you don’t need to be home. Year-round residents get the same three-a-year rhythm, and the [Wildcat Club](/wildcat-club/) books it for you.' },
+      { h: 'Here all year, or here for the season', p: 'Seasonal owners usually have us come right when they arrive, so the house is ready the day they get back. Tell us your arrival date and we’ll schedule it; you don’t need to be home. Year-round residents get the same three-a-year rhythm we recommend. The [Wildcat Club](/wildcat-club/) can book it for you, and one-time cleans are always available.' },
       { h: 'Giving back here first', p: 'Our first [Wash It Forward](/wash-it-forward/) was here: we cleaned every window at the Santa Rita Fire Department in Green Valley at no charge. See [all our awards](/awards/).' },
       { h: 'Commercial and senior living', p: 'We clean for [senior living communities](/who-we-help/senior-living/) and businesses in Green Valley as well as homes.', q: { text: arroyoGardens.quote, by: `${arroyoGardens.name}, ${arroyoGardens.role}` } },
     ],
@@ -191,7 +191,7 @@ export const depth: Record<string, Depth> = {
     sections: [
       { h: 'The three visits in the calendar', p: 'After monsoon season, when the storms leave the heaviest dirt. Around the holidays, when guests arrive and the natural interval comes up. In spring, when pollen lands on top of the dust. Dust and minerals build up all year, so the seasons are extra reasons, not the only ones, and all three visits apply to every home.' },
       { h: 'Seasonal residents', p: 'Schedule around your arrival. Most seasonal owners have us come right when they get back, so the house is clean the day they arrive.' },
-      { h: 'Let the Club keep track', p: 'The [Wildcat Club](/wildcat-club/) is three visits a year, scheduled for you with reminders, plus 10 percent off added services.' },
+      { h: 'Let the Club keep track', p: 'The [Wildcat Club](/wildcat-club/) is three visits a year, scheduled for you with reminders, plus 10 percent off added services. It’s never required: one-time cleans are always available.' },
     ],
     faq: [159, 160, 161, 209, 167],
   },
@@ -450,7 +450,7 @@ export const depth: Record<string, Depth> = {
       'Yes, Wildcat Washers serves SaddleBrooke One, the original HOA on the south side, along with SaddleBrooke Two, The Preserve and SaddleBrooke Ranch. We hand-clean glass, frames, sills, tracks and screens for homeowners. We also clean clubhouses and common areas on a recurring schedule, and HOA group work gets a custom quote.',
     heading: 'For SaddleBrooke One homeowners and the HOA',
     sections: [
-      { h: 'For homeowners', p: 'The 5-in-1 Deep Clean, three times a year. [Wildcat Club](/wildcat-club/) members get all three visits scheduled automatically. Next door, see [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/).' },
+      { h: 'For homeowners', p: 'We recommend the 5-in-1 Deep Clean three times a year. [Wildcat Club](/wildcat-club/) members get all three visits scheduled automatically, and one-time cleans are always available. Next door, see [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/).' },
       { h: 'For the HOA board', p: 'Clubhouses and common areas can go on a recurring schedule, and group work gets its own custom quote. See [HOA and community work](/who-we-help/hoas-communities/).' },
       { h: 'Several services, one visit', p: 'Booking more than one service at once saves a trip, and that shows up in the price. Club members also get 10 percent off added services.' },
       { h: 'Tell a neighbor', p: 'If a neighbor books because of you, our [referral program](/referrals/) thanks you both. Send it through your referral text or email link before their service.' },
@@ -629,6 +629,228 @@ export const depth: Record<string, Depth> = {
       { h: 'Solar screens off and back on', p: 'If your windows have solar screens, we take them off, clean the glass behind them and put them back. We can also wash the screens while they’re off. Need new ones? See [solar screens in the Catalina Foothills](/services/solar-screens/catalina-foothills/).' },
     ],
     faq: [31],
+  },
+  /* ============================== Round 4 ============================== */
+  '/areas/green-valley/canoa-ranch/': {
+    title: 'Window Cleaning in Canoa Ranch, Green Valley',
+    meta: 'Window, screen and track cleaning for Canoa Ranch homes on the south end of Green Valley. Background-checked, uniformed crews. (520) 525-0084.',
+    answer:
+      'Yes. Canoa Ranch is a regular stop for Wildcat Washers, with customers throughout the community. We hand-clean glass, frames, sills, tracks and screens, with shoe covers on before we step inside. Our technicians wear uniforms and drive marked trucks, so you’ll know it’s us before we knock.',
+    heading: 'Living in Canoa Ranch',
+    sections: [
+      { h: 'Solar on the roof?', p: 'Rooftop panels collect the same dust as your glass, and rain won’t wash it off. Before and after photos come with every [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/), so you can see the difference on a roof you can’t see.' },
+      { h: 'Away part of the year?', p: 'Tell us your arrival date and the house can be done before you get back, with no need to be home. See how we work with [snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/). Sprinklers reaching the glass while you’re gone? [Here’s how to stop the spotting](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'It started at the door', p: 'One Canoa Ranch customer gave us a chance after we knocked.', q: { text: 'We usually don\'t hire anyone who just comes to the door. However, these young men were so polite and took pride in doing a great job for their customers. They had already washed some of our neighbors windows.', by: 'Peggy W., Canoa Ranch' } },
+    ],
+    proof: [23, 71],
+    quoted: [70],
+    faq: [93, 165, 136, 130, 52],
+  },
+
+  '/areas/oro-valley/rancho-vistoso/': {
+    title: 'Window and Exterior Cleaning in Rancho Vistoso, Oro Valley',
+    meta: 'Windows, solar panels, screens and pressure washing across Rancho Vistoso’s villages. Fully insured. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers handles windows, solar panels, screens and pressure washing throughout Rancho Vistoso, the master plan spanning the north end of Oro Valley. Whichever village you live in, you get the same 5-in-1 Deep Clean. We’re fully insured and will give you a certificate of insurance on request.',
+    heading: 'Across the villages of Rancho Vistoso',
+    sections: [
+      { h: 'The named neighborhoods inside it', p: '[Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/), [Stone Canyon](/areas/oro-valley/stone-canyon/) and [Vistoso Village](/areas/oro-valley/vistoso-village/) each have their own page. Every other village gets the same crews and the same visit.' },
+      { h: 'Golf-course sprinklers', p: 'Where course or yard irrigation reaches the glass, it dries into mineral spots. Adjust the heads if you can and skip the garden hose. Buildup caught early comes right off. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'Panels and patios too', p: 'We clean rooftop arrays with before and after photos on every [solar panel cleaning in Oro Valley](/services/solar-panel-cleaning/oro-valley/), and we [pressure wash patios and pool decks](/services/pressure-washing/patios-pool-decks/) with minimal chemicals.' },
+    ],
+    proof: [99],
+    faq: [99, 38, 132, 165, 126],
+  },
+
+  '/areas/oro-valley/sun-city-oro-valley/': {
+    title: 'Window Cleaning in Sun City Oro Valley',
+    meta: 'Window cleaning for Sun City Oro Valley homes. You pay only after the walkthrough, once you’re happy. Card on file if you’re away. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers works in Sun City Oro Valley regularly. You pay only after the work is done and we’ve walked it with you, once you’re happy. If you’re not home, we can keep a card on file and charge after service. Every window gets the full 5-in-1 Deep Clean.',
+    heading: 'Sun City Oro Valley, up close',
+    sections: [
+      { h: 'Part of Rancho Vistoso', p: 'Sun City Oro Valley sits inside [Rancho Vistoso](/areas/oro-valley/rancho-vistoso/), and we work across the whole master plan, [Vistoso Village](/areas/oro-valley/vistoso-village/) included.' },
+      { h: 'Hard water, caught early', p: 'Spotting that’s caught early comes right off, and we buff it away on every visit at no extra charge. Left long enough, it etches. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)' },
+      { h: 'Patios and pool decks', p: 'We [pressure wash patios and pool decks](/services/pressure-washing/patios-pool-decks/) with minimal chemicals, and we’re careful where the water goes.' },
+      { h: 'Three visits, or one', p: 'We recommend three cleanings a year, and the [Wildcat Club](/wildcat-club/) schedules them for you. It’s never required: one-time cleans are always available.' },
+    ],
+    proof: [105],
+    faq: [97, 35, 152, 78, 153],
+  },
+
+  '/areas/oro-valley/stone-canyon/': {
+    title: 'Window Cleaning in Stone Canyon, Oro Valley',
+    meta: 'Large, specialized glass in Stone Canyon, cleaned by background-checked technicians. Two-story and high glass handled safely. (520) 525-0084.',
+    answer:
+      'Yes. Stone Canyon has some of the biggest and most specialized glass in Oro Valley, and it’s the kind of work Wildcat Washers is built for. Every technician is background checked and trained before working at a customer’s home, and two-story glass is handled with proper equipment.',
+    heading: 'Big glass in Stone Canyon',
+    sections: [
+      { h: 'High and hard-to-reach glass', p: 'A water-fed pole with pure deionized water reaches high glass from the ground and dries spot-free. Where a ladder is the right tool, we use one safely. [Two-story window cleaning](/guides/two-story-window-cleaning/) · [Water-fed pole vs hand washing](/guides/water-fed-pole-vs-hand-washing/)' },
+      { h: 'White spots on big panes', p: 'Irrigation and rain dry into mineral spots, and large panes show every one. We buff them off on every visit at no extra charge. [What causes white spots on windows](/guides/what-causes-white-spots-on-windows-arizona/)' },
+      { h: 'Patios and pool decks', p: 'We [pressure wash patios and pool decks](/services/pressure-washing/patios-pool-decks/) too, quoted per job.' },
+    ],
+    proof: [100],
+    faq: [98, 13, 128, 135, 36],
+  },
+
+  '/areas/marana/the-highlands-at-dove-mountain/': {
+    title: 'Window Cleaning, The Highlands at Dove Mountain',
+    meta: 'Window cleaning for The Highlands at Dove Mountain. Nothing to prepare: we move the furniture and put it back. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers cleans windows throughout Dove Mountain, including The Highlands, the gated 55+ golf community at its entrance. There’s nothing to prepare: we move furniture and put it back exactly where it was. Look for verifiable reviews, insurance and a marked truck, and we check every box.',
+    heading: 'Working in The Highlands',
+    sections: [
+      { h: 'Sprinklers and white spots', p: 'Where irrigation reaches the glass, mineral-heavy water dries into white spots, and deposits left long enough etch. Adjust the heads if you can, and skip the hose. [What causes white spots on windows](/guides/what-causes-white-spots-on-windows-arizona/)' },
+      { h: 'The rest of Dove Mountain', p: 'We work across [Dove Mountain](/areas/marana/dove-mountain/), from [Del Webb at Dove Mountain](/areas/marana/del-webb-at-dove-mountain/) to [Canyon Pass](/areas/marana/canyon-pass/). See all of [Marana](/areas/marana/).' },
+    ],
+    // No Highlands review on record: R115 is labeled Marana.
+    proof: [115],
+    faq: [105, 36, 146, 124, 37],
+  },
+
+  '/areas/saddlebrooke/saddlebrooke-ranch/': {
+    title: 'Window Cleaning in SaddleBrooke Ranch',
+    meta: 'Window, screen and track cleaning for SaddleBrooke Ranch homes, including first cleans on new builds. (520) 525-0084.',
+    answer:
+      'Yes. SaddleBrooke Ranch is a regular stop for Wildcat Washers. New homes are still being built there, and we handle builder dust, debris and construction cleanup on glass. Stubborn paint or stucco overspray usually comes off with steel wool or a scraper. Every visit covers glass, frames, sills, tracks and screens.',
+    heading: 'Living in SaddleBrooke Ranch',
+    sections: [
+      { h: 'Solar screens on the windows?', p: 'We take them off, clean the glass behind them and put them back, and we can wash the screens while they’re off. [Should solar screens come off for window cleaning?](/guides/remove-solar-screens-before-window-cleaning/)' },
+      { h: 'Next door in SaddleBrooke', p: 'We work all over [SaddleBrooke](/areas/saddlebrooke/) too. [Window cleaning in SaddleBrooke](/services/window-cleaning/saddlebrooke/) covers skylights, counted as extra panes. Builders and new owners, see [new construction](/who-we-help/builders-new-construction/).' },
+    ],
+    proof: [134],
+    faq: [109, 35, 129, 236, 47],
+  },
+
+  '/areas/tucson/sam-hughes/': {
+    title: 'Window Cleaning in Sam Hughes, Tucson',
+    meta: 'Divided-light and original windows in Sam Hughes, cleaned by hand per pane. Our office is next door in Blenman-Elm. (520) 525-0084.',
+    answer:
+      'Yes. Sam Hughes is one of Wildcat Washers’ central Tucson neighborhoods, and our office is right next door in Blenman-Elm. Original divided-light windows are welcome work here. Every visit covers the glass, frames, sills, tracks and screens, all cleaned by hand, and your quote is per pane, by phone.',
+    heading: 'Historic glass in Sam Hughes',
+    sections: [
+      { h: 'Every light is a pane', p: 'In a divided-light or French-pane window, each small light is its own pane, and each one is cleaned by hand. [Cleaning divided-light and French-pane windows](/guides/cleaning-divided-light-french-pane-windows/)' },
+      { h: 'Skylights', p: 'Counted as extra panes and done in the same visit. [Skylights and high windows](/guides/do-you-clean-skylights-and-high-windows/)' },
+    ],
+    // No Sam Hughes review on record: R089 is recorded as Central Tucson.
+    proof: [89],
+    faq: [114, 50, 29, 42],
+  },
+
+  '/areas/tucson/rita-ranch/': {
+    title: 'Window Cleaning in Rita Ranch and Civano, Tucson',
+    meta: 'Inside-and-out window cleaning for Rita Ranch and Civano family homes. Pet friendly, screens every time. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows in Rita Ranch and neighboring Civano as part of our southeast Tucson coverage. We recommend inside and out, the full 5-in-1 Deep Clean, and doing both in one visit costs less than two trips. Screens come out and get reconditioned every time, and our crews are great with pets.',
+    heading: 'Rita Ranch, up close',
+    sections: [
+      { h: 'Why the screens matter', p: 'A dirty screen in front of clean glass puts dust right back on it within a week. [Why windows get dirty again so fast](/guides/why-do-windows-get-dirty-again-so-fast/)' },
+      { h: 'Nose prints on the slider?', p: 'Inside glass is where pets leave their mark, which is one more reason to do inside and out. [Pet nose prints on sliding glass doors](/guides/pet-nose-prints-on-sliding-glass-doors/)' },
+      { h: 'Further southeast', p: 'Our coverage runs on into [Vail AZ](/areas/vail-az/), and across all of [Tucson](/areas/tucson/).' },
+    ],
+    // No Rita Ranch review on record: R086 is labeled Tucson.
+    proof: [86],
+    faq: [116, 28, 26, 8, 249],
+  },
+
+  '/services/solar-panel-cleaning/green-valley/': {
+    title: 'Solar Panel Cleaning in Green Valley AZ',
+    meta: 'Green Valley solar panels hand-washed with deionized water, never pressure washed, with before-and-after photos. Mine dust off. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans solar panels in Green Valley, where readers voted us Best Window Cleaners in the 2025 AZ-19 Readers’ Pick. Nearby mining adds to the dust here, and rain won’t wash it off. We hand-wash with deionized water and a soft brush, never a pressure washer, and photograph the panels before and after.',
+    heading: 'Mine dust and hard water on southern-metro panels',
+    sections: [
+      { h: 'Mine dust and hard water', p: 'The dust from nearby mining settles evenly across panels in Green Valley, Sahuarita and the southern metro, and hard water from rain or irrigation dries into mineral spots on top. More on [mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/), or next door, [solar panel cleaning in Sahuarita](/services/solar-panel-cleaning/sahuarita/).' },
+      { h: 'How often', p: 'One or two cleanings a year keep panels performing and protect the glass. If you’re away for the summer while the dust builds, a cleaning timed to your return has the array producing again the week you’re back.' },
+      { h: 'Warranty-safe methods', p: 'No harsh chemicals and no stiff brushes, which protects the panel surface and your manufacturer warranty.' },
+      { h: 'Birds under the array?', p: 'If pigeons have moved in under your panels, we [pigeon-proof the array](/services/solar-panel-pigeon-proofing/) with no drilling into the roof.' },
+      { h: 'Add it to a window visit', p: 'Panels can be done while we’re already there for the windows. [Wildcat Club](/wildcat-club/) members get 10 percent off added services, and one-time cleans are always available.' },
+    ],
+    proof: [69, 43],
+    faq: [51, 53, 54, 57],
+  },
+
+  '/services/solar-panel-cleaning/oro-valley/': {
+    title: 'Solar Panel Cleaning in Oro Valley AZ',
+    meta: 'Solar panel cleaning in Oro Valley with before-and-after photos on every job. No harsh chemicals, no pressure washing. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans solar panels across Oro Valley, one of our strongest markets. Desert dust, pollen and mineral residue build up constantly, and there’s rarely enough rain to clear it. We hand-wash with deionized water and a soft brush, never a pressure washer, and take before and after photos on every job.',
+    heading: 'Dust plus spring pollen',
+    sections: [
+      { h: 'Pollen on top of the dust', p: 'Spring pollen lands on top of the year-round dust, so an Oro Valley array can look hazy sooner than you’d expect.' },
+      { h: 'Rain makes it worse', p: 'Rain moves the film around, then dries into mineral spots on the glass. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+      { h: 'Once or twice a year', p: 'One or two cleanings a year keep most arrays performing, with no harsh chemicals and no stiff brushes to put the panel surface or your warranty at risk. [How often to clean solar panels](/guides/how-often-clean-solar-panels-tucson/)' },
+      { h: 'Solar screens too', p: 'We also custom build and install [solar screens in Oro Valley](/services/solar-screens/oro-valley/).' },
+    ],
+    proof: [108],
+    faq: [96, 51, 53, 54, 57],
+  },
+
+  '/services/solar-screens/green-valley/': {
+    title: 'Solar Screens in Green Valley AZ | Installed and Washed',
+    meta: 'Custom-built Phifer SunTex solar screens for Green Valley homes, plus rescreening and screen washing. Warranty included. (520) 525-0084.',
+    answer:
+      'Wildcat Washers custom measures, builds and installs solar screens for Green Valley homes, and repairs, rescreens and washes existing ones. SunTex 80 blocks 80 percent of the sun’s heat and glare, and SunTex 90 blocks up to 90 percent. Start with west-facing windows, then south. A warranty is included on solar screens.',
+    heading: 'Solar screens for Green Valley homes',
+    sections: [
+      { h: 'Already have screens?', p: 'We take them off, clean the glass behind them, and pressure wash the screens while they’re off. Faded or torn ones can often keep their frames with new mesh. See [repair and rescreening](/services/solar-screens/repair-rescreening/).' },
+      { h: 'Colors and daytime privacy', p: 'Black and beige are the most common colors, and beige is usually picked to match stucco. From outside, people can’t see in during the day. [80 or 90?](/guides/solar-screens-80-vs-90/)' },
+      { h: 'In an HOA?', p: 'Solar screens are a visible exterior change. If your home is in an HOA with architectural review, check with it before you order. [Which windows need solar screens?](/guides/which-windows-need-solar-screens/)' },
+    ],
+    proof: [19],
+    faq: [217, 219, 220, 222],
+  },
+
+  '/services/solar-screens/oro-valley/': {
+    title: 'Solar Screens in Oro Valley AZ | Custom Phifer SunTex',
+    meta: 'Solar screens custom measured for Oro Valley homes and view windows. SunTex 80 or 90, installed or rescreened. Warranty included. (520) 525-0084.',
+    answer:
+      'Wildcat Washers installs custom-measured Phifer SunTex solar screens in Oro Valley, and repairs and rescreens existing ones. If a window frames a Pusch Ridge view, SunTex 80 keeps a more open weave (about 25 percent openness) while blocking 80 percent of heat and glare. SunTex 90 blocks up to 90 percent.',
+    heading: 'West-facing glass and hot afternoon rooms',
+    sections: [
+      { h: 'West first', p: 'Afternoon sun hits west-facing glass nearly straight on during the hottest hours, so start there. You can choose the mesh window by window: 80 where the view matters most, 90 where the sun is harshest. [Can you see out of solar screens?](/guides/can-you-see-out-of-solar-screens/)' },
+      { h: 'UV and fading', p: 'SunTex 80 blocks about 75 percent of UV and SunTex 90 about 90 percent, which protects furniture and flooring from fading. [80 vs 90](/guides/solar-screens-80-vs-90/)' },
+      { h: 'Check your design guidelines', p: 'Solar screens change how the outside of a home looks. If your community has design guidelines or architectural review, check with it before you order.' },
+      { h: 'What the mesh is made of', p: 'GREENGUARD Gold certified, with Microban antimicrobial protection, and made in the USA. Worn screens can be [repaired and rescreened](/services/solar-screens/repair-rescreening/).' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served, and not a single customer review below five stars.' },
+    ],
+    faq: [96, 217, 219, 220, 222],
+  },
+
+  '/services/pressure-washing/green-valley/': {
+    title: 'Pressure Washing in Green Valley AZ | Patios, Arizona Rooms',
+    meta: 'Patios, pavers, Arizona rooms and driveways pressure washed in Green Valley. Pressure matched to the surface, landscaping protected. (520) 525-0084.',
+    answer:
+      'Wildcat Washers pressure washes patios, pavers, Arizona rooms and driveways in Green Valley. We match the pressure to the surface, protect stucco, paint, sills and landscaping, and keep chemical use to a minimum. We don’t soft wash. Where a surface needs it, we scrub a cleaning solution in by hand, then rinse.',
+    heading: 'Arizona rooms and patios',
+    sections: [
+      { h: 'Arizona rooms and screened porches', p: 'We scrub the screens with a brush and cleaning solution, pressure wash from the inside out to flush the dust, then from the outside in with a surface cleaner, and clean the floor. [Arizona room cleaning](/services/pressure-washing/arizona-rooms/)' },
+      { h: 'Patios, pavers and driveways', p: 'Done in the same visit: [patios and pool decks](/services/pressure-washing/patios-pool-decks/), walkways and [driveways](/services/pressure-washing/driveways-garage-floors/). We clean; we don’t seal or stain.' },
+      { h: 'How often', p: 'For most driveways, a couple of times a year at minimum keeps buildup from getting ahead of you. Patios and Arizona rooms go on whatever schedule the property needs. [How often to pressure wash a driveway](/guides/how-often-pressure-wash-driveway-arizona/)' },
+      { h: 'Add it to a window visit', p: 'Several services in one visit saves a trip, and that shows up in the price. [Wildcat Club](/wildcat-club/) members also get 10 percent off added services.' },
+    ],
+    proof: [65, 14],
+    faq: [71, 72, 79, 81],
+  },
+
+  '/guides/why-do-windows-look-worse-after-i-clean-them/': {
+    answer:
+      'Usually for two reasons. The cleaning solution dried in the Arizona heat before it could be squeegeed off, leaving streaks and haze. And the frames, sills, tracks and screens stayed dirty, so the next breeze blew their dust right back onto the clean glass. That’s why a professional clean covers every part of the window.',
+    sections: [
+      { h: 'If you’re doing it yourself', p: 'Getting glass truly streak-free in Arizona heat takes skill and speed, and the tracks and screens need cleaning too, or the dust comes right back. [Can I clean my own windows?](/guides/can-i-clean-my-own-windows/) · [Why do my windows streak?](/guides/why-do-my-windows-streak/)' },
+      { h: 'In Green Valley or Sahuarita?', p: 'Dust comes back faster there, because nearby mining adds to what’s in the air, so the screens and tracks matter even more. See [window cleaning in Green Valley](/services/window-cleaning/green-valley/).', q: { text: 'The whole house is brighter and lighter, and my wife and I were spared the onerous task of doing it ourselves', by: 'Peter C., Green Valley' } },
+    ],
+    faq: [33, 177, 178],
+  },
+
+  '/guides/what-causes-white-spots-on-windows-arizona/': {
+    answer:
+      'Hard water. Tucson’s water carries a lot of minerals, and when a drop dries on glass, the water evaporates and the minerals stay. Sprinklers, rain and above all rinsing windows with a hose leave them behind. Caught early, the spots buff right off. Left long enough, they etch into the glass for good.',
+    sections: [
+      { h: 'Only 0000 steel wool', p: 'Buildup comes off with 0000-grade steel wool, and we include it in every clean. Coarser grades scratch the glass, and a scratch is as permanent as etching. [Spots vs etching](/guides/is-hard-water-damage-on-glass-permanent/)' },
+      { h: 'How often to clean', p: 'For windows, we recommend three cleanings a year: right after summer and monsoon season, around the holidays, and in spring. That takes deposits off before they etch. One-time cleans are always available too. [How often to clean windows in Tucson](/guides/how-often-clean-windows-tucson/)' },
+    ],
+    faq: [36, 34, 35, 37, 55],
   },
 };
 

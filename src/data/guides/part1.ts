@@ -158,7 +158,7 @@ export const guides: Guide[] = [
         h: 'Ways the total comes down',
         p: [
           "Doing the inside and outside in one visit is more efficient than two separate trips, and that shows up in the price. The same goes for adding other services to a window cleaning visit. One trip costs less than three, and bundle and large-home discounts are applied case by case.",
-          "Senior and veteran discounts are available. Wildcat Club members, who get window cleaning three times a year, also get 10 percent off every added service, from solar panel cleaning to pressure washing. There's no trip charge anywhere in the service area.",
+          "Senior and veteran discounts are available. Wildcat Club members, who get window cleaning three times a year, also get 10 percent off every added service, from solar panel cleaning to pressure washing. The Club is never required; one-time cleans are always available. There's no trip charge anywhere in the service area.",
         ],
       },
       {
@@ -214,7 +214,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers can bundle several services into one Wildcat Club membership, with each on its own schedule: windows three times a year, solar panels once or twice, pressure washing as often as your property needs. Scheduling is automatic, with reminders before each visit, and members get 10 percent off added services.",
+      "Wildcat Washers can bundle several services into one Wildcat Club membership, with each on its own schedule: windows three times a year, solar panels once or twice, pressure washing as often as your property needs. Scheduling is automatic, with reminders before each visit, and members get 10 percent off added services. One-time cleans are always available too.",
     related: [
       '/guides/best-time-of-year-to-clean-windows-tucson/',
       '/guides/clean-windows-before-or-after-monsoon/',
@@ -548,7 +548,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "During the pre-service inspection, Wildcat Washers points out any etching, scratches or failed seals, so you never learn about them after the crew leaves. Deposits that are still removable come off during the clean, at no added cost. The Wildcat Club then keeps you on three visits a year, the frequency built for Tucson to stop buildup before it becomes damage.",
+      "During the pre-service inspection, Wildcat Washers points out any etching, scratches or failed seals, so you never learn about them after the crew leaves. Deposits that are still removable come off during the clean, at no added cost. The Wildcat Club then keeps you on three visits a year, the frequency built for Tucson to stop buildup before it becomes damage. One-time cleans are always available too.",
     related: [
       '/guides/can-hard-water-stains-be-removed-from-windows/',
       '/guides/window-replacement-vs-cleaning-cost/',
@@ -864,7 +864,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "The Wildcat Washers 5-in-1 Deep Clean takes dust out of all five parts, so none of it is waiting to resettle. Customers often tell us they can't even tell it rained after a light shower. Add the 14-Day Spotless Guarantee and three visits a year through the Wildcat Club, and your windows stay clear between visits.",
+      "The Wildcat Washers 5-in-1 Deep Clean takes dust out of all five parts, so none of it is waiting to resettle. Customers often tell us they can't even tell it rained after a light shower. Add the 14-Day Spotless Guarantee and three visits a year through the Wildcat Club, and your windows stay clear between visits. One-time cleans are always available too.",
     related: [
       '/guides/how-to-keep-windows-clean-longer/',
       '/guides/why-do-windows-look-worse-after-i-clean-them/',

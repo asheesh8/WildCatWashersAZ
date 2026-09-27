@@ -64,7 +64,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers removes mineral buildup on every visit, so hard water never becomes an add-on fee. Our Wildcat Club schedules three cleanings a year so deposits never sit long enough to etch. Pricing is per pane, and a quick phone call is all it takes: we count your panes with you and give you the number on the spot.",
+    doAbout: "Wildcat Washers removes mineral buildup on every visit, so hard water never becomes an add-on fee. Our Wildcat Club schedules three cleanings a year so deposits never sit long enough to etch, and one-time cleans are always available too. Pricing is per pane, and a quick phone call is all it takes: we count your panes with you and give you the number on the spot.",
     related: [
       "/guides/is-hard-water-damage-on-glass-permanent/",
       "/guides/hard-water-and-your-windows/",
@@ -137,7 +137,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Our technicians vacuum the tracks first so desert grit is removed instead of pushed around, then hand wash every part of the window and recondition the screens before they go back in. For homes with heavy exposure, three visits a year through the Wildcat Club keeps the buildup in check. Tell us about your lot when you call.",
+    doAbout: "Our technicians vacuum the tracks first so desert grit is removed instead of pushed around, then hand wash every part of the window and recondition the screens before they go back in. For homes with heavy exposure, three visits a year keeps the buildup in check. The Wildcat Club can schedule them, and one-time cleans are always available too. Tell us about your lot when you call.",
     related: [
       "/guides/why-do-windows-get-dirty-again-so-fast/",
       "/guides/how-often-clean-windows-tucson/",

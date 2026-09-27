@@ -736,7 +736,7 @@ export const guides: Guide[] = [
       {
         h: 'Ways the price can come down',
         p: [
-          "Doing inside and outside in the same visit is more efficient than two trips, and that shows up in your quote. Doing several services in one visit works the same way. We also offer senior and veteran discounts. Wildcat Club members, who get cleanings three times a year, receive 10 percent off any added services.",
+          "Doing inside and outside in the same visit is more efficient than two trips, and that shows up in your quote. Doing several services in one visit works the same way. We also offer senior and veteran discounts. Wildcat Club members, who get cleanings three times a year, receive 10 percent off any added services. The Club is never required; one-time cleans are always available.",
           "There's no trip charge anywhere in our service area, whether you're in central Tucson, Oro Valley, Vail AZ or Green Valley.",
         ],
       },

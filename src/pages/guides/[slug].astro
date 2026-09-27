@@ -71,6 +71,7 @@ const article = {
         <section>
           <h2 class="h3">{sec.h}</h2>
           <p><DepthText text={sec.p} /></p>
+          {sec.q && <blockquote class="gq"><p>“{sec.q.text}”</p><footer>{sec.q.by}</footer></blockquote>}
         </section>
       ))}
       {proof.length > 0 && (
@@ -115,6 +116,10 @@ const article = {
   .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
   .body section { display: grid; gap: .8rem; }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+  /* A review excerpt quoted in a depth section (depth.ts `q`), exact words, never the full card. */
+  .gq { margin: .2rem 0 0; padding: .9rem 1rem; border-left: 4px solid var(--blue); background: var(--blue-50); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 66ch; }
+  .body .gq p { color: var(--navy); font-style: italic; }
+  .gq footer { margin-top: .4rem; font-size: 1rem; font-weight: 700; color: var(--ink-3); }
   .do { background: var(--blue-50); border-radius: var(--radius-lg); padding: clamp(1.3rem, 1rem + 1.5vw, 2rem); display: grid; gap: .8rem; }
   .do p:not(.eyebrow) { font-size: 1.14rem; color: var(--navy); }
   .do-row { display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; align-items: center; }

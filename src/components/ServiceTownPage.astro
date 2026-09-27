@@ -70,7 +70,7 @@ const extraGuides = s.slug === 'window-cleaning' ? ['/guides/can-i-clean-my-own-
 const answers = [...new Set([...(ls.guides ?? []), ...extraGuides])].map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
-const short = t.name.replace(/ AZ$/, '');
+const short = t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, ''); // always "Vail AZ", never bare Vail
 const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
 /* Keep the angle's proper nouns (Pusch Ridge, Arizona rooms): only the first letter drops to lower case. */
 const properStart = /^(Arizona|Pusch|Tucson|Santa|Catalina|Sonoran|Tortolita|Rincon|Tanque|Oro|Green|HOA)\b/.test(ls.angle.title);

@@ -219,7 +219,7 @@ export const services: Service[] = [
       'Fogging between double panes is a failed seal. Nobody can clean inside a sealed unit; the glass needs replacing.',
     ],
     pricing: 'Priced per pane. Glass size, access and how dirty the glass is all factor in. We count panes with you over the phone and quote in a few minutes, no site visit needed.',
-    frequency: 'Three times a year is the right frequency for Tucson. It keeps glass clear year-round and stops mineral buildup before it can etch. It’s exactly what the Wildcat Club is built around.',
+    frequency: 'Three times a year is the right frequency for Tucson. It keeps glass clear year-round and stops mineral buildup before it can etch. It’s exactly what the Wildcat Club is built around, and one-time cleans are always available too.',
     duration: '1 to 5 hours depending on the home. One customer’s 37-window house took two technicians about 2 hours.',
     faq: [25, 15, 34, 39, 48, 144, 159],
     reviewTags: ['Window Cleaning', 'Window Washing', 'Windows', 'Track Cleaning'],
