@@ -19,7 +19,7 @@ import { planFor } from '@/data/plan';
 import { townReviews, areaFaqs, namesFor, type ReviewSet } from '@/lib/local';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
-import { pools, pickFrom } from '@/data/media';
+import { heroPools, rotateFrom } from '@/data/media';
 import { faqRefs } from '@/data/faq';
 import { ownerLinks } from '@/lib/faqOwner';
 import { guideByUrl } from '@/data/guides';
@@ -45,7 +45,9 @@ const set: ReviewSet = localForService.length
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
 const placeFaqs = faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122);
 const faqLinks = ownerLinks(placeFaqs, url);
-const photo = s.slug === 'window-cleaning' ? pickFrom(pools.windowAction, t.slug) : s.image;
+const photo = heroPools[s.slug]
+  ? rotateFrom(heroPools[s.slug].filter((k) => k !== s.image), localServices.filter((x) => x.service === s.slug).map((x) => x.town), t.slug)
+  : s.image;
 const kids = childrenOf(t.slug);
 const answers = (ls.guides ?? []).map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);

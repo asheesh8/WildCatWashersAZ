@@ -20,10 +20,16 @@ import type { ReviewSet } from '@/lib/local';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { ownerLinks } from '@/lib/faqOwner';
 import { questionTitle, fitDescription } from '@/lib/seo';
+import { heroPools, rotateFrom } from '@/data/media';
+import { landings } from '@/data/landing';
 
 export interface Props { l: Landing; crumbs: { name: string; href: string }[]; eyebrow: string; image?: string; quote?: string }
 const { l, crumbs, eyebrow, image, quote } = Astro.props;
 const row = planFor(l.url)!;
+/* Sibling landing pages rotate through their family's photos. */
+const family = l.url.startsWith('/commercial/') && l.service !== 'solar-panel-cleaning' ? 'commercial' : l.service;
+const siblings = landings.filter((x) => (x.url.startsWith('/commercial/') && x.service !== 'solar-panel-cleaning' ? 'commercial' : x.service) === family).map((x) => x.url);
+const heroImg = image ?? (heroPools[family] ? rotateFrom(heroPools[family], siblings, l.url) : undefined);
 const s = serviceBySlug[l.service];
 const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, l.url);
@@ -34,7 +40,7 @@ const description = fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[svc, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s.slug}>
-  <PageHero eyebrow={eyebrow} title={row.h1} lede={l.lede} crumbs={crumbs} image={image ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
+  <PageHero eyebrow={eyebrow} title={row.h1} lede={l.lede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
   <TrustRow />
 
   <section class="section">

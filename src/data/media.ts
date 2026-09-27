@@ -204,6 +204,22 @@ export const pools = {
   ],
 } as const;
 
+/** Hero photo pools per service, for rotating sibling pages (mobile review 1, item 6). */
+export const heroPools: Record<string, readonly string[]> = {
+  'window-cleaning': [...pools.windowAction, ...pools.windowResult],
+  'solar-panel-cleaning': pools.solar,
+  'solar-screens': ['solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screen-large-window', 'solar-screens-stucco-close', 'solar-screen-side-yard', 'solar-screens-backyard', 'sun-screens-installed-1', 'sun-screens-installed-2', 'sun-screens-tan-house'],
+  'pressure-washing': ['pressure-wash-flagstone-split', ...pools.pressure, 'pressure-washing-solar-screen'],
+  commercial: ['fire-station-windows', 'crew-fire-station-commercial', 'two-techs-tall-glass', 'tech-waterfed-pole-stucco', 'tech-waterfed-pole-exterior', 'tech-cleaning-solar-commercial-roof', 'two-techs-front-window', 'tech-arched-door-ladder'],
+};
+
+/** The nth sibling gets the nth photo, so pages in one family don't open on the same image. */
+export function rotateFrom(pool: readonly string[], siblings: readonly string[], key: string): string {
+  const usable = pool.filter((k) => hasImg(k as MediaKey));
+  const i = Math.max(0, siblings.indexOf(key));
+  return usable[i % usable.length];
+}
+
 /** Deterministic pick so a given page always shows the same photo between builds. */
 export function pickFrom(pool: readonly string[], seed: string): string {
   let h = 0;

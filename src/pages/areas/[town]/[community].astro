@@ -22,6 +22,7 @@ import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
 import { company, telHref } from '@/data/business';
 import { fitTitle, fitDescription } from '@/lib/seo';
+import { pools, hasImg } from '@/data/media';
 
 export function getStaticPaths() {
   return communities.map((c) => ({ params: { town: c.parent, community: c.slug }, props: { c } }));
@@ -44,6 +45,16 @@ const seniorFaqs: Faq[] = [];
 const faqLinks = ownerLinks(refs, url);
 
 const siblings = childrenOf(town.slug).filter((s) => s.slug !== c.slug);
+/* A town and its community pages shouldn't open on the same photo: walk the
+   family in order and swap any repeat for the next unused shot. */
+const family = communities.filter((x) => x.parent === town.slug);
+const taken = new Set([town.photo]);
+const heroFor = new Map<string, string>();
+for (const x of family) {
+  const pick = !taken.has(x.photo) ? x.photo : [...pools.windowResult, ...pools.windowAction].find((k) => hasImg(k) && !taken.has(k)) ?? x.photo;
+  taken.add(pick); heroFor.set(x.slug, pick);
+}
+const hero = heroFor.get(c.slug) ?? c.photo;
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: townName, href: townHref(town.slug) }, { name: c.name, href: url }];
 const townWindow = windowTownSlugs.includes(town.slug) ? `/services/window-cleaning/${town.slug}/` : '/services/window-cleaning/';
 const hoaWord = c.hoa ? ' HOA' : '';
@@ -62,7 +73,7 @@ const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(
   ctaPlace={c.name}
   noindex={c.pending}
 >
-  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={c.lead} crumbs={crumbs} image={c.photo} ctaHref={`/quote/?area=${town.slug}`} />
+  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={c.lead} crumbs={crumbs} image={hero} ctaHref={`/quote/?area=${town.slug}`} />
   <TrustRow />
 
   <section class="section">

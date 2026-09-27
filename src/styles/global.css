@@ -12,7 +12,7 @@
   /* Brand (C§6) */
   --blue: #36c6f4;
   --blue-600: #12a8d8;
-  --blue-700: #0b7fa6;
+  --blue-700: #0a6a8e;
   --blue-50: #eaf8fe;
   --blue-100: #d3f1fc;
   --blue-200: #a9e5f9;
@@ -257,17 +257,20 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .js .reveal:nth-child(2) { transition-delay: .06s; }
 .js .reveal:nth-child(3) { transition-delay: .12s; }
 .js .reveal:nth-child(4) { transition-delay: .18s; }
-.sweep { position: relative; overflow-x: clip; }
-.js .sweep::after {
-  content: ''; position: absolute; inset: -6% -4%;
-  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 85%) 48%, rgb(54 198 244 / 35%) 52%, transparent 70%);
-  transform: translateX(-110%); pointer-events: none; mix-blend-mode: screen;
+.sweep { position: relative; }
+/* The sheen is painted into the letters themselves (background-clip: text),
+   so it never shows a box edge. Headings with coloured spans keep their
+   colours and skip it. */
+.js .sweep:not(:has(.accent, .outline, .red-dot, .script)) {
+  background-image: linear-gradient(100deg, currentColor 44%, var(--blue) 50%, #fff 51%, var(--blue) 52%, currentColor 58%);
+  background-size: 260% 100%; background-position: 100% 0; background-repeat: no-repeat;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
-.js .sweep.in::after { animation: sweep 1.3s var(--ease) .15s both; }
-@keyframes sweep { to { transform: translateX(110%); } }
+.js .sweep.in:not(:has(.accent, .outline, .red-dot, .script)) { animation: sweep 1.4s var(--ease) .15s both; }
+@keyframes sweep { from { background-position: 100% 0; } to { background-position: 0 0; } }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .js .sweep::after { display: none; }
+  .js .sweep, .js .sweep.in { animation: none !important; background-image: none !important; -webkit-text-fill-color: currentColor !important; }
   .btn, .btn .chip { transition: none; }
 }
 
@@ -410,3 +413,12 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
   .chips a:hover, a.card:hover { transform: none; }
   details::details-content { transition: none; }
 }
+
+/* ── Tap targets ──────────────────────────────────────────────────
+   Every standalone link or button is at least 44px tall (WCAG 2.5.8,
+   and kinder to older fingers), grown with padding, not bigger type. */
+.text-link, .phone-cta, .faq-more, .q-more, .town-name, .hero-call, .foot-phone { min-height: 44px; }
+.faq-more, .q-more, .hero-call { display: inline-flex; align-items: center; }
+.phone-link { min-height: 48px; }
+.subs a { min-height: 44px; display: inline-flex !important; align-items: center; }
+.foot-col a, .foot-facts a { min-height: 44px; display: inline-flex !important; align-items: center; }

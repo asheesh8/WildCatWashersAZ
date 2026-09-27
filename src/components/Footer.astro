@@ -26,24 +26,29 @@ const badges = awards.filter((a) => a.badge);
     </div>
 
     <nav class="foot-col" aria-label="Services">
-      <p class="foot-head">Services</p>
+      <details open data-foot>
+      <summary class="foot-head">Services<Icon name="plus" size={20} class="foot-plus" /></summary>
       <ul>
         {services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.name}</a></li>)}
         <li><a href="/wildcat-club/">The Wildcat Club</a></li>
         <li><a href="/commercial/">Commercial</a></li>
       </ul>
+      </details>
     </nav>
 
     <nav class="foot-col" aria-label="Areas we serve">
-      <p class="foot-head">Areas</p>
+      <details open data-foot>
+      <summary class="foot-head">Areas<Icon name="plus" size={20} class="foot-plus" /></summary>
       <ul>
         {topTowns.map((t) => <li><a href={townHref(t.slug)}>{t.name}</a></li>)}
         <li><a href="/areas/">All areas</a></li>
       </ul>
+      </details>
     </nav>
 
     <nav class="foot-col" aria-label="Company">
-      <p class="foot-head">Company</p>
+      <details open data-foot>
+      <summary class="foot-head">Company<Icon name="plus" size={20} class="foot-plus" /></summary>
       <ul>
         <li><a href="/about/">About us</a></li>
         <li><a href="/reviews/">Reviews</a></li>
@@ -54,8 +59,15 @@ const badges = awards.filter((a) => a.badge);
         <li><a href="/faq/">FAQ</a></li>
         <li><a href={cta.quoteHref}>Free quote</a></li>
       </ul>
+      </details>
     </nav>
   </div>
+
+  <script is:inline>
+    // Phones: the three link lists fold into tap-to-open rows, so the footer
+    // isn't two and a half screens long. Without JS they stay open.
+    if (matchMedia('(max-width: 699px)').matches) document.querySelectorAll('[data-foot]').forEach((d) => { d.open = false; });
+  </script>
 
   <div class="wrap foot-badges">
     {badges.map((a) => <img src={a.badge!} alt={`${a.issuer} ${a.title}${a.year ? ` ${a.year}` : ''}`} loading="lazy" height="72" width="72" />)}
@@ -86,7 +98,10 @@ const badges = awards.filter((a) => a.badge);
   .foot-facts li { display: flex; gap: .7rem; align-items: flex-start; }
   .foot-facts :global(svg) { color: var(--blue); flex: none; margin-top: .25rem; }
   .foot-facts a { color: inherit; }
-  .foot-head { font-family: var(--font-display); font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; margin-bottom: .8rem; }
+  .foot-head { font-family: var(--font-display); font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; margin-bottom: .8rem; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .foot-head::-webkit-details-marker { display: none; }
+  .foot-head :global(.foot-plus) { display: none; }
+  @media (min-width: 700px) { .foot-head { pointer-events: none; } }
   .foot-col ul { list-style: none; padding: 0; display: grid; gap: .15rem; }
   .foot-col a { color: #cfdaf0; text-decoration: none; display: inline-block; padding: .3rem 0; }
   .foot-col a { transition: color .2s, transform .25s var(--ease); }
@@ -95,7 +110,7 @@ const badges = awards.filter((a) => a.badge);
   .foot-badges img:hover { transform: translateY(-3px) rotate(-2deg); }
   @media (prefers-reduced-motion: reduce) { .foot-col a, .foot-badges img { transition: none; transform: none !important; } }
   .foot-badges { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgb(255 255 255 / 12%); }
-  .foot-badges img { height: 72px; width: auto; background: #fff; border-radius: 14px; padding: 6px; }
+  .foot-badges img { height: 72px; width: auto; object-fit: contain; background: #fff; border-radius: 14px; padding: 6px; }
   .wordmark {
     width: min(100% - 2 * var(--gutter), 1500px); margin: clamp(2.5rem, 2rem + 3vw, 5rem) auto 0;
     aspect-ratio: 2769 / 802;
@@ -106,10 +121,16 @@ const badges = awards.filter((a) => a.badge);
   .foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 2rem; padding: 1.6rem 0 2rem; font-size: 1rem; color: #9fb0cf; }
   .foot-legal a { color: inherit; }
   @media (max-width: 699px) {
-    .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
-    .foot-brand { grid-column: 1 / -1; }
-    .foot-col a { padding: .35rem 0; }
+    .foot-grid { grid-template-columns: 1fr; gap: 0; }
+    .foot-brand { margin-bottom: 1.6rem; }
+    .foot-col { border-top: 1px solid rgb(255 255 255 / 14%); }
+    .foot-col:last-child { border-bottom: 1px solid rgb(255 255 255 / 14%); }
+    .foot-head { min-height: 56px; margin: 0; cursor: pointer; font-size: 1.05rem; }
+    .foot-head :global(.foot-plus) { display: block; color: var(--blue); transition: rotate .25s var(--ease); }
+    details[open] > .foot-head :global(.foot-plus) { rotate: 45deg; }
+    .foot-col ul { grid-template-columns: 1fr 1fr; gap: 0 1rem; padding-bottom: 1rem; }
     .foot-badges { margin-top: 2rem; }
-    .foot-badges img { height: 60px; }
+    .foot-badges { flex-wrap: nowrap; gap: .5rem; }
+    .foot-badges img { height: auto; width: calc((100% - 2rem) / 5); min-width: 0; aspect-ratio: 1; padding: 4px; border-radius: 10px; }
   }
 </style>
