@@ -1,0 +1,12 @@
+---
+import LandingPage from '@/components/LandingPage.astro';
+import { landingsUnder } from '@/data/landing';
+import { planFor } from '@/data/plan';
+import type { Landing } from '@/data/landing/types';
+export function getStaticPaths() {
+  return landingsUnder('/who-we-help/').map((l) => ({ params: { audience: l.url.split('/')[2] }, props: { l } }));
+}
+const { l } = Astro.props as { l: Landing };
+const crumbs = [{ name: 'Who we help', href: '/who-we-help/' }, { name: planFor(l.url)!.h1, href: l.url }];
+---
+<LandingPage l={l} crumbs={crumbs} eyebrow="Who we help" />

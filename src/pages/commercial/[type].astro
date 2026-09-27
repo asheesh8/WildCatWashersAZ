@@ -1,0 +1,12 @@
+---
+import LandingPage from '@/components/LandingPage.astro';
+import { landingsUnder } from '@/data/landing';
+import { planFor } from '@/data/plan';
+import type { Landing } from '@/data/landing/types';
+export function getStaticPaths() {
+  return landingsUnder('/commercial/').map((l) => ({ params: { type: l.url.split('/')[2] }, props: { l } }));
+}
+const { l } = Astro.props as { l: Landing };
+const crumbs = [{ name: 'Commercial', href: '/commercial/' }, { name: planFor(l.url)!.h1, href: l.url }];
+---
+<LandingPage l={l} crumbs={crumbs} eyebrow="Commercial" image={l.service === 'solar-panel-cleaning' ? undefined : 'fire-station-windows'} quote="/quote/?service=commercial" />

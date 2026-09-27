@@ -6,6 +6,8 @@
  */
 import { plan } from '@/data/plan';
 import type { Faq } from '@/data/faq';
+import { guideByUrl } from '@/data/guides';
+import { landings } from '@/data/landing';
 
 const owner = new Map<number, string>();
 for (const row of plan) {
@@ -13,8 +15,10 @@ for (const row of plan) {
 }
 const rowByUrl = new Map(plan.map((r) => [r.url, r]));
 
-/** Plan families that have pages in the build. Add a family here when its route ships. */
-export const builtFamilies = new Set(['foundation', 'service', 'location', 'community', 'hoa', 'service-x-location', 'guide', 'answer']);
+/** Families built from fixed data; guide and landing pages count once their content exists. */
+const builtFamilies = new Set(['foundation', 'service', 'location', 'community', 'hoa', 'service-x-location']);
+const landingUrls = new Set(landings.map((l) => l.url));
+const isBuilt = (url: string, family: string) => builtFamilies.has(family) || guideByUrl.has(url) || landingUrls.has(url);
 
 export const faqOwner = (n: number) => owner.get(n);
 export const ownsFaq = (n: number, url: string) => owner.get(n) === url;
@@ -25,7 +29,7 @@ export function ownerLinks(items: Faq[], url: string) {
   for (const f of items) {
     const href = owner.get(f.n);
     const row = href ? rowByUrl.get(href) : undefined;
-    if (!href || href === url || !row || !builtFamilies.has(row.family)) continue;
+    if (!href || href === url || !row || !isBuilt(href, row.family)) continue;
     out[f.n] = { href, label: `More on this: ${row.h1.replace(/\?$/, '')}` };
   }
   return out;
