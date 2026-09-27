@@ -106,7 +106,7 @@ export const towns: Town[] = [
       metroConditions.snowbird,
     ],
     emphasis: [
-      { service: 'window-cleaning', why: 'Big view glass on single-story homes, scheduled HOA by HOA.' },
+      { service: 'window-cleaning', why: 'Big mountain-view glass on single-story homes.' },
       { service: 'solar-screens', why: 'A uniform exterior look across neighboring homes.' },
       { service: 'solar-panel-cleaning', why: 'Single-story roofs and efficient routing within the community.' },
     ],
@@ -155,7 +155,7 @@ export const towns: Town[] = [
     intro:
       'Upscale northwest suburb at the base of the Catalinas along Oracle Road, known for golf, bike lanes and Pusch Ridge views. Newer homes with big view windows and residents who say Oro Valley, not Tucson.',
     conditions: [
-      'Big west-facing view windows catch hot afternoon sun and show every spot.',
+      'Big view windows show every spot of dust and hard water.',
       'Heavy residential solar across the town, with spring pollen on top of the dust.',
       metroConditions.water,
     ],

@@ -87,18 +87,6 @@
   force = true
 
 [[redirects]]
-  from = "/services/solar-panel-cleaning/:town/"
-  to = "/areas/:town/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/services/pressure-washing/:town/"
-  to = "/areas/:town/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
   status = 301

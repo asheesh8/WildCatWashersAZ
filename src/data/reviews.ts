@@ -34,7 +34,7 @@ const clean = (t: string) => fixes.reduce((s, [re, to]) => s.replace(re, to), t)
  * 041 describes discontinued paint removal · 055, 057, 060, 068, 072 say "UA",
  * which implies a University of Arizona affiliation.
  */
-export const withheldReviews = new Set([3, 26, 41, 55, 57, 60, 68, 72, 277, 278]);
+export const withheldReviews = new Set([3, 26, 41, 55, 57, 60, 63, 68, 72, 277, 278]);
 
 export const reviews: Review[] = (all as Review[])
   .filter((r) => !withheldReviews.has(r.n))

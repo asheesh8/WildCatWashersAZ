@@ -57,16 +57,6 @@
       "permanent": true
     },
     {
-      "source": "/services/solar-panel-cleaning/:town/",
-      "destination": "/areas/:town/",
-      "permanent": true
-    },
-    {
-      "source": "/services/pressure-washing/:town/",
-      "destination": "/areas/:town/",
-      "permanent": true
-    },
-    {
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": true

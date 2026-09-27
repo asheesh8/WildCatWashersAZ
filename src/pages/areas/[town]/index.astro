@@ -102,6 +102,17 @@ const place = {
   <ReviewSetBlock set={set} title={`What ${t.name} neighbors say`} />
 
   {faqs.length > 0 && <FaqList items={faqs} title={`${t.name} questions`} />}
+  <section class="section-tight">
+    <div class="wrap diy">
+      <p class="eyebrow">Doing it yourself?</p>
+      <h2 class="h3">Cleaning your own windows in {t.name}</h2>
+      <ul class="chips" role="list">
+        <li><a href="/guides/can-i-clean-my-own-windows/"><Icon name="arrow" size={18} />Can I just clean my own windows?</a></li>
+        <li><a href="/guides/why-do-windows-look-worse-after-i-clean-them/"><Icon name="arrow" size={18} />Why do my windows look worse after I clean them?</a></li>
+        <li><a href="/guides/should-i-hose-off-my-windows/"><Icon name="arrow" size={18} />Should I rinse my windows with a hose?</a></li>
+      </ul>
+    </div>
+  </section>
 
   <section class="section-tight">
     <div class="wrap">
@@ -134,4 +145,5 @@ const place = {
   .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .secs dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
   .secs dd { margin: .2rem 0 0; color: var(--ink-2); }
+  .diy { display: grid; gap: .7rem; }
 </style>
