@@ -9,6 +9,8 @@ export type PlanRow = {
   id: number; url: string; family: string; h1: string; primary_query: string;
   secondary_queries: string; intent: string; schema: string; sources: string;
   proof: string; differentiator: string; links_to: string; wave: number; flags: string;
+  faq_refs: string; sections_on_page: string; gate_risk: string;
+  faq_schema_owner_of: string; faq_shown_link_to_owner: string; local_details: string;
 };
 export const plan = rows as PlanRow[];
 const byUrl = new Map(plan.map((r) => [r.url, r]));

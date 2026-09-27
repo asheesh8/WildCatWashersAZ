@@ -7,7 +7,7 @@ import { faqSchema } from '@/lib/schema';
 const crumbs = [{ name: 'FAQ', href: '/faq/' }];
 const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
-<Base title="Window Cleaning FAQ: Straight Answers | Wildcat Washers Tucson" description="Straight answers on window cleaning, solar panels, solar screens, pressure washing, pricing, scheduling and our guarantees in Tucson." breadcrumbs={crumbs} schema={[faqSchema(faqs)]}>
+<Base title="Window Cleaning FAQ: Straight Answers | Wildcat Washers" description="Straight answers on window cleaning, solar panels, solar screens, pressure washing, pricing, scheduling and our guarantees in Tucson." breadcrumbs={crumbs} schema={[faqSchema(faqs)]}>
   <PageHero eyebrow={`${faqs.length} answers`} title={h1For('/faq/', 'Frequently Asked Questions')} lede="Honest answers to what people actually ask us. Don’t see yours? Call, and a real person will answer it." crumbs={crumbs} rating={false} />
   <section class="section-tight">
     <div class="wrap faq-layout">

@@ -6,6 +6,8 @@ import StickyBar from '@/components/StickyBar.astro';
 import CtaShine from '@/components/CtaShine.astro';
 import { company, services } from '@/data/business';
 import { towns } from '@/data/areas';
+import { faqs } from '@/data/faq';
+import { ownsFaq } from '@/lib/faqOwner';
 import archivo from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
 import figtree from '@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url';
 
@@ -85,7 +87,19 @@ const breadcrumbNode = breadcrumbs.length
     }]
   : [];
 
-const graph = { '@context': 'https://schema.org', '@graph': [localBusiness, website, ...breadcrumbNode, ...schema] };
+/* FAQ markup only for questions this page owns (one owner per question, site-wide). */
+const path = Astro.url.pathname;
+const faqText = new Map(faqs.map((f) => [f.q, f.n]));
+const ownedSchema = schema
+  .map((node) => {
+    if (node?.['@type'] !== 'FAQPage') return node;
+    const mainEntity = node.mainEntity.filter((q: { name: string }) => { const n = faqText.get(q.name); return n !== undefined && ownsFaq(n, path); });
+    return mainEntity.length ? { ...node, mainEntity } : null;
+  })
+  .filter(Boolean);
+const graph = { '@context': 'https://schema.org', '@graph': [localBusiness, website, ...breadcrumbNode, ...ownedSchema] };
+/* Escape "<" so no string in the data can close the script tag. */
+const graphJson = JSON.stringify(graph).replace(/</g, '\\u003c');
 const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PROVIDER === 'netlify';
 ---
 <!doctype html>
@@ -118,7 +132,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
     <link rel="preload" href={figtree} as="font" type="font/woff2" crossorigin />
     <slot name="head" />
     <script is:inline>document.documentElement.classList.add('js');</script>
-    <script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />
+    <script type="application/ld+json" set:html={graphJson} is:inline />
   </head>
 
   <body>

@@ -12,7 +12,9 @@ import ServiceGrid from '@/components/ServiceGrid.astro';
 import ClubBlock from '@/components/ClubBlock.astro';
 import Icon from '@/components/Icon.astro';
 import { services, serviceHref, type Service } from '@/data/business';
-import { towns, townHref, windowTownSlugs } from '@/data/areas';
+import { towns, townHref } from '@/data/areas';
+import { localServices } from '@/data/localServices';
+import { fitTitle } from '@/lib/seo';
 import { reviewsForService, pick } from '@/data/reviews';
 import { faqList } from '@/data/faq';
 import { h1For } from '@/data/plan';
@@ -29,12 +31,12 @@ const matched = reviewsForService(s.reviewTags);
 const reviews = pick(matched, 6, { seed: s.slug.length * 7 });
 const isWindow = s.slug === 'window-cleaning';
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: url }];
-const areaLinks = isWindow
-  ? windowTownSlugs.map((slug) => ({ href: `/services/window-cleaning/${slug}/`, name: towns.find((t) => t.slug === slug)!.name }))
-  : towns.map((t) => ({ href: townHref(t.slug), name: t.name }));
+/* Service × town pages where they exist; otherwise the town hub. */
+const localTowns = new Set(localServices.filter((x) => x.service === s.slug).map((x) => x.town));
+const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/${s.slug}/${t.slug}/`, name: t.name } : { href: townHref(t.slug), name: t.name }));
 ---
 <Base
-  title={`${s.name} Tucson | Wildcat Washers`}
+  title={fitTitle([`${s.name} Tucson`, `${s.name} in Tucson`])}
   description={`${s.lede.split('. ')[0]}. ${matched.length ? `${matched.length}+ five-star reviews. ` : ''}Free quote: (520) 525-0084.`}
   breadcrumbs={crumbs}
   schema={[serviceSchema(s), faqSchema(faqs)]}

@@ -1,68 +1,155 @@
 ---
+/**
+ * Community and HOA pages (Doc 3 §9 + the plan's HOA list). Each page leads
+ * with a direct answer to "who cleans windows in <place>?", then only what is
+ * true of this place: its character, how it differs from its nearest sibling,
+ * one service emphasis, the reviews recorded there, and the services those
+ * reviews mention. Generic answers live on their own pages and are linked,
+ * not repeated (doorway-page guard).
+ */
 import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
 import TrustRow from '@/components/TrustRow.astro';
-import Conditions from '@/components/Conditions.astro';
-import FiveInOne from '@/components/FiveInOne.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
 import Icon from '@/components/Icon.astro';
 import { communities, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Community } from '@/data/areas';
-import { h1For } from '@/data/plan';
-import { communityReviews, areaFaqs } from '@/lib/local';
+import { planFor } from '@/data/plan';
+import { faq, type Faq } from '@/data/faq';
+import { communityReviews, servicesMentioned } from '@/lib/local';
+import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
+import { company, telHref } from '@/data/business';
+import { fitTitle, fitDescription } from '@/lib/seo';
 
 export function getStaticPaths() {
   return communities.map((c) => ({ params: { town: c.parent, community: c.slug }, props: { c } }));
 }
 const { c } = Astro.props as { c: Community };
 const town = townBySlug[c.parent];
+const townName = town.name;
 const url = communityHref(c);
-const title = h1For(url, c.kind === 'hoa' ? `Window cleaning for ${c.name} residents` : `Window cleaning in ${c.name}`);
-const set = communityReviews(c, 6, c.slug.length);
-const faqs = areaFaqs([c.name, ...(c.sections ?? []).map((s) => s.name)], [122, 144, 145, 159, 187]).slice(0, 6);
+const row = planFor(url);
+const h1 = row?.h1 ?? `Window Cleaning in ${c.name}`;
+const set = communityReviews(c, 6, hashSeed(c.slug) % 997);
+const mentioned = servicesMentioned(set.local);
+
+/* The place's own Doc 6 question (F91–122), plus the HOA answers on HOA pages. */
+const placeFaqs: Faq[] = [...(row?.faq_refs ?? '').matchAll(/F(\d+)/g)].map((m) => Number(m[1])).filter((n) => n >= 91 && n <= 122).map(faq);
+const hoaFaqs = c.kind === 'hoa' ? [faq(193), faq(194)] : [];
+const seniorFaqs = c.senior ? [faq(238)] : [];
+
 const siblings = childrenOf(town.slug).filter((s) => s.slug !== c.slug);
-const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: town.name, href: townHref(town.slug) }, { name: c.name, href: url }];
+const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: townName, href: townHref(town.slug) }, { name: c.name, href: url }];
 const townWindow = windowTownSlugs.includes(town.slug) ? `/services/window-cleaning/${town.slug}/` : '/services/window-cleaning/';
+const hoaWord = c.hoa ? ' HOA' : '';
+const title = fitTitle([`Window Cleaning ${c.name}${hoaWord}`, `${c.name} Window Cleaning`, `Window Cleaning ${c.name}`]);
+const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(Yes|We do|Wildcat Washers)\.\s*/, '')} Call ${company.phone}.`);
 ---
 <Base
-  title={`Window Cleaning ${c.name}, ${town.name.replace(/ AZ$/, '')} | Wildcat Washers`}
-  description={`Window cleaning, solar panels, solar screens and pressure washing for ${c.name} in ${town.name}. ${set.count ? `Reviewed by ${c.name} residents. ` : ''}You don’t pay until you’re happy. (520) 525-0084.`}
+  title={title}
+  description={description}
   breadcrumbs={crumbs}
-  schema={[{ '@type': 'WebPage', name: title, about: { '@type': 'Place', name: c.name, containedInPlace: { '@type': 'Place', name: `${town.name.replace(/ AZ$/, '')}, AZ` } } }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
+  schema={[
+    { '@type': 'Service', name: `Window cleaning in ${c.name}`, serviceType: 'Window Cleaning', provider: { '@id': `${company.url}/#business` }, areaServed: { '@type': 'Place', name: c.name, containedInPlace: { '@type': 'Place', name: `${townName.replace(/ AZ$/, '')}, AZ` } }, url: `${company.url}${url}` },
+    ...(placeFaqs.length ? [faqSchema(placeFaqs)] : []),
+  ]}
   ctaArea={town.slug}
   ctaPlace={c.name}
 >
-  <PageHero eyebrow={`${c.name} · ${town.name}`} title={title} lede={c.intro} crumbs={crumbs} image={c.photo} ctaHref={`/quote/?area=${town.slug}`} />
+  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={c.lead} crumbs={crumbs} image={c.photo} ctaHref={`/quote/?area=${town.slug}`} />
   <TrustRow />
-  <Conditions title={`Cleaning in ${c.name}: what we plan for`} items={c.angle} />
-  <FiveInOne lede={`Every ${c.name} window job is our 5-in-1 Deep Clean. Glass, frames, sills, tracks and screens, cleaned by hand, with hard water removal included.`} />
+
+  <section class="section">
+    <div class="wrap place">
+      <div class="place-copy">
+        <p class="eyebrow">About {c.name}</p>
+        <h2 class="h2 sweep">{c.kind === 'hoa' ? `Serving ${c.name} homeowners${c.hoa ? ' and the HOA' : ''}` : `Window cleaning for ${c.name} homes`}</h2>
+        <p class="lede">{c.intro}</p>
+        <p class="differs"><Icon name="pin" size={20} />{c.differs}</p>
+        {mentioned.length > 0 && (
+          <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</p>
+        )}
+        {mentioned.length === 0 && (
+          <p>Every window job here is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>: glass, frames, sills, tracks and screens, by hand, with hard water removal included. You don’t pay until you’re happy.</p>
+        )}
+      </div>
+      <aside class="emph reveal">
+        <p class="eyebrow">For {c.name}</p>
+        <h3 class="h3">{c.emphasis.title}</h3>
+        <p>{c.emphasis.body}</p>
+        <a class="phone-cta" href={telHref} data-track="call-community"><Icon name="phone" size={22} />{company.phone}</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight bg-mist">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">What the desert does to glass in {c.name}</h2>
+      <ul class="conds" role="list">{c.angle.map((a) => <li><Icon name="check-circle" size={22} /><span>{a}</span></li>)}</ul>
+    </div>
+  </section>
 
   {c.sections && c.sections.length > 0 && (
-    <section class="section-tight bg-mist">
+    <section class="section-tight">
       <div class="wrap">
-        <h2 class="h2" style="margin-bottom:1.4rem">Neighborhoods in and around {c.name}</h2>
+        <h2 class="h3" style="margin-bottom:1rem">Also in and around {c.name}</h2>
         <dl class="secs">{c.sections.map((s) => <div><dt>{s.name}</dt><dd>{s.body}</dd></div>)}</dl>
       </div>
     </section>
   )}
 
-  <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${town.name} neighbors say`} />
-  {faqs.length > 0 && <FaqList items={faqs} title="Questions neighbors ask" />}
+  <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${townName} neighbors say`} />
+
+  {hoaFaqs.length > 0 && (
+    <section class="section-tight bg-mist">
+      <div class="wrap hoa">
+        <div>
+          <p class="eyebrow">For HOA boards and community managers</p>
+          <h2 class="h3">{c.name} clubhouses and common areas</h2>
+        </div>
+        <dl>{hoaFaqs.map((f) => <div><dt>{f.q}</dt><dd>{f.a}</dd></div>)}</dl>
+        <a class="text-link" href="/commercial/">Commercial and HOA work <Icon name="arrow" size={20} /></a>
+      </div>
+    </section>
+  )}
+
+  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} title={`${c.name} questions`} />}
 
   <section class="section-tight">
     <div class="wrap">
-      <h2 class="h3" style="margin-bottom:1rem">More in {town.name}</h2>
+      <h2 class="h3" style="margin-bottom:1rem">More in {townName}</h2>
       <ul class="chips" role="list">
-        <li><a href={townHref(town.slug)}><Icon name="pin" size={18} />{town.name}</a></li>
-        <li><a href={townWindow}><Icon name="sparkle" size={18} />Window cleaning in {town.name}</a></li>
+        <li><a href={townHref(town.slug)}><Icon name="pin" size={18} />{townName}</a></li>
+        <li><a href={townWindow}><Icon name="sparkle" size={18} />Window cleaning in {townName}</a></li>
         {siblings.map((s) => <li><a href={communityHref(s)}><Icon name="home" size={18} />{s.name}</a></li>)}
       </ul>
     </div>
   </section>
 </Base>
 <style>
+  .place { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); }
+  @media (min-width: 1000px) { .place { grid-template-columns: 1.3fr 1fr; align-items: start; } }
+  .place-copy { display: grid; gap: 1.1rem; }
+  .place-copy p:not(.eyebrow):not(.lede) { font-size: 1.12rem; color: var(--ink-2); }
+  .differs { display: flex; gap: .6rem; align-items: flex-start; padding: 1rem 1.2rem; background: var(--blue-50); border-radius: var(--radius); font-weight: 600; color: var(--navy) !important; }
+  .differs :global(svg) { flex: none; margin-top: .2rem; color: var(--blue-700); }
+  .emph { background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.4rem); display: grid; gap: .8rem; align-content: start; }
+  .emph .eyebrow { color: var(--blue); }
+  .emph .h3 { color: #fff; }
+  .emph p:not(.eyebrow) { color: #d7e3f5; font-size: 1.1rem; line-height: 1.55; }
+  .phone-cta { display: inline-flex; align-items: center; gap: .6rem; margin-top: .4rem; color: #fff; font-family: var(--font-display); font-weight: 850; font-size: 1.5rem; text-decoration: none; }
+  .phone-cta :global(svg) { color: var(--blue); }
+  .conds { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .conds li { display: flex; gap: .7rem; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; font-size: 1.08rem; color: var(--ink-2); }
+  .conds :global(svg) { flex: none; color: var(--blue-700); margin-top: .15rem; }
   .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .secs dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
   .secs dd { margin: .2rem 0 0; color: var(--ink-2); }
+  .hoa { display: grid; gap: 1.2rem; }
+  .hoa dl { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .hoa dl div { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
+  .hoa dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: .3rem; }
+  .hoa dd { margin: 0; color: var(--ink-2); }
+  .hoa .text-link { justify-self: start; }
 </style>

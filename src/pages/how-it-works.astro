@@ -11,7 +11,7 @@ import { faqSchema } from '@/lib/schema';
 const crumbs = [{ name: 'How it works', href: '/how-it-works/' }];
 const faqs = faqList([139, 140, 141, 143, 144, 146, 150, 152, 153]);
 ---
-<Base title="How It Works: From First Call to Final Walkthrough | Wildcat Washers" description="Call or send the form, get quoted in minutes, get reminded, we inspect and clean, then walk it with you. You pay only when you’re happy." breadcrumbs={crumbs} schema={[faqSchema(faqs)]}>
+<Base title="How It Works: Call to Walkthrough | Wildcat Washers" description="Call or send the form, get quoted in minutes, get reminded, we inspect and clean, then walk it with you. You pay only when you’re happy." breadcrumbs={crumbs} schema={[faqSchema(faqs)]}>
   <PageHero eyebrow="Simple, start to finish" title={h1For('/how-it-works/', 'How It Works')} lede="One phone call gets you a quote. Reminders mean you never wonder when we’re coming. And you don’t pay until you’ve walked the job with us." crumbs={crumbs} image="two-techs-interior-modern" />
   <ProcessSteps title="Five steps, no surprises" />
   <WhyGrid eyebrow="Inside your home" title="How we treat your home" items={protection.map((p) => ({ title: p, body: '' }))} tone="mist" />

@@ -28,7 +28,17 @@ const fixes: [RegExp, string][] = [
 ];
 const clean = (t: string) => fixes.reduce((s, [re, to]) => s.replace(re, to), t).trim();
 
-export const reviews: Review[] = (all as Review[]).map((r) => ({ ...r, text: clean(r.text) }));
+/**
+ * Reviews kept off the site (Doc 4 §10 and Doc 2 §10):
+ * 026 false "500 homes" claim · 003, 277, 278 describe twice-yearly service ·
+ * 041 describes discontinued paint removal · 055, 057, 060, 068, 072 say "UA",
+ * which implies a University of Arizona affiliation.
+ */
+export const withheldReviews = new Set([3, 26, 41, 55, 57, 60, 68, 72, 277, 278]);
+
+export const reviews: Review[] = (all as Review[])
+  .filter((r) => !withheldReviews.has(r.n))
+  .map((r) => ({ ...r, text: clean(r.text) }));
 const byN = new Map(reviews.map((r) => [r.n, r]));
 export const review = (n: number) => byN.get(n)!;
 
@@ -51,6 +61,9 @@ export function displayName(r: Review): string {
 export const reviewsByArea = (area: string) => reviews.filter((r) => r.area === area);
 export const reviewsByDetail = (details: string[]) => reviews.filter((r) => details.includes(r.detail));
 export const reviewsForService = (tags: string[]) => reviews.filter((r) => r.services.some((s) => tags.includes(s)));
+
+/** Stable number from a string, so pages with same-length slugs don't pick the same reviews. */
+export const hashSeed = (str: string) => [...str].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
 
 /** Prefer substantive reviews: long enough to say something, short enough to read on a phone. */
 export function pick(list: Review[], count: number, opts: { min?: number; max?: number; seed?: number } = {}) {

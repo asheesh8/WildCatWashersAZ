@@ -44,7 +44,8 @@ export function communityReviews(c: Community, count = 6, seed = 0): ReviewSet {
   const shown = pick(own, count, { min: 40, seed });
   const parent = townBySlug[c.parent];
   const pool = parent.reviewArea ? reviewsByArea(parent.reviewArea).filter((r) => !own.includes(r)) : metroReviews(parent.slug);
-  const more = shown.length < 3 ? pick(pool, Math.max(3, count - shown.length), { seed }) : [];
+  /* Siblings pass different seeds, so pages in one town don't show the same neighbors' reviews. */
+  const more = shown.length < 3 ? pick(pool, 3, { seed: seed * 3 + 1 }) : [];
   return {
     local: shown, localLabel: `From ${c.name} residents`,
     more, moreLabel: `From neighbors in ${parent.name}`,
@@ -62,3 +63,20 @@ export function areaFaqs(names: string[], extra: number[] = []): Faq[] {
 
 export const namesFor = (t: Town) => [t.name, ...childrenOf(t.slug).map((c) => c.name), ...t.sections.map((s) => s.name)];
 export { reviews };
+
+/** Services the given reviews mention, as links (Doc 4 service tags). */
+const serviceTags: { label: string; href: string; tags: string[] }[] = [
+  { label: 'window washing', href: '/services/window-cleaning/', tags: ['Window Washing', 'Window Cleaning', 'Windows', 'Windows (other wording)'] },
+  { label: 'track cleaning', href: '/services/window-cleaning/', tags: ['Track Cleaning'] },
+  { label: 'screen cleaning', href: '/services/window-cleaning/', tags: ['Screen Cleaning', 'Screen Washing', 'Screens'] },
+  { label: 'screen repair', href: '/services/screen-repair/', tags: ['Screen Repair', 'Screen Replacement'] },
+  { label: 'solar panel cleaning', href: '/services/solar-panel-cleaning/', tags: ['Solar Panel Cleaning', 'Solar Panels', 'Solar Panel Washing'] },
+  { label: 'solar screens', href: '/services/solar-screens/', tags: ['Solar Screens', 'Sun Screens'] },
+  { label: 'pressure washing', href: '/services/pressure-washing/', tags: ['Pressure Washing', 'Power Washing', 'Pressure/Power Washing', 'Arizona Room', 'Screened Porch'] },
+  { label: 'pigeon proofing', href: '/services/solar-panel-pigeon-proofing/', tags: ['Pigeon Proofing'] },
+  { label: 'skylights', href: '/services/window-cleaning/', tags: ['Skylights'] },
+];
+export function servicesMentioned(list: { services: string[] }[]) {
+  const tags = new Set(list.flatMap((r) => r.services));
+  return serviceTags.filter((s) => s.tags.some((t) => tags.has(t))).map(({ label, href }) => ({ label, href }));
+}

@@ -12,7 +12,9 @@ import { serviceBySlug, serviceHref } from '@/data/business';
 import { img, altFor } from '@/data/media';
 import { h1For } from '@/data/plan';
 import { townReviews, areaFaqs, namesFor } from '@/lib/local';
+import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
+import { fitTitle, fitDescription } from '@/lib/seo';
 
 export function getStaticPaths() {
   return towns.map((t) => ({ params: { town: t.slug }, props: { t } }));
@@ -21,8 +23,8 @@ const { t } = Astro.props as { t: Town };
 const url = townHref(t.slug);
 const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
 const kids = childrenOf(t.slug);
-const set = townReviews(t, 6, t.slug.length);
-const faqs = areaFaqs(namesFor(t), [117, 119, 145, 159]).slice(0, 7);
+const set = townReviews(t, 6, hashSeed(t.slug));
+const faqs = areaFaqs(namesFor(t)).slice(0, 6);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
 const hasWindowPage = windowTownSlugs.includes(t.slug);
 const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowPage ? `/services/window-cleaning/${t.slug}/` : serviceHref(slug));
@@ -33,8 +35,8 @@ const place = {
 };
 ---
 <Base
-  title={`Window Cleaning ${t.name} | Wildcat Washers`}
-  description={`Window cleaning, solar panel cleaning, solar screens and pressure washing in ${t.name}. ${set.count ? `${set.count} five-star reviews from ${t.name} customers. ` : ''}Call (520) 525-0084.`}
+  title={fitTitle([`${t.name} Window, Solar & Exterior Cleaning`, `Exterior Cleaning ${t.name}`])}
+  description={fitDescription(`Window cleaning, solar panels, solar screens and pressure washing in ${t.name}. ${kids.length ? `Including ${kids.slice(0, 3).map((k) => k.name).join(', ')}. ` : ''}Call (520) 525-0084.`)}
   breadcrumbs={crumbs}
   schema={[{ '@type': 'WebPage', name: title, about: place, url: `https://wildcatwashers.com${url}` }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
   ctaArea={t.slug}
@@ -82,7 +84,7 @@ const place = {
         {kids.length > 0 && (
           <ul class="kids" role="list">
             {kids.map((c) => (
-              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>{c.kind === 'hoa' ? 'Neighborhood page' : 'Community page'}</span><Icon name="arrow" size={20} /></a></li>
+              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>{c.kind === 'hoa' ? 'HOA and neighborhood page' : 'Community page'}</span><Icon name="arrow" size={20} /></a></li>
             ))}
           </ul>
         )}
