@@ -19,3 +19,6 @@ export const faq = (n: number) => {
 };
 export const faqList = (ns: number[]) => ns.map(faq);
 export const faqCategories = [...new Set(faqs.map((f) => f.category))];
+/** A plan row's faq_refs ("F91; F7; …") as answers, skipping withheld ones and repeats. */
+export const faqRefs = (refs = '') =>
+  [...new Set([...refs.matchAll(/F(\d+)/g)].map((m) => Number(m[1])))].filter((n) => byN.has(n)).map(faq);

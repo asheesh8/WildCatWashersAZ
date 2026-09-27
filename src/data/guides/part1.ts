@@ -11,7 +11,7 @@ export const guides: Guide[] = [
         h: 'What should best actually mean?',
         p: [
           "Anyone can put the word best on a truck. When you're deciding who to let into your home, it helps to ask what the claim rests on. Independent awards voted by the community, reviews you can read for yourself on more than one platform, and a guarantee that means something are all things you can check before you ever pick up the phone.",
-          "Just as useful is what the company does at your house. Does it clean only the glass, or the whole window? Do you pay before or after you've seen the results? Will someone text you before the crew arrives? Those details are where one company pulls ahead of another, and they're easy to ask about.",
+          "Just as useful is what the company does at your house. Does it wash only the panes, or the entire window? Is payment due up front, or after the results are in front of you? Will someone text you before the crew arrives? Those details are where one company pulls ahead of another, and they're easy to ask about.",
         ],
       },
       {
@@ -25,18 +25,18 @@ export const guides: Guide[] = [
         h: 'A record you can check',
         p: [
           "Wildcat Washers was founded in 2024. In under two years it has served over 1,000 customers, and not one of them has left a review below five stars. The reviews live on Google, Nextdoor, Facebook and Yelp, so you can read them in the words of the people who wrote them.",
-          "Third-party press says the same. A KGVY Spring Home and Life 2026 feature described Wildcat Washers as one of Southern Arizona's most trusted exterior cleaning services.",
+          "Third-party press says the same. A spring 2026 KGVY magazine article described Wildcat Washers as one of Southern Arizona's most trusted exterior cleaning services.",
         ],
       },
       {
         h: 'Before you decide, read up on the details',
         p: [
-          "If you're weighing a few companies, our guide on how to choose a window cleaning company walks through the questions worth asking. The page on comparing quotes explains why a lower number that covers glass only often isn't the better deal, and the pricing guide shows how a per-pane quote is built. You can also read how licensing and insurance work for window cleaners in Arizona, and what happens if something goes wrong on the job.",
+          "If you're weighing a few companies, our hiring checklist walks through the questions worth asking. The page on comparing quotes explains why a lower number that covers glass only often isn't the better deal, and the pricing guide shows how a per-pane quote is built. You can also read how licensing and insurance work for window cleaners in Arizona, and what happens if something goes wrong on the job.",
         ],
       },
     ],
     doAbout:
-      "Every visit is the 5-in-1 Deep Clean: glass, frames, sills, tracks and screens, all professionally hand cleaned, with hard water removal included. The crew double checks every pane, walks the job with you, and you only pay once you're happy. The 14-Day Spotless Guarantee covers any touch-up after that. Call any day of the week for a free quote in minutes.",
+      "Every visit is the 5-in-1 Deep Clean, where trained technicians clean the whole window by hand and take off mineral spotting at no added cost. Nothing is signed off until a second full check is done and you've seen it yourself. You're only billed once you're happy. The 14-Day Spotless Guarantee covers any touch-up after that. Call any day of the week for a free quote in minutes.",
     related: [
       '/guides/how-to-choose-a-window-cleaner/',
       '/guides/how-to-compare-window-cleaning-quotes/',
@@ -48,14 +48,14 @@ export const guides: Guide[] = [
   {
     slug: 'how-to-choose-a-window-cleaner',
     answer:
-      "To choose a window cleaning company in Tucson, check five things: reviews you can verify, a real business address, proof of licensing and insurance, a clear written scope of what gets cleaned, and a guarantee that protects you before you pay. A company that asks about your windows before quoting is usually one worth calling back.",
+      "When picking a window cleaner in Tucson, check five things: reviews you can verify, a real business address, proof of licensing and insurance, a clear written scope of what gets cleaned, and a guarantee that protects you before you pay. A company that asks about your windows before quoting is usually one worth calling back.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Start with what gets cleaned',
         p: [
           "Window cleaning means different things to different companies. Some wash the glass and leave. Others clean the frames, sills and tracks and take the screens out to wash them. Ask for the scope in plain words, because two quotes that look alike can cover very different amounts of work.",
-          "Scope matters for more than looks. Dust left in the tracks and screens blows back onto the glass with the next breeze, so a glass-only job tends to fade quickly. Ask, too, whether mineral buildup from hard water is removed as part of the job or sold as an extra.",
+          "Scope matters for more than looks. Grit sitting in an uncleaned track or screen finds its way back to the pane, so a glass-only job tends to fade quickly. Ask, too, whether mineral buildup from hard water is removed as part of the job or sold as an extra.",
         ],
       },
       {
@@ -69,18 +69,18 @@ export const guides: Guide[] = [
         h: 'How they treat you before, during and after',
         p: [
           "Most people who switch window cleaners say the same things drove them away: streaks left behind, crews showing up late or not at all, no communication, and rushed work. So ask how scheduling works. Will you get a reminder? An arrival window? A text when the crew is on the way?",
-          "Then ask what happens at the end. Does anyone walk the job with you? Do you pay before or after you've seen it? What if it rains the next day? Clear answers to those questions tell you a lot about the rest of the experience.",
+          "Then ask what happens at the end. Will someone look over the finished work alongside you? When is the bill due? What if it rains the next day? Clear answers to those questions tell you a lot about the rest of the experience.",
         ],
       },
       {
         h: 'Related questions worth reading',
         p: [
-          "Our page on comparing window cleaning quotes goes deeper on scope and pricing. You'll also find answers on whether window cleaners are licensed and insured in Arizona, whether it's safe to let a crew inside your home, what happens if a window cleaner breaks something, and how the best window cleaning company in Tucson earned that title.",
+          "Our page on comparing window cleaning quotes goes deeper on scope and pricing. You'll also find answers on whether window cleaners are licensed and insured in Arizona, whether it's safe to let a crew inside your home, what happens if a window cleaner breaks something, and what's behind the awards Tucson readers voted on.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers is licensed and fully insured, and certificates of insurance are available. Background-checked, uniformed technicians arrive in marked trucks after a reminder 7 days out, another 24 hours out and an on-the-way text. There's no deposit. Every window gets inspected with you first, and you pay only after the walkthrough, once you're happy.",
+      "Wildcat Washers is licensed and fully insured, and certificates of insurance are available. Background-checked, uniformed technicians arrive in marked trucks after a reminder 7 days out, another 24 hours out and an on-the-way text. There's no deposit. Every window gets inspected with you first, and the bill comes at the very end, once you're satisfied.",
     related: [
       '/guides/how-to-compare-window-cleaning-quotes/',
       '/guides/are-window-cleaners-licensed-and-insured-arizona/',
@@ -99,13 +99,13 @@ export const guides: Guide[] = [
         h: 'How the number was built',
         p: [
           "A fair quote starts with questions. How many panes of glass does the home have? Is any of it high or hard to reach? Is it inside and outside, or just one side? If a company names a price without asking any of that, you have no way to know what it includes.",
-          "Per-pane pricing counts each individual piece of glass, which makes it easy to compare. A vague flat number or an hourly rate is harder to hold up against anything else, and it leaves room for the total to change once the crew is at your door.",
+          "Per-pane pricing counts every separate piece of glass, which makes it easy to line up side by side. A vague flat number or an hourly rate is harder to hold up against anything else, and it leaves room for the total to change once the crew is at your door.",
         ],
       },
       {
         h: 'Glass only versus the whole window',
         p: [
-          "The biggest gap between quotes is usually scope. The cheapest number often covers glass only. That leaves dust in the tracks, frames, sills and screens, and the first gust of wind carries it back onto the panes you just paid to have cleaned.",
+          "The biggest gap between quotes is usually scope. The cheapest number often covers glass only. Everything around the glass keeps its dust, and a windy afternoon delivers it right back to the panes you just paid for.",
           "So write down what each quote covers: glass, frames, sills, tracks, screens, and whether mineral buildup is removed or billed as an extra. Once the lists match, the prices mean something.",
         ],
       },
@@ -116,9 +116,16 @@ export const guides: Guide[] = [
           "Look at the risk side as well. Paying up front, a deposit, or no clear answer about what happens if you're unhappy all shift the risk onto you. A quote where you pay only after you've seen the finished work takes most of that risk away.",
         ],
       },
+      {
+        h: 'Questions to put to every company',
+        p: [
+          "Ask each one the same short list. Is the price per pane? Are screens, tracks, frames and sills included? Is mineral buildup removal part of it or extra? Is there a deposit or a trip charge? When do I pay, and who covers it if a storm or a streak turns up next week? With identical answers in hand, the comparison is honest.",
+          "For background, our pricing pages explain the Tucson cost question, the extra-charge question for screens and tracks, and how to pick a company in the first place.",
+        ],
+      },
     ],
     doAbout:
-      "Wildcat Washers quotes per pane over the phone, usually in a few minutes, and walks you through counting your panes so you know exactly what's in the number. Screens, tracks, frames, sills and hard water removal are all part of it. The price we quote is the price you pay, and nobody pays until the walkthrough is done and you're happy.",
+      "Wildcat Washers quotes per pane over the phone, usually in a few minutes, and walks you through counting your panes so you know exactly what's in the number. The whole window is in that number, along with mineral removal. What we quote doesn't change on the day, and nobody is charged until they've looked over the finished job and are pleased with it.",
     related: [
       '/guides/how-much-does-window-cleaning-cost-tucson/',
       '/guides/window-cleaning-cost-guide/',
@@ -130,14 +137,14 @@ export const guides: Guide[] = [
   {
     slug: 'window-cleaning-cost-guide',
     answer:
-      "Window cleaning in Tucson is usually priced per pane, meaning each individual piece of glass, not by the hour or by window opening. The quote then reflects glass size, how easy the glass is to reach, and how dirty it is. Wildcat Washers quotes free over the phone in a few minutes, with no site visit needed.",
+      "Window cleaning in Tucson is usually priced per pane, meaning each single piece of glass, not by the hour or by window opening. The quote then reflects glass size, how easy the glass is to reach, and how dirty it is. Wildcat Washers quotes free over the phone in a few minutes, with no site visit needed.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'What counts as a pane',
         p: [
           "A pane is one piece of glass. A single window can have one pane or several, which is why two homes with the same number of windows can get different quotes. Divided-light and French-pane windows have many small panes, while a picture window may have just one large one.",
-          "Mirrors, skylights, glass doors, shower glass and high interior glass are all handled too, and are usually counted as additional panes. On the phone, we count them with you so nothing is a surprise.",
+          "Mirrors, skylights, glass doors, shower glass and high interior glass are all handled too, and are usually counted as additional panes. On the phone, we count them with you so the number holds up on the day. There's no online price calculator, because a short conversation about your actual glass is what makes a quote accurate.",
         ],
       },
       {
@@ -162,7 +169,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Call Wildcat Washers and we'll count your panes together and give you a number on the spot. Screens, tracks, frames, sills and hard water removal are already in it. The price we quote is the price you pay, and you pay only after the walkthrough, when you're happy with the work. Prefer not to call? The short quote form gets a call back right away.",
+      "Call Wildcat Washers and we'll count your panes together and give you a number on the spot. Screens, tracks and mineral removal are already built in, not tacked on later. That figure is what you'll be charged, and payment waits until the crew has walked the finished job with you. Prefer not to call? The short quote form gets a call back right away.",
     related: [
       '/guides/how-much-does-window-cleaning-cost-tucson/',
       '/guides/how-to-compare-window-cleaning-quotes/',
@@ -174,14 +181,14 @@ export const guides: Guide[] = [
   {
     slug: 'tucson-home-exterior-calendar',
     answer:
-      "A Tucson home exterior needs care all year, with a few natural checkpoints. Windows do best cleaned three times a year: right after summer, around the holidays and in spring. Solar panels need cleaning one or two times a year, ideally after monsoon season. Patios, driveways and pool decks need pressure washing at least a couple of times a year.",
+      "A Tucson home exterior needs care all year, with a few natural checkpoints. Windows do best cleaned three times a year: right after summer, around the holidays and in spring. Solar panels do well with a cleaning or two each year, ideally after monsoon season. Patios, driveways and pool decks need pressure washing a couple of times a year.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Late summer into fall: the post-monsoon reset',
         p: [
-          "Monsoon season runs roughly June through September, and the storms leave heavy dirt, dust and debris on everything outside. Right after the summer is the most useful time of year to clean. Windows get their first visit of the cycle, and it's the ideal point to clean solar panels, since that's when the heaviest buildup happens.",
-          "It's also a good time to look at pressure washing. Patios, pool decks, walkways and outdoor furniture collect a thick layer after the storms, and an Arizona room or screened porch benefits from a deep clean one or two times a year.",
+          "From about June into September, monsoon storms coat everything outside in dirt and grit. Right after the summer is the most useful time of year to clean. Windows get their first visit of the cycle, and it's the ideal point to clean solar panels, since that's when the heaviest buildup happens.",
+          "It's also a good time to look at pressure washing around the house. Pool decks, patio chairs and tables, and the paths around the house collect a thick layer after the storms, and an Arizona room or screened porch benefits from a deep clean one or two times a year.",
         ],
       },
       {
@@ -225,22 +232,24 @@ export const guides: Guide[] = [
       {
         h: 'What the storms leave behind',
         p: [
-          "Monsoon season runs roughly June through September. The storms leave heavy dirt, dust and debris behind, and when they pass, the house is visibly dirtier than at any other time of year. If you're newer to Tucson, this is the stretch of late-summer storms locals simply call monsoon.",
-          "Rain doesn't wash anything clean on the way through. Our water is mineral heavy, and when it dries on glass it leaves those minerals behind. That's true of rain on windows and of rain on solar panels.",
+          "The monsoon runs from roughly June through September. When the storms pass, the house is visibly dirtier than at any other time of year. If you're newer to Tucson, this is the stretch of late-summer storms locals simply call monsoon.",
+          "Rain doesn't wash anything clean on the way through. Water in this region carries a heavy mineral load, and every drop that evaporates off a window leaves a little of that load in place. That's true of rain on windows and of rain on solar panels.",
         ],
       },
       {
         h: 'A post-storm checklist',
         p: [
-          "Windows: glass, frames, sills, tracks and screens. Storm dust settles in the tracks and screens, and if it stays there, it blows back onto clean glass the next windy day. Cleaning only the glass after monsoon rarely lasts.",
-          "Solar panels: after monsoon is the ideal time to clean them. Dust blocks light before it reaches the cell, and rain tends to move dust around rather than rinse it off. Panels need a brush and soap to come truly clean.",
-          "Patios, pool decks, walkways and outdoor furniture: pressure washing clears the layer of storm grit. Arizona rooms and screened porches collect fine dust in the mesh, which a scrub and pressure wash lifts out. Solar screens hold dust too, and dirty screens shed it onto the glass behind them.",
+          "Windows: glass, frames, sills, tracks and screens. Storm dust packs into the channels and mesh, and if it stays there, it blows back onto clean glass the next windy day. Cleaning only the glass after monsoon rarely lasts.",
+          "Solar panels: after monsoon is the ideal time to clean them. A dusty panel produces less, and storm water mostly shifts the grime around instead of carrying it away. Gentle scrubbing with soap is what actually gets them clear.",
+          "Patios, pool decks, walkways and outdoor furniture: pressure washing clears the layer of storm grit. Arizona rooms and screened porches trap it in their screening, which a scrub and pressure wash lifts out. Solar screens hold onto dust as well, then let it go onto the windows they cover.",
+          "Screens: if one comes through the season torn or bent, repair means fresh mesh on the existing frame, and standard screens are often fixed on site during the same visit.",
         ],
       },
       {
         h: "Why it's worth doing soon after",
         p: [
           "Mineral spotting left on glass is easy to remove early. Left long enough, it etches into the glass, and etching can't be cleaned. A post-monsoon visit keeps the season's spotting from settling in for the winter.",
+          "If you spend summers away, the cleaning can be booked ahead and timed to your return, so the house is clear of storm dust when you walk in. Nobody needs to be home for exterior work.",
           "Our answers on whether to clean windows before or after monsoon, whether rain cleans solar panels, what happens if it rains after a window cleaning, and the white spots that show up on solar panels after rain go into each of these in more detail.",
         ],
       },
@@ -258,39 +267,40 @@ export const guides: Guide[] = [
   {
     slug: 'hard-water-and-your-windows',
     answer:
-      "Tucson's hard water is the main reason windows here get white spots that won't wipe away. When mineral-heavy water dries on glass, the minerals stay behind. Caught early, those deposits can be buffed off. Left for too long, they etch into the glass permanently, and etched glass has to be replaced rather than cleaned.",
+      "Tucson's hard water is the main reason local windows end up with chalky spots that ordinary cleaner can't shift. When mineral-heavy water dries on glass, the minerals stay behind. Caught early, those deposits can be buffed off. Left for too long, they etch in for good, and a pane in that condition can only be swapped out.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Where the minerals come from',
         p: [
-          "Water across Southern Arizona is hard, which means it carries a lot of dissolved minerals. Every time it lands on a window and dries, a thin layer of those minerals is left on the surface. Rain does it, sprinklers and irrigation do it, and rinsing windows with a garden hose does it most of all.",
+          "Water across Southern Arizona is hard, which means it carries a lot of dissolved minerals. Every time it lands on a window and dries, a thin layer of those minerals is left on the surface. Rain does it, sprinklers do it, and a habit of spraying the house down does it most of all.",
           "One drying cycle leaves a faint spot. Dozens of them stack into the chalky white film people see on lower panes and on glass near the yard.",
+          "Solar panels face the same thing. Mineral residue drying on panel glass cuts into output and adds to wear over time, which is part of why panels here need regular cleaning too.",
         ],
       },
       {
         h: 'Deposit or etching: the line that matters',
         p: [
-          "There are two stages. In the first, minerals are sitting on top of the glass. A trained technician can buff them off with the right tools, and the glass comes back clear.",
-          "In the second, the minerals have been there long enough to eat into the glass. That's physical damage, not dirt, and nobody can reverse it. Regular cleaning keeps deposits from ever reaching that stage, which is why cleaning on a schedule protects the window rather than only making it look better.",
+          "There are two stages. In the first, minerals rest on the outer face of the pane. Someone who knows the technique can buff them away, and the glass comes back clear.",
+          "In the second, they've stayed put so long that they've worked into the glass. That's physical damage, not dirt, and nobody can reverse it. Regular cleaning keeps deposits from ever reaching that stage, which is why cleaning on a schedule protects the window rather than only making it look better.",
         ],
       },
       {
         h: 'Habits that help and habits that hurt',
         p: [
-          "The single most useful change is to stop hosing off windows. It feels like maintenance, but it adds a new layer of minerals every time. If irrigation reaches your glass, adjusting it cuts off the other steady source. Beyond that, three cleanings a year keeps buildup from getting ahead of you.",
-          "Household products won't help much once the spotting has set. Vinegar and newspaper won't touch hard water buildup, and dish soap leaves a film that streaks in the sun.",
+          "The single most useful change is to stop hosing off windows. It feels like maintenance, but it adds a new layer of minerals every time. If irrigation reaches your glass, adjusting it cuts off the other steady source. Beyond that, a visit every four months or so keeps buildup from getting ahead of you.",
+          "Household products won't help much once the spotting has set. Vinegar and newspaper won't touch it, and dish soap only adds a sticky layer of its own.",
         ],
       },
       {
         h: 'Every hard water question, answered',
         p: [
-          "This guide ties together our shorter answers. Read about whether hard water stains can be removed from windows, whether hard water damage on glass is permanent, and what causes white spots on windows in Arizona. There's a page on why you shouldn't hose off your windows, one on stopping sprinklers from spotting glass, and one on why window cleaners use 0000 steel wool. If you're weighing the long-term cost, see how window replacement compares with regular cleaning.",
+          "This guide ties together our shorter answers. Read about getting mineral stains off, whether the damage lasts forever, and where the white spotting on Arizona glass comes from. There's a page on why you shouldn't hose off your windows, one on keeping irrigation spray from marking glass, and one on why pros reach for quad-zero steel wool. If you're weighing the long-term cost, see how window replacement compares with regular cleaning.",
         ],
       },
     ],
     doAbout:
-      "Hard water removal is part of every Wildcat Washers 5-in-1 Deep Clean, at no extra charge. Technicians buff mineral buildup off with 0000-grade steel wool and walnut pads. Before any work starts, we inspect each window with you and point out anything that's already etched, so you know exactly what can and can't come off.",
+      "Wildcat Washers treats hard water removal as standard, never an upcharge, on the 5-in-1 Deep Clean. Our technicians work the deposits loose using quad-zero wool together with walnut pads. Before any work starts, we look over the glass together and flag anything that's already etched, so you know exactly what can and can't come off.",
     related: [
       '/guides/can-hard-water-stains-be-removed-from-windows/',
       '/guides/is-hard-water-damage-on-glass-permanent/',
@@ -347,20 +357,21 @@ export const guides: Guide[] = [
   {
     slug: 'solar-panel-care-arizona',
     answer:
-      "Solar panel care in Southern Arizona comes down to two things: keeping the glass clean and keeping birds out from underneath. Desert dust, pollen and mineral residue build up constantly and rain won't clear them, so panels need cleaning one or two times a year. A mesh barrier around the array keeps pigeons from nesting below.",
+      "Solar panel care in Southern Arizona comes down to two things: keeping the glass clean and keeping birds out from underneath. Desert dust, pollen and mineral residue build up constantly and rain won't clear them, so panels need a professional clean once or twice every year. A mesh barrier around the array keeps pigeons from nesting below.",
     service: 'solar-panel-cleaning',
     sections: [
       {
         h: 'Why desert panels get dirty fast',
         p: [
-          "The arid climate and frequent wind keep dust in the air, and it settles evenly across the panels. Spring pollen adds to it. In Green Valley, Sahuarita and the southern part of the metro, nearby mining activity puts even more dust in the air.",
-          "Dust blocks light before it reaches the cell, and that costs production. Published research cited in Wildcat Washers' KGVY Spring Home and Life 2026 feature puts the loss from debris at 5 to 30 percent depending on local conditions. How much any one array loses depends on how dirty it is.",
+          "The arid climate and frequent wind keep dust in the air, and it settles evenly across the panels. Spring pollen adds to it. In Green Valley, Sahuarita and the southern part of the metro, nearby mining activity adds to the airborne dust.",
+          "A film of dust stops sunlight short of the cell, and that costs production. Published research cited in a KGVY feature on Wildcat Washers puts the loss from debris at 5 to 30 percent depending on local conditions. How much any one array loses depends on how dirty it is.",
+          "A cleaning or two per year is enough for most arrays, residential or commercial, with the stretch right after monsoon being the best time. Regular cleaning also protects the panel glass itself from mineral damage, which helps an expensive system last.",
         ],
       },
       {
         h: "Rain and hoses aren't a cleaning plan",
         p: [
-          "Rain moves dust around the panel rather than washing it off, and the dust sticks. Rain and hose water can also dry into mineral spots on the glass, leaving the array looking worse than before. Panels need gentle physical agitation with a brush and soap to come clean.",
+          "Rain moves dust around the panel rather than washing it off, and the dust sticks. Rain and hose water can also dry into mineral spots on the glass, leaving the array looking worse than before. What works is gentle agitation, a soft brush and soap.",
           "If you clean your own, skip the pressure washer and stiff brushes, and never walk on the panels. Getting on a roof carries real risk, which is why many owners hand the job off.",
         ],
       },
@@ -404,8 +415,15 @@ export const guides: Guide[] = [
       {
         h: 'The rest of the exterior',
         p: [
-          "Screens are easy to overlook. A dusty or torn screen in front of clean glass undoes much of the effect. Repair means new mesh on the existing frame, and standard screens can often be fixed on site the same visit.",
-          "Pressure washing takes care of the driveway, walkways, entry, patio, pool deck and outdoor furniture. Tire marks on a garage floor come off readily. If you plan to repaint before listing, a pre-paint pressure wash helps the new paint bond. Wildcat Washers doesn't take on oil or rust stain removal, so plan around any of that separately.",
+          "Screens are easy to overlook. A dusty or torn screen over sparkling glass undoes much of the effect. Repair means new mesh on the existing frame, and standard screens can often be fixed on site the same visit.",
+          "Pressure washing takes care of the driveway, walkways, entry, patio, pool deck and outdoor furniture. Tire marks on a garage floor come off readily, and a clean entry frames the front door every buyer walks through. If you plan to repaint before listing, a pre-paint pressure wash helps the new paint bond. Wildcat Washers doesn't take on oil or rust stain removal, so plan around any of that separately.",
+        ],
+      },
+      {
+        h: 'Inside the house, too',
+        p: [
+          "Buyers walk through, so interior glass counts as much as the outside. Mirrors, sliders, shower enclosures and tall indoor windows can all be done at the same visit, and one trip for both sides saves compared with two. Pet nose prints on a slider are a small thing that shows up in every photo of the back room.",
+          "If the house has solar screens, they come off so the glass behind them can be cleaned, and they're usually pressure washed and reconditioned before going back up.",
         ],
       },
       {
@@ -429,7 +447,7 @@ export const guides: Guide[] = [
   {
     slug: 'should-i-hose-off-my-windows',
     answer:
-      "Rinsing windows with a garden hose does more harm than good in Tucson. Local water is mineral heavy, and as it dries on the glass it leaves those minerals behind. Repeat the habit and the deposits build up, then etch into the glass permanently. Once that happens, the window has to be replaced, not cleaned.",
+      "Rinsing windows with a garden hose does more harm than good in Tucson. The water that comes out of it is loaded with minerals, and they stay on the pane after it evaporates. Repeat the habit and the deposits build up, then bite into the surface for good. Once that happens, the window has to be replaced, not cleaned.",
     service: 'window-cleaning',
     sections: [
       {
@@ -442,20 +460,20 @@ export const guides: Guide[] = [
       {
         h: 'How spotting turns into etching',
         p: [
-          "At first, the minerals are sitting on the surface of the glass, and they can be buffed off. Given enough time, they eat into the glass itself. That's physical damage rather than a deposit, and no one can reverse it.",
+          "At first, the residue just sits there and can be buffed off. Given enough time, it bonds into the pane and pits it. That's physical damage rather than a deposit, and no one can reverse it.",
           "So the well-meaning habit speeds up the one kind of window damage that cleaning can't fix. It's also why regular professional cleaning is protective, not cosmetic. Taking deposits off before they etch is what keeps a window from needing replacement.",
         ],
       },
       {
         h: 'What to do instead',
         p: [
-          "Put the hose away when it comes to glass. If sprinklers or irrigation reach your windows, adjust them so the spray stays off. If you can already see white spots that won't wipe away, have them removed while they're still sitting on the surface.",
+          "Put the hose away when it comes to glass. If sprinklers or irrigation reach your windows, adjust them so the spray stays off. If you can already see marks that household cleaner won't budge, have them removed while they're still sitting on the surface.",
           "After that, a schedule does the work. Three cleanings a year is the right frequency for Tucson, often enough that mineral buildup never gets the chance to reach the etching stage.",
         ],
       },
     ],
     doAbout:
-      "Hard water removal comes with every Wildcat Washers 5-in-1 Deep Clean at no extra charge. We buff mineral buildup off with 0000 steel wool and walnut pads, then clean the frames, sills, tracks and screens too. Before we start, we check each window with you and point out any etching, so you know what can come off. The Wildcat Club keeps you on the three-visit schedule.",
+      "Every Wildcat Washers visit takes the spotting off within the normal visit, not as an upsell. Quad-zero steel wool lifts the minerals, and then the crew moves on to the rest of the window by hand. Before we start, we walk the house with you and name any etching we find, so you know what can come off. The Wildcat Club keeps you on the three-visit schedule.",
     related: [
       '/guides/hard-water-and-your-windows/',
       '/guides/how-to-stop-sprinklers-spotting-windows/',
@@ -467,32 +485,32 @@ export const guides: Guide[] = [
   {
     slug: 'can-hard-water-stains-be-removed-from-windows',
     answer:
-      "Hard water stains can be removed from windows when the minerals are still sitting on the glass. A trained technician buffs them off with 0000-grade steel wool, and at Wildcat Washers that's included in every clean. What can't be removed is etching, where minerals have been left long enough to eat into the glass itself.",
+      "Hard water stains come off windows as long as the minerals are still a surface layer. A skilled technician lifts them with 0000-grade steel wool, and at Wildcat Washers that's included in every clean. What nobody can take away is etching, the pitting that forms once deposits have been ignored for too long.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Telling a stain from etching',
         p: [
-          "Both look like cloudy white spotting, which is why people are often unsure which one they have. A deposit is a layer on top of the glass. Etching is damage to the surface underneath, left by minerals that sat there too long.",
+          "Both look like cloudy white spotting, which is why people are often unsure which one they have. A deposit is a crust you could, in theory, lift away. Etching is damage to the surface underneath, left by minerals that sat there too long.",
           "The only reliable way to tell is a close look by someone who works on glass every day. That's why the inspection happens before any cleaning starts. You hear what's there, and what to expect, before anything is done.",
         ],
       },
       {
         h: 'Why removal takes the right tools',
         p: [
-          "Soap and a squeegee don't lift mineral buildup, and household fixes like vinegar don't either. It has to be buffed off, and the tool matters. Quad-zero steel wool and walnut pads remove the minerals without harming the glass. Coarser steel wool scratches, and a scratch is as permanent as etching.",
-          "Coatings matter too. Tinted glass, low-E coatings and security film all need the method adjusted, so the coating gets identified before anything touches the pane.",
+          "Soap and a squeegee don't lift mineral buildup, and household fixes like vinegar don't either. It takes careful buffing, and the tool matters. The finest grade of steel wool, with walnut pads, clears the minerals without harming the glass. Coarser steel wool scratches, and a scratch is as permanent as etching.",
+          "Coatings matter too. Tinted glass, low-E and film-covered windows all need a different touch, so we check what's on each window first.",
         ],
       },
       {
         h: 'Keeping the stains from coming back',
         p: [
-          "Once the glass is clear, the goal is not to let the minerals rebuild. Stop hosing off windows, keep irrigation off the glass where you can, and clean on a schedule. Three visits a year removes new deposits long before they can etch.",
+          "Once the glass is clear, the goal is not to let the minerals rebuild. Stop hosing off windows, keep irrigation off the glass where you can, and clean on a schedule. Three cleanings spread across the year take new deposits off long before they can etch.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers removes hard water buildup as part of every 5-in-1 Deep Clean, never as a paid add-on, and doesn't leave it behind. Along with the glass, the crew hand cleans frames, sills, tracks and screens. If any pane is etched, we tell you plainly during the inspection, before you've paid a thing.",
+      "Wildcat Washers includes mineral removal in the standard clean, never as a paid add-on, and doesn't leave it behind. Along with the glass, the crew hand cleans frames, sills, tracks and screens. If any pane is etched, we tell you plainly during the inspection, before you've paid a thing.",
     related: [
       '/guides/is-hard-water-damage-on-glass-permanent/',
       '/guides/why-0000-steel-wool-on-glass/',
@@ -504,20 +522,20 @@ export const guides: Guide[] = [
   {
     slug: 'is-hard-water-damage-on-glass-permanent',
     answer:
-      "Hard water damage on glass becomes permanent once the minerals etch into the surface. Before that point, spotting is a deposit sitting on top, and it comes right off. Deposits left too long eat into the glass, and etched glass has to be replaced rather than cleaned. Regular cleaning keeps windows from ever crossing that line.",
+      "Mineral spotting turns permanent the moment it etches into the surface. Before that point, spotting is a deposit sitting on top, and it comes right off. Deposits left too long pit the glass, and a pitted pane can't be restored, only replaced. Regular cleaning keeps windows from ever crossing that line.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'The etching threshold',
         p: [
-          "Every window in Tucson picks up mineral deposits, from rain, irrigation and hose water. That part is normal and fixable. The damage happens when the deposits stay put, cycle after cycle, until they start to break down the surface of the glass.",
-          "Past that point, no cleaner, tool or product can bring the glass back. Scratched glass is the same story. Both are physical damage, and the only fix is a new pane.",
+          "Every window in Tucson picks up mineral deposits, from rain, irrigation and hose water. That part is normal and fixable. The damage happens when the deposits stay put, cycle after cycle, until they start to break down the pane itself.",
+          "Past that point, no cleaner, tool or product can bring the glass back. Scratched glass is the same story. Both are physical damage, and a new pane is the one remedy.",
         ],
       },
       {
         h: 'Replace or maintain',
         p: [
-          "Replacing windows costs dramatically more than keeping them clean. That's the real math behind a cleaning schedule. Three visits a year is an investment in the glass, not just a nicer view.",
+          "Replacing windows costs dramatically more than keeping them clean. That's the real math behind a cleaning schedule. A regular rhythm of cleanings is an investment in the glass, not just a nicer view.",
           "If some of your windows are already etched, you still have a choice about the rest. Keeping the healthy glass on a schedule stops the same thing from spreading to panes that are still fine today.",
         ],
       },
@@ -530,7 +548,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "During the pre-service inspection, Wildcat Washers points out any etching, scratches or failed seals, so nothing is a surprise later. Mineral deposits that haven't etched are buffed off with 0000 steel wool at no extra charge. The Wildcat Club then keeps you on three visits a year, the frequency built for Tucson to stop buildup before it becomes damage.",
+      "During the pre-service inspection, Wildcat Washers points out any etching, scratches or failed seals, so you never learn about them after the crew leaves. Deposits that are still removable come off during the clean, at no added cost. The Wildcat Club then keeps you on three visits a year, the frequency built for Tucson to stop buildup before it becomes damage.",
     related: [
       '/guides/can-hard-water-stains-be-removed-from-windows/',
       '/guides/window-replacement-vs-cleaning-cost/',
@@ -542,7 +560,7 @@ export const guides: Guide[] = [
   {
     slug: 'what-causes-white-spots-on-windows-arizona',
     answer:
-      "White spots on windows in Arizona are caused by hard water. Tucson's water carries a lot of minerals, and when it dries on glass, the water leaves and the minerals stay. Rain, sprinklers and irrigation all do it, and rinsing windows with a garden hose is one of the biggest causes of all.",
+      "Hard water is behind those white spots on Arizona windows. Tucson's water carries a lot of minerals, and when it dries on glass, the water leaves and the minerals stay. Rain, sprinklers and irrigation all do it, and a regular hose-down is one of the biggest causes of all.",
     service: 'window-cleaning',
     sections: [
       {
@@ -555,19 +573,20 @@ export const guides: Guide[] = [
       {
         h: "Why they won't wipe off",
         p: [
-          "Mineral spots aren't dust, so a regular glass cleaner and a cloth won't lift them. Vinegar doesn't handle hard water buildup either. The deposits have to be buffed off with the right material, and gently, so the glass isn't scratched in the process.",
+          "Mineral spots aren't dust, so a regular glass cleaner and a cloth won't lift them. Vinegar doesn't handle hard water buildup either. Getting them off takes a fine abrasive used gently, so the glass isn't scratched in the process.",
           "If they're left long enough, the spots stop being a deposit and start etching the glass, which is permanent.",
+          "Spotting isn't a sign that a house has been neglected. Every home in the region deals with the same water. The difference between clear glass and cloudy glass is mostly how often the deposits get taken off.",
         ],
       },
       {
         h: 'Cutting the problem off at the source',
         p: [
-          "You can't change the water, but you can change how much of it reaches your windows. Skip the hose, and if irrigation hits the glass, have it adjusted. Then keep the windows on a regular cleaning schedule so new spots come off before they have a chance to settle in.",
+          "You can't change the water, but you can change how much of it reaches your windows. Skip the hose, and if irrigation hits the glass, have it adjusted. After that, steady professional cleaning lifts new spots before they have a chance to settle in.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers takes white mineral spots off as part of every 5-in-1 Deep Clean, using 0000-grade steel wool and walnut pads, with no added charge. Frames, sills, tracks and screens get professionally hand cleaned at the same visit. If you'd like to know whether your spots are still removable, a quick inspection will tell you before any work starts.",
+      "Wildcat Washers clears white mineral spotting on every visit, with no line item for it. Frames, sills, tracks and screens get professionally hand cleaned at the same visit. If you'd like to know whether your spots are still removable, a quick inspection will tell you before any work starts.",
     related: [
       '/guides/should-i-hose-off-my-windows/',
       '/guides/how-to-stop-sprinklers-spotting-windows/',
@@ -599,13 +618,13 @@ export const guides: Guide[] = [
       {
         h: 'Dealing with spots that are already there',
         p: [
-          "Existing spotting doesn't go away once the sprinklers are fixed. It has to be buffed off. The sooner that happens, the better, because deposits left long enough etch into the glass and can't be removed.",
-          "After that, three cleanings a year keeps any new spotting from building up, whether it comes from irrigation, rain or anything else.",
+          "Existing spotting doesn't go away once the sprinklers are fixed. Someone still needs to take it off. The sooner that happens, the better, because old deposits eventually pit the glass beyond repair.",
+          "After that, the Tucson-standard three visits a year stops any new spotting from building up, whether it comes from irrigation, rain or anything else.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers removes sprinkler spotting as part of the 5-in-1 Deep Clean, with no extra charge for the mineral removal. During the pre-service inspection, we'll show you which windows carry the heaviest spotting, which is a good clue to where water is reaching the glass. The 14-Day Spotless Guarantee also covers spotting from sprinklers in the two weeks after your clean.",
+      "Wildcat Washers takes irrigation spotting off during the regular clean, and there's nothing extra to pay for it. During the pre-service inspection, we'll show you which windows carry the heaviest spotting, which is a good clue to where water is reaching the glass. If sprinklers mark the glass within 14 days of the visit, we'll come back and redo it at no charge under the Spotless Guarantee.",
     related: [
       '/guides/should-i-hose-off-my-windows/',
       '/guides/what-causes-white-spots-on-windows-arizona/',
@@ -617,7 +636,7 @@ export const guides: Guide[] = [
   {
     slug: 'why-0000-steel-wool-on-glass',
     answer:
-      "Window cleaners use 0000 steel wool, also called quad-zero, because it is fine enough to buff hard water buildup off glass without scratching it. Coarser grades such as 000, 00 or 0 will scratch the surface, and scratched glass can't be repaired. Used correctly, quad-zero removes mineral deposits safely, before they have time to etch.",
+      "Professionals use 0000 steel wool, also called quad-zero, because it is fine enough to buff hard water buildup off glass without scratching it. Coarser grades such as 000, 00 or 0 will scratch the surface, and scratched glass can't be repaired. Used correctly, quad-zero removes mineral deposits safely, before they have time to etch.",
     service: 'window-cleaning',
     sections: [
       {
@@ -630,14 +649,14 @@ export const guides: Guide[] = [
       {
         h: 'Why the wrong grade is so costly',
         p: [
-          "A scratch in glass is permanent. Nobody can polish it out, and the only fix is replacing the pane. So a tool meant to rescue a window from hard water can ruin it instead if the grade or the technique is wrong.",
-          "Scrapers carry the same risk. Used correctly, they help on stubborn residue. Used carelessly, they leave marks that never come out. Knowing what film or coating is on a window before touching it with anything matters just as much. Tint, low-E coatings and security film each call for a different approach.",
+          "A scratch in glass is permanent. Nobody can polish it out, and the pane has to be replaced. So a tool meant to rescue a window from hard water can ruin it instead if the grade or the technique is wrong.",
+          "Scrapers carry the same risk. Used correctly, they help on stubborn residue. Used carelessly, they leave marks that never come out. Knowing what film or coating is on a window before touching it with anything matters just as much. Tint, low-E and security film each call for a different approach.",
         ],
       },
       {
         h: "What quad-zero can and can't do",
         p: [
-          "Fine steel wool, often paired with walnut pads, lifts mineral deposits sitting on top of the glass. It's the reason hard water spotting doesn't have to become permanent, if it's caught in time.",
+          "Fine steel wool, often paired with walnut pads, lifts mineral deposits resting on the pane. It's the reason hard water spotting doesn't have to become permanent, if it's caught in time.",
           "It can't fix etching. Once minerals have eaten into the glass, there's no deposit left to remove, only damage. The same goes for existing scratches. That's why an honest inspection comes before the steel wool ever comes out.",
         ],
       },
@@ -649,7 +668,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers technicians buff hard water off with 0000 steel wool and walnut pads on every 5-in-1 Deep Clean, at no extra charge. Each one learns the technique through a defined training period, shadowing, ride-alongs and checklists before working at a customer's home. Coatings are identified before anything touches the glass, and any existing scratches or etching are pointed out first.",
+      "Wildcat Washers technicians remove hard water with quad-zero wool as a standard step, free of any add-on fee. Each one learns the technique through a defined training period, shadowing, ride-alongs and checklists before working at a customer's home. We check for coatings before we start, and point out any existing scratches or etching first.",
     related: [
       '/guides/can-hard-water-stains-be-removed-from-windows/',
       '/guides/is-hard-water-damage-on-glass-permanent/',
@@ -681,12 +700,12 @@ export const guides: Guide[] = [
       {
         h: 'What to do about it',
         p: [
-          "The fix is replacing the glass unit. In the meantime, the rest of the window, including the outer surfaces, frame, sills, tracks and screen, can still be cleaned like any other. Keeping the healthy windows on a schedule protects them from hard water etching, which is the other kind of glass damage that can only be solved by replacement.",
+          "The fix is replacing the glass unit. In the meantime, everything else on that window, including the outer surfaces, frame, sills, tracks and screen, can still be cleaned like any other. Keeping the healthy windows on a schedule protects them from hard water etching, which is the other kind of glass damage that can only be solved by replacement.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers inspects every window before starting and tells you about any failed seals then, not after the job. We clean both surfaces of the affected window along with the rest of the 5-in-1 Deep Clean, so you get an honest picture of which glass is healthy and which needs replacing.",
+      "Wildcat Washers inspects every window before starting and tells you about any failed seals then, not after the job. We still clean both faces of that window, plus its frame, sill, track and screen, so you get an honest picture of which glass is healthy and which needs replacing.",
     related: [
       '/guides/is-hard-water-damage-on-glass-permanent/',
       '/guides/window-replacement-vs-cleaning-cost/',
@@ -698,7 +717,7 @@ export const guides: Guide[] = [
   {
     slug: 'why-do-my-windows-streak',
     answer:
-      "Windows usually streak because the cleaning solution dried on the glass before it could be squeegeed off. In Arizona heat and sun that happens fast, often faster than most people can work. A squeegee with a dirty or nicked edge leaves streaks too, and some cleaners, like dish soap, leave a film that streaks in sunlight.",
+      "Windows usually streak because the cleaning solution dried before the squeegee reached it. In Arizona heat and sun that happens fast, often faster than most people can work. A squeegee with a dirty or nicked edge leaves streaks too, and some cleaners, like dish soap, leave residue that shows in sunlight.",
     service: 'window-cleaning',
     sections: [
       {
@@ -712,7 +731,7 @@ export const guides: Guide[] = [
         h: 'Tools and products that leave marks',
         p: [
           "The squeegee edge matters. If it's dirty or worn, it drags residue across the glass instead of lifting it off cleanly. Keep the blade clean between passes and replace it when it's nicked.",
-          "Dish soap cuts grease but leaves a film that attracts dust and streaks in the sun. Vinegar and newspaper sort of work on small panes, but they're slow and streaky and do nothing for hard water spots.",
+          "Dish soap cuts grease but leaves residue behind that catches dust and shows up in bright light. Vinegar and newspaper sort of work on small panes, but they're slow and streaky and do nothing for hard water spots.",
         ],
       },
       {
@@ -724,7 +743,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers technicians are trained to work quickly and precisely in Arizona heat, and the crew double checks every pane before you see it. Then we walk the job with you and fix anything on the spot. If a streak shows up in the next 14 days, the Spotless Guarantee brings us back to fix it free.",
+      "Wildcat Washers technicians are trained to work quickly and precisely in Arizona heat, with a full second pass over the glass before you're called over. Then we tour the house together and fix anything on the spot. If a streak shows up in the next 14 days, the Spotless Guarantee brings us back to fix it free.",
     related: [
       '/guides/why-do-windows-look-worse-after-i-clean-them/',
       '/guides/is-dawn-or-vinegar-good-for-windows/',
@@ -749,14 +768,14 @@ export const guides: Guide[] = [
       {
         h: 'Why DIY results fade fastest here',
         p: [
-          "Desert dust settles year-round and piles on after monsoon storms, with pollen added every spring. In Green Valley, Sahuarita and the southern metro, nearby mining puts even more dust in the air. Hard water spots add to it wherever rain or irrigation reaches the glass.",
-          "Most people clean the glass and stop there. That leaves the dust sitting in the frames, sills, tracks and screens, ready to blow back onto the panes with the next breeze.",
+          "Desert dust settles year-round and piles on after monsoon storms, with pollen added every spring. Down in Green Valley and Sahuarita, nearby mining adds its share as well. Hard water spots add to it wherever rain or irrigation reaches the glass.",
+          "Most people clean the glass and stop there. That leaves grit in everything surrounding the pane, ready to drift back as soon as the wind picks up.",
         ],
       },
       {
         h: "If you'd like to do it yourself",
         p: [
-          "Clean the whole window, not just the glass. Vacuum the tracks before you wash them so the grit comes out instead of turning to mud. Skip dish soap, which leaves a film that streaks in the sun, and don't expect vinegar to touch hard water buildup.",
+          "Do the frames, sills and screens along with the panes. Vacuum the tracks before you wash them so the grit comes out instead of turning to mud. Skip dish soap, which leaves a dust-catching residue, and don't expect vinegar to touch hard water buildup.",
           "Most of all, don't just spray the windows down with a hose. It feels like a shortcut, but it leaves minerals on the glass that eventually etch into it.",
         ],
       },
@@ -768,7 +787,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers' 5-in-1 Deep Clean covers every part of the window: glass, frames, sills, tracks and screens, all professionally hand cleaned, with hard water removal included. You don't pay until the walkthrough is done and you're happy, and the 14-Day Spotless Guarantee covers any touch-up afterward. A quote takes a few minutes by phone.",
+      "When you'd rather hand it off, Wildcat Washers' 5-in-1 Deep Clean does all five parts by hand, mineral spots included. You don't pay until you're happy with what you see, and for two weeks afterward any touch-up is free. A quote takes a few minutes by phone.",
     related: [
       '/guides/why-do-windows-look-worse-after-i-clean-them/',
       '/guides/why-do-my-windows-streak/',
@@ -780,33 +799,33 @@ export const guides: Guide[] = [
   {
     slug: 'why-do-windows-look-worse-after-i-clean-them',
     answer:
-      "Windows often look worse after a DIY cleaning for two reasons. The cleaning solution dried in the Arizona heat before it could be squeegeed off, leaving streaks and haze. And the frames, sills, tracks and screens stayed dirty, so the next breeze blew their dust right back onto the freshly cleaned glass.",
+      "Windows often look worse after a DIY cleaning for two reasons. The cleaning solution dried in the Arizona heat before it was pulled off, leaving streaks and haze. And the frames, sills, tracks and screens stayed dirty, so their dust drifted right back onto the freshly cleaned glass.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Cause one: the solution dried too soon',
         p: [
           "In direct sun, a wet pane can dry in the time it takes to reach for the squeegee. Whatever dries on the glass stays there as a streak or a cloudy patch, and it shows up clearly once the sun hits the window at an angle.",
-          "Dish soap makes it worse. It leaves a thin film that streaks in sunlight and actually attracts dust, so the glass can look dull within days.",
+          "Dish soap makes it worse. Its leftover coating actually holds onto dust, so the glass can look dull within days.",
         ],
       },
       {
         h: 'Cause two: dust waiting in the rest of the window',
         p: [
-          "The glass is only one part of a window. Tracks, frames, sills and screens hold a surprising amount of fine dust. Clean the glass and leave those alone, and the first gust of wind or light rain carries that dust straight back down onto the pane.",
-          "A dirty screen sitting in front of clean glass is one of the quickest ways to undo the work. In Green Valley, Sahuarita and the southern metro, where nearby mining adds to the dust in the air, there's simply more of it waiting to blow back.",
+          "The glass is only one part of a window. The parts around it hold a surprising amount of fine dust. Clean the glass and leave those alone, and a breeze or a sprinkle of rain brings that dust straight back down.",
+          "A dirty screen sitting in front of fresh glass is one of the quickest ways to undo the work. In the southern part of the metro, where mining adds to the dust in the air, there's simply more of it waiting.",
         ],
       },
       {
         h: 'Spots that were never going to wipe off',
         p: [
           "Sometimes the problem isn't the cleaning at all. White spots that stay put after washing are hard water deposits, left by mineral-heavy water drying on the glass. Regular glass cleaner won't move them, and vinegar won't either.",
-          "Those need to be buffed off with the right material. Left alone long enough, they etch into the glass and become permanent.",
+          "Those need a proper buffing to come off. Left alone long enough, they become permanent etching.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers cleans every part of the window in the 5-in-1 Deep Clean: tracks vacuumed out then hand washed, frames and sills hand cleaned, screens removed and reconditioned, and mineral buildup buffed off the glass. With nothing left to blow back, the results hold. The 14-Day Spotless Guarantee covers any touch-up you want in the two weeks after.",
+      "In the Wildcat Washers 5-in-1 Deep Clean, tracks are vacuumed out and then hand washed, frames and sills are hand cleaned, screens come out for reconditioning, and mineral buildup is buffed off. Since no dust stays behind, the shine holds. Want a touch-up within 14 days? It's free.",
     related: [
       '/guides/why-do-my-windows-streak/',
       '/guides/why-do-windows-get-dirty-again-so-fast/',
@@ -818,33 +837,34 @@ export const guides: Guide[] = [
   {
     slug: 'why-do-windows-get-dirty-again-so-fast',
     answer:
-      "Windows get dirty again fast when only the glass gets cleaned. Dust left in the tracks, frames, sills and screens blows back onto the panes with the next gust of wind or light rain. In Tucson, where desert dust settles year-round, that blow-back can make a freshly cleaned window look dusty within days.",
+      "Windows get dirty again fast when only the glass gets cleaned. Whatever grit remains around the pane gets carried back onto it by wind or a light shower. In Tucson, where desert dust settles year-round, that blow-back can make a freshly cleaned window look dusty within days.",
     service: 'window-cleaning',
     sections: [
       {
         h: 'Where the dust is hiding',
         p: [
-          "Tracks collect grit and debris every time a window or slider opens. Sills and frames catch whatever settles out of the air. Screens trap fine dust in the mesh, right in front of the glass. None of that goes away when the pane gets wiped.",
-          "Solar screens do the same thing. Dirty ones shed dust back onto the glass behind them, so keeping them clean helps the windows stay clean longer.",
+          "Tracks collect grit and debris every time a window or slider opens. Sills and frames catch whatever settles out of the air. Screens hold powdery grit right in front of the glass. None of that goes away when the pane gets wiped.",
+          "Solar screens do the same thing, so keeping them washed helps the windows behind them stay clear longer.",
         ],
       },
       {
         h: 'Tucson adds its own dust',
         p: [
-          "Desert dust is constant here, and it's heaviest after monsoon storms. Spring pollen joins it. The more dust in the air, the faster any that's left on the window finds its way back to the glass.",
+          "Desert dust is constant here, and it's heaviest after monsoon storms. Spring pollen joins it. The dustier the season, the faster anything left on the window ends up back on the glass.",
           "Hard water plays a part too. Hose or sprinkler water drying on the panes leaves mineral spots that make glass look dirty even when the dust is gone.",
         ],
       },
       {
         h: 'What actually keeps windows clean longer',
         p: [
-          "Clean the whole window, not just the glass. Vacuum the tracks first so the debris is removed rather than pushed around. Take the screens out and wash them. Keep the hose off the glass.",
+          "Treat the window as a whole. Vacuum out the tracks first so debris gets removed rather than pushed around. Take the screens out and wash them. Keep the hose off the glass.",
           "Then keep a rhythm. Three cleanings a year means dust and minerals never pile up for long, and windows look good essentially all year round.",
+          "Timing helps as well. A visit just after the summer storms clears the heaviest dust of the year, and the holiday and spring visits pick up what follows.",
         ],
       },
     ],
     doAbout:
-      "The Wildcat Washers 5-in-1 Deep Clean removes dust from every part of the window, so there's nothing left to blow back on. Customers often tell us they can't even tell it rained after a light shower. Add the 14-Day Spotless Guarantee and three visits a year through the Wildcat Club, and your windows stay clear between visits.",
+      "The Wildcat Washers 5-in-1 Deep Clean takes dust out of all five parts, so none of it is waiting to resettle. Customers often tell us they can't even tell it rained after a light shower. Add the 14-Day Spotless Guarantee and three visits a year through the Wildcat Club, and your windows stay clear between visits.",
     related: [
       '/guides/how-to-keep-windows-clean-longer/',
       '/guides/why-do-windows-look-worse-after-i-clean-them/',

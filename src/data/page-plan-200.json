@@ -19,7 +19,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F250->/guides/best-window-cleaning-company-tucson/; F244->/guides/best-window-cleaning-company-tucson/; F245->/guides/best-window-cleaning-company-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 2,
@@ -41,7 +43,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F201; F18",
   "faq_shown_link_to_owner": "F25->/services/window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 3,
@@ -63,7 +67,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F117; F118; F121; F122",
   "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/; F120->/guides/how-far-outside-tucson-do-you-travel/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 4,
@@ -85,7 +91,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F139; F140; F141; F240",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 5,
@@ -107,7 +115,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F243; F241; F246; F247",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 6,
@@ -123,13 +133,15 @@
   "differentiator": "Organized by service and by town",
   "links_to": "area and service pages",
   "wave": 1,
-  "flags": "Review count is a volatile field (S§13); Quoting: R041 mentions discontinued paint removal, so quote only its pressure-washing part; do not quote the 'UA college' / 'UA Wildcat Washers' phrases in R057, R068",
+  "flags": "Review count is a volatile field (S§13); Quoting: R041 mentions discontinued paint removal (quote only its pressure-washing part); R055, R057, R060, R063, R068, R072 use 'UA' wording (exclude or trim the phrase, doc 2 §10); R277 says 'twice a year' (drop or trim, doc 4 §10); R026 '500 homes' is false",
   "faq_refs": "F245",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F245->/guides/best-window-cleaning-company-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 7,
@@ -151,7 +163,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F131",
   "faq_shown_link_to_owner": "F244->/guides/best-window-cleaning-company-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 8,
@@ -173,7 +187,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F248",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 9,
@@ -195,7 +211,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F185; F186; F188; F208",
   "faq_shown_link_to_owner": "F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 10,
@@ -217,7 +235,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F202; F203; F204; F205; F206; F23",
   "faq_shown_link_to_owner": "F18->/services/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 11,
@@ -239,7 +259,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F139->/quote/; F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F146->/guides/how-to-prepare-for-window-cleaning/; F150->/guides/what-if-it-rains-after-window-cleaning/; F152->/guides/when-do-i-pay-for-window-cleaning/; F129->/guides/is-it-safe-to-let-window-cleaners-inside/; F137->/services/pressure-washing/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 12,
@@ -261,7 +283,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F192; F197; F199",
   "faq_shown_link_to_owner": "F189->/commercial/office-buildings/; F190->/commercial/storefronts-retail/; F191->/commercial/office-buildings/; F193->/commercial/country-clubs-golf/; F194->/who-we-help/hoas-communities/; F195->/commercial/multifamily-apartments/; F196->/commercial/medical-dental/; F198->/commercial/restaurants-hospitality/; F200->/commercial/schools-churches-civic/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 13,
@@ -283,7 +307,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F250->/guides/best-window-cleaning-company-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 14,
@@ -305,7 +331,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F149; F155; F156; F157; F242",
   "faq_shown_link_to_owner": "F139->/quote/; F140->/quote/; F141->/quote/; F142->/guides/how-soon-can-a-window-cleaner-come-out/; F143->/guides/how-soon-can-a-window-cleaner-come-out/; F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F145->/guides/do-i-need-to-be-home-for-window-cleaning/; F146->/guides/how-to-prepare-for-window-cleaning/; F147->/guides/how-to-prepare-for-window-cleaning/; F148->/guides/how-long-does-window-cleaning-take/; F150->/guides/what-if-it-rains-after-window-cleaning/; F151->/guides/what-if-it-rains-after-window-cleaning/; F152->/guides/when-do-i-pay-for-window-cleaning/; F153->/guides/when-do-i-pay-for-window-cleaning/; F154->/guides/do-i-tip-window-cleaners/; F158->/who-we-help/property-managers/; F241->/about/; F249->/guides/is-it-safe-to-let-window-cleaners-inside/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 15,
@@ -327,7 +355,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F21; F207",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 16,
@@ -349,7 +379,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F25; F27; F29; F44",
   "faq_shown_link_to_owner": "F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 17,
@@ -371,7 +403,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F59; F60; F62; F63; F67; F68; F69; F70",
   "faq_shown_link_to_owner": "F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/; F52->/guides/how-much-output-do-dirty-solar-panels-lose/; F55->/guides/white-spots-on-solar-panels-after-rain/; F56->/guides/can-i-clean-my-own-solar-panels/; F58->/guides/can-i-clean-my-own-solar-panels/; F61->/guides/can-you-pressure-wash-solar-panels/; F64->/guides/are-pigeons-under-solar-panels-a-problem/; F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/; F66->/guides/how-much-output-do-dirty-solar-panels-lose/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 18,
@@ -393,7 +427,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F211->/guides/how-much-does-pigeon-proofing-cost/; F212->/guides/does-pigeon-proofing-damage-roof-or-warranty/; F213->/guides/does-pigeon-proofing-damage-roof-or-warranty/; F216->/guides/should-i-pigeon-proof-before-birds-arrive/; F214->/guides/how-to-get-pigeons-out-from-under-solar-panels/; F215->/guides/pigeon-proofing-vs-pest-control/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 19,
@@ -415,7 +451,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F227; F228",
   "faq_shown_link_to_owner": "F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/; F225->/guides/how-much-do-solar-screens-cost/; F226->/guides/how-long-do-solar-screens-last/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 20,
@@ -437,7 +475,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F230",
   "faq_shown_link_to_owner": "F229->/guides/repair-or-replace-window-screen/; F231->/guides/solar-screens-vs-sun-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 21,
@@ -459,7 +499,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F80; F86; F87; F234; F137",
   "faq_shown_link_to_owner": "F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F79->/services/pressure-washing/pre-paint-prep/; F81->/guides/how-often-pressure-wash-driveway-arizona/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 22,
@@ -481,7 +523,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F232",
   "faq_shown_link_to_owner": "F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F79->/services/pressure-washing/pre-paint-prep/; F81->/guides/how-often-pressure-wash-driveway-arizona/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 23,
@@ -503,7 +547,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F79",
   "faq_shown_link_to_owner": "F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F81->/guides/how-often-pressure-wash-driveway-arizona/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 24,
@@ -525,7 +571,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F82; F84; F88; F89; F235",
   "faq_shown_link_to_owner": "F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F79->/services/pressure-washing/pre-paint-prep/; F81->/guides/how-often-pressure-wash-driveway-arizona/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 25,
@@ -547,7 +595,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F85",
   "faq_shown_link_to_owner": "F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F79->/services/pressure-washing/pre-paint-prep/; F81->/guides/how-often-pressure-wash-driveway-arizona/; F78->/guides/can-you-pressure-wash-a-pool-deck-safely/; F83->/guides/pressure-washing-pavers-sand/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 26,
@@ -569,7 +619,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 27,
@@ -585,13 +637,15 @@
   "differentiator": "Town hub (T1). Angle: Southern Arizona's retirement capital; GVR neighborhoods; snowbird arrival-timed service; mine dust (southern metro only). Named sections: Las Campanas; Legends (R064,075); Springs at Canoa (R061); Links at Santa Rita Springs (R073); Colonia de los Alamos (R069); Torres Blancas | Multi-service hub: window-cleaning intent is owned by /services/window-cleaning/green-valley/ (Tucson: by /services/window-cleaning/)",
   "links_to": "/services/window-cleaning/green-valley/; child community pages; nearby towns",
   "wave": 2,
-  "flags": "Quoting: R041 mentions discontinued paint removal, so quote only its pressure-washing part; do not quote the 'UA college' / 'UA Wildcat Washers' phrases in R057, R068",
-  "faq_refs": "F91; F7",
+  "flags": "Quoting: R041 mentions discontinued paint removal (quote only its pressure-washing part); R055, R057, R060, R063, R068, R072 use 'UA' wording (exclude or trim the phrase, doc 2 §10); R277 says 'twice a year' (drop or trim, doc 4 §10); R026 '500 homes' is false",
+  "faq_refs": "F91; F7; F36; F19; F167; F65",
   "sections_on_page": "Own pages: Quail Creek, Canoa Ranch, Legends, Springs at Canoa, The Links at Santa Rita Springs, Colonia de los Alamos, Las Campanas; Sections: Torres Blancas",
   "gate_risk": "low",
   "faq_schema_owner_of": "F91",
-  "faq_shown_link_to_owner": "F7->/guides/how-much-does-window-cleaning-cost-tucson/",
-  "local_details": "Southern Arizona's retirement capital: a 30-mile run of 55+ neighborhoods south on I-19 organized around Green Valley Recreation (GVR) centers and golf courses, with a large snowbird population that arrives in fall and leaves in spring. Seasonal timing is the natural angle here."
+  "faq_shown_link_to_owner": "F7->/guides/how-much-does-window-cleaning-cost-tucson/; F36->/guides/what-causes-white-spots-on-windows-arizona/; F19->/guides/senior-and-veteran-discounts-window-cleaning/; F167->/who-we-help/snowbirds-seasonal-residents/; F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/",
+  "local_details": "Southern Arizona's retirement capital: a 30-mile run of 55+ neighborhoods south on I-19 organized around Green Valley Recreation (GVR) centers and golf courses, with a large snowbird population that arrives in fall and leaves in spring. Seasonal timing is the natural angle here.",
+  "faq_topic_tags": "golf, 55plus, snowbird, minedust",
+  "hoa_in_h1": ""
  },
  {
   "id": 28,
@@ -608,12 +662,14 @@
   "links_to": "/services/window-cleaning/saddlebrooke/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F108; F110",
+  "faq_refs": "F108; F110; F37; F127; F193; F42",
   "sections_on_page": "Own pages: SaddleBrooke Ranch, SaddleBrooke One, SaddleBrooke Two, The Preserve at SaddleBrooke",
   "gate_risk": "low",
   "faq_schema_owner_of": "F108",
-  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/",
-  "local_details": "Large 55+ resort community north of Catalina at the base of the Catalinas: golf, clubhouses, and thousands of single-story homes with mountain views. Residents are active, affluent, and identify strongly with SaddleBrooke and with their specific HOA."
+  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/; F37->/guides/should-i-hose-off-my-windows/; F127->/guides/is-it-safe-to-let-window-cleaners-inside/; F193->/commercial/country-clubs-golf/; F42->/guides/do-you-clean-skylights-and-high-windows/",
+  "local_details": "Large 55+ resort community north of Catalina at the base of the Catalinas: golf, clubhouses, and thousands of single-story homes with mountain views. Residents are active, affluent, and identify strongly with SaddleBrooke and with their specific HOA.",
+  "faq_topic_tags": "golf, 55plus, hoa, resort",
+  "hoa_in_h1": ""
  },
  {
   "id": 29,
@@ -630,12 +686,14 @@
   "links_to": "/services/window-cleaning/catalina-foothills/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F100",
+  "faq_refs": "F100; F38; F43; F44; F165",
   "sections_on_page": "Own pages: Sabino Canyon, Ventana Canyon, La Paloma, Skyline Country Club, Sin Vacas; Sections: Pima Canyon; Sabino Mountain; Skyline Bel Air Estates",
   "gate_risk": "low",
   "faq_schema_owner_of": "F100",
-  "faq_shown_link_to_owner": "",
-  "local_details": "The prestige address of Tucson: custom homes climbing the south slopes of the Santa Catalinas between Oracle and Sabino Canyon, with wall-to-wall view glass, resorts, and the shops at La Encantada. Wealthy, older, established. Glass here is large, high, and expensive."
+  "faq_shown_link_to_owner": "F38->/guides/should-i-hose-off-my-windows/; F43->/guides/do-you-clean-skylights-and-high-windows/; F44->/services/window-cleaning/; F165->/guides/how-to-stop-sprinklers-spotting-windows/",
+  "local_details": "The prestige address of Tucson: custom homes climbing the south slopes of the Santa Catalinas between Oracle and Sabino Canyon, with wall-to-wall view glass, resorts, and the shops at La Encantada. Wealthy, older, established. Glass here is large, high, and expensive.",
+  "faq_topic_tags": "golf, bigglass, resort",
+  "hoa_in_h1": ""
  },
  {
   "id": 30,
@@ -652,12 +710,14 @@
   "links_to": "/services/window-cleaning/oro-valley/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F96",
+  "faq_refs": "F96; F35; F144; F236; F30",
   "sections_on_page": "Own pages: Rancho Vistoso, Sun City Oro Valley, Stone Canyon, Vistoso Village; Sections: Oro Valley Country Club; La Reserve; Cañada Hills",
   "gate_risk": "low",
   "faq_schema_owner_of": "F96",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Upscale northwest suburb at the base of the Catalinas along Oracle Road, known for golf, bike lanes, and Pusch Ridge views. Newer homes with big view windows, a strong retiree presence, and residents who identify as Oro Valley rather than Tucson."
+  "faq_shown_link_to_owner": "F35->/guides/is-hard-water-damage-on-glass-permanent/; F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F236->/who-we-help/builders-new-construction/; F30->/guides/two-story-window-cleaning/",
+  "local_details": "Upscale northwest suburb at the base of the Catalinas along Oracle Road, known for golf, bike lanes, and Pusch Ridge views. Newer homes with big view windows, a strong retiree presence, and residents who identify as Oro Valley rather than Tucson.",
+  "faq_topic_tags": "golf, 55plus, newbuild, bigglass",
+  "hoa_in_h1": ""
  },
  {
   "id": 31,
@@ -674,12 +734,14 @@
   "links_to": "/services/window-cleaning/tanque-verde/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F111; F112",
+  "faq_refs": "F111; F112; F78; F31; F164; F13",
   "sections_on_page": "Own pages: Vactor Ranch, Forty Niner Country Club Estates; Sections: Tucson Country Club Estates; Indian Ridge Estates",
   "gate_risk": "low",
   "faq_schema_owner_of": "F111; F112",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Semi-rural east side at the foot of the Rincons where Tanque Verde Road ends: horse properties, custom homes on acreage, mature mesquite, and long private driveways. Older, affluent, and very loyal to local businesses."
+  "faq_shown_link_to_owner": "F78->/guides/can-you-pressure-wash-a-pool-deck-safely/; F31->/guides/water-fed-pole-vs-hand-washing/; F164->/guides/do-windows-get-dirtier-near-open-desert/; F13->/guides/how-much-does-pressure-washing-cost-tucson/",
+  "local_details": "Semi-rural east side at the foot of the Rincons where Tanque Verde Road ends: horse properties, custom homes on acreage, mature mesquite, and long private driveways. Older, affluent, and very loyal to local businesses.",
+  "faq_topic_tags": "golf, bigglass, rural",
+  "hoa_in_h1": ""
  },
  {
   "id": 32,
@@ -696,12 +758,14 @@
   "links_to": "/services/window-cleaning/tucson/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F117; F120",
+  "faq_refs": "F117; F120; F50; F29; F27; F45",
   "sections_on_page": "Own pages: Sam Hughes, Rita Ranch, Tucson Estates; Sections: Colonia Solana; El Encanto Estates; Starr Pass; Winterhaven; Armory Park; West University; El Presidio; Barrio Viejo; Blenman-Elm (office)",
   "gate_risk": "low",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F117->/areas/; F120->/guides/how-far-outside-tucson-do-you-travel/",
-  "local_details": "Tucson (metro hub, carries Greater Tucson, Tucson Metro, Southern Arizona, Pima County, and directional variants) · Marana · Casas Adobes · Sahuarita · Catalina · Vail"
+  "faq_shown_link_to_owner": "F117->/areas/; F120->/guides/how-far-outside-tucson-do-you-travel/; F50->/guides/cleaning-divided-light-french-pane-windows/; F29->/services/window-cleaning/; F27->/services/window-cleaning/; F45->/guides/do-you-clean-skylights-and-high-windows/",
+  "local_details": "Tucson (metro hub, carries Greater Tucson, Tucson Metro, Southern Arizona, Pima County, and directional variants) · Marana · Casas Adobes · Sahuarita · Catalina · Vail",
+  "faq_topic_tags": "historic",
+  "hoa_in_h1": ""
  },
  {
   "id": 33,
@@ -718,12 +782,14 @@
   "links_to": "/services/window-cleaning/marana/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F104; F107",
+  "faq_refs": "F104; F107; F36; F136; F166; F249",
   "sections_on_page": "Own pages: Dove Mountain, The Highlands at Dove Mountain, Continental Ranch, Sunflower at Continental Ranch, Del Webb at Dove Mountain; Sections: Saguaro Ranch; Tucson National; Gladden Farms; Saguaro Bloom",
   "gate_risk": "low",
   "faq_schema_owner_of": "F104; F107",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Fast-growing town northwest of Tucson along I-10, stretching from Continental Ranch up to Dove Mountain and the Tortolita foothills. A mix of young families in newer master-planned neighborhoods and retirees in the golf communities. Residents say Marana, not Tucson."
+  "faq_shown_link_to_owner": "F36->/guides/what-causes-white-spots-on-windows-arizona/; F136->/guides/is-it-safe-to-let-window-cleaners-inside/; F166->/guides/do-windows-get-dirtier-near-open-desert/; F249->/guides/is-it-safe-to-let-window-cleaners-inside/",
+  "local_details": "Fast-growing town northwest of Tucson along I-10, stretching from Continental Ranch up to Dove Mountain and the Tortolita foothills. A mix of young families in newer master-planned neighborhoods and retirees in the golf communities. Residents say Marana, not Tucson.",
+  "faq_topic_tags": "golf, 55plus, newbuild, family",
+  "hoa_in_h1": ""
  },
  {
   "id": 34,
@@ -740,12 +806,14 @@
   "links_to": "/services/window-cleaning/casas-adobes/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F113",
+  "faq_refs": "F113; F28; F26; F147; F24",
   "sections_on_page": "",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "F113",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Large established northwest area between Oracle and La Cholla, older than Oro Valley, with mid-century and 80s–90s ranch homes, mature landscaping, and Tucson National on its edge. Solid, settled homeowners."
+  "faq_shown_link_to_owner": "F28->/guides/pet-nose-prints-on-sliding-glass-doors/; F26->/guides/why-do-windows-get-dirty-again-so-fast/; F147->/guides/how-to-prepare-for-window-cleaning/; F24->/guides/how-much-does-window-cleaning-cost-tucson/",
+  "local_details": "Large established northwest area between Oracle and La Cholla, older than Oro Valley, with mid-century and 80s–90s ranch homes, mature landscaping, and Tucson National on its edge. Solid, settled homeowners.",
+  "faq_topic_tags": "family",
+  "hoa_in_h1": ""
  },
  {
   "id": 35,
@@ -762,12 +830,14 @@
   "links_to": "/services/window-cleaning/sahuarita/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F94",
+  "faq_refs": "F94; F129; F82; F8; F55",
   "sections_on_page": "Own pages: Rancho Sahuarita, Rancho Resort, Sonora at Rancho Sahuarita; Sections: Madera Highlands",
   "gate_risk": "low",
   "faq_schema_owner_of": "F94",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Family-oriented town south on I-19 between Tucson and Green Valley, built largely around Rancho Sahuarita and its lake. Newer stucco homes, young households, high ownership, and a growing 55+ pocket."
+  "faq_shown_link_to_owner": "F129->/guides/is-it-safe-to-let-window-cleaners-inside/; F82->/services/pressure-washing/driveways-garage-floors/; F8->/guides/how-much-does-window-cleaning-cost-tucson/; F55->/guides/white-spots-on-solar-panels-after-rain/",
+  "local_details": "Family-oriented town south on I-19 between Tucson and Green Valley, built largely around Rancho Sahuarita and its lake. Newer stucco homes, young households, high ownership, and a growing 55+ pocket.",
+  "faq_topic_tags": "55plus, newbuild, family, minedust, resort",
+  "hoa_in_h1": ""
  },
  {
   "id": 36,
@@ -784,12 +854,14 @@
   "links_to": "/services/window-cleaning/catalina/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "",
+  "faq_refs": "F234; F85; F137; F79",
   "sections_on_page": "",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Unincorporated community north of Oro Valley on Oracle Road, the last stop before SaddleBrooke. Older, mixed housing with acreage lots and Catalina Mountain views."
+  "faq_shown_link_to_owner": "F234->/services/pressure-washing/; F85->/services/pressure-washing/patios-pool-decks/; F137->/services/pressure-washing/; F79->/services/pressure-washing/pre-paint-prep/",
+  "local_details": "Unincorporated community north of Oro Valley on Oracle Road, the last stop before SaddleBrooke. Older, mixed housing with acreage lots and Catalina Mountain views.",
+  "faq_topic_tags": "rural",
+  "hoa_in_h1": ""
  },
  {
   "id": 37,
@@ -806,12 +878,14 @@
   "links_to": "/services/window-cleaning/vail-az/; child community pages; nearby towns",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F118",
+  "faq_refs": "F118; F146; F88; F249; F152",
   "sections_on_page": "Own pages: Del Webb at Rocking K, Del Webb at Rancho del Lago, Academy Village; Sections: Rancho del Lago; Rocking K; Rincon Valley",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F118->/areas/",
-  "local_details": "Southeast bedroom community off I-10 past Houghton, defined by newer subdivisions, the Rincon Mountain backdrop, and a strong school district reputation. Family territory with a growing retiree segment at Rocking K."
+  "faq_shown_link_to_owner": "F118->/areas/; F146->/guides/how-to-prepare-for-window-cleaning/; F88->/services/pressure-washing/driveways-garage-floors/; F249->/guides/is-it-safe-to-let-window-cleaners-inside/; F152->/guides/when-do-i-pay-for-window-cleaning/",
+  "local_details": "Southeast bedroom community off I-10 past Houghton, defined by newer subdivisions, the Rincon Mountain backdrop, and a strong school district reputation. Family territory with a growing retiree segment at Rocking K.",
+  "faq_topic_tags": "55plus, newbuild, family",
+  "hoa_in_h1": ""
  },
  {
   "id": 38,
@@ -828,12 +902,14 @@
   "links_to": "/services/window-cleaning/corona-de-tucson/; child community pages; nearby towns",
   "wave": 4,
   "flags": "Tubac/Sonoita: never present as conditionally served; no trip charge",
-  "faq_refs": "F121",
+  "faq_refs": "F121; F153; F81; F28; F19",
   "sections_on_page": "",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F121->/areas/",
-  "local_details": "Small newer community southeast of Tucson near Vail, tucked against the Santa Rita foothills with mountain views and almost entirely owner-occupied newer homes. Quiet, family and retiree mix, and residents use the name."
+  "faq_shown_link_to_owner": "F121->/areas/; F153->/guides/when-do-i-pay-for-window-cleaning/; F81->/guides/how-often-pressure-wash-driveway-arizona/; F28->/guides/pet-nose-prints-on-sliding-glass-doors/; F19->/guides/senior-and-veteran-discounts-window-cleaning/",
+  "local_details": "Small newer community southeast of Tucson near Vail, tucked against the Santa Rita foothills with mountain views and almost entirely owner-occupied newer homes. Quiet, family and retiree mix, and residents use the name.",
+  "faq_topic_tags": "55plus, newbuild, family",
+  "hoa_in_h1": ""
  },
  {
   "id": 39,
@@ -850,12 +926,14 @@
   "links_to": "/services/window-cleaning/tubac/; child community pages; nearby towns",
   "wave": 4,
   "flags": "Tubac/Sonoita: never present as conditionally served; no trip charge",
-  "faq_refs": "F119",
+  "faq_refs": "F119; F37; F127; F238; F48",
   "sections_on_page": "Sections: Tumacacori; Amado; Rio Rico",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/",
-  "local_details": "Historic arts village 45 minutes south on I-19, where galleries, the Tubac Golf Resort, and Santa Fe-style homes with big fixed view windows draw affluent retirees and snowbirds. Seasonal homes make arrival-timed service the natural angle."
+  "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/; F37->/guides/should-i-hose-off-my-windows/; F127->/guides/is-it-safe-to-let-window-cleaners-inside/; F238->/who-we-help/snowbirds-seasonal-residents/; F48->/guides/will-window-cleaning-damage-tint-or-low-e/",
+  "local_details": "Historic arts village 45 minutes south on I-19, where galleries, the Tubac Golf Resort, and Santa Fe-style homes with big fixed view windows draw affluent retirees and snowbirds. Seasonal homes make arrival-timed service the natural angle.",
+  "faq_topic_tags": "golf, 55plus, snowbird, bigglass, historic, resort",
+  "hoa_in_h1": ""
  },
  {
   "id": 40,
@@ -872,12 +950,14 @@
   "links_to": "/services/window-cleaning/sonoita/; child community pages; nearby towns",
   "wave": 4,
   "flags": "Tubac/Sonoita: never present as conditionally served; no trip charge",
-  "faq_refs": "F119",
+  "faq_refs": "F119; F49; F164; F3; F166",
   "sections_on_page": "Sections: Elgin",
   "gate_risk": "medium: no local review; needs character, named sections, conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/",
-  "local_details": "High-grassland wine country an hour southeast via Highway 83: custom view homes on acreage, wineries, and ranch estates with wall-to-wall glass."
+  "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/; F49->/guides/will-window-cleaning-damage-tint-or-low-e/; F164->/guides/do-windows-get-dirtier-near-open-desert/; F3->/guides/two-story-window-cleaning/; F166->/guides/do-windows-get-dirtier-near-open-desert/",
+  "local_details": "High-grassland wine country an hour southeast via Highway 83: custom view homes on acreage, wineries, and ranch estates with wall-to-wall glass.",
+  "faq_topic_tags": "bigglass, rural",
+  "hoa_in_h1": ""
  },
  {
   "id": 41,
@@ -893,13 +973,15 @@
   "differentiator": "Community page. Angle: Robson gated 55+ golf; large snowbird share",
   "links_to": "/areas/green-valley/; sibling communities",
   "wave": 2,
-  "flags": "R026 '500 homes' claim is FALSE, never use; Quoting: R041 mentions discontinued paint removal, so quote only its pressure-washing part; do not quote the 'UA college' / 'UA Wildcat Washers' phrases in R057, R068",
-  "faq_refs": "F92",
+  "flags": "R026 '500 homes' claim is FALSE, never use; Quoting: R041 mentions discontinued paint removal (quote only its pressure-washing part); R055, R057, R060, R063, R068, R072 use 'UA' wording (exclude or trim the phrase, doc 2 §10); R277 says 'twice a year' (drop or trim, doc 4 §10); R026 '500 homes' is false",
+  "faq_refs": "F92; F38; F144; F145; F128",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F92",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Quail Creek Robson's gated 55+ golf community on the east side of Green Valley, newer and more upscale than most of GVR, with a large snowbird share. Residents say Quail Creek first, Green Valley second. | Distinct vs Canoa Ranch: east side, newer and more upscale than most of GVR, largest snowbird share | Recorded reviews R026, R027, R036, R037, R038, R041, R046, R054, R055, R057, R060, R062, R063, R068, R072, R074 mention: Other, Pressure Washing, Screen Repair/Replacement, Solar/Sun Screens, Track Cleaning, Window Washing, Windows | Quote candidates: R027 (Monte Wittmann, Google): \"Job well done. Washing our windows in Quial Creek\" / R036 (Jerome Pinson, Google): \"They do a very thorough job, with quality checks. We will recommend them to our friends in Quail Creek in Green Valley.\" / R037 (Chris Pinson, Google): \"They did a very thorough job inside and outside. I would highly recommend Wildcat Washers.\""
+  "faq_shown_link_to_owner": "F38->/guides/should-i-hose-off-my-windows/; F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F145->/guides/do-i-need-to-be-home-for-window-cleaning/; F128->/guides/is-it-safe-to-let-window-cleaners-inside/",
+  "local_details": "Quail Creek Robson's gated 55+ golf community on the east side of Green Valley, newer and more upscale than most of GVR, with a large snowbird share. Residents say Quail Creek first, Green Valley second. | Distinct vs Canoa Ranch: east side, newer and more upscale than most of GVR, largest snowbird share | Recorded reviews R026, R027, R036, R037, R038, R041, R046, R054, R055, R057, R060, R062, R063, R068, R072, R074 mention: Other, Pressure Washing, Screen Repair/Replacement, Solar/Sun Screens, Track Cleaning, Window Washing, Windows | Quote candidates: R027 (Monte Wittmann, Google): \"Job well done. Washing our windows in Quial Creek\" / R036 (Jerome Pinson, Google): \"They do a very thorough job, with quality checks. We will recommend them to our friends in Quail Creek in Green Valley.\" / R037 (Chris Pinson, Google): \"They did a very thorough job inside and outside. I would highly recommend Wildcat Washers.\"",
+  "faq_topic_tags": "golf, 55plus, snowbird, gated, newbuild, minedust",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 42,
@@ -916,12 +998,14 @@
   "links_to": "/areas/green-valley/; sibling communities",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F93",
+  "faq_refs": "F93; F165; F136; F130; F52",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F93",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Canoa Ranch large gated 55+ golf community on the south end of Green Valley. | Distinct vs Quail Creek: south end of Green Valley, its own gated 55+ golf identity | Recorded reviews R023, R025, R070, R071 mention: Window Cleaning, Window Washing, Windows | Quote candidates: R023 (Vicky Reyes, Google): \"The charming character of each crew member is phenomenal. Very courtesy, caring, creative individuals who did a fantastic job on my windows ...\" / R025 (Peggy Wahlke, Google): \"It's the second time I've had them out. They did a great job the first time and a fantastic job this second time! Highly recommend!\" / R070 (Peggy Wahlke, Nextdoor): \"So glad we decided to give them a chance! We usually don't hire anyone who just comes to the door. However, these young men were so polite a...\""
+  "faq_shown_link_to_owner": "F165->/guides/how-to-stop-sprinklers-spotting-windows/; F136->/guides/is-it-safe-to-let-window-cleaners-inside/; F130->/guides/is-it-safe-to-let-window-cleaners-inside/; F52->/guides/how-much-output-do-dirty-solar-panels-lose/",
+  "local_details": "Canoa Ranch large gated 55+ golf community on the south end of Green Valley. | Distinct vs Quail Creek: south end of Green Valley, its own gated 55+ golf identity | Recorded reviews R023, R025, R070, R071 mention: Window Cleaning, Window Washing, Windows | Quote candidates: R023 (Vicky Reyes, Google): \"The charming character of each crew member is phenomenal. Very courtesy, caring, creative individuals who did a fantastic job on my windows ...\" / R025 (Peggy Wahlke, Google): \"It's the second time I've had them out. They did a great job the first time and a fantastic job this second time! Highly recommend!\" / R070 (Peggy Wahlke, Nextdoor): \"So glad we decided to give them a chance! We usually don't hire anyone who just comes to the door. However, these young men were so polite a...\"",
+  "faq_topic_tags": "golf, 55plus, gated, minedust",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 43,
@@ -938,12 +1022,14 @@
   "links_to": "/areas/saddlebrooke/; sibling communities",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F109",
+  "faq_refs": "F109; F35; F129; F236; F47",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F109",
-  "faq_shown_link_to_owner": "",
-  "local_details": "SaddleBrooke Ranch Robson's newer 55+ community just north of SaddleBrooke near Oracle, still under construction, with a resort clubhouse and golf. Same buyer as SaddleBrooke, newer homes. | Distinct vs SaddleBrooke: newer Robson homes still being built, near Oracle | Recorded reviews R134, R135, R136 mention: Screen Cleaning, Track Cleaning, Window Washing, Windows | Quote candidates: R134 (James Blanchard, Google): \"Angel did a great job at washing my windows and cleaning my screens the team did an amazing job at my house in Saddlebrooke Ranch Tucson!\" / R135 (Wonona & Jerry D., Nextdoor): \"Had great service!\" / R136 (Maureen and Jim Botz, Nextdoor): \"They came today and did a good job! They were courteous and prompt!\""
+  "faq_shown_link_to_owner": "F35->/guides/is-hard-water-damage-on-glass-permanent/; F129->/guides/is-it-safe-to-let-window-cleaners-inside/; F236->/who-we-help/builders-new-construction/; F47->/guides/remove-solar-screens-before-window-cleaning/",
+  "local_details": "SaddleBrooke Ranch Robson's newer 55+ community just north of SaddleBrooke near Oracle, still under construction, with a resort clubhouse and golf. Same buyer as SaddleBrooke, newer homes. | Distinct vs SaddleBrooke: newer Robson homes still being built, near Oracle | Recorded reviews R134, R135, R136 mention: Screen Cleaning, Track Cleaning, Window Washing, Windows | Quote candidates: R134 (James Blanchard, Google): \"Angel did a great job at washing my windows and cleaning my screens the team did an amazing job at my house in Saddlebrooke Ranch Tucson!\" / R135 (Wonona & Jerry D., Nextdoor): \"Had great service!\" / R136 (Maureen and Jim Botz, Nextdoor): \"They came today and did a good job! They were courteous and prompt!\"",
+  "faq_topic_tags": "golf, 55plus, newbuild, resort",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 44,
@@ -960,12 +1046,14 @@
   "links_to": "/areas/marana/; sibling communities",
   "wave": 2,
   "flags": "Sections: Del Webb at Dove Mountain; The Gallery; Ritz-Carlton Residences; Canyon Pass",
-  "faq_refs": "F105",
+  "faq_refs": "F105; F78; F17; F26; F13",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F105",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Dove Mountain Marana's luxury master plan in the Tortolita foothills, anchored by The Ritz-Carlton and its golf courses. Ranges from family neighborhoods in the Villages to million-dollar custom homes up the hill. Big glass, big views. | Distinct vs The Highlands / Del Webb at Dove Mountain: the whole master plan, family Villages up to hillside custom homes | Recorded reviews R121 mention: Screen Washing, Solar/Sun Screens, Window Washing, Windows | Quote candidates: R121 (Barbara Neiwert, Nextdoor): \"We just had the crew from Wildcat Washers in our home to wash our windows and screens, inside and out. I must say they delivered the best, m...\""
+  "faq_shown_link_to_owner": "F78->/guides/can-you-pressure-wash-a-pool-deck-safely/; F17->/guides/two-story-window-cleaning/; F26->/guides/why-do-windows-get-dirty-again-so-fast/; F13->/guides/how-much-does-pressure-washing-cost-tucson/",
+  "local_details": "Dove Mountain Marana's luxury master plan in the Tortolita foothills, anchored by The Ritz-Carlton and its golf courses. Ranges from family neighborhoods in the Villages to million-dollar custom homes up the hill. Big glass, big views. | Distinct vs The Highlands / Del Webb at Dove Mountain: the whole master plan, family Villages up to hillside custom homes | Recorded reviews R121 mention: Screen Washing, Solar/Sun Screens, Window Washing, Windows | Quote candidates: R121 (Barbara Neiwert, Nextdoor): \"We just had the crew from Wildcat Washers in our home to wash our windows and screens, inside and out. I must say they delivered the best, m...\"",
+  "faq_topic_tags": "golf, bigglass, family",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 45,
@@ -982,19 +1070,21 @@
   "links_to": "/areas/marana/; sibling communities",
   "wave": 3,
   "flags": "Never 'Heritage Highlands'",
-  "faq_refs": "F105",
+  "faq_refs": "F105; F36; F146; F124; F37",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F105->/areas/marana/dove-mountain/",
-  "local_details": "The Highlands at Dove Mountain gated 55+ golf community at the entrance to Dove Mountain. Established single-story homes with views, active clubhouse culture. Always the current name, never Heritage Highlands. | Distinct vs Dove Mountain / Del Webb: established gated 55+ golf homes at the entrance"
+  "faq_shown_link_to_owner": "F105->/areas/marana/dove-mountain/; F36->/guides/what-causes-white-spots-on-windows-arizona/; F146->/guides/how-to-prepare-for-window-cleaning/; F124->/guides/how-to-choose-a-window-cleaner/; F37->/guides/should-i-hose-off-my-windows/",
+  "local_details": "The Highlands at Dove Mountain gated 55+ golf community at the entrance to Dove Mountain. Established single-story homes with views, active clubhouse culture. Always the current name, never Heritage Highlands. | Distinct vs Dove Mountain / Del Webb: established gated 55+ golf homes at the entrance",
+  "faq_topic_tags": "golf, 55plus, gated",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 46,
   "url": "/areas/marana/continental-ranch/",
   "family": "community",
-  "h1": "Window Cleaning in Continental Ranch",
-  "primary_query": "window cleaning Continental Ranch",
+  "h1": "Window Cleaning for the Continental Ranch HOA",
+  "primary_query": "Continental Ranch HOA window cleaning",
   "secondary_queries": "window washing Continental Ranch; Continental Ranch exterior cleaning",
   "intent": "local",
   "schema": "Service(areaServed=Place), BreadcrumbList, FAQPage",
@@ -1004,12 +1094,14 @@
   "links_to": "/areas/marana/; sibling communities",
   "wave": 3,
   "flags": "Sections: Continental Reserve; Sunflower at Continental Ranch",
-  "faq_refs": "F106",
+  "faq_refs": "F106; F147; F194; F24; F195",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F106",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Continental Ranch Marana's largest and most established subdivision along Silverbell and Cortaro. A huge HOA of 90s–2000s homes. Dense, easy to route, mid-market. | Distinct vs Sunflower: the big mid-market 90s-2000s family HOA | Recorded reviews R117 mention: Solar Panel Cleaning, Window Cleaning | Quote candidates: R117 (Suzanne Short, Google, Nextdoor): \"Kai and his team cleaned my solar panels and exterior windows today. I was impressed with their attention to detail and competence. Took bef...\""
+  "faq_shown_link_to_owner": "F147->/guides/how-to-prepare-for-window-cleaning/; F194->/who-we-help/hoas-communities/; F24->/guides/how-much-does-window-cleaning-cost-tucson/; F195->/commercial/multifamily-apartments/",
+  "local_details": "Continental Ranch Marana's largest and most established subdivision along Silverbell and Cortaro. A huge HOA of 90s–2000s homes. Dense, easy to route, mid-market. | Distinct vs Sunflower: the big mid-market 90s-2000s family HOA | Recorded reviews R117 mention: Solar Panel Cleaning, Window Cleaning | Quote candidates: R117 (Suzanne Short, Google, Nextdoor): \"Kai and his team cleaned my solar panels and exterior windows today. I was impressed with their attention to detail and competence. Took bef...\"",
+  "faq_topic_tags": "family, hoa",
+  "hoa_in_h1": "yes"
  },
  {
   "id": 47,
@@ -1026,12 +1118,14 @@
   "links_to": "/areas/oro-valley/; sibling communities",
   "wave": 2,
   "flags": "Section: Vistoso Village",
-  "faq_refs": "F99",
+  "faq_refs": "F99; F38; F132; F165; F126",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F99",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Rancho Vistoso the biggest master-planned community in Oro Valley, spanning the north end of town with dozens of gated villages, golf, and trailheads into the Tortolitas. Residents name their village but search Rancho Vistoso. | Distinct vs Sun City OV / Vistoso Village / Stone Canyon: the umbrella master plan of dozens of gated villages | Recorded reviews R099 mention: Skylights, Window Cleaning | Quote candidates: R099 (Liza Crawford, Google): \"Wildcat Washers did a great job cleaning the windows in our Rancho Vistoso home. The workers were hard-working and friendly.\""
+  "faq_shown_link_to_owner": "F38->/guides/should-i-hose-off-my-windows/; F132->/guides/are-window-cleaners-licensed-and-insured-arizona/; F165->/guides/how-to-stop-sprinklers-spotting-windows/; F126->/guides/are-window-cleaners-licensed-and-insured-arizona/",
+  "local_details": "Rancho Vistoso the biggest master-planned community in Oro Valley, spanning the north end of town with dozens of gated villages, golf, and trailheads into the Tortolitas. Residents name their village but search Rancho Vistoso. | Distinct vs Sun City OV / Vistoso Village / Stone Canyon: the umbrella master plan of dozens of gated villages | Recorded reviews R099 mention: Skylights, Window Cleaning | Quote candidates: R099 (Liza Crawford, Google): \"Wildcat Washers did a great job cleaning the windows in our Rancho Vistoso home. The workers were hard-working and friendly.\"",
+  "faq_topic_tags": "golf, gated",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 48,
@@ -1048,12 +1142,14 @@
   "links_to": "/areas/oro-valley/; sibling communities",
   "wave": 2,
   "flags": "Never 'Sun City Vistoso'",
-  "faq_refs": "F97",
+  "faq_refs": "F97; F35; F152; F78; F153",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F97",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Sun City Oro Valley established Del Webb 55+ community inside Rancho Vistoso. Single-story homes, golf, a very active resident base. Always the current name, never Sun City Vistoso. | Distinct vs Rancho Vistoso: the Del Webb 55+ community of single-story homes inside it"
+  "faq_shown_link_to_owner": "F35->/guides/is-hard-water-damage-on-glass-permanent/; F152->/guides/when-do-i-pay-for-window-cleaning/; F78->/guides/can-you-pressure-wash-a-pool-deck-safely/; F153->/guides/when-do-i-pay-for-window-cleaning/",
+  "local_details": "Sun City Oro Valley established Del Webb 55+ community inside Rancho Vistoso. Single-story homes, golf, a very active resident base. Always the current name, never Sun City Vistoso. | Distinct vs Rancho Vistoso: the Del Webb 55+ community of single-story homes inside it",
+  "faq_topic_tags": "golf, 55plus",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 49,
@@ -1070,12 +1166,14 @@
   "links_to": "/areas/oro-valley/; sibling communities",
   "wave": 2,
   "flags": "",
-  "faq_refs": "F98",
+  "faq_refs": "F98; F13; F128; F135; F36",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "F98",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Stone Canyon guard-gated luxury enclave at the top of Rancho Vistoso with a Jay Morrish golf course and multi-million-dollar custom homes set among boulders. The most expensive address in Oro Valley; glass is enormous and specialty. | Distinct vs Rancho Vistoso: guard-gated luxury, enormous specialty glass among boulders | Recorded reviews R099, R100 mention: Skylights, Window Cleaning, Window Washing | Quote candidates: R099 (Liza Crawford, Google): \"Wildcat Washers did a great job cleaning the windows in our Rancho Vistoso home. The workers were hard-working and friendly.\" / R100 (Gary Ariniello, Google): \"Wildlife Washers did a great job washing the windows of my house and I would use them again in the future!\""
+  "faq_shown_link_to_owner": "F13->/guides/how-much-does-pressure-washing-cost-tucson/; F128->/guides/is-it-safe-to-let-window-cleaners-inside/; F135->/guides/two-story-window-cleaning/; F36->/guides/what-causes-white-spots-on-windows-arizona/",
+  "local_details": "Stone Canyon guard-gated luxury enclave at the top of Rancho Vistoso with a Jay Morrish golf course and multi-million-dollar custom homes set among boulders. The most expensive address in Oro Valley; glass is enormous and specialty. | Distinct vs Rancho Vistoso: guard-gated luxury, enormous specialty glass among boulders | Recorded reviews R099, R100 mention: Skylights, Window Cleaning, Window Washing | Quote candidates: R099 (Liza Crawford, Google): \"Wildcat Washers did a great job cleaning the windows in our Rancho Vistoso home. The workers were hard-working and friendly.\" / R100 (Gary Ariniello, Google): \"Wildlife Washers did a great job washing the windows of my house and I would use them again in the future!\"",
+  "faq_topic_tags": "golf, gated, bigglass",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 50,
@@ -1092,12 +1190,14 @@
   "links_to": "/areas/sahuarita/; sibling communities",
   "wave": 3,
   "flags": "Section: Sonora at Rancho Sahuarita",
-  "faq_refs": "F95",
+  "faq_refs": "F95; F8; F53; F249; F54",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F95",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Rancho Sahuarita the master-planned heart of Sahuarita, built around a lake, parks, and family amenities. Where most Sahuarita residents actually live. | Distinct vs Sonora: the family master plan around the lake"
+  "faq_shown_link_to_owner": "F8->/guides/how-much-does-window-cleaning-cost-tucson/; F53->/guides/how-often-clean-solar-panels-tucson/; F249->/guides/is-it-safe-to-let-window-cleaners-inside/; F54->/guides/does-rain-clean-solar-panels/",
+  "local_details": "Rancho Sahuarita the master-planned heart of Sahuarita, built around a lake, parks, and family amenities. Where most Sahuarita residents actually live. | Distinct vs Sonora: the family master plan around the lake",
+  "faq_topic_tags": "family, minedust",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 51,
@@ -1114,12 +1214,14 @@
   "links_to": "/areas/catalina-foothills/; sibling communities",
   "wave": 3,
   "flags": "",
-  "faq_refs": "F102",
+  "faq_refs": "F102; F46; F222; F220; F42",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F102",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Sabino Canyon the area name locals use for the neighborhoods around Sabino Canyon Road and the recreation area. | Distinct vs Ventana Canyon / La Paloma: an area name, not a resort community"
+  "faq_shown_link_to_owner": "F46->/guides/remove-solar-screens-before-window-cleaning/; F222->/guides/which-windows-need-solar-screens/; F220->/guides/can-you-see-out-of-solar-screens/; F42->/guides/do-you-clean-skylights-and-high-windows/",
+  "local_details": "Sabino Canyon the area name locals use for the neighborhoods around Sabino Canyon Road and the recreation area. | Distinct vs Ventana Canyon / La Paloma: an area name, not a resort community",
+  "faq_topic_tags": "resort",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 52,
@@ -1136,12 +1238,14 @@
   "links_to": "/areas/catalina-foothills/; sibling communities",
   "wave": 3,
   "flags": "",
-  "faq_refs": "F101",
+  "faq_refs": "F101; F37; F43; F6; F44",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F101",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Ventana Canyon resort and golf community with luxury homes and villas around the Loews resort. | Distinct vs La Paloma: built around the Loews resort, homes and villas"
+  "faq_shown_link_to_owner": "F37->/guides/should-i-hose-off-my-windows/; F43->/guides/do-you-clean-skylights-and-high-windows/; F6->/guides/how-much-does-window-cleaning-cost-tucson/; F44->/services/window-cleaning/",
+  "local_details": "Ventana Canyon resort and golf community with luxury homes and villas around the Loews resort. | Distinct vs La Paloma: built around the Loews resort, homes and villas",
+  "faq_topic_tags": "golf, bigglass, attached, resort",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 53,
@@ -1158,12 +1262,14 @@
   "links_to": "/areas/catalina-foothills/; sibling communities",
   "wave": 3,
   "flags": "",
-  "faq_refs": "",
+  "faq_refs": "F38; F30; F5; F47",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "La Paloma golf and resort community around the Westin La Paloma, with view homes and townhomes. | Distinct vs Ventana Canyon: built around the Westin, view homes and townhomes"
+  "faq_shown_link_to_owner": "F38->/guides/should-i-hose-off-my-windows/; F30->/guides/two-story-window-cleaning/; F5->/guides/how-much-does-window-cleaning-cost-tucson/; F47->/guides/remove-solar-screens-before-window-cleaning/",
+  "local_details": "La Paloma golf and resort community around the Westin La Paloma, with view homes and townhomes. | Distinct vs Ventana Canyon: built around the Westin, view homes and townhomes",
+  "faq_topic_tags": "golf, bigglass, attached, resort",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 54,
@@ -1180,12 +1286,14 @@
   "links_to": "/areas/tucson/; sibling communities",
   "wave": 3,
   "flags": "Section: Blenman-Elm. No UA-affiliation wording despite proximity",
-  "faq_refs": "F114",
+  "faq_refs": "F114; F50; F29; F42",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F114",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Sam Hughes Tucson's best-known historic neighborhood just east of the University of Arizona. 1920s–40s brick and adobe on tree-lined streets, original divided-light windows, homeowners who care about preservation. The name people search when they want a central Tucson neighborhood."
+  "faq_shown_link_to_owner": "F50->/guides/cleaning-divided-light-french-pane-windows/; F29->/services/window-cleaning/; F42->/guides/do-you-clean-skylights-and-high-windows/",
+  "local_details": "Sam Hughes Tucson's best-known historic neighborhood just east of the University of Arizona. 1920s–40s brick and adobe on tree-lined streets, original divided-light windows, homeowners who care about preservation. The name people search when they want a central Tucson neighborhood.",
+  "faq_topic_tags": "historic",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 55,
@@ -1202,12 +1310,14 @@
   "links_to": "/areas/tucson/; sibling communities",
   "wave": 3,
   "flags": "Section: Civano",
-  "faq_refs": "F116",
+  "faq_refs": "F116; F28; F26; F8; F249",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "F116",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Rita Ranch big southeast Tucson master plan near Davis-Monthan and Houghton. 90s–2000s family homes, high ownership, its own local identity. Residents say Rita Ranch, not Tucson."
+  "faq_shown_link_to_owner": "F28->/guides/pet-nose-prints-on-sliding-glass-doors/; F26->/guides/why-do-windows-get-dirty-again-so-fast/; F8->/guides/how-much-does-window-cleaning-cost-tucson/; F249->/guides/is-it-safe-to-let-window-cleaners-inside/",
+  "local_details": "Rita Ranch big southeast Tucson master plan near Davis-Monthan and Houghton. 90s–2000s family homes, high ownership, its own local identity. Residents say Rita Ranch, not Tucson.",
+  "faq_topic_tags": "family",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 56,
@@ -1224,12 +1334,14 @@
   "links_to": "/areas/vail-az/; sibling communities",
   "wave": 3,
   "flags": "",
-  "faq_refs": "",
+  "faq_refs": "F19; F156; F82; F127",
   "sections_on_page": "",
   "gate_risk": "medium: prominence-bar page (doc 3 §9) with no local review; lean on character + conditions",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Del Webb at Rocking K new-construction Del Webb 55+ community in the Rocking K master plan east of Vail, still selling homes. New buyers search the exact name. Strong angle: builder dust and post-construction cleans, plus ongoing seasonal service."
+  "faq_shown_link_to_owner": "F19->/guides/senior-and-veteran-discounts-window-cleaning/; F156->/faq/; F82->/services/pressure-washing/driveways-garage-floors/; F127->/guides/is-it-safe-to-let-window-cleaners-inside/",
+  "local_details": "Del Webb at Rocking K new-construction Del Webb 55+ community in the Rocking K master plan east of Vail, still selling homes. New buyers search the exact name. Strong angle: builder dust and post-construction cleans, plus ongoing seasonal service.",
+  "faq_topic_tags": "55plus, snowbird, newbuild",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 57,
@@ -1245,13 +1357,15 @@
   "differentiator": "Seasonal arrival-timed cleans; mine-dust film; GVR neighborhoods",
   "links_to": "/services/window-cleaning/; /areas/green-valley/; nearby window-cleaning pages",
   "wave": 2,
-  "flags": "Must differ from /areas/ hub: window-specific depth only; hub stays multi-service; Quoting: R041 mentions discontinued paint removal, so quote only its pressure-washing part; do not quote the 'UA college' / 'UA Wildcat Washers' phrases in R057, R068",
+  "flags": "Must differ from /areas/ hub: window-specific depth only; hub stays multi-service; Quoting: R041 mentions discontinued paint removal (quote only its pressure-washing part); R055, R057, R060, R063, R068, R072 use 'UA' wording (exclude or trim the phrase, doc 2 §10); R277 says 'twice a year' (drop or trim, doc 4 §10); R026 '500 homes' is false",
   "faq_refs": "F91; F7; F25; F34; F159; F187",
   "sections_on_page": "",
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F91->/areas/green-valley/; F7->/guides/how-much-does-window-cleaning-cost-tucson/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 58,
@@ -1273,7 +1387,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F108->/areas/saddlebrooke/; F110->/areas/saddlebrooke/saddlebrooke-one/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 59,
@@ -1295,7 +1411,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F100->/areas/catalina-foothills/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 60,
@@ -1317,7 +1435,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F96->/areas/oro-valley/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 61,
@@ -1339,7 +1459,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F111->/areas/tanque-verde/; F112->/areas/tanque-verde/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 62,
@@ -1361,7 +1483,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F104->/areas/marana/; F107->/areas/marana/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 63,
@@ -1383,7 +1507,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F113->/areas/casas-adobes/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 64,
@@ -1405,7 +1531,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F94->/areas/sahuarita/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 65,
@@ -1427,7 +1555,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 66,
@@ -1449,7 +1579,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F118->/areas/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 67,
@@ -1471,7 +1603,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F121->/areas/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 68,
@@ -1493,7 +1627,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 69,
@@ -1515,7 +1651,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F119->/guides/how-far-outside-tucson-do-you-travel/; F25->/services/window-cleaning/; F34->/guides/can-hard-water-stains-be-removed-from-windows/; F159->/guides/how-often-clean-windows-tucson/; F187->/guides/what-if-it-rains-after-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 70,
@@ -1537,7 +1675,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F91->/areas/green-valley/; F7->/guides/how-much-does-window-cleaning-cost-tucson/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 71,
@@ -1559,7 +1699,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F94->/areas/sahuarita/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 72,
@@ -1581,7 +1723,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F96->/areas/oro-valley/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 73,
@@ -1603,7 +1747,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F104->/areas/marana/; F107->/areas/marana/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 74,
@@ -1625,7 +1771,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F118->/areas/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 75,
@@ -1647,7 +1795,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F108->/areas/saddlebrooke/; F110->/areas/saddlebrooke/saddlebrooke-one/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 76,
@@ -1669,7 +1819,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F100->/areas/catalina-foothills/; F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F54->/guides/does-rain-clean-solar-panels/; F57->/guides/does-cleaning-void-solar-warranty/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 77,
@@ -1691,7 +1843,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F96->/areas/oro-valley/; F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 78,
@@ -1713,7 +1867,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F100->/areas/catalina-foothills/; F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 79,
@@ -1735,7 +1891,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F91->/areas/green-valley/; F7->/guides/how-much-does-window-cleaning-cost-tucson/; F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 80,
@@ -1757,7 +1915,9 @@
   "gate_risk": "medium: if it only swaps the town name, merge into the service hub",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F104->/areas/marana/; F107->/areas/marana/; F217->/guides/how-much-do-solar-screens-cost/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 81,
@@ -1779,7 +1939,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F91->/areas/green-valley/; F7->/guides/how-much-does-window-cleaning-cost-tucson/; F71->/guides/pressure-washing-vs-soft-washing/; F72->/guides/can-pressure-washing-damage-stucco/; F79->/services/pressure-washing/pre-paint-prep/; F81->/guides/how-often-pressure-wash-driveway-arizona/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 82,
@@ -1801,7 +1963,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F237",
   "faq_shown_link_to_owner": "F168->/guides/getting-your-home-ready-to-sell/; F169->/guides/getting-your-home-ready-to-sell/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 83,
@@ -1823,7 +1987,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F158",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 84,
@@ -1845,7 +2011,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F233",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 85,
@@ -1867,7 +2035,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F236",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 86,
@@ -1889,7 +2059,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F194",
   "faq_shown_link_to_owner": "F193->/commercial/country-clubs-golf/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 87,
@@ -1911,7 +2083,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F193->/commercial/country-clubs-golf/; F196->/commercial/medical-dental/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 88,
@@ -1933,7 +2107,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F167; F238",
   "faq_shown_link_to_owner": "F145->/guides/do-i-need-to-be-home-for-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 89,
@@ -1955,7 +2131,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F190",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 90,
@@ -1977,7 +2155,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F189; F191",
   "faq_shown_link_to_owner": "F196->/commercial/medical-dental/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 91,
@@ -1999,7 +2179,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F196",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 92,
@@ -2021,7 +2203,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F198",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 93,
@@ -2043,7 +2227,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F193",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 94,
@@ -2065,7 +2251,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F195",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 95,
@@ -2087,7 +2275,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F67->/services/solar-panel-cleaning/; F68->/services/solar-panel-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 96,
@@ -2109,7 +2299,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F200",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 97,
@@ -2131,7 +2323,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F244; F245; F250",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 98,
@@ -2153,7 +2347,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F124; F133; F134",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 99,
@@ -2175,7 +2371,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F184",
   "faq_shown_link_to_owner": "F24->/guides/how-much-does-window-cleaning-cost-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 100,
@@ -2197,7 +2395,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F1->/guides/how-much-does-window-cleaning-cost-tucson/; F2->/guides/how-much-does-window-cleaning-cost-tucson/; F3->/guides/two-story-window-cleaning/; F4->/guides/how-much-does-window-cleaning-cost-tucson/; F5->/guides/how-much-does-window-cleaning-cost-tucson/; F6->/guides/how-much-does-window-cleaning-cost-tucson/; F7->/guides/how-much-does-window-cleaning-cost-tucson/; F8->/guides/how-much-does-window-cleaning-cost-tucson/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 101,
@@ -2219,7 +2419,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F210",
   "faq_shown_link_to_owner": "F162->/guides/best-time-of-year-to-clean-windows-tucson/; F163->/guides/clean-windows-before-or-after-monsoon/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 102,
@@ -2241,7 +2443,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F163->/guides/clean-windows-before-or-after-monsoon/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 103,
@@ -2263,7 +2467,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F34->/guides/can-hard-water-stains-be-removed-from-windows/; F35->/guides/is-hard-water-damage-on-glass-permanent/; F36->/guides/what-causes-white-spots-on-windows-arizona/; F37->/guides/should-i-hose-off-my-windows/; F38->/guides/should-i-hose-off-my-windows/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 104,
@@ -2285,7 +2491,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F217->/guides/how-much-do-solar-screens-cost/; F218->/guides/solar-screens-vs-sun-screens/; F219->/guides/solar-screens-80-vs-90/; F220->/guides/can-you-see-out-of-solar-screens/; F221->/guides/can-you-see-out-of-solar-screens/; F222->/guides/which-windows-need-solar-screens/; F223->/guides/do-solar-screens-save-on-cooling-costs/; F224->/guides/how-long-do-solar-screens-last/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 105,
@@ -2307,7 +2515,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F51->/guides/is-solar-panel-cleaning-worth-it/; F53->/guides/how-often-clean-solar-panels-tucson/; F211->/guides/how-much-does-pigeon-proofing-cost/; F216->/guides/should-i-pigeon-proof-before-birds-arrive/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 106,
@@ -2329,7 +2539,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F168; F169",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 107,
@@ -2351,7 +2563,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F37; F38",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 108,
@@ -2373,7 +2587,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F34; F16",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 109,
@@ -2395,7 +2611,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F35; F170",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 110,
@@ -2417,7 +2635,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F36",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 111,
@@ -2439,7 +2659,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F165",
   "faq_shown_link_to_owner": "F37->/guides/should-i-hose-off-my-windows/; F38->/guides/should-i-hose-off-my-windows/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 112,
@@ -2461,7 +2683,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "",
   "faq_shown_link_to_owner": "F16->/guides/can-hard-water-stains-be-removed-from-windows/; F34->/guides/can-hard-water-stains-be-removed-from-windows/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 113,
@@ -2483,7 +2707,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F39; F40; F41",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 114,
@@ -2505,7 +2731,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F32; F179",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 115,
@@ -2527,7 +2755,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F175; F176",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 116,
@@ -2549,7 +2779,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F33",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 117,
@@ -2571,7 +2803,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F174; F26",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 118,
@@ -2593,7 +2827,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F28",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 119,
@@ -2615,7 +2851,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F171",
   "faq_shown_link_to_owner": "F170->/guides/is-hard-water-damage-on-glass-permanent/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 120,
@@ -2637,7 +2875,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F172",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 121,
@@ -2659,7 +2899,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F164; F166",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 122,
@@ -2681,7 +2923,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F177; F178",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 123,
@@ -2703,7 +2947,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F180",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 124,
@@ -2725,7 +2971,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F159; F160; F161; F209",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 125,
@@ -2747,7 +2995,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F162",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 126,
@@ -2769,7 +3019,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F163",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 127,
@@ -2791,7 +3043,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F53",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 128,
@@ -2813,7 +3067,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F81",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 129,
@@ -2835,7 +3091,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F148",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 130,
@@ -2857,7 +3115,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F142; F143; F239",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 131,
@@ -2879,7 +3139,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F54",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 132,
@@ -2901,7 +3163,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F55",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 133,
@@ -2923,7 +3187,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F52; F66",
   "faq_shown_link_to_owner": "F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 134,
@@ -2945,7 +3211,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F11; F51",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 135,
@@ -2967,7 +3235,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F56; F58",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 136,
@@ -2989,7 +3259,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F57",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 137,
@@ -3011,7 +3283,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F61",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 138,
@@ -3033,7 +3307,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F65",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 139,
@@ -3055,7 +3331,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F214",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 140,
@@ -3077,7 +3355,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F212; F213",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 141,
@@ -3099,7 +3379,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F215",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 142,
@@ -3121,7 +3403,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F216",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 143,
@@ -3143,7 +3427,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F64",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 144,
@@ -3165,7 +3451,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F218; F231",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 145,
@@ -3187,7 +3475,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F219",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 146,
@@ -3209,7 +3499,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F223",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 147,
@@ -3231,7 +3523,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F222",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 148,
@@ -3253,7 +3547,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F220; F221",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 149,
@@ -3275,7 +3571,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F224; F226",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 150,
@@ -3297,7 +3595,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F46; F47",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 151,
@@ -3319,7 +3619,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F229",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 152,
@@ -3341,7 +3643,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F71; F14",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 153,
@@ -3363,7 +3667,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F72; F75; F73; F74",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 154,
@@ -3385,7 +3691,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F78",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 155,
@@ -3407,7 +3715,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F76; F77",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 156,
@@ -3429,7 +3739,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F83",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 157,
@@ -3451,7 +3763,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F1; F2; F4; F5; F6; F7; F8; F24",
   "faq_shown_link_to_owner": "F3->/guides/two-story-window-cleaning/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 158,
@@ -3473,7 +3787,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F9; F10",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 159,
@@ -3495,7 +3811,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F217; F225",
   "faq_shown_link_to_owner": "F226->/guides/how-long-do-solar-screens-last/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 160,
@@ -3517,7 +3835,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F211",
   "faq_shown_link_to_owner": "F215->/guides/pigeon-proofing-vs-pest-control/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 161,
@@ -3539,7 +3859,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F12; F13",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 162,
@@ -3561,7 +3883,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F15",
   "faq_shown_link_to_owner": "F16->/guides/can-hard-water-stains-be-removed-from-windows/",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 163,
@@ -3583,7 +3907,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F3; F17; F30; F135",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 164,
@@ -3605,7 +3931,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F19; F20",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 165,
@@ -3627,7 +3955,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F22; F152; F153",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 166,
@@ -3649,7 +3979,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F154",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 167,
@@ -3671,7 +4003,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F123; F126; F132",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 168,
@@ -3693,7 +4027,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F125; F138",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 169,
@@ -3715,7 +4051,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F127; F128; F136; F129; F130; F249",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 170,
@@ -3737,7 +4075,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F144; F145; F90",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 171,
@@ -3759,7 +4099,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F146; F147",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 172,
@@ -3781,7 +4123,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F187; F150; F151",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 173,
@@ -3803,7 +4147,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F183",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 174,
@@ -3825,7 +4171,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F182",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 175,
@@ -3847,7 +4195,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F173; F181",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 176,
@@ -3869,7 +4219,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F48; F49",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 177,
@@ -3891,7 +4243,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F42; F43; F45",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 178,
@@ -3913,7 +4267,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F50",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 179,
@@ -3935,7 +4291,9 @@
   "gate_risk": "medium: under 350 words means fold into its cluster sibling",
   "faq_schema_owner_of": "F31",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 180,
@@ -3957,7 +4315,9 @@
   "gate_risk": "low",
   "faq_schema_owner_of": "F119; F120",
   "faq_shown_link_to_owner": "",
-  "local_details": ""
+  "local_details": "",
+  "hoa_in_h1": "",
+  "faq_topic_tags": ""
  },
  {
   "id": 181,
@@ -3974,12 +4334,14 @@
   "links_to": "/areas/green-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F165; F65; F18; F35; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Legends GVR neighborhood; customers use the name. (Reviews 064, 075) | Distinct vs other GVR neighborhoods: associated with Torres Blancas golf | Recorded reviews R064, R075 mention: Blinds, Screen Cleaning, Track Cleaning, Window Cleaning, Window Washing | Quote candidates: R064 (Linda Bengtson, Nextdoor): \"Four young men worked exceedingly hard for 2 hours yesterday cleaning all of the blinds, windows and screens at my house and did a phenomena...\" / R075 (Anne Dodge, Online review): \"know this has been posted on before, but this deserves a second shout out. I had my windows washed today by Wildcat Washers and they did a f...\""
+  "faq_shown_link_to_owner": "F165->/guides/how-to-stop-sprinklers-spotting-windows/; F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/; F18->/services/; F35->/guides/is-hard-water-damage-on-glass-permanent/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Legends GVR neighborhood; customers use the name. (Reviews 064, 075) | Distinct vs other GVR neighborhoods: associated with Torres Blancas golf | Recorded reviews R064, R075 mention: Blinds, Screen Cleaning, Track Cleaning, Window Cleaning, Window Washing | Quote candidates: R064 (Linda Bengtson, Nextdoor): \"Four young men worked exceedingly hard for 2 hours yesterday cleaning all of the blinds, windows and screens at my house and did a phenomena...\" / R075 (Anne Dodge, Online review): \"know this has been posted on before, but this deserves a second shout out. I had my windows washed today by Wildcat Washers and they did a f...\"",
+  "faq_topic_tags": "golf, minedust, hoa",
+  "hoa_in_h1": "no: GVR neighborhood; use 'HOA' only in title/queries if client confirms"
  },
  {
   "id": 182,
@@ -3996,12 +4358,14 @@
   "links_to": "/areas/green-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F55; F21; F52; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Springs at Canoa customers use the name. (Review 061) | Recorded reviews R061 mention: Window Washing, Windows | Quote candidates: R061 (Rebecca Meinking, Nextdoor): \"These guys are GREAT! They are very professional, very hard-working, and my windows are now SPOTLESS. You won't be disappointed if you have ...\""
+  "faq_shown_link_to_owner": "F55->/guides/white-spots-on-solar-panels-after-rain/; F21->/referrals/; F52->/guides/how-much-output-do-dirty-solar-panels-lose/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Springs at Canoa customers use the name. (Review 061) | Recorded reviews R061 mention: Window Washing, Windows | Quote candidates: R061 (Rebecca Meinking, Nextdoor): \"These guys are GREAT! They are very professional, very hard-working, and my windows are now SPOTLESS. You won't be disappointed if you have ...\"",
+  "faq_topic_tags": "minedust, hoa",
+  "hoa_in_h1": "no: GVR neighborhood; use 'HOA' only in title/queries if client confirms"
  },
  {
   "id": 183,
@@ -4018,12 +4382,14 @@
   "links_to": "/areas/green-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F53; F194; F54; F195; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "The Links at Santa Rita Springs customers use the name. (Review 073) | Recorded reviews R073 mention: Solar Panels, Window Washing | Quote candidates: R073 (Peg Hadley, Online review): \"This company is comprised of two ambitious, respectful college students who washers windows, solar panels and more. We are very appreciated ...\""
+  "faq_shown_link_to_owner": "F53->/guides/how-often-clean-solar-panels-tucson/; F194->/who-we-help/hoas-communities/; F54->/guides/does-rain-clean-solar-panels/; F195->/commercial/multifamily-apartments/; F193->/commercial/country-clubs-golf/",
+  "local_details": "The Links at Santa Rita Springs customers use the name. (Review 073) | Recorded reviews R073 mention: Solar Panels, Window Washing | Quote candidates: R073 (Peg Hadley, Online review): \"This company is comprised of two ambitious, respectful college students who washers windows, solar panels and more. We are very appreciated ...\"",
+  "faq_topic_tags": "minedust, hoa",
+  "hoa_in_h1": "no: GVR neighborhood; use 'HOA' only in title/queries if client confirms"
  },
  {
   "id": 184,
@@ -4040,12 +4406,14 @@
   "links_to": "/areas/green-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F65; F18; F55; F21; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Colonia de los Alamos customers use the name. (Review 069) | Recorded reviews R069 mention: Solar Panel Cleaning, Windows | Quote candidates: R069 (Doris Frost, Nextdoor): \"Great job by these guys! Had my solar panel cleaned, the dust & muck that came off was enormous! The water was brown if that tells you anyth...\""
+  "faq_shown_link_to_owner": "F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/; F18->/services/; F55->/guides/white-spots-on-solar-panels-after-rain/; F21->/referrals/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Colonia de los Alamos customers use the name. (Review 069) | Recorded reviews R069 mention: Solar Panel Cleaning, Windows | Quote candidates: R069 (Doris Frost, Nextdoor): \"Great job by these guys! Had my solar panel cleaned, the dust & muck that came off was enormous! The water was brown if that tells you anyth...\"",
+  "faq_topic_tags": "minedust, hoa",
+  "hoa_in_h1": "no: GVR neighborhood; use 'HOA' only in title/queries if client confirms"
  },
  {
   "id": 185,
@@ -4062,19 +4430,21 @@
   "links_to": "/areas/green-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F144; F130; F52; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/green-valley/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Las Campanas gated 55+ GVR neighborhood on the west side. | Distinct vs other GVR neighborhoods: gated 55+ on the west side"
+  "faq_shown_link_to_owner": "F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F130->/guides/is-it-safe-to-let-window-cleaners-inside/; F52->/guides/how-much-output-do-dirty-solar-panels-lose/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Las Campanas gated 55+ GVR neighborhood on the west side. | Distinct vs other GVR neighborhoods: gated 55+ on the west side",
+  "faq_topic_tags": "55plus, gated, minedust, hoa",
+  "hoa_in_h1": "no: GVR neighborhood; use 'HOA' only in title/queries if client confirms"
  },
  {
   "id": 186,
   "url": "/areas/saddlebrooke/saddlebrooke-one/",
   "family": "hoa",
-  "h1": "Window Cleaning for SaddleBrooke One Residents",
-  "primary_query": "window cleaning SaddleBrooke One",
+  "h1": "Window Cleaning for the SaddleBrooke One HOA",
+  "primary_query": "SaddleBrooke One HOA window cleaning",
   "secondary_queries": "window washers SaddleBrooke One; SaddleBrooke One HOA window cleaning; SaddleBrooke One exterior cleaning",
   "intent": "local",
   "schema": "Service(areaServed=Place), BreadcrumbList, FAQPage",
@@ -4084,19 +4454,21 @@
   "links_to": "/areas/saddlebrooke/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F110",
+  "faq_refs": "F110; F194; F195; F18; F21; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/saddlebrooke/",
   "faq_schema_owner_of": "F110",
-  "faq_shown_link_to_owner": "",
-  "local_details": "SaddleBrooke One the original HOA on the south side. Residents use the name. | Distinct vs SaddleBrooke Two: the original HOA, south side | Recorded reviews R122, R123, R124, R125, R126, R127, R128, R129, R130, R131, R132, R133 mention: Screen Washing, Screens, Track Cleaning, Window Cleaning, Window Washing, Windows | Quote candidates: R122 (Bobbie Thompson, Google): \"Great work from young professionals on great window cleaning in SaddleBrooke.\" / R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\" / R124 (Chris Robinson, Google): \"Very attentive to details. Wonderful finish! Very personable guys too!\""
+  "faq_shown_link_to_owner": "F194->/who-we-help/hoas-communities/; F195->/commercial/multifamily-apartments/; F18->/services/; F21->/referrals/; F193->/commercial/country-clubs-golf/",
+  "local_details": "SaddleBrooke One the original HOA on the south side. Residents use the name. | Distinct vs SaddleBrooke Two: the original HOA, south side | Recorded reviews R122, R123, R124, R125, R126, R127, R128, R129, R130, R131, R132, R133 mention: Screen Washing, Screens, Track Cleaning, Window Cleaning, Window Washing, Windows | Quote candidates: R122 (Bobbie Thompson, Google): \"Great work from young professionals on great window cleaning in SaddleBrooke.\" / R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\" / R124 (Chris Robinson, Google): \"Very attentive to details. Wonderful finish! Very personable guys too!\"",
+  "faq_topic_tags": "hoa",
+  "hoa_in_h1": "yes"
  },
  {
   "id": 187,
   "url": "/areas/saddlebrooke/saddlebrooke-two/",
   "family": "hoa",
-  "h1": "Window Cleaning for SaddleBrooke Two Residents",
-  "primary_query": "window cleaning SaddleBrooke Two",
+  "h1": "Window Cleaning for the SaddleBrooke Two HOA",
+  "primary_query": "SaddleBrooke Two HOA window cleaning",
   "secondary_queries": "window washers SaddleBrooke Two; SaddleBrooke Two HOA window cleaning; SaddleBrooke Two exterior cleaning",
   "intent": "local",
   "schema": "Service(areaServed=Place), BreadcrumbList",
@@ -4106,12 +4478,14 @@
   "links_to": "/areas/saddlebrooke/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F110",
+  "faq_refs": "F110; F193; F194; F195",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/saddlebrooke/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/",
-  "local_details": "SaddleBrooke Two the larger HOA on the north side, including The Preserve. Residents use the name. | Distinct vs SaddleBrooke One: the larger north-side HOA, contains The Preserve | Recorded reviews R122, R123, R124, R125, R126, R127, R128, R129, R130, R131, R132, R133 mention: Screen Washing, Screens, Track Cleaning, Window Cleaning, Window Washing, Windows | Quote candidates: R122 (Bobbie Thompson, Google): \"Great work from young professionals on great window cleaning in SaddleBrooke.\" / R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\" / R124 (Chris Robinson, Google): \"Very attentive to details. Wonderful finish! Very personable guys too!\""
+  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/; F193->/commercial/country-clubs-golf/; F194->/who-we-help/hoas-communities/; F195->/commercial/multifamily-apartments/",
+  "local_details": "SaddleBrooke Two the larger HOA on the north side, including The Preserve. Residents use the name. | Distinct vs SaddleBrooke One: the larger north-side HOA, contains The Preserve | Recorded reviews R122, R123, R124, R125, R126, R127, R128, R129, R130, R131, R132, R133 mention: Screen Washing, Screens, Track Cleaning, Window Cleaning, Window Washing, Windows | Quote candidates: R122 (Bobbie Thompson, Google): \"Great work from young professionals on great window cleaning in SaddleBrooke.\" / R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\" / R124 (Chris Robinson, Google): \"Very attentive to details. Wonderful finish! Very personable guys too!\"",
+  "faq_topic_tags": "hoa",
+  "hoa_in_h1": "yes"
  },
  {
   "id": 188,
@@ -4128,12 +4502,14 @@
   "links_to": "/areas/saddlebrooke/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F110",
+  "faq_refs": "F110; F78; F18; F13; F21; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/",
-  "local_details": "The Preserve at SaddleBrooke newest golf neighborhood within SaddleBrooke Two. | Distinct vs SaddleBrooke Two: newest golf neighborhood within it | Recorded reviews R123 mention: Window Washing | Quote candidates: R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\""
+  "faq_shown_link_to_owner": "F110->/areas/saddlebrooke/saddlebrooke-one/; F78->/guides/can-you-pressure-wash-a-pool-deck-safely/; F18->/services/; F13->/guides/how-much-does-pressure-washing-cost-tucson/; F21->/referrals/; F193->/commercial/country-clubs-golf/",
+  "local_details": "The Preserve at SaddleBrooke newest golf neighborhood within SaddleBrooke Two. | Distinct vs SaddleBrooke Two: newest golf neighborhood within it | Recorded reviews R123 mention: Window Washing | Quote candidates: R123 (Marilynn Smith, Google, Nextdoor): \"Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful.\"",
+  "faq_topic_tags": "golf, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 189,
@@ -4150,12 +4526,14 @@
   "links_to": "/areas/sahuarita/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F136; F124; F53; F46; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Rancho Resort small gated 55+ neighborhood in Sahuarita. | Recorded reviews R082 mention: Window Cleaning | Quote candidates: R082 (Shelley Blickenstaff, Online review): \"We had our windows cleaned today both inside and out. Wildcat Washers were very professional, polite, and thorough. Admirably, they are stud...\""
+  "faq_shown_link_to_owner": "F136->/guides/is-it-safe-to-let-window-cleaners-inside/; F124->/guides/how-to-choose-a-window-cleaner/; F53->/guides/how-often-clean-solar-panels-tucson/; F46->/guides/remove-solar-screens-before-window-cleaning/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Rancho Resort small gated 55+ neighborhood in Sahuarita. | Recorded reviews R082 mention: Window Cleaning | Quote candidates: R082 (Shelley Blickenstaff, Online review): \"We had our windows cleaned today both inside and out. Wildcat Washers were very professional, polite, and thorough. Admirably, they are stud...\"",
+  "faq_topic_tags": "55plus, gated, minedust, hoa, resort",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 190,
@@ -4172,12 +4550,14 @@
   "links_to": "/areas/sahuarita/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F129; F54; F146; F65; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/sahuarita/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Sonora at Rancho Sahuarita, the Del Webb 55+ section with its own clubhouse. | Distinct vs Rancho Sahuarita: the Del Webb 55+ section with its own clubhouse"
+  "faq_shown_link_to_owner": "F129->/guides/is-it-safe-to-let-window-cleaners-inside/; F54->/guides/does-rain-clean-solar-panels/; F146->/guides/how-to-prepare-for-window-cleaning/; F65->/guides/mine-dust-solar-panels-green-valley-sahuarita/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Sonora at Rancho Sahuarita, the Del Webb 55+ section with its own clubhouse. | Distinct vs Rancho Sahuarita: the Del Webb 55+ section with its own clubhouse",
+  "faq_topic_tags": "55plus, minedust, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 191,
@@ -4194,12 +4574,14 @@
   "links_to": "/areas/marana/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F106",
+  "faq_refs": "F106; F152; F132; F153; F126; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "F106->/areas/marana/continental-ranch/",
-  "local_details": "Sunflower at Continental Ranch, the 55+ gated section with its own clubhouse. | Distinct vs Continental Ranch: the gated 55+ section with its own clubhouse | Recorded reviews R117 mention: Solar Panel Cleaning, Window Cleaning | Quote candidates: R117 (Suzanne Short, Google, Nextdoor): \"Kai and his team cleaned my solar panels and exterior windows today. I was impressed with their attention to detail and competence. Took bef...\""
+  "faq_shown_link_to_owner": "F106->/areas/marana/continental-ranch/; F152->/guides/when-do-i-pay-for-window-cleaning/; F132->/guides/are-window-cleaners-licensed-and-insured-arizona/; F153->/guides/when-do-i-pay-for-window-cleaning/; F126->/guides/are-window-cleaners-licensed-and-insured-arizona/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Sunflower at Continental Ranch, the 55+ gated section with its own clubhouse. | Distinct vs Continental Ranch: the gated 55+ section with its own clubhouse | Recorded reviews R117 mention: Solar Panel Cleaning, Window Cleaning | Quote candidates: R117 (Suzanne Short, Google, Nextdoor): \"Kai and his team cleaned my solar panels and exterior windows today. I was impressed with their attention to detail and competence. Took bef...\"",
+  "faq_topic_tags": "55plus, gated, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 192,
@@ -4216,12 +4598,14 @@
   "links_to": "/areas/marana/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F19; F88; F127; F81; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/marana/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Del Webb at Dove Mountain, newer 55+ neighborhood of single-story homes within Dove Mountain. | Distinct vs The Highlands: newer 55+ single-story homes inside Dove Mountain"
+  "faq_shown_link_to_owner": "F19->/guides/senior-and-veteran-discounts-window-cleaning/; F88->/services/pressure-washing/driveways-garage-floors/; F127->/guides/is-it-safe-to-let-window-cleaners-inside/; F81->/guides/how-often-pressure-wash-driveway-arizona/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Del Webb at Dove Mountain, newer 55+ neighborhood of single-story homes within Dove Mountain. | Distinct vs The Highlands: newer 55+ single-story homes inside Dove Mountain",
+  "faq_topic_tags": "55plus, newbuild, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 193,
@@ -4238,12 +4622,14 @@
   "links_to": "/areas/oro-valley/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F144; F128; F17; F136; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/oro-valley/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Vistoso Village, small gated 55+ community of attached homes, separate from Sun City Oro Valley. | Distinct vs Sun City Oro Valley: small gated 55+ community of attached homes"
+  "faq_shown_link_to_owner": "F144->/guides/do-i-need-to-be-home-for-window-cleaning/; F128->/guides/is-it-safe-to-let-window-cleaners-inside/; F17->/guides/two-story-window-cleaning/; F136->/guides/is-it-safe-to-let-window-cleaners-inside/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Vistoso Village, small gated 55+ community of attached homes, separate from Sun City Oro Valley. | Distinct vs Sun City Oro Valley: small gated 55+ community of attached homes",
+  "faq_topic_tags": "55plus, gated, hoa, attached",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 194,
@@ -4260,12 +4646,14 @@
   "links_to": "/areas/vail-az/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F129; F146; F152; F153; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/vail-az/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Del Webb at Rancho del Lago the 55+ golf section of Rancho del Lago. | Distinct vs Academy Village: 55+ golf section of Rancho del Lago"
+  "faq_shown_link_to_owner": "F129->/guides/is-it-safe-to-let-window-cleaners-inside/; F146->/guides/how-to-prepare-for-window-cleaning/; F152->/guides/when-do-i-pay-for-window-cleaning/; F153->/guides/when-do-i-pay-for-window-cleaning/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Del Webb at Rancho del Lago the 55+ golf section of Rancho del Lago. | Distinct vs Academy Village: 55+ golf section of Rancho del Lago",
+  "faq_topic_tags": "golf, 55plus, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 195,
@@ -4282,12 +4670,14 @@
   "links_to": "/areas/vail-az/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F234; F85; F147; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/vail-az/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Academy Village small 55+ community tied to the Arizona Senior Academy, with a lecture and arts culture. | Distinct vs Del Webb at Rancho del Lago: tied to the Arizona Senior Academy, lecture and arts culture"
+  "faq_shown_link_to_owner": "F234->/services/pressure-washing/; F85->/services/pressure-washing/patios-pool-decks/; F147->/guides/how-to-prepare-for-window-cleaning/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Academy Village small 55+ community tied to the Arizona Senior Academy, with a lecture and arts culture. | Distinct vs Del Webb at Rancho del Lago: tied to the Arizona Senior Academy, lecture and arts culture",
+  "faq_topic_tags": "55plus, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 196,
@@ -4304,12 +4694,14 @@
   "links_to": "/areas/tanque-verde/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F130; F31; F124; F48; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Vactor Ranch gated community of custom homes near Sabino Canyon Road. | Distinct vs Forty Niner: gated custom homes near Sabino Canyon Road | Recorded reviews R094 mention: Windows | Quote candidates: R094 (Gerry Heaslip, Nextdoor): \"Do not hesitate to contact the Wildcat Washers. I highly recommend this team of young men. Personally, they are respectful and courteous wit...\""
+  "faq_shown_link_to_owner": "F130->/guides/is-it-safe-to-let-window-cleaners-inside/; F31->/guides/water-fed-pole-vs-hand-washing/; F124->/guides/how-to-choose-a-window-cleaner/; F48->/guides/will-window-cleaning-damage-tint-or-low-e/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Vactor Ranch gated community of custom homes near Sabino Canyon Road. | Distinct vs Forty Niner: gated custom homes near Sabino Canyon Road | Recorded reviews R094 mention: Windows | Quote candidates: R094 (Gerry Heaslip, Nextdoor): \"Do not hesitate to contact the Wildcat Washers. I highly recommend this team of young men. Personally, they are respectful and courteous wit...\"",
+  "faq_topic_tags": "gated, bigglass, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 197,
@@ -4326,12 +4718,14 @@
   "links_to": "/areas/tanque-verde/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F137; F79; F24; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/tanque-verde/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Forty Niner Country Club Estates golf-course neighborhood on Tanque Verde Road. Spell out Forty Niner, never 49er. | Distinct vs Vactor Ranch: golf-course neighborhood on Tanque Verde Road"
+  "faq_shown_link_to_owner": "F137->/services/pressure-washing/; F79->/services/pressure-washing/pre-paint-prep/; F24->/guides/how-much-does-window-cleaning-cost-tucson/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Forty Niner Country Club Estates golf-course neighborhood on Tanque Verde Road. Spell out Forty Niner, never 49er. | Distinct vs Vactor Ranch: golf-course neighborhood on Tanque Verde Road",
+  "faq_topic_tags": "golf, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 198,
@@ -4348,12 +4742,14 @@
   "links_to": "/areas/catalina-foothills/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F103",
+  "faq_refs": "F103; F132; F49; F126; F3; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/catalina-foothills/",
   "faq_schema_owner_of": "F103",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Skyline Country Club private club and gated custom-home community on Skyline Drive. | Distinct vs Sin Vacas: private club community on Skyline Drive"
+  "faq_shown_link_to_owner": "F132->/guides/are-window-cleaners-licensed-and-insured-arizona/; F49->/guides/will-window-cleaning-damage-tint-or-low-e/; F126->/guides/are-window-cleaners-licensed-and-insured-arizona/; F3->/guides/two-story-window-cleaning/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Skyline Country Club private club and gated custom-home community on Skyline Drive. | Distinct vs Sin Vacas: private club community on Skyline Drive",
+  "faq_topic_tags": "golf, gated, bigglass, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 199,
@@ -4370,12 +4766,14 @@
   "links_to": "/areas/catalina-foothills/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 4,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "",
+  "faq_refs": "F128; F135; F130; F43; F193",
   "sections_on_page": "",
   "gate_risk": "high: no HOA-specific review; if it can't carry 3 real differentiators, merge back as a section on /areas/catalina-foothills/",
   "faq_schema_owner_of": "",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Sin Vacas guard-gated luxury community off Sunrise Drive. | Distinct vs Skyline Country Club: guard-gated luxury off Sunrise Drive"
+  "faq_shown_link_to_owner": "F128->/guides/is-it-safe-to-let-window-cleaners-inside/; F135->/guides/two-story-window-cleaning/; F130->/guides/is-it-safe-to-let-window-cleaners-inside/; F43->/guides/do-you-clean-skylights-and-high-windows/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Sin Vacas guard-gated luxury community off Sunrise Drive. | Distinct vs Skyline Country Club: guard-gated luxury off Sunrise Drive",
+  "faq_topic_tags": "golf, gated, bigglass, hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  },
  {
   "id": 200,
@@ -4392,11 +4790,13 @@
   "links_to": "/areas/tucson/; /who-we-help/hoas-communities/; sibling HOAs",
   "wave": 3,
   "flags": "Promoted from section at Ashish's request; never publish the neighbor/same-street discount amount; never invent HOA-specific job counts",
-  "faq_refs": "F115",
+  "faq_refs": "F115; F164; F166; F234; F193",
   "sections_on_page": "",
   "gate_risk": "medium: has a recorded review; still needs housing/glass detail + real photos",
   "faq_schema_owner_of": "F115",
-  "faq_shown_link_to_owner": "",
-  "local_details": "Tucson Estates west-side community; customers use the name. | Recorded reviews R093 mention: Windows | Quote candidates: R093 (Alex Molinar, Online review): \"\"First time home owner having family over to see my house for the first time! Super respectful guys, made my home look a lot better, and rea...\""
+  "faq_shown_link_to_owner": "F164->/guides/do-windows-get-dirtier-near-open-desert/; F166->/guides/do-windows-get-dirtier-near-open-desert/; F234->/services/pressure-washing/; F193->/commercial/country-clubs-golf/",
+  "local_details": "Tucson Estates west-side community; customers use the name. | Recorded reviews R093 mention: Windows | Quote candidates: R093 (Alex Molinar, Online review): \"\"First time home owner having family over to see my house for the first time! Super respectful guys, made my home look a lot better, and rea...\"",
+  "faq_topic_tags": "hoa",
+  "hoa_in_h1": "no: community (doc 3 does not call it an HOA)"
  }
 ]

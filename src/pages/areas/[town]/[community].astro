@@ -15,7 +15,8 @@ import FaqList from '@/components/FaqList.astro';
 import Icon from '@/components/Icon.astro';
 import { communities, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Community } from '@/data/areas';
 import { planFor } from '@/data/plan';
-import { faq, type Faq } from '@/data/faq';
+import { faqRefs, type Faq } from '@/data/faq';
+import { ownerLinks } from '@/lib/faqOwner';
 import { communityReviews, servicesMentioned } from '@/lib/local';
 import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
@@ -35,9 +36,12 @@ const set = communityReviews(c, 6, hashSeed(c.slug) % 997);
 const mentioned = servicesMentioned(set.local);
 
 /* The place's own Doc 6 question (F91–122), plus the HOA answers on HOA pages. */
-const placeFaqs: Faq[] = [...(row?.faq_refs ?? '').matchAll(/F(\d+)/g)].map((m) => Number(m[1])).filter((n) => n >= 91 && n <= 122).map(faq);
-const hoaFaqs = c.kind === 'hoa' ? [faq(193), faq(194)] : [];
-const seniorFaqs = c.senior ? [faq(238)] : [];
+const refs = faqRefs(row?.faq_refs);
+const hoaNs = [193, 194, 195];
+const hoaFaqs = refs.filter((f) => hoaNs.includes(f.n));
+const placeFaqs: Faq[] = refs.filter((f) => !hoaNs.includes(f.n));
+const seniorFaqs: Faq[] = [];
+const faqLinks = ownerLinks(refs, url);
 
 const siblings = childrenOf(town.slug).filter((s) => s.slug !== c.slug);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: townName, href: townHref(town.slug) }, { name: c.name, href: url }];
@@ -52,7 +56,7 @@ const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(
   breadcrumbs={crumbs}
   schema={[
     { '@type': 'Service', name: `Window cleaning in ${c.name}`, serviceType: 'Window Cleaning', provider: { '@id': `${company.url}/#business` }, areaServed: { '@type': 'Place', name: c.name, containedInPlace: { '@type': 'Place', name: `${townName.replace(/ AZ$/, '')}, AZ` } }, url: `${company.url}${url}` },
-    ...(placeFaqs.length ? [faqSchema(placeFaqs)] : []),
+    ...(refs.length ? [faqSchema(refs)] : []),
   ]}
   ctaArea={town.slug}
   ctaPlace={c.name}
@@ -108,13 +112,13 @@ const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(
           <p class="eyebrow">For HOA boards and community managers</p>
           <h2 class="h3">{c.name} clubhouses and common areas</h2>
         </div>
-        <dl>{hoaFaqs.map((f) => <div><dt>{f.q}</dt><dd>{f.a}</dd></div>)}</dl>
+        <dl>{hoaFaqs.map((f) => <div><dt>{f.q}</dt><dd>{f.a}{faqLinks[f.n] && <> <a href={faqLinks[f.n].href}>{faqLinks[f.n].label}</a></>}</dd></div>)}</dl>
         <a class="text-link" href="/who-we-help/hoas-communities/">HOA and community work <Icon name="arrow" size={20} /></a>
       </div>
     </section>
   )}
 
-  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} title={`${c.name} questions`} />}
+  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} />}
 
   <section class="section-tight">
     <div class="wrap">

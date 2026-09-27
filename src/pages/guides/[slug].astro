@@ -9,12 +9,12 @@ import PageHero from '@/components/PageHero.astro';
 import FaqList from '@/components/FaqList.astro';
 import Icon from '@/components/Icon.astro';
 import { guidePages, guideByUrl, type GuidePage } from '@/data/guides';
-import { faq, type Faq } from '@/data/faq';
+import { faqRefs, type Faq } from '@/data/faq';
 import { planFor } from '@/data/plan';
 import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
 import { faqSchema } from '@/lib/schema';
 import { ownerLinks } from '@/lib/faqOwner';
-import { fitTitle, fitDescription } from '@/lib/seo';
+import { questionTitle, fitDescription } from '@/lib/seo';
 
 export function getStaticPaths() {
   return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
@@ -23,14 +23,14 @@ const { p } = Astro.props as { p: GuidePage };
 const { row, g, url } = p;
 const isGuide = row.family === 'guide';
 const s = g.service ? serviceBySlug[g.service] : undefined;
-const items: Faq[] = [...new Set([...row.faq_refs.matchAll(/F(\d+)/g)].map((m) => Number(m[1])))].map(faq);
+const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, url);
 const related = g.related
   .filter((h) => h !== url)
   .map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h }))
   .slice(0, 5);
 const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];
-const title = fitTitle([row.h1, row.primary_query.replace(/^./, (c) => c.toUpperCase())]);
+const title = questionTitle(row.h1);
 const description = fitDescription(g.answer);
 const article = {
   '@type': 'Article',

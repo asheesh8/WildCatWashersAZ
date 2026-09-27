@@ -13,23 +13,23 @@ import Icon from '@/components/Icon.astro';
 import type { Landing } from '@/data/landing/types';
 import { planFor } from '@/data/plan';
 import { guideByUrl } from '@/data/guides';
-import { faq, type Faq } from '@/data/faq';
+import { faqRefs, type Faq } from '@/data/faq';
 import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
 import { reviewsForService, pick, hashSeed } from '@/data/reviews';
 import type { ReviewSet } from '@/lib/local';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { ownerLinks } from '@/lib/faqOwner';
-import { fitTitle, fitDescription } from '@/lib/seo';
+import { questionTitle, fitDescription } from '@/lib/seo';
 
 export interface Props { l: Landing; crumbs: { name: string; href: string }[]; eyebrow: string; image?: string; quote?: string }
 const { l, crumbs, eyebrow, image, quote } = Astro.props;
 const row = planFor(l.url)!;
 const s = serviceBySlug[l.service];
-const items: Faq[] = [...new Set([...row.faq_refs.matchAll(/F(\d+)/g)].map((m) => Number(m[1])))].map(faq);
+const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, l.url);
 const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewsForService(s.reviewTags), 3, { seed: hashSeed(l.url) }), moreLabel: `${s.name} reviews from across Greater Tucson`, count: 0 };
 const related = l.related.filter((h) => h !== l.url).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
-const title = fitTitle([row.h1, row.primary_query.replace(/^./, (c) => c.toUpperCase())]);
+const title = questionTitle(row.h1);
 const description = fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
 ---

@@ -511,7 +511,7 @@ export const communities: Community[] = [
   {
     kind: 'hoa', slug: 'saddlebrooke-two', name: 'SaddleBrooke Two', parent: 'saddlebrooke', senior: true, hoa: true,
     intro: 'SaddleBrooke Two is the larger HOA on the north side of SaddleBrooke, and it includes The Preserve, the community’s newest golf neighborhood. Residents use the name.',
-    lead: 'Yes. Wildcat Washers serves SaddleBrooke Two, including The Preserve, with customers in every part of SaddleBrooke.',
+    lead: 'Yes. Wildcat Washers serves SaddleBrooke Two, including The Preserve, and all of SaddleBrooke.',
     differs: 'SaddleBrooke One is the original HOA on the south side. SaddleBrooke Two is larger, on the north side, and contains The Preserve.',
     emphasis: { title: 'Ready for the season', body: 'Many SaddleBrooke residents are seasonal. The standard approach is service pre-scheduled and timed to your arrival, so the house is clean and ready the day you get back, arranged around your travel dates.' },
     angle: [metroConditions.water, metroConditions.pollen],

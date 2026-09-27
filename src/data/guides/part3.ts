@@ -6,7 +6,7 @@ export const guides: Guide[] = [
     slug: 'how-to-get-pigeons-out-from-under-solar-panels',
     service: 'solar-panel-pigeon-proofing',
     answer:
-      "Getting pigeons out from under solar panels takes three steps: encourage the birds to leave and fly off, clean out everything they left behind, then seal the perimeter of the array with exclusion mesh so they can't settle back in. Wildcat Washers does all three in one visit, gently and with protective gear.",
+      "Getting pigeons out from under solar panels takes three steps: encourage the birds to leave and fly off, clean out everything they left behind, then close off the array's edges with exclusion mesh to keep them from settling back in. Wildcat Washers does all three in one visit, gently and with protective gear.",
     sections: [
       {
         h: 'Why birds choose the space under your panels',
@@ -24,18 +24,18 @@ export const guides: Guide[] = [
       {
         h: 'Step two: the cleanout',
         p: [
-          "With the birds gone, the crew removes and flushes out the droppings and nesting debris from above and below the panels. Everything is bagged, carried off the roof, hauled away and disposed of. Droppings are a genuine biohazard and often toxic, so technicians wear protective equipment for this part. You never have to climb up, scoop anything, or touch a bag.",
+          "With the birds gone, the crew removes and flushes out the droppings and nesting debris from above and below the panels. Everything is bagged, carried off the roof, hauled away and disposed of. Droppings are a real biohazard and often toxic, so technicians wear protective equipment for this part. You never have to climb up, scoop anything, or touch a bag.",
         ],
       },
       {
         h: 'Step three: sealing the gap for good',
         p: [
-          "The last step is what keeps the problem from coming back. We install a galvanized steel mesh barrier around the whole perimeter of the array. It holds with a clip-and-wire system and a one-way locking disc, so nothing is drilled into the roof and nothing is fastened to the panel frames. While we're up there, we also give the panels a full cleaning, especially the tops, and inspect the roof and array. You get before-and-after photos, since this is work you can't see from the ground.",
+          "The last step is what keeps the problem from coming back. We install a galvanized steel mesh barrier around the whole edge of the array. Clips and wire, tightened by one-way locking discs, keep it secure, so nothing is drilled into the roof and nothing is fastened to the panel frames. While we're up there, we also give the panels a full cleaning, especially the tops, and inspect the roof and array. You'll see before-and-after pictures, since this is work you can't see from the ground.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers handles the whole job in a single trip: a gentle exit for the birds, a complete cleanout of droppings and nesting debris, a no-drill mesh barrier around the array, and a full panel cleaning on top. A warranty is included on the work. Call (520) 525-0084 and we'll ask a few questions about your array and quote it on the phone.",
+      "Wildcat Washers handles the whole job in a single trip: a gentle exit for the birds, a complete cleanout of droppings and nesting debris, a no-drill mesh barrier around the array, and a full panel cleaning on top. A warranty comes with the work. Call (520) 525-0084 and we'll ask a few questions about your array and quote it on the phone.",
     related: [
       '/guides/are-pigeons-under-solar-panels-a-problem/',
       '/guides/does-pigeon-proofing-damage-roof-or-warranty/',
@@ -73,7 +73,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers installs solar panel pigeon proofing with no drilling and no attachment to your panel frames, then cleans out any existing droppings and nesting debris and cleans the panels. A warranty is included on the work, and you see before-and-after photos of a roof you can't easily check yourself. A quick phone call is all it takes to get a quote.",
+      "Wildcat Washers installs solar panel pigeon proofing without drilling into the roof or fixing anything to your panel frames, then clears out whatever mess the birds have made and washes the panels. We back the install with a warranty, and you see before-and-after photos of a roof you can't easily check yourself. A quick phone call is all it takes to get a quote.",
     related: [
       '/guides/how-to-get-pigeons-out-from-under-solar-panels/',
       '/guides/does-cleaning-void-solar-warranty/',
@@ -99,15 +99,15 @@ export const guides: Guide[] = [
       {
         h: 'What actually drives the price',
         p: [
-          "We price pigeon proofing per job. Three things shape the number: how many panels you have, how large the array is, and how much cleanup and removal is involved. An array with heavy nesting and droppings is considerably more work than a clean, preventative install, so the same house can be quoted very differently depending on how long the birds have been there.",
-          "We don't publish prices, because every roof is different. What we can promise is a clear quote on the phone in a few minutes, and no payment until the work is done and you're happy with it.",
+          "We price pigeon proofing per job. Three things shape the number: your panel count, how large the array is, and how much cleanup and removal is involved. An array with heavy nesting and droppings is considerably more work than a clean, preventative install, so the same house can be quoted very differently depending on how long the birds have been there.",
+          "We don't publish prices, because every roof is different. What we can promise is a clear quote during a short call, and no payment until the work is done and you're happy with it.",
         ],
       },
       {
         h: 'What you get in one visit',
         p: [
-          "When you compare quotes, compare what's included. Our pigeon proofing covers a gentle exit for the birds, removal and flushing of droppings and nesting debris from above and below the panels, and bagging and hauling everything away. It includes a galvanized steel mesh barrier around the full perimeter, secured with clips and a one-way locking disc so nothing is drilled or bolted to the panels. On top of that you get a full panel cleaning, a roof and solar inspection, before-and-after photos, and a warranty on the work.",
-          "Useful questions for any quote: Is cleanup of the droppings included, or extra? Does the barrier attach to the roof or the panel frames? Will the panels be cleaned while the crew is up there? Is there a warranty? The answers make it much easier to compare two numbers fairly.",
+          "When you compare quotes, compare what's included. Our pigeon proofing covers coaxing the birds to leave on their own, removal and flushing of everything they left above and under the panels, and bagging and hauling everything away. It includes galvanized steel mesh installed around the full edge of the array, held on with clips rather than screws or bolts. On top of that you get a full panel cleaning, a roof and solar inspection, before-and-after photos, and a warranty on the work.",
+          "Useful questions for any quote: Is cleanup of the droppings included, or extra? Does the barrier attach to the roof or the panel frames? Will the panels be washed as part of the job? Is there a warranty? The answers make it much easier to compare two numbers fairly.",
         ],
       },
       {
@@ -137,26 +137,26 @@ export const guides: Guide[] = [
       {
         h: 'Where the cost of pigeon proofing really comes from',
         p: [
-          "Pigeon proofing is priced per job, based on panel count, array size, and how much cleanup and removal is involved. The first two are fixed by your system. The third is the part that grows. Once birds settle under an array, nesting material and droppings build up, and all of it has to be removed, flushed out, bagged and hauled away by a crew in protective equipment.",
+          "Pigeon proofing is priced per job, based on panel count, array size, and how much mess has to be cleared. The first two are fixed by your system. The third is the part that grows. Once birds settle under an array, the mess accumulates, and all of it has to be removed, flushed out, bagged and hauled away by a crew in protective equipment.",
           "A preventative install skips that whole stage. The crew fits the mesh barrier around a clean perimeter and moves on, which is why a clean install costs substantially less than one done after the birds have moved in.",
         ],
       },
       {
         h: 'What a preventative install includes',
         p: [
-          "You get the same barrier either way: galvanized steel mesh around the perimeter of the array, held with a clip-and-wire system and a one-way locking disc. No drilling into the roof, nothing attached to the panel frames, and no effect on your solar warranty.",
-          "We still clean the panels while we're on the roof, and we still inspect the roof and array and show you before-and-after photos. So even with no birds in sight, you come away with clean panels and a clear look at the condition of your roof.",
+          "You get the same barrier either way: galvanized steel mesh ringing the array, clipped and wired in place without a single hole in the roof or a bracket on the panels, so your solar warranty isn't affected.",
+          "Your panels still get washed during the visit, and we still look over the roof and the system and share photos from before and after. So even with no birds in sight, you come away with clean panels and a clear look at the condition of your roof.",
         ],
       },
       {
         h: 'A sensible time to schedule it',
         p: [
-          "If you already have solar panel cleaning on your calendar, adding pigeon proofing to that visit is an easy fit, since the crew is up there anyway. Wildcat Club members also get 10 percent off added services, and pigeon proofing is one of them.",
+          "If you already have solar panel cleaning on your calendar, adding pigeon proofing to that visit is an easy fit, since the crew is up there anyway. Wildcat Club members get a 10 percent discount on added services, pigeon proofing included.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers installs preventative pigeon proofing on arrays of every size, with no drilling and no attachment to the panels, and cleans your panels in the same visit. A warranty is included. Give us a call and we'll quote the install over the phone, usually in just a few minutes.",
+      "Wildcat Washers installs preventative pigeon proofing on arrays of every size, without drilling or touching the panel frames, and cleans your panels in the same visit. A warranty is included. Give us a call and we'll quote the install over the phone, usually in just a few minutes.",
     related: [
       '/guides/how-much-does-pigeon-proofing-cost/',
       '/guides/are-pigeons-under-solar-panels-a-problem/',
@@ -176,25 +176,25 @@ export const guides: Guide[] = [
         h: 'What builds up under an array',
         p: [
           "Once pigeons settle under panels, the space fills with nesting debris and droppings over time. It sits where nobody can see it, on a part of the roof that is hard to reach, so it tends to grow unnoticed until the birds themselves become obvious.",
-          "Droppings are more than a mess. They are a genuine biohazard and often toxic, which is why our crews wear protective equipment for the cleanout and why we never ask a homeowner to handle any of it.",
+          "Droppings are more than a mess. They carry real health risks and are often toxic, which is why our crews wear protective equipment for the cleanout and why we never ask a homeowner to handle any of it.",
         ],
       },
       {
         h: 'Why droppings on top of the panels matter too',
         p: [
-          "Birds roosting under an array often leave droppings on top of it too. Droppings on the glass block a lot of light for their size, and they don't rinse off with rain or a hose. Panels need to be cleaned carefully by hand to come clean. Dust, dirt and droppings that block light before it reaches the cell cost production, which is the whole reason you have panels up there.",
+          "Birds roosting under an array often leave droppings on top of it too. Droppings on the glass block a lot of light for their size, and they don't rinse off with rain or a hose. Panels need to be cleaned carefully by hand to come clean. Dust, dirt and droppings that keep sunlight from reaching the cells cost production, which is the whole reason you have panels up there.",
         ],
       },
       {
         h: 'Seeing a roof you cannot see',
         p: [
-          "Most people can't check the space under their array themselves, and they shouldn't have to climb up to try. When we pigeon proof, we inspect the roof and the panels and show you before-and-after photos, so you know exactly what was there and what it looks like now.",
-          "The fix for the future is simple. A galvanized steel mesh barrier around the array's perimeter closes the gap, secured with clips so nothing is drilled into the roof or attached to the panels.",
+          "Most people can't check the space under their array themselves, and they shouldn't have to climb up to try. When we pigeon proof, we inspect the roof and panels and share before-and-after photos, so you know exactly what was there and what it looks like now.",
+          "The fix for the future is simple. Galvanized mesh fitted along the edge of the array closes the gap, and because it clips on, the roof and panels stay free of holes and hardware.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers gently moves the birds along, removes and hauls away all the droppings and nesting debris, and seals the array with no-drill exclusion mesh. We clean the panels while we're up there and include a warranty on the work. Call (520) 525-0084 and we'll talk through what you're seeing and quote it on the phone.",
+      "Wildcat Washers gently moves the birds along, removes and hauls away everything they left behind, and closes off the array with clip-on exclusion mesh. The panels get washed during the same trip, and we back it with a warranty. Phone (520) 525-0084 to describe what you're seeing, and we'll price it during the call.",
     related: [
       '/guides/how-to-get-pigeons-out-from-under-solar-panels/',
       '/guides/should-i-pigeon-proof-before-birds-arrive/',
@@ -220,7 +220,7 @@ export const guides: Guide[] = [
       {
         h: 'The security screen mix-up',
         p: [
-          "People also call solar screens security screens, and that one causes real confusion. A true security screen is a heavy-duty metal gate-style screen, and retractable screens run on mechanical or electric hardware. Those are different products. We don't build, install or repair them, though we can clean, pressure wash and recondition them.",
+          "People also call solar screens security screens, and that one causes real confusion. A true security screen is a heavy-duty metal gate-style screen, and retractable screens run on mechanical or electric hardware. Those are different products. We don't build, install or repair them, though cleaning them is something we can help with.",
           "If you called about security screens and what you really wanted was shade and privacy on your windows, that's a solar screen, and that we do.",
         ],
       },
@@ -258,20 +258,20 @@ export const guides: Guide[] = [
       {
         h: 'What openness factor means for your view',
         p: [
-          "Openness factor is how much of the mesh is open space. SunTex 80, at about 25 percent open, is the more open weave. SunTex 90, at about 10 percent, is tighter. The view gets a little darker and a touch less crisp, and most people are surprised how clear it stays, even through 90 percent mesh. From the street, people can't see in through either one during the day.",
+          "Openness factor is how much of the mesh is open space. SunTex 80, at about 25 percent open, is the more open weave. SunTex 90, at about 10 percent, is tighter. The view gets a bit dimmer and slightly softer, yet it stays surprisingly clear with either mesh, 90 included. From the street, people can't see in through either one during the day.",
         ],
       },
       {
         h: 'How to choose',
         p: [
-          "West-facing windows take low-angle afternoon sun during the hottest hours of the day, and south-facing windows get direct sun most of the day, year-round. Those are the windows where the extra heat and glare blocking of a 90 percent screen does the most work, and where the higher UV blocking helps protect furniture, flooring and artwork from fading.",
+          "West-facing windows take low-angle afternoon sun when the day is at its hottest, and south-facing windows get direct sun most of the day, year-round. Those are the windows where the extra heat and glare blocking of a 90 percent screen does the most work, and where the higher UV blocking helps protect furniture, flooring and artwork from fading.",
           "An 80 percent screen makes sense where you'd like a slightly more open weave and the sun is less intense, such as east-facing windows that only see morning sun. Every screen we build is custom, so you can talk through using different mesh on different sides of the house. One mesh everywhere gives a uniform exterior look.",
         ],
       },
       {
         h: 'A number to be careful with',
         p: [
-          "Blocking 90 percent of the heat at the glass is not the same as cutting your cooling bill by 90 percent. The U.S. Department of Energy reports that well-placed shade can reduce annual cooling costs by 7 to 15 percent, and Arizona solar screen installers commonly report savings of up to 25 percent. An 80 to 90 percent cooling cost claim doesn't add up.",
+          "Blocking 90 percent of the heat at the glass is not the same as cutting your cooling bill by 90 percent. Federal figures are far more modest: the Department of Energy puts the yearly cooling savings from well-placed shade at 7 to 15 percent, and installers in Arizona often cite as much as 25 percent. An 80 to 90 percent cooling cost claim doesn't add up.",
         ],
       },
     ],
@@ -295,7 +295,7 @@ export const guides: Guide[] = [
       {
         h: 'Where the savings come from',
         p: [
-          "A solar screen stops sunlight at the outside of the window. Depending on the mesh, it blocks 80 to 90 percent of the sun's heat and glare before it ever reaches the glass. Less heat coming through the window means less work for your air conditioner, and the room that always runs hot becomes noticeably more comfortable.",
+          "A solar screen stops sunlight at the outside of the window. Depending on the mesh, it stops 80 to 90 percent of incoming heat and glare before any of it hits the glass. Less heat coming through the window means less work for your air conditioner, and the room that never seems to cool down becomes noticeably more comfortable.",
           "Southern Arizona gets 300 or more days of sun a year, which is exactly why solar screens are so common here. The more sun a window takes, the more a screen has to block.",
         ],
       },
@@ -309,12 +309,12 @@ export const guides: Guide[] = [
       {
         h: 'Getting the most from each screen',
         p: [
-          "Placement matters most. West-facing windows are the top priority, then south, then east, with north-facing windows last. A 90 percent mesh blocks more heat and glare than an 80 percent mesh. Screens also protect furniture, flooring, artwork and window treatments from fading, so the value goes beyond the power bill.",
+          "Placement matters most. West-facing windows are the top priority, then south, then east, and north-facing glass matters least. A 90 percent mesh blocks more heat and glare than an 80 percent mesh. Screens also protect furniture, flooring, artwork and window treatments from fading, so the value goes beyond the power bill.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers custom builds and installs solar screens using top-grade Phifer mesh, sized to each window. We'll help you decide which windows to start with and which shade percentage fits, then quote it per screen over the phone. The material carries a manufacturer warranty, and we back our installation work too.",
+      "Wildcat Washers custom builds and installs solar screens using top-grade Phifer mesh, sized to each window. We'll suggest which windows to start with and which shade percentage fits, and price it screen by screen over the phone. The Phifer material has a manufacturer warranty, and our installation is backed as well.",
     related: [
       '/guides/which-windows-need-solar-screens/',
       '/guides/solar-screens-80-vs-90/',
@@ -347,13 +347,13 @@ export const guides: Guide[] = [
       {
         h: 'Start with the room that overheats',
         p: [
-          "Most homes have one room that always runs hot, often a bedroom or living room with big west or south glass. Screening those windows is usually where people feel the difference first. Screens also cut glare on TVs and computer screens and help protect furniture, flooring and artwork from fading.",
+          "Most homes have one room that always runs hot, often a bedroom or living room with big west or south glass. Screening those windows is usually where people feel the difference first. Screens also cut glare on TVs and computer screens and help keep furniture, floors and art from fading.",
           "Some homeowners phase the work, screening the sunniest side now and the rest later. Others do every window at once for a clean, uniform exterior. Larger jobs come with quantity discounts, which is part of why whole-house orders are common.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers custom measures, builds and installs solar screens for any window, in any color and shade percentage. We'll talk through which way your windows face and where to begin, then quote it per screen over the phone. Typical turnaround is two to three weeks from measure to install.",
+      "Wildcat Washers fits custom solar screens to any window, in whatever color and shade you like, after measuring each one. We'll talk through which way your windows face and where to begin, then give you a per-screen quote by phone. Typical turnaround is two to three weeks from measure to install.",
     related: [
       '/guides/solar-screens-80-vs-90/',
       '/guides/do-solar-screens-save-on-cooling-costs/',
@@ -372,7 +372,7 @@ export const guides: Guide[] = [
       {
         h: 'Why the view stays clear from inside',
         p: [
-          "A solar screen is a woven mesh, and the openings in the weave are what you look through. Phifer SunTex 80 has an openness factor of about 25 percent, and SunTex 90 about 10 percent. Even at the tighter weave, the yard, the street and the mountains stay in view.",
+          "A solar screen is a woven mesh, and the openings in the weave are what you look through. SunTex 80 is roughly a quarter open space, and SunTex 90 roughly a tenth. Even at the tighter weave, the yard, the street and the mountains stay in view.",
           "Rooms do feel calmer and less glaring, which is part of the point. What most people notice first is that the harsh afternoon glare is gone, not that the room got dark.",
         ],
       },
@@ -391,7 +391,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers custom builds solar screens with top-grade Phifer mesh, so you can choose the balance of view, shade and privacy that suits each window. We measure, build and install, and we can repair or rescreen screens you already have. Call and we'll help you pick a mesh and quote it on the phone.",
+      "Every screen Wildcat Washers makes uses Phifer mesh, so you can choose the balance of view, shade and privacy that suits each window. We measure, build and install, and we can repair or rescreen screens you already have. Call and we'll help you pick a mesh, then price it before you hang up.",
     related: [
       '/guides/solar-screens-80-vs-90/',
       '/guides/solar-screens-vs-sun-screens/',
@@ -409,7 +409,7 @@ export const guides: Guide[] = [
       {
         h: 'What wears a solar screen out',
         p: [
-          "Screens rarely fail all at once. The usual story is slow fading from years of direct sun. In Southern Arizona, with 300 or more days of sun a year, a screen on a west or south wall works harder than one on a north wall, so it's normal for screens on the sunniest sides to show age first.",
+          "Screens rarely fail all at once. The usual story is slow fading from years of direct sun. In Southern Arizona, with sun on 300-plus days a year, a screen on a west or south wall works harder than one on a north wall, so it's normal for screens on the sunniest sides to show age first.",
           "Material quality is the other big factor. Cheaper mesh fades faster. That's why we use Phifer, which is fade-resistant, mildew-resistant and pet-resistant, and made in the USA.",
         ],
       },
@@ -422,7 +422,7 @@ export const guides: Guide[] = [
       {
         h: 'When a screen does wear out',
         p: [
-          "A faded or torn solar screen doesn't always mean a whole new screen. If the frame is still in good shape, we can rescreen it, replacing the mesh and keeping the frame. Solar screen repairs go to our shop and usually take one to two weeks. If the frame is badly damaged, we'll recommend replacement instead.",
+          "A faded or torn solar screen doesn't always mean a whole new screen. If the frame is still in good shape, we can rescreen it, putting new mesh in the frame you already have. Solar screen repairs are done in our shop and are usually ready in one to two weeks. If the frame is badly damaged, we'll recommend replacement instead.",
         ],
       },
       {
@@ -433,7 +433,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers builds solar screens with top-grade Phifer mesh so they last as long as possible, and backs the work with a warranty. When older screens start to fade or tear, we can rescreen the frames you have or build new ones. Call and we'll talk through what your screens need.",
+      "We make every solar screen from top-grade Phifer mesh to stretch its life, and Wildcat Washers backs the work with a warranty. When older screens start to fade or tear, we can rescreen the frames you have or build new ones. Call and we'll talk through what your screens need.",
     related: [
       '/guides/solar-screen-buying-guide/',
       '/guides/repair-or-replace-window-screen/',
@@ -451,7 +451,7 @@ export const guides: Guide[] = [
       {
         h: 'Why cleaning through the screen does not work',
         p: [
-          "A solar screen sits on the outside of the window, right over the glass. There's no way to properly clean glass you can't reach, and trying to wash a window with the screen in place just pushes water and dust around behind the mesh. Taking the screen off is the only way to get the glass, frame and sill properly clean.",
+          "A solar screen sits outside, right over the glass. There's no way to properly clean glass you can't reach, and trying to wash a window with the screen in place just pushes water and dust around behind the mesh. Taking the screen off is the only way to get the glass, frame and sill properly clean.",
           "Removal is easy on well-installed screens. They mount with brackets that rotate in and out, so a screen pops off once the hardware is loosened, and goes back on the same way.",
         ],
       },
@@ -465,7 +465,7 @@ export const guides: Guide[] = [
         h: 'Two services, one visit',
         p: [
           "Solar screen cleaning is a pressure washing service, so it's separate from our 5-in-1 Deep Clean. The 5-in-1 covers the glass, frames, sills and tracks, plus the standard insect screens, which are removed, professionally reconditioned and reinstalled on every job. Solar screens are cleaned separately, by pressure washing and reconditioning.",
-          "Because our crews carry equipment for every service in the truck, it's easy to do both together. Wildcat Club members also get 10 percent off added services, and solar screen cleaning counts.",
+          "Because our crews carry equipment for every service in the truck, it's easy to do both together. Club members save 10 percent on added services such as solar screen cleaning.",
         ],
       },
     ],
@@ -503,7 +503,7 @@ export const guides: Guide[] = [
         h: 'What we work on, and what we do not',
         p: [
           "We repair and rescreen window screens, door and patio screens, insect and bug screens, house screens, and solar screens. Pricing is based on screen size.",
-          "We don't build, install or repair heavy-duty metal security gate screens or retractable screens with electric or mechanical hardware. We can clean and recondition those, though.",
+          "Heavy-duty metal security gate screens and retractable screens with electric or mechanical hardware are outside what we build, install or fix. We can still clean and recondition them.",
         ],
       },
       {
@@ -545,7 +545,7 @@ export const guides: Guide[] = [
       {
         h: 'What that means for your property',
         p: [
-          "Our pressure washing covers driveways, garages, patios, walkways, pavers, pool decks, entryways, gates, fences, doors, exterior walls and stucco, block walls, patio furniture, grills, trash cans, Arizona rooms and solar screens. We also do pre-paint prep washing, since paint needs a clean surface to bond.",
+          "Our pressure washing covers driveways, garages, patios, walkways, pavers, pool decks, entryways, gates, fences, doors, exterior walls and stucco, block walls, patio furniture, grills, trash cans, Arizona rooms and solar screens. We also do pre-paint prep washing, since fresh paint won't bond well to a dirty wall.",
           "What we don't take on is the chemical-heavy side of the trade: soft washing, rust and oil stain removal, graffiti removal, paint removal, and deep stain removal on masonry, concrete or brick. We would rather tell you that plainly up front.",
         ],
       },
@@ -630,7 +630,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers pressure washes pool decks, pool surrounds and patios with minimal chemicals and careful water control. Our crews carry equipment for every service, so the deck, furniture and nearby walkways can all be done in one trip. Call and tell us what's around the pool, and we'll have a number for you fast.",
+      "Wildcat Washers pressure washes pool decks, pool surrounds and patios with minimal chemicals and careful water control. The truck carries everything we need, so the deck, furniture and nearby walkways can all be done in one trip. Call and tell us what's around the pool, and we'll have a number for you fast.",
     related: [
       '/guides/pressure-washing-vs-soft-washing/',
       '/guides/pressure-washing-pavers-sand/',
@@ -648,7 +648,7 @@ export const guides: Guide[] = [
       {
         h: 'Why we do not take on oil and rust',
         p: [
-          "Oil and rust soak into concrete. Getting them out depends on chemical treatment rather than water pressure, and we've chosen to keep chemicals out of our work. The same goes for graffiti removal and deep stain removal on masonry, concrete or brick. We'd rather tell you plainly now than take the job and leave you disappointed.",
+          "Oil and rust soak into concrete. Getting them out depends on chemical treatment rather than water pressure, and we've chosen to keep chemicals out of our work. The same goes for graffiti and for deep stains in masonry, brick or concrete. We'd rather tell you plainly now than take the job and leave you disappointed.",
           "If an oil or rust stain is the main thing bothering you, look for a company that specializes in chemical stain treatment for concrete.",
         ],
       },
@@ -667,7 +667,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers pressure washes driveways, garage floors, walkways and patios to clear away dirt, dust, tire marks and buildup. We don't treat oil or rust stains, and we'll tell you so on the phone. For everything else on the driveway, call (520) 525-0084 and we'll quote it in a couple of minutes.",
+      "Wildcat Washers pressure washes driveways, garage floors, walkways and patios to clear away dirt, dust, tire marks and buildup. We don't treat oil or rust stains, and we'll tell you so on the phone. For everything else on the driveway, phone (520) 525-0084 for a quick quote.",
     related: [
       '/guides/how-often-pressure-wash-driveway-arizona/',
       '/guides/pressure-washing-vs-soft-washing/',
@@ -680,7 +680,7 @@ export const guides: Guide[] = [
     slug: 'pressure-washing-pavers-sand',
     service: 'pressure-washing',
     answer:
-      "Pavers can be pressure washed without blowing out the sand. It takes the right pressure and technique, which is where rented machines usually go wrong. Wildcat Washers cleans pavers regularly, matching pressure to the surface so the dirt, dust and buildup come off while the joints between the stones stay put.",
+      "Pavers can be cleaned with a pressure washer without blowing out the sand. It takes the right pressure and technique, which is where rented machines usually go wrong. Wildcat Washers cleans pavers regularly, matching pressure to the surface so the dirt, dust and buildup come off while the joints between the stones stay put.",
     sections: [
       {
         h: 'Where do-it-yourself paver cleaning goes wrong',
@@ -692,7 +692,7 @@ export const guides: Guide[] = [
       {
         h: 'How we approach pavers',
         p: [
-          "We adjust the pressure to the surface and clean pavers regularly, so we know how they respond. The goal is to lift off the dust, dirt and debris that settle on outdoor surfaces here year-round, and especially after monsoon storms, without disturbing what's between the stones.",
+          "We set the pressure for pavers specifically, and we clean them regularly, so we know how they respond. The goal is to lift off the dust, dirt and debris that settle on outdoor surfaces here year-round, and especially after monsoon storms, without disturbing what's between the stones.",
           "Pavers show up on patios, walkways, pool surrounds and driveways, so they're often part of a bigger job. Our crews carry the equipment for all of it and can clean the furniture, grill and walkways in the same visit.",
         ],
       },
@@ -704,7 +704,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers pressure washes paver patios, walkways and pool decks with pressure matched to the surface, so the stones come clean and the joints stay intact. We walk the finished job with you before you pay. Call us and describe the area, and we'll quote it over the phone in a couple of minutes.",
+      "Wildcat Washers pressure washes paver patios, walkways and pool decks at a pressure set for the surface, so the stones come clean and the joints stay intact. You see the finished job with us before any payment. Call us, describe the area, and we'll give you a price on the same call.",
     related: [
       '/guides/can-you-pressure-wash-a-pool-deck-safely/',
       '/guides/how-often-pressure-wash-driveway-arizona/',
@@ -762,7 +762,7 @@ export const guides: Guide[] = [
     slug: 'how-much-does-solar-panel-cleaning-cost',
     service: 'solar-panel-cleaning',
     answer:
-      "Solar panel cleaning cost depends on how many panels you have and how the array is set up. Wildcat Washers prices solar panel cleaning per job and quotes it over the phone in a few minutes. A typical residential array is a single visit, usually one to three hours, with before-and-after photos included.",
+      "Solar panel cleaning cost depends on how many panels you have and how the array is set up. Wildcat Washers prices solar panel cleaning per job and quotes it during a quick call. A typical residential array is a single visit, usually one to three hours, and you get before-and-after photos.",
     sections: [
       {
         h: 'What shapes a solar cleaning quote',
@@ -774,7 +774,7 @@ export const guides: Guide[] = [
       {
         h: 'What you get for the money',
         p: [
-          "Dust, dirt and mineral buildup block light before it reaches the cells, and that costs production. Published research indicates debris buildup can lower solar panel efficiency by 5 to 30 percent, depending on local conditions. How much you recover depends on how dirty your array was, so we won't promise a specific number.",
+          "Dust, dirt and mineral buildup block light before it reaches the cells, and that costs production. Published research indicates debris buildup can lower solar panel efficiency by 5 to 30 percent, depending on local conditions. How much you recover depends on how dirty your array was, so we don't quote a specific number.",
           "Cleaning also protects the glass from hard water and mineral damage, which helps protect the life of an expensive investment. And because you can't see your own roof, we take before-and-after photos on every solar job.",
         ],
       },
@@ -787,7 +787,7 @@ export const guides: Guide[] = [
       },
     ],
     doAbout:
-      "Wildcat Washers cleans residential and commercial solar arrays of every size, by hand, with methods that are safe for the panels. Call with your panel count and we'll quote the job in minutes, then send photos of the finished array. You pay after the work is done and you're happy with it.",
+      "Wildcat Washers cleans residential and commercial solar arrays of every size, by hand, with methods that are safe for the panels. Tell us how many panels you have and we'll quote the job in minutes, then send photos of the finished array. Payment comes only after you've seen the results and are satisfied.",
     related: [
       '/guides/is-solar-panel-cleaning-worth-it/',
       '/guides/how-often-clean-solar-panels-tucson/',
@@ -801,13 +801,13 @@ export const guides: Guide[] = [
     slug: 'how-much-do-solar-screens-cost',
     service: 'solar-screens',
     answer:
-      "Solar screen cost in Tucson depends on how many screens you need and how big they are. Wildcat Washers prices solar screens per screen, based on size, with quantity discounts on larger jobs. Every price includes custom measuring, building and installation with materials included, and we quote it over the phone.",
+      "The cost of solar screens in Tucson depends on how many screens you need and how big they are. Wildcat Washers prices solar screens per screen, based on size, with quantity discounts on larger jobs. Every price includes custom measuring, building and installation with materials included, and we quote it over the phone.",
     sections: [
       {
         h: 'What the price covers',
         p: [
-          "We sell finished, installed solar screens, not loose materials. Your price includes measuring each window, building each screen to fit, and mounting it with rotating brackets so it's secure and still easy to pop out. We're a service provider, not a retail store, so the job is done when the screens are on your house.",
-          "We build with top-grade Phifer mesh in any color and any shade percentage. The most common choices are 80 or 90 percent mesh in black or beige.",
+          "We sell finished, installed solar screens, not loose materials. Your price includes measuring each window, building every screen to size, and mounting it with rotating brackets so it's secure and still easy to pop out. We're a service provider, not a retail store, so the job is done when the screens are on your house.",
+          "We build with the highest grade of Phifer mesh, in any color and any shade percentage. The most common choices are 80 or 90 percent mesh in black or beige.",
         ],
       },
       {
@@ -819,13 +819,13 @@ export const guides: Guide[] = [
       {
         h: 'Thinking about the return',
         p: [
-          "Solar screens are a strong long-term investment in this climate and pay for themselves over time. For numbers, the U.S. Department of Energy reports that well-placed shade can reduce annual cooling costs by 7 to 15 percent, and Arizona installers commonly report savings of up to 25 percent. Screens also protect furniture and floors from fading, and typically last around a decade.",
+          "Solar screens are a strong long-term investment in this climate and pay for themselves over time. For context, the U.S. Department of Energy credits well-placed shade with a 7 to 15 percent cut in yearly cooling bills, while Arizona installers often report figures as high as 25 percent. Screens also protect furniture and floors from fading, and usually serve for about a decade.",
           "Already have solar screens that are torn or faded? Rescreening an existing frame is often a smaller job than replacing it.",
         ],
       },
     ],
     doAbout:
-      "Wildcat Washers custom builds and installs solar screens across Southern Arizona. Call and tell us roughly how many windows you're thinking about, and we'll quote per screen and set up a measure. Wildcat Club members get 10 percent off solar screens as an added service.",
+      "Wildcat Washers makes and hangs custom solar screens across Southern Arizona. Call and tell us roughly how many windows you're thinking about, and we'll quote per screen and set up a measure. If you're in the Wildcat Club, solar screens come 10 percent off as an added service.",
     related: [
       '/guides/solar-screen-buying-guide/',
       '/guides/solar-screens-80-vs-90/',

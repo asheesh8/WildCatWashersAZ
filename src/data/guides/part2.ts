@@ -4,30 +4,31 @@ export const guides: Guide[] = [
   {
     slug: "pet-nose-prints-on-sliding-glass-doors",
     service: "window-cleaning",
-    answer: "Dog nose prints on sliding glass doors come off with an interior window cleaning, which is part of our 5-in-1 Deep Clean when you book inside and out. Nose prints sit on the inside of the glass, so an exterior-only wash never touches them. Book the interior, and the slider comes back clear.",
+    answer: "Dog nose prints on sliding glass doors come off with an interior window cleaning, which is included when you book inside and out. Nose prints sit on the inside of the glass, so an exterior-only wash never touches them. Book the interior along with the outside, and the slider comes back clear.",
     sections: [
       {
         h: "Why nose prints keep showing up in the same spot",
         p: [
-          "Dogs and cats press their noses against the glass wherever they watch the yard, and that is usually the slider and the low windows beside it. The prints build up at exactly nose height, right where the afternoon sun hits and makes every smudge easy to see.",
-          "Those marks are on the interior side. A company that only washes the outside of the house can leave you with sparkling exterior glass and the same cloudy patch on the inside. That is one reason we recommend cleaning the inside on the same schedule as the outside, never less often."
+          "Dogs and cats press their noses against the glass wherever they like to watch the yard, and that is usually the slider and the low windows beside it. The prints stack up at exactly nose height, and a sunny afternoon makes every smudge easy to spot.",
+          "Those marks are on the interior side. A company that only washes the outside of the house can leave you with sparkling exterior glass and the same cloudy patch indoors. It is one reason we suggest the interior get cleaned on the same schedule as the exterior, never less."
         ]
       },
       {
         h: "Wiping it yourself between visits",
         p: [
-          "A quick wipe is fine, and plenty of pet owners do it. Two things make it harder than it looks in Tucson. Dish soap cuts the grease but leaves a thin film that grabs dust and streaks once the sun hits it. And in Arizona heat, whatever you spray on can dry before you finish, which leaves streaks behind.",
-          "Work on the shady side of the day and keep your cloth or squeegee edge clean. If the glass also has white mineral spots, those are hard water deposits, and they need a different approach than a household spray."
+          "A quick wipe is fine, and plenty of pet owners do it. Two things make it trickier than it looks in Tucson. Dish soap cuts the grease but leaves a thin film that grabs dust and shows streaks in the sun. And in Arizona heat, a spray can dry on the glass before you finish, and that leaves streaks.",
+          "Try it when that side of the house is in shade, and keep your cloth or squeegee edge clean. If the glass also has white spots, those are hard water deposits, a different problem that a household spray will not lift."
         ]
       },
       {
         h: "The slider is more than the glass",
         p: [
-          "Sliding doors collect dust in the rails and track, and that is where a lot of the grime near the floor comes from. Our 5-in-1 covers glass doors and their rails along with frames, sills, and screens, so the whole door gets cleaned, not just the pane your pup likes best."
+          "Sliding doors collect dust and pet hair in the rails and the track, and that grit near the floor is part of why a door looks tired. We clean glass doors and their rails along with the frames, sills, and screens, so the whole door gets attention, not just the pane your pup likes best.",
+          "Mirrors and other interior glass are handled the same way if the nose prints have wandered."
         ]
       }
     ],
-    doAbout: "We clean sliders, glass doors, and low windows inside and out as part of the 5-in-1 Deep Clean, and our crews genuinely like animals, so your dog or cat is treated kindly while we work. If fresh nose prints show up within 14 days, our Spotless Guarantee covers a touch-up for any reason. Call (520) 525-0084 for a quote.",
+    doAbout: "Sliders, glass doors, and low windows are cleaned inside and out as part of our five-part window service, and our crews genuinely like animals, so your dog or cat is treated kindly while we work. If fresh nose prints show up within 14 days of your visit, the Spotless Guarantee covers a touch-up for any reason at all.",
     related: [
       "/guides/why-do-my-windows-streak/",
       "/guides/is-dawn-or-vinegar-good-for-windows/",
@@ -39,31 +40,31 @@ export const guides: Guide[] = [
   {
     slug: "window-replacement-vs-cleaning-cost",
     service: "window-cleaning",
-    answer: "Cleaning windows is far cheaper than replacing them, and regular cleaning is what keeps replacement off the table. Hard water left on glass long enough etches into it permanently, and etched glass has to be replaced, not cleaned. Replacing windows costs dramatically more than maintaining them.",
+    answer: "Cleaning windows is far cheaper than replacing them, and regular cleaning is what keeps replacement off the table. Hard water left on glass long enough etches into it permanently, and etched panes must be replaced, not cleaned. Replacing windows costs dramatically more than maintaining them.",
     sections: [
       {
         h: "How a cleaning bill turns into a replacement bill",
         p: [
-          "Tucson's water is hard and mineral heavy. Every time sprinkler spray, hose water, or a passing storm dries on your glass, it leaves a thin layer of minerals behind. At first that layer sits on the surface, and it can be buffed off.",
-          "Left long enough, the minerals eat into the glass itself. At that point it is physical damage, not a deposit, and nobody can reverse it. The same is true of scratched glass. The only fix for either one is a new pane."
+          "Tucson's water carries a lot of dissolved minerals. Every time sprinkler spray, hose water, or a passing storm dries on your glass, it leaves a thin layer of those minerals behind. At first that layer sits on the surface, and it can be buffed off.",
+          "Left long enough, the minerals eat into the glass itself. At that point it is physical damage, not a deposit, and nobody can reverse it. Scratched glass is in the same category. The only fix for either one is a new pane."
         ]
       },
       {
         h: "What maintenance actually buys you",
         p: [
           "Cleaning on a schedule removes mineral deposits before they can build up thick enough to cause damage. Windows cleaned regularly never reach the point of etching. That is why we describe three cleanings a year in Tucson as an investment rather than an expense. It is the cost of keeping the glass you already paid for.",
-          "Hard water removal is included in every 5-in-1 Deep Clean at no extra charge. We buff it off with 0000-grade steel wool and walnut pads, the grade that lifts minerals without scratching."
+          "Hard water removal is built into every 5-in-1 visit with no extra charge. We buff it off with 0000-grade steel wool and walnut pads, the grade that lifts minerals without scratching."
         ]
       },
       {
         h: "When replacement really is the answer",
         p: [
           "Some glass is past the point cleaning can help, and we will tell you so. Etching, scratches, and fogging between the panes of a double-pane window are all replacement problems. A foggy double pane means the seal has failed and moisture is inside the sealed unit, where no one can clean.",
-          "We inspect every window before we start and walk you through anything we find, so you know which panes will come clean and which ones will not before any work begins."
+          "We inspect every window before we start and walk you through anything we find, so you know which panes will come clean and which will not before any work begins."
         ]
       }
     ],
-    doAbout: "Wildcat Washers removes mineral buildup on every visit as part of the 5-in-1 Deep Clean, with no add-on fee for hard water. Our Wildcat Club schedules three cleanings a year so deposits never get the time they need to etch. We price per pane and quote by phone, so call (520) 525-0084 and we will count your panes with you.",
+    doAbout: "Wildcat Washers removes mineral buildup on every visit, so hard water never becomes an add-on fee. Our Wildcat Club schedules three cleanings a year so deposits never sit long enough to etch. Pricing is per pane, and a quick phone call is all it takes: we count your panes with you and give you the number on the spot.",
     related: [
       "/guides/is-hard-water-damage-on-glass-permanent/",
       "/guides/hard-water-and-your-windows/",
@@ -80,8 +81,8 @@ export const guides: Guide[] = [
       {
         h: "Why freshly cleaned glass gets dusty so fast",
         p: [
-          "In most homes the dust is not coming from far away. It is already sitting in the window tracks, on the frames and sills, and packed into the screens. The next gust of wind or a light sprinkle carries it straight back down onto the glass that was just cleaned.",
-          "That is why a glass-only cleaning fades quickly, and why we clean every part of the window. With nothing left in the tracks or screens, there is nothing to blow back on."
+          "In most homes the dust is not traveling far. It is already sitting in the window tracks, on the frames and sills, and packed into the screens. The next gust of wind or a light sprinkle carries it straight onto the glass that was just cleaned.",
+          "That is why a glass-only cleaning fades quickly. Take the dust out of the tracks and screens as well, and there is nothing waiting to blow back on."
         ]
       },
       {
@@ -89,17 +90,18 @@ export const guides: Guide[] = [
         p: [
           "Put the hose down. Rinsing windows feels helpful, but Tucson's hard water dries into spots, and those spots are the start of permanent etching.",
           "Check where your sprinklers land. If irrigation is hitting the glass, adjusting a head or two can save a lot of spotting.",
-          "If you have solar screens, keep them clean too. Dirty screens shed dust onto the glass behind them. When we clean windows behind solar screens, we take the screens off, clean the glass, and usually pressure wash and recondition the screens before they go back up."
+          "If you have solar screens, keep them clean too, because dirty screens shed dust onto the window behind them. On our visits, solar screens come down so the glass underneath can be cleaned, and they are usually pressure washed and reconditioned before going back up."
         ]
       },
       {
         h: "A schedule that matches Tucson",
         p: [
-          "Dust and minerals build up here all year, with extra after monsoon storms and extra pollen in spring. Three cleanings a year, right after summer, around the holidays, and in spring, is the rhythm that keeps up with it without bringing us out more often than you need."
+          "Dust and minerals build up here all year, with an extra load after monsoon storms and extra pollen in spring. Three cleanings a year, timed to the end of summer, the holiday season, and spring, is the rhythm that keeps up with it without bringing a crew out more often than you need.",
+          "Between visits, resist the urge to spot-clean with dish soap. The residue it leaves behind pulls dust in faster."
         ]
       }
     ],
-    doAbout: "Our 5-in-1 Deep Clean handles glass, frames, sills, tracks, and screens by hand, so the dust that usually blows back is gone. For two weeks after each visit, the 14-Day Spotless Guarantee covers any touch-up you want, for rain, sprinklers, dust, or any other reason. Wildcat Club members get all three cleanings scheduled automatically.",
+    doAbout: "Our technicians professionally hand clean the glass along with every frame, sill, track, and screen on each visit, so the dust that usually blows back is simply gone. For two weeks afterward, the 14-Day Spotless Guarantee covers any touch-up you want, whether rain, sprinklers, or dust caused it. Wildcat Club members get all three yearly cleanings scheduled automatically.",
     related: [
       "/guides/why-do-windows-get-dirty-again-so-fast/",
       "/guides/should-i-hose-off-my-windows/",
@@ -116,25 +118,26 @@ export const guides: Guide[] = [
       {
         h: "Where the extra dust comes from",
         p: [
-          "Desert dust is a year-round fact of life across Southern Arizona, and it is heaviest after monsoon storms. A home that backs onto open desert, sits along an unpaved road, or neighbors a horse property simply has more of it in the air on any given day.",
-          "Wind carries that dust onto every surface facing it. Glass shows it first, but the tracks, sills, and screens are collecting it too."
+          "Desert dust is a year-round fact of life across Southern Arizona, and it peaks after monsoon storms. A home that backs onto open desert, sits along an unpaved road, or neighbors a horse property simply has more of it drifting past on any given day.",
+          "Wind carries that dust onto every surface facing it. Glass shows it first, but the tracks, sills, and screens are quietly collecting it too."
         ]
       },
       {
         h: "Why it comes back so quickly",
         p: [
-          "When the dust settles into window tracks and screens, it becomes a reservoir. A breeze or a light rain pulls it back down onto the glass, so a pane that was clean on Monday looks tired by Friday. The more exposed the home, the faster that cycle runs.",
-          "Clearing the glass alone does not break the cycle. Clearing the tracks, frames, sills, and screens along with it does."
+          "Once dust settles into window tracks and screens, it becomes a reservoir. A breeze or a light rain pulls it down onto the pane, so glass that was clear on Monday looks tired by Friday. The more exposed the home, the faster that cycle runs.",
+          "Wiping the glass alone does not break the cycle. Emptying the tracks, frames, sills, and screens along with it does."
         ]
       },
       {
         h: "Dust plus hard water",
         p: [
-          "Dust is only half of it. Tucson's water is mineral heavy, so any rain, sprinkler spray, or hose water that lands on dusty glass dries into spots. Left alone, those minerals can etch the glass permanently. On an exposed lot, keeping to a steady schedule protects the glass as well as the view."
+          "Dust is only half of it. Any rain, sprinkler spray, or hose water that lands on dusty glass dries into spots, because the local water is loaded with minerals. Left alone, those minerals can etch the glass permanently. On an exposed lot, a steady schedule protects the glass as well as the view.",
+          "Every home in the Tucson area deals with some version of this. Exposed homes just deal with more of it, sooner."
         ]
       }
     ],
-    doAbout: "We clean every part of the window by hand, with tracks vacuumed out first so desert grit is removed instead of pushed around, and screens reconditioned before they go back in. For homes with heavy exposure, three visits a year through the Wildcat Club keeps the buildup in check. Call (520) 525-0084 and tell us about your lot.",
+    doAbout: "Our technicians vacuum the tracks first so desert grit is removed instead of pushed around, then hand wash every part of the window and recondition the screens before they go back in. For homes with heavy exposure, three visits a year through the Wildcat Club keeps the buildup in check. Tell us about your lot when you call.",
     related: [
       "/guides/why-do-windows-get-dirty-again-so-fast/",
       "/guides/how-often-clean-windows-tucson/",
@@ -165,11 +168,12 @@ export const guides: Guide[] = [
       {
         h: "If you still want to do it yourself",
         p: [
-          "Work early or in the shade, keep your squeegee edge clean, and skip the hose rinse, which only adds more minerals. Clean the tracks and screens too, or the dust will be back on the glass quickly."
+          "Work early or in the shade, keep your squeegee blade clean, and skip the hose rinse, which only adds more minerals. Clean the tracks and screens too, or the dust will be back on the glass within days.",
+          "And be honest about the ladder work. Step stools and ladders cause real injuries, and upper panes are worth leaving to someone with the right gear."
         ]
       }
     ],
-    doAbout: "Our technicians professionally hand wash every pane, then clean the frames, sills, tracks, and screens as part of the 5-in-1 Deep Clean. Mineral buildup is buffed off safely at no extra charge, and we check for coatings before we start. On very high glass we use a water-fed pole with pure deionized water, which dries without spots.",
+    doAbout: "Every pane is scrubbed, washed, and squeegeed by hand by our trained technicians, and mineral buildup is buffed off safely at no extra charge. We check for coatings before we start. On very high glass, a water-fed pole carrying pure deionized water does the job, since that water dries without spots.",
     related: [
       "/guides/why-do-my-windows-streak/",
       "/guides/can-i-clean-my-own-windows/",
@@ -181,30 +185,30 @@ export const guides: Guide[] = [
   {
     slug: "is-a-pressure-washer-safe-on-windows",
     service: "window-cleaning",
-    answer: "A pressure washer is not safe to use on windows. The pressure can force water past the seals and damage the frames. Windows are hand work. Professional window cleaners scrub, wash, and squeegee the glass by hand, and use a gentle water-fed brush with pure water for high panes.",
+    answer: "A pressure washer is not safe to use on windows. The pressure can force water past the seals and damage the frames. Windows are hand work. Professional window cleaners scrub, wash, and squeegee the glass by hand, and reach high panes with a gentle brush and pure water instead of a high-pressure jet.",
     sections: [
       {
         h: "What high pressure does to a window",
         p: [
-          "A window is more than a sheet of glass. Blasting it drives water past the seals into gaps that were never meant to take it, and the frame takes the force too. Frames and seals are far harder to fix than a dirty pane is to clean.",
-          "Pressure also does nothing for the mineral spots most Tucson windows have. It just leaves more hard water drying on the glass."
+          "A window is more than a sheet of glass. Blasting it drives water past the seals into gaps that were never meant to take it, and the frame absorbs the force too. Frames and seals are far harder to fix than a dirty pane is to clean.",
+          "Pressure also does nothing for the mineral spots most Tucson windows carry. It just leaves another coat of hard water drying on the glass, and that is why we tell people to stop hosing their windows off."
         ]
       },
       {
         h: "Pressure washing has its place, just not on glass",
         p: [
           "We do plenty of pressure washing: driveways, patios, pool decks, block walls, patio furniture, Arizona rooms, and solar screens. Each of those surfaces can take it. Window glass is a different job with a different method.",
-          "When we clean windows behind solar screens, we take the screens down first, pressure wash and recondition the screens on their own, and clean the glass by hand before reinstalling everything."
+          "Solar screens show the difference well. They get lifted off the house first, cleaned with pressure on their own, and the glass that sat behind them is washed by hand before the screens are reinstalled."
         ]
       },
       {
         h: "How hard-to-reach glass gets cleaned instead",
         p: [
-          "Most residential windows are cleaned the traditional way, right at the glass, which allows real attention to detail. For very high or hard-to-reach panes we use a water-fed pole with a brush and deionized water. The pressure is gentle, and the pure water dries without leaving mineral spots."
+          "Most residential windows are cleaned the traditional way, right at the glass, which allows real attention to detail. For very high or hard-to-reach panes, a technician uses a water-fed pole with a brush and deionized water. The water flow is gentle, and because the minerals are removed, it dries without spotting."
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans windows by hand as part of the 5-in-1 Deep Clean and saves the pressure washer for the surfaces built for it. If you want both done, our crews carry equipment for every service, so a patio or driveway can often be added the same day. Call (520) 525-0084 and ask about both.",
+    doAbout: "Wildcat Washers cleans windows by hand and keeps the pressure washer for the surfaces built for it. If you want both, our crews carry equipment for every service in the truck, so a patio or driveway spotted during the visit can often be added and finished the same day. Just ask when you book.",
     related: [
       "/guides/water-fed-pole-vs-hand-washing/",
       "/guides/should-i-hose-off-my-windows/",
@@ -216,30 +220,30 @@ export const guides: Guide[] = [
   {
     slug: "how-often-clean-windows-tucson",
     service: "window-cleaning",
-    answer: "Windows in Tucson should be cleaned three times a year. That frequency keeps windows clean in this climate and stops mineral buildup before it etches the glass. The natural timing is right after summer and monsoon season, around the holidays, and in spring. Clean the inside just as often as the outside.",
+    answer: "Windows in Tucson should be cleaned three times a year. That frequency keeps windows clean in this climate and stops mineral buildup before it etches the glass. Plan one visit when the summer storms end, one near the holidays, and one in spring, and give the interior equal attention.",
     sections: [
       {
         h: "What makes Tucson different",
         p: [
-          "Two things never let up here: desert dust and hard water. Dust settles year round and piles up after monsoon storms. Mineral-heavy water from sprinklers, hoses, and rain dries on the glass and leaves deposits behind. Given enough time, those deposits etch into the glass, and etched glass has to be replaced.",
+          "Two things never let up here: desert dust and hard water. Dust settles all year and piles up after storms. Mineral-heavy water from sprinklers, hoses, and rain dries on the glass and leaves deposits. Given enough time, those deposits etch in, and at that stage only a new pane will do.",
           "Three cleanings spaced across the year remove the minerals while they are still sitting on the surface. Windows on that rhythm never get far enough along to etch."
         ]
       },
       {
         h: "Why fewer visits leave a gap",
         p: [
-          "Stretching to two visits a year leaves a long stretch where dust and minerals keep building, and that stretch is when etching starts. Some long-time customers remember a two-visit schedule from our early days. We have since moved to three, because it is what this climate actually asks for.",
+          "Stretching to two visits a year leaves a long stretch where dust and minerals keep building, and that stretch is when etching starts. Three visits a year is what this climate actually asks for.",
           "Going the other way, more than three visits is rarely needed for a home. Three is enough to stay ahead without paying for trips you do not need."
         ]
       },
       {
         h: "Inside counts too",
         p: [
-          "Interior glass collects its own film, fingerprints, and pet smudges, and it gets dirty at the same rate as the outside. We recommend the same frequency inside and out, and doing both in one visit is more efficient than two separate trips."
+          "Interior glass collects its own film, fingerprints, and pet smudges, and it gets dirty at the same pace as the outside. We recommend the same frequency for both, and handling inside and out together is more efficient than two separate trips."
         ]
       }
     ],
-    doAbout: "The Wildcat Club was built around three cleanings a year for Tucson. Visits are scheduled automatically with reminders, your rate is locked for the year, and members get 10 percent off added services like solar panel cleaning or pressure washing. One-time service is always available too. Call (520) 525-0084 to get started.",
+    doAbout: "The Wildcat Club was built around three cleanings a year for Tucson. Visits are booked automatically with reminders, your rate is locked for the agreement year, and members save 10 percent on anything added, from solar panels to pressure washing. One-time service is always available too, with no plan required.",
     related: [
       "/guides/best-time-of-year-to-clean-windows-tucson/",
       "/guides/clean-windows-before-or-after-monsoon/",
@@ -256,14 +260,14 @@ export const guides: Guide[] = [
       {
         h: "Right after summer",
         p: [
-          "Monsoon storms, which run roughly June through September, leave heavy dirt and dust on everything. By the end of summer most windows look visibly dirty, and a cleaning resets the house heading into fall. If you are newer to Tucson and have not lived through a monsoon yet, think of this one simply as the end-of-summer clean."
+          "Monsoon storms, which run roughly June through September, coat everything in grime. When September wraps up, most windows look visibly dirty, and a cleaning resets the house heading into fall. If you are newer to Tucson and have not lived through a monsoon yet, think of this one simply as the end-of-summer clean."
         ]
       },
       {
         h: "Around the holidays",
         p: [
           "From Thanksgiving through the new year, homes fill with guests and gatherings, and clear glass makes a house feel ready for them. It also falls at the natural interval after the post-summer cleaning, so the schedule stays even.",
-          "Seasonal residents often time a visit to their arrival instead. We can have the house cleaned and ready the day you get to town, without you needing to be here first."
+          "Seasonal residents often time a visit to their arrival instead. We can have the house cleaned before you land, without you needing to be here first."
         ]
       },
       {
@@ -279,7 +283,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Club members are scheduled for all three windows automatically, with a reminder text a week out, another the day before, and an on-the-way text. We work seven days a week and plan around your travel dates. Prefer a one-time visit? That is always available. Call (520) 525-0084.",
+    doAbout: "Wildcat Club members are scheduled for all three visits automatically, with a text a week out, a second the day before, and a heads-up when the crew is on the way. We work seven days a week and plan around your travel dates. Prefer a single visit? That is always an option.",
     related: [
       "/guides/how-often-clean-windows-tucson/",
       "/guides/clean-windows-before-or-after-monsoon/",
@@ -296,8 +300,8 @@ export const guides: Guide[] = [
       {
         h: "What monsoon season does to glass",
         p: [
-          "Tucson's monsoon runs roughly June through September. The storms bring wind that throws dust against every exterior surface, and short bursts of rain that mix with that dust and dry on the glass. Our water is mineral heavy, so what dries there leaves spots as well as grime.",
-          "By the end of summer, most homes look visibly dirty. Dust in the region is at its heaviest right after these storms."
+          "Tucson's monsoon runs roughly June through September. The storms bring wind that throws dust against every exterior surface, and short bursts of rain that mix with it and dry on the glass. Since local water is mineral heavy, what dries there leaves spots as well as grime.",
+          "Late summer is when most homes look their dustiest, and it is when dust across the area peaks."
         ]
       },
       {
@@ -309,11 +313,12 @@ export const guides: Guide[] = [
       {
         h: "What if it rains after we clean",
         p: [
-          "Late-season storms do happen. Because we clean the tracks, sills, frames, and screens as well as the glass, there is no dust left on the window to wash back down. Customers tell us again and again that after light rain they cannot even tell it rained. If weather does spot the glass within two weeks, we come back and redo it free under our 14-Day Spotless Guarantee."
+          "Late-season storms do happen. Because the tracks, sills, frames, and screens get cleaned along with the glass, no dust is left on the window to wash back down. Customers tell us again and again that after light rain they cannot even tell it rained. If weather does spot the glass within two weeks, we return and redo it free.",
+          "Newer to Tucson? If the word monsoon is unfamiliar, just think of this as the cleaning right after the summer storms. Any week in early fall works well, and seasonal residents can have it timed to the day they get back."
         ]
       }
     ],
-    doAbout: "Our post-monsoon 5-in-1 Deep Clean handles the glass plus frames, sills, tracks, and screens, so the storm dust is gone from the whole window. Wildcat Club members have it scheduled automatically as the first of their three yearly visits. If a storm rolls through afterward, the 14-Day Spotless Guarantee has you covered.",
+    doAbout: "A post-monsoon 5-in-1 visit clears storm dust from the whole window, not just the pane. Wildcat Club members have it booked automatically as the first of their three yearly cleanings. If another storm rolls through afterward, our 14-Day Spotless Guarantee means a free touch-up.",
     related: [
       "/guides/monsoon-season-home-exterior-guide/",
       "/guides/what-if-it-rains-after-window-cleaning/",
@@ -325,30 +330,30 @@ export const guides: Guide[] = [
   {
     slug: "how-often-clean-solar-panels-tucson",
     service: "solar-panel-cleaning",
-    answer: "Solar panels in Tucson should be cleaned once or twice a year. That schedule keeps panels performing and protects the glass from mineral damage. Desert dust, pollen, and hard water residue build up constantly here, and real rain is rare, so panels rarely get a break on their own.",
+    answer: "Tucson solar panels need cleaning once or twice each year. That schedule keeps panels performing and protects the glass from mineral damage. Dust, pollen, and hard water residue pile up constantly here, and real rain is rare, so panels seldom get a break on their own.",
     sections: [
       {
         h: "What builds up between cleanings",
         p: [
-          "Southern Arizona panels face constant airborne dust, pollen, and mineral residue. The arid climate and frequent winds keep dust in the air, and it settles evenly across the whole array. Any rain or irrigation water that lands on the panels dries into mineral deposits.",
-          "All of it blocks light before it reaches the cell, and the mineral residue can contribute to premature wear on the glass."
+          "Southern Arizona panels face constant airborne dust along with pollen and mineral residue. Dry air and regular wind keep a supply of grit moving, and it lands in an even film over the whole array. Any rain or irrigation water that reaches the panels dries into mineral deposits.",
+          "All of it cuts the light the cells receive, and the mineral residue can add to early wear on the glass surface."
         ]
       },
       {
         h: "Once or twice: how to choose",
         p: [
-          "One cleaning a year suits many homes. A second makes sense when your panels see more dust than most, such as a home near open desert or a dirt road, or when you notice the glass looking hazy from the ground. Bird droppings are another reason to go sooner, since a single dropping blocks a lot of light for its size and will not rinse off.",
-          "A good time is right after monsoon season, when storm dust is at its heaviest."
+          "One cleaning a year suits many homes. A second makes sense when your panels see more dust than most, such as a home near open desert or a dirt road, or when the glass looks hazy from the ground. Bird droppings are another reason to go sooner, since a single dropping shades a surprising amount of the panel and will not wash away with a shower.",
+          "A good anchor is the end of summer, once the storm dust has settled."
         ]
       },
       {
         h: "Seeing what you cannot see",
         p: [
-          "Most people never get a look at their own roof. We take before and after photos on every solar job, so you can judge the buildup yourself and decide whether your schedule is working."
+          "Most people never get a look at their own roof. We photograph every array before and after cleaning, so you can judge the buildup yourself and decide whether your schedule is working."
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans rooftop and ground-mount arrays of any type, usually in one to three hours, using hand washing, deionized water, and mild soap when needed. Solar can be added to a Wildcat Club membership on its own schedule, and members get 10 percent off added services. Call (520) 525-0084 with your panel count.",
+    doAbout: "Wildcat Washers cleans rooftop arrays and ground mounts of every type, usually in one to three hours, with gentle hand washing, pure deionized water, and a little mild soap for heavier grime. Solar can join a Wildcat Club membership on its own schedule, and Club members pay 10 percent less on it as an added service.",
     related: [
       "/guides/solar-panel-care-arizona/",
       "/guides/does-rain-clean-solar-panels/",
@@ -360,13 +365,13 @@ export const guides: Guide[] = [
   {
     slug: "how-often-pressure-wash-driveway-arizona",
     service: "pressure-washing",
-    answer: "A driveway in Arizona should be pressure washed at least a couple of times a year. That keeps dirt, dust, and debris from getting ahead of you. Homes with heavy dust exposure, lots of traffic, or tire marks on the concrete may want it done more often. Commercial entryways are often cleaned much more frequently.",
+    answer: "A driveway in Arizona should be pressure washed at least a couple of times a year. That keeps dirt, dust, and debris from getting ahead of you. Homes with heavy dust exposure, lots of traffic, or tire marks on the concrete may want it done more often. Commercial entryways are often cleaned far more frequently.",
     sections: [
       {
         h: "What builds up on Arizona concrete",
         p: [
           "Desert dust settles on driveways all year and gets ground in by every car and every footstep. Monsoon storms add a heavy layer of dirt and debris at the end of summer. Tire marks build up where cars turn and park, and garage floors collect them fastest.",
-          "The good news is that tire marks come off readily with pressure washing. They make for a strong before and after."
+          "The good news is that tire marks come off readily with pressure washing. They make for a strong before and after, even on a garage floor that has been collecting them for years."
         ]
       },
       {
@@ -379,11 +384,12 @@ export const guides: Guide[] = [
       {
         h: "Bundle it with the rest of the outside",
         p: [
-          "Walkways, patios, pavers, pool decks, garage floors, and entryways all collect the same dust. Doing several surfaces in one visit saves routing time, and we pass that efficiency back to you. Pressure washing can also be added to a Wildcat Club membership at whatever cadence your property needs."
+          "Walkways, patios, pavers, pool decks, garage floors, and entryways all collect the same dust. Doing several surfaces in one visit saves routing time, and we pass that efficiency back to you. Pressure washing can also be folded into a Wildcat Club membership at whatever cadence your property needs.",
+          "Businesses are a different story. Storefront entryways are often cleaned monthly, every other week, or even weekly where the owner wants them spotless."
         ]
       }
     ],
-    doAbout: "Wildcat Washers pressure washes driveways, garage floors, walkways, patios, and pavers across the Tucson area, priced by surface area and scope. Quotes take a couple of minutes by phone, with no site visit. Wildcat Club members save 10 percent on pressure washing as an added service. Call (520) 525-0084.",
+    doAbout: "Wildcat Washers pressure washes driveways, garage floors, walkways, patios, and pavers across the Tucson area, priced by surface area and scope. Quotes take a couple of minutes by phone, with no site visit. Club members save 10 percent when pressure washing is added to their plan.",
     related: [
       "/guides/how-much-does-pressure-washing-cost-tucson/",
       "/guides/can-oil-and-rust-stains-be-removed-from-concrete/",
@@ -408,18 +414,18 @@ export const guides: Guide[] = [
         h: "What changes the timing",
         p: [
           "The number of panes is the biggest factor. After that come access, such as second-story glass, skylights, or furniture to work around indoors, and how much buildup is on the glass. Heavy hard water spotting takes longer to buff off than light dust.",
-          "Interior plus exterior takes longer than exterior only, though doing both in one visit is still far quicker than two separate trips."
+          "Interior plus exterior takes longer than exterior only, though one combined visit is still far quicker than two separate appointments."
         ]
       },
       {
         h: "Why a thorough cleaning takes a little longer",
         p: [
-          "We clean five parts of every window by hand: glass, frames, sills, tracks, and screens. Tracks are vacuumed before they are washed, and screens are removed, reconditioned, and reinstalled at the end. That scope takes more time than wiping the glass, and it is why the results last.",
+          "Five parts of every window get cleaned by hand: the glass, frames, sills, tracks, and screens. Tracks are vacuumed before they are washed, and screens are removed, reconditioned, and reinstalled at the end. That scope takes more time than wiping the glass, and it is why the results last.",
           "Every visit also starts with an inspection and ends with a double check and a walkthrough with you. Those minutes are where problems get caught before anyone pays."
         ]
       }
     ],
-    doAbout: "When you call (520) 525-0084, we count your panes with you on the phone and can give you a realistic idea of how long your visit will take. You get a three-hour arrival window, reminder texts before the appointment, and an on-the-way text, so you can plan your day around it.",
+    doAbout: "When you call, we count your panes together on the phone and can give you a realistic idea of how long the visit will run. Your crew arrives inside a three-hour window, with reminder texts ahead of the appointment, and a message when the technicians are headed your way, so you can plan your day.",
     related: [
       "/guides/how-to-prepare-for-window-cleaning/",
       "/guides/do-i-need-to-be-home-for-window-cleaning/",
@@ -449,12 +455,12 @@ export const guides: Guide[] = [
       {
         h: "What happens after you book",
         p: [
-          "You get a reminder text seven days before, another 24 hours before, and an on-the-way text on the day, all within a three-hour arrival window. If something comes up, rescheduling just needs 48 hours notice.",
-          "Seasonal residents can book ahead from out of town. We time the cleaning to your arrival so the house is ready the day you get here."
+          "Expect a reminder text seven days before and another 24 hours before, then an on-the-way text on the day itself, with a three-hour arrival window. If something comes up, rescheduling just needs 48 hours notice.",
+          "Seasonal residents can book from out of town. We time the cleaning to your arrival so the house is ready when you walk in."
         ]
       }
     ],
-    doAbout: "Call Wildcat Washers at (520) 525-0084 any day of the week. We will quote your job in a few minutes and offer the soonest time that works for you. Every visit includes the full 5-in-1 Deep Clean, and payment waits until the final walkthrough is done and you are happy with the result.",
+    doAbout: "Phone Wildcat Washers at (520) 525-0084 any day of the week. You will have a quote in a few minutes and the soonest time that fits your schedule. Every visit is the full 5-in-1 Deep Clean, and payment waits until the final walkthrough is done and you are happy with the result.",
     related: [
       "/guides/how-long-does-window-cleaning-take/",
       "/guides/do-i-need-to-be-home-for-window-cleaning/",
@@ -471,31 +477,31 @@ export const guides: Guide[] = [
       {
         h: "Why this myth is so easy to believe",
         p: [
-          "It makes sense on paper. Water cleans things, panels sit at an angle, and rain runs downhill. So after a good storm, the panels must be fine. This is the most common reason people skip solar cleaning altogether, and it is the most common misconception we hear.",
+          "It makes sense on paper. Water cleans things, panels sit at an angle, and rain runs downhill. So after a good storm, the panels must be fine. This is the most common reason people skip solar cleaning altogether, and it is the misconception we hear more than any other.",
           "What actually happens on the roof is different. Desert dust clings to the glass. A shower loosens some of it and slides it around, then drops it again as the water drains or dries. The layer gets rearranged into streaks and patches instead of going away."
         ]
       },
       {
         h: "What rain leaves behind in Southern Arizona",
         p: [
-          "Our water is hard, and that includes what ends up on your roof. As rain dries on the panel glass, it leaves mineral deposits, the white spots many homeowners notice after a storm. Those deposits block light the same way dust does, and over time they can contribute to premature wear on the glass.",
-          "Then there is the simple fact that real rain is rare here. Panels can go months without a meaningful storm, while dust, pollen, and mineral residue keep settling the whole time. Monsoon season brings water, but it also brings wind, and dust in the region is at its heaviest right after those storms."
+          "Our water is hard, and that includes what ends up on your roof. As raindrops evaporate from the panels, the minerals they carried stay put, creating the white spots many homeowners notice after a storm. Those deposits block light the same way dust does, and over time they wear on the glass itself.",
+          "Then there is the simple fact that real rain is rare here. Panels can go months without a meaningful storm, while dust and pollen keep settling the whole time. Monsoon season brings water, but it also brings wind, and dust around Tucson peaks right after those storms."
         ]
       },
       {
         h: "A garden hose is not the fix either",
         p: [
-          "Spraying the array from the yard has the same problem as rain, only more of it. Tap water is full of minerals, so a hose rinse dries into spots on the glass. It also does not provide the agitation that loosens stuck-on dust. And never use a pressure washer, which can crack panels and force water where it should not go."
+          "Spraying the array from the yard has the same problem as rain, only more of it. Tap water is full of minerals, so every rinse leaves a new layer of spots. A hose also cannot provide the agitation that loosens stuck-on dust. And a pressure washer is never the answer: it can crack panels and push water where it does not belong."
         ]
       },
       {
         h: "What actually gets panels clean",
         p: [
-          "Panels need physical agitation to come clean: a soft brush, mild soap when the buildup calls for it, and deionized water, which has the minerals removed and dries without spotting. No harsh chemicals and no stiff or abrasive brushes, which keeps the surface safe and protects your manufacturer warranty. For most Tucson homes, once or twice a year is the right schedule."
+          "Panels need physical agitation to come clean. That means a soft brush, a mild soap for heavier buildup, and a final rinse with deionized water, which has the minerals removed and dries without spotting. No harsh chemicals and nothing stiff or abrasive, which keeps the surface safe and protects your manufacturer warranty. For most Tucson homes, cleaning once or twice annually is the right schedule."
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans solar panels by hand with soft brushes, deionized water, and mild soap when needed, working from the roof surface rather than standing on the panels. Since you cannot see your own roof, we take before and after photos on every job. Most arrays take one to three hours. Call (520) 525-0084 for a quote.",
+    doAbout: "Our crews clean solar panels by hand with soft-bristle brushes and spot-free deionized water, adding soap only for stubborn grime, and they stay on the roof surface instead of stepping on the array. Because you cannot see your own roof, you get before and after pictures of the panels. Most jobs take one to three hours.",
     related: [
       "/guides/white-spots-on-solar-panels-after-rain/",
       "/guides/how-often-clean-solar-panels-tucson/",
@@ -507,30 +513,30 @@ export const guides: Guide[] = [
   {
     slug: "white-spots-on-solar-panels-after-rain",
     service: "solar-panel-cleaning",
-    answer: "White spots on solar panels after it rains are mineral deposits. Tucson's water is hard, and when rain dries on the panel glass it leaves those minerals behind. That is part of why rain doesn't clean solar panels. It can actually add to the problem, blocking light and wearing on the glass over time.",
+    answer: "White spots on solar panels after it rains are mineral deposits. Tucson's water is hard, and when rain dries on the panel glass it leaves those minerals behind. That is part of why rain doesn't clean panels. It can actually add to the problem, blocking light and wearing on the glass over time.",
     sections: [
       {
         h: "Where the minerals come from",
         p: [
-          "Hard, mineral-heavy water is a fact of life across the region. When a drop of water sits on warm glass and evaporates, the water leaves but the dissolved minerals stay. Stack enough storms together and those dots join into a white haze.",
+          "Mineral-heavy water is the norm across the region. When a drop sits on warm glass and evaporates, the water leaves but the dissolved minerals stay. Stack enough storms together and those dots join into a white haze.",
           "Rain is not the only source. Sprinkler overspray and a well-meant rinse with a garden hose leave the same kind of residue, often more of it."
         ]
       },
       {
         h: "Why the spots matter",
         p: [
-          "Mineral deposits block light before it reaches the cell, just like dust does. They also stick harder than dust. Left in place, hard water residue contributes to premature wear on the panel glass, which is the surface protecting an expensive investment.",
+          "Mineral deposits shade the cells much like a dust layer, and they cling harder. Left in place, they can shorten the life of the panel glass, which is the surface protecting an expensive investment.",
           "If your windows show the same white spots, it is the same cause, and the same reason regular cleaning matters on both."
         ]
       },
       {
         h: "What removes them safely",
         p: [
-          "The fix is careful hand washing with a soft brush, mild soap where the buildup calls for it, and deionized water. Deionized water has the minerals taken out, so it dries spot free instead of leaving a fresh layer behind. Harsh chemicals, abrasive pads, stiff brushes, and pressure washers all put the panel surface at risk and are never part of our process."
+          "The fix is careful hand washing, a soft brush, soap only where the grime is heavy, and a deionized rinse to finish. Deionized water has the minerals taken out, so it dries clear instead of leaving a fresh layer behind. Harsh chemicals, abrasive pads, stiff bristles, and high-pressure spray all put the panel surface at risk and are never part of our process."
         ]
       }
     ],
-    doAbout: "We clean off mineral spotting and dust by hand, finishing with deionized water so nothing new is left on the glass. You get before and after photos of your array, since the roof is hard to see from the ground. A cleaning once or twice a year keeps deposits from settling in. Call (520) 525-0084.",
+    doAbout: "We lift mineral spotting and dust off by hand and finish with purified water so nothing new dries on the glass. Photos of your array before and after the cleaning are included, since the roof is hard to see from the ground. Regular cleaning, one or two visits annually, keeps deposits from settling in for good.",
     related: [
       "/guides/does-rain-clean-solar-panels/",
       "/guides/what-causes-white-spots-on-windows-arizona/",
@@ -548,24 +554,24 @@ export const guides: Guide[] = [
         h: "Why the range is so wide",
         p: [
           "Five percent and thirty percent describe very different roofs. A lightly dusted array a few months after its last cleaning sits near the low end. Panels that have gone a long time in a dusty spot, with mineral spotting and bird droppings on top, sit much higher.",
-          "That is also why we will not promise a specific recovery figure for your array. The honest answer depends on what is actually on your glass. This studies-based range appeared in our feature in KGVY Spring Home and Life 2026, and it is the honest way to talk about the loss."
+          "That is also why we will not promise a specific recovery figure for your array. The honest answer depends on what is actually on your glass. This studies-based range appeared in our feature in KGVY Spring Home and Life 2026, and it is the fair way to talk about the loss."
         ]
       },
       {
         h: "What blocks the light",
         p: [
-          "Dust is the big one. Southern Arizona's arid climate and frequent winds keep a steady supply in the air, and it settles evenly across the array. Pollen adds to it in spring.",
-          "Hard water residue from rain and irrigation dries into mineral spots that block light and stick harder than dust. Bird droppings block a lot of light for their size and will not rinse off on their own."
+          "Dust is the big one. Dry weather and regular wind across Southern Arizona keep a steady supply aloft, and it coats the array evenly. Pollen adds to it in spring.",
+          "Hard water from rain and sprinklers dries into mineral spots that shade the glass and stick harder than dust. Bird droppings cover little area but shade the cells heavily, and they will not rinse off on their own."
         ]
       },
       {
         h: "How to tell if yours are losing output",
         p: [
-          "Most people cannot see their panels from the ground, so buildup is easy to miss. The simplest check is a photo. We take before and after pictures on every solar job, which lets you see exactly what was on the glass and what changed."
+          "Most people cannot see their panels from the ground, so buildup is easy to miss. The simplest check is a photo. Every solar job we do includes pictures from before and after, which lets you see exactly what was on the glass and what changed."
         ]
       }
     ],
-    doAbout: "Wildcat Washers removes the dust, minerals, and droppings that block light, using hand washing, deionized water, and mild soap only when needed. Nothing abrasive touches the glass. You see the before and after photos yourself. For most homes, one or two cleanings a year keeps losses from building. Call (520) 525-0084 for a quote.",
+    doAbout: "Wildcat Washers removes the dust, minerals, and droppings that stand between the sun and your cells. No abrasives are used; we rely on hand washing and purified water, with soap reserved for heavier grime. You see the results in photos. A yearly or twice-yearly visit keeps losses from building.",
     related: [
       "/guides/is-solar-panel-cleaning-worth-it/",
       "/guides/does-rain-clean-solar-panels/",
@@ -577,13 +583,13 @@ export const guides: Guide[] = [
   {
     slug: "is-solar-panel-cleaning-worth-it",
     service: "solar-panel-cleaning",
-    answer: "Solar panel cleaning is often worth the cost. Dust and mineral buildup block light before it reaches the cell, and research shows buildup can cut efficiency by 5 to 30 percent depending on conditions. Cleaning also protects the panel glass from hard water damage, which helps an expensive system last.",
+    answer: "Solar panel cleaning is often worth the cost. Dust and mineral buildup keep sunlight from reaching the cells, and research shows buildup can cut efficiency by 5 to 30 percent, with local conditions deciding where a system lands. Cleaning also protects the panel glass from hard water damage, which helps an expensive system last.",
     sections: [
       {
         h: "Two ways cleaning pays you back",
         p: [
           "The first is production. When light is blocked, the cell makes less power. Clearing the glass removes what was in the way, and how much you get back depends on how dirty the panels were.",
-          "The second is protection, and it is easy to overlook. Hard water residue from rain and irrigation dries into mineral deposits on the panel glass. Left there, it contributes to premature wear. Regular cleaning takes those deposits off before they do lasting harm to the surface that protects the whole system."
+          "The second is protection, and it is easy to overlook. Water from storms and sprinklers leaves mineral deposits on the panel glass as it dries. Left there, those deposits wear the surface down early. Regular cleaning takes those deposits off before they do lasting harm to the surface that shields the whole system."
         ]
       },
       {
@@ -595,12 +601,12 @@ export const guides: Guide[] = [
       {
         h: "Keeping the cost sensible",
         p: [
-          "Once or twice a year is enough for most homes, so this is not a monthly expense. Pricing is per job, based on your panel count and how the array is set up, and a quote takes a few minutes on the phone.",
-          "If you are having windows cleaned anyway, adding the panels to the same visit saves a separate trip. Wildcat Club members get 10 percent off solar cleaning as an added service."
+          "One or two cleanings a year is enough for most home arrays, so this is not a monthly expense. Pricing is per job, based on your panel count and how the array is set up, and a quote takes a few minutes on the phone.",
+          "If you are having windows cleaned anyway, adding the panels to the same visit saves a separate trip. Wildcat Club members also save 10 percent on solar cleaning added to their plan."
         ]
       }
     ],
-    doAbout: "We clean panels safely by hand, take before and after photos so you can see the difference on a roof you cannot see yourself, and collect payment only once you are satisfied with the work. That way, you decide whether it was worth it. Call Wildcat Washers at (520) 525-0084 with your panel count.",
+    doAbout: "We clean panels safely by hand, photograph the array so the difference is visible on a roof you cannot see yourself, and collect payment only once you are satisfied with the work. That way, you decide whether it was worth it. Have your panel count handy when you call and the quote goes even faster.",
     related: [
       "/guides/how-much-output-do-dirty-solar-panels-lose/",
       "/guides/how-much-does-solar-panel-cleaning-cost/",
@@ -618,24 +624,24 @@ export const guides: Guide[] = [
         h: "The risks worth weighing first",
         p: [
           "The biggest one is you. Ladders and roofs are where people get hurt, and solar panels sit on the roof. The second is the panels. Standing or kneeling on them is how microcracks happen.",
-          "Then there is the method. A pressure washer can crack panels and push water where it should not be. Stiff or abrasive brushes can mark the glass. Harsh chemicals are unnecessary and can put your warranty in question."
+          "Then there is the method. High-pressure spray can crack a panel outright. Stiff or abrasive brushes can mark the glass, and harsh chemicals are unnecessary and put your warranty in question."
         ]
       },
       {
         h: "If you decide to do it",
         p: [
-          "Work from the roof surface or a safe position on the ground, never from the panels. Use a soft brush and a mild soap only if there is real buildup.",
-          "Water choice matters more than most people think. Tucson tap water is hard, so a hose rinse dries into white mineral spots, the very thing you were trying to remove. Deionized water, with the minerals taken out, is ideal because it dries clean."
+          "Stay off the array itself and work from a safe spot on the roof or the ground. Use a soft brush, plus a mild soap only if there is real buildup.",
+          "Water choice matters more than most people think. Tucson tap water is hard, so rinsing with it dries into white mineral spots, the very thing you were trying to remove. Deionized water, with the minerals taken out, is ideal because it dries clean."
         ]
       },
       {
         h: "Why a rinse is not the same as a clean",
         p: [
-          "Dust in the desert clings to glass. Water alone moves it around instead of lifting it off, which is the same reason rain does not do the job. Panels need gentle agitation with a brush and soap to actually come clean."
+          "Dust in the desert clings to glass. Water alone moves it around instead of lifting it off, which is the same reason rain does not do the job. Panels need gentle agitation to actually come clean, and that means hands on a brush, not just a stream of water."
         ]
       }
     ],
-    doAbout: "If you would rather stay off the roof, Wildcat Washers handles any panel type on any roof pitch, plus ground mounts. We hand wash with soft brushes, deionized water, and mild soap when needed, and we are licensed and fully insured. Before and after photos show you the result. Call (520) 525-0084.",
+    doAbout: "If you would rather stay off the roof, Wildcat Washers handles any panel type on any roof pitch, plus ground mounts. Our technicians use soft brushes and purified water by hand, and we are licensed and fully insured. Photos taken before and after show you the result without climbing a ladder.",
     related: [
       "/guides/can-you-pressure-wash-solar-panels/",
       "/guides/does-cleaning-void-solar-warranty/",
@@ -652,14 +658,14 @@ export const guides: Guide[] = [
       {
         h: "What puts a panel at risk",
         p: [
-          "The problems usually come from the method, not from cleaning itself. High pressure can crack panels and force water into places it should not be. Abrasive pads and stiff bristles can mark the glass. Harsh chemicals are simply not needed. Walking on panels to reach the far rows can cause microcracks.",
-          "Each of those is avoidable with the right method."
+          "The problems usually come from the method, not from cleaning itself. Pressure washers risk cracked panels and water sent where it should never go. Abrasive pads and stiff bristles scuff the surface. Harsh chemicals are simply not needed. And walking on panels to reach the far rows can cause microcracks.",
+          "Each of those is avoidable with the right approach."
         ]
       },
       {
         h: "How a warranty-safe cleaning works",
         p: [
-          "Our method depends on the buildup: hand washing with soft brushes, deionized water that dries without mineral spots, and mild soap when the glass needs it. Nothing abrasive, nothing harsh, and no pressure washer on the panels at all. Our crews work from the roof surface rather than standing on the array.",
+          "Our method depends on the buildup: hand washing with gentle brushes, water with the minerals removed so it dries spotless, and mild soap if the glass needs it. Nothing abrasive, nothing harsh, and no pressure washer on the panels at all. Crews work from the roof, not from on top of the array.",
           "Every choice in that process is made to keep the panel surface safe and to avoid compromising the manufacturer warranty."
         ]
       },
@@ -670,7 +676,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans residential and commercial arrays with methods chosen to protect both the glass and your warranty. We are licensed and fully insured, and our 100% Satisfaction Guarantee means no payment is due until you are happy. Call (520) 525-0084 and ask any warranty questions you have.",
+    doAbout: "Wildcat Washers cleans residential and commercial arrays with methods chosen to protect both the glass and your warranty. We carry full insurance and all required licensing, and our 100% Satisfaction Guarantee means nothing is owed until you are pleased with the work. Bring any warranty questions to the call.",
     related: [
       "/guides/can-you-pressure-wash-solar-panels/",
       "/guides/can-i-clean-my-own-solar-panels/",
@@ -687,8 +693,8 @@ export const guides: Guide[] = [
       {
         h: "What the pressure does",
         p: [
-          "A concentrated jet of water puts far more force on a panel than it was built to handle. It can crack the panel and drive water into places it should not be. That is a risk to an expensive system that no amount of dust justifies.",
-          "Pressure also does not solve the real problem. Tap water from a pressure washer is still hard water, so it dries into mineral spots on the panel glass."
+          "A concentrated jet of water puts far more force on a panel than it was built to handle. The result can be a cracked panel, or water driven into spots it was never meant to reach. That is a risk to an expensive system that no amount of dust justifies.",
+          "Pressure also does not solve the real problem. The water coming out of a pressure washer is still hard tap water, so it dries into mineral spots on the panel glass."
         ]
       },
       {
@@ -700,11 +706,12 @@ export const guides: Guide[] = [
       {
         h: "What works instead",
         p: [
-          "Stuck desert dust needs agitation, not force. A soft brush and mild soap loosen it, and deionized water rinses it off and dries spot free. No stiff brushes, no harsh chemicals, and no one standing on the panels."
+          "Stuck desert dust needs agitation, not force. A brush with soft bristles and a little soap loosen it, and a deionized rinse carries it away and dries without spots. No stiff bristles, no harsh chemicals, and no one standing on the panels.",
+          "The same goes for bird droppings, which block a lot of light for their size. We remove those carefully by hand."
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans solar panels by hand only, on rooftop and ground-mount arrays of any size, and saves the pressure washer for driveways, patios, and solar screens. Methods are chosen to protect the panel surface and your warranty. You get before and after photos of the array. Call (520) 525-0084.",
+    doAbout: "Our team cleans solar panels by hand only, on rooftop and ground-mount systems of any size, and saves the pressure washer for driveways, patios, and solar screens. Our methods are picked to protect the panel surface and your warranty, and you get photos of the array from both sides of the cleaning.",
     related: [
       "/guides/can-i-clean-my-own-solar-panels/",
       "/guides/does-cleaning-void-solar-warranty/",
@@ -716,37 +723,37 @@ export const guides: Guide[] = [
   {
     slug: "mine-dust-solar-panels-green-valley-sahuarita",
     service: "solar-panel-cleaning",
-    answer: "Mine dust does affect solar panels in Green Valley and Sahuarita. Nearby mining activity adds measurably to the airborne dust in the southern part of the Tucson metro, on top of the usual desert dust. It settles evenly across panels and blocks light before it reaches the cell, which costs production until it is cleaned off.",
+    answer: "Mine dust does affect solar panels in Green Valley and Sahuarita. Nearby mining activity adds measurably to the airborne dust in the southern part of the Tucson metro, on top of the usual desert dust. It settles evenly across panels and blocks light before it gets to the cells, which costs production until it is cleaned off.",
     sections: [
       {
         h: "Why the southern metro sees more dust",
         p: [
-          "Every part of Southern Arizona deals with desert dust. The arid climate and frequent winds keep it in the air across the whole region. Down along I-19, from Sahuarita through Green Valley, there is an added source: nearby mining activity puts more dust into the air than most of the metro ever sees.",
-          "This is a southern-area factor. It is not a significant issue across the rest of Tucson, where ordinary desert dust, pollen, and hard water are the main concerns. If you live in Quail Creek, Canoa Ranch, Rancho Sahuarita, or anywhere nearby, though, your panels are likely carrying a heavier load than panels farther north."
+          "Every part of Southern Arizona deals with desert dust. Dry air and frequent wind keep it aloft across the whole region. Down along I-19, from Sahuarita through Green Valley, there is an added source: nearby mining activity puts more dust into the air than most of the metro ever sees.",
+          "This is a southern-area factor. It is not a significant issue across the rest of Tucson, where ordinary desert dust, spring pollen, and mineral-heavy water are the main concerns. In Quail Creek, Canoa Ranch, Rancho Sahuarita, and the neighborhoods around them, any panels on the roof are carrying a heavier load than panels farther north."
         ]
       },
       {
         h: "What that dust does on the glass",
         p: [
-          "Fine dust settles in an even layer across an array, so it is easy to miss from the ground. It blocks light before the light reaches the cell. Published research puts the efficiency loss from buildup anywhere from 5 to 30 percent, depending on local conditions, and local conditions are exactly what make the southern metro dustier.",
-          "Rain will not take care of it. Panels here can go months without meaningful rain, and when a storm does come it moves the dust around, then leaves mineral spots as the hard water dries. Dust and mineral residue together contribute to premature wear on the glass."
+          "Fine dust spreads in a uniform layer across an array, so it is easy to miss from the ground. Studies put the efficiency loss from buildup somewhere between 5 and 30 percent, varying with local conditions, and local conditions are exactly what make the southern metro dustier. How much your own array is losing depends on what is on it.",
+          "Rain will not take care of it. Panels here can go months without meaningful rain, and when a storm does come it moves the dust around, then leaves mineral spots as the hard water dries. Together, dust and mineral residue take a toll on the glass as the years go by."
         ]
       },
       {
         h: "Choosing a schedule for southern-area panels",
         p: [
-          "Our standard recommendation is one or two cleanings a year. With the extra dust in Green Valley and Sahuarita, the second cleaning earns its place for many arrays. A good anchor is right after monsoon season, when regional dust is at its heaviest.",
-          "Seasonal residents do not need to be in town. Solar cleaning is exterior work, and we routinely handle it while owners are away, then send the before and after photos so you can see the array yourself."
+          "Our standard recommendation for panels is one visit a year, or two. With the extra dust in Green Valley and Sahuarita, the second cleaning earns its place for many arrays. A good anchor is right after monsoon season, when regional dust is at its heaviest.",
+          "Seasonal residents do not need to be in town. Solar cleaning is exterior work, and we routinely handle it while owners are away, then share the photos so the array is visible to you too."
         ]
       },
       {
         h: "Local to the area",
         p: [
-          "Green Valley and Sahuarita are among the communities we serve most, and we are there constantly. Readers there named us the 2025 AZ-19 Readers' Pick for Best Window Cleaners in Green Valley and Sahuarita, and we bring the same care to panels on the roof."
+          "Green Valley and Sahuarita are among the communities we serve most, and our trucks are there constantly. Readers there named us the 2025 AZ-19 Readers' Pick for Best Window Cleaners in Green Valley and Sahuarita, and we bring the same care to the panels on your roof."
         ]
       }
     ],
-    doAbout: "Wildcat Washers cleans solar panels throughout Green Valley, Sahuarita, and the southern metro, on any roof type and on ground mounts. We hand wash with soft brushes, deionized water, and mild soap when the buildup calls for it, with nothing abrasive on the glass. Before and after photos come with every job. Call (520) 525-0084 for a quote.",
+    doAbout: "Wildcat Washers cleans solar panels throughout Green Valley, Sahuarita, and the southern metro, on any roof type and on ground mounts. Every array is cleaned by hand, with deionized water that dries without spotting and soap only for heavier buildup, with no abrasives anywhere near the glass. Before and after photos come with every job.",
     related: [
       "/services/solar-panel-cleaning/green-valley/",
       "/services/solar-panel-cleaning/sahuarita/",

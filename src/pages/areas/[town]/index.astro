@@ -6,11 +6,13 @@ import TrustRow from '@/components/TrustRow.astro';
 import Conditions from '@/components/Conditions.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
+import { faqRefs } from '@/data/faq';
+import { ownerLinks } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
 import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
 import { img, altFor } from '@/data/media';
-import { h1For } from '@/data/plan';
+import { h1For, planFor } from '@/data/plan';
 import { townReviews, areaFaqs, namesFor } from '@/lib/local';
 import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
@@ -24,7 +26,8 @@ const url = townHref(t.slug);
 const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
 const kids = childrenOf(t.slug);
 const set = townReviews(t, 6, hashSeed(t.slug));
-const faqs = areaFaqs(namesFor(t)).slice(0, 6);
+const faqs = faqRefs(planFor(url)?.faq_refs);
+const faqLinks = ownerLinks(faqs, url);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
 const hasWindowPage = windowTownSlugs.includes(t.slug);
 const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowPage ? `/services/window-cleaning/${t.slug}/` : serviceHref(slug));
@@ -101,7 +104,7 @@ const place = {
 
   <ReviewSetBlock set={set} title={`What ${t.name} neighbors say`} />
 
-  {faqs.length > 0 && <FaqList items={faqs} title={`${t.name} questions`} />}
+  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} />}
   <section class="section-tight">
     <div class="wrap diy">
       <p class="eyebrow">Doing it yourself?</p>

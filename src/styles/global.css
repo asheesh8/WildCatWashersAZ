@@ -257,7 +257,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .js .reveal:nth-child(2) { transition-delay: .06s; }
 .js .reveal:nth-child(3) { transition-delay: .12s; }
 .js .reveal:nth-child(4) { transition-delay: .18s; }
-.sweep { position: relative; }
+.sweep { position: relative; overflow-x: clip; }
 .js .sweep::after {
   content: ''; position: absolute; inset: -6% -4%;
   background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 85%) 48%, rgb(54 198 244 / 35%) 52%, transparent 70%);

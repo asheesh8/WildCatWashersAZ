@@ -24,3 +24,11 @@ export function fitDescription(text: string): string {
   if (out.length >= 90) return out;
   return text.slice(0, DESC_MAX - 1).replace(/[\s,;:]+\S*$/, '') + '…';
 }
+
+/** A question H1 as a title: with the brand when it fits, else alone, else cut on a word boundary. Case kept. */
+export function questionTitle(h1: string): string {
+  if ((h1 + BRAND).length <= TITLE_MAX) return h1 + BRAND;
+  if (h1.length <= TITLE_MAX) return h1;
+  const cut = h1.slice(0, TITLE_MAX + 1).replace(/[\s,;:]+\S*$/, '');
+  return cut.replace(/\s+(a|an|the|and|or|of|to|in|for|on|with|my|your)$/i, '');
+}
