@@ -20,6 +20,9 @@ import { townReviews, areaFaqs, namesFor, type ReviewSet } from '@/lib/local';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { pools, pickFrom } from '@/data/media';
+import { faqRefs } from '@/data/faq';
+import { ownerLinks } from '@/lib/faqOwner';
+import { guideByUrl } from '@/data/guides';
 
 export interface Props { ls: LocalService; t: Town }
 const { ls, t } = Astro.props as { ls: LocalService; t: Town };
@@ -33,9 +36,11 @@ const localForService = base.local.filter((r) => r.services.some((x) => tags.inc
 const set: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
-const placeFaqs = [...(row?.faq_refs ?? '').matchAll(/F(\d+)/g)].length ? areaFaqs(namesFor(t)).slice(0, 3) : areaFaqs([t.name]).slice(0, 2);
+const placeFaqs = faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122);
+const faqLinks = ownerLinks(placeFaqs, url);
 const photo = s.slug === 'window-cleaning' ? pickFrom(pools.windowAction, t.slug) : s.image;
 const kids = childrenOf(t.slug);
+const answers = (ls.guides ?? []).map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
 const short = t.name.replace(/ AZ$/, '');
@@ -78,7 +83,16 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
 
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews`} />
 
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} title={`Serving ${t.name}`} />}
+  {answers.length > 0 && (
+    <section class="section-tight bg-mist">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
+        <ul class="ans" role="list">{answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong><span>{g.g.answer.split(/(?<=\.)\s/)[0]}</span></a></li>)}</ul>
+      </div>
+    </section>
+  )}
+
+  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={`Serving ${t.name}`} />}
 
   <section class="section-tight">
     <div class="wrap">
@@ -104,4 +118,9 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
   .svc .text-link { justify-self: start; }
   .phone-cta { display: inline-flex; align-items: center; gap: .6rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.4rem; text-decoration: none; }
   .phone-cta :global(svg) { color: var(--blue-700); }
+  .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .ans a { display: grid; gap: .4rem; height: 100%; padding: 1.1rem 1.2rem; background: #fff; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+  .ans a:hover { border-color: var(--blue); }
+  .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
+  .ans span { color: var(--ink-2); }
 </style>

@@ -9,6 +9,8 @@ export type LocalService = {
   service: string;
   town: string;
   angle: { title: string; body: string[] };
+  /** 2–3 answer pages that fit this town's angle. */
+  guides?: string[];
 };
 
 const solarRain = 'Rain doesn’t clean panels. It moves dust around, the dust sticks, and the water can dry mineral spots onto the glass. Panels need a brush and mild soap, with no harsh chemicals and no stiff brushes, which is how we protect the surface and your warranty.';
@@ -156,8 +158,10 @@ export const localServices: LocalService[] = [
       body: [
         'Nearby mining activity meaningfully affects airborne dust in Green Valley, Sahuarita and the southern metro, and it settles evenly across panels. Hard water from rain or irrigation then dries into mineral deposits on top.',
         `${solarRain} ${solarWhy}`,
+        'From Quail Creek and Canoa Ranch to the GVR neighborhoods in between, panels here collect the same fine southern-metro dust, and many owners are away for the summer while it builds. A cleaning timed to your return means the array is producing again the week you’re back.',
       ],
     },
+    guides: ['/guides/mine-dust-solar-panels-green-valley-sahuarita/', '/guides/white-spots-on-solar-panels-after-rain/', '/guides/how-often-clean-solar-panels-tucson/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'sahuarita',
@@ -166,8 +170,10 @@ export const localServices: LocalService[] = [
       body: [
         'Sahuarita’s newer stucco homes carry a lot of rooftop solar, and mining activity in the southern metro puts more dust in the air here than across most of Tucson.',
         'We work from the roof surface with the right equipment and never stand on panels, because standing on them is how microcracks happen. Mild soap only where there’s real buildup, and nothing abrasive.',
+        'Rancho Sahuarita, Sonora and Rancho Resort all sit in the same southern-metro dust. Before and after photos come with every job, since nobody can see their own roof from the driveway.',
       ],
     },
+    guides: ['/guides/mine-dust-solar-panels-green-valley-sahuarita/', '/guides/can-i-clean-my-own-solar-panels/', '/guides/how-much-output-do-dirty-solar-panels-lose/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'oro-valley',
@@ -176,8 +182,10 @@ export const localServices: LocalService[] = [
       body: [
         'Oro Valley has heavy residential solar, and panels here face the metro’s constant desert dust with spring pollen landing on top.',
         `${solarWhy} Once or twice a year is the right frequency for most Oro Valley homes, and a cleaning usually takes one to three hours.`,
+        'Pollen and dust together make a film that rain only rearranges. From Rancho Vistoso to Sun City Oro Valley, the fix is the same: a soft brush, purified water, and mild soap only where the film needs it.',
       ],
     },
+    guides: ['/guides/does-rain-clean-solar-panels/', '/guides/is-solar-panel-cleaning-worth-it/', '/guides/how-often-clean-solar-panels-tucson/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'marana',
@@ -186,8 +194,10 @@ export const localServices: LocalService[] = [
       body: [
         'Marana’s newer master-planned neighborhoods are still building, and construction dust lands on nearby rooftop arrays as well as windows.',
         'If birds have started nesting under your panels, we handle solar panel pigeon proofing too. The mesh secures with a clip-and-wire system, with no drilling into the roof and nothing attached to the panel frames, and we clean the panels while we’re up there.',
+        'Continental Ranch, Dove Mountain and the newer neighborhoods around them each have their own mix of older and brand-new arrays. Either way, the glass gets the same safe hand cleaning, and you see the photos before you pay.',
       ],
     },
+    guides: ['/guides/are-pigeons-under-solar-panels-a-problem/', '/guides/can-you-pressure-wash-solar-panels/', '/guides/how-often-clean-solar-panels-tucson/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'vail-az',
@@ -196,8 +206,10 @@ export const localServices: LocalService[] = [
       body: [
         'Vail AZ’s newer subdivisions and the Rocking K master plan mean new arrays in neighborhoods where building is still going on. Builder dust settles on panels just as it does on glass.',
         'The method depends on the buildup: hand washing, deionized water, and mild soap when it’s needed. Any panel type, any roof type, any pitch, and no job is declined.',
+        'Del Webb at Rancho del Lago, Academy Village and the Rocking K neighborhoods all have plenty of rooftop solar. If a new build next door is kicking up dust, it’s worth a look at the panels once the work settles down.',
       ],
     },
+    guides: ['/guides/does-cleaning-void-solar-warranty/', '/guides/does-rain-clean-solar-panels/', '/guides/is-solar-panel-cleaning-worth-it/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'saddlebrooke',
@@ -206,8 +218,10 @@ export const localServices: LocalService[] = [
       body: [
         'SaddleBrooke homes are single-story, and many carry rooftop solar. Crews carry equipment for every service, so panels and windows can be cleaned in the same visit.',
         'Cleaning does more than restore output. Hard water and mineral residue that dry on the panel glass contribute to premature wear, so regular cleaning protects the life of an expensive investment.',
+        'Many SaddleBrooke One and SaddleBrooke Two owners are seasonal, so the panels sit through the dusty months unattended. Pairing a solar cleaning with your arrival window clean means one visit and everything done before you unpack.',
       ],
     },
+    guides: ['/guides/how-often-clean-solar-panels-tucson/', '/guides/white-spots-on-solar-panels-after-rain/', '/guides/can-i-clean-my-own-solar-panels/'],
   },
   {
     service: 'solar-panel-cleaning', town: 'catalina-foothills',
@@ -216,8 +230,10 @@ export const localServices: LocalService[] = [
       body: [
         'Foothills custom homes sit on slopes, and some carry ground-mount arrays as well as rooftop panels. We clean any panel type on any roof type and pitch, rooftop or ground mount.',
         'Once or twice a year keeps most arrays performing. Customers can’t see their own roof, so we take before and after photos on every job and show you the difference.',
+        'Hillside lots also make a DIY rinse a bad idea: a garden hose on sloped ground and a tall roof is a fall risk, and tap water dries into spots. Leave the ladder in the garage and let a crew with the right equipment handle it.',
       ],
     },
+    guides: ['/guides/can-i-clean-my-own-solar-panels/', '/guides/can-you-pressure-wash-solar-panels/', '/guides/does-cleaning-void-solar-warranty/'],
   },
 
   /* ---------------- Solar screens × town ---------------- */
@@ -226,10 +242,12 @@ export const localServices: LocalService[] = [
     angle: {
       title: 'West-facing view windows and hot afternoon rooms',
       body: [
-        'West-facing glass is the highest priority for solar screens: afternoon and evening sun hits at a low angle, striking the glass nearly straight on during the hottest hours of the day. Oro Valley’s big view windows are often exactly that.',
+        'West-facing glass is the highest priority for solar screens: afternoon and evening sun hits at a low angle, striking the glass nearly straight on during the hottest hours of the day. If your Oro Valley view windows face west, start there.',
         'SunTex 80 and 90 block that share of the sun’s heat and glare. You can still see out easily, even through 90 percent mesh, while people outside can’t see in during the day.',
+        'Screens are custom measured and built for each window, and they pop out easily when you want them to. Typical turnaround is two to three weeks from measure to install.',
       ],
     },
+    guides: ['/guides/solar-screens-80-vs-90/', '/guides/which-windows-need-solar-screens/', '/guides/can-you-see-out-of-solar-screens/'],
   },
   {
     service: 'solar-screens', town: 'catalina-foothills',
@@ -237,9 +255,11 @@ export const localServices: LocalService[] = [
       title: 'South-slope homes with big sun-facing glass',
       body: [
         'Foothills homes sit on the south slopes of the Catalinas, and south-facing glass gets direct sun most of the day, year-round. Large sun-facing windows are where solar screens earn their keep.',
-        'Screens block roughly 75 to 90 percent of UV, which protects furniture, flooring, artwork and window treatments from fading. We use top-grade Phifer materials, which carry a 10-year manufacturer warranty on the material.',
+        'Screens block roughly 75 to 90 percent of UV, which protects furniture, flooring, artwork and window treatments from fading. We use top-grade Phifer materials, and the material carries a manufacturer warranty.',
+        'On big view glass the question is usually 80 or 90. SunTex 80 keeps the view a little clearer, and SunTex 90 blocks more heat, glare and UV. Most people are surprised how well they can still see out through either one.',
       ],
     },
+    guides: ['/guides/solar-screens-80-vs-90/', '/guides/do-solar-screens-save-on-cooling-costs/', '/guides/how-long-do-solar-screens-last/'],
   },
   {
     service: 'solar-screens', town: 'green-valley',
@@ -248,8 +268,10 @@ export const localServices: LocalService[] = [
       body: [
         'Black and beige are the most common colors, and beige is usually chosen to match stucco, which suits most Green Valley homes. From outside, people can’t see in during the day, which many residents value as much as the cooling.',
         'We custom measure, build and install every screen. They’re secured with brackets that rotate in and out, so screens pop out easily when you want them to, with no risk to the window.',
+        'If you already have screens that have faded or torn, the frame can often be kept and new mesh put in. Ask about screen repair and rescreening when you call.',
       ],
     },
+    guides: ['/guides/solar-screens-vs-sun-screens/', '/guides/can-you-see-out-of-solar-screens/', '/guides/remove-solar-screens-before-window-cleaning/'],
   },
   {
     service: 'solar-screens', town: 'marana',
@@ -258,8 +280,10 @@ export const localServices: LocalService[] = [
       body: [
         'Many Marana homes are newer, and almost every house has one room that always overheats. That room is the place to start: any window that gets sun is worth screening, and the more sun it gets, the more it’s worth.',
         'The U.S. Department of Energy reports that well-placed shade can cut annual cooling costs by 7 to 15 percent. Typical turnaround is two to three weeks from measure to install.',
+        'Start with the west side, then south, and add rooms as you go. Screens come out easily for window cleaning, so a screened house is no harder to keep clean.',
       ],
     },
+    guides: ['/guides/which-windows-need-solar-screens/', '/guides/do-solar-screens-save-on-cooling-costs/', '/guides/how-much-do-solar-screens-cost/'],
   },
 
   /* ---------------- Pressure washing × town ---------------- */
