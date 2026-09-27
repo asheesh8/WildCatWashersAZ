@@ -4,17 +4,17 @@
  * call back right away (C§), so the promise under the button is a phone call,
  * not a price by email.
  *
- * Where it posts: PUBLIC_QUOTE_ENDPOINT (Formspree, Basin, a Zapier hook...) if
- * set; Netlify Forms natively on Netlify. On a host with neither, the submit
- * handler never fakes success: it shows a call/email fallback with the answers
- * already written into the email.
+ * Where it posts: PUBLIC_QUOTE_ENDPOINT if set; Netlify Forms natively on
+ * Netlify; otherwise /api/quote (api/quote.js, emails the office through Resend
+ * on Vercel). If that fails or isn't configured, the submit handler never fakes
+ * success: it shows a call/email fallback with the answers already written in.
  */
 import Icon from './Icon.astro';
 import { company, services, cta, telHref } from '@/data/business';
 import { towns } from '@/data/areas';
 export interface Props { service?: string; area?: string; id?: string }
 const { service, area, id = 'quote-form' } = Astro.props;
-const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT ?? '';
+const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
 ---
 <form
   class="qf" id={id} method="POST" action="/thank-you/" name="quote"
@@ -93,13 +93,14 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT ?? '';
         if (v && el && [...el.options].some((o) => o.value === v)) el.value = v;
       }
       const endpoint = form.dataset.endpoint || '';
-      if (onNetlify && !endpoint) return;
+      if (onNetlify && endpoint === '/api/quote') return;
       const fallback = form.querySelector('[data-qf-fallback]');
       const mailto = form.querySelector('[data-qf-mailto]');
       form.addEventListener('submit', async (e) => {
         if (!form.reportValidity()) return;
         e.preventDefault();
         const data = new FormData(form);
+        data.set('page', location.pathname);
         if (data.get('company-website')) return;
         const submit = form.querySelector('button[type=submit] span');
         const label = submit ? submit.textContent : '';
@@ -110,9 +111,8 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT ?? '';
           if (fallback) { fallback.hidden = false; fallback.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
           if (submit) submit.textContent = label;
         };
-        if (!endpoint) return showFallback();
-        try {
-          const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+                try {
+          const res = await fetch(endpoint, { method: 'POST', body: new URLSearchParams(data), headers: { Accept: 'application/json' } });
           if (!res.ok) throw new Error(String(res.status));
           location.assign('/thank-you/');
         } catch {
