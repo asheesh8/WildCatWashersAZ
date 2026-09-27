@@ -112,3 +112,12 @@ export function withProof(set: ReviewSet, proof: Review[], isLocal: (r: Review) 
   }
   return { ...set, local, more, moreLabel, count: local.length ? set.count : 0 };
 }
+
+/** Metro-wide fill for service-by-town pages: each review fills in on one page only while fresh ones remain. */
+const metroUsed = new Set<number>();
+export function metroFill(pool: Review[], count: number, seed: number): Review[] {
+  const fresh = pool.filter((r) => !metroUsed.has(r.n));
+  const chosen = pick(fresh.length >= count ? fresh : pool, count, { seed });
+  chosen.forEach((r) => metroUsed.add(r.n));
+  return chosen;
+}
