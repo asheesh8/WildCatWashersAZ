@@ -422,3 +422,7 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 .phone-link { min-height: 48px; }
 .subs a { min-height: 44px; display: inline-flex !important; align-items: center; }
 .foot-col a, .foot-facts a { min-height: 44px; display: inline-flex !important; align-items: center; }
+
+/* Phones: section headings a step smaller, so long place names stay within
+   four lines (design review 1, optional item). */
+@media (max-width: 759px) { .h2 { font-size: clamp(1.6rem, 1.1rem + 2.6vw, 1.9rem); } }
