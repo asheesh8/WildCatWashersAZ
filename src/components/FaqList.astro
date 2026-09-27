@@ -1,8 +1,8 @@
 ---
 /** Plain details/summary FAQ; the page adds FAQPage JSON-LD from the same list. */
 import type { Faq } from '@/data/faq';
-export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string; /** Question number → the page that owns it, for a "more on this" link. */ links?: Record<number, { href: string; label: string }> }
-const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', links = {} } = Astro.props;
+export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string; /** Question number → the page that owns it, for a "more on this" link. */ links?: Record<number, { href: string; label: string }>; /** Open the first answer (off where the page must stay short on phones). */ openFirst?: boolean }
+const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', links = {}, openFirst = true } = Astro.props;
 ---
 <section class="section" aria-labelledby={`${id}-title`}>
   <div class="wrap-narrow">
@@ -12,7 +12,7 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
     </div>
     <div class="faq">
       {items.map((f, i) => (
-        <details open={i === 0}>
+        <details open={openFirst && i === 0}>
           <summary><span>{f.q}</span><span class="plus" aria-hidden="true"></span></summary>
           <div class="faq-a"><p>{f.a}</p>{links[f.n] && <a class="faq-more" href={links[f.n].href}>{links[f.n].label}</a>}</div>
         </details>
