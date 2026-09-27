@@ -501,7 +501,7 @@ export const communities: Community[] = [
   },
   {
     kind: 'hoa', slug: 'saddlebrooke-one', name: 'SaddleBrooke One', parent: 'saddlebrooke', senior: true, hoa: true,
-    intro: 'SaddleBrooke One is the original HOA, on the south side of SaddleBrooke, the 55+ resort community north of Catalina at the base of the Catalinas. Residents identify strongly with SaddleBrooke and with their own HOA, so it gets its own page.',
+    intro: 'SaddleBrooke One is the original HOA, on the south side of SaddleBrooke, the 55+ resort community north of Catalina at the base of the Catalinas. Residents identify strongly with SaddleBrooke and with their own HOA.',
     lead: 'Yes. Wildcat Washers has customers throughout SaddleBrooke One, as well as SaddleBrooke Two, The Preserve and SaddleBrooke Ranch. SaddleBrooke is one of our strongest communities.',
     differs: 'SaddleBrooke Two is the larger HOA on the north side, including The Preserve. SaddleBrooke One is the original HOA, on the south side.',
     emphasis: { title: 'After a light rain, you can’t tell', body: 'SaddleBrooke homes are single-story with views of the Catalinas. Because we clean the tracks, sills, frames and screens as well as the glass, there’s no leftover dust to wash back down onto clean windows. Customers tell us that after light rain they genuinely can’t tell it rained, and the 14-Day Spotless Guarantee backs it up.' },

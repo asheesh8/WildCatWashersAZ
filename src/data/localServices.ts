@@ -181,7 +181,7 @@ export const localServices: LocalService[] = [
       title: 'Dust plus spring pollen',
       body: [
         'Oro Valley has heavy residential solar, and panels here face the metro’s constant desert dust with spring pollen landing on top.',
-        `${solarWhy} Once or twice a year is the right frequency for most Oro Valley homes, and a cleaning usually takes one to three hours.`,
+        'Pollen adds to the dust every spring, so an Oro Valley array can look hazy sooner than you’d expect. Most homes need one or two cleanings a year, and a visit usually takes one to three hours.',
         'Pollen and dust together make a film that rain only rearranges. From Rancho Vistoso to Sun City Oro Valley, the fix is the same: a soft brush, purified water, and mild soap only where the film needs it.',
       ],
     },

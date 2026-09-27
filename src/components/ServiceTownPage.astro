@@ -32,7 +32,14 @@ const row = planFor(url);
 const h1 = row?.h1 ?? `${s.name} in ${t.name}`;
 const tags = s.reviewTags;
 const base = townReviews(t, 24, hashSeed(t.slug));
-const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)));
+/* A review printed on this town's window page isn't repeated on its other service pages. */
+const windowTags = serviceBySlug['window-cleaning'].reviewTags;
+const onWindowPage = new Set(
+  s.slug !== 'window-cleaning' && localServices.some((x) => x.town === t.slug && x.service === 'window-cleaning')
+    ? base.local.filter((r) => r.services.some((x) => windowTags.includes(x))).slice(0, 6).map((r) => r.n)
+    : [],
+);
+const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)) && !onWindowPage.has(r.n));
 const set: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
@@ -56,7 +63,7 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} lede={s.lede} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
+  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} lede={`${ls.angle.title}.`} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
   <TrustRow />
 
   <section class="section">
@@ -71,8 +78,6 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
         <h3 class="h3">{s.name}</h3>
         <p>{s.cardLine}</p>
         <ul role="list">
-          <li><Icon name="check-circle" size={22} /><span>{s.pricing}</span></li>
-          <li><Icon name="check-circle" size={22} /><span>{s.frequency}</span></li>
           <li><Icon name="check-circle" size={22} /><span>You don’t pay until you’re happy.</span></li>
         </ul>
         <a class="text-link" href={serviceHref(s.slug)}>Everything about {s.name.toLowerCase()} <Icon name="arrow" size={20} /></a>
@@ -87,7 +92,7 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
     <section class="section-tight bg-mist">
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
-        <ul class="ans" role="list">{answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong><span>{g.g.answer.split(/(?<=\.)\s/)[0]}</span></a></li>)}</ul>
+        <ul class="ans" role="list">{answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong></a></li>)}</ul>
       </div>
     </section>
   )}
