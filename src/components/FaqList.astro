@@ -1,8 +1,8 @@
 ---
 /** Plain details/summary FAQ; the page adds FAQPage JSON-LD from the same list. */
 import type { Faq } from '@/data/faq';
-export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string }
-const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq' } = Astro.props;
+export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string; /** Question number → the page that owns it, for a "more on this" link. */ links?: Record<number, { href: string; label: string }> }
+const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', links = {} } = Astro.props;
 ---
 <section class="section" aria-labelledby={`${id}-title`}>
   <div class="wrap-narrow">
@@ -14,7 +14,7 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq' } 
       {items.map((f, i) => (
         <details open={i === 0}>
           <summary><span>{f.q}</span><span class="plus" aria-hidden="true"></span></summary>
-          <div class="faq-a"><p>{f.a}</p></div>
+          <div class="faq-a"><p>{f.a}</p>{links[f.n] && <a class="faq-more" href={links[f.n].href}>{links[f.n].label}</a>}</div>
         </details>
       ))}
     </div>
@@ -36,5 +36,6 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq' } 
   details[open] .plus { background: var(--blue); }
   details[open] .plus::after { rotate: 0deg; }
   .faq-a { padding: 0 1.3rem 1.3rem; }
+  .faq-more { display: inline-block; margin-top: .6rem; font-weight: 700; }
   .faq-a p { font-size: 1.12rem; color: var(--ink-2); max-width: 64ch; }
 </style>

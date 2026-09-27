@@ -1,0 +1,97 @@
+---
+/**
+ * Guide and answer pages (plan families "guide" and "answer"). The answer comes
+ * first and stands alone when quoted; detail sections follow, then what we do
+ * about it, the doc 6 answers this page covers, and related questions.
+ */
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import { guidePages, guideByUrl, type GuidePage } from '@/data/guides';
+import { faq, type Faq } from '@/data/faq';
+import { planFor } from '@/data/plan';
+import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
+import { faqSchema } from '@/lib/schema';
+import { ownerLinks } from '@/lib/faqOwner';
+import { fitTitle, fitDescription } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: GuidePage };
+const { row, g, url } = p;
+const isGuide = row.family === 'guide';
+const s = g.service ? serviceBySlug[g.service] : undefined;
+const items: Faq[] = [...new Set([...row.faq_refs.matchAll(/F(\d+)/g)].map((m) => Number(m[1])))].map(faq);
+const links = ownerLinks(items, url);
+const related = g.related
+  .filter((h) => h !== url)
+  .map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h }))
+  .slice(0, 5);
+const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];
+const title = fitTitle([row.h1, row.primary_query.replace(/^./, (c) => c.toUpperCase())]);
+const description = fitDescription(g.answer);
+const article = {
+  '@type': 'Article',
+  headline: row.h1,
+  description,
+  url: `${company.url}${url}`,
+  mainEntityOfPage: `${company.url}${url}`,
+  author: { '@id': `${company.url}/#business` },
+  publisher: { '@id': `${company.url}/#business` },
+  inLanguage: 'en-US',
+  ...(s ? { about: { '@type': 'Service', name: s.name, url: `${company.url}${serviceHref(s.slug)}` } } : {}),
+};
+---
+<Base title={title} description={description} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
+  <PageHero eyebrow={isGuide ? 'Guide' : 'Straight answer'} title={row.h1} crumbs={crumbs} rating={false} ctaHref={s ? `/quote/?service=${s.slug}` : '/quote/'}>
+    <p class="answer"><strong>Short answer:</strong> {g.answer}</p>
+  </PageHero>
+
+  <article class="section">
+    <div class="wrap-narrow body">
+      {g.sections.map((sec) => (
+        <section>
+          <h2 class="h3">{sec.h}</h2>
+          {sec.p.map((t) => <p>{t}</p>)}
+        </section>
+      ))}
+      <aside class="do reveal">
+        <p class="eyebrow">What we do about it</p>
+        <p>{g.doAbout}</p>
+        <div class="do-row">
+          {s && <a class="text-link" href={serviceHref(s.slug)}>{s.name} <Icon name="arrow" size={20} /></a>}
+          <a class="phone-cta" href={telHref} data-track="call-guide"><Icon name="phone" size={22} />{company.phone}</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+
+  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} eyebrow="From our FAQ" />}
+
+  {related.length > 0 && (
+    <section class="section-tight">
+      <div class="wrap-narrow">
+        <h2 class="h3" style="margin-bottom:1rem">Related questions</h2>
+        <ul class="rel" role="list">{related.map((r) => <li><a href={r.href}><span>{r.label}</span><Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  .answer { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; color: var(--navy); background: #fff; border-left: 6px solid var(--blue); border-radius: var(--radius); padding: 1.1rem 1.3rem; max-width: 60ch; }
+  .answer strong { font-family: var(--font-display); }
+  .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
+  .body section { display: grid; gap: .8rem; }
+  .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+  .do { background: var(--blue-50); border-radius: var(--radius-lg); padding: clamp(1.3rem, 1rem + 1.5vw, 2rem); display: grid; gap: .8rem; }
+  .do p:not(.eyebrow) { font-size: 1.14rem; color: var(--navy); }
+  .do-row { display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; align-items: center; }
+  .phone-cta { display: inline-flex; align-items: center; gap: .5rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.3rem; text-decoration: none; }
+  .phone-cta :global(svg) { color: var(--blue-700); }
+  .rel { list-style: none; padding: 0; display: grid; gap: .6rem; }
+  .rel a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.2rem; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; text-decoration: none; font-weight: 700; color: var(--navy); font-size: 1.1rem; }
+  .rel a:hover { border-color: var(--blue); }
+  .rel :global(svg) { flex: none; color: var(--blue-700); }
+</style>
