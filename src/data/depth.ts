@@ -1,5 +1,5 @@
 /**
- * Depth copy from the research thread (/mnt/project-files/aeo-geo/depth-round-1..4.md),
+ * Depth copy from the research thread (/mnt/project-files/aeo-geo/depth-round-1..5.md),
  * keyed by page URL. Templates read it when present:
  * - answer: the 40–60 word direct answer, shown first under the H1 (it replaces the old lead in that slot).
  * - sections: short local sections. Links are written [label](/path/) and render as links
@@ -26,6 +26,8 @@ export type Depth = {
   proofAsTown?: number[];
   /** Reviews quoted inside a section, kept out of the review block so they aren't shown twice. */
   quoted?: number[];
+  /** Reviews moved to their home page (round 5 review moves), kept out of this page's review block. */
+  omit?: number[];
   faq?: number[];
 };
 
@@ -268,7 +270,8 @@ export const depth: Record<string, Depth> = {
       { h: 'Tint and low-E', p: 'Tinted glass, low-E coatings and security film are regular work. [Will window cleaning damage tint or low-E?](/guides/will-window-cleaning-damage-tint-or-low-e/)' },
       { h: 'Three times a year', p: threeAYear() },
     ],
-    proof: [247],
+    // R247 is Sabino Canyon's proof (round 5), so it isn't repeated here.
+    omit: [247],
     faq: windowFaqs,
   },
 
@@ -299,8 +302,10 @@ export const depth: Record<string, Depth> = {
       { h: 'Mature trees', p: 'Mesquite drops pollen and debris on glass and panels, and spring pollen lands on top of the year-round dust.' },
       { h: 'Patios and pool decks', p: 'We [pressure wash patios and pool decks](/services/pressure-washing/patios-pool-decks/) with minimal chemical use, and we’re careful where the water goes.' },
       { h: 'High glass', p: 'A water-fed pole with deionized water reaches high glass from the ground and dries spot-free.' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served across Greater Tucson, and not a single customer review below five stars.' },
     ],
-    proof: [94],
+    // R094 moved to its home page, Vactor Ranch (round 5).
+    omit: [94],
     faq: [111, 112, 78, 31, 164, 13],
   },
 
@@ -345,7 +350,9 @@ export const depth: Record<string, Depth> = {
       { h: 'Dust that comes back fast', p: 'Southern-metro dust, including mine dust, settles on Sahuarita glass faster than in most of Tucson, and hard water adds spots on top. Next door, see [window cleaning in Green Valley](/services/window-cleaning/green-valley/).' },
       { h: 'Three times a year', p: threeAYear() },
     ],
+    // R082 moved to its home page, Rancho Resort (round 5).
     proof: [77],
+    omit: [82],
     faq: windowFaqs,
   },
 
@@ -471,7 +478,9 @@ export const depth: Record<string, Depth> = {
       { h: 'For the HOA and property managers', p: 'Recurring clubhouse and common-area service, and multi-property work on one schedule with one point of contact. See [property managers](/who-we-help/property-managers/).' },
       { h: 'Away for part of the year?', p: 'You don’t need to be home. [Here’s how that works](/guides/do-i-need-to-be-home-for-window-cleaning/).' },
     ],
-    proof: [123, 127],
+    // R123 moved to its home page, The Preserve (round 5).
+    proof: [126, 127],
+    omit: [123],
     faq: [110, 193, 194, 195],
   },
 
@@ -606,30 +615,6 @@ export const depth: Record<string, Depth> = {
     faq: [165],
   },
 
-  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
-    answer:
-      'Yes, Wildcat Washers cleans windows in Sonora at Rancho Sahuarita, the Del Webb 55+ section with its own clubhouse. We hand-clean glass, frames, sills, tracks and screens, and we clean solar panels too, which counts here because nearby mining adds to the dust. Full-time or seasonal, call (520) 525-0084 for a quote in a few minutes.',
-    heading: 'Life in Sonora, south on I-19',
-    sections: [
-      { h: 'Mine dust on glass and panels', p: 'Sahuarita sits in the southern metro, where nearby mining adds to the dust in the air. Rain doesn’t wash it off. It moves the dust around and then dries into mineral spots. One or two cleanings a year keep rooftop panels performing. See [solar panel cleaning in Sahuarita](/services/solar-panel-cleaning/sahuarita/) and [mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/).' },
-      { h: 'Nothing to get ready', p: 'You don’t need to do anything before we come. We move furniture ourselves and put it back exactly where it was. Clearing small things off the inside sills speeds us up a little, but it’s never required.' },
-      { h: 'Away for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time, and you don’t need to be in town. See how we work with [snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/).' },
-      { h: 'For the clubhouse', p: 'We clean clubhouses and common areas on a recurring schedule, and community work gets its own custom quote. See [HOA and community work](/who-we-help/hoas-communities/).' },
-    ],
-    faq: [145, 53],
-  },
-
-  '/areas/catalina-foothills/la-paloma/': {
-    answer:
-      'Yes, Wildcat Washers cleans windows in La Paloma, the golf and resort community around the Westin La Paloma in the Catalina Foothills. Townhome or view home, we hand-clean glass, frames, sills, tracks and screens, reach high panes with a water-fed pole, and take solar screens off and put them back. Call (520) 525-0084 for a per-pane quote.',
-    heading: 'La Paloma, up close',
-    sections: [
-      { h: 'High glass, from the ground', p: 'Foothills glass is often large and high. For most panes we hand wash, because being right at the glass is how we catch every detail. For high panes, pure deionized water on a water-fed pole reaches them from the ground and dries without a spot. [Two-story window cleaning](/guides/two-story-window-cleaning/).' },
-      { h: 'Golf-course irrigation', p: 'Where course or yard sprinklers reach the glass, adjust them if you can, and skip the garden hose. Mineral spotting left long enough etches, so a regular schedule keeps it off. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
-      { h: 'Solar screens off and back on', p: 'If your windows have solar screens, we take them off, clean the glass behind them and put them back. We can also wash the screens while they’re off. Need new ones? See [solar screens in the Catalina Foothills](/services/solar-screens/catalina-foothills/).' },
-    ],
-    faq: [31],
-  },
   /* ============================== Round 4 ============================== */
   '/areas/green-valley/canoa-ranch/': {
     title: 'Window Cleaning in Canoa Ranch, Green Valley',
@@ -764,9 +749,12 @@ export const depth: Record<string, Depth> = {
       { h: 'How often', p: 'One or two cleanings a year keep panels performing and protect the glass. If you’re away for the summer while the dust builds, a cleaning timed to your return has the array producing again the week you’re back.' },
       { h: 'Warranty-safe methods', p: 'No harsh chemicals and no stiff brushes, which protects the panel surface and your manufacturer warranty.' },
       { h: 'Birds under the array?', p: 'If pigeons have moved in under your panels, we [pigeon-proof the array](/services/solar-panel-pigeon-proofing/) with no drilling into the roof.' },
-      { h: 'Add it to a window visit', p: 'Panels can be done while we’re already there for the windows. [Wildcat Club](/wildcat-club/) members get 10 percent off added services, and one-time cleans are always available.' },
+      { h: 'Add it to a window visit', p: 'Panels can be done while we’re already there for the windows. [Wildcat Club](/wildcat-club/) members get 10 percent off added services, and one-time cleans are always available.', q: { text: 'They not only did the windows, but also the solar panels at our home in Green Valley.', by: 'Linda A., Green Valley' } },
     ],
-    proof: [69, 43],
+    // R069 moved to its home page, Colonia de los Alamos (round 5).
+    proof: [43],
+    quoted: [32],
+    omit: [69],
     faq: [51, 53, 54, 57],
   },
 
@@ -852,6 +840,238 @@ export const depth: Record<string, Depth> = {
     ],
     faq: [36, 34, 35, 37, 55],
   },
+
+  /* ============================== Round 5 ============================== */
+  '/areas/catalina-foothills/sabino-canyon/': {
+    title: 'Window Cleaning near Sabino Canyon, Tucson',
+    meta: 'Window cleaning and solar screens for homes around Sabino Canyon Road. Part of our regular Foothills coverage. (520) 525-0084.',
+    answer:
+      'We do. The Sabino Canyon area is part of Wildcat Washers’ regular Catalina Foothills coverage. We hand-clean glass, frames, sills, tracks and screens, and skylights count as extra panes done in the same visit. We also clean and install solar screens, starting with the west-facing windows that get the afternoon sun.',
+    heading: 'Around Sabino Canyon Road',
+    sections: [
+      { h: 'Foothills on one side, Tanque Verde on the other', p: 'We work all over the [Catalina Foothills](/areas/catalina-foothills/), from [Ventana Canyon](/areas/catalina-foothills/ventana-canyon/) to [Skyline Country Club](/areas/catalina-foothills/skyline-country-club/), and east across [Tanque Verde](/areas/tanque-verde/), including [Vactor Ranch](/areas/tanque-verde/vactor-ranch/).' },
+      { h: 'Solar screens, new or washed', p: 'We custom build and install [solar screens for Foothills homes](/services/solar-screens/catalina-foothills/), and wash existing ones while we’re there for the windows. Not sure where to start? [Which windows need solar screens?](/guides/which-windows-need-solar-screens/)' },
+      { h: 'Skylights and high glass', p: 'Skylights, clerestories and high panes are part of the same visit, not a second trip. [Do you clean skylights and high windows?](/guides/do-you-clean-skylights-and-high-windows/)' },
+    ],
+    // No Sabino Canyon review on record: R247 is labeled with its Nextdoor area.
+    proof: [247],
+    faq: [102, 46, 222, 220, 42],
+  },
+
+  '/areas/catalina-foothills/ventana-canyon/': {
+    title: 'Window Cleaning in Ventana Canyon, Catalina Foothills',
+    meta: 'Window cleaning for Ventana Canyon homes and villas: high interior glass, shower doors and mirrors in the same visit. (520) 525-0084.',
+    answer:
+      'Yes. Ventana Canyon is one of the Catalina Foothills communities Wildcat Washers serves, from luxury homes to villas. High interior windows and clerestories are a common request, and shower glass, mirrors and glass doors are handled in the same visit. Inside and out is the full 5-in-1 Deep Clean.',
+    heading: 'Ventana Canyon, up close',
+    sections: [
+      { h: 'Homes and villas alike', p: 'A villa gets the same 5-in-1 as a luxury home: every pane by hand, with hard water removal included. See [window cleaning in the Catalina Foothills](/services/window-cleaning/catalina-foothills/).' },
+      { h: 'Golf-lot glass', p: 'Course and yard sprinklers are the usual source of white spots on golf-lot glass. Adjust the heads where you can, and skip the hose. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/)' },
+      { h: 'High glass inside', p: 'Clerestories and tall interior panes are the glass most people don’t want to be on a ladder for. [Skylights and high windows](/guides/do-you-clean-skylights-and-high-windows/)' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served, and not a single customer review below five stars. Elsewhere in the Foothills, see [La Paloma](/areas/catalina-foothills/la-paloma/), [Sabino Canyon](/areas/catalina-foothills/sabino-canyon/) and all of the [Catalina Foothills](/areas/catalina-foothills/).' },
+    ],
+    // No Ventana Canyon review on record, and R095 already shows on the Foothills page.
+    faq: [101, 37, 43, 6, 44],
+  },
+
+  '/areas/catalina-foothills/la-paloma/': {
+    title: 'Window Cleaning in La Paloma, Catalina Foothills',
+    meta: 'Window cleaning for La Paloma view homes and townhomes. Solar screens removed and cleaned around. Per-pane quotes by phone. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows in La Paloma, the golf and resort community around the Westin La Paloma, for view homes and townhomes alike. Solar screens come off, we clean the glass behind them, and they go back on. Quotes are per pane, and we’ll count them with you by phone in a couple of minutes.',
+    heading: 'La Paloma, up close',
+    sections: [
+      { h: 'High glass, from the ground', p: 'Foothills glass is often large and high. For most panes we hand wash, because being right at the glass is how we catch every detail. High panes get pure deionized water on a water-fed pole, and a ladder only where that’s the right tool. [Two-story window cleaning](/guides/two-story-window-cleaning/).' },
+      { h: 'Golf-course irrigation', p: 'Where course or yard sprinklers reach the glass, mineral spotting follows, and left long enough it etches. A regular schedule keeps it off. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'New solar screens or a rescreen', p: 'Screens that are faded or torn can be rebuilt, and new ones are custom built for your windows. See [solar screens in the Catalina Foothills](/services/solar-screens/catalina-foothills/) and [should solar screens come off for window cleaning?](/guides/remove-solar-screens-before-window-cleaning/)' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served, and not a single customer review below five stars. We work all over the [Catalina Foothills](/areas/catalina-foothills/), [Ventana Canyon](/areas/catalina-foothills/ventana-canyon/) included.' },
+    ],
+    // No La Paloma review on record, so no borrowed Foothills quote here.
+    faq: [38, 30, 5, 47],
+  },
+
+  '/areas/vail-az/del-webb-at-rocking-k/': {
+    title: 'Window Cleaning in Del Webb at Rocking K, Vail AZ',
+    meta: 'First cleans for new Del Webb at Rocking K homes, then reminders when windows are due. Senior discount available. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows in Del Webb at Rocking K, the new-construction 55+ community east of Vail AZ. New homes get builder dust and construction residue taken off the glass. After that, we remind you when your windows are due, and seniors get a discount when they mention it on the call.',
+    heading: 'Del Webb at Rocking K, up close',
+    sections: [
+      { h: 'After the move-in clean', p: 'We recommend three cleanings a year for windows: after summer and monsoon season, around the holidays, and in spring. The [Wildcat Club](/wildcat-club/) can schedule them, and one-time cleans are always available. See [builders and new construction](/who-we-help/builders-new-construction/) and [window cleaning in Vail AZ](/services/window-cleaning/vail-az/).' },
+      { h: 'New driveways turn grey too', p: 'Dust, sun and traffic settle on new concrete fast. We [pressure wash driveways](/services/pressure-washing/driveways-garage-floors/) in the same visit as the windows.' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served across Greater Tucson, and not a single customer review below five stars. See all of [Vail AZ](/areas/vail-az/).' },
+    ],
+    faq: [19, 156, 82, 127],
+  },
+
+  '/areas/green-valley/legends/': {
+    title: 'Window Cleaning for Legends Residents, Green Valley',
+    meta: 'Window, screen and track cleaning for homes in Legends, Green Valley, with shoe covers on inside. HOA clubhouse service too. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows, screens and tracks for homes in Legends, the Green Valley neighborhood associated with Torres Blancas golf. Shoe covers go on before we step inside. For the HOA, we clean clubhouses and common areas on a recurring schedule.',
+    heading: 'Legends, up close',
+    sections: [
+      { h: 'Screens and tracks, every time', p: 'Every window job is the full 5-in-1, so screens come out and tracks are vacuumed and washed along with the glass. See [window cleaning in Green Valley](/services/window-cleaning/green-valley/).', q: { text: 'The screens and windows look amazing too (even the window tracks are super clean).', by: 'Linda B., Legends' } },
+      { h: 'Golf irrigation', p: 'If sprinklers keep reaching your glass, adjust the heads and keep a regular schedule. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/)' },
+      { h: 'Panels while we’re there', p: 'Rooftop solar collects the same dust as your glass. Add [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/) to the window visit. Elsewhere nearby, see [Las Campanas](/areas/green-valley/las-campanas/).' },
+      { h: 'Another Legends review', p: 'In the customer’s own words.', q: { text: 'I had my windows washed today by Wildcat Washers and they did a fantastic job.', by: 'Anne D., Legends' } },
+    ],
+    // R064's blinds sentences and R075's college lines stay out: excerpts only.
+    quoted: [64, 75],
+    faq: [165, 65, 18, 35, 193],
+  },
+
+  '/areas/green-valley/springs-at-canoa/': {
+    title: 'Window Cleaning for Springs at Canoa Residents',
+    meta: 'Window cleaning and solar panel care for Springs at Canoa homes in Green Valley. HOA common areas on a schedule. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows for Springs at Canoa homes in Green Valley, and our customers here use the name. We hand-clean glass, frames, sills, tracks and screens, and clean solar panels too. For the HOA, we clean clubhouses and common areas on a recurring schedule.',
+    heading: 'Springs at Canoa, up close',
+    sections: [
+      { h: 'Solar panels too', p: 'Rain dries into white mineral spots on panel glass, and we photograph every array before and after. See [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/) and [white spots on solar panels after rain](/guides/white-spots-on-solar-panels-after-rain/).' },
+      { h: 'Across Green Valley', p: 'Green Valley is one of our home markets, and our trucks are there most weeks. See all of [Green Valley](/areas/green-valley/), including [Canoa Ranch](/areas/green-valley/canoa-ranch/).' },
+    ],
+    proof: [61],
+    faq: [55, 52, 193],
+  },
+
+  '/areas/green-valley/links-at-santa-rita-springs/': {
+    title: 'Window Cleaning, The Links at Santa Rita Springs',
+    meta: 'Window and solar panel cleaning for The Links at Santa Rita Springs in Green Valley, plus HOA and property-manager service. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows and solar panels for homes in The Links at Santa Rita Springs, a Green Valley neighborhood whose customers use the name. For the HOA and property managers, we run multiple properties on one schedule with one point of contact, and community work gets a custom quote.',
+    heading: 'The Links, up close',
+    sections: [
+      { h: 'Windows and panels together', p: 'One visit saves a trip, and one or two panel cleanings a year keep an array performing. See [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/) and [does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)', q: { text: 'We are very appreciated of the solar panels and window washing they did for us. We highly recommend them. They are a delight', by: 'Peg H., The Links at Santa Rita Springs' } },
+      { h: 'Board or manager?', p: 'The answers for boards and managers are just below. See [HOA and community work](/who-we-help/hoas-communities/) and [property managers](/who-we-help/property-managers/), or all of [Green Valley](/areas/green-valley/).' },
+    ],
+    // R073's "college students" opening stays out: excerpt only. R069 lives on Colonia de los Alamos.
+    quoted: [73],
+    omit: [69],
+    faq: [53, 194, 54, 195, 193],
+  },
+
+  '/areas/green-valley/colonia-de-los-alamos/': {
+    title: 'Window Cleaning for Colonia de los Alamos Residents',
+    meta: 'Solar panel and window cleaning for Colonia de los Alamos homes in Green Valley, where mine dust builds up fast. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows and solar panels for Colonia de los Alamos homes in Green Valley. One customer here said the water ran brown off their panels. Southern Arizona is one of the dustiest places anywhere, mining adds to it here, and panels can go months without real rain to rinse them.',
+    heading: 'Colonia de los Alamos, up close',
+    sections: [
+      { h: 'After the rain', p: 'Rain on dusty panels dries into white mineral spots, so a wet week can leave an array looking worse. [White spots on solar panels after rain](/guides/white-spots-on-solar-panels-after-rain/) · [Mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/)' },
+      { h: 'Windows in the same visit', p: 'Panels and windows done together saves a trip. See [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/), [window cleaning in Green Valley](/services/window-cleaning/green-valley/) and all of [Green Valley](/areas/green-valley/).' },
+    ],
+    proof: [69],
+    faq: [65, 18, 55, 193],
+  },
+
+  '/areas/green-valley/las-campanas/': {
+    title: 'Window Cleaning for Las Campanas Residents',
+    meta: 'Window cleaning for Las Campanas, the gated 55+ GVR neighborhood on Green Valley’s west side. No need to be home. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows in Las Campanas, the gated 55+ GVR neighborhood on Green Valley’s west side. Every visit is the full 5-in-1 Deep Clean, with hard water removal included. Our technicians wear uniforms and drive marked trucks, so you’ll know it’s us before we knock, whether or not you’re home.',
+    heading: 'Las Campanas, up close',
+    sections: [
+      { h: 'Arriving for the season?', p: 'Tell us your arrival date and we’ll schedule around it, so the house is ready when you get back. See how we work with [snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/) and [do I need to be home?](/guides/do-i-need-to-be-home-for-window-cleaning/)' },
+      { h: 'Solar on the roof?', p: 'Panels can be cleaned in the same visit as the windows, with before and after photos. See [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/).' },
+      { h: 'Across Green Valley', p: 'Readers voted us Best Window Cleaners in Green Valley and Sahuarita in the 2025 AZ-19 Readers’ Pick. See all of [Green Valley](/areas/green-valley/), including [Legends](/areas/green-valley/legends/).' },
+    ],
+    // No Las Campanas review on record: R044 is labeled Green Valley.
+    proof: [44],
+    faq: [144, 130, 52, 193],
+  },
+
+  '/areas/sahuarita/rancho-resort/': {
+    title: 'Window Cleaning for Rancho Resort Residents, Sahuarita',
+    meta: 'Inside-and-out window cleaning for Rancho Resort, a small gated 55+ neighborhood in Sahuarita. Floors protected. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows inside and out for Rancho Resort, the small gated 55+ neighborhood in Sahuarita. Shoe covers go on before we come in, towels catch any drips, and furniture goes back exactly where it was. We also clean solar screens and solar panels, usually in the same visit.',
+    heading: 'Rancho Resort, up close',
+    sections: [
+      { h: 'Inside and out', p: 'A Rancho Resort customer, after an inside-and-out clean. [Is it safe to let window cleaners inside?](/guides/is-it-safe-to-let-window-cleaners-inside/)', q: { text: 'We had our windows cleaned today both inside and out. Wildcat Washers were very professional, polite, and thorough.', by: 'Shelley B., Rancho Resort' } },
+      { h: 'Solar screens and panels', p: 'Solar screens are washed while they’re off the windows, and rooftop panels need one or two cleanings a year. See [solar panel cleaning in Sahuarita](/services/solar-panel-cleaning/sahuarita/), [window cleaning in Sahuarita](/services/window-cleaning/sahuarita/) and [Sonora at Rancho Sahuarita](/areas/sahuarita/sonora-at-rancho-sahuarita/).' },
+    ],
+    // R082's college sentence stays out: excerpt only.
+    quoted: [82],
+    faq: [136, 124, 53, 46, 193],
+  },
+
+  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
+    title: 'Window Cleaning, Sonora at Rancho Sahuarita',
+    meta: 'Window and solar panel cleaning for Sonora at Rancho Sahuarita, the Del Webb 55+ section. Clubhouse service too. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows and solar panels in Sonora at Rancho Sahuarita, the Del Webb 55+ section with its own clubhouse. There’s nothing to prepare, because we handle everything, including moving furniture. For the community, we clean clubhouses and common areas on a recurring schedule.',
+    heading: 'Life in Sonora, south on I-19',
+    sections: [
+      { h: 'Mine dust on glass and panels', p: 'Rain doesn’t wash southern-metro dust off panels. It moves it around and then dries into mineral spots. One or two cleanings a year keep rooftop panels performing. See [solar panel cleaning in Sahuarita](/services/solar-panel-cleaning/sahuarita/) and [mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/).' },
+      { h: 'Away for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time, and you don’t need to be in town. See how we work with [snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/).' },
+      { h: 'Around Sahuarita', p: 'Readers voted us Best Window Cleaners in Green Valley and Sahuarita in the 2025 AZ-19 Readers’ Pick. See all of [Sahuarita](/areas/sahuarita/), including [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/) and [Rancho Resort](/areas/sahuarita/rancho-resort/).' },
+    ],
+    // No Sonora review on record: R081 is labeled Sahuarita.
+    proof: [81],
+    // R082 (Rancho Resort) quotes a college line; it lives on its home page as an excerpt.
+    omit: [82],
+    faq: [129, 54, 146, 65, 193, 53],
+  },
+
+  '/areas/tanque-verde/vactor-ranch/': {
+    title: 'Window Cleaning for Vactor Ranch Residents',
+    meta: 'Window cleaning for Vactor Ranch custom homes near Sabino Canyon Road. Tint and low-E glass handled safely. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows for Vactor Ranch, the gated custom-home community near Sabino Canyon Road. We check for tint, film and coatings before anything touches the glass, reach high panes with deionized water on a water-fed pole, and arrive in uniform in a marked truck.',
+    heading: 'Vactor Ranch, up close',
+    sections: [
+      { h: 'Custom homes, custom glass', p: 'Tinted glass, low-E coatings and security film are regular work, and no type of glass is off limits. [Will window cleaning damage tint or low-E?](/guides/will-window-cleaning-damage-tint-or-low-e/)' },
+      { h: 'Hand wash first, pole for height', p: 'Most glass is hand washed, because being right at the pane is how we catch every detail. The pole is for the panes you can’t reach. [Water-fed pole vs hand washing](/guides/water-fed-pole-vs-hand-washing/)' },
+      { h: 'Nearby', p: 'We work all over [Tanque Verde](/areas/tanque-verde/) and the [Sabino Canyon](/areas/catalina-foothills/sabino-canyon/) area.' },
+    ],
+    // R094 is recorded against Vactor Ranch, but its text ends "(Tucson)": labeled Tanque Verde.
+    proof: [94],
+    proofAsTown: [94],
+    faq: [130, 31, 124, 48, 193],
+  },
+
+  '/areas/marana/sunflower-at-continental-ranch/': {
+    title: 'Window Cleaning for Sunflower at Continental Ranch',
+    meta: 'Window cleaning for Sunflower, the gated 55+ section of Continental Ranch. Pay after the walkthrough, fully insured. (520) 525-0084.',
+    answer:
+      'We do. Sunflower is one of the Continental Ranch communities Wildcat Washers serves regularly. You pay only after the work is done and we’ve walked it with you, and we can keep a card on file if you’re away. We’re fully insured and will provide a certificate of insurance on request.',
+    heading: 'Sunflower, up close',
+    sections: [
+      { h: 'Part of Continental Ranch', p: 'We work across [Continental Ranch](/areas/marana/continental-ranch/) and all of [Marana](/areas/marana/), and every window job is the same 5-in-1.' },
+      { h: 'You see it before you pay', p: 'The walkthrough comes first, and the bill comes after. [When do I pay for window cleaning?](/guides/when-do-i-pay-for-window-cleaning/)' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served, and not a single customer review below five stars.' },
+    ],
+    faq: [106, 152, 132, 153, 126, 193],
+  },
+
+  '/areas/catalina-foothills/skyline-country-club/': {
+    title: 'Window Cleaning for Skyline Country Club Residents',
+    meta: 'Window cleaning for Skyline Country Club custom homes on Skyline Drive. Two-story and coated glass, fully insured. (520) 525-0084.',
+    answer:
+      'Yes. Skyline Country Club is in the Catalina Foothills, which Wildcat Washers covers fully. For these custom homes on Skyline Drive, second-story glass is quoted per pane like everything else, and we identify security film and low-E coatings before we start. We’re fully insured and provide a certificate on request.',
+    heading: 'Skyline Country Club, up close',
+    sections: [
+      { h: 'Two-story glass', p: 'Second-story panes are everyday work for us. [Two-story window cleaning](/guides/two-story-window-cleaning/)' },
+      { h: 'Insurance, in writing', p: 'Ask for our certificate of insurance before we start. [Are window cleaners licensed and insured?](/guides/are-window-cleaners-licensed-and-insured-arizona/)' },
+      { h: 'A record you can check', p: 'Over 1,000 customers served, and not a single customer review below five stars. Nearby, see [Sin Vacas](/areas/catalina-foothills/sin-vacas/) and all of the [Catalina Foothills](/areas/catalina-foothills/).' },
+    ],
+    faq: [103, 132, 49, 126, 3, 193],
+  },
+
+  '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
+    title: 'Window Cleaning, The Preserve at SaddleBrooke',
+    meta: 'Window cleaning for The Preserve, the newest golf neighborhood in SaddleBrooke Two. Patios and pool decks too. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows in The Preserve, the newest golf neighborhood within SaddleBrooke Two, as part of our SaddleBrooke coverage. We also pressure wash patios and pool decks with minimal chemical use, and booking several services in one visit costs less than separate trips.',
+    heading: 'The Preserve, up close',
+    sections: [
+      { h: 'Inside SaddleBrooke Two', p: 'We work across [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/) and all of [SaddleBrooke](/areas/saddlebrooke/). See [window cleaning in SaddleBrooke](/services/window-cleaning/saddlebrooke/).' },
+      { h: 'Patios and pool decks', p: 'We [pressure wash patios and pool decks](/services/pressure-washing/patios-pool-decks/), quoted per job, and we’re careful where the water goes.' },
+    ],
+    proof: [123],
+    faq: [110, 78, 18, 13, 193],
+  },
 };
 
 export const depthFor = (url: string): Depth | undefined => depth[url];
@@ -864,6 +1084,9 @@ export function withDepthFaqs(base: Faq[], d?: Depth): Faq[] {
   const have = new Set(base.map((f) => f.n));
   return [...base, ...d.faq.filter((n) => shownN.has(n) && !have.has(n)).map((n) => byN.get(n)!)];
 }
+
+/** Reviews a page's review block must skip: quoted in its copy, or moved to their home page. */
+export const keptOut = (d?: Depth): number[] => [...(d?.quoted ?? []), ...(d?.omit ?? [])];
 
 /** Proof reviews in order, skipping withheld ones; R121-style town labels applied. */
 export function proofReviews(d?: Depth): Review[] {

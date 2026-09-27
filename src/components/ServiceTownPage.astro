@@ -18,7 +18,7 @@ import { reviewsForService, pick, hashSeed } from '@/data/reviews';
 import { planFor } from '@/data/plan';
 import { townReviews, withProof, metroFill, type ReviewSet } from '@/lib/local';
 import DepthSections from './DepthSections.astro';
-import { depth, depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
+import { depth, depthFor, withDepthFaqs, proofReviews, keptOut } from '@/data/depth';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { heroPools, rotateFrom } from '@/data/media';
@@ -58,7 +58,7 @@ const baseSet: ReviewSet = localForService.length
   : { local: [], localLabel: '', more: metroFill(reviewsForService(tags).filter((r) => !proofElsewhere.has(r.n)), 3, hashSeed(url)), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
 /* A review featured on this town's window page isn't repeated here in full. */
 const windowProof = new Set(s.slug === 'window-cleaning' ? [] : depth[`/services/window-cleaning/${t.slug}/`]?.proof ?? []);
-const set = withProof(baseSet, proofReviews(d).filter((r) => !windowProof.has(r.n)), (r) => r.area === t.reviewArea, 6, d?.quoted);
+const set = withProof(baseSet, proofReviews(d).filter((r) => !windowProof.has(r.n)), (r) => r.area === t.reviewArea, 6, keptOut(d));
 const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
 /* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */
 const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Boolean(faqOwner(n));

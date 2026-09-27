@@ -19,7 +19,7 @@ import { faqRefs, type Faq } from '@/data/faq';
 import { ownerLinks } from '@/lib/faqOwner';
 import { communityReviews, servicesMentioned, withProof } from '@/lib/local';
 import DepthSections from '@/components/DepthSections.astro';
-import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
+import { depthFor, withDepthFaqs, proofReviews, keptOut } from '@/data/depth';
 import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
 import { company, telHref } from '@/data/business';
@@ -37,7 +37,7 @@ const row = planFor(url);
 const h1 = row?.h1 ?? `Window Cleaning in ${c.name}`;
 const d = depthFor(url);
 const isOwn = (r: { detail: string; area: string }) => (c.reviewDetails ?? []).includes(r.detail) || (c.reviewAreas ?? []).includes(r.area);
-const set = withProof(communityReviews(c, 6, hashSeed(c.slug) % 997), proofReviews(d), isOwn, 6, d?.quoted);
+const set = withProof(communityReviews(c, 6, hashSeed(c.slug) % 997), proofReviews(d), isOwn, 6, keptOut(d));
 const mentioned = servicesMentioned(set.local);
 
 /* The place's own Doc 6 question (F91–122), plus the HOA answers on HOA pages. */
@@ -137,7 +137,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${townName} neighbors say`} />
+  {(set.local.length > 0 || set.more.length > 0) && <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${townName} neighbors say`} />}
 
   {hoaFaqs.length > 0 && (
     <section class="section-tight bg-mist">
