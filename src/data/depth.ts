@@ -592,6 +592,44 @@ export const depth: Record<string, Depth> = {
     proof: [118],
     faq: windowFaqs,
   },
+
+  /* ====================== Community depth (uniqueness) ====================== */
+  '/areas/tanque-verde/forty-niner-country-club-estates/': {
+    answer:
+      'Yes, Wildcat Washers cleans windows in Forty Niner Country Club Estates, the golf-course neighborhood on Tanque Verde Road. We hand-clean glass, frames, sills, tracks and screens, with hard water removal included. That matters wherever sprinkler water reaches the glass. Call (520) 525-0084 and we’ll quote your home per pane, right over the phone.',
+    heading: 'Golf-course living on Tanque Verde Road',
+    sections: [
+      { h: 'Put the hose down', p: 'Rinsing windows with a hose feels like it helps, but it makes things worse. Tucson’s water is mineral heavy, and every rinse that dries on the glass leaves more behind. If spray from the yard or the course keeps reaching your windows, adjust it where you can, and have any buildup removed before it etches. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'East-side dust', p: 'Out on the east side toward the Rincons, desert dust settles all year and is heaviest after monsoon storms. We clean the tracks and screens along with the glass, so there’s no dust left to blow back onto clean windows. [Why windows get dirty again so fast](/guides/why-do-windows-get-dirty-again-so-fast/).' },
+      { h: 'Patios and pathways too', p: 'We also [pressure wash](/services/pressure-washing/) patios, pool decks and walkways. We watch where we step, where we set equipment and where the water goes, so your landscaping is left the way we found it.' },
+    ],
+    faq: [165],
+  },
+
+  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
+    answer:
+      'Yes, Wildcat Washers cleans windows in Sonora at Rancho Sahuarita, the Del Webb 55+ section with its own clubhouse. We hand-clean glass, frames, sills, tracks and screens, and we clean solar panels too, which counts here because nearby mining adds to the dust. Full-time or seasonal, call (520) 525-0084 for a quote in a few minutes.',
+    heading: 'Life in Sonora, south on I-19',
+    sections: [
+      { h: 'Mine dust on glass and panels', p: 'Sahuarita sits in the southern metro, where nearby mining adds to the dust in the air. Rain doesn’t wash it off. It moves the dust around and then dries into mineral spots. One or two cleanings a year keep rooftop panels performing. See [solar panel cleaning in Sahuarita](/services/solar-panel-cleaning/sahuarita/) and [mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/).' },
+      { h: 'Nothing to get ready', p: 'You don’t need to do anything before we come. We move furniture ourselves and put it back exactly where it was. Clearing small things off the inside sills speeds us up a little, but it’s never required.' },
+      { h: 'Away for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time, and you don’t need to be in town. See how we work with [snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/).' },
+      { h: 'For the clubhouse', p: 'We clean clubhouses and common areas on a recurring schedule, and community work gets its own custom quote. See [HOA and community work](/who-we-help/hoas-communities/).' },
+    ],
+    faq: [145, 53],
+  },
+
+  '/areas/catalina-foothills/la-paloma/': {
+    answer:
+      'Yes, Wildcat Washers cleans windows in La Paloma, the golf and resort community around the Westin La Paloma in the Catalina Foothills. Townhome or view home, we hand-clean glass, frames, sills, tracks and screens, reach high panes with a water-fed pole, and take solar screens off and put them back. Call (520) 525-0084 for a per-pane quote.',
+    heading: 'La Paloma, up close',
+    sections: [
+      { h: 'High glass, from the ground', p: 'Foothills glass is often large and high. For most panes we hand wash, because being right at the glass is how we catch every detail. For high panes, pure deionized water on a water-fed pole reaches them from the ground and dries without a spot. [Two-story window cleaning](/guides/two-story-window-cleaning/).' },
+      { h: 'Golf-course irrigation', p: 'Where course or yard sprinklers reach the glass, adjust them if you can, and skip the garden hose. Mineral spotting left long enough etches, so a regular schedule keeps it off. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'Solar screens off and back on', p: 'If your windows have solar screens, we take them off, clean the glass behind them and put them back. We can also wash the screens while they’re off. Need new ones? See [solar screens in the Catalina Foothills](/services/solar-screens/catalina-foothills/).' },
+    ],
+    faq: [31],
+  },
 };
 
 export const depthFor = (url: string): Depth | undefined => depth[url];
