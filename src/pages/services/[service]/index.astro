@@ -19,7 +19,8 @@ import { localServices } from '@/data/localServices';
 import { fitTitle } from '@/lib/seo';
 import { reviewsForService, pick } from '@/data/reviews';
 import { faqList } from '@/data/faq';
-import { h1For } from '@/data/plan';
+import { h1For, planFor } from '@/data/plan';
+import { landings } from '@/data/landing';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 
 export function getStaticPaths() {
@@ -35,6 +36,11 @@ const isWindow = s.slug === 'window-cleaning';
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: url }];
 /* Service × town pages where they exist; otherwise the town hub. */
 const localTowns = new Set(localServices.filter((x) => x.service === s.slug).map((x) => x.town));
+/* Sub-service pages under this hub; screen repair also points to solar screen rescreening. */
+const subPages = landings
+  .filter((l) => l.url.startsWith(`/services/${s.slug}/`) || (s.slug === 'screen-repair' && l.url === '/services/solar-screens/repair-rescreening/'))
+  .filter((l) => planFor(l.url))
+  .map((l) => ({ href: l.url, label: planFor(l.url)!.h1 }));
 const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/${s.slug}/${t.slug}/`, name: t.name } : { href: townHref(t.slug), name: t.name }));
 ---
 <Base
@@ -82,6 +88,15 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   )}
 
   {isWindow && <ClubBlock />}
+
+  {subPages.length > 0 && (
+    <section class="section-tight">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">{s.slug === 'screen-repair' ? 'Solar screens too' : `Specific ${s.name.toLowerCase()} jobs`}</h2>
+        <ul class="chips" role="list">{subPages.map((p) => <li><a href={p.href}><Icon name="arrow" size={18} />{p.label}</a></li>)}</ul>
+      </div>
+    </section>
+  )}
 
   <section class="section-tight bg-mist">
     <div class="wrap">

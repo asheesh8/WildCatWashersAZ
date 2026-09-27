@@ -53,7 +53,9 @@ const photo = heroPools[s.slug]
   ? rotateFrom(heroPools[s.slug].filter((k) => k !== s.image), localServices.filter((x) => x.service === s.slug).map((x) => x.town), t.slug)
   : s.image;
 const kids = childrenOf(t.slug);
-const answers = (ls.guides ?? []).map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
+/* Window pages also point to the do-it-yourself guide; solar screen pages to rescreening. */
+const extraGuides = s.slug === 'window-cleaning' ? ['/guides/can-i-clean-my-own-windows/'] : [];
+const answers = [...new Set([...(ls.guides ?? []), ...extraGuides])].map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
 const short = t.name.replace(/ AZ$/, '');
@@ -115,6 +117,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
         {others.map((o) => <li><a href={`/services/${o.slug}/${t.slug}/`}><Icon name="sparkle" size={18} />{o.name} in {t.name}</a></li>)}
         {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
         <li><a href={serviceHref(s.slug)}><Icon name="sparkle" size={18} />{s.name} across Tucson</a></li>
+        {s.slug === 'solar-screens' && <li><a href="/services/solar-screens/repair-rescreening/"><Icon name="sparkle" size={18} />Solar screen repair and rescreening</a></li>}
       </ul>
     </div>
   </section>
