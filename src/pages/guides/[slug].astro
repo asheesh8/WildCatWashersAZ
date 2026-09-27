@@ -47,6 +47,7 @@ const article = {
 };
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
+  <div class="read-bar" aria-hidden="true"></div>
   <PageHero eyebrow={isGuide ? 'Guide' : 'Straight answer'} title={row.h1} crumbs={crumbs} rating={false} ctaHref={s ? `/quote/?service=${s.slug}` : '/quote/'}>
     <p class="answer"><strong>Short answer:</strong> {g.answer}</p>
   </PageHero>
@@ -83,6 +84,14 @@ const article = {
   )}
 </Base>
 <style>
+  /* A thin reading-progress line under the header, where the browser can drive it from scroll. */
+  .read-bar { display: none; }
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .read-bar { display: block; position: fixed; inset: 0 0 auto; height: 4px; z-index: 60; background: linear-gradient(90deg, var(--blue), var(--blue-600)); transform-origin: 0 50%; animation-name: read-grow; animation-timing-function: linear; animation-fill-mode: both; animation-duration: auto; animation-timeline: scroll(root); }
+      @keyframes read-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    }
+  }
   .answer { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; color: var(--navy); background: #fff; border-left: 6px solid var(--blue); border-radius: var(--radius); padding: 1.1rem 1.3rem; max-width: 60ch; }
   .answer strong { font-family: var(--font-display); }
   .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }

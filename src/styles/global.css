@@ -343,3 +343,70 @@ h1, h2, h3, h4 { text-wrap: balance; }
   .rev-lead .more-btn, .rev-inst .more-btn { color: inherit; }
   .m-swipe { align-items: flex-start; }
 }
+
+/* ── Micro-interactions ───────────────────────────────────────────
+   Small, quiet feedback on everything you can press: links draw their
+   underline, chips and link rows lift a little, FAQ answers slide open.
+   All of it switches off with reduced motion. */
+html { -webkit-tap-highlight-color: transparent; }
+
+/* Text links: the underline draws in from the left on hover. */
+.text-link {
+  border-bottom: 0; padding-bottom: 5px;
+  background:
+    linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 3px,
+    linear-gradient(var(--blue), var(--blue)) no-repeat 0 100% / 100% 3px;
+  transition: background-size .35s var(--ease);
+}
+.text-link:hover { background-size: 100% 3px, 100% 3px; }
+
+/* Inline links in running copy get a softer, thicker hover underline. */
+:is(.prose, .faq-a, .lede, .g-body) a:not(.btn):not(.text-link) {
+  text-decoration-color: var(--blue); text-decoration-thickness: 2px;
+  transition: text-decoration-color .2s, text-decoration-thickness .2s, color .2s;
+}
+:is(.prose, .faq-a, .lede, .g-body) a:not(.btn):not(.text-link):hover { text-decoration-color: var(--navy); text-decoration-thickness: 3px; color: var(--blue-700); }
+
+/* Chips: lift, tint and nudge the icon. */
+.chips a { transition: transform .25s var(--ease), border-color .2s, background .2s, box-shadow .25s var(--ease); }
+.chips a svg { transition: transform .3s var(--ease); }
+.chips a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -12px rgb(18 24 50 / 35%); }
+.chips a:hover svg { transform: translateX(3px); }
+.chips a:active { transform: translateY(0) scale(.98); box-shadow: none; }
+
+/* Phone-swipe arrows and "read more" get a pressed state. */
+.swipe-ctrl button { transition: transform .15s var(--ease), background .2s, border-color .2s, opacity .2s; }
+.swipe-ctrl button:not(:disabled):hover { border-color: var(--blue); background: var(--blue-50); }
+.swipe-ctrl button:not(:disabled):active { transform: scale(.92); }
+
+/* Phone links: the icon rings once on hover. */
+.phone-link svg { transition: transform .3s var(--ease); }
+.phone-link:hover svg { animation: ring .6s var(--ease) 1; }
+@keyframes ring { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-14deg); } 40% { transform: rotate(12deg); } 60% { transform: rotate(-8deg); } 80% { transform: rotate(4deg); } }
+
+/* FAQ answers slide open where the browser supports animating details. */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  details::details-content { height: 0; overflow: clip; transition: height .35s var(--ease), content-visibility .35s allow-discrete; }
+  details[open]::details-content { height: auto; }
+}
+details > summary { transition: color .2s; }
+details > summary:hover { color: var(--blue-700); }
+
+/* Cards that are links lift on hover. */
+a.card { display: block; text-decoration: none; color: inherit; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .2s; }
+a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--blue-200); }
+
+/* Photos inside links zoom gently. */
+a .photo img, a.photo img { transition: transform .8s var(--ease); }
+a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
+
+/* Job-video frames: a soft blue ring so they read as part of the page. */
+.loop { box-shadow: var(--shadow), 0 0 0 1px rgb(54 198 244 / 20%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .text-link, .chips a, .chips a svg, a.card, .swipe-ctrl button, a .photo img, a.photo img { transition: none; }
+  .phone-link:hover svg { animation: none; }
+  .chips a:hover, a.card:hover { transform: none; }
+  details::details-content { transition: none; }
+}

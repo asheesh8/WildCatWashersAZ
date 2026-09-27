@@ -89,7 +89,11 @@ const badges = awards.filter((a) => a.badge);
   .foot-head { font-family: var(--font-display); font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; margin-bottom: .8rem; }
   .foot-col ul { list-style: none; padding: 0; display: grid; gap: .15rem; }
   .foot-col a { color: #cfdaf0; text-decoration: none; display: inline-block; padding: .3rem 0; }
-  .foot-col a:hover { color: #fff; text-decoration: underline; }
+  .foot-col a { transition: color .2s, transform .25s var(--ease); }
+  .foot-col a:hover { color: #fff; text-decoration: underline; text-decoration-color: var(--blue); transform: translateX(3px); }
+  .foot-badges img { transition: transform .3s var(--ease); }
+  .foot-badges img:hover { transform: translateY(-3px) rotate(-2deg); }
+  @media (prefers-reduced-motion: reduce) { .foot-col a, .foot-badges img { transition: none; transform: none !important; } }
   .foot-badges { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgb(255 255 255 / 12%); }
   .foot-badges img { height: 72px; width: auto; background: #fff; border-radius: 14px; padding: 6px; }
   .wordmark {

@@ -17,7 +17,7 @@ const badges = awards.filter((a) => a.badge);
     <ul class="stats" role="list">
       {stats.map((s) => (
         <li class="stat reveal">
-          <span class="stat-num">{s.value}</span>
+          <span class="stat-num" data-count>{s.value}</span>
           <span class="stat-label">{s.label}</span>
         </li>
       ))}
@@ -48,7 +48,7 @@ const badges = awards.filter((a) => a.badge);
     display: grid; gap: .3rem; padding: clamp(1.1rem, .9rem + 1vw, 1.8rem);
     background: var(--blue-50); border-radius: var(--radius); border: 1px solid var(--blue-100);
   }
-  .stat-num {
+  .stat-num { font-variant-numeric: tabular-nums;
     font-family: var(--font-display); font-weight: 900; line-height: .9; color: var(--navy);
     font-size: clamp(2.4rem, 1.8rem + 2.4vw, 4rem); font-variation-settings: 'wdth' 100; letter-spacing: -.02em;
   }
