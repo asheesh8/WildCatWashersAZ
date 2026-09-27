@@ -11,7 +11,7 @@
 :root {
   /* Brand (C§6) */
   --blue: #36c6f4;
-  --blue-600: #12a8d8;
+  --blue-600: #0e8fba;
   --blue-700: #0a6a8e;
   --blue-50: #eaf8fe;
   --blue-100: #d3f1fc;
@@ -327,6 +327,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
     scrollbar-width: none;
   }
   .m-swipe::-webkit-scrollbar { display: none; }
+  .m-swipe:focus-visible { outline-offset: -3px; }
   .m-swipe > * { flex: 0 0 86%; scroll-snap-align: start; min-width: 0; }
   .js .m-swipe > .reveal, .js .m-swipe .reveal { opacity: 1; transform: none; }
   .swipe-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }

@@ -184,6 +184,13 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           ctrl.className = 'swipe-ctrl';
           ctrl.innerHTML = '<button type="button" aria-label="Previous">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next">\u2192</button>';
           row.after(ctrl);
+          // A scrolling row must be reachable by keyboard (arrow keys scroll it once focused).
+          if (row.scrollWidth > row.clientWidth + 4) {
+            const h = row.closest('section')?.querySelector('h2, h3');
+            row.tabIndex = 0;
+            if (!/^(UL|OL)$/.test(row.tagName)) row.setAttribute('role', 'region');
+            row.setAttribute('aria-label', h ? `${h.textContent.trim()}, scrollable` : 'Scrollable list');
+          }
           const [prev, next] = ctrl.querySelectorAll('button');
           const label = ctrl.querySelector('p');
           const current = () => {
@@ -219,7 +226,13 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           if (fig) fig.classList.toggle('is-paused', paused);
           if (b) b.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
         };
-        const play = (v) => { v.preload = 'auto'; return v.play().catch(() => set(v, true)); };
+        const play = (v) => { dress(v); v.preload = 'auto'; return v.play().catch(() => set(v, true)); };
+        // Posters load only as a clip nears the screen, so they never compete with the hero image.
+        const dress = (v) => { if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster; };
+        if ('IntersectionObserver' in window) {
+          const near = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { dress(e.target); near.unobserve(e.target); } }), { rootMargin: '300px 0px' });
+          vids.forEach((v) => near.observe(v));
+        } else vids.forEach(dress);
         vids.forEach((v) => {
           const b = v.closest('.loop')?.querySelector('[data-loop-toggle]');
           set(v, true);

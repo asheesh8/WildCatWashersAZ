@@ -7,7 +7,7 @@ const v = loops[name];
 ---
 {v && (
   <figure class:list={['loop', v.portrait && 'is-portrait', cls]}>
-    <video muted playsinline loop preload="none" poster={v.poster} aria-label={v.label} data-loop>
+    <video muted playsinline loop preload="none" data-poster={v.poster} aria-label={v.label} data-loop>
       <source src={v.src} type="video/mp4" />
     </video>
     <button type="button" class="loop-toggle" data-loop-toggle aria-label="Pause video" hidden>

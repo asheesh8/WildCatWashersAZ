@@ -6,12 +6,12 @@
 export type Loop = { src: string; poster: string; label: string; portrait?: boolean };
 
 export const loops: Record<string, Loop> = {
-  'crew-slider-patio': { src: '/media/crew-slider-patio.mp4', poster: '/media/crew-slider-patio.jpg', label: 'A Wildcat Washers technician squeegeeing tall patio sliders from a step ladder' },
-  'lather-squeegee': { src: '/media/lather-squeegee.mp4', poster: '/media/lather-squeegee.jpg', label: 'Soap lather on a window, cleared with a squeegee stroke', portrait: true },
-  'squeegee-pov': { src: '/media/squeegee-pov.mp4', poster: '/media/squeegee-pov.jpg', label: 'A brass squeegee pulling water off a large window', portrait: true },
-  'french-door-panes': { src: '/media/french-door-panes.mp4', poster: '/media/french-door-panes.jpg', label: 'Hand washing and squeegeeing each small pane of a French door', portrait: true },
-  'solar-clean-reflection': { src: '/media/solar-clean-reflection.mp4', poster: '/media/solar-clean-reflection.jpg', label: 'Solar panels mid-clean, the clean glass reflecting the sky', portrait: true },
-  'solar-screens-rinse': { src: '/media/solar-screens-rinse.mp4', poster: '/media/solar-screens-rinse.jpg', label: 'Solar screens lined up against a wall being rinsed', portrait: true },
+  'crew-slider-patio': { src: '/media/crew-slider-patio.mp4', poster: '/media/crew-slider-patio.webp', label: 'A Wildcat Washers technician squeegeeing tall patio sliders from a step ladder' },
+  'lather-squeegee': { src: '/media/lather-squeegee.mp4', poster: '/media/lather-squeegee.webp', label: 'Soap lather on a window, cleared with a squeegee stroke', portrait: true },
+  'squeegee-pov': { src: '/media/squeegee-pov.mp4', poster: '/media/squeegee-pov.webp', label: 'A brass squeegee pulling water off a large window', portrait: true },
+  'french-door-panes': { src: '/media/french-door-panes.mp4', poster: '/media/french-door-panes.webp', label: 'Hand washing and squeegeeing each small pane of a French door', portrait: true },
+  'solar-clean-reflection': { src: '/media/solar-clean-reflection.mp4', poster: '/media/solar-clean-reflection.webp', label: 'Solar panels mid-clean, the clean glass reflecting the sky', portrait: true },
+  'solar-screens-rinse': { src: '/media/solar-screens-rinse.mp4', poster: '/media/solar-screens-rinse.webp', label: 'Solar screens lined up against a wall being rinsed', portrait: true },
 };
 
 /**
