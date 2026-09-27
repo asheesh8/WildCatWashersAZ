@@ -43,6 +43,11 @@ const onWindowPage = new Set(
 );
 const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)) && !onWindowPage.has(r.n));
 const d = depthFor(url);
+/* Pages without a researched answer open with one line of proof instead. */
+const localCount = base.local.filter((r) => r.services.some((x) => tags.includes(x))).length;
+const proofLede = localCount >= 5
+  ? `${localCount} ${t.name} customers have left five-star reviews for our ${s.name.toLowerCase()}. Every job is quoted up front, and you don’t pay until you’re happy.`
+  : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. Every job is quoted up front, and you don’t pay until you’re happy.`;
 const baseSet: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
@@ -73,7 +78,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} lede={d?.answer} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
+  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
   <TrustRow />
 
   <section class="section">
