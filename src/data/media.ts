@@ -87,7 +87,7 @@ export const alt: Record<string, string> = {
   'solar-panels-clouds': 'Clean solar panels reflecting Arizona clouds',
   'solar-panels-hillside': 'Solar array on a hillside home outside Tucson',
   'tech-cleaning-solar-commercial-roof': 'Technician cleaning a commercial rooftop solar array',
-  'tech-cleaning-solar-mountains': 'Technician soft-washing solar panels with the mountains behind',
+  'tech-cleaning-solar-mountains': 'Technician hand-cleaning solar panels with the mountains behind',
   'solar-panels-pool-mountain-view': 'Solar panels beside a pool with a mountain view',
   'solar-array-road-view': 'Rooftop solar array overlooking a Tucson road',
 

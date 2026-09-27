@@ -1,0 +1,19 @@
+---
+/**
+ * One line of depth copy with [label](/path/) links. A link to a page still
+ * waiting on client sign-off (pending) renders as plain text, never a link.
+ */
+import { pendingUrls } from '@/data/areas';
+export interface Props { text: string }
+const { text } = Astro.props;
+const pending = new Set(pendingUrls);
+const parts: ({ t: string } | { label: string; href: string })[] = [];
+let last = 0;
+for (const m of text.matchAll(/\[([^\]]+)\]\((\/[^)\s]*)\)/g)) {
+  if (m.index! > last) parts.push({ t: text.slice(last, m.index) });
+  parts.push(pending.has(m[2]) ? { t: m[1] } : { label: m[1], href: m[2] });
+  last = m.index! + m[0].length;
+}
+if (last < text.length) parts.push({ t: text.slice(last) });
+---
+{parts.map((p) => ('href' in p ? <a href={p.href}>{p.label}</a> : p.t))}

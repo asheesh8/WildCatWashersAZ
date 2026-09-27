@@ -11,12 +11,14 @@ export function fitTitle(candidates: string[]): string {
 }
 
 /** Whole sentences up to the limit; never a sentence cut in half. */
-export function fitDescription(text: string): string {
+export function fitDescription(raw: string): string {
+  /* Joined template strings can leave doubled spaces ("Oro Valley.  Including"). */
+  const text = raw.replace(/\s+/g, ' ').trim();
   if (text.length <= DESC_MAX) return text;
   const sentences = text.match(/[^.!?]+[.!?]+/g) ?? [text];
   let out = '';
   for (const s of sentences) {
-    const next = (out + s).trim();
+    const next = (out + s.trim()).trim();
     if (next.length > DESC_MAX) break;
     out = next + ' ';
   }

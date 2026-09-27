@@ -13,7 +13,9 @@ import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs
 import { serviceBySlug, serviceHref } from '@/data/business';
 import { img, altFor } from '@/data/media';
 import { h1For, planFor } from '@/data/plan';
-import { townReviews, areaFaqs, namesFor } from '@/lib/local';
+import { townReviews, withProof } from '@/lib/local';
+import DepthSections from '@/components/DepthSections.astro';
+import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
@@ -25,8 +27,9 @@ const { t } = Astro.props as { t: Town };
 const url = townHref(t.slug);
 const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
 const kids = childrenOf(t.slug);
-const set = townReviews(t, 6, hashSeed(t.slug));
-const faqs = faqRefs(planFor(url)?.faq_refs);
+const d = depthFor(url);
+const set = withProof(townReviews(t, 6, hashSeed(t.slug)), proofReviews(d), (r) => r.area === t.reviewArea, 6, d?.quoted);
+const faqs = withDepthFaqs(faqRefs(planFor(url)?.faq_refs), d);
 const faqLinks = ownerLinks(faqs, url);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
 const hasWindowPage = windowTownSlugs.includes(t.slug);
@@ -38,15 +41,17 @@ const place = {
 };
 ---
 <Base
-  title={fitTitle([`${t.name} Window, Solar & Exterior Cleaning`, `Exterior Cleaning ${t.name}`])}
-  description={fitDescription(`Window cleaning, solar panels, solar screens and pressure washing in ${t.name}. ${kids.length ? `Including ${kids.slice(0, 3).map((k) => k.name).join(', ')}. ` : ''}Call (520) 525-0084.`)}
+  title={d?.title ?? fitTitle([`${t.name} Window, Solar & Exterior Cleaning`, `Exterior Cleaning ${t.name}`])}
+  description={d?.meta ?? fitDescription(`Window cleaning, solar panels, solar screens and pressure washing in ${t.name}. ${kids.length ? `Including ${kids.slice(0, 3).map((k) => k.name).join(', ')}. ` : ''}Call (520) 525-0084.`)}
   breadcrumbs={crumbs}
   schema={[{ '@type': 'WebPage', name: title, about: place, url: `https://wildcatwashers.com${url}` }, ...(faqs.length ? [faqSchema(faqs)] : [])]}
   ctaArea={t.slug}
   ctaPlace={t.name.replace(/ AZ$/, '')}
 >
-  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={t.intro} crumbs={crumbs} image={t.photo} ctaHref={`/quote/?area=${t.slug}`} />
+  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={t.photo} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />
+
+  {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} />}
 
   <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} />
 
@@ -102,7 +107,7 @@ const place = {
     </section>
   )}
 
-  <ReviewSetBlock set={set} title={`What ${t.name} neighbors say`} />
+  <ReviewSetBlock set={set} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />
 
   {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} />}
   <section class="section-tight">

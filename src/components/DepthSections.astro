@@ -1,0 +1,57 @@
+---
+/**
+ * Local depth sections (src/data/depth.ts). "block" is a full-width section with
+ * its own heading, used on town and community pages; "inline" is just the list,
+ * for a column that already has a heading. One column on phones, two from tablet.
+ */
+import DepthText from './DepthText.astro';
+import type { DepthSection } from '@/data/depth';
+export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline'; eyebrow?: string; heading?: string; intro?: string; tone?: 'mist' | 'plain' }
+const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } = Astro.props;
+---
+{variant === 'inline' ? (
+  <div class="dsec-list inline">
+    {sections.map((s) => (
+      <section class="dsec">
+        <h3 class="dsec-h">{s.h}</h3>
+        <p><DepthText text={s.p} /></p>
+        {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
+      </section>
+    ))}
+  </div>
+) : (
+  <section class:list={['section-tight', tone === 'mist' && 'bg-mist']}>
+    <div class="wrap">
+      {(eyebrow || heading) && (
+        <div class="section-head">
+          {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+          {heading && <h2 class="h2 sweep">{heading}</h2>}
+        </div>
+      )}
+      {intro && <p class="dsec-intro">{intro}</p>}
+      <div class="dsec-list">
+        {sections.map((s) => (
+          <section class:list={['dsec', s.q && 'has-q']}>
+            <h3 class="dsec-h">{s.h}</h3>
+            <p><DepthText text={s.p} /></p>
+            {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+<style>
+  .dsec-intro { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 66ch; margin-bottom: 1.4rem; }
+  .dsec-list { display: grid; gap: 1rem; }
+  @media (min-width: 760px) { .dsec-list:not(.inline) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; } .dsec.has-q { grid-column: 1 / -1; } }
+  .dsec { display: grid; gap: .45rem; align-content: start; min-width: 0; }
+  .dsec-list:not(.inline) .dsec { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+  .dsec-h { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line-height: 1.25; color: var(--navy); }
+  .dsec p { font-size: 1.1rem; line-height: 1.6; color: var(--ink-2); overflow-wrap: break-word; }
+  .dsec a { font-weight: 700; }
+  .dsec-q { margin: .4rem 0 0; padding: .9rem 1rem; border-left: 4px solid var(--blue); background: var(--blue-50); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .dsec-q p { color: var(--navy); font-style: italic; }
+  .dsec-q footer { margin-top: .4rem; font-size: 1rem; font-weight: 700; color: var(--ink-3); }
+  .inline .dsec + .dsec { padding-top: .9rem; border-top: 1px solid var(--line); }
+</style>

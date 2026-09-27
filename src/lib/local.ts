@@ -80,3 +80,29 @@ export function servicesMentioned(list: { services: string[] }[]) {
   const tags = new Set(list.flatMap((r) => r.services));
   return serviceTags.filter((s) => s.tags.some((t) => tags.has(t))).map(({ label, href }) => ({ label, href }));
 }
+
+/**
+ * Put a page's chosen proof reviews (src/data/depth.ts) first. Reviews from the
+ * page's own place lead the local group; others lead the "more" group, and a
+ * Nextdoor area review keeps its own area wording as the group label.
+ */
+export function withProof(set: ReviewSet, proof: Review[], isLocal: (r: Review) => boolean, max = 6, quoted: number[] = []): ReviewSet {
+  if (!proof.length && !quoted.length) return set;
+  /* A review already quoted in the page copy isn't repeated in the review block. */
+  const ids = new Set([...proof.map((r) => r.n), ...quoted]);
+  const own = proof.filter(isLocal);
+  const other = proof.filter((r) => !isLocal(r));
+  const local = [...own, ...set.local.filter((r) => !ids.has(r.n))].slice(0, Math.max(max, own.length));
+  let more = set.more.filter((r) => !ids.has(r.n));
+  let moreLabel = set.moreLabel;
+  if (other.length) {
+    const areas = new Set(other.map((r) => r.area));
+    const area = [...areas][0];
+    if (areas.size === 1 && area.endsWith(' area')) {
+      more = more.filter((r) => r.area === area);
+      moreLabel = `From customers in the ${area}`;
+    }
+    more = [...other, ...more].slice(0, Math.max(local.length ? 3 : max, other.length));
+  }
+  return { ...set, local, more, moreLabel, count: local.length ? set.count : 0 };
+}

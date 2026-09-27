@@ -17,6 +17,9 @@ import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
 import { faqSchema } from '@/lib/schema';
 import { ownerLinks } from '@/lib/faqOwner';
 import { questionTitle, fitDescription } from '@/lib/seo';
+import DepthText from '@/components/DepthText.astro';
+import ReviewGrid from '@/components/ReviewGrid.astro';
+import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 
 export function getStaticPaths() {
   return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
@@ -25,7 +28,10 @@ const { p } = Astro.props as { p: GuidePage };
 const { row, g, url } = p;
 const isGuide = row.family === 'guide';
 const s = g.service ? serviceBySlug[g.service] : undefined;
-const items: Faq[] = faqRefs(row.faq_refs);
+const d = depthFor(url);
+const answer = d?.answer ?? g.answer;
+const items: Faq[] = withDepthFaqs(faqRefs(row.faq_refs), d);
+const proof = proofReviews(d);
 const links = ownerLinks(items, url);
 const related = g.related
   .filter((h) => h !== url && planFor(h))
@@ -33,7 +39,7 @@ const related = g.related
   .slice(0, 5);
 const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];
 const title = questionTitle(row.h1);
-const description = fitDescription(g.answer);
+const description = fitDescription(answer);
 const article = {
   '@type': 'Article',
   headline: row.h1,
@@ -49,7 +55,7 @@ const article = {
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
   <div class="read-bar" aria-hidden="true"></div>
   <PageHero eyebrow={isGuide ? 'Guide' : 'Straight answer'} title={row.h1} crumbs={crumbs} rating={false} ctaHref={s ? `/quote/?service=${s.slug}` : '/quote/'}>
-    <p class="answer"><strong>Short answer:</strong> {g.answer}</p>
+    <p class="answer"><strong>Short answer:</strong> {answer}</p>
   </PageHero>
 
   <article class="section">
@@ -61,6 +67,18 @@ const article = {
           {sec.p.map((t) => <p>{t}</p>)}
         </section>
       ))}
+      {d?.sections?.map((sec) => (
+        <section>
+          <h2 class="h3">{sec.h}</h2>
+          <p><DepthText text={sec.p} /></p>
+        </section>
+      ))}
+      {proof.length > 0 && (
+        <section class="proof">
+          <h2 class="h3">{proof.length > 1 ? 'What customers told us' : 'What a customer told us'}</h2>
+          <ReviewGrid reviews={proof} />
+        </section>
+      )}
       <aside class="do reveal">
         <p class="eyebrow">What we do about it</p>
         <p>{g.doAbout}</p>

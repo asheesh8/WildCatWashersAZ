@@ -16,7 +16,9 @@ import { townBySlug, childrenOf, townHref, communityHref, type Town } from '@/da
 import { localServices, type LocalService } from '@/data/localServices';
 import { reviewsForService, pick, hashSeed } from '@/data/reviews';
 import { planFor } from '@/data/plan';
-import { townReviews, areaFaqs, namesFor, type ReviewSet } from '@/lib/local';
+import { townReviews, withProof, type ReviewSet } from '@/lib/local';
+import DepthSections from './DepthSections.astro';
+import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { heroPools, rotateFrom } from '@/data/media';
@@ -40,10 +42,12 @@ const onWindowPage = new Set(
     : [],
 );
 const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)) && !onWindowPage.has(r.n));
-const set: ReviewSet = localForService.length
+const d = depthFor(url);
+const baseSet: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
-const placeFaqs = faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122);
+const set = withProof(baseSet, proofReviews(d), (r) => r.area === t.reviewArea, 6, d?.quoted);
+const placeFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
 const faqLinks = ownerLinks(placeFaqs, url);
 const photo = heroPools[s.slug]
   ? rotateFrom(heroPools[s.slug].filter((k) => k !== s.image), localServices.filter((x) => x.service === s.slug).map((x) => x.town), t.slug)
@@ -53,8 +57,10 @@ const answers = (ls.guides ?? []).map((h) => guideByUrl.get(h)).filter((g) => g 
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
 const short = t.name.replace(/ AZ$/, '');
-const title = fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
-const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toLowerCase()}. ${s.cardLine} You don’t pay until you’re happy. ${company.phone}.`);
+const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
+/* Keep the angle's proper nouns (Pusch Ridge, Arizona rooms): only the first letter drops to lower case. */
+const angleLower = ls.angle.title.charAt(0).toLowerCase() + ls.angle.title.slice(1);
+const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLower}. ${s.cardLine} You don’t pay until you’re happy. ${company.phone}.`);
 ---
 <Base
   title={title}
@@ -65,15 +71,15 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
+  <PageHero eyebrow={`${s.name} · ${t.name}`} title={h1} lede={d?.answer} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
   <TrustRow />
 
   <section class="section">
     <div class="wrap local">
       <div class="local-copy">
         <p class="eyebrow">{s.name} in {t.name}</p>
-        <h2 class="h2 sweep">{ls.angle.title}</h2>
-        {ls.angle.body.map((p, i) => <p class:list={[i === 0 && 'lede']}>{p}</p>)}
+        <h2 class="h2 sweep">{d?.heading ?? ls.angle.title}</h2>
+        {d?.sections ? <DepthSections sections={d.sections} variant="inline" /> : ls.angle.body.map((p, i) => <p class:list={[i === 0 && 'lede']}>{p}</p>)}
       </div>
       <aside class="svc reveal">
         <p class="eyebrow">The basics</p>
@@ -99,7 +105,7 @@ const description = fitDescription(`${s.name} in ${t.name}: ${ls.angle.title.toL
     </section>
   )}
 
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={`Serving ${t.name}`} />}
+  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} />}
 
   <section class="section-tight">
     <div class="wrap">

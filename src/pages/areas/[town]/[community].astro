@@ -17,7 +17,9 @@ import { communities, communityBySlug, townBySlug, childrenOf, townHref, communi
 import { planFor } from '@/data/plan';
 import { faqRefs, type Faq } from '@/data/faq';
 import { ownerLinks } from '@/lib/faqOwner';
-import { communityReviews, servicesMentioned } from '@/lib/local';
+import { communityReviews, servicesMentioned, withProof } from '@/lib/local';
+import DepthSections from '@/components/DepthSections.astro';
+import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
 import { company, telHref } from '@/data/business';
@@ -33,11 +35,13 @@ const townName = town.name;
 const url = communityHref(c);
 const row = planFor(url);
 const h1 = row?.h1 ?? `Window Cleaning in ${c.name}`;
-const set = communityReviews(c, 6, hashSeed(c.slug) % 997);
+const d = depthFor(url);
+const isOwn = (r: { detail: string; area: string }) => (c.reviewDetails ?? []).includes(r.detail) || (c.reviewAreas ?? []).includes(r.area);
+const set = withProof(communityReviews(c, 6, hashSeed(c.slug) % 997), proofReviews(d), isOwn, 6, d?.quoted);
 const mentioned = servicesMentioned(set.local);
 
 /* The place's own Doc 6 question (F91–122), plus the HOA answers on HOA pages. */
-const refs = faqRefs(row?.faq_refs);
+const refs = withDepthFaqs(faqRefs(row?.faq_refs), d);
 const hoaNs = [193, 194, 195];
 const hoaFaqs = refs.filter((f) => hoaNs.includes(f.n));
 const placeFaqs: Faq[] = refs.filter((f) => !hoaNs.includes(f.n));
@@ -58,8 +62,8 @@ const hero = heroFor.get(c.slug) ?? c.photo;
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: townName, href: townHref(town.slug) }, { name: c.name, href: url }];
 const townWindow = windowTownSlugs.includes(town.slug) ? `/services/window-cleaning/${town.slug}/` : '/services/window-cleaning/';
 const hoaWord = c.hoa ? ' HOA' : '';
-const title = fitTitle([`Window Cleaning ${c.name}${hoaWord}`, `${c.name} Window Cleaning`, `Window Cleaning ${c.name}`]);
-const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(Yes|We do|Wildcat Washers)\.\s*/, '')} Call ${company.phone}.`);
+const title = d?.title ?? fitTitle([`Window Cleaning ${c.name}${hoaWord}`, `${c.name} Window Cleaning`, `Window Cleaning ${c.name}`]);
+const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(Yes|We do|Wildcat Washers)\.\s*/, '')} Call ${company.phone}.`);
 ---
 <Base
   title={title}
@@ -73,7 +77,7 @@ const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(
   ctaPlace={c.name}
   noindex={c.pending}
 >
-  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={c.lead} crumbs={crumbs} image={hero} ctaHref={`/quote/?area=${town.slug}`} />
+  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={d?.answer ?? c.lead} crumbs={crumbs} image={hero} ctaHref={`/quote/?area=${town.slug}`} />
   <TrustRow />
 
   <section class="section">
@@ -98,6 +102,8 @@ const description = fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(
       </aside>
     </div>
   </section>
+
+  {d?.sections && <DepthSections sections={d.sections} eyebrow={`Local to ${c.name}`} heading={d.heading} />}
 
   {c.known && c.known.length > 0 && (
     <section class="section-tight">
