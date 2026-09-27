@@ -23,7 +23,7 @@ import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { heroPools, rotateFrom } from '@/data/media';
 import { faqRefs } from '@/data/faq';
-import { ownerLinks } from '@/lib/faqOwner';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import { guideByUrl } from '@/data/guides';
 
 export interface Props { ls: LocalService; t: Town }
@@ -45,14 +45,21 @@ const localForService = base.local.filter((r) => r.services.some((x) => tags.inc
 const d = depthFor(url);
 /* Pages without a researched answer open with one line of proof instead. */
 const localCount = base.local.filter((r) => r.services.some((x) => tags.includes(x))).length;
-const proofLede = localCount >= 5
+const az19 = t.slug === 'green-valley' || t.slug === 'sahuarita';
+const proofLede = az19
+  ? `${s.name} in ${t.name} from the team readers voted Best Window Cleaners in Green Valley and Sahuarita (2025 AZ-19 Readers’ Pick). Every job is quoted up front, and you don’t pay until you’re happy.`
+  : localCount >= 5
   ? `${localCount} ${t.name} customers have left five-star reviews for our ${s.name.toLowerCase()}. Every job is quoted up front, and you don’t pay until you’re happy.`
   : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. Every job is quoted up front, and you don’t pay until you’re happy.`;
 const baseSet: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
 const set = withProof(baseSet, proofReviews(d), (r) => r.area === t.reviewArea, 6, d?.quoted);
-const placeFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
+const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
+/* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */
+const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Boolean(faqOwner(n));
+const placeFaqs = allFaqs.filter((f) => !isShared(f.n));
+const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
 const faqLinks = ownerLinks(placeFaqs, url);
 const photo = heroPools[s.slug]
   ? rotateFrom(heroPools[s.slug].filter((k) => k !== s.image), localServices.filter((x) => x.service === s.slug).map((x) => x.town), t.slug)
@@ -66,7 +73,8 @@ const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: 
 const short = t.name.replace(/ AZ$/, '');
 const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
 /* Keep the angle's proper nouns (Pusch Ridge, Arizona rooms): only the first letter drops to lower case. */
-const angleLower = ls.angle.title.charAt(0).toLowerCase() + ls.angle.title.slice(1);
+const properStart = /^(Arizona|Pusch|Tucson|Santa|Catalina|Sonoran|Tortolita|Rincon|Tanque|Oro|Green|HOA)\b/.test(ls.angle.title);
+const angleLower = properStart ? ls.angle.title : ls.angle.title.charAt(0).toLowerCase() + ls.angle.title.slice(1);
 const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLower}. ${s.cardLine} You don’t pay until you’re happy. ${company.phone}.`);
 ---
 <Base
@@ -103,11 +111,14 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
 
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews`} />
 
-  {answers.length > 0 && (
+  {(answers.length > 0 || sharedFaqs.length > 0) && (
     <section class="section-tight bg-mist">
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
-        <ul class="ans" role="list">{answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong></a></li>)}</ul>
+        <ul class="ans" role="list">
+          {answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong></a></li>)}
+          {sharedFaqs.filter((f) => !answers.some((g) => g.url === f.href)).map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}
+        </ul>
       </div>
     </section>
   )}
@@ -122,6 +133,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
         {others.map((o) => <li><a href={`/services/${o.slug}/${t.slug}/`}><Icon name="sparkle" size={18} />{o.name} in {t.name}</a></li>)}
         {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
         <li><a href={serviceHref(s.slug)}><Icon name="sparkle" size={18} />{s.name} across Tucson</a></li>
+        {kids.length > 0 && <li><a href="/who-we-help/hoas-communities/"><Icon name="home" size={18} />HOAs and communities</a></li>}
         {s.slug === 'solar-screens' && <li><a href="/services/solar-screens/repair-rescreening/"><Icon name="sparkle" size={18} />Solar screen repair and rescreening</a></li>}
       </ul>
     </div>

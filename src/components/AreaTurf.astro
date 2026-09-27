@@ -7,10 +7,13 @@ const { title = 'Southern Arizona is our home turf' } = Astro.props;
 const names = towns.map((t) => t.name);
 ---
 <section class="turf" aria-labelledby="turf-title">
-  <div class="turf-marquee" aria-hidden="true">
-    <div class="turf-track">
+  <div class="turf-marquee" data-turf>
+    <div class="turf-track" aria-hidden="true">
       {[0, 1].map(() => names.map((n, i) => <span class:list={[i % 2 && 'o']}>{n}</span>))}
     </div>
+    <button class="turf-toggle" type="button" aria-pressed="false" aria-label="Pause moving town names" data-turf-toggle>
+      <span class="i-pause"><Icon name="pause" size={18} /></span><span class="i-play"><Icon name="play" size={18} /></span>
+    </button>
   </div>
   <div class="wrap turf-grid">
     <div class="turf-head">
@@ -33,7 +36,15 @@ const names = towns.map((t) => t.name);
   .turf-track span { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.6rem, 2rem + 3vw, 5rem); line-height: 1; white-space: nowrap; color: rgb(18 24 50 / 14%); }
   .turf-track span.o { color: transparent; -webkit-text-stroke: 2px rgb(18 24 50 / 22%); }
   @keyframes turf { to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .turf-track { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .turf-track { animation: none; } .turf-toggle { display: none; } }
+  .turf-marquee { position: relative; }
+  .turf-marquee.is-paused .turf-track { animation-play-state: paused; }
+  .turf-toggle {
+    position: absolute; right: .6rem; top: .6rem; width: 44px; height: 44px; border-radius: 50%; border: 0;
+    display: grid; place-items: center; background: var(--navy); color: #fff;
+  }
+  .turf-toggle .i-play, .turf-marquee.is-paused .turf-toggle .i-pause { display: none; }
+  .turf-marquee.is-paused .turf-toggle .i-play { display: grid; }
   .turf-grid { display: grid; gap: 2.4rem; }
   @media (min-width: 1000px) { .turf-grid { grid-template-columns: 1fr 1.1fr; align-items: start; } }
   .turf-head { display: grid; gap: 1.1rem; justify-items: start; }
@@ -51,3 +62,13 @@ const names = towns.map((t) => t.name);
     .turf-list a :global(.go) { display: none; }
   }
 </style>
+<script>
+  document.querySelectorAll('[data-turf]').forEach((m) => {
+    const b = m.querySelector('[data-turf-toggle]');
+    b?.addEventListener('click', () => {
+      const p = m.classList.toggle('is-paused');
+      b.setAttribute('aria-pressed', String(p));
+      b.setAttribute('aria-label', p ? 'Play moving town names' : 'Pause moving town names');
+    });
+  });
+</script>
