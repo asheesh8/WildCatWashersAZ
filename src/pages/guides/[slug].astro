@@ -8,6 +8,8 @@ import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
 import FaqList from '@/components/FaqList.astro';
 import Icon from '@/components/Icon.astro';
+import LoopVideo from '@/components/LoopVideo.astro';
+import { guideLoop } from '@/data/videos';
 import { guidePages, guideByUrl, type GuidePage } from '@/data/guides';
 import { faqRefs, type Faq } from '@/data/faq';
 import { planFor } from '@/data/plan';
@@ -51,6 +53,7 @@ const article = {
 
   <article class="section">
     <div class="wrap-narrow body">
+      {guideLoop[g.slug] && <LoopVideo name={guideLoop[g.slug]} class="g-loop" caption />}
       {g.sections.map((sec) => (
         <section>
           <h2 class="h3">{sec.h}</h2>
@@ -94,4 +97,7 @@ const article = {
   .rel a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.2rem; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; text-decoration: none; font-weight: 700; color: var(--navy); font-size: 1.1rem; }
   .rel a:hover { border-color: var(--blue); }
   .rel :global(svg) { flex: none; color: var(--blue-700); }
+  .body :global(.g-loop) { max-width: 420px; }
+  @media (max-width: 759px) { .body :global(.g-loop) { max-width: 300px; margin-inline: auto; } }
+  .body :global(.g-loop video) { aspect-ratio: 4 / 5; height: auto; }
 </style>
