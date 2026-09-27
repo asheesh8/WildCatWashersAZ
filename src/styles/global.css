@@ -299,7 +299,14 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .crumbs a:hover { text-decoration: underline; }
 
 /* Space for the mobile call/quote bar */
-@media (max-width: 899px) { body { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); } }
+@media (max-width: 899px) { .site-footer { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); } }
+
+/* Phones: tighter section rhythm so pages scroll less; centered eyebrows drop the lead dash */
+@media (max-width: 699px) {
+  :root { --section: 3.25rem; }
+  .section-head.center .eyebrow { text-align: center; justify-content: center; }
+  .section-head.center .eyebrow::before { display: none; }
+}
 
 /* Link chips (areas, related pages) */
 .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }

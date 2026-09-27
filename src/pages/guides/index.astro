@@ -53,7 +53,10 @@ const grouped = groups.map((gr) => ({ name: gr.name, items: answers.filter((p) =
   .grp[open] { border-color: var(--blue); }
   .grp summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.3rem; font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--navy); }
   .grp summary::-webkit-details-marker { display: none; }
-  .grp .n { color: var(--ink-3); font-weight: 600; font-family: var(--font-body, inherit); font-size: 1rem; }
+  .grp .n { color: var(--ink-3); font-weight: 600; font-family: var(--font-body, inherit); font-size: 1rem; white-space: nowrap; align-self: center; margin-left: auto; }
+  .grp summary { align-items: center; }
+  .grp summary::after { content: '+'; flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--mist, #eef6fb); color: var(--blue-700); font-size: 1.3rem; line-height: 1; }
+  .grp[open] summary::after { content: '\2212'; }
   .qs { list-style: none; padding: 0 1.3rem 1.2rem; display: grid; gap: .5rem; }
   .qs a { font-size: 1.1rem; font-weight: 600; }
 </style>

@@ -33,6 +33,13 @@ const crumbs = [{ name: 'Free quote', href: '/quote/' }];
   .q-grid { display: grid; gap: 2.5rem; align-items: start; }
   @media (min-width: 1000px) { .q-grid { grid-template-columns: 1fr 1.1fr; } }
   .q-copy { display: grid; gap: 1.2rem; }
+  /* Phones: the form comes right after the phone number; guarantees follow it */
+  @media (max-width: 999px) {
+    .q-grid { gap: 1.2rem; }
+    .q-copy { display: contents; }
+    .q-card { order: 1; margin-block: .8rem; }
+    .q-g { order: 2; }
+  }
   .q-phone { display: inline-flex; align-items: center; gap: .9rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.4rem); color: var(--navy); text-decoration: none; }
   .q-phone span { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: var(--blue); display: grid; place-items: center; }
   .q-g { list-style: none; padding: 0; display: grid; gap: .8rem; }

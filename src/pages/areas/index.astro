@@ -26,7 +26,7 @@ const tiers = [
             {list.map((town) => (
               <li class="reveal">
                 <a class="town-name" href={townHref(town.slug)}><Icon name="pin" size={22} />{town.name}<Icon name="arrow" size={20} /></a>
-                <p>{town.intro.split('. ')[0]}.</p>
+                <p>{town.intro.split('. ')[0].replace(/\.$/, '')}.</p>
                 {childrenOf(town.slug).length > 0 && (
                   <ul class="subs" role="list">{childrenOf(town.slug).map((c) => <li><a href={communityHref(c)}>{c.name}</a></li>)}</ul>
                 )}

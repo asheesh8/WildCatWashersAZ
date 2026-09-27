@@ -36,16 +36,22 @@ const links = ownerLinks(items, l.url);
 const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewsForService(s.reviewTags), 3, { seed: hashSeed(l.url) }), moreLabel: `${s.name} reviews from across Greater Tucson`, count: 0 };
 const related = l.related.filter((h) => h !== l.url && planFor(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
 const title = questionTitle(row.h1);
+// Phone-first: the hero carries the opening sentence; the rest of the lead opens the body.
+const leadParts = l.lede.split(/(?<=[.!?])\s+(?=[A-Z])/);
+let heroLede = '';
+while (leadParts.length && heroLede.length < 90) heroLede = `${heroLede} ${leadParts.shift()}`.trim();
+const leadRest = leadParts.join(' ');
 const description = fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[svc, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s.slug}>
-  <PageHero eyebrow={eyebrow} title={row.h1} lede={l.lede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
+  <PageHero eyebrow={eyebrow} title={row.h1} lede={heroLede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
   <TrustRow />
 
   <section class="section">
     <div class="wrap lp">
       <div>
+        {leadRest && <p class="lead-rest">{leadRest}</p>}
         <p class="eyebrow">How it works</p>
         <ul class="pts" role="list">{l.points.map((p) => <li><Icon name="check-circle" size={22} /><span>{p}</span></li>)}</ul>
       </div>
@@ -83,6 +89,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
   )}
 </Base>
 <style>
+  .lead-rest { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 60ch; margin-bottom: 1.8rem; }
   .lp { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); }
   @media (min-width: 1000px) { .lp { grid-template-columns: 1.3fr 1fr; align-items: start; } }
   .pts { list-style: none; padding: 0; display: grid; gap: .8rem; margin-top: .8rem; }
