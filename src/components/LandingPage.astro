@@ -33,7 +33,12 @@ const heroImg = image ?? (heroPools[family] ? rotateFrom(heroPools[family], sibl
 const s = serviceBySlug[l.service];
 const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, l.url);
-const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewsForService(s.reviewTags), 3, { seed: hashSeed(l.url) }), moreLabel: `${s.name} reviews from across Greater Tucson`, count: 0 };
+const isCommercial = l.url.startsWith('/commercial/');
+/* Commercial pages: no commercial reviews exist, so prefer ones that don't talk about a home. */
+const homey = /\b(home|house|live|neighbou?r|neighborhood|saddlebrooke|preserve|wife|husband|our windows)\b/i;
+const pool = reviewsForService(s.reviewTags);
+const reviewPool = isCommercial && pool.filter((r) => !homey.test(r.text)).length >= 3 ? pool.filter((r) => !homey.test(r.text)) : pool;
+const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewPool, 3, { seed: hashSeed(l.url) }), moreLabel: isCommercial ? 'From customers across Greater Tucson' : `${s.name} reviews from across Greater Tucson`, count: 0 };
 const related = l.related.filter((h) => h !== l.url && planFor(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
 const title = questionTitle(row.h1);
 // Phone-first: the hero carries the opening sentence; the rest of the lead opens the body.
@@ -75,7 +80,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
     </div>
   </section>
 
-  <ReviewSetBlock set={set} title={`${s.name} reviews`} />
+  <ReviewSetBlock set={set} title={isCommercial ? 'What customers say about our crews' : `${s.name} reviews`} />
 
   {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" />}
 
