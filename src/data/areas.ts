@@ -54,6 +54,12 @@ export type Community = {
   hoa?: boolean;
   sections?: Section[];
   photo: string;
+  /** Public-source orientation (not in the fact banks); shown only on pages the client has approved or is reviewing. */
+  known?: string[];
+  /** Built but awaiting client sign-off on `known`: noindex, out of the sitemap, and not linked from other pages. */
+  pending?: boolean;
+  /** Suggest checking HOA architectural review before visible exterior changes (solar screens, pigeon mesh). */
+  hoaReview?: boolean;
 };
 
 /* Local conditions true across the metro (A§4) — reused with care, never as the only local content. */
@@ -774,11 +780,217 @@ export const communities: Community[] = [
     angle: [metroConditions.dust, metroConditions.water],
     photo: 'two-techs-front-window',
   },
+
+  /* ---------------- HOA pages, wave 2 ----------------
+   * The 13 remaining Doc 3 §9 names, promoted to their own pages. Everything
+   * about Wildcat Washers comes from Docs 1 and 3. `known` holds public-source
+   * orientation (aeo-geo/hoa-research-wave2.md) that the client has not yet
+   * approved, so these pages carry `pending: true` until Cooper signs off. */
+  {
+    kind: 'hoa', slug: 'pima-canyon', name: 'Pima Canyon', parent: 'catalina-foothills', pending: true,
+    intro: 'Pima Canyon is a guard-gated estate community on large lots at the Pima Canyon trailhead, on the Catalina Foothills side of Tucson.',
+    lead: 'Yes. Wildcat Washers has customers in Pima Canyon and covers the Catalina Foothills fully, estate homes included.',
+    differs: 'Sin Vacas is guard-gated off Sunrise Drive and Skyline Country Club sits on Skyline Drive. Pima Canyon is the estate community out at the trailhead.',
+    known: [
+      'A staffed gate, with custom homes on lots of an acre or more.',
+      'Homes are single-story, in Southwestern, Mediterranean and Contemporary styles.',
+      'Views run across the city and up to the Catalinas.',
+      'It’s a deed-restricted community with its own CC&Rs, landscaped with native desert plants.',
+    ],
+    emphasis: { title: 'A custom home, treated like one', body: 'Crews wear shoe covers inside and lay towels against drips, so interiors stay dry. Stucco, paint, sills and landscaping are protected too. You can’t tell we were there, except that everything looks spotless.' },
+    angle: [metroConditions.water, 'Single-story homes put most of the glass within reach, so nearly every pane gets hand washed, with the crew right at the glass.'],
+    photo: 'clean-window-mountain-view',
+  },
+  {
+    kind: 'hoa', slug: 'sabino-mountain', name: 'Sabino Mountain', parent: 'catalina-foothills', pending: true,
+    intro: 'Sabino Mountain is a gated community of newer custom homes near Sabino Canyon, in the Catalina Foothills.',
+    lead: 'Yes. Wildcat Washers has customers in Sabino Mountain, and the Catalina Foothills are part of our full coverage.',
+    differs: 'The Sabino Canyon area is the wider stretch of homes around the canyon. Sabino Mountain is one gated community of newer custom homes within it.',
+    known: [
+      'About 290 homes behind a gated entrance.',
+      'A clubhouse with a resort-style pool and hot tub.',
+      'Mountain views and natural desert landscaping.',
+      'The association has architectural review guidelines for exterior changes.',
+    ],
+    emphasis: { title: 'Low-E, tint and film', body: 'Newer custom homes often have coated glass. We’re safe on tinted glass, low-E coatings and security film, and we identify coatings before anything touches the glass. No glass type is declined.' },
+    angle: [metroConditions.water, metroConditions.dust],
+    hoaReview: true,
+    photo: 'clean-patio-through-glass',
+  },
+  {
+    kind: 'hoa', slug: 'skyline-bel-air-estates', name: 'Skyline Bel Air Estates', parent: 'catalina-foothills', pending: true,
+    intro: 'Skyline Bel Air Estates is an established custom-home neighborhood below Skyline Country Club in the Catalina Foothills.',
+    lead: 'Yes. Wildcat Washers has customers in Skyline Bel Air Estates and across the Catalina Foothills.',
+    differs: 'Skyline Country Club is the private club community on Skyline Drive. Skyline Bel Air Estates is the older custom-home neighborhood below it.',
+    known: [
+      'Building began in 1964, on land that was once a cattle ranch and a western film location.',
+      'Roughly 425 custom homes on lots from about half an acre to just over an acre.',
+      'Roughly bounded by Skyline, Sunrise, Craycroft and Swan, with Catalina and city views.',
+      'DeGrazia Gallery in the Sun and La Encantada are close by.',
+    ],
+    emphasis: { title: 'Spots that come off, and etching that can’t', body: 'Hard water minerals sitting on glass can be removed, and hard water removal is included in every 5-in-1. Minerals left long enough eat into the glass itself, and no one can reverse that. On glass that has been in place for decades, it pays to stop the spotting before it gets there.' },
+    angle: [metroConditions.water, metroConditions.dust],
+    photo: 'clean-living-room-fireplace-windows',
+  },
+  {
+    kind: 'hoa', slug: 'la-reserve', name: 'La Reserve', parent: 'oro-valley', pending: true,
+    intro: 'La Reserve is a guard-gated community below Pusch Ridge in Oro Valley, with the Hilton El Conquistador next door.',
+    lead: 'Yes. Wildcat Washers has customers in La Reserve and serves all of Oro Valley, from estate homes to townhomes and condos.',
+    differs: 'Cañada Hills is the set of golf-course villages around El Conquistador. La Reserve is the gated community on the rise below Pusch Ridge.',
+    known: [
+      'Most of it sits behind manned guard gates. Ram Canyon and Rams Pass are not gated.',
+      'A mix of custom estates, semi-custom and tract homes, townhomes and condos, on lots from about a third of an acre to over an acre.',
+      'It backs onto Catalina State Park, with some of the closest views of Pusch Ridge in town.',
+      'A wilderness buffer next to Coronado National Forest protects bighorn sheep habitat.',
+      'Landscaping and exteriors follow the La Reserve design guidelines.',
+    ],
+    emphasis: { title: 'Townhome, condo or estate', body: 'Every home gets the same 5-in-1 Deep Clean: glass, frames, sills, tracks and screens, cleaned by hand, with hard water removal included. It’s quoted per pane over the phone in a few minutes, whatever the size of the home.' },
+    angle: ['Big view windows show every spot of dust and hard water.', metroConditions.pollen],
+    hoaReview: true,
+    photo: 'tech-waterfed-pole-exterior',
+  },
+  {
+    kind: 'hoa', slug: 'canada-hills', name: 'Cañada Hills', parent: 'oro-valley', pending: true,
+    intro: 'Cañada Hills is a set of master-planned villages around the El Conquistador golf courses in Oro Valley.',
+    lead: 'Yes. Wildcat Washers has customers in Cañada Hills, village by village, and across Oro Valley.',
+    differs: 'La Reserve is the gated community on the rise below Pusch Ridge. Cañada Hills is the group of golf-course villages around El Conquistador, mostly ungated.',
+    known: [
+      'About 800 acres and 1,200 home lots, split into 21 villages. One of them is gated.',
+      'Two championship golf courses at El Conquistador.',
+      'Several villages have their own HOA under a master association.',
+      'Amphitheater schools serve the area, including Wilson K-8 and Ironwood Ridge.',
+    ],
+    emphasis: { title: 'Sprinklers after a clean', body: 'Where irrigation reaches the glass, mineral-heavy water dries into spots. The 14-Day Spotless Guarantee covers that: for 14 days after service, any touch-up you want, for any reason, is free, and that includes rain, sprinklers and dust.' },
+    angle: [metroConditions.irrigation, metroConditions.water],
+    photo: 'tech-interior-window-golf-course',
+  },
+  {
+    kind: 'hoa', slug: 'oro-valley-country-club', name: 'Oro Valley Country Club', parent: 'oro-valley', pending: true,
+    intro: 'Oro Valley Country Club is the original 1950s golf community and clubhouse in the heart of Oro Valley.',
+    lead: 'Yes. Wildcat Washers has customers around Oro Valley Country Club and throughout Oro Valley.',
+    differs: 'Cañada Hills is the newer group of villages around El Conquistador. Oro Valley Country Club is the original club neighborhood in the middle of town.',
+    known: [
+      'The club opened in 1959, with the original course by Robert Bruce Harris.',
+      'It sits on the banks of the Cañada del Oro at the base of Pusch Ridge.',
+      'When Oro Valley incorporated in 1974, the town took its name from the club.',
+    ],
+    emphasis: { title: 'Screens come back like new', body: 'Screens are removed, hand washed, dried and reinstalled at the end of the job, after the double check. A torn or damaged screen can usually be repaired or rescreened on the same visit.' },
+    angle: [metroConditions.irrigation, 'Big view windows show every spot of dust and hard water.'],
+    photo: 'clean-glass-wall-golf-course',
+  },
+  {
+    kind: 'hoa', slug: 'continental-reserve', name: 'Continental Reserve', parent: 'marana', pending: true,
+    intro: 'Continental Reserve is the newer sister neighborhood to Continental Ranch, on the west side of Silverbell in Marana.',
+    lead: 'Yes. Wildcat Washers has customers in Continental Reserve and across Marana.',
+    differs: 'Continental Ranch is Marana’s largest and most established subdivision, along Silverbell and Cortaro. Continental Reserve is its newer sister on the west side of Silverbell.',
+    known: [
+      'Built mostly from 2003 to 2006, across seven subdivisions.',
+      'Homes run from about 1,000 to 2,900 square feet, on looped streets and cul-de-sacs.',
+      'It borders Saguaro National Park West.',
+      'Continental Reserve Park is off Silverbell and Continental Reserve Loop.',
+    ],
+    emphasis: { title: 'Why the whole window matters out here', body: 'Dust doesn’t only land on glass. It packs into tracks and sits on sills and screens, then washes back onto the glass with the next rain or sprinkler. The 5-in-1 cleans all of it, so a clean window stays clean longer.' },
+    angle: [metroConditions.dust, metroConditions.water],
+    photo: 'clean-windows-desert-reflection',
+  },
+  {
+    kind: 'hoa', slug: 'canyon-pass', name: 'Canyon Pass', parent: 'marana', pending: true,
+    intro: 'Canyon Pass is the guard-gated estate section at the top of Dove Mountain in Marana, on lots of around two acres.',
+    lead: 'Yes. Wildcat Washers has customers in Canyon Pass and throughout Dove Mountain.',
+    differs: 'Dove Mountain is the wider master plan in the Tortolita foothills. Canyon Pass is its gated estate section at the top.',
+    known: [
+      'A staffed gatehouse, at the base of the Tortolita Mountains.',
+      'Homesites run from 1 to 10 acres and average about two.',
+      'Nearly three quarters of its 2,000 acres are left undisturbed desert, with rock formations, saguaros and cliffs.',
+      'A private trail climbs about two and a half miles to 4,300 feet.',
+    ],
+    emphasis: { title: 'Large, high glass', body: 'We hand wash most glass, because being right at the glass gives the most attention to detail. Very high or hard-to-reach panes get a water-fed pole with pure deionized water, which dries without leaving mineral spots.' },
+    angle: [metroConditions.dust, metroConditions.water],
+    photo: 'tech-arizona-room-window',
+  },
+  {
+    kind: 'hoa', slug: 'madera-highlands', name: 'Madera Highlands', parent: 'sahuarita', pending: true,
+    intro: 'Madera Highlands is a master-planned neighborhood on the south edge of Sahuarita with Santa Rita views.',
+    lead: 'Yes. Wildcat Washers has customers in Madera Highlands and throughout Sahuarita.',
+    differs: 'Rancho Sahuarita is the master-planned heart of Sahuarita, built around its lake. Madera Highlands is the master-planned neighborhood on the town’s south edge.',
+    known: [
+      'Home styles run from contemporary to Southwest-inspired.',
+      'Parks, walking trails and mountain views.',
+      'New homes are still being built in its newer sections.',
+      'Continental School District serves the neighborhood.',
+    ],
+    emphasis: { title: 'New home, first clean', body: 'New construction cleanup is part of what we do: construction dust, debris and glass cleanup. After that, a regular schedule keeps new windows from ever building up the hard-water spotting that etches glass over time.' },
+    angle: [metroConditions.mine, metroConditions.water],
+    photo: 'clean-window-sky-reflection',
+  },
+  {
+    kind: 'hoa', slug: 'rancho-del-lago', name: 'Rancho del Lago', parent: 'vail-az', pending: true,
+    intro: 'Rancho del Lago is a master-planned golf community on the north side of Vail AZ.',
+    lead: 'Yes. Wildcat Washers has customers in Rancho del Lago, and Vail AZ is part of our regular coverage.',
+    differs: 'Del Webb at Rancho del Lago is the 55+ golf section, and it has its own page. This page is for the rest of Rancho del Lago, with one- and two-story homes for every age.',
+    known: [
+      'Built from 2002 to 2020 by several builders, with one- and two-story homes.',
+      'Del Lago Golf Club and its clubhouse sit at the center.',
+      'A park with tennis courts and paths, next to the Cienega Creek Natural Preserve.',
+      'Views of the Rincon Mountains.',
+    ],
+    emphasis: { title: 'Two stories, one visit', body: 'Upstairs windows get the same 5-in-1 as the first floor: glass, frames, sills, tracks and screens. Very high or hard-to-reach panes get a water-fed pole with pure deionized water, which dries without leaving mineral spots.' },
+    angle: ['New construction is everywhere, which means builder dust and new homes that need a first clean.', metroConditions.water],
+    photo: 'clean-window-sunset-reflection',
+  },
+  {
+    kind: 'hoa', slug: 'torres-blancas', name: 'Torres Blancas', parent: 'green-valley', pending: true,
+    intro: 'Torres Blancas is a golf community in Green Valley, associated with the Legends area.',
+    lead: 'Yes. Wildcat Washers has customers around Torres Blancas, and Green Valley is one of the communities we serve most.',
+    differs: 'Legends is the GVR neighborhood our customers name in their reviews. Torres Blancas is the golf course and lake area it is tied to, with the neighborhoods around it.',
+    known: [
+      'Torres Blancas Golf Club was designed by Lee Trevino with Ocampo and Fernandez, and has three lakes.',
+      'It sits east of I-19, about two miles south of Continental Road, at the foot of the Santa Ritas.',
+      'Neighborhoods around the course include The Springs, The Links, The Greens, The Fairways and Sunrise Point.',
+      'The Santa Rita Springs recreation center is nearby.',
+    ],
+    emphasis: { title: 'Mine dust on panels too', body: 'Nearby mining activity puts extra dust in the air, and it settles on solar panels as well as glass. Rain doesn’t clean panels. It moves the dust around and leaves mineral spots, so panels need a real clean with a brush and mild soap, never harsh chemicals.' },
+    angle: [metroConditions.mine, metroConditions.irrigation, metroConditions.snowbird],
+    photo: 'clean-covered-patio',
+  },
+  {
+    kind: 'hoa', slug: 'tucson-country-club-estates', name: 'Tucson Country Club Estates', parent: 'tanque-verde', pending: true,
+    intro: 'Tucson Country Club Estates is an established neighborhood around the private Tucson Country Club on Tucson’s east side.',
+    lead: 'Yes. Wildcat Washers has customers in Tucson Country Club Estates and across the Tanque Verde area.',
+    differs: 'Indian Ridge Estates is the mid-century neighborhood at Tanque Verde and Sabino Canyon. Tucson Country Club Estates is the older club neighborhood around the course.',
+    known: [
+      'Founded in 1946, around an 18-hole course by William F. and William P. Bell.',
+      'Ranch-style and larger contemporary homes, some designed by Josias Joesler, Art Brown and Anne Rysdale.',
+      'Large lots and mature trees.',
+      'It borders Pantano Wash and Tanque Verde Creek, next to the Chuck Huckelberry Loop.',
+    ],
+    emphasis: { title: 'Pollen season', body: 'Spring pollen lands on top of the year-round dust, and mature trees add more of it. One visit covers glass, frames, sills, tracks and screens, and crews carry equipment for every service, so dusty solar panels spotted during the inspection can usually be added the same day.' },
+    angle: [metroConditions.pollen, metroConditions.water],
+    photo: 'clean-window-bougainvillea',
+  },
+  {
+    kind: 'hoa', slug: 'indian-ridge-estates', name: 'Indian Ridge Estates', parent: 'tanque-verde', pending: true,
+    intro: 'Indian Ridge Estates is a mid-century custom-home neighborhood near Tanque Verde and Sabino Canyon.',
+    lead: 'Yes. Wildcat Washers has customers in Indian Ridge Estates and across the Tanque Verde area.',
+    differs: 'Tucson Country Club Estates is the older club neighborhood around the course. Indian Ridge Estates is the mid-century modern neighborhood at Tanque Verde and Sabino Canyon.',
+    known: [
+      'Built from 1955 to 1964: angular, low-slung single-story homes in burnt adobe and red brick.',
+      'Large angled windows, sliding glass doors and clerestory windows are everywhere.',
+      'Listed as a National Register historic district in 2010. Owners of contributing homes keep exteriors authentic.',
+      'Named for a nearby Hohokam village site, at the northwest corner of Tanque Verde and Sabino Canyon roads.',
+    ],
+    emphasis: { title: 'Angled glass and clerestories', body: 'Every pane is cleaned by hand, whatever its shape, and sliding doors get their tracks cleaned as part of the 5-in-1. Very high panes like clerestories get a water-fed pole with pure deionized water, which dries without leaving mineral spots.' },
+    angle: [metroConditions.dust, metroConditions.water],
+    hoaReview: true,
+    photo: 'clean-patio-view-glass',
+  },
 ];
 
 export const townBySlug = Object.fromEntries(towns.map((t) => [t.slug, t])) as Record<string, Town>;
 export const communityBySlug = Object.fromEntries(communities.map((c) => [c.slug, c])) as Record<string, Community>;
-export const childrenOf = (town: string) => communities.filter((c) => c.parent === town);
+export const childrenOf = (town: string) => communities.filter((c) => c.parent === town && !c.pending);
+/** Community pages still waiting on client sign-off (see Community.pending). */
+export const pendingUrls = communities.filter((c) => c.pending).map((c) => `/areas/${c.parent}/${c.slug}/`);
 export const townHref = (slug: string) => `/areas/${slug}/`;
 export const communityHref = (c: Community) => `/areas/${c.parent}/${c.slug}/`;
 

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { pendingUrls } from './src/data/areas.ts';
 
 export default defineConfig({
   site: 'https://wildcatwashers.com',
@@ -8,7 +9,7 @@ export default defineConfig({
   devToolbar: { enabled: false },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/thank-you'),
+      filter: (page) => !page.includes('/thank-you') && !pendingUrls.some((u) => page.endsWith(u)),
       changefreq: 'weekly',
       lastmod: new Date(),
     }),

@@ -27,7 +27,7 @@ ${services.map((s) => `- [${s.name}](${u}/services/${s.slug}/): ${s.cardLine}`).
 ${towns.map((t) => `- [${t.name}](${u}/areas/${t.slug}/)`).join('\n')}
 
 ## Communities
-${communities.map((c) => `- [${c.name}](${u}${communityHref(c)})`).join('\n')}
+${communities.filter((c) => !c.pending).map((c) => `- [${c.name}](${u}${communityHref(c)})`).join('\n')}
 
 ## More
 - [Reviews](${u}/reviews/)
