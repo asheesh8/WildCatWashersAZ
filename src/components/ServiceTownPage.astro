@@ -18,7 +18,7 @@ import { reviewsForService, pick, hashSeed } from '@/data/reviews';
 import { planFor } from '@/data/plan';
 import { townReviews, withProof, type ReviewSet } from '@/lib/local';
 import DepthSections from './DepthSections.astro';
-import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
+import { depth, depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { heroPools, rotateFrom } from '@/data/media';
@@ -43,6 +43,8 @@ const onWindowPage = new Set(
 );
 const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)) && !onWindowPage.has(r.n));
 const d = depthFor(url);
+/* Metro fill never borrows a review another page features as its local proof. */
+const proofElsewhere = new Set(Object.entries(depth).filter(([u]) => u !== url).flatMap(([, v]) => v.proof ?? []));
 /* Pages without a researched answer open with one line of proof instead. */
 const localCount = base.local.filter((r) => r.services.some((x) => tags.includes(x))).length;
 const az19 = t.slug === 'green-valley' || t.slug === 'sahuarita';
@@ -53,7 +55,7 @@ const proofLede = az19
   : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. Every job is quoted up front, and you don’t pay until you’re happy.`;
 const baseSet: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
-  : { local: [], localLabel: '', more: pick(reviewsForService(tags), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
+  : { local: [], localLabel: '', more: pick(reviewsForService(tags).filter((r) => !proofElsewhere.has(r.n)), 3, { seed: hashSeed(url) }), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
 const set = withProof(baseSet, proofReviews(d), (r) => r.area === t.reviewArea, 6, d?.quoted);
 const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
 /* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */

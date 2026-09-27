@@ -80,7 +80,9 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     .has-photo .phero-grid > .phero-copy > .eyebrow { order: 3; }
     .has-photo .phero-grid > .phero-copy > .h1 { order: 4; }
     .has-photo .phero-photo { order: 5; aspect-ratio: auto; height: clamp(180px, 26vh, 240px); margin-bottom: 1.1rem; border-width: 4px; }
-    .has-photo .phero-grid > .phero-copy > .cta-row { order: 7; margin-bottom: 0; }
+    /* The quote button sits right under the photo so it clears the bottom bar; the lede follows (DOM order unchanged). */
+    .has-photo .phero-grid > .phero-copy > .cta-row { order: 6; margin-bottom: 1.1rem; }
+    .has-photo .phero-grid > .phero-copy > .lede { order: 7; }
   }
   @media (max-width: 759px) {
     /* The last crumb repeats the H1; drop it on phones. */

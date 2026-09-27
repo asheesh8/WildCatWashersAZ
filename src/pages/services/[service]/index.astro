@@ -41,6 +41,10 @@ const subPages = landings
   .filter((l) => l.url.startsWith(`/services/${s.slug}/`) || (s.slug === 'screen-repair' && l.url === '/services/solar-screens/repair-rescreening/'))
   .filter((l) => planFor(l.url))
   .map((l) => ({ href: l.url, label: planFor(l.url)!.h1 }));
+/* Other names people search for sit in one plain sentence, not a keyword-list eyebrow. */
+const aka = s.aka.filter((a) => !/ers$/.test(a)); // "window cleaners" names people, not the service
+const akaText = aka.length > 1 ? `${aka.slice(0, -1).join(', ')} or ${aka.at(-1)}` : aka[0];
+const heroLede = akaText ? `${s.lede} Some people know it as ${akaText}.` : s.lede;
 const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/${s.slug}/${t.slug}/`, name: t.name } : { href: townHref(t.slug), name: t.name }));
 ---
 <Base
@@ -50,7 +54,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   schema={[serviceSchema(s), faqSchema(faqs)]}
   ctaService={s.slug}
 >
-  <PageHero eyebrow={s.aka.length ? `Also called ${s.aka.join(', ')}` : s.name} title={title} lede={s.lede} crumbs={crumbs} image={s.image} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
+  <PageHero eyebrow={`${s.name} · Tucson metro`} title={title} lede={heroLede} crumbs={crumbs} image={s.image} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
   <TrustRow />
 
   {isWindow ? (
