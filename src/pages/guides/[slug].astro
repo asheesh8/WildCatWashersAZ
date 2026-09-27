@@ -28,7 +28,7 @@ const s = g.service ? serviceBySlug[g.service] : undefined;
 const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, url);
 const related = g.related
-  .filter((h) => h !== url)
+  .filter((h) => h !== url && planFor(h))
   .map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h }))
   .slice(0, 5);
 const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];

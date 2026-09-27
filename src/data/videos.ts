@@ -14,15 +14,21 @@ export const loops: Record<string, Loop> = {
   'solar-screens-rinse': { src: '/media/solar-screens-rinse.mp4', poster: '/media/solar-screens-rinse.jpg', label: 'Solar screens lined up against a wall being rinsed', portrait: true },
 };
 
-/** Hero loop per service hub. */
-export const serviceLoop: Record<string, string> = {
-  'window-cleaning': 'crew-slider-patio',
-  'solar-panel-cleaning': 'solar-clean-reflection',
-  'solar-screens': 'solar-screens-rinse',
+/**
+ * "See it done" clips just below the hero on a service hub. Doc 7 keeps video
+ * out of the hero itself: the hero stays a still photo, film sits below it.
+ */
+export const seeItDone: Record<string, string[]> = {
+  'window-cleaning': ['lather-squeegee', 'squeegee-pov', 'french-door-panes'],
+  'solar-panel-cleaning': ['solar-clean-reflection'],
+  'solar-screens': ['solar-screens-rinse'],
 };
 
-/** "See it done" strip on the window cleaning page. */
-export const windowStrip = ['lather-squeegee', 'squeegee-pov', 'french-door-panes'];
+/** One line beside a single clip (Doc 1 method facts). */
+export const seeItDoneLede: Record<string, string> = {
+  'solar-panel-cleaning': 'Hand washing and deionized water, with soap when the buildup needs it. No harsh chemicals and no stiff brushes, and you get before-and-after photos of your own roof.',
+  'solar-screens': 'Solar screens come off, get washed and go back on, which also keeps freshly cleaned glass cleaner longer. New screens are custom measured, built and installed.',
+};
 
 /** A loop shown under the answer on a few guide pages. */
 export const guideLoop: Record<string, string> = {

@@ -10,6 +10,7 @@
  * Forty Niner); say "Vail AZ", never bare "Vail"; mine dust only in Green
  * Valley, Sahuarita and the southern metro.
  */
+import { planFor } from './plan';
 
 export type Section = { name: string; body: string };
 
@@ -782,4 +783,5 @@ export const townHref = (slug: string) => `/areas/${slug}/`;
 export const communityHref = (c: Community) => `/areas/${c.parent}/${c.slug}/`;
 
 /** Window cleaning × town pages (plan family service-x-location; see localServices.ts). */
-export const windowTownSlugs = ['green-valley', 'saddlebrooke', 'catalina-foothills', 'oro-valley', 'tanque-verde', 'marana', 'casas-adobes', 'sahuarita', 'catalina', 'vail-az', 'corona-de-tucson', 'tubac', 'sonoita'];
+export const windowTownSlugs = ['green-valley', 'saddlebrooke', 'catalina-foothills', 'oro-valley', 'tanque-verde', 'marana', 'casas-adobes', 'sahuarita', 'catalina', 'vail-az', 'corona-de-tucson', 'tubac', 'sonoita']
+  .filter((t) => planFor(`/services/window-cleaning/${t}/`));

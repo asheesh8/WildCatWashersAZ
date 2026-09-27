@@ -28,7 +28,7 @@ const s = serviceBySlug[l.service];
 const items: Faq[] = faqRefs(row.faq_refs);
 const links = ownerLinks(items, l.url);
 const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewsForService(s.reviewTags), 3, { seed: hashSeed(l.url) }), moreLabel: `${s.name} reviews from across Greater Tucson`, count: 0 };
-const related = l.related.filter((h) => h !== l.url).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
+const related = l.related.filter((h) => h !== l.url && planFor(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
 const title = questionTitle(row.h1);
 const description = fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };

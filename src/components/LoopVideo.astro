@@ -1,5 +1,5 @@
 ---
-/** A muted, looping clip of a real job. Plays only while on screen; with reduced motion it stays on its poster with controls. */
+/** A muted, looping clip of a real job. Plays only while on screen, always has a pause/play button, and with reduced motion waits on its poster until played. */
 import { loops } from '@/data/videos';
 export interface Props { name: string; class?: string; caption?: boolean }
 const { name, class: cls, caption = false } = Astro.props;
@@ -9,13 +9,26 @@ const v = loops[name];
   <figure class:list={['loop', v.portrait && 'is-portrait', cls]}>
     <video muted playsinline loop preload="none" poster={v.poster} aria-label={v.label} data-loop>
       <source src={v.src} type="video/mp4" />
-      <source src={v.src.replace(/\.mp4$/, '.webm')} type="video/webm" />
     </video>
+    <button type="button" class="loop-toggle" data-loop-toggle aria-label="Pause video" hidden>
+      <svg class="i-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
+    </button>
     {caption && <figcaption>{v.label}</figcaption>}
   </figure>
 )}
 <style>
   .loop { margin: 0; position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--blue-50); }
   .loop video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .loop-toggle {
+    position: absolute; top: .7rem; right: .7rem; width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center; border: 0; background: rgb(18 24 50 / 72%); color: #fff;
+    backdrop-filter: blur(4px); transition: background .2s, transform .15s var(--ease);
+  }
+  .loop-toggle[hidden] { display: none; }
+  .loop-toggle:hover { background: var(--navy); }
+  .loop-toggle:active { transform: scale(.92); }
+  .loop-toggle .i-play, .loop.is-paused .loop-toggle .i-pause { display: none; }
+  .loop.is-paused .loop-toggle .i-play { display: block; }
   .loop figcaption { padding: .7rem .9rem; font-size: 1rem; color: var(--ink-2); background: #fff; }
 </style>

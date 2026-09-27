@@ -4,7 +4,7 @@ import PageHero from '@/components/PageHero.astro';
 import TrustRow from '@/components/TrustRow.astro';
 import FiveInOne from '@/components/FiveInOne.astro';
 import LoopVideo from '@/components/LoopVideo.astro';
-import { serviceLoop, windowStrip } from '@/data/videos';
+import { seeItDone, seeItDoneLede } from '@/data/videos';
 import WhyGrid from '@/components/WhyGrid.astro';
 import FactsTrio from '@/components/FactsTrio.astro';
 import Gallery from '@/components/Gallery.astro';
@@ -44,19 +44,22 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   schema={[serviceSchema(s), faqSchema(faqs)]}
   ctaService={s.slug}
 >
-  <PageHero eyebrow={s.aka.length ? `Also called ${s.aka.join(', ')}` : s.name} title={title} lede={s.lede} crumbs={crumbs} image={s.image} video={serviceLoop[s.slug]} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
+  <PageHero eyebrow={s.aka.length ? `Also called ${s.aka.join(', ')}` : s.name} title={title} lede={s.lede} crumbs={crumbs} image={s.image} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
   <TrustRow />
 
   {isWindow ? (
     <FiveInOne />
-    <section class="section-tight see">
-      <div class="wrap">
-        <div class="section-head"><p class="eyebrow">Real jobs, no stock footage</p><h2 class="h2 sweep">See it done</h2></div>
-        <div class="see-row m-swipe">{windowStrip.map((k) => <LoopVideo name={k} caption />)}</div>
-      </div>
-    </section>
   ) : (
     <FiveInOne eyebrow="What’s included" title={`What your ${s.short.toLowerCase()} service includes`} lede={s.cardLine} items={s.included} image={s.gallery[0] ?? s.image} />
+  )}
+
+  {seeItDone[s.slug] && (
+    <section class="section-tight see">
+      <div class:list={['wrap', seeItDone[s.slug].length === 1 && 'see-one']}>
+        <div class="section-head"><p class="eyebrow">Real jobs, no stock footage</p><h2 class="h2 sweep">See it done</h2>{seeItDoneLede[s.slug] && <p class="lede">{seeItDoneLede[s.slug]}</p>}</div>
+        <div class:list={['see-row', seeItDone[s.slug].length > 1 ? 'm-swipe' : 'is-single']}>{seeItDone[s.slug].map((k) => <LoopVideo name={k} caption />)}</div>
+      </div>
+    </section>
   )}
 
   <WhyGrid eyebrow="Why it matters in Tucson" title={isWindow ? 'Why the whole window matters' : `Why ${s.name.toLowerCase()} matters here`} items={s.why} tone="mist" />
@@ -103,6 +106,8 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 <style>
   .see-row { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
   .see-row :global(.loop) { align-self: start; }
+  .see-row.is-single { grid-template-columns: minmax(0, 380px); }
+  @media (min-width: 900px) { .see-one { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: center; } .see-one .section-head { margin: 0; } }
   .see-row :global(video) { aspect-ratio: 4 / 5; }
   @media (max-width: 759px) { .see-row { display: flex; } .see-row :global(.loop) { flex: 0 0 72%; } }
 </style>

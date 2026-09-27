@@ -5,6 +5,8 @@
  * Doc 3 (character, conditions) and Doc 1 (method, facts). If an angle can't be
  * carried with real specifics, the page isn't built.
  */
+import { planFor } from './plan';
+
 export type LocalService = {
   service: string;
   town: string;
@@ -17,7 +19,7 @@ const solarRain = 'Rain doesn’t clean panels. It moves dust around, the dust s
 const solarWhy = 'Dust and mineral buildup block light before it reaches the cell. Published research puts the loss at 5 to 30 percent depending on local conditions, and we take before and after photos so you can see your own difference.';
 const screenFacts = 'We custom measure, build and install Phifer solar screens in any color and shade percentage. 80 and 90 percent block that share of the sun’s heat and glare, and roughly 75 to 90 percent of UV.';
 
-export const localServices: LocalService[] = [
+const allLocalServices: LocalService[] = [
   /* ---------------- Window cleaning × town ---------------- */
   {
     service: 'window-cleaning', town: 'green-valley',
@@ -298,3 +300,6 @@ export const localServices: LocalService[] = [
     },
   },
 ];
+
+/** Only the pairs the current plan keeps; the rest stay here as a reserve bench (plan reserve-bench.json). */
+export const localServices = allLocalServices.filter((x) => planFor(`/services/${x.service}/${x.town}/`));
