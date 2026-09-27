@@ -19,7 +19,6 @@ const crumbs = [{ name: 'Wash It Forward', href: '/wash-it-forward/' }];
         <p>The recipient changes every year. It isn’t always a fire station.</p>
       </div>
       <div class="wif-photos">
-        <div class="photo"><Image src={img('fire-station-windows')} alt={altFor('fire-station-windows')} widths={[480, 800]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} /></div>
         <div class="photo"><Image src={img('crew-fire-station-commercial')} alt={altFor('crew-fire-station-commercial')} widths={[480, 800]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} /></div>
       </div>
     </div>
@@ -28,7 +27,7 @@ const crumbs = [{ name: 'Wash It Forward', href: '/wash-it-forward/' }];
 <style>
   .wif { display: grid; gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: center; }
   @media (min-width: 1000px) { .wif { grid-template-columns: 1.1fr 1fr; } }
-  .wif-photos { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
-  .wif-photos .photo { aspect-ratio: 3 / 4; }
+  .wif-photos { display: grid; }
+  .wif-photos .photo { aspect-ratio: 4 / 3; }
   .wif-photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
 </style>
