@@ -97,7 +97,7 @@ const place = {
         {kids.length > 0 && (
           <ul class="kids" role="list">
             {kids.map((c) => (
-              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>{c.kind === 'hoa' ? 'HOA and neighborhood page' : 'Community page'}</span><Icon name="arrow" size={20} /></a></li>
+              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>Neighborhood page</span><Icon name="arrow" size={20} /></a></li>
             ))}
           </ul>
         )}

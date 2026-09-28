@@ -8,6 +8,7 @@ import { seeItDone, seeItDoneLede } from '@/data/videos';
 import WhyGrid from '@/components/WhyGrid.astro';
 import FactsTrio from '@/components/FactsTrio.astro';
 import Gallery from '@/components/Gallery.astro';
+import { sceneOf } from '@/data/media';
 import ReviewGrid from '@/components/ReviewGrid.astro';
 import FaqList from '@/components/FaqList.astro';
 import ServiceGrid from '@/components/ServiceGrid.astro';
@@ -46,7 +47,8 @@ const aka = s.aka.filter((a) => !/ers$/.test(a)); // "window cleaners" names peo
 const akaText = aka.length > 1 ? `${aka.slice(0, -1).join(', ')} or ${aka.at(-1)}` : aka[0];
 const heroLede = akaText ? `${s.lede} Some people know it as ${akaText}.` : s.lede;
 /* The photo in the "what's included" block; the gallery skips it and every other photo already on the page. */
-const fiveImage = isWindow ? 'tech-kneeling-window-detail' : s.gallery[0] ?? s.image;
+/* The included photo never shows the hero's scene again (same house from another angle). */
+const fiveImage = isWindow ? 'tech-kneeling-window-detail' : s.gallery.find((k) => sceneOf(k) !== sceneOf(s.image)) ?? s.image;
 const relatedImages = services.filter((x) => s.related.includes(x.slug)).map((x) => x.image);
 const onPage = [s.image, fiveImage, ...relatedImages];
 const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/${s.slug}/${t.slug}/`, name: t.name } : { href: townHref(t.slug), name: t.name }));

@@ -368,7 +368,8 @@ const sceneGroups: string[][] = [
   ['solar-panels-pool-mountain-view', 'solar-array-pool-golf-view'],
   ['sun-screens-installed-1', 'solar-screen-large-window'],
   ['sun-screens-tan-house', 'solar-screen-side-yard'],
-  ['sun-screens-installed-2', 'solar-screens-front-elevation'],
+  /* One gable house, same two screened windows, shot from several angles. */
+  ['sun-screens-installed-2', 'solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screens-two-windows-garden'],
   ['tech-cleaning-solar-commercial-roof', 'tech-scrubbing-solar-flat-roof'],
   ['tech-cleaning-solar-mountains', 'tech-solar-pole-clean'],
   ['tech-waterfed-pole-stucco', 'tech-waterfed-stucco-window'],
@@ -377,7 +378,6 @@ const sceneGroups: string[][] = [
   ['tech-squeegee-reflection-glass', 'tech-squeegee-soapy-window-sky'],
   ['clean-window-front-yard-reflection', 'clean-window-porch-reflection'],
   ['tech-kneeling-french-doors-pool', 'tech-detailing-door-frame-pool'],
-  ['solar-screens-garden-home', 'solar-screens-two-windows-garden'],
 ];
 const sceneIndex = new Map<string, string>();
 for (const g of sceneGroups) for (const k of g) sceneIndex.set(k, g[0]);
