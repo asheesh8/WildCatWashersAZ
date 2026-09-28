@@ -1,28 +1,58 @@
 ---
+/**
+ * Job photo grid. Every tile has a fixed aspect ratio (no layout shift), crops
+ * with object-fit: cover anchored on the photo's focus point, and loads lazily
+ * (galleries always sit below the hero). The first photo leads as a wide tile.
+ */
 import { Image } from 'astro:assets';
-import { img, altFor, hasImg } from '@/data/media';
+import { img, altFor, hasImg, focusFor, sceneOf } from '@/data/media';
 export interface Props { keys: string[]; title?: string }
 const { keys, title } = Astro.props;
-const list = keys.filter(hasImg).slice(0, 6);
+/* One copy of a scene per grid, even if a caller passes both twins. */
+const seen = new Set<string>();
+const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(sceneOf(k))).slice(0, 6);
 ---
 {list.length > 0 && (
   <section class="section-tight" aria-label={title ?? 'Photos from our jobs'}>
     <div class="wrap">
       {title && <h2 class="h3" style="margin-bottom:1.2rem">{title}</h2>}
-      <ul class="gal" role="list">
-        {list.map((k) => (
-          <li class="photo reveal"><Image src={img(k)} alt={altFor(k)} widths={[360, 560, 800]} sizes="(min-width: 1000px) 33vw, 50vw" quality={68} /></li>
+      <ul class="gal" role="list" data-n={list.length}>
+        {list.map((k, i) => (
+          <li class="photo reveal">
+            <Image
+              src={img(k)}
+              alt={altFor(k)}
+              widths={i === 0 ? [480, 800, 1200] : [360, 560, 800]}
+              sizes={i === 0 ? '(min-width: 1200px) 760px, (min-width: 900px) 62vw, 100vw' : '(min-width: 1200px) 380px, (min-width: 900px) 31vw, 50vw'}
+              loading="lazy"
+              decoding="async"
+              quality={68}
+              style={`object-position:${focusFor(k)}`}
+            />
+          </li>
         ))}
       </ul>
     </div>
   </section>
 )}
 <style>
-  .gal { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(2, 1fr); }
-  @media (min-width: 900px) { .gal { grid-template-columns: repeat(3, 1fr); } }
-  .gal li { aspect-ratio: 4 / 3; border-radius: var(--radius); }
-  .gal li:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-  /* Phones: no orphan tile in the 2-column grid */
-  @media (max-width: 899px) { .gal li:last-child:nth-child(even) { grid-column: span 2; aspect-ratio: 16 / 9; } }
-  .gal :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .gal { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gal li { aspect-ratio: 4 / 3; border-radius: var(--radius); margin: 0; }
+  .gal :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* Phones: the lead photo runs full width; an odd last tile does too, so nothing is orphaned. */
+  .gal li:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .gal[data-n='2'] li:first-child { grid-column: auto; aspect-ratio: 4 / 3; }
+  @media (max-width: 899px) {
+    .gal:not([data-n='2']) li:last-child:nth-child(even) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  }
+  @media (min-width: 900px) {
+    .gal { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gal[data-n='2'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gal[data-n='1'] li:first-child { aspect-ratio: 21 / 9; }
+    /* Three or more: the lead photo spans two columns and two rows beside the rest. */
+    .gal:not([data-n='1']):not([data-n='2']) li:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    /* Fill the row under the lead: one tile spans it, or the last of two stretches. */
+    .gal[data-n='4'] li:last-child { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
+    .gal[data-n='5'] li:last-child { grid-column: span 2; aspect-ratio: auto; }
+  }
 </style>

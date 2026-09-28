@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import Breadcrumbs from './Breadcrumbs.astro';
 import Icon from './Icon.astro';
 import LoopVideo from './LoopVideo.astro';
-import { img, altFor, hasImg } from '@/data/media';
+import { img, altFor, hasImg, focusFor } from '@/data/media';
 import { company, cta, telHref, proof } from '@/data/business';
 export interface Props {
   eyebrow?: string;
@@ -45,7 +45,7 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     )}
     {!video && photo && (
       <div class="phero-photo photo">
-        <Image src={photo} alt={altFor(image!)} widths={[480, 720, 960, 1200]} sizes="(min-width: 1000px) 46vw, 100vw" loading="eager" fetchpriority="high" quality={72} />
+        <Image src={photo} alt={altFor(image!)} widths={[480, 720, 960, 1200]} sizes="(min-width: 1000px) 46vw, 100vw" loading="eager" fetchpriority="high" decoding="async" quality={72} style={`object-position:${focusFor(image!)}`} />
       </div>
     )}
   </div>

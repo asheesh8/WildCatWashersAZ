@@ -11,7 +11,9 @@ import { ownerLinks } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
 import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
-import { img, altFor } from '@/data/media';
+import { img, altFor, focusFor } from '@/data/media';
+import { townPhotos } from '@/data/placement';
+import Gallery from '@/components/Gallery.astro';
 import { h1For, planFor } from '@/data/plan';
 import { townReviews, withProof } from '@/lib/local';
 import DepthSections from '@/components/DepthSections.astro';
@@ -32,6 +34,7 @@ const set = withProof(townReviews(t, 6, hashSeed(t.slug)), proofReviews(d), (r) 
 const faqs = withDepthFaqs(faqRefs(planFor(url)?.faq_refs), d);
 const faqLinks = ownerLinks(faqs, url);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
+const photos = townPhotos(t);
 const hasWindowPage = windowTownSlugs.includes(t.slug);
 const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowPage ? `/services/window-cleaning/${t.slug}/` : serviceHref(slug));
 const place = {
@@ -48,7 +51,7 @@ const place = {
   ctaArea={t.slug}
   ctaPlace={t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, '')}
 >
-  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={t.photo} ctaHref={`/quote/?area=${t.slug}`} />
+  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={photos.hero} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />
 
   {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} />}
@@ -67,7 +70,7 @@ const place = {
           return (
             <li class="reveal">
               <a href={emphasisHref(e.service)}>
-                <span class="emph-img"><Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 700]} sizes="(min-width: 900px) 33vw, 100vw" quality={68} /></span>
+                <span class="emph-img"><Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 700]} sizes="(min-width: 900px) 33vw, 100vw" quality={68} style={`object-position:${focusFor(s.image)}`} /></span>
                 <span class="emph-body">
                   <span class="h3">{s.name}{e.service === 'window-cleaning' && hasWindowPage ? ` in ${t.name}` : ''}</span>
                   <span>{e.why}</span>
@@ -81,6 +84,8 @@ const place = {
       <p class="also">We also do <a href="/services/screen-repair/">screen repair</a>, <a href="/services/solar-panel-pigeon-proofing/">solar panel pigeon proofing</a>, <a href="/services/pressure-washing/patios-pool-decks/">patio and pool deck washing</a> and every other service in {t.name}.{kids.length > 0 && <> We also work with <a href="/who-we-help/hoas-communities/">HOAs and communities</a>.</>} <a href="/services/">See all services</a>.</p>
     </div>
   </section>
+
+  <Gallery keys={photos.gallery} title="From recent jobs" />
 
   {(kids.length > 0 || t.sections.length > 0) && (
     <section class="section-tight bg-mist">

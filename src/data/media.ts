@@ -28,9 +28,7 @@ export const alt: Record<string, string> = {
 
   // Team & brand
   'team-truck-lineup-tucson': 'The Wildcat Washers crew lined up in front of two branded trucks in the Tucson desert',
-  'team-on-truck-desert': 'Wildcat Washers team sitting on a branded truck at sunrise outside Tucson',
   'team-lineup-commercial-plaza': 'Wildcat Washers crew and truck outside a Tucson commercial plaza',
-  'founders-yard-sign': 'Wildcat Washers founders holding a branded window washing yard sign outside a client home',
   'award-az19-winner-2025': 'Wildcat Washers founders holding the 2025 AZ-19 Readers’ Picks winner plaque',
   'award-presentation-team': 'The Wildcat Washers team receiving the 2025 AZ-19 Readers’ Picks award',
   'team-fire-station-truck': 'Wildcat Washers crew with their truck alongside a fire engine at a Tucson-area fire station',
@@ -133,6 +131,32 @@ export const alt: Record<string, string> = {
   'two-techs-tall-glass': 'Two technicians reaching tall glass in a modern Tucson home',
   'tech-arizona-room-window': 'Technician cleaning the windows of an Arizona room',
   'clean-three-windows-reflection': 'Three clean windows on a stucco home reflecting the desert',
+  'hero-film-poster': 'Technician scrubbing a window on a stucco home with a tool belt on his hip',
+
+  // Added September 2026 from the owner's uploads. The retired number on signs,
+  // truck wraps and shirt backs is painted out; every file is stripped of EXIF/GPS.
+  'crew-yard-sign-arched-window': 'Two Wildcat Washers technicians holding a window washing yard sign in front of an arched, shuttered window',
+  'team-on-truck-desert': 'The Wildcat Washers crew sitting on a branded pickup truck in the desert with mountains behind',
+  'team-trucks-desert-mountains': 'The Wildcat Washers crew with a ladder and gear between two branded pickup trucks, mountains behind',
+  'tech-shirt-back-scrubbing': 'Technician in a Wildcat Washers shirt scrubbing the top of a soapy window',
+  'tech-scrubbing-sliding-door': 'Technician scrubbing a sliding glass door under a covered patio',
+  'tech-crouching-gridded-door': 'Technician crouching to squeegee a gridded glass door on a wood-sided home',
+  'tech-kneeling-french-doors-pool': 'Technician kneeling indoors to clean tall glass doors that look out to a pool and cactus garden',
+  'tech-detailing-door-frame-pool': 'Technician kneeling to detail a glass door frame, with a pool patio beyond',
+  'tech-squeegee-reflection-glass': 'Technician squeegeeing soapy glass, his reflection showing against the sky',
+  'tech-squeegee-soapy-window-sky': 'Squeegee pulling soap off a window that reflects blue sky and desert trees',
+  'solar-screens-gable-garden': 'Dark solar screens on the side windows of a stucco home above a flower garden',
+  'solar-screens-two-windows-garden': 'Two solar screens on a stucco wall behind potted plants and a garden trellis',
+  'solar-screen-gable-window': 'Large solar screen on a gable-end window of a stucco home',
+  'solar-screens-side-yard-path': 'Solar screens along the side of a home beside a brick path and desert landscaping',
+  'solar-panels-tile-roof-closeup': 'Rooftop solar panels on a tile roof with neighboring homes and mountains beyond',
+  'clean-window-stucco-desert': 'Clean sliding window on a stucco home reflecting desert trees',
+  'clean-sliders-covered-patio-sunset': 'Clean sliding glass doors along a covered patio at sunset',
+  'security-screen-door-clean': 'Clean security screen door and side window at a home’s entry',
+  'clean-window-blinds-stucco': 'Clean three-panel window with blinds on a stucco wall',
+  'clean-arizona-room-glass': 'Arizona room with clean glass looking out over the desert at dusk',
+  'clean-window-front-yard-reflection': 'Clean window reflecting a front yard with desert landscaping',
+  'clean-window-porch-reflection': 'Clean window beside a porch, reflecting the courtyard and trees',
 };
 
 
@@ -170,6 +194,12 @@ export const pools = {
     'tech-slider-squeegee',
     'two-techs-interior-modern',
     'tech-interior-window-golf-course',
+    'tech-scrubbing-sliding-door',
+    'tech-crouching-gridded-door',
+    'tech-kneeling-french-doors-pool',
+    'tech-shirt-back-scrubbing',
+    'tech-squeegee-soapy-window-sky',
+    'hero-film-poster',
   ],
   windowResult: [
     'clean-window-mountain-view',
@@ -180,6 +210,11 @@ export const pools = {
     'clean-living-room-fireplace-windows',
     'clean-patio-view-glass',
     'clean-window-sunset-reflection',
+    'clean-window-stucco-desert',
+    'clean-sliders-covered-patio-sunset',
+    'clean-arizona-room-glass',
+    'clean-window-front-yard-reflection',
+    'clean-window-blinds-stucco',
   ],
   solar: [
     'tech-cleaning-solar-mountains',
@@ -190,6 +225,7 @@ export const pools = {
     'solar-array-clean',
     'solar-panels-hillside',
     'solar-panels-pool-patio',
+    'solar-panels-tile-roof-closeup',
   ],
   pressure: [
     'before-after-patio-1',
@@ -201,6 +237,8 @@ export const pools = {
   team: [
     'team-fire-station-truck',
     'award-az19-winner-2025',
+    'team-on-truck-desert',
+    'crew-yard-sign-patio',
   ],
 } as const;
 
@@ -209,7 +247,7 @@ export const pools = {
 export const heroPools: Record<string, readonly string[]> = {
   'window-cleaning': [...pools.windowAction, ...pools.windowResult],
   'solar-panel-cleaning': pools.solar,
-  'solar-screens': ['solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screen-large-window', 'solar-screens-stucco-close', 'solar-screen-side-yard', 'solar-screens-backyard'],
+  'solar-screens': ['solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screen-large-window', 'solar-screens-stucco-close', 'solar-screen-side-yard', 'solar-screens-backyard', 'solar-screens-gable-garden', 'solar-screen-gable-window', 'solar-screens-side-yard-path'],
   'pressure-washing': pools.pressure.filter((k) => k !== 'before-after-patio-split'),
   commercial: ['crew-fire-station-commercial', 'two-techs-tall-glass', 'tech-waterfed-pole-stucco', 'tech-waterfed-pole-exterior', 'tech-cleaning-solar-commercial-roof', 'two-techs-front-window', 'tech-arched-door-ladder'],
 };
@@ -226,4 +264,196 @@ export function pickFrom(pool: readonly string[], seed: string): string {
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
   return pool[h % pool.length];
+}
+
+/* ---------------------------------------------------------------------------
+ * PHOTO METADATA (September 2026)
+ * Town is read from each upload's EXIF GPS and snapped to the nearest town we
+ * serve. Only the town is kept: no coordinates, streets or homes are stored or
+ * published, and the image files themselves carry no EXIF.
+ * ------------------------------------------------------------------------- */
+
+/** Town slug per photo, from GPS. Photos without GPS are metro-wide (absent). */
+export const photoTown: Record<string, string> = {
+  // Green Valley
+  'clean-patio-view-glass': 'green-valley',
+  'tech-arizona-room-window': 'green-valley',
+  'solar-panels-clouds': 'green-valley',
+  'solar-panels-hillside': 'green-valley',
+  'clean-windows-desert-reflection': 'green-valley',
+  'clean-three-windows-reflection': 'green-valley',
+  'crew-chamber-of-commerce': 'green-valley',
+  'tech-cleaning-solar-mountains': 'green-valley',
+  'tech-solar-pole-clean': 'green-valley',
+  'clean-covered-patio': 'green-valley',
+  'tech-solar-screen-carry': 'green-valley',
+  'solar-panels-cloud-reflection': 'green-valley',
+  'tech-waterfed-pole-stucco': 'green-valley',
+  'tech-waterfed-stucco-window': 'green-valley',
+  'tech-waterfed-pole-exterior': 'green-valley',
+  'solar-panels-tile-roof-neighborhood': 'green-valley',
+  'clean-glass-wall-golf-course': 'green-valley',
+  'clean-french-doors-golf-view': 'green-valley',
+  'tech-washing-screens': 'green-valley',
+  'pressure-washing-solar-screen': 'green-valley',
+  'solar-panels-pool-patio': 'green-valley',
+  'tech-cleaning-solar-commercial-roof': 'green-valley',
+  'tech-scrubbing-solar-flat-roof': 'green-valley',
+  'solar-panel-closeup': 'green-valley',
+  'solar-array-clean': 'green-valley',
+  'patio-screen-enclosure': 'green-valley',
+  'tech-squeegee-desert-window': 'green-valley',
+  'solar-array-road-view': 'green-valley',
+  'clean-patio-through-glass': 'green-valley',
+  'clean-patio-sliders': 'green-valley',
+  'solar-panels-tile-roof-closeup': 'green-valley',
+  'clean-window-stucco-desert': 'green-valley',
+  'security-screen-door-clean': 'green-valley',
+  'solar-screens-side-yard-path': 'green-valley',
+  'clean-window-blinds-stucco': 'green-valley',
+  // Green Valley (Quail Creek area, north of the GVR core)
+  'solar-panels-roof-tucson': 'green-valley',
+  'clean-window-sunset-reflection': 'green-valley',
+  'clean-window-sunset-glow': 'green-valley',
+  'hero-crew-trucks-sky': 'green-valley',
+  'crew-yard-sign-patio': 'green-valley',
+  'team-on-truck-desert': 'green-valley',
+  'team-trucks-desert-mountains': 'green-valley',
+  'clean-sliders-covered-patio-sunset': 'green-valley',
+  'clean-arizona-room-glass': 'green-valley',
+  // Marana (Continental Ranch)
+  'sun-screens-installed-1': 'marana',
+  'solar-screen-large-window': 'marana',
+  'sun-screens-installed-2': 'marana',
+  'solar-screens-front-elevation': 'marana',
+  'solar-screens-garden-home': 'marana',
+  'solar-screens-stucco-close': 'marana',
+  'solar-screens-backyard': 'marana',
+  'sun-screens-tan-house': 'marana',
+  'solar-screen-side-yard': 'marana',
+  'solar-screens-gable-garden': 'marana',
+  'solar-screens-two-windows-garden': 'marana',
+  'solar-screen-gable-window': 'marana',
+  // Oro Valley (incl. Rancho Vistoso)
+  'clean-window-sky-reflection': 'oro-valley',
+  'clean-window-bougainvillea': 'oro-valley',
+  'before-after-patio-1': 'oro-valley',
+  'before-after-patio-2': 'oro-valley',
+  'pressure-wash-flagstone-split': 'oro-valley',
+  'clean-window-mountain-view': 'oro-valley',
+  'clean-window-front-yard-reflection': 'oro-valley',
+  'clean-window-porch-reflection': 'oro-valley',
+  // Casas Adobes
+  'two-techs-tall-glass': 'casas-adobes',
+  'two-techs-interior-modern': 'casas-adobes',
+  'tech-kneeling-french-doors-pool': 'casas-adobes',
+  'tech-detailing-door-frame-pool': 'casas-adobes',
+  // Catalina Foothills
+  'clean-living-room-fireplace-windows': 'catalina-foothills',
+  'clean-fireplace-view-windows': 'catalina-foothills',
+};
+
+/** One scene per group: exact twins (the same file saved under two names) and
+ *  near-identical frames. Never show two of one group on the same page. */
+const sceneGroups: string[][] = [
+  ['before-after-patio-2', 'pressure-wash-flagstone-split'],
+  ['before-after-window-split', 'before-after-window-dust-split'],
+  ['clean-living-room-fireplace-windows', 'clean-fireplace-view-windows'],
+  ['clean-glass-wall-golf-course', 'clean-french-doors-golf-view'],
+  ['clean-patio-through-glass', 'clean-patio-sliders'],
+  ['clean-windows-desert-reflection', 'clean-three-windows-reflection'],
+  ['clean-window-sunset-reflection', 'clean-window-sunset-glow'],
+  ['crew-fire-station-commercial', 'fire-station-windows'],
+  ['team-fire-station-truck', 'crew-firefighters-santa-rita'],
+  ['tech-washing-screens', 'pressure-washing-solar-screen'],
+  ['solar-panels-pool-mountain-view', 'solar-array-pool-golf-view'],
+  ['sun-screens-installed-1', 'solar-screen-large-window'],
+  ['sun-screens-tan-house', 'solar-screen-side-yard'],
+  ['sun-screens-installed-2', 'solar-screens-front-elevation'],
+  ['tech-cleaning-solar-commercial-roof', 'tech-scrubbing-solar-flat-roof'],
+  ['tech-cleaning-solar-mountains', 'tech-solar-pole-clean'],
+  ['tech-waterfed-pole-stucco', 'tech-waterfed-stucco-window'],
+  // near-identical frames of one moment
+  ['hero-crew-trucks-sky', 'team-trucks-desert-mountains'],
+  ['tech-squeegee-reflection-glass', 'tech-squeegee-soapy-window-sky'],
+  ['clean-window-front-yard-reflection', 'clean-window-porch-reflection'],
+  ['tech-kneeling-french-doors-pool', 'tech-detailing-door-frame-pool'],
+  ['solar-screens-garden-home', 'solar-screens-two-windows-garden'],
+];
+const sceneIndex = new Map<string, string>();
+for (const g of sceneGroups) for (const k of g) sceneIndex.set(k, g[0]);
+/** The scene a photo belongs to (its own key when it has no twin). */
+export function sceneOf(key: string): string {
+  return sceneIndex.get(key) ?? key;
+}
+
+export type PhotoKind = 'window-action' | 'window-result' | 'solar' | 'screens' | 'pressure' | 'team' | 'commercial';
+/** What each photo shows, so a page draws photos that fit its service. */
+export const photoKind: Record<string, PhotoKind> = {};
+const kindLists: Record<PhotoKind, string[]> = {
+  'window-action': [
+    'tech-arizona-room-window', 'tech-arched-door-ladder', 'tech-interior-window-golf-course', 'tech-kneeling-window-detail',
+    'tech-slider-squeegee', 'tech-spotless-reputation-shirt', 'tech-squeegee-desert-window', 'tech-waterfed-pole-exterior',
+    'tech-waterfed-pole-stucco', 'tech-waterfed-stucco-window', 'two-techs-front-window', 'two-techs-interior-modern', 'two-techs-tall-glass',
+    'tech-shirt-back-scrubbing', 'tech-scrubbing-sliding-door', 'tech-crouching-gridded-door', 'tech-kneeling-french-doors-pool',
+    'tech-detailing-door-frame-pool', 'tech-squeegee-reflection-glass', 'tech-squeegee-soapy-window-sky', 'hero-film-poster',
+  ],
+  'window-result': [
+    'clean-patio-view-glass', 'clean-window-stucco-sky', 'clean-window-bougainvillea', 'clean-window-mountain-view', 'clean-window-sky-reflection',
+    'clean-window-sunset-reflection', 'clean-window-sunset-glow', 'clean-windows-desert-reflection', 'clean-three-windows-reflection',
+    'clean-glass-wall-golf-course', 'clean-french-doors-golf-view', 'clean-living-room-fireplace-windows', 'clean-fireplace-view-windows',
+    'clean-patio-through-glass', 'clean-patio-sliders', 'before-after-window-split', 'before-after-window-dust-split',
+    'clean-window-stucco-desert', 'clean-sliders-covered-patio-sunset', 'clean-window-blinds-stucco', 'clean-arizona-room-glass',
+    'clean-window-front-yard-reflection', 'clean-window-porch-reflection', 'security-screen-door-clean',
+  ],
+  solar: [
+    'solar-panels-tile-roof-neighborhood', 'solar-panels-roof-tucson', 'solar-panel-closeup', 'solar-panels-pool-patio', 'solar-array-clean',
+    'solar-panels-clouds', 'solar-panels-hillside', 'tech-cleaning-solar-commercial-roof', 'tech-scrubbing-solar-flat-roof',
+    'tech-cleaning-solar-mountains', 'tech-solar-pole-clean', 'solar-panels-pool-mountain-view', 'solar-array-pool-golf-view',
+    'solar-array-road-view', 'solar-panels-cloud-reflection', 'before-after-solar-1', 'before-after-solar-2', 'before-after-solar-3',
+    'solar-panels-tile-roof-closeup',
+  ],
+  screens: [
+    'sun-screens-installed-1', 'sun-screens-installed-2', 'sun-screens-tan-house', 'solar-screens-front-elevation', 'solar-screens-garden-home',
+    'solar-screen-large-window', 'solar-screens-stucco-close', 'solar-screen-side-yard', 'solar-screens-backyard', 'tech-solar-screen-carry',
+    'solar-screens-gable-garden', 'solar-screens-two-windows-garden', 'solar-screen-gable-window', 'solar-screens-side-yard-path',
+  ],
+  pressure: [
+    'before-after-patio-1', 'before-after-patio-2', 'before-after-patio-split', 'pressure-wash-flagstone-split', 'clean-covered-patio',
+    'tech-washing-screens', 'pressure-washing-solar-screen', 'patio-screen-enclosure', 'screen-door-clean',
+  ],
+  team: [
+    'team-fire-station-truck', 'crew-firefighters-santa-rita', 'crew-chamber-of-commerce', 'hero-crew-trucks-sky', 'award-az19-winner-2025',
+    'award-presentation-team', 'crew-yard-sign-patio', 'crew-yard-sign-living-room', 'crew-yard-sign-arched-window',
+    'team-on-truck-desert', 'team-trucks-desert-mountains',
+  ],
+  commercial: ['crew-fire-station-commercial', 'fire-station-windows'],
+};
+for (const [kind, keys] of Object.entries(kindLists) as [PhotoKind, string[]][]) for (const k of keys) photoKind[k] = kind;
+
+/** Where to anchor a crop so faces and the work stay in frame. */
+const focusOverride: Record<string, string> = {
+  'crew-yard-sign-patio': '50% 45%',
+  'crew-yard-sign-arched-window': '50% 55%',
+  'crew-yard-sign-living-room': '45% 50%',
+  'team-on-truck-desert': '50% 60%',
+  'team-trucks-desert-mountains': '50% 70%',
+  'hero-crew-trucks-sky': '50% 65%',
+  'tech-shirt-back-scrubbing': '50% 30%',
+  'tech-scrubbing-sliding-door': '35% 35%',
+  'tech-crouching-gridded-door': '40% 45%',
+  'tech-kneeling-french-doors-pool': '50% 65%',
+  'tech-detailing-door-frame-pool': '50% 60%',
+  'tech-squeegee-reflection-glass': '50% 35%',
+  'tech-squeegee-soapy-window-sky': '50% 55%',
+  'tech-spotless-reputation-shirt': '50% 45%',
+  'solar-panels-hillside': '50% 70%',
+  'solar-panels-tile-roof-closeup': '50% 45%',
+  'hero-film-poster': '60% 40%',
+};
+/** CSS object-position for a photo: portrait shots anchor a little above centre. */
+export function focusFor(key: string): string {
+  if (focusOverride[key]) return focusOverride[key];
+  const m = byKey[key];
+  return m && m.height > m.width * 1.1 ? '50% 40%' : '50% 50%';
 }

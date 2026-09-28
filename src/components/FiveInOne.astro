@@ -1,7 +1,7 @@
 ---
 /** The numbered /01–/05 section Cooper liked, with larger type for 55+ readers. */
 import { Image } from 'astro:assets';
-import { img, altFor } from '@/data/media';
+import { img, altFor, focusFor } from '@/data/media';
 import { serviceBySlug } from '@/data/business';
 export interface Props { title?: string; lede?: string; image?: string; eyebrow?: string; items?: { title: string; body: string }[] }
 const win = serviceBySlug['window-cleaning'];
@@ -20,7 +20,7 @@ const {
       <h2 id="five-title" class="h2 sweep">{title}</h2>
       <p class="lede">{lede}</p>
       <div class="five-photo photo">
-        <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} />
+        <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} style={`object-position:${focusFor(image)}`} />
       </div>
     </div>
     <ol class="five-list m-swipe" role="list">

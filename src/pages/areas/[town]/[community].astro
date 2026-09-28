@@ -24,7 +24,8 @@ import { hashSeed } from '@/data/reviews';
 import { faqSchema } from '@/lib/schema';
 import { company, telHref } from '@/data/business';
 import { fitTitle, fitDescription } from '@/lib/seo';
-import { pools, hasImg } from '@/data/media';
+import { communityPhotos } from '@/data/placement';
+import Gallery from '@/components/Gallery.astro';
 
 export function getStaticPaths() {
   return communities.map((c) => ({ params: { town: c.parent, community: c.slug }, props: { c } }));
@@ -49,16 +50,9 @@ const seniorFaqs: Faq[] = [];
 const faqLinks = ownerLinks(refs, url);
 
 const siblings = childrenOf(town.slug).filter((s) => s.slug !== c.slug);
-/* A town and its community pages shouldn't open on the same photo: walk the
-   family in order and swap any repeat for the next unused shot. */
-const family = communities.filter((x) => x.parent === town.slug);
-const taken = new Set([town.photo]);
-const heroFor = new Map<string, string>();
-for (const x of family) {
-  const pick = !taken.has(x.photo) ? x.photo : [...pools.windowResult, ...pools.windowAction].find((k) => hasImg(k) && !taken.has(k)) ?? x.photo;
-  taken.add(pick); heroFor.set(x.slug, pick);
-}
-const hero = heroFor.get(c.slug) ?? c.photo;
+/* Hero and gallery come from the shared placement pass: this town's own photos first, spread across the family. */
+const photos = communityPhotos(c);
+const hero = photos.hero;
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: townName, href: townHref(town.slug) }, { name: c.name, href: url }];
 const townWindow = windowTownSlugs.includes(town.slug) ? `/services/window-cleaning/${town.slug}/` : '/services/window-cleaning/';
 const hoaWord = c.hoa ? ' HOA' : '';
@@ -124,6 +118,8 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
       <ul class="conds" role="list">{c.angle.map((a) => <li><Icon name="check-circle" size={22} /><span>{a}</span></li>)}</ul>
     </div>
   </section>
+
+  <Gallery keys={photos.gallery} title="From recent jobs" />
 
   {c.sections && c.sections.length > 0 && (
     <section class="section-tight">

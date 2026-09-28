@@ -3,7 +3,7 @@
 import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import { services, serviceHref } from '@/data/business';
-import { img, altFor } from '@/data/media';
+import { img, altFor, focusFor } from '@/data/media';
 export interface Props { exclude?: string; only?: string[] }
 const { exclude, only } = Astro.props;
 const list = services.filter((s) => s.slug !== exclude && (!only || only.includes(s.slug)));
@@ -12,7 +12,7 @@ const list = services.filter((s) => s.slug !== exclude && (!only || only.include
   {list.map((s, i) => (
     <li class="scard reveal">
       <a href={serviceHref(s.slug)}>
-        <Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 640, 900]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw" quality={70} />
+        <Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 640, 900]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw" quality={70} style={`object-position:${focusFor(s.image)}`} />
         <span class="scard-body">
           <span class="scard-num">/{String(i + 1).padStart(2, '0')}</span>
           <span class="scard-name">{s.name}</span>
