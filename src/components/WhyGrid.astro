@@ -22,8 +22,9 @@ const { title, eyebrow, items, tone = 'white' } = Astro.props;
 </section>
 <style>
   .why { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
-  .why li { display: grid; gap: .7rem; align-content: start; }
-  .why-i { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--blue-50); color: var(--blue-700); }
+  .why li { display: grid; grid-template-columns: auto 1fr; gap: .7rem .9rem; align-items: center; align-content: start; }
+  .why li > p { grid-column: 1 / -1; }
+  .why-i { width: 48px; height: 48px; border-radius: var(--radius-sm); display: grid; place-items: center; background: var(--blue-50); color: var(--blue-700); }
   .why p { color: var(--ink-2); }
   @media (max-width: 759px) {
     .why li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.3rem; box-shadow: var(--shadow-sm); }

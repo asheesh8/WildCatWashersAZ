@@ -24,6 +24,7 @@ import { club } from '@/data/business';
     display: grid; gap: 2rem; align-items: center; border-radius: calc(var(--radius-lg) + 8px);
     padding: clamp(1.8rem, 1rem + 4vw, 4.5rem); color: #fff;
     background: var(--navy) radial-gradient(90% 120% at 100% 100%, rgb(54 198 244 / 30%), transparent 60%);
+    box-shadow: var(--shadow-lg);
   }
   @media (min-width: 1000px) { .club { grid-template-columns: 1.4fr 1fr; } }
   .club .h2 { color: #fff; }
@@ -42,5 +43,12 @@ import { club } from '@/data/business';
     .club-copy { grid-column: 1 / -1; grid-row: 2; }
     .club-art { grid-column: 2; grid-row: 1; justify-self: end; margin: -.5rem -.5rem -1.5rem 0; }
     .club-art img { width: 220px; }
+  }
+  @media (max-width: 699px) {
+    .club { gap: 1rem; padding: 1.5rem 1.35rem 1.7rem; border-radius: var(--radius-lg); }
+    .club-copy { gap: 1rem; }
+    .club-points { gap: .8rem; }
+    .club-art { margin: -.25rem -.25rem -.75rem 0; }
+    .club-art img { width: 196px; }
   }
 </style>

@@ -60,7 +60,7 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
   }
   .phero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(1.8rem, 1rem + 3vw, 3.5rem); align-items: center; }
   @media (min-width: 1000px) { .has-photo .phero-grid { grid-template-columns: 1.1fr 1fr; } .phero-photo { transform: rotate(1.2deg); } }
-  .phero-copy { display: grid; gap: 1.1rem; justify-items: start; }
+  .phero-copy { --stack-gap: 1.1rem; display: grid; gap: 1.1rem; justify-items: start; }
   .phero .h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem); max-width: 20ch; overflow-wrap: break-word; }
   .phero .h1.is-long { font-size: clamp(1.75rem, 1.25rem + 2vw, 2.9rem); text-transform: none; font-variation-settings: 'wdth' 100; letter-spacing: -0.01em; line-height: 1.08; max-width: 24ch; }
   .phero .lede { max-width: 52ch; }
@@ -72,10 +72,10 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
   /* Phones: the photo moves up under the headline, as a short band, so every
      inner page shows a real photo on its first screen. */
   @media (max-width: 999px) {
-    .has-photo .phero-grid { gap: 0; }
+    .has-photo .phero-grid { gap: 0; --stack-gap: 1rem; }
     .has-photo .phero-copy { display: contents; }
     .has-photo .phero-grid > .phero-copy > * { order: 6; margin-bottom: 1rem; justify-self: start; }
-    .has-photo .phero-grid > .phero-copy > :global(.crumbs) { order: 1; }
+    .has-photo .phero-grid > .phero-copy > :global(.crumbs) { order: 1; margin-bottom: .8rem; }
     .has-photo .phero-grid > .phero-copy > .pill { order: 2; }
     .has-photo .phero-grid > .phero-copy > .eyebrow { order: 3; }
     .has-photo .phero-grid > .phero-copy > .h1 { order: 4; }

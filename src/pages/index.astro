@@ -45,7 +45,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
 
   <FiveInOne />
 
-  <WildcatPromise />
+  <WildcatPromise collapse />
 
   <section class="section" aria-labelledby="reviews-title">
     <div class="wrap">
@@ -106,6 +106,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   .rev-lead {
     position: relative; background: var(--blue); color: var(--navy); border-radius: var(--radius-lg);
     padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1.2rem; align-content: start; overflow: hidden;
+    box-shadow: var(--shadow);
   }
   .rev-quote { font-family: var(--font-display); font-weight: 900; font-size: 9rem; line-height: .6; height: 3.4rem; color: #fff; }
   .rev-lead p { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; font-weight: 550; }
@@ -128,5 +129,17 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   .story-photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .story-copy { display: grid; gap: 1.1rem; justify-items: start; }
   .story-copy .h2 { font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); }
+  /* Phones: a shorter quote mark, a wider story photo and the inset photo
+     tucked closer, so these two sections take less scrolling. */
+  @media (max-width: 699px) {
+    .rev-lead { gap: .9rem; padding: 1.4rem 1.4rem 1.5rem; }
+    .rev-quote { font-size: 6.5rem; height: 2.4rem; }
+    .story-grid { gap: 1.6rem; }
+    .story-photos { padding-bottom: 12%; }
+    .sp-1 { aspect-ratio: 16 / 10; }
+    .sp-2 { width: 44%; right: -2%; border-width: 4px; }
+    .story-copy { gap: 1rem; }
+    .story-copy .h2 { font-size: 1.75rem; }
+  }
   .story-copy a:not(.text-link) { font-weight: 700; }
 </style>

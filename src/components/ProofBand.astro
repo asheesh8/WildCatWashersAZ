@@ -46,7 +46,8 @@ const badges = awards.filter((a) => a.badge);
   .stats { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
   .stat {
     display: grid; gap: .3rem; padding: clamp(1.1rem, .9rem + 1vw, 1.8rem);
-    background: var(--blue-50); border-radius: var(--radius); border: 1px solid var(--blue-100);
+    background: linear-gradient(180deg, #fff, var(--blue-50)); border-radius: var(--radius); border: 1px solid var(--blue-100);
+    box-shadow: var(--shadow-xs);
   }
   .stat-num { font-variant-numeric: tabular-nums;
     font-family: var(--font-display); font-weight: 900; line-height: .9; color: var(--navy);
@@ -60,14 +61,31 @@ const badges = awards.filter((a) => a.badge);
     padding: 1.3rem 1.5rem; border-radius: var(--radius);
     background: var(--navy) radial-gradient(120% 140% at 100% 0%, rgb(54 198 244 / 35%), transparent 55%);
     box-shadow: var(--shadow);
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease);
   }
+  .star-tile:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .star-tile:active { transform: scale(.99); box-shadow: var(--shadow-sm); transition-duration: .08s; }
+  @media (prefers-reduced-motion: reduce) { .star-tile { transition: none; } .star-tile:hover, .star-tile:active { transform: none; } }
   .star-ribbon { display: inline-flex; align-items: center; gap: .4rem; color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 1rem; }
   .star-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem); line-height: 1; font-variation-settings: 'wdth' 108; }
   .star-detail { font-size: 1.1rem; color: #d7e3f5; }
   .star-issuer { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--blue); margin-top: .2rem; }
   .badges { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .6rem; }
-  .badges li { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: .5rem; display: grid; place-items: center; aspect-ratio: 1; }
+  .badges li { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow-xs); padding: .5rem; display: grid; place-items: center; aspect-ratio: 1; }
   .badges img { width: 100%; height: 100%; object-fit: contain; }
   @media (max-width: 520px) { .badges { gap: .35rem; } .badges li { padding: .3rem; border-radius: 12px; } }
   .proof-note { font-size: 1rem; color: var(--ink-3); }
+  /* Phones: the same four numbers in a tighter 2x2, so the award and badges
+     still land on the first scroll under the hero. */
+  @media (max-width: 699px) {
+    .proof { padding-block: 1.6rem 2.2rem; }
+    .proof-grid { gap: 1rem; }
+    .stats { gap: .6rem; }
+    .stat { padding: .9rem 1rem; gap: .25rem; }
+    .stat-num { font-size: 2.2rem; }
+    .stat-label { font-size: 1rem; }
+    .awards { gap: .8rem; }
+    .star-tile { padding: 1.1rem 1.25rem; }
+    .star-title { font-size: 1.55rem; }
+  }
 </style>

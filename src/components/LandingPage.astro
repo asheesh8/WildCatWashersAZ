@@ -123,7 +123,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
   .pts { list-style: none; padding: 0; display: grid; gap: .8rem; margin-top: .8rem; }
   .pts li { display: flex; gap: .7rem; align-items: flex-start; font-size: 1.14rem; color: var(--ink-2); }
   .pts :global(svg) { flex: none; color: var(--blue-700); margin-top: .15rem; }
-  .lp-aside { background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.2rem); display: grid; gap: .8rem; align-content: start; }
+  .lp-aside { background: var(--navy) radial-gradient(100% 120% at 100% 0%, rgb(54 198 244 / 22%), transparent 60%); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.2rem); display: grid; gap: .8rem; align-content: start; box-shadow: var(--shadow); }
   .lp-aside .eyebrow { color: var(--blue); }
   .lp-aside p:not(.eyebrow) { color: #d7e3f5; font-size: 1.12rem; }
   .lp-aside .text-link { color: #fff; justify-self: start; }
@@ -132,7 +132,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
   .body { display: grid; gap: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); }
   .body section { display: grid; gap: .8rem; }
   .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-  .ans a { display: grid; height: 100%; padding: 1.1rem 1.2rem; background: #fff; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+  .ans a { display: grid; height: 100%; min-height: 56px; align-content: center; padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-xs); }
   .ans a:hover { border-color: var(--blue); }
   .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }

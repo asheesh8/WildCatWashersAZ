@@ -43,7 +43,7 @@ const {
     .five-grid { grid-template-columns: .9fr 1.1fr; }
     .five-head { position: sticky; top: 110px; align-self: start; }
   }
-  .five-head { display: grid; gap: 1.1rem; }
+  .five-head { --stack-gap: 1.1rem; display: grid; gap: 1.1rem; }
   .five-photo { aspect-ratio: 4 / 3; margin-top: .8rem; }
   .five-photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .five-list { list-style: none; padding: 0; display: grid; }

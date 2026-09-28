@@ -48,13 +48,25 @@
   --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
   --section: clamp(4rem, 3rem + 5vw, 8rem);
   --max: 1240px;
-  --radius-sm: 10px;
+  /* One radius scale: small controls, cards, large panels, pills. */
+  --radius-sm: 12px;
   --radius: 18px;
-  --radius-lg: 28px;
-  --shadow-sm: 0 1px 2px rgb(18 24 50 / 6%), 0 2px 8px rgb(18 24 50 / 6%);
-  --shadow: 0 2px 4px rgb(18 24 50 / 5%), 0 12px 32px -8px rgb(18 24 50 / 16%);
-  --shadow-lg: 0 30px 60px -20px rgb(18 24 50 / 30%);
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  /* Soft, layered shadows tinted toward the brand blue-navy, never grey.
+     Each level stacks a crisp contact shadow with a wide, faint ambient one. */
+  --shadow-c: 16 42 74;
+  --shadow-xs: 0 1px 1px rgb(var(--shadow-c) / 4%), 0 2px 6px -2px rgb(var(--shadow-c) / 8%);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-c) / 5%), 0 3px 8px -2px rgb(var(--shadow-c) / 7%), 0 10px 24px -12px rgb(var(--shadow-c) / 10%);
+  --shadow: 0 1px 2px rgb(var(--shadow-c) / 5%), 0 6px 14px -4px rgb(var(--shadow-c) / 8%), 0 20px 40px -16px rgb(var(--shadow-c) / 18%);
+  --shadow-lg: 0 2px 4px rgb(var(--shadow-c) / 5%), 0 12px 24px -8px rgb(var(--shadow-c) / 10%), 0 36px 64px -24px rgb(var(--shadow-c) / 26%);
+  --ring: 0 0 0 4px rgb(54 198 244 / 28%);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.3, 0, 0.2, 1);
+
+  /* Rhythm: eyebrow sits close to its heading; heading to lede a step more. */
+  --eyebrow-gap: .55rem;
+  --head-gap: .9rem;
 
   --header-h: 100px;
   --bar-h: 64px;
@@ -81,7 +93,10 @@ button { cursor: pointer; }
 a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 p, li { text-wrap: pretty; }
 h1, h2, h3, h4 { text-wrap: balance; }
-:focus-visible { outline: 3px solid var(--blue-600); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 3px solid var(--blue-700); outline-offset: 3px; border-radius: 6px; }
+/* On the bright blue bands the ring goes navy; on navy it goes light blue. */
+:is(.bg-blue, .turf, .shine, .rev-lead) :focus-visible { outline-color: var(--navy); }
+:is(.bg-navy, .club, .trow, .ticker, .lp-aside, .rev-inst, .site-footer) :focus-visible { outline-color: var(--blue); }
 
 .skip-link {
   position: absolute; left: 1rem; top: -100px; z-index: 100;
@@ -144,11 +159,15 @@ h1, h2, h3, h4 { text-wrap: balance; }
   font-family: var(--font-display);
   font-weight: 750;
   font-size: var(--step--1);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
   text-transform: uppercase;
   color: var(--blue-700);
 }
-.eyebrow::before { content: ''; flex: none; width: 28px; height: 3px; border-radius: 3px; background: currentColor; align-self: flex-start; margin-top: .6em; }
+.eyebrow::before { content: ''; flex: none; width: 22px; height: 3px; border-radius: 3px; background: currentColor; align-self: flex-start; margin-top: .6em; }
+/* Consistent eyebrow → heading spacing wherever an eyebrow leads a heading,
+   whatever gap its parent uses. */
+.eyebrow + :is(h1, h2, h3, .h1, .h2, .h3) { margin-top: calc(var(--eyebrow-gap) - var(--stack-gap, 1rem)); }
 .bg-navy .eyebrow, .bg-blue .eyebrow { color: inherit; }
 .lede { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 44ch; }
 .bg-navy .lede { color: #d7e3f5; }
@@ -160,7 +179,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .prose ul { padding-left: 1.3rem; }
 .prose li + li { margin-top: .4rem; }
 
-.section-head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
+.section-head { --stack-gap: var(--head-gap); display: grid; gap: var(--head-gap); margin-bottom: clamp(1.6rem, 1.2rem + 2vw, 3rem); }
+.section-head > .eyebrow + * { margin-top: calc(var(--eyebrow-gap) - var(--head-gap)); }
 .section-head.center { justify-items: center; }
 .section-head.center .lede { margin-inline: auto; }
 
@@ -172,12 +192,13 @@ h1, h2, h3, h4 { text-wrap: balance; }
   position: relative; isolation: isolate; overflow: hidden;
   display: inline-flex; align-items: center; justify-content: center; gap: .9rem;
   min-height: 60px; padding: .5rem .6rem .5rem 1.6rem;
-  border: 0; border-radius: 999px;
+  border: 0; border-radius: var(--radius-pill);
   background: var(--bg); color: var(--fg);
   font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: .01em;
   font-variation-settings: 'wdth' 100;
   text-decoration: none; white-space: nowrap;
-  box-shadow: 0 4px 0 var(--edge), 0 14px 28px -10px rgb(18 24 50 / 45%);
+  /* A thin top highlight, a short tactile edge and a soft ambient shadow. */
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%), 0 2px 0 var(--edge), 0 2px 4px rgb(var(--shadow-c) / 10%), 0 12px 24px -10px rgb(var(--shadow-c) / 38%);
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
 }
 .btn::after {
@@ -191,9 +212,12 @@ h1, h2, h3, h4 { text-wrap: balance; }
   transition: transform .3s var(--ease);
 }
 .btn .chip svg { width: 22px; height: 22px; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--edge), 0 20px 34px -12px rgb(18 24 50 / 50%); }
+.btn:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%), 0 3px 0 var(--edge), 0 4px 8px rgb(var(--shadow-c) / 10%), 0 18px 32px -12px rgb(var(--shadow-c) / 42%); }
 .btn:hover .chip { transform: translateX(3px) rotate(-45deg); }
-.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--edge), 0 6px 14px -8px rgb(18 24 50 / 50%); }
+.btn:active { transform: translateY(1px) scale(.985); box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 0 0 var(--edge), 0 2px 6px -2px rgb(var(--shadow-c) / 30%); transition-duration: .08s; transition-timing-function: var(--ease-press); }
+.btn:active .chip { transform: scale(.94); }
+/* Keyboard focus: the outline plus a soft halo, offset clear of the edge. */
+.btn:focus-visible { outline-offset: 4px; }
 @media (prefers-reduced-motion: no-preference) {
   .btn:hover::after { transform: translateX(120%); transition: transform .8s var(--ease); }
 }
@@ -272,6 +296,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .js .sweep, .js .sweep.in { animation: none !important; background-image: none !important; -webkit-text-fill-color: currentColor !important; }
   .btn, .btn .chip { transition: none; }
+  .btn:hover, .btn:active, .btn:hover .chip, .btn:active .chip { transform: none; }
 }
 
 /* --------------------------------------------------------------- forms */
@@ -434,3 +459,45 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 /* Phones: section headings a step smaller, so long place names stay within
    four lines (design review 1, optional item). */
 @media (max-width: 759px) { .h2 { font-size: clamp(1.6rem, 1.1rem + 2.6vw, 1.9rem); } }
+
+/* ── Polish pass: calm surfaces and quiet feedback ─────────────────
+   Everything pressable shares one vocabulary: rest on a soft layered
+   shadow, lift 2px with a deeper shadow on hover, settle back with a
+   slight scale on press. Reduced motion keeps the colour and shadow
+   changes and drops the movement. */
+.card { border-color: var(--line); box-shadow: var(--shadow-sm); }
+.phone-link { transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .15s var(--ease-press); }
+.phone-link:active { transform: scale(.98); }
+
+:is(.topics, .ans) a {
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s, background .2s;
+}
+:is(.topics, .ans) a:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--blue-200); }
+:is(.topics, .ans) a:active, a.card:active { transform: translateY(0) scale(.99); box-shadow: var(--shadow-xs); transition-duration: .08s; }
+:is(.topics, .ans) a :is(svg) { transition: transform .3s var(--ease); }
+.topics a:hover svg { transform: translateX(3px); }
+
+/* Chips: slightly calmer at rest, a soft shadow instead of a heavy border. */
+.chips a { border-width: 1px; border-color: var(--line); box-shadow: var(--shadow-xs); min-height: 48px; }
+
+/* Swipe arrows read as the same soft buttons. */
+.swipe-ctrl button { border-width: 1px; box-shadow: var(--shadow-xs); }
+.swipe-ctrl button:disabled { box-shadow: none; }
+
+/* FAQ rows: one border weight, a soft shadow, and a blue edge when open. */
+.faq details { box-shadow: var(--shadow-xs); }
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-link, :is(.topics, .ans) a, :is(.topics, .ans) a svg { transition: none; }
+  .phone-link:active, :is(.topics, .ans) a:hover, :is(.topics, .ans) a:active, a.card:active, .topics a:hover svg { transform: none; }
+}
+
+/* Phones: a slightly tighter vertical rhythm so pages scroll less, while
+   keeping the same type sizes. */
+@media (max-width: 699px) {
+  :root { --section: 2.9rem; --head-gap: .8rem; }
+  .section-head { margin-bottom: 1.4rem; }
+  .section-tight { padding-block: 2.2rem; }
+  /* Two plain white sections in a row: don't stack both paddings. */
+  .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) { padding-top: calc(var(--section) * .35); }
+}

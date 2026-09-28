@@ -23,8 +23,9 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
 </section>
 <style>
   .faq { display: grid; gap: .7rem; }
-  details { background: #fff; border: 2px solid var(--line); border-radius: var(--radius); transition: border-color .2s; }
-  details[open] { border-color: var(--blue); }
+  details { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .2s, box-shadow .25s var(--ease); }
+  details:hover { border-color: var(--blue-200); }
+  details[open] { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue), var(--shadow-sm); }
   summary {
     list-style: none; cursor: pointer; display: flex; gap: 1rem; align-items: center; justify-content: space-between;
     padding: 1.2rem 1.3rem; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.15rem, 1.05rem + .4vw, 1.35rem); color: var(--navy); line-height: 1.25;
@@ -38,4 +39,13 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
   .faq-a { padding: 0 1.3rem 1.3rem; }
   .faq-more { display: inline-block; margin-top: .6rem; font-weight: 700; }
   .faq-a p { font-size: 1.12rem; color: var(--ink-2); max-width: 64ch; }
+  summary:active .plus { transform: scale(.92); }
+  .plus { transition: transform .15s var(--ease-press), background .2s; }
+  @media (max-width: 699px) {
+    .faq { gap: .6rem; }
+    summary { padding: 1rem 1.1rem; font-size: 1.12rem; }
+    .plus { width: 36px; height: 36px; }
+    .faq-a { padding: 0 1.1rem 1.1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .plus, .plus::before, .plus::after { transition: none; } summary:active .plus { transform: none; } }
 </style>

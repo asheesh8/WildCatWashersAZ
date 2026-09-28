@@ -36,7 +36,11 @@ const list = services.filter((s) => s.slug !== exclude && (!only || only.include
     position: relative; display: block; height: 100%; min-height: 300px; overflow: hidden;
     border-radius: var(--radius-lg); color: #fff; text-decoration: none; isolation: isolate;
     box-shadow: var(--shadow);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
   }
+  .scard a:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .scard a:active { transform: scale(.985); box-shadow: var(--shadow-sm); transition-duration: .08s; }
+  .scard a:focus-visible { outline-offset: 4px; }
   .scard :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s var(--ease); }
   .scard a::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(18 24 50 / 0%) 30%, rgb(18 24 50 / 88%) 100%); }
   .scard a:hover :global(img) { transform: scale(1.05); }
@@ -50,10 +54,14 @@ const list = services.filter((s) => s.slug !== exclude && (!only || only.include
     transition: transform .3s var(--ease);
   }
   .scard a:hover .scard-go { transform: rotate(45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .scard a, .scard :global(img), .scard-go { transition: none; }
+    .scard a:hover, .scard a:active, .scard a:hover :global(img), .scard a:hover .scard-go { transform: none; }
+  }
   /* Phones: a 2-up grid of photo tiles, a third of the height of full cards. */
   @media (max-width: 759px) {
     .sgrid { grid-template-columns: 1fr 1fr; gap: .7rem; }
-    .scard a { min-height: 200px; border-radius: var(--radius); }
+    .scard a { min-height: 176px; border-radius: var(--radius); }
     .scard-body { padding: .9rem; gap: .2rem; }
     .scard-name { font-size: 1.12rem; padding-right: 0; font-variation-settings: 'wdth' 100; line-height: 1.05; overflow-wrap: break-word; }
     .scard-line, .scard-go { display: none; }

@@ -6,8 +6,8 @@
  */
 import Icon from './Icon.astro';
 import { promise, guarantees, company } from '@/data/business';
-export interface Props { showGuarantees?: boolean; headingLevel?: 'h1' | 'h2' }
-const { showGuarantees = true, headingLevel = 'h2' } = Astro.props;
+export interface Props { showGuarantees?: boolean; headingLevel?: 'h1' | 'h2'; /** Phones: start each promise as its title only (home page). */ collapse?: boolean }
+const { showGuarantees = true, headingLevel = 'h2', collapse = false } = Astro.props;
 const H = headingLevel;
 ---
 <section class="section promise-sec" aria-labelledby="promise-title">
@@ -17,14 +17,32 @@ const H = headingLevel;
         <img class="cert-seal" src="/brand/wildcat-mascot.webp" alt="" width="120" height="120" loading="lazy" />
         <p class="cert-kicker">Our word, in writing</p>
         <H id="promise-title" class="cert-title">The Wildcat <span>Promise</span></H>
-        <ol class="cert-list" role="list">
+        <ol class:list={['cert-list', collapse && 'is-collapsible']} role="list">
           {promise.map((p, i) => (
             <li>
-              <span class="cert-n">{i + 1}</span>
-              <div><strong>{p.title}</strong><p>{p.body}</p></div>
+              <span class="cert-n" aria-hidden="true">{i + 1}</span>
+              {collapse ? (
+                <details open>
+                  <summary><strong>{p.title}</strong><span class="cert-plus" aria-hidden="true"></span></summary>
+                  <p>{p.body}</p>
+                </details>
+              ) : (
+                <div><strong>{p.title}</strong><p>{p.body}</p></div>
+              )}
             </li>
           ))}
         </ol>
+        {collapse && <script is:inline>
+          /* Phones: the five promises start as titles; tap one to read it. */
+          (function () {
+            var s = document.currentScript, l = s && s.previousElementSibling;
+            if (!l) return;
+            var phone = matchMedia('(max-width: 759px)').matches;
+            l.querySelectorAll('details').forEach(function (d) {
+              if (phone) d.open = false; else d.querySelector('summary').tabIndex = -1;
+            });
+          })();
+        </script>}
         <div class="cert-sign">
           {company.founders.map((f) => (
             <div><span class="sig">{f}</span><span class="sig-role">{f}, Co-founder</span></div>
@@ -72,15 +90,22 @@ const H = headingLevel;
   .cert-list { list-style: none; padding: 0; display: grid; gap: 1.1rem; text-align: left; max-width: 620px; margin-inline: auto; }
   .cert-list li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
   .cert-n { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--navy); font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; }
-  .cert-list strong { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--navy); }
+  .cert-list strong { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--navy); line-height: 1.3; }
   .cert-list p { color: var(--ink-2); font-size: 1.08rem; }
+  .cert-list summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 44px; cursor: default; }
+  .cert-list summary::-webkit-details-marker { display: none; }
+  .cert-plus { display: none; }
+  /* Desktop shows every promise in full; the rows aren't toggles there. */
+  @media (min-width: 760px) { .cert-list summary { pointer-events: none; min-height: 0; } }
+  .cert-list summary strong { display: block; }
   .cert-sign { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem 3rem; margin-top: 2.2rem; }
   .cert-sign div { display: grid; justify-items: center; }
   .sig { font-family: var(--font-script); font-size: 2.1rem; color: var(--navy); padding: 0 .6rem; border-bottom: 2px solid var(--navy); line-height: 1.3; }
   .sig-role { font-size: 1rem; color: var(--ink-3); margin-top: .35rem; font-weight: 650; }
   .guar { display: grid; gap: 1.1rem; }
-  .guar-card { background: #fff; border-radius: var(--radius-lg); padding: 1.6rem; border: 1px solid var(--line); box-shadow: var(--shadow-sm); display: grid; gap: .5rem; }
-  .guar-icon { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
+  .guar-card { background: #fff; border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--line); box-shadow: var(--shadow-sm); display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; align-items: center; }
+  .guar-card > :not(.guar-icon, .h3) { grid-column: 1 / -1; }
+  .guar-icon { width: 52px; height: 52px; border-radius: var(--radius-sm); display: grid; place-items: center; background: var(--blue); color: var(--navy); }
   .guar-head { font-weight: 750; font-size: 1.2rem; color: var(--navy); }
   .guar-card p:last-child { color: var(--ink-2); }
   .guar-row { display: grid; gap: 1.1rem; }
@@ -90,7 +115,21 @@ const H = headingLevel;
     .cert-seal { width: 84px; height: 84px; margin-top: -3.6rem; }
     .cert-title { margin-bottom: 1.1rem; }
     .cert-list { gap: .8rem; }
+    .is-collapsible { gap: .35rem; }
+    .is-collapsible li { align-items: center; gap: .8rem; }
+    .is-collapsible li:has(details[open]) { align-items: start; }
+    .is-collapsible li:has(details[open]) .cert-n { margin-top: .1rem; }
+    .is-collapsible summary { pointer-events: auto; min-height: 44px; cursor: pointer; padding-block: .25rem; }
+    .is-collapsible strong { font-size: 1.15rem; }
+    .is-collapsible p { padding: 0 0 .5rem; }
+    .is-collapsible .cert-n { width: 38px; height: 38px; font-size: 1.1rem; }
+    .is-collapsible .cert-plus { display: block; position: relative; flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--blue-50); }
+    .cert-plus::before, .cert-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 13px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+    .cert-plus::after { rotate: 90deg; }
+    details[open] .cert-plus { background: var(--blue); }
+    details[open] .cert-plus::after { rotate: 0deg; }
     .cert-sign { margin-top: 1.4rem; gap: .8rem 2rem; }
     .sig { font-size: 1.7rem; }
   }
+  @media (prefers-reduced-motion: reduce) { .cert-plus::before, .cert-plus::after { transition: none; } }
 </style>

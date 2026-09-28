@@ -6,10 +6,11 @@
  */
 import { Image } from 'astro:assets';
 import { img, altFor, hasImg, focusFor, sceneOf } from '@/data/media';
-export interface Props { keys: string[]; title?: string }
-const { keys, title } = Astro.props;
-/* One copy of a scene per grid, even if a caller passes both twins. */
-const seen = new Set<string>();
+export interface Props { keys: string[]; title?: string; /** Photos already shown elsewhere on the page; their scenes are skipped here. */ avoid?: string[] }
+const { keys, title, avoid = [] } = Astro.props;
+/* One copy of a scene per grid, even if a caller passes both twins, and none
+   the page already shows. */
+const seen = new Set<string>(avoid.filter(Boolean).map(sceneOf));
 const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(sceneOf(k))).slice(0, 6);
 ---
 {list.length > 0 && (
