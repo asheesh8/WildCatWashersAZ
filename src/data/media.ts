@@ -77,7 +77,7 @@ export const alt: Record<string, string> = {
   'before-after-patio-split': 'Stamped concrete patio with one half pressure washed — the cleaned side is tan and patterned, the untouched side grey and stained',
 
   // Solar
-  'solar-panels-tile-roof-neighborhood': 'Clean rooftop solar array on a tile roof in a Tucson-area neighbourhood',
+  'solar-panels-tile-roof-neighborhood': 'Clean rooftop solar array on a tile roof in a Tucson-area neighborhood',
   'solar-panels-roof-tucson': 'Solar panels on a Tucson home after cleaning',
   'solar-panel-closeup': 'Close-up of a solar panel surface cleaned with deionised water',
   'solar-panels-pool-patio': 'Solar array above a backyard pool and patio',
@@ -199,7 +199,6 @@ export const pools = {
     'tech-kneeling-french-doors-pool',
     'tech-shirt-back-scrubbing',
     'tech-squeegee-soapy-window-sky',
-    'hero-film-poster',
   ],
   windowResult: [
     'clean-window-mountain-view',
@@ -440,8 +439,8 @@ const focusOverride: Record<string, string> = {
   'team-trucks-desert-mountains': '50% 70%',
   'hero-crew-trucks-sky': '50% 65%',
   'tech-shirt-back-scrubbing': '50% 30%',
-  'tech-scrubbing-sliding-door': '35% 35%',
-  'tech-crouching-gridded-door': '40% 45%',
+  'tech-scrubbing-sliding-door': '45% 25%',
+  'tech-crouching-gridded-door': '50% 25%',
   'tech-kneeling-french-doors-pool': '50% 65%',
   'tech-detailing-door-frame-pool': '50% 60%',
   'tech-squeegee-reflection-glass': '50% 35%',
@@ -449,7 +448,7 @@ const focusOverride: Record<string, string> = {
   'tech-spotless-reputation-shirt': '50% 45%',
   'solar-panels-hillside': '50% 70%',
   'solar-panels-tile-roof-closeup': '50% 45%',
-  'hero-film-poster': '60% 40%',
+  'tech-slider-squeegee': '50% 0%',
 };
 /** CSS object-position for a photo: portrait shots anchor a little above centre. */
 export function focusFor(key: string): string {
