@@ -443,7 +443,7 @@ const focusOverride: Record<string, string> = {
   'tech-crouching-gridded-door': '50% 25%',
   'tech-kneeling-french-doors-pool': '50% 65%',
   'tech-detailing-door-frame-pool': '50% 60%',
-  'tech-squeegee-reflection-glass': '50% 35%',
+  'tech-squeegee-reflection-glass': '60% 5%',
   'tech-squeegee-soapy-window-sky': '50% 55%',
   'tech-spotless-reputation-shirt': '50% 45%',
   'solar-panels-hillside': '50% 70%',

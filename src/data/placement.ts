@@ -41,7 +41,9 @@ const heroKinds: Record<string, PhotoKind[]> = {
   community: ['window-action', 'window-result'],
 };
 /* No crop of these keeps a head in frame at hero size (review thread, mobile pass 1). */
-const notHero = (k: string) => /^before-after|split$/.test(k) || k.startsWith('award-') || k === 'tech-slider-squeegee';
+const notHero = (k: string) => /^before-after|split$/.test(k) || k.startsWith('award-') || k === 'tech-slider-squeegee'
+  /* Only ~570px wide: sharp in gallery tiles, soft as a hero on phones. */
+  || k === 'tech-squeegee-reflection-glass' || k === 'tech-squeegee-soapy-window-sky';
 
 const usable = allKeys.filter((k) => photoKind[k] && k !== 'hero-film-poster');
 const uses = new Map<string, number>();
