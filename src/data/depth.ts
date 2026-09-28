@@ -29,6 +29,8 @@ export type Depth = {
   /** Reviews moved to their home page (round 5 review moves), kept out of this page's review block. */
   omit?: number[];
   faq?: number[];
+  /** Landing pages (round 6): the page's link row, in order, in place of the landing's related list. */
+  related?: string[];
 };
 
 /** FAQ shown on every window × town page, linked to its owner (no schema here). */
@@ -1071,6 +1073,230 @@ export const depth: Record<string, Depth> = {
     ],
     proof: [123],
     faq: [110, 78, 18, 13, 193],
+  },
+
+  /* ============================== Round 6: who we help and commercial ============================== */
+  '/who-we-help/real-estate-agents/': {
+    title: 'Window Cleaning for Real Estate Agents | Listing Prep',
+    meta: 'Listing prep and pre-sale window cleaning for Tucson real estate agents: glass, screens and tracks ready for photos and showings. (520) 525-0084.',
+    // CONFIRM WITH COOPER before launch: agent rebooking claim
+    // (the sentence below is F237's own wording; it stays out of the title and meta).
+    answer:
+      'Yes, Wildcat Washers works with real estate agents, mostly on listing prep and pre-sale cleaning. Clean windows make a home look well kept, in person and in listing photos. And every real estate agent who’s hired us once has kept using us. We won’t claim a number for how much faster a home sells.',
+    sections: [
+      { h: 'Before the photographer', p: 'Glass, frames, sills, tracks and screens all show in listing photos and at showings, so every window gets the full [5-in-1 Deep Clean](/services/window-cleaning/): cleaned by hand, tracks vacuumed out, screens reconditioned, and every pane double checked before we walk the job. [Getting your home ready to sell](/guides/getting-your-home-ready-to-sell/) covers the rest.' },
+      { h: 'Vacant listings', p: 'You don’t need to be there, and neither do your sellers. Plenty of our customers aren’t home, especially for exterior work. We keep payment on file and charge after the job.' },
+      { h: 'Solar panels, driveways and screens too', p: 'If the listing needs more than glass, book it in the same visit. Several services at once saves us time and routing, and we pass that back: one visit costs less than several. That includes [driveways and garage floors](/services/pressure-washing/driveways-garage-floors/), [solar panel cleaning](/services/solar-panel-cleaning/) and [screen repair](/services/screen-repair/).' },
+    ],
+    faq: [237, 168, 169],
+    related: ['/guides/getting-your-home-ready-to-sell/', '/services/window-cleaning/', '/services/pressure-washing/driveways-garage-floors/', '/reviews/'],
+  },
+
+  '/who-we-help/property-managers/': {
+    title: 'Window Cleaning for Property Managers in Tucson',
+    meta: 'Rentals, vacation homes and multi-property portfolios on one schedule with one point of contact. COIs available. (520) 525-0084.',
+    answer:
+      'Wildcat Washers works with property managers, landlords and absentee owners regularly. Multi-property portfolios run on a single schedule with one point of contact, and we provide certificates of insurance and whatever documentation you need. Community and portfolio work is custom-quoted, and we pass the routing savings back in the pricing.',
+    sections: [
+      { h: 'Turnovers and vacant units', p: 'Nobody needs to be on site. We do this all the time for seasonal residents and out-of-state owners: we keep payment on file and charge after the job. [Do I need to be home?](/guides/do-i-need-to-be-home-for-window-cleaning/)' },
+      { h: 'Every service, every property', p: 'Window cleaning, [solar panel cleaning](/services/solar-panel-cleaning/), [solar screens](/services/solar-screens/), [screen repair](/services/screen-repair/), [pressure washing](/services/pressure-washing/) and [solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/) are all available for rentals and commercial properties, done the same way we do them on any home.' },
+      { h: 'Service agreements', p: 'Recurring work runs on a service agreement with the mix and frequency each property needs. There’s no rate card: portfolios are custom-quoted, with discounted pricing for property managers and real estate portfolios. [Apartment communities](/commercial/multifamily-apartments/) and [HOAs](/who-we-help/hoas-communities/) work the same way.' },
+      { h: 'Around your tenants', p: 'We work before open, after close or on weekends, seven days a week. Licensed and fully insured, with certificates of insurance available before we start. [Are window cleaners licensed and insured?](/guides/are-window-cleaners-licensed-and-insured-arizona/)' },
+    ],
+    faq: [158, 195],
+    related: ['/commercial/multifamily-apartments/', '/who-we-help/hoas-communities/', '/commercial/', '/guides/are-window-cleaners-licensed-and-insured-arizona/'],
+  },
+
+  '/who-we-help/painting-contractors/': {
+    title: 'Pre-Paint Pressure Washing for Painting Contractors',
+    meta: 'Pre-paint prep washing for Tucson painting contractors: dust and chalking off before the first coat. Seven days a week. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers pressure washes exteriors before painting, for painting contractors and homeowners alike. Paint won’t bond properly to a dusty surface, and desert dust, chalking and buildup are exactly what cause premature paint failure. We match pressure to the surface and protect stucco, sills and landscaping on every job.',
+    sections: [
+      { h: 'Why prep washing matters here', p: 'Walls in the desert collect fine dust, chalking from old paint and general buildup. Paint laid over that doesn’t bond properly, and that’s what leads to premature paint failure. A [prep wash](/services/pressure-washing/pre-paint-prep/) takes it off before the first coat.' },
+      { h: 'For painting contractors', p: 'You don’t need to own or haul the equipment. Hand the prep wash to us and we’ll work around your paint schedule, seven days a week. Homeowners getting ready for a paint job book it the same way.' },
+      { h: 'Stucco-safe', p: 'Pressure washing can damage stucco if it’s done wrong. We match the pressure to the surface and protect stucco, paint, sills and landscaping on every job. More on [pressure washing and stucco](/guides/can-pressure-washing-damage-stucco/).' },
+      { h: 'Cleaning only', p: 'We clean the surface and leave the coatings to you: we don’t seal or stain. The rest of our [pressure washing](/services/pressure-washing/) covers driveways, patios and more.' },
+    ],
+    faq: [233, 72, 79],
+    related: ['/services/pressure-washing/pre-paint-prep/', '/services/pressure-washing/', '/guides/can-pressure-washing-damage-stucco/', '/who-we-help/builders-new-construction/'],
+  },
+
+  '/who-we-help/builders-new-construction/': {
+    title: 'New Construction Window Cleaning in Tucson',
+    meta: 'Builder dust, debris and construction cleanup on glass for new homes and buildings across Greater Tucson. (520) 525-0084.',
+    answer:
+      'Wildcat Washers handles new construction cleanup: builder dust, debris and construction residue on glass, across any of our service lines. Heavy paint or stucco overspray on glass can be stubborn. We usually get it off with steel wool or a scraper, but we won’t promise it all comes off.',
+    sections: [
+      { h: 'Glass, frames, tracks and screens', p: 'A new home gets the same [5-in-1 Deep Clean](/services/window-cleaning/) as any other: glass, frames, sills, tracks and screens, all cleaned by hand, with tracks vacuumed out and every pane double checked.' },
+      { h: 'Overspray, honestly', p: 'Paint or stucco overspray stuck to glass is usually solvable, but it’s never guaranteed. We usually get it with steel wool or a scraper, and we won’t promise that every bit comes off.' },
+      { h: 'Only 0000 steel wool on glass', p: 'The only steel wool that touches glass is 0000 grade, the finest there is. Coarser grades scratch. [Why 0000 steel wool on glass?](/guides/why-0000-steel-wool-on-glass/)' },
+      { h: 'After move-in', p: 'We also clean for homeowners in newer communities like [Del Webb at Rocking K](/areas/vail-az/del-webb-at-rocking-k/) in Vail AZ and [SaddleBrooke Ranch](/areas/saddlebrooke/saddlebrooke-ranch/). New concrete and driveways can be pressure washed too: [driveways that have never been washed](/services/pressure-washing/driveways-garage-floors/) come up.' },
+    ],
+    faq: [236],
+    related: ['/areas/vail-az/del-webb-at-rocking-k/', '/areas/saddlebrooke/saddlebrooke-ranch/', '/services/window-cleaning/', '/guides/why-0000-steel-wool-on-glass/'],
+  },
+
+  '/who-we-help/hoas-communities/': {
+    title: 'HOA Window Cleaning and Exterior Services in Tucson',
+    meta: 'Clubhouses, common areas and resident homes on one schedule. Custom HOA group pricing, COIs available. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans clubhouses, common areas, leasing offices and community facilities for HOAs on a recurring schedule. Community work is more efficient for us, with one trip and one schedule, so HOAs get custom-quoted pricing that passes those savings back. Certificates of insurance and compliance paperwork are available.',
+    sections: [
+      { h: 'For the association', p: 'Clubhouses, pools and rec centers, community centers and common areas, cleaned on a recurring schedule under a service agreement with the mix and frequency your community needs. Licensed and fully insured. [Country club and golf clubhouses](/commercial/country-clubs-golf/) work the same way.' },
+      { h: 'For residents: find your HOA', p: 'Start with [SaddleBrooke One](/areas/saddlebrooke/saddlebrooke-one/), [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/) and [Continental Ranch](/areas/marana/continental-ranch/). Each community page covers what we see there. In SaddleBrooke, also [The Preserve at SaddleBrooke](/areas/saddlebrooke/the-preserve-at-saddlebrooke/). In Marana, [Sunflower at Continental Ranch](/areas/marana/sunflower-at-continental-ranch/) and [Del Webb at Dove Mountain](/areas/marana/del-webb-at-dove-mountain/).' },
+      { h: 'More HOAs by town', p: 'Green Valley: [Legends](/areas/green-valley/legends/), [Springs at Canoa](/areas/green-valley/springs-at-canoa/), [The Links at Santa Rita Springs](/areas/green-valley/links-at-santa-rita-springs/), [Colonia de los Alamos](/areas/green-valley/colonia-de-los-alamos/) and [Las Campanas](/areas/green-valley/las-campanas/). Sahuarita: [Sonora at Rancho Sahuarita](/areas/sahuarita/sonora-at-rancho-sahuarita/) and [Rancho Resort](/areas/sahuarita/rancho-resort/). Oro Valley: [Vistoso Village](/areas/oro-valley/vistoso-village/). Catalina Foothills: [Skyline Country Club](/areas/catalina-foothills/skyline-country-club/) and [Sin Vacas](/areas/catalina-foothills/sin-vacas/). Tanque Verde: [Vactor Ranch](/areas/tanque-verde/vactor-ranch/) and [Forty Niner Country Club Estates](/areas/tanque-verde/forty-niner-country-club-estates/). Tucson: [Tucson Estates](/areas/tucson/tucson-estates/). Vail AZ: [Del Webb at Rancho del Lago](/areas/vail-az/del-webb-at-rancho-del-lago/) and [Academy Village](/areas/vail-az/academy-village/). Don’t see yours? [Browse every area](/areas/).' },
+      { h: 'Architectural review', p: 'Solar screens are a visible exterior change, so residents should check with their HOA before ordering them. Approvals are between the homeowner and the HOA; we don’t handle them.' },
+      { h: 'Service agreements and pricing', p: 'Community work is custom-quoted, with no rate card, and recurring work runs on a service agreement. [Property managers](/who-we-help/property-managers/) with several communities get one schedule and one point of contact. Call (520) 525-0084 and we’ll put together a quote.' },
+    ],
+    faq: [194, 193],
+    related: ['/areas/saddlebrooke/saddlebrooke-one/', '/areas/saddlebrooke/saddlebrooke-two/', '/areas/marana/continental-ranch/', '/areas/green-valley/legends/', '/commercial/country-clubs-golf/', '/who-we-help/property-managers/', '/areas/'],
+  },
+
+  '/who-we-help/senior-living/': {
+    title: 'Senior Living Window Cleaning in Tucson | Arroyo Gardens',
+    meta: 'Window cleaning for assisted and independent living communities. Quiet, uniformed crews. Trusted by Arroyo Gardens in Green Valley. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows for senior living communities, including Arroyo Gardens Independent and Assisted Living in Green Valley, where we cleaned every exterior window of their large building. Crews are quiet, uniformed and background checked, and we schedule around residents and staff, seven days a week.',
+    sections: [
+      { h: 'Arroyo Gardens, in their words', p: 'Arroyo Gardens Independent and Assisted Living in [Green Valley](/areas/green-valley/) hired us to clean all of the exterior windows of their large building.', q: { text: arroyoGardens.quote, by: `${arroyoGardens.name}, ${arroyoGardens.role}` } },
+      { h: 'Assisted living, independent living and memory care', p: 'We schedule around residents and staff, seven days a week, with quiet, uniformed crews. Licensed and fully insured, with certificates of insurance and standard compliance paperwork available. See all our [commercial work](/commercial/).' },
+      { h: 'With residents at home', p: 'Shoe covers go on before we come in, towels catch any drips, and furniture is moved and put back exactly where it was. No water left inside, no mess left behind. [Is it safe to let window cleaners inside?](/guides/is-it-safe-to-let-window-cleaners-inside/)' },
+      { h: 'For 55+ homeowners', p: 'We clean homes across 55+ communities like [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/), [Quail Creek](/areas/green-valley/quail-creek/) and [SaddleBrooke](/areas/saddlebrooke/). We offer a senior discount too: just mention it when you call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+    faq: [193, 196],
+    related: ['/commercial/', '/areas/green-valley/', '/areas/oro-valley/sun-city-oro-valley/', '/guides/senior-and-veteran-discounts-window-cleaning/', '/guides/is-it-safe-to-let-window-cleaners-inside/'],
+  },
+
+  '/who-we-help/snowbirds-seasonal-residents/': {
+    title: 'Window Cleaning for Snowbirds in Tucson | Ready on Arrival',
+    meta: 'Tell us your arrival date and your house will be clean and ready the day you get to Tucson. No need to be in town. (520) 525-0084.',
+    answer:
+      'Wildcat Washers works with snowbirds and seasonal residents all the time. Tell us your arrival date and we’ll have the house clean and ready the day you get to Tucson. You don’t need to be in town: we keep a card on file and charge after the job.',
+    sections: [
+      { h: 'Timed to your arrival', p: 'Most seasonal residents have us come right when they arrive, so the house is clean and ready the day they get to Tucson. Tell us your arrival date and we’ll have it scheduled. [Do I need to be home?](/guides/do-i-need-to-be-home-for-window-cleaning/)' },
+      { h: 'Where seasonal owners live', p: 'We work with seasonal owners across [Green Valley](/areas/green-valley/), [Quail Creek](/areas/green-valley/quail-creek/), [SaddleBrooke](/areas/saddlebrooke/) and [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/), and all over Greater Tucson.' },
+      { h: 'Reminders', p: '[Wildcat Club](/wildcat-club/) members get automated reminders, and we reach out when it’s time. One-time service is always available too.' },
+      { h: 'Solar panels while you’re away', p: '[Solar panels](/services/solar-panel-cleaning/) need cleaning once or twice a year to keep performing, and nobody has to be home for it. We take before and after photos on every job, so you can see the difference yourself.' },
+    ],
+    faq: [167, 238, 145],
+    related: ['/areas/green-valley/', '/areas/green-valley/quail-creek/', '/areas/saddlebrooke/', '/guides/do-i-need-to-be-home-for-window-cleaning/', '/wildcat-club/'],
+  },
+
+  '/commercial/storefronts-retail/': {
+    title: 'Storefront and Retail Window Cleaning in Tucson',
+    meta: 'Storefront and retail window cleaning weekly, biweekly or monthly, before you open or after close. COIs available. (520) 525-0084.',
+    answer:
+      'For high-traffic retail, monthly storefront cleaning is common, and some shops go weekly. Wildcat Washers builds a custom plan around what your storefront actually needs, anywhere from weekly to twice a year. We clean before you open or after you close, seven days a week, and provide certificates of insurance.',
+    sections: [
+      { h: 'Entryways that stay spotless', p: 'Entryways see the most traffic, so storefront glass is often on a monthly, biweekly or weekly plan. Recurring work runs on a service agreement built around your store, not a template.' },
+      { h: 'Priced per pane', p: 'Windows are priced per pane, with difficulty, access and glass size factored in. Call (520) 525-0084 for a quote.' },
+      { h: 'Every kind of shop', p: 'Shopping centers, grocery stores, pharmacies, salons and single storefronts. Licensed and fully insured, with certificates of insurance available before we start. [Restaurants](/commercial/restaurants-hospitality/) and [offices](/commercial/office-buildings/) work the same way.' },
+      { h: 'The same guarantees', p: 'Commercial glass is cleaned the same way as residential: by hand, with every pane double checked. It’s backed by the same guarantees, including the [14-Day Spotless Guarantee](/guarantee/).' },
+    ],
+    faq: [190],
+    related: ['/commercial/', '/commercial/restaurants-hospitality/', '/commercial/office-buildings/', '/guarantee/'],
+  },
+
+  '/commercial/office-buildings/': {
+    title: 'Office Building Window Cleaning in Tucson',
+    meta: 'Office, business park and professional building window cleaning after hours or on weekends. Service agreements and COIs. (520) 525-0084.',
+    answer:
+      'Wildcat Washers does commercial window cleaning across Greater Tucson: office buildings, business parks, professional complexes and more. We work before open, after close or on weekends, seven days a week, around your business. High glass is reached with deionized water on a water-fed pole, and every job is fully insured.',
+    sections: [
+      { h: 'Recurring service agreements', p: 'Most offices run on a service agreement: a custom plan with the mix and frequency your building needs, anywhere from weekly to twice a year.' },
+      { h: 'Documentation', p: 'Licensed and fully insured. Certificates of insurance and standard compliance paperwork are available before we start. Managing several buildings? See [property managers](/who-we-help/property-managers/).' },
+      { h: 'Every kind of office', p: 'Co-working spaces, law and accounting offices, insurance, title and escrow offices, and banks, from a single suite to a whole business park. [Medical and dental offices](/commercial/medical-dental/) too.' },
+      { h: 'Quiet crews, spot-free high glass', p: 'Crews are quiet and uniformed. Upper glass is cleaned with pure deionized water on a water-fed pole, which dries spot-free. [Water-fed pole vs hand washing](/guides/water-fed-pole-vs-hand-washing/)' },
+    ],
+    faq: [189, 191, 196],
+    related: ['/commercial/', '/commercial/medical-dental/', '/guides/water-fed-pole-vs-hand-washing/', '/who-we-help/property-managers/'],
+  },
+
+  '/commercial/medical-dental/': {
+    title: 'Medical and Dental Office Window Cleaning in Tucson',
+    meta: 'Quiet, uniformed crews for medical and dental offices, clinics and veterinary hospitals. Scheduled around patients. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows for medical and professional offices with quiet, uniformed crews who understand a waiting room isn’t a worksite. We schedule before open, after close or on weekends, and provide certificates of insurance. Clinics, dental offices, imaging centers and veterinary hospitals are all in scope.',
+    sections: [
+      { h: 'Around patients', p: 'We work before open, after close or on weekends, seven days a week, and schedule around your appointments.' },
+      { h: 'Background-checked technicians', p: 'Every hire is background checked and trained before they ever work on a customer’s property. Licensed and fully insured, with certificates of insurance and standard compliance paperwork available.' },
+      { h: 'Every kind of practice', p: 'Medical plazas, multi-provider dental offices, urgent care, physical therapy, dialysis centers, labs and veterinary hospitals, plus [office buildings](/commercial/office-buildings/) and [senior living communities](/who-we-help/senior-living/).' },
+    ],
+    faq: [196],
+    related: ['/commercial/', '/commercial/office-buildings/', '/who-we-help/senior-living/'],
+  },
+
+  '/commercial/restaurants-hospitality/': {
+    title: 'Restaurant and Hotel Window Cleaning in Tucson',
+    meta: 'Restaurant, café, hotel and event venue window cleaning before service or after close, seven days a week. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers cleans windows for restaurants and cafés before service or after close, so we’re never in your customers’ way. We also serve hotels, resorts, breweries, tasting rooms and event venues, with patios and entryways pressure washed on the same visit if you need it.',
+    sections: [
+      { h: 'Patios and walkways', p: 'Patios, entryways and walkways can be [pressure washed](/services/pressure-washing/patios-pool-decks/) on the same visit. We keep chemical use to a minimum; where a surface needs it, we scrub in a cleaning solution by hand and rinse.' },
+      { h: 'Built around your traffic', p: 'High-traffic spots are often cleaned monthly, and some go weekly. We build a custom service plan around what your property needs, anywhere from weekly to twice a year. [Storefronts and retail](/commercial/storefronts-retail/) work the same way.' },
+      { h: 'Seven days a week', p: 'Before service, after close or on weekends. Licensed and fully insured, with certificates of insurance available before we start.' },
+    ],
+    faq: [198],
+    related: ['/commercial/', '/commercial/storefronts-retail/', '/services/pressure-washing/patios-pool-decks/'],
+  },
+
+  '/commercial/country-clubs-golf/': {
+    title: 'Country Club and Golf Clubhouse Window Cleaning',
+    meta: 'Clubhouses, pro shops and community facilities cleaned on a recurring schedule, across Tucson’s golf communities. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans windows for clubhouses, common areas, leasing offices and community facilities on a recurring schedule, including country clubs, golf pro shops, and tennis and pickleball clubs. We work around tee times and events, seven days a week, and provide certificates of insurance.',
+    sections: [
+      { h: 'Irrigation spotting on clubhouse glass', p: 'Mineral-heavy water that dries on glass again and again leaves deposits, and deposits left long enough etch. If sprinklers regularly reach the clubhouse windows, that’s worth addressing. [Should I hose off my windows?](/guides/should-i-hose-off-my-windows/)' },
+      { h: 'Pool decks and patios', p: 'Pool decks, patios and walkways can be [pressure washed](/services/pressure-washing/patios-pool-decks/) on the same visit. We keep chemical use minimal and we’re careful about where the water goes.' },
+      { h: 'For the HOA', p: 'Clubhouses are often part of a larger community. See [HOAs and communities](/who-we-help/hoas-communities/) for common areas and resident homes, and [SaddleBrooke](/areas/saddlebrooke/), one of the golf communities we work in. Recurring work runs on a service agreement.' },
+    ],
+    faq: [193],
+    related: ['/who-we-help/hoas-communities/', '/commercial/', '/services/pressure-washing/patios-pool-decks/', '/areas/saddlebrooke/'],
+  },
+
+  '/commercial/multifamily-apartments/': {
+    title: 'Apartment and Multifamily Window Cleaning in Tucson',
+    meta: 'Apartment communities, leasing offices and multi-property portfolios on one schedule, one point of contact. COIs available. (520) 525-0084.',
+    answer:
+      'Yes. Wildcat Washers works with property managers on multiple properties. Portfolios run on a single schedule with one point of contact, and we provide whatever documentation you need. Apartment communities, leasing offices, condo associations and 55+ communities get custom-quoted pricing that passes the routing savings back.',
+    sections: [
+      { h: 'Leasing offices and common areas', p: 'Leasing office glass, clubhouses, common areas and community facilities, cleaned on a recurring schedule under a service agreement.' },
+      { h: 'Turnovers', p: 'We work with property managers, landlords and absentee owners regularly. Vacant units can be done with nobody on site, and every window gets the same 5-in-1 as any home: glass, frames, sills, tracks and screens.' },
+      { h: 'Breezeways and pool decks', p: 'Breezeways, walkways and [pool decks](/services/pressure-washing/patios-pool-decks/) can be pressure washed with minimal chemical use, and we’re careful about where the water goes.' },
+      { h: 'Documentation', p: 'Licensed and fully insured, with certificates of insurance and standard compliance paperwork available. More for [property managers](/who-we-help/property-managers/) and [HOAs](/who-we-help/hoas-communities/).' },
+    ],
+    faq: [195],
+    related: ['/who-we-help/property-managers/', '/who-we-help/hoas-communities/', '/commercial/'],
+  },
+
+  '/commercial/commercial-solar/': {
+    title: 'Commercial Solar Panel Cleaning in Tucson',
+    meta: 'Commercial rooftop and ground-mount solar arrays cleaned on a recurring schedule, with before-and-after photos. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans commercial rooftop and ground-mount solar arrays, including on a recurring schedule. Any panel type and any roof pitch: we don’t turn down solar jobs. We hand-wash with deionized water and a soft brush, never a pressure washer, and photograph the panels before and after every job.',
+    sections: [
+      { h: 'Why it matters', p: 'Dust and mineral buildup block light before it reaches the cells. Published research puts losses at 5 to 30 percent, depending on how much has built up and local conditions. Your array’s actual number depends on your panels, which is why we photograph them before and after. [Is solar panel cleaning worth it?](/guides/is-solar-panel-cleaning-worth-it/)' },
+      { h: 'Warranty-safe methods', p: 'We avoid harsh chemicals and stiff brushes specifically to protect the panels, and our methods are warranty-safe. More on [solar panel cleaning](/services/solar-panel-cleaning/).' },
+      { h: 'Pigeon proofing for the array', p: 'If pigeons nest under a rooftop array, we can install [solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/) around the panels. It covers the array only; we don’t offer general bird control.' },
+      { h: 'Southern-metro sites', p: 'Arrays in Green Valley and Sahuarita collect mine dust on top of the usual desert dust. Recurring cleaning runs on a service agreement built around each site.' },
+    ],
+    faq: [67, 68],
+    related: ['/services/solar-panel-cleaning/', '/services/solar-panel-pigeon-proofing/', '/guides/is-solar-panel-cleaning-worth-it/', '/commercial/'],
+  },
+
+  '/commercial/schools-churches-civic/': {
+    title: 'School, Church and Civic Building Window Cleaning',
+    meta: 'Window cleaning for schools, churches, libraries and municipal buildings, including the Santa Rita Fire Department. (520) 525-0084.',
+    answer:
+      'Wildcat Washers has done municipal work in the Tucson area, including cleaning every window at the Santa Rita Fire Department in Green Valley at no charge through our Wash It Forward program. We serve schools, daycares, churches, libraries and civic buildings, scheduled around services and school hours.',
+    sections: [
+      { h: 'Wash It Forward', p: '[Wash It Forward](/wash-it-forward/) is how we give back. In [Green Valley](/areas/green-valley/), we cleaned every window at the Santa Rita Fire Department at no charge, as community service.' },
+      { h: 'After hours and weekends', p: 'Schools, daycares, churches, libraries and civic buildings are scheduled around services and school hours: before open, after close or on weekends, seven days a week.' },
+      { h: 'Background-checked technicians', p: 'Every hire is background checked and trained before they ever work on a customer’s property. Licensed and fully insured, with certificates of insurance and standard compliance paperwork available.' },
+    ],
+    faq: [200],
+    related: ['/wash-it-forward/', '/commercial/', '/areas/green-valley/'],
   },
 };
 

@@ -18,7 +18,10 @@ import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
 import { reviewsForService, pick, hashSeed } from '@/data/reviews';
 import type { ReviewSet } from '@/lib/local';
 import { faqSchema, serviceSchema } from '@/lib/schema';
-import { ownerLinks } from '@/lib/faqOwner';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
+import DepthSections from '@/components/DepthSections.astro';
+import { depthFor, withDepthFaqs } from '@/data/depth';
+import { pendingUrls } from '@/data/areas';
 import { questionTitle, fitDescription } from '@/lib/seo';
 import { heroPools, rotateFrom } from '@/data/media';
 import { landings } from '@/data/landing';
@@ -31,7 +34,14 @@ const family = l.url.startsWith('/commercial/') && l.service !== 'solar-panel-cl
 const siblings = landings.filter((x) => (x.url.startsWith('/commercial/') && x.service !== 'solar-panel-cleaning' ? 'commercial' : x.service) === family).map((x) => x.url);
 const heroImg = image ?? (heroPools[family] ? rotateFrom(heroPools[family], siblings, l.url) : undefined);
 const s = serviceBySlug[l.service];
-const items: Faq[] = faqRefs(row.faq_refs);
+/* Depth copy (src/data/depth.ts, round 6) overrides title, meta, hero lede, sections and links when present. */
+const d = depthFor(l.url);
+const allFaqs: Faq[] = withDepthFaqs(faqRefs(row.faq_refs), d);
+/* With depth copy, questions another page owns are shown as links to that page, not reprinted;
+   the full answers (and the FAQPage markup, which Base limits to owned questions) are this page's own. */
+const isShared = (n: number) => Boolean(d) && Boolean(faqOwner(n)) && faqOwner(n) !== l.url;
+const items: Faq[] = allFaqs.filter((f) => !isShared(f.n));
+const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
 const links = ownerLinks(items, l.url);
 const isCommercial = l.url.startsWith('/commercial/');
 /* Commercial pages: no commercial reviews exist, so prefer ones that don't talk about a home. */
@@ -39,14 +49,16 @@ const homey = /\b(home|house|live|neighbou?r|neighborhood|saddlebrooke|preserve|
 const pool = reviewsForService(s.reviewTags);
 const reviewPool = isCommercial && pool.filter((r) => !homey.test(r.text)).length >= 3 ? pool.filter((r) => !homey.test(r.text)) : pool;
 const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewPool, 3, { seed: hashSeed(l.url) }), moreLabel: isCommercial ? 'From customers across Greater Tucson' : `${s.name} reviews from across Greater Tucson`, count: 0 };
-const related = l.related.filter((h) => h !== l.url && planFor(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, 5);
-const title = questionTitle(row.h1);
+const pending = new Set(pendingUrls);
+const related = (d?.related ?? l.related).filter((h) => h !== l.url && planFor(h) && !pending.has(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, d?.related ? 8 : 5);
+const title = d?.title ?? questionTitle(row.h1);
 // Phone-first: the hero carries the opening sentence; the rest of the lead opens the body.
 const leadParts = l.lede.split(/(?<=[.!?])\s+(?=[A-Z])/);
 let heroLede = '';
 while (leadParts.length && heroLede.length < 90) heroLede = `${heroLede} ${leadParts.shift()}`.trim();
-const leadRest = leadParts.join(' ');
-const description = fitDescription(l.lede);
+const leadRest = d?.answer ? '' : leadParts.join(' ');
+if (d?.answer) heroLede = d.answer;
+const description = d?.meta ?? fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[svc, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s.slug}>
@@ -69,6 +81,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
     </div>
   </section>
 
+  {d?.sections ? <DepthSections sections={d.sections} heading="The details" tone="mist" /> : (
   <section class="section-tight bg-mist">
     <div class="wrap-narrow body">
       {l.sections.map((sec) => (
@@ -79,8 +92,18 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
       ))}
     </div>
   </section>
+  )}
 
   <ReviewSetBlock set={set} title={isCommercial ? 'What customers say about our crews' : `${s.name} reviews`} />
+
+  {sharedFaqs.length > 0 && (
+    <section class="section-tight bg-mist">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">More straight answers</h2>
+        <ul class="ans" role="list">{sharedFaqs.map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}</ul>
+      </div>
+    </section>
+  )}
 
   {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" />}
 
@@ -108,5 +131,9 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
   .phone-cta :global(svg) { color: var(--blue); }
   .body { display: grid; gap: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); }
   .body section { display: grid; gap: .8rem; }
+  .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .ans a { display: grid; height: 100%; padding: 1.1rem 1.2rem; background: #fff; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+  .ans a:hover { border-color: var(--blue); }
+  .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
 </style>
