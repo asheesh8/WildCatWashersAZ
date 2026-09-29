@@ -1481,6 +1481,176 @@ const round7: Record<string, Depth> = {
 };
 for (const [url, d] of Object.entries(round7)) depth[url] = { ...depth[url], ...d };
 
+const round8: Record<string, Depth> = {
+  /* ============================== Round 8: cost, frequency, hard water and solar answers ============================== */
+  '/guides/window-cleaning-cost-guide/': {
+    answer:
+      'Window cleaning in Tucson is priced per pane, meaning each individual piece of glass, not per hour or per window. Glass size, access and how dirty the glass is all factor in. Quotes are free and take a few minutes by phone at (520) 525-0084, with no site visit, no trip charge and nothing paid until you’re happy.',
+    sections: [
+      { h: 'What goes into a quote', p: 'Three things move the number: how big the glass is, how easy it is to reach (height, obstacles, and things to work around indoors), and how dirty it is. On the call we count your panes together, so you know exactly what’s in your number. [How much window cleaning costs in Tucson](/guides/how-much-does-window-cleaning-cost-tucson/).' },
+      { h: 'What’s already included', p: 'Every clean is the 5-in-1 Deep Clean: glass, frames, sills, tracks and screens, all by hand. Screens, tracks and hard water removal don’t cost extra. [Do screens and tracks cost extra?](/guides/do-window-cleaners-charge-extra-for-screens-and-tracks/)' },
+      { h: 'Ways the price comes down', p: 'Inside and out in one visit is more efficient than two trips, and that shows up in the price. Doing several services in one visit saves time and routing, and we pass that back. Seniors and veterans get a discount, and Wildcat Club members get 10 percent off added services. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/).' },
+      { h: 'When you pay', p: 'No deposit. You pay after the work is finished, after the double check and walkthrough, and only once you’re happy. [When do I pay?](/guides/when-do-i-pay-for-window-cleaning/)' },
+    ],
+    faq: [1, 2, 3, 4, 5, 6, 7, 8],
+  },
+
+  '/guides/how-much-does-solar-panel-cleaning-cost/': {
+    answer:
+      'Solar panel cleaning is priced per job, based on how many panels you have and how the array is set up. Call (520) 525-0084 with your panel count and we’ll quote it in a few minutes. A typical residential array is a single visit of one to three hours, with before and after photos.',
+    sections: [
+      { h: 'What sets the price', p: 'Panel count and how the array is set up: rooftop or ground mount, the roof type and the pitch. We clean any panel type on any roof, residential or commercial, and no job is declined.' },
+      { h: 'What the visit includes', p: 'Hand washing with deionized water, and soap when the buildup calls for it. No harsh chemicals and no stiff or abrasive brushes, so the method is safe for the panel surface and your manufacturer warranty. We work from the roof surface and never stand on panels. [Does cleaning void the warranty?](/guides/does-cleaning-void-solar-warranty/)' },
+      { h: 'Is it worth it?', p: 'Published research puts output loss from buildup at 5 to 30 percent, depending on conditions. What you recover depends on how dirty your panels were, which is why every job gets before and after photos. Once or twice a year keeps panels performing. [Is solar panel cleaning worth it?](/guides/is-solar-panel-cleaning-worth-it/)' },
+      { h: 'With your windows', p: 'Crews carry equipment for every service, so panels can be cleaned on the same visit as the windows. Wildcat Club members get 10 percent off added services. [Solar panel cleaning](/services/solar-panel-cleaning/).' },
+    ],
+    faq: [9, 10],
+  },
+
+  '/guides/how-much-does-pressure-washing-cost-tucson/': {
+    answer:
+      'Pressure washing is priced per job, by the surfaces being cleaned and the scope of the work. A driveway, a patio and pool deck, or fences and block walls are each quoted on their own terms. Call (520) 525-0084 and we’ll have a number for you in a couple of minutes, and you pay only once you’re happy.',
+    sections: [
+      { h: 'What we quote on', p: 'Driveways and garage floors, patios, walkways, pavers, pool decks, entryways, fences, gates, block walls, exterior walls, patio furniture, grills and trash cans. The general rule: anywhere dirt, dust and debris build up around the outside of a property. [Pressure washing](/services/pressure-washing/).' },
+      { h: 'What we don’t take on', p: 'Rust, oil stain, graffiti and deep stain removal depend on heavy chemical treatment, which we stay away from. We don’t offer soft washing either; where a surface calls for it, we scrub in a cleaning solution by hand before rinsing. [Oil and rust stains](/guides/can-oil-and-rust-stains-be-removed-from-concrete/) and [pressure washing vs soft washing](/guides/pressure-washing-vs-soft-washing/).' },
+      { h: 'How long, and how often', p: 'A driveway usually takes one to three hours. For most homes, a couple of times a year at minimum keeps buildup from getting ahead of you. [How often to pressure wash a driveway](/guides/how-often-pressure-wash-driveway-arizona/).' },
+      { h: 'Doing more in one visit', p: 'Several services in one visit saves us time and routing, and we pass that back. Wildcat Club members get 10 percent off added services.' },
+    ],
+    faq: [12, 13],
+  },
+
+  '/guides/do-window-cleaners-charge-extra-for-screens-and-tracks/': {
+    answer:
+      'Not with us. Screens, tracks and hard water removal are all part of every 5-in-1 Deep Clean at no extra charge. Tracks get vacuumed out and cleaned, screens come out and get reconditioned, and mineral buildup is buffed off the glass. The one thing no one can fix is etched glass, and we’ll tell you first.',
+    sections: [
+      { h: 'Why screens and tracks are in every clean', p: 'Most cleaning leaves dust in the tracks, frames and screens, so the next gust blows it right back onto the glass. Cleaning all of it is how windows stay clean much longer. [Why windows get dirty again so fast](/guides/why-do-windows-get-dirty-again-so-fast/).' },
+      { h: 'Hard water, and its limit', p: 'Mineral buildup is buffed off with 0000-grade steel wool and walnut pads, included every time. Etching, where minerals have eaten into the glass, can’t be removed by anyone. [Can hard water stains be removed?](/guides/can-hard-water-stains-be-removed-from-windows/)' },
+      { h: 'Torn screens are different', p: 'Cleaning a screen is included; repairing or replacing a torn one is a separate job, priced by screen size. Crews carry equipment for every service, so work spotted during the inspection can usually be added the same day. [Repair or replace a torn screen](/guides/repair-or-replace-window-screen/).' },
+    ],
+    faq: [15, 16],
+  },
+
+  '/guides/window-replacement-vs-cleaning-cost/': {
+    answer:
+      'Cleaning, by a wide margin. Replacing windows costs dramatically more than maintaining them. The catch is that neglect turns one into the other: minerals left on glass long enough etch into it, and etched glass has to be replaced, not cleaned. Regular cleaning keeps windows from ever reaching that point.',
+    sections: [
+      { h: 'How a cleaning bill becomes a replacement cost', p: 'Dust and minerals build up, the buildup etches the glass, and eventually it’s a replacement cost instead of a cleaning bill. Windows cleaned on a schedule never reach the point of etching. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)' },
+      { h: 'What cleaning can’t fix', p: 'Etched glass, scratched glass and fogging between double panes. Fogging is a failed seal, moisture inside the sealed unit, and no one can clean inside it. [Can a foggy double-pane window be cleaned?](/guides/fogged-double-pane-window-can-it-be-cleaned/)' },
+      { h: 'Find out before you pay', p: 'We inspect every window before we start and walk you through anything we find: chips, scratches, etching, failed seals. You never learn about damage after the crew leaves.' },
+      { h: 'Keeping it a cleaning bill', p: 'For windows we recommend three cleanings a year: right after summer and monsoon season, around the holidays, and in spring. One-time cleans are always available, and the [Wildcat Club](/wildcat-club/) can schedule all three for you. [How often to clean windows in Tucson](/guides/how-often-clean-windows-tucson/).' },
+    ],
+    faq: [170, 171],
+  },
+
+  '/guides/best-time-of-year-to-clean-windows-tucson/': {
+    answer:
+      'Three points in the year. Right after summer and monsoon season, when everything is covered in dust. Around the holidays, so your home is ready for guests and the new year. And in spring, when pollen adds to the usual buildup. Dust and hard water build up all year, so every home needs all three.',
+    sections: [
+      { h: 'After monsoon season', p: 'Monsoon season runs roughly June through September and leaves heavy dirt and debris on the glass. Cleaning right after it resets everything going into fall. [Before or after monsoon?](/guides/clean-windows-before-or-after-monsoon/)' },
+      { h: 'Around the holidays', p: 'Your home is ready for guests and the new year, and the visit falls midway between the fall and spring cleanings.' },
+      { h: 'In spring', p: 'Spring pollen lands on top of the year-round dust. A spring clean clears both before summer.' },
+      { h: 'Here part of the year?', p: 'Most seasonal residents have us come right when they arrive, so the house is clean the day they get back. Tell us your arrival date; you don’t need to be in town. [Snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/). The [Wildcat Club](/wildcat-club/) can schedule all three visits, and one-time cleans are always available.' },
+    ],
+    faq: [162],
+  },
+
+  '/guides/clean-windows-before-or-after-monsoon/': {
+    answer:
+      'After. Monsoon storms, roughly June through September, leave heavy dirt and dust on the glass, so the clean that counts is the one after them. Cleaning right after summer resets everything going into fall. And if rain lands in the first 14 days after any visit, the 14-Day Spotless Guarantee covers a free touch-up.',
+    sections: [
+      { h: 'What monsoon leaves behind', p: 'Dust from the storms, and rain drying on the glass. Tucson’s water is mineral heavy, so storm water that dries leaves white spots behind. [What causes white spots](/guides/what-causes-white-spots-on-windows-arizona/).' },
+      { h: 'Don’t hose it off', p: 'Rinsing dusty windows with a hose feels like it helps, but it adds more mineral deposits, and deposits left long enough etch the glass. [Should I hose off my windows?](/guides/should-i-hose-off-my-windows/)' },
+      { h: 'Solar panels too', p: 'Rain doesn’t clean solar panels either. It moves dust around, the dust sticks, and the water dries into mineral spots. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+      { h: 'The rest of the year', p: 'For windows we recommend three cleanings a year: right after summer and monsoon season, around the holidays, and in spring. One-time cleans are always available, and the [Wildcat Club](/wildcat-club/) can schedule all three for you.' },
+    ],
+    faq: [163],
+  },
+
+  '/guides/how-often-pressure-wash-driveway-arizona/': {
+    answer:
+      'For most homes, a couple of times a year at minimum keeps buildup from getting ahead of you. Dust, sun and traffic settle into Arizona concrete year-round, which is why driveways turn grey. A first pressure washing is often dramatic, because the original color is usually still underneath. A driveway takes one to three hours.',
+    sections: [
+      { h: 'Why concrete turns grey', p: 'Years of dust, sun and traffic sit on the surface. The original color is usually still under there, which is why the first wash is the most satisfying one.' },
+      { h: 'Never washed? Still fine', p: 'A driveway that has never been washed takes more work, but it comes up. Tire marks come off readily; one customer had us clean 15 years of them off a garage floor. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/).' },
+      { h: 'What pressure washing won’t do', p: 'We don’t take on oil stain or rust removal, which depend on heavy chemical treatment. [Oil and rust stains](/guides/can-oil-and-rust-stains-be-removed-from-concrete/).' },
+      { h: 'Patios and pool decks', p: 'The same dust settles on patios, walkways and pool decks, and they can be done in the same visit. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/).' },
+    ],
+    faq: [81],
+  },
+
+  '/guides/hard-water-and-your-windows/': {
+    answer:
+      'Tucson’s water is mineral heavy. When it dries on glass from rain, sprinklers or a hose, it leaves white mineral spots. Caught early, those deposits come right off, and removal is included in every Wildcat Washers window cleaning. Left long enough, they etch into the glass permanently, and etched glass has to be replaced.',
+    sections: [
+      { h: 'Where the spots come from', p: 'Rain, irrigation and, most of all, rinsing windows with a hose. Where sprinklers reach the glass, the same water dries there again and again. [What causes white spots](/guides/what-causes-white-spots-on-windows-arizona/) and [stopping sprinkler spots](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'Deposits vs etching', p: 'Deposits sit on the glass and come off. Etching is minerals that have eaten into the glass itself, which is physical damage no one can reverse. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)' },
+      { h: 'How we remove it', p: 'We buff buildup off with 0000-grade steel wool and walnut pads, at no extra charge. Coarser grades scratch glass, which is why the grade matters. [Why 0000 steel wool?](/guides/why-0000-steel-wool-on-glass/)' },
+      { h: 'Keeping it off', p: 'Keep irrigation off the glass and don’t rinse windows with a hose. For windows we recommend three cleanings a year: right after summer and monsoon season, around the holidays, and in spring. One-time cleans are always available, and the [Wildcat Club](/wildcat-club/) can schedule all three for you. [Should I hose off my windows?](/guides/should-i-hose-off-my-windows/)' },
+      { h: 'Solar panels get it too', p: 'Rain that dries on panel glass leaves the same mineral spots. [White spots on solar panels](/guides/white-spots-on-solar-panels-after-rain/).' },
+    ],
+    faq: [34, 35, 36, 37, 38],
+  },
+
+  '/guides/can-hard-water-stains-be-removed-from-windows/': {
+    answer:
+      'Yes, if the minerals are still sitting on the glass. We buff hard water buildup off with 0000-grade steel wool and walnut pads, and it’s included in every clean at no extra charge. What no one can fix is etching, where minerals have eaten into the glass itself. We’ll tell you which you have before you pay anything.',
+    sections: [
+      { h: 'We check first', p: 'Every window is inspected before we start, and we walk you through what we find: buildup that will come off, and any etching, scratches or failed seals that won’t. You never learn about it after the crew leaves.' },
+      { h: 'Why the grade of steel wool matters', p: 'Only 0000-grade is fine enough for glass. Coarser grades scratch it, and scratched glass can’t be repaired. [Why 0000 steel wool?](/guides/why-0000-steel-wool-on-glass/)' },
+      { h: 'Stopping it coming back', p: 'Keep sprinklers and hose water off the glass, and clean on a schedule so deposits never sit long enough to etch. [The complete hard water guide](/guides/hard-water-and-your-windows/).' },
+    ],
+    faq: [34, 16],
+  },
+
+  '/guides/how-to-stop-sprinklers-spotting-windows/': {
+    answer:
+      'Adjust any irrigation that’s reaching the glass, so mineral-heavy water stops drying on your windows. Don’t rinse the windows with a hose to fix it, which only adds more minerals. If spots are already there, have them removed before they etch. With the sprinklers adjusted, three cleanings a year handles it for most homes.',
+    sections: [
+      { h: 'Why sprinkler water spots glass', p: 'Tucson’s water is mineral heavy. Where irrigation reaches a window, the water dries and leaves its minerals behind, and the next cycle adds another layer. Not every home has sprinklers near the glass, but where it happens, it happens every day.' },
+      { h: 'Why the hose makes it worse', p: 'Hose water is the same hard water. Rinsing spotted windows adds deposits instead of removing them. [Should I hose off my windows?](/guides/should-i-hose-off-my-windows/)' },
+      { h: 'Already spotted?', p: 'Mineral buildup on the glass comes off, and removal is included in every clean. Spots left long enough etch, and etching is permanent. [Can hard water stains be removed?](/guides/can-hard-water-stains-be-removed-from-windows/)' },
+      { h: 'How often to clean', p: 'For windows we recommend three cleanings a year: right after summer and monsoon season, around the holidays, and in spring. One-time cleans are always available, and the [Wildcat Club](/wildcat-club/) can schedule all three for you.' },
+    ],
+    faq: [37, 38, 165],
+  },
+
+  '/guides/why-0000-steel-wool-on-glass/': {
+    answer:
+      'Because 0000-grade, or quad-zero, steel wool is fine enough to buff mineral buildup off glass without scratching it. Coarser grades, 000, 00 or 0, will scratch glass, and scratched glass can’t be repaired, only replaced. We use it with walnut pads to lift hard water deposits, included in every window cleaning at no extra charge.',
+    sections: [
+      { h: 'The grade is the whole point', p: 'Steel wool is graded by fineness, and only the finest is safe on glass. The wrong grade turns a cleaning into a replacement.' },
+      { h: 'What it removes, and what it can’t', p: 'It lifts mineral deposits sitting on the glass. It can’t repair etching, where minerals have eaten into the glass, and it can’t fix a scratch. We tell you which is which before we start. [Can hard water stains be removed?](/guides/can-hard-water-stains-be-removed-from-windows/)' },
+      { h: 'Tools that need a trained hand', p: 'Scrapers and abrasives have to be used correctly or they scratch the glass, and Arizona heat dries cleaning solution before you can pull it. That’s why streak-free glass takes real skill. [Can I clean my own windows?](/guides/can-i-clean-my-own-windows/)' },
+    ],
+    faq: [16, 34],
+  },
+
+  '/guides/how-much-output-do-dirty-solar-panels-lose/': {
+    answer:
+      'Research puts it anywhere from 5 to 30 percent, depending on how much has built up and local conditions. Dust and mineral deposits block light before it reaches the cell. Your own loss depends on how dirty your panels are, which is why we take before and after photos on every solar job.',
+    sections: [
+      { h: 'Why Southern Arizona panels get dirty', p: 'Constant airborne dust, pollen and mineral residue, with frequent wind and months without meaningful rain. In Green Valley, Sahuarita and the southern metro, nearby mining adds to the dust. [Mine dust and solar panels](/guides/mine-dust-solar-panels-green-valley-sahuarita/).' },
+      { h: 'Rain doesn’t fix it', p: 'Rain moves dust around rather than washing it off, then dries into mineral spots. Panels need a brush and soap to come clean. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+      { h: 'Will cleaning raise production?', p: 'If the panels were dirty, yes: you’re removing what was blocking the light. How much depends on how much had built up, so we don’t promise a number for your array. The photos show you the difference on a roof you can’t see yourself.' },
+      { h: 'How often', p: 'Once or twice a year keeps panels performing and protects the glass from mineral damage. [How often to clean solar panels](/guides/how-often-clean-solar-panels-tucson/).' },
+    ],
+    faq: [52, 65, 66],
+  },
+
+  '/guides/white-spots-on-solar-panels-after-rain/': {
+    answer:
+      'Minerals. Tucson’s water is hard, and when rain dries on panel glass it leaves the minerals behind as white spots. That’s part of why rain doesn’t clean solar panels: it moves dust around, then dries mineral spotting onto the glass. Panels need actual scrubbing with a brush and soap to come clean.',
+    sections: [
+      { h: 'Why the spots matter', p: 'Mineral deposits block light like dust does, and hard water residue contributes to premature wear on the glass. [How much output dirty panels lose](/guides/how-much-output-do-dirty-solar-panels-lose/).' },
+      { h: 'Don’t hose them off', p: 'A garden hose uses the same hard water and leaves more spots. If you clean panels yourself: no pressure washer, no stiff brushes, and don’t walk on the panels. [Can I clean my own solar panels?](/guides/can-i-clean-my-own-solar-panels/)' },
+      { h: 'How we clean them', p: 'Hand washing with deionized water, which dries without leaving mineral spots, and soap when the buildup calls for it. No harsh chemicals, and before and after photos on every job. [Solar panel cleaning](/services/solar-panel-cleaning/).' },
+      { h: 'How often', p: 'Once or twice a year. [How often to clean solar panels](/guides/how-often-clean-solar-panels-tucson/).' },
+    ],
+    faq: [55],
+  },
+};
+for (const [url, d] of Object.entries(round8)) depth[url] = { ...depth[url], ...d };
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
