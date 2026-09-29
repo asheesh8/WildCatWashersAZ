@@ -97,10 +97,10 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </div>
   </section>
 
-  {d?.sections && <DepthSections sections={d.sections} eyebrow={`Local to ${c.name}`} heading={d.heading} />}
+  {d?.sections && <DepthSections sections={d.sections} eyebrow={`Local to ${c.name}`} heading={d.heading} mfold />}
 
   {c.known && c.known.length > 0 && (
-    <section class="section-tight">
+    <section class="section-tight" data-mfold>
       <div class="wrap known">
         <div>
           <p class="eyebrow">Know the neighborhood</p>
@@ -112,7 +112,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  <section class="section-tight bg-mist">
+  <section class="section-tight bg-mist" data-mfold>
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">What the desert does to glass in {c.name}</h2>
       <ul class:list={['conds', c.angle.length > 1 && 'm-swipe']} role="list">{c.angle.map((a) => <li><Icon name="check-circle" size={22} /><span>{a}</span></li>)}</ul>
@@ -122,7 +122,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   <Gallery keys={photos.gallery} title="From recent jobs" swipe />
 
   {c.sections && c.sections.length > 0 && (
-    <section class="section-tight">
+    <section class="section-tight" data-mfold>
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Also in and around {c.name}</h2>
         <dl class="secs">{c.sections.map((s) => {
@@ -136,7 +136,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   {(set.local.length > 0 || set.more.length > 0) && <ReviewSetBlock set={set} title={set.count ? `What ${c.name} residents say` : `What ${townName} neighbors say`} />}
 
   {hoaFaqs.length > 0 && (
-    <section class="section-tight bg-mist">
+    <section class="section-tight bg-mist" data-mfold>
       <div class="wrap hoa">
         <div>
           <p class="eyebrow">For HOA boards and community managers</p>
@@ -148,9 +148,9 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} phoneClosed />}
+  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} phoneClosed mfold />}
 
-  <section class="section-tight">
+  <section class="section-tight" data-mfold>
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">More in {townName}</h2>
       <ul class="chips m-grid" role="list">

@@ -235,6 +235,35 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
         });
       })();
       (() => {
+        // Phones: a data-mfold section folds to its heading, which becomes a toggle.
+        // Everything stays in the HTML (search engines and wider screens see it all).
+        if (!matchMedia('(max-width: 759px)').matches) return;
+        document.querySelectorAll('[data-mfold]').forEach((sec, k) => {
+          const h = sec.querySelector('h2, h3');
+          if (!h) return;
+          const parts = [];
+          for (let n = h; n && n !== sec; n = n.parentElement) {
+            for (let x = n.nextElementSibling; x; x = x.nextElementSibling) if (x.tagName !== 'SCRIPT' && !x.hidden) parts.push(x);
+          }
+          if (!parts.length) return;
+          parts.forEach((x, i) => { x.id ||= `mf${k}-${i}`; x.hidden = true; });
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'mfold-t';
+          b.setAttribute('aria-expanded', 'false');
+          b.setAttribute('aria-controls', parts.map((x) => x.id).join(' '));
+          while (h.firstChild) b.appendChild(h.firstChild);
+          b.insertAdjacentHTML('beforeend', '<span class="mfold-plus" aria-hidden="true"></span>');
+          h.appendChild(b);
+          sec.classList.add('is-mfold');
+          b.addEventListener('click', () => {
+            const open = b.getAttribute('aria-expanded') !== 'true';
+            b.setAttribute('aria-expanded', String(open));
+            sec.classList.toggle('is-mfold', !open);
+            parts.forEach((x) => { x.hidden = !open; });
+          });
+        });
+      })();
+      (() => {
         // Job loops: play while on screen, pause off screen. Reduced motion keeps the poster and shows controls.
         const vids = document.querySelectorAll('video[data-loop]');
         if (!vids.length) return;
@@ -286,7 +315,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           p.closest('blockquote').after(b);
         });
         add();
-        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f], .rs-toggle')) setTimeout(add, 50); });
+        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f], .rs-toggle, .mfold-t')) setTimeout(add, 50); });
       })();
     </script>
   </body>

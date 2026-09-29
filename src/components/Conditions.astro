@@ -1,9 +1,9 @@
 ---
 /** "What the desert does here": local conditions as the numbered /01 list. */
-export interface Props { title: string; items: string[]; lede?: string; /** Phones: the conditions sit in one swipe row instead of a stack (town hubs). */ swipe?: boolean }
-const { title, items, lede, swipe = false } = Astro.props;
+export interface Props { title: string; items: string[]; lede?: string; /** Phones: the conditions sit in one swipe row instead of a stack (town hubs). */ swipe?: boolean; /** Phones: fold the section to its heading. */ mfold?: boolean }
+const { title, items, lede, swipe = false, mfold = false } = Astro.props;
 ---
-<section class="section bg-mist">
+<section class="section bg-mist" data-mfold={mfold ? '' : undefined}>
   <div class="wrap cond">
     <div class="section-head">
       <p class="eyebrow">Local conditions</p>

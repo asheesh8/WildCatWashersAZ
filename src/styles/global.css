@@ -524,3 +524,19 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
   .js [data-pfold]:not(.is-all) > .pf-x { display: none; }
   .js .pf-more { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: .8rem; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--navy); font-weight: 700; font-size: 1.02rem; }
 }
+
+/* Phone section fold (Base.astro, data-mfold): the heading is the toggle. */
+.mfold-t { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: .8rem; width: 100%; min-height: 48px; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+.mfold-t:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 6px; }
+.mfold-plus { position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
+.mfold-plus::before, .mfold-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+.mfold-plus::after { rotate: 90deg; }
+.mfold-t[aria-expanded="true"] .mfold-plus { background: var(--blue); }
+.mfold-t[aria-expanded="true"] .mfold-plus::after { rotate: 0deg; }
+@media (max-width: 759px) {
+  .is-mfold { padding-block: 1.1rem !important; }
+  .is-mfold .section-head, .is-mfold h2, .is-mfold h3 { margin-bottom: 0 !important; }
+}
+@media (prefers-reduced-motion: reduce) { .mfold-plus::before, .mfold-plus::after { transition: none; } }
+/* The hidden attribute always wins over a component's display value. */
+[hidden] { display: none !important; }

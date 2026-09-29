@@ -61,7 +61,7 @@ const place = {
 
   {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} />}
 
-  <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} swipe />
+  <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} swipe mfold />
 
   <section class="section">
     <div class="wrap">
@@ -93,7 +93,7 @@ const place = {
   <Gallery keys={photos.gallery} title="From recent jobs" swipe />
 
   {(kids.length > 0 || t.sections.length > 0) && (
-    <section class="section-tight bg-mist">
+    <section class="section-tight bg-mist" data-mfold>
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Neighborhoods</p>
@@ -135,8 +135,8 @@ const place = {
 
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />
 
-  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed />}
-  <section class="section-tight">
+  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
+  <section class="section-tight" data-mfold>
     <div class="wrap diy">
       <p class="eyebrow">Doing it yourself?</p>
       <h2 class="h3">Cleaning your own windows in {t.name}</h2>
@@ -148,7 +148,7 @@ const place = {
     </div>
   </section>
 
-  <section class="section-tight">
+  <section class="section-tight" data-mfold>
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">Nearby areas we serve</h2>
       <ul class="chips m-grid" role="list">

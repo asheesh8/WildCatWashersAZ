@@ -13,8 +13,8 @@
  */
 import DepthText from './DepthText.astro';
 import type { DepthSection } from '@/data/depth';
-export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline'; eyebrow?: string; heading?: string; intro?: string; tone?: 'mist' | 'plain' }
-const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } = Astro.props;
+export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline'; eyebrow?: string; heading?: string; intro?: string; tone?: 'mist' | 'plain'; /** Phones: the whole section folds to its heading (Base.astro, data-mfold). */ mfold?: boolean }
+const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain', mfold = false } = Astro.props;
 const inline = variant === 'inline';
 ---
 {inline ? (
@@ -30,7 +30,7 @@ const inline = variant === 'inline';
     ))}
   </div>
 ) : (
-  <section class:list={['section-tight', tone === 'mist' && 'bg-mist']}>
+  <section class:list={['section-tight', tone === 'mist' && 'bg-mist']} data-mfold={mfold ? '' : undefined}>
     <div class="wrap">
       {(eyebrow || heading) && (
         <div class="section-head">
