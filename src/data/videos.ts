@@ -12,6 +12,9 @@ export const loops: Record<string, Loop> = {
   'french-door-panes': { src: '/media/french-door-panes.mp4', poster: '/media/french-door-panes.webp', label: 'Hand washing and squeegeeing each small pane of a French door', portrait: true },
   'solar-clean-reflection': { src: '/media/solar-clean-reflection.mp4', poster: '/media/solar-clean-reflection.webp', label: 'Solar panels mid-clean, the clean glass reflecting the sky', portrait: true },
   'solar-screens-rinse': { src: '/media/solar-screens-rinse.mp4', poster: '/media/solar-screens-rinse.webp', label: 'Solar screens lined up against a wall being rinsed', portrait: true },
+  'track-before-after': { src: '/media/track-before-after.mp4', poster: '/media/track-before-after.webp', label: 'Before and after: a sliding door track full of desert grit, then cleaned out by hand', portrait: true },
+  'soap-reveal': { src: '/media/soap-reveal.mp4', poster: '/media/soap-reveal.webp', label: 'A technician pulling the last of the soap off a window before it can dry', portrait: true },
+  'strip-washer': { src: '/media/strip-washer.mp4', poster: '/media/strip-washer.webp', label: 'Hand washing a large picture window with a strip washer', portrait: true },
 };
 
 /**
@@ -19,7 +22,7 @@ export const loops: Record<string, Loop> = {
  * out of the hero itself: the hero stays a still photo, film sits below it.
  */
 export const seeItDone: Record<string, string[]> = {
-  'window-cleaning': ['lather-squeegee', 'squeegee-pov', 'french-door-panes'],
+  'window-cleaning': ['lather-squeegee', 'french-door-panes', 'track-before-after'],
   'solar-panel-cleaning': ['solar-clean-reflection'],
   'solar-screens': ['solar-screens-rinse'],
 };
@@ -37,4 +40,7 @@ export const guideLoop: Record<string, string> = {
   'why-do-my-windows-streak': 'squeegee-pov',
   'can-i-clean-my-own-solar-panels': 'solar-clean-reflection',
   'how-long-do-solar-screens-last': 'solar-screens-rinse',
+  'why-do-windows-get-dirty-again-so-fast': 'track-before-after',
+  'why-do-windows-look-worse-after-i-clean-them': 'soap-reveal',
+  'should-i-hose-off-my-windows': 'strip-washer',
 };
