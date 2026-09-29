@@ -451,7 +451,7 @@ const focusOverride: Record<string, string> = {
   'solar-panels-hillside': '50% 70%',
   'solar-panels-tile-roof-closeup': '50% 45%',
   'tech-slider-squeegee': '50% 0%',
-  'clean-arizona-room-glass': '50% 78%',
+  'clean-arizona-room-glass': '50% 55%',
   'solar-screen-gable-window': '50% 55%',
 };
 /** CSS object-position for a photo: portrait shots anchor a little above centre. */
