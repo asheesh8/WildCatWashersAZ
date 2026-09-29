@@ -1927,7 +1927,7 @@ const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/services/window-cleaning/vail-az/': {
     sections: [
       { h: 'Senior and veteran discounts', p: 'Both are real and both are published. Mention it on the call and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
-      { h: 'Regular coverage, no trip charge', p: 'Vail is part of our regular routes, not a special trip, so there’s no trip charge, and your quote happens by phone in a few minutes.' },
+      { h: 'Regular coverage, no trip charge', p: 'Vail AZ is part of our regular routes, not a special trip, so there’s no trip charge, and your quote happens by phone in a few minutes.' },
     ],
     faq: [117, 119],
   },
