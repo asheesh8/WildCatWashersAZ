@@ -261,8 +261,8 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
         // "Read the whole review" for quotes clamped on phones.
         if (!matchMedia('(max-width: 759px)').matches) return;
         const add = () => document.querySelectorAll(':is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p').forEach((p) => {
-          if (p.dataset.more || p.scrollHeight <= p.clientHeight + 4) return;
-          p.dataset.more = '1';
+          if (p.dataset.clamped || p.scrollHeight <= p.clientHeight + 4) return;
+          p.dataset.clamped = '1';
           const b = document.createElement('button');
           b.type = 'button'; b.className = 'more-btn'; b.textContent = 'Read the whole review';
           b.setAttribute('aria-expanded', 'false');
@@ -270,7 +270,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           p.closest('blockquote').after(b);
         });
         add();
-        document.addEventListener('click', (e) => { if (e.target.closest('[data-more], [data-f]')) setTimeout(add, 50); });
+        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f]')) setTimeout(add, 50); });
       })();
     </script>
   </body>

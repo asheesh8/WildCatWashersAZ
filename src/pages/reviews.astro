@@ -86,7 +86,7 @@ const ordered = [featured.anneWebb, featured.rainTest, ...reviews.filter((r) => 
   document.querySelectorAll('[data-rev]').forEach((root) => {
     const btns = root.querySelectorAll('[data-f]');
     const cards = [...root.querySelectorAll('.rv')];
-    const more = root.querySelector('[data-more]');
+    const more = root.querySelector('button[data-more]');
     const label = root.querySelector('[data-more-label]');
     // Phones get 8 at a time (shorter scroll per batch); wider screens 12.
     const step = matchMedia('(max-width: 759px)').matches ? 8 : 12;
