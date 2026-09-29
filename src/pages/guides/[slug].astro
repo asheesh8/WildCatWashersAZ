@@ -83,19 +83,35 @@ const article = {
   <article class="section">
     <div class="wrap-narrow body">
       {guideLoop[g.slug] && <LoopVideo name={guideLoop[g.slug]} class="g-loop" caption />}
-      {g.sections.map((sec) => (
-        <section>
-          <h2 class="h3">{sec.h}</h2>
-          {sec.p.map((t) => <p>{t}</p>)}
-        </section>
-      ))}
-      {depthSections.map((sec) => (
-        <section>
-          <h2 class="h3">{sec.h}</h2>
-          <p><DepthText text={sec.p} /></p>
-          {sec.q && <blockquote class="gq"><p>“{sec.q.text}”</p><footer>{sec.q.by}</footer></blockquote>}
-        </section>
-      ))}
+      <div class="gsecs" data-gsecs>
+        {g.sections.map((sec) => (
+          <details class="gsec" open>
+            <summary><h2 class="h3">{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
+            <div class="gsec-b">{sec.p.map((t) => <p>{t}</p>)}</div>
+          </details>
+        ))}
+        {depthSections.map((sec) => (
+          <details class="gsec" open>
+            <summary><h2 class="h3">{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
+            <div class="gsec-b">
+              <p><DepthText text={sec.p} /></p>
+              {sec.q && <blockquote class="gq"><p>“{sec.q.text}”</p><footer>{sec.q.by}</footer></blockquote>}
+            </div>
+          </details>
+        ))}
+      </div>
+      <script is:inline>
+        /* Phones: the first two sections stay open and the rest fold to their headings (tap to read).
+           Runs before paint, so nothing jumps; without JS, or on wider screens, everything is open. */
+        (function () {
+          var l = document.currentScript && document.currentScript.previousElementSibling;
+          if (!l || !matchMedia('(max-width: 759px)').matches) return;
+          var ds = [].slice.call(l.querySelectorAll('details'));
+          if (ds.length < 4) return;
+          l.classList.add('is-fold');
+          ds.slice(2).forEach(function (d) { d.open = false; });
+        })();
+      </script>
       {proof.length > 0 && (
         <section class="proof">
           <h2 class="h3">{proof.length > 1 ? 'What customers told us' : 'What a customer told us'}</h2>
@@ -138,6 +154,25 @@ const article = {
   .updated { margin-top: .8rem; font-size: 1rem; color: var(--ink-2); }
   .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
   .body section { display: grid; gap: .8rem; }
+  .gsecs { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
+  .gsec summary { display: block; list-style: none; }
+  .gsec summary::-webkit-details-marker { display: none; }
+  .gsecs:not(.is-fold) summary { pointer-events: none; }
+  .gsec-b { display: grid; gap: .8rem; margin-top: .8rem; }
+  .gsec-b p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+  .gsec-plus { display: none; }
+  @media (max-width: 759px) {
+    .gsecs.is-fold { gap: 0; }
+    .is-fold .gsec { border-bottom: 1px solid var(--line); padding: .35rem 0; }
+    .is-fold .gsec:nth-child(-n+2) { border-bottom: 0; padding-bottom: 1.4rem; }
+    .is-fold .gsec:not(:nth-child(-n+2)) summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 52px; cursor: pointer; }
+    .is-fold .gsec:not(:nth-child(-n+2)) .gsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
+    .is-fold .gsec-plus::before, .is-fold .gsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+    .is-fold .gsec-plus::after { rotate: 90deg; }
+    .is-fold .gsec[open] .gsec-plus::after { rotate: 0deg; }
+    .is-fold .gsec[open]:not(:nth-child(-n+2)) .gsec-b { padding-bottom: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gsec-plus::before, .gsec-plus::after { transition: none; } }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
   /* A review excerpt quoted in a depth section (depth.ts `q`), exact words, never the full card. */
   .gq { margin: .2rem 0 0; padding: .9rem 1rem; border-left: 4px solid var(--blue); background: var(--blue-50); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 66ch; }
