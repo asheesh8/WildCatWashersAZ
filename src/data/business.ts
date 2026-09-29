@@ -310,7 +310,7 @@ export const services: Service[] = [
       { title: 'You can still see out', body: 'The view gets a touch darker, and most people are surprised how well they see through even 90% mesh. From outside, nobody can see in during the day.' },
     ],
     limits: ['We don’t build or repair heavy-duty metal security screens or motorized retractable screens. We can clean them.'],
-    pricing: 'Priced per screen by size, with quantity discounts on larger jobs. A 10-year Phifer material warranty, plus our warranty on the work.',
+    pricing: 'Priced per screen by size, with quantity discounts on larger jobs. The Phifer material comes with a warranty, and so does our work.',
     frequency: 'Screens typically last around a decade. Clean them when we clean your windows.',
     duration: 'Two to three weeks from measure to install.',
     faq: [219, 220, 221, 222, 223, 224, 226],

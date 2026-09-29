@@ -2180,7 +2180,7 @@ const round14Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/services/solar-screens/oro-valley/': {
     sections: [
       { h: 'Colors to match stucco', p: 'Any color and any shade, fully custom. The most common choices are 80 and 90 percent mesh in black or beige, and beige is usually picked to match stucco.' },
-      { h: 'Warranty on material and work', p: 'The material carries a 10-year manufacturer warranty, and we warranty the work too.' },
+      { h: 'Warranty on material and work', p: 'Solar screens come with a warranty on the material and on our work, and we’re glad to go over the terms.' },
     ],
     faq: [],
   },
