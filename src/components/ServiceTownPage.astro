@@ -114,7 +114,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   </section>
 
   {/* No heading of its own: it sits right above the reviews heading. */}
-  <Gallery keys={photos.gallery} />
+  <Gallery keys={photos.gallery} swipe />
 
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
 
@@ -130,12 +130,12 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
     </section>
   )}
 
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} />}
+  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed />}
 
   <section class="section-tight">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">More for {t.name}</h2>
-      <ul class="chips" role="list">
+      <ul class="chips m-grid" role="list">
         <li><a href={townHref(t.slug)}><Icon name="pin" size={18} />All services in {t.name}</a></li>
         {others.map((o) => <li><a href={`/services/${o.slug}/${t.slug}/`}><Icon name="sparkle" size={18} />{o.name} in {t.name}</a></li>)}
         {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
@@ -163,4 +163,11 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   .ans a:hover { border-color: var(--blue); }
   .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
   .ans span { color: var(--ink-2); }
+  @media (max-width: 759px) {
+    /* The basics card a little snugger (same type). */
+    .svc { padding: 1.2rem 1.2rem 1.25rem; gap: .6rem; }
+    .phone-cta { min-height: 48px; }
+    .ans { gap: .55rem; }
+    .ans a { padding: .7rem 1rem; }
+  }
 </style>

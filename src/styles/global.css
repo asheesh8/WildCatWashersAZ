@@ -340,6 +340,13 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .chips a { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.1rem; border-radius: 999px; background: #fff; border: 2px solid var(--line); text-decoration: none; font-weight: 700; color: var(--navy); }
 .chips a:hover { border-color: var(--blue); background: var(--blue-50); }
 .chips svg { color: var(--blue-700); }
+/* Phones: a long run of link chips as a tidy two-column grid instead of ragged
+   one-per-line pills (related-page lists at the foot of town and community pages). */
+@media (max-width: 759px) {
+  .chips.m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .chips.m-grid a { width: 100%; height: 100%; min-height: 48px; padding: .5rem .75rem; gap: .4rem; border-radius: var(--radius); font-size: 1rem; line-height: 1.25; }
+  .chips.m-grid svg { flex: none; }
+}
 
 /* ── Phone swipe rows ─────────────────────────────────────────────
    Any grid marked .m-swipe becomes a sideways row of cards on phones,
@@ -356,6 +363,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
   .m-swipe::-webkit-scrollbar { display: none; }
   .m-swipe:focus-visible { outline-offset: -3px; }
   .m-swipe > * { flex: 0 0 86%; scroll-snap-align: start; min-width: 0; }
+  /* A row of one (a town with a single local review) takes the full width, no empty strip beside it. */
+  .m-swipe > :only-child { flex-basis: 100%; }
   .js .m-swipe > .reveal, .js .m-swipe .reveal { opacity: 1; transform: none; }
   .swipe-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
   .swipe-ctrl button {
@@ -379,6 +388,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
     font-weight: 800; font-size: 1.05rem; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; justify-self: start;
   }
   .rev-lead .more-btn, .rev-inst .more-btn { color: inherit; }
+  /* In a swipe row every quote stops at five lines, so the cards come out close to even. */
+  .js .m-swipe :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p:not(.open) { -webkit-line-clamp: 5; line-clamp: 5; }
   .m-swipe { align-items: flex-start; }
 }
 
@@ -502,4 +513,6 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
   .section-tight { padding-block: 2.2rem; }
   /* Two plain white sections in a row: don't stack both paddings. */
   .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) { padding-top: calc(var(--section) * .35); }
+  /* The same for a tight section (a photo row, a link list) right after a plain section. */
+  .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section-tight:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft) { padding-top: .6rem; }
 }

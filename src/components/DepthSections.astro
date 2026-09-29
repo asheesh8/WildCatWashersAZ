@@ -2,22 +2,31 @@
 /**
  * Local depth sections (src/data/depth.ts). "block" is a full-width section with
  * its own heading, used on town and community pages; "inline" is just the list,
- * for a column that already has a heading. On phones the block cards become a
- * swipe row (one card's height instead of a tall stack); two columns from tablet.
+ * for a column that already has a heading. Two columns from tablet.
+ *
+ * Phones: a block becomes a swipe row only when its cards come out even and
+ * short (tallest under ~450px, less than 150px between tallest and shortest).
+ * Otherwise the cards stack and start closed, each one its heading; tap to
+ * read it. The inline list keeps its first section open and folds the rest.
+ * A pre-paint script makes the call, so nothing jumps; without JS, or on
+ * tablet and desktop, every section is open and the headings are plain.
  */
 import DepthText from './DepthText.astro';
 import type { DepthSection } from '@/data/depth';
 export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline'; eyebrow?: string; heading?: string; intro?: string; tone?: 'mist' | 'plain' }
 const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } = Astro.props;
+const inline = variant === 'inline';
 ---
-{variant === 'inline' ? (
-  <div class="dsec-list inline">
+{inline ? (
+  <div class="dsec-list inline" data-dsec="inline">
     {sections.map((s) => (
-      <section class="dsec">
-        <h3 class="dsec-h">{s.h}</h3>
-        <p><DepthText text={s.p} /></p>
-        {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
-      </section>
+      <details class="dsec" open>
+        <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
+        <div class="dsec-b">
+          <p><DepthText text={s.p} /></p>
+          {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
+        </div>
+      </details>
     ))}
   </div>
 ) : (
@@ -30,23 +39,53 @@ const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } =
         </div>
       )}
       {intro && <p class="dsec-intro">{intro}</p>}
-      <div class:list={['dsec-list', sections.length > 1 && 'm-swipe']}>
+      <div class:list={['dsec-list', sections.length > 1 && 'm-swipe']} data-dsec="block">
         {sections.map((s) => (
-          <section class:list={['dsec', s.q && 'has-q']}>
-            <h3 class="dsec-h">{s.h}</h3>
-            <p><DepthText text={s.p} /></p>
-            {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
-          </section>
+          <details class:list={['dsec', s.q && 'has-q']} open>
+            <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
+            <div class="dsec-b">
+              <p><DepthText text={s.p} /></p>
+              {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
+            </div>
+          </details>
         ))}
       </div>
     </div>
   </section>
 )}
+{(
+  <script is:inline>
+    (function () {
+      var s = document.currentScript, l = s && s.previousElementSibling;
+      if (l && !l.hasAttribute('data-dsec')) l = l.querySelector('[data-dsec]');
+      if (!l) return;
+      var ds = [].slice.call(l.querySelectorAll('details')), fold = [];
+      if (matchMedia('(max-width: 759px)').matches) {
+        if (l.getAttribute('data-dsec') === 'inline') fold = ds.slice(1);
+        else if (l.classList.contains('m-swipe')) {
+          var h = ds.map(function (d) { return d.offsetHeight; });
+          var hi = Math.max.apply(Math, h), lo = Math.min.apply(Math, h);
+          if (hi > 450 || hi - lo >= 150) { l.classList.remove('m-swipe'); fold = ds; }
+        }
+      }
+      if (fold.length) l.classList.add('is-fold');
+      ds.forEach(function (d) {
+        if (fold.indexOf(d) > -1) d.open = false;
+        else d.querySelector('summary').tabIndex = -1;
+      });
+    })();
+  </script>
+)}
 <style>
   .dsec-intro { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 66ch; margin-bottom: 1.4rem; }
   .dsec-list { display: grid; gap: 1rem; }
   @media (min-width: 760px) { .dsec-list:not(.inline) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; } .dsec.has-q { grid-column: 1 / -1; } }
-  .dsec { display: grid; gap: .45rem; align-content: start; min-width: 0; }
+  .dsec { display: block; min-width: 0; }
+  .dsec summary { display: block; list-style: none; }
+  .dsec summary::-webkit-details-marker { display: none; }
+  .dsec summary:hover { color: inherit; }
+  .dsec-b { display: grid; gap: .45rem; margin-top: .45rem; }
+  .dsec-plus { display: none; }
   .dsec-list:not(.inline) .dsec { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
   .dsec-h { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; line-height: 1.25; color: var(--navy); }
   .dsec p { font-size: 1.1rem; line-height: 1.6; color: var(--ink-2); overflow-wrap: break-word; }
@@ -55,4 +94,22 @@ const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } =
   .dsec-q p { color: var(--navy); font-style: italic; }
   .dsec-q footer { margin-top: .4rem; font-size: 1rem; font-weight: 700; color: var(--ink-3); }
   .inline .dsec + .dsec { padding-top: .9rem; border-top: 1px solid var(--line); }
+  /* Headings only open and close where the pre-paint script folded the list (phones). */
+  .dsec-list:not(.is-fold) summary { pointer-events: none; }
+  @media (max-width: 759px) {
+    .is-fold .dsec summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 48px; cursor: pointer; }
+    .is-fold .dsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
+    .is-fold .dsec-plus::before, .is-fold .dsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+    .is-fold .dsec-plus::after { rotate: 90deg; }
+    .is-fold details[open] .dsec-plus { background: var(--blue); }
+    .is-fold details[open] .dsec-plus::after { rotate: 0deg; }
+    .dsec-list.is-fold:not(.inline) { gap: .6rem; }
+    .dsec-list.is-fold:not(.inline) .dsec { padding: .55rem 1rem .55rem 1.1rem; }
+    .dsec-list.is-fold:not(.inline) .dsec[open] { padding-bottom: 1rem; }
+    .is-fold .dsec-b { margin-top: .2rem; }
+    .inline.is-fold .dsec + .dsec { padding-top: .5rem; }
+    .inline.is-fold .dsec[open] + .dsec { padding-top: .9rem; }
+    .inline.is-fold .dsec:not(:first-child)[open] { padding-bottom: .4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .dsec-plus::before, .dsec-plus::after { transition: none; } }
 </style>

@@ -64,16 +64,31 @@ const ordered = [featured.anneWebb, featured.rainTest, ...reviews.filter((r) => 
   .rv figcaption { display: grid; }
   .rv figcaption strong { font-family: var(--font-display); font-weight: 800; }
   .rv figcaption span { color: var(--ink-3); font-size: 1rem; }
+  @media (max-width: 759px) {
+    /* Phones: the four platform counts as a snug 2x2. */
+    .plat { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+    .plat li { padding: .75rem .9rem; align-content: start; }
+    .plat strong { font-size: 2rem; margin-bottom: .15rem; }
+    .plat span, .plat small { line-height: 1.3; }
+    /* The service filters sit in one sideways row instead of three wrapped lines. */
+    .filt { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--gutter)) 1.1rem; padding: .15rem var(--gutter) .3rem; scroll-padding-inline: var(--gutter); }
+    .filt::-webkit-scrollbar { display: none; }
+    .filt button { flex: none; white-space: nowrap; }
+    /* Five lines of each review before "Read the whole review"; cards a little snugger. */
+    :global(.js) .rv :global(blockquote p:not(.open)) { -webkit-line-clamp: 5; line-clamp: 5; }
+    .rv { padding: 1.1rem 1.15rem; gap: .55rem; margin-bottom: .8rem; }
+  }
 </style>
 <script is:inline>
   // Every review is in the page for search engines; people see 12 at a time
-  // so the wall doesn't run to a hundred phone screens.
+  // (8 on phones) so the wall doesn't run to a hundred phone screens.
   document.querySelectorAll('[data-rev]').forEach((root) => {
     const btns = root.querySelectorAll('[data-f]');
     const cards = [...root.querySelectorAll('.rv')];
     const more = root.querySelector('[data-more]');
     const label = root.querySelector('[data-more-label]');
-    const step = 12;
+    // Phones get 8 at a time (shorter scroll per batch); wider screens 12.
+    const step = matchMedia('(max-width: 759px)').matches ? 8 : 12;
     let f = 'all', shown = step;
     const render = () => {
       const match = cards.filter((r) => f === 'all' || (r.dataset.c || '').split(' ').includes(f));

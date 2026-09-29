@@ -115,11 +115,11 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   <section class="section-tight bg-mist">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">What the desert does to glass in {c.name}</h2>
-      <ul class="conds" role="list">{c.angle.map((a) => <li><Icon name="check-circle" size={22} /><span>{a}</span></li>)}</ul>
+      <ul class:list={['conds', c.angle.length > 1 && 'm-swipe']} role="list">{c.angle.map((a) => <li><Icon name="check-circle" size={22} /><span>{a}</span></li>)}</ul>
     </div>
   </section>
 
-  <Gallery keys={photos.gallery} title="From recent jobs" />
+  <Gallery keys={photos.gallery} title="From recent jobs" swipe />
 
   {c.sections && c.sections.length > 0 && (
     <section class="section-tight">
@@ -148,12 +148,12 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} />}
+  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} phoneClosed />}
 
   <section class="section-tight">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">More in {townName}</h2>
-      <ul class="chips" role="list">
+      <ul class="chips m-grid" role="list">
         <li><a href={townHref(town.slug)}><Icon name="pin" size={18} />{townName}</a></li>
         <li><a href={townWindow}><Icon name="sparkle" size={18} />Window cleaning in {townName}</a></li>
         {siblings.map((s) => <li><a href={communityHref(s)}><Icon name="home" size={18} />{s.name}</a></li>)}
@@ -194,4 +194,12 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   .hoa dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: .3rem; }
   .hoa dd { margin: 0; color: var(--ink-2); }
   .hoa .text-link { justify-self: start; }
+  /* Phones: the navy "For this community" card a little snugger (same type). */
+  @media (max-width: 759px) {
+    .emph { padding: 1.25rem 1.2rem 1.3rem; gap: .6rem; }
+    .phone-cta { margin-top: 0; min-height: 48px; }
+    .differs { padding: .85rem 1rem; }
+    .place-copy { gap: .9rem; }
+    .place-copy .lede { font-size: 1.15rem; }
+  }
 </style>

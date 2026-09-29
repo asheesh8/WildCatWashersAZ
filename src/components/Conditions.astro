@@ -1,7 +1,7 @@
 ---
 /** "What the desert does here": local conditions as the numbered /01 list. */
-export interface Props { title: string; items: string[]; lede?: string }
-const { title, items, lede } = Astro.props;
+export interface Props { title: string; items: string[]; lede?: string; /** Phones: the conditions sit in one swipe row instead of a stack (town hubs). */ swipe?: boolean }
+const { title, items, lede, swipe = false } = Astro.props;
 ---
 <section class="section bg-mist">
   <div class="wrap cond">
@@ -10,7 +10,7 @@ const { title, items, lede } = Astro.props;
       <h2 class="h2 sweep">{title}</h2>
       {lede && <p class="lede">{lede}</p>}
     </div>
-    <ol role="list">
+    <ol class:list={[swipe && items.length > 1 && 'm-swipe']} role="list">
       {items.map((c, i) => (
         <li class="reveal"><span class="n">/{String(i + 1).padStart(2, '0')}</span><p>{c}</p></li>
       ))}

@@ -29,6 +29,11 @@ const { t } = Astro.props as { t: Town };
 const url = townHref(t.slug);
 const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
 const kids = childrenOf(t.slug);
+/* Named sections without a page of their own, listed under the neighborhood links. */
+const secs = t.sections.filter((s) => !kids.some((k) => k.name === s.name));
+/* Phones show the first four neighborhoods (links, then named sections) before "Show all", when two or more would be tucked away. */
+const whereTotal = kids.length + secs.length;
+const whereFirst = whereTotal > 5 ? 4 : whereTotal;
 const d = depthFor(url);
 const set = withProof(townReviews(t, 6, hashSeed(t.slug)), proofReviews(d), (r) => r.area === t.reviewArea, 6, keptOut(d));
 const faqs = withDepthFaqs(faqRefs(planFor(url)?.faq_refs), d);
@@ -56,7 +61,7 @@ const place = {
 
   {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} />}
 
-  <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} />
+  <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} swipe />
 
   <section class="section">
     <div class="wrap">
@@ -85,7 +90,7 @@ const place = {
     </div>
   </section>
 
-  <Gallery keys={photos.gallery} title="From recent jobs" />
+  <Gallery keys={photos.gallery} title="From recent jobs" swipe />
 
   {(kids.length > 0 || t.sections.length > 0) && (
     <section class="section-tight bg-mist">
@@ -94,19 +99,35 @@ const place = {
           <p class="eyebrow">Neighborhoods</p>
           <h2 class="h2">Where we work in {t.name}</h2>
         </div>
-        {kids.length > 0 && (
-          <ul class="kids" role="list">
-            {kids.map((c) => (
-              <li><a href={communityHref(c)}><strong>{c.name}</strong><span>Neighborhood page</span><Icon name="arrow" size={20} /></a></li>
-            ))}
-          </ul>
-        )}
-        {t.sections.filter((s) => !kids.some((k) => k.name === s.name)).length > 0 && (
-          <dl class="secs">
-            {t.sections.filter((s) => !kids.some((k) => k.name === s.name)).map((s) => (
-              <div><dt>{s.name}</dt><dd>{s.body}</dd></div>
-            ))}
-          </dl>
+        <div class="where" id="where-list">
+          {kids.length > 0 && (
+            <ul class="kids" role="list">
+              {kids.map((c, i) => (
+                <li class:list={[i >= whereFirst && 'k-more']}><a href={communityHref(c)}><strong>{c.name}</strong><span>Neighborhood page</span><Icon name="arrow" size={20} /></a></li>
+              ))}
+            </ul>
+          )}
+          {secs.length > 0 && (
+            <dl class="secs">
+              {secs.map((s, j) => (
+                <div class:list={[kids.length + j >= whereFirst && 'k-more']}><dt>{s.name}</dt><dd>{s.body}</dd></div>
+              ))}
+            </dl>
+          )}
+        </div>
+        {whereTotal > whereFirst && (
+          <>
+            {/* Phones: the first four neighborhoods show and a button opens the rest. Desktop (and no JS) shows all of them. */}
+            <button type="button" class="kids-toggle" aria-controls="where-list" aria-expanded="false" hidden><span class="km-open">Show all {whereTotal} neighborhoods</span><span class="km-close">Show fewer neighborhoods</span><Icon name="plus" size={20} /></button>
+            <script is:inline>
+              (function () {
+                var b = document.currentScript && document.currentScript.previousElementSibling, l = document.getElementById('where-list');
+                if (!b || !l || !matchMedia('(max-width: 759px)').matches) return;
+                l.classList.add('is-short'); b.hidden = false;
+                b.addEventListener('click', function () { var o = l.classList.toggle('is-short'); b.setAttribute('aria-expanded', String(!o)); });
+              })();
+            </script>
+          </>
         )}
       </div>
     </section>
@@ -114,7 +135,7 @@ const place = {
 
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />
 
-  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} />}
+  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed />}
   <section class="section-tight">
     <div class="wrap diy">
       <p class="eyebrow">Doing it yourself?</p>
@@ -130,7 +151,7 @@ const place = {
   <section class="section-tight">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">Nearby areas we serve</h2>
-      <ul class="chips" role="list">
+      <ul class="chips m-grid" role="list">
         {t.nearby.map((n) => townBySlug[n]).filter(Boolean).map((n) => <li><a href={townHref(n.slug)}><Icon name="pin" size={18} />{n.name}</a></li>)}
         <li><a href="/areas/"><Icon name="plus" size={18} />All areas</a></li>
       </ul>
@@ -157,6 +178,29 @@ const place = {
   .kids :global(svg) { grid-row: 1 / 3; grid-column: 2; color: var(--blue-700); }
   /* Phones: neighborhood rows a little snugger, same type, still 60px+ tap targets. */
   @media (max-width: 699px) { .kids { gap: .55rem; margin-bottom: 1.2rem; } .kids a { padding: .75rem 1.1rem; } .kids strong { line-height: 1.25; } }
+  .kids-toggle { display: none; }
+  @media (max-width: 759px) {
+    .where.is-short .k-more { display: none; }
+    /* With every named section tucked away, the links row needs no gap under it. */
+    .where.is-short .kids:has(+ .secs > .k-more:first-child) { margin-bottom: 0; }
+    .where.is-short .secs:not(:has(> :not(.k-more))) { display: none; }
+    .where.is-short { margin-bottom: .55rem; }
+    .where:not(.is-short) + .kids-toggle { margin-top: 1.2rem; }
+    .kids-toggle:not([hidden]) {
+      display: flex; width: 100%; align-items: center; justify-content: space-between; gap: .6rem; cursor: pointer;
+      min-height: 48px; margin-bottom: 1.2rem; padding: .5rem 1.1rem; border-radius: var(--radius); background: #fff; border: 2px dashed var(--line-strong);
+      font: inherit; font-weight: 800; color: var(--navy); text-align: left;
+    }
+    .kids-toggle .km-close, .kids-toggle[aria-expanded='true'] .km-open { display: none; }
+    .kids-toggle[aria-expanded='true'] .km-close { display: inline; }
+    .kids-toggle :global(svg) { flex: none; color: var(--blue-700); transition: rotate .25s var(--ease); }
+    .kids-toggle[aria-expanded='true'] :global(svg) { rotate: 45deg; }
+    /* The service cards' photos run a little shorter. */
+    .emph-img { aspect-ratio: 2 / 1; }
+    .emph-body { padding: 1.1rem 1.2rem 1.2rem; gap: .5rem; }
+    .also { margin-top: 1.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .kids-toggle :global(svg) { transition: none; } }
   .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .secs dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
   .secs dd { margin: .2rem 0 0; color: var(--ink-2); }
