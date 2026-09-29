@@ -125,7 +125,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
 
   {(answers.length > 0 || sharedFaqs.length > 0) && (
-    <section class="section-tight bg-mist">
+    <section class="section-tight bg-mist" data-mfold>
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
         <ul class="ans" role="list" id="ans-list" data-pfold="2">
@@ -136,9 +136,9 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
     </section>
   )}
 
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed />}
+  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold />}
 
-  <section class="section-tight">
+  <section class="section-tight" data-mfold>
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">More for {t.name}</h2>
       <ul class="chips m-grid" role="list" id="more-links" data-pfold="4">
@@ -173,6 +173,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   @media (max-width: 759px) {
     /* The basics card a little snugger (same type). */
     .svc { padding: 1.2rem 1.2rem 1.25rem; gap: .6rem; }
+    .svc .phone-cta { display: none; } /* the bottom bar has Call */
     .phone-cta { min-height: 48px; }
     .ans { gap: .55rem; }
     .ans a { padding: .7rem 1rem; }

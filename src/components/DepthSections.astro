@@ -69,6 +69,17 @@ const inline = variant === 'inline';
         }
       }
       if (fold.length) l.classList.add('is-fold');
+      /* A long inline list shows its first four topics on phones, then a button for the rest. */
+      if (l.getAttribute('data-dsec') === 'inline' && fold.length > 4) {
+        var extra = ds.slice(4), btn = document.createElement('button');
+        extra.forEach(function (d, i) { d.hidden = true; d.id = d.id || 'dsx' + i; });
+        btn.type = 'button'; btn.className = 'dsec-more pf-more';
+        btn.textContent = 'Show ' + extra.length + ' more topics';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', extra.map(function (d) { return d.id; }).join(' '));
+        btn.addEventListener('click', function () { extra.forEach(function (d) { d.hidden = false; }); btn.remove(); extra[0].querySelector('summary').focus(); });
+        l.after(btn);
+      }
       /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
       ds.forEach(function (d) {
         if (fold.indexOf(d) > -1) { d.open = false; return; }
