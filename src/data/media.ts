@@ -456,3 +456,11 @@ export function focusFor(key: string): string {
   const m = byKey[key];
   return m && m.height > m.width * 1.1 ? '50% 40%' : '50% 50%';
 }
+/** The same focus as a build-time crop anchor for sharp, which takes only
+ *  named positions: "50% 25%" becomes "top", "60% 70%" becomes "bottom". */
+export function cropFor(key: string): string {
+  const [x, y] = focusFor(key).split(/\s+/).map((v) => parseFloat(v));
+  const v = y <= 35 ? 'top' : y >= 65 ? 'bottom' : '';
+  const h = x <= 35 ? 'left' : x >= 65 ? 'right' : '';
+  return [h, v].filter(Boolean).join(' ') || 'centre';
+}

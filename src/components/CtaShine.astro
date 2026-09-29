@@ -11,7 +11,7 @@ const { service, area, place } = Astro.props;
     <div class="shine-copy">
       <h2 id="shine-title" class="shine-title">
         <span class="l1">Let’s make</span>
-        <span class:list={['l2', place && place.length > 12 && 'l2-long']}>{place ? `your ${place} home` : 'your place'}</span>
+        <span class:list={['l2', place && place.length > 12 && 'l2-long', place && place.length > 22 && 'l2-xlong']}>{place ? `your ${place} home` : 'your place'}</span>
         <span class="l3 sweep">Shine</span>
       </h2>
       <p class="shine-lede">Call and we’ll quote most homes in a few minutes, right on the phone. Or send the form and we’ll call you right back.</p>
@@ -60,6 +60,9 @@ const { service, area, place } = Astro.props;
     .l1 { font-size: 13.7cqi; }
     .l2 { font-size: 12.9cqi; }
     .l2-long { font-size: 11cqi; text-wrap: balance; }
+    /* Very long community names: one size down so the line runs three rows, not five. */
+    .l2-xlong { font-size: 9cqi; }
+    .shine-g { margin-top: 1.1rem; gap: .35rem; }
     .l3 { font-size: 26.4cqi; }
     .shine-card { display: none; }
     .shine-mbtn { display: inline-flex; }

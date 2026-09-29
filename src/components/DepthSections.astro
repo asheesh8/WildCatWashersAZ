@@ -2,7 +2,8 @@
 /**
  * Local depth sections (src/data/depth.ts). "block" is a full-width section with
  * its own heading, used on town and community pages; "inline" is just the list,
- * for a column that already has a heading. One column on phones, two from tablet.
+ * for a column that already has a heading. On phones the block cards become a
+ * swipe row (one card's height instead of a tall stack); two columns from tablet.
  */
 import DepthText from './DepthText.astro';
 import type { DepthSection } from '@/data/depth';
@@ -29,7 +30,7 @@ const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain' } =
         </div>
       )}
       {intro && <p class="dsec-intro">{intro}</p>}
-      <div class="dsec-list">
+      <div class:list={['dsec-list', sections.length > 1 && 'm-swipe']}>
         {sections.map((s) => (
           <section class:list={['dsec', s.q && 'has-q']}>
             <h3 class="dsec-h">{s.h}</h3>

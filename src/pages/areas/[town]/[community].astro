@@ -142,7 +142,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
           <p class="eyebrow">For HOA boards and community managers</p>
           <h2 class="h3">Common areas and community buildings</h2>
         </div>
-        <dl>{hoaFaqs.map((f) => <div><dt>{f.q}</dt><dd>{f.a}{faqLinks[f.n] && <> <a href={faqLinks[f.n].href}>{faqLinks[f.n].label}</a></>}</dd></div>)}</dl>
+        <div class:list={['hoa-list', hoaFaqs.length > 1 && 'm-swipe']}>{hoaFaqs.map((f) => <dl><dt>{f.q}</dt><dd>{f.a}{faqLinks[f.n] && <> <a href={faqLinks[f.n].href}>{faqLinks[f.n].label}</a></>}</dd></dl>)}</div>
         <a class="text-link" href="/who-we-help/hoas-communities/">HOA and community work <Icon name="arrow" size={20} /></a>
       </div>
     </section>
@@ -187,8 +187,10 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   .known li :global(svg), .hoa-note :global(svg) { flex: none; color: var(--blue-700); margin-top: .2rem; }
   .hoa-note { display: flex; gap: .6rem; align-items: flex-start; font-weight: 600; color: var(--navy); }
   .hoa { display: grid; gap: 1.2rem; }
-  .hoa dl { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
-  .hoa dl div { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
+  /* The eyebrow's pull-up margin assumes a 1rem stack gap; without one a two-line eyebrow ran into its heading on phones. */
+  :is(.hoa, .known) > div:first-child { display: grid; gap: 1rem; }
+  .hoa-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .hoa-list dl { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
   .hoa dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: .3rem; }
   .hoa dd { margin: 0; color: var(--ink-2); }
   .hoa .text-link { justify-self: start; }

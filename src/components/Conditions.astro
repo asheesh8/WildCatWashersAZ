@@ -22,4 +22,11 @@ const { title, items, lede } = Astro.props;
   .cond li { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 1.6rem; display: grid; gap: .6rem; align-content: start; }
   .n { font-family: var(--font-display); font-weight: 900; font-size: 2.8rem; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--blue-600); }
   .cond p { font-size: var(--step-1); line-height: 1.45; color: var(--ink-2); }
+  /* Phones: the number sits beside its line instead of above it, so three
+     conditions take about half the height; the type stays the same size. */
+  @media (max-width: 699px) {
+    .cond ol { gap: .7rem; }
+    .cond li { grid-template-columns: auto minmax(0, 1fr); gap: .9rem; align-items: start; padding: 1.1rem 1.2rem; }
+    .n { font-size: 2rem; }
+  }
 </style>

@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import Breadcrumbs from './Breadcrumbs.astro';
 import Icon from './Icon.astro';
 import LoopVideo from './LoopVideo.astro';
-import { img, altFor, hasImg, focusFor } from '@/data/media';
+import { img, altFor, hasImg, focusFor, cropFor } from '@/data/media';
 import { company, cta, telHref, proof } from '@/data/business';
 export interface Props {
   eyebrow?: string;
@@ -20,6 +20,20 @@ export interface Props {
 }
 const { eyebrow, title, lede, crumbs = [], image, ctaLabel = cta.primary, ctaHref = cta.quoteHref, rating = true, video } = Astro.props;
 const photo = image && hasImg(image) ? img(image) : null;
+/* The photo is cropped at build time to the 4:3.3 frame (anchored on its focus),
+   so the frame shows it whole on desktop. On phones the frame is a wider band;
+   re-aim object-position so the band shows the same slice of the photo it
+   showed before the crop (a band about 0.62 of its width tall). */
+const heroPos = (() => {
+  if (!photo || !image) return '';
+  const [x, y] = focusFor(image).split(/\s+/).map((v) => parseFloat(v) / 100);
+  const h0 = photo.height / photo.width, hc = 3.3 / 4, band = 0.62;
+  if (h0 <= hc) return focusFor(image);
+  const pos = cropFor(image);
+  const c = pos.includes('top') ? 0 : pos.includes('bottom') ? h0 - hc : (h0 - hc) / 2;
+  const p = Math.min(1, Math.max(0, (y * (h0 - band) - c) / (hc - band)));
+  return `${Math.round(x * 100)}% ${Math.round(p * 100)}%`;
+})();
 /* Short H1s stay as bold uppercase headlines; longer or question H1s read as
    sentences, so they fit in four lines on a phone (design review 1). */
 const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
@@ -45,7 +59,9 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     )}
     {!video && photo && (
       <div class="phero-photo photo">
-        <Image src={photo} alt={altFor(image!)} widths={[480, 720, 960, 1200]} sizes="(min-width: 1000px) 46vw, 100vw" loading="eager" fetchpriority="high" decoding="async" quality={72} style={`object-position:${focusFor(image!)}`} />
+        {/* Cropped at build time to the frame's 4:3.3, anchored on the photo's focus,
+            so a portrait photo doesn't ship the half that object-fit would hide. */}
+        <Image src={photo} alt={altFor(image!)} width={1200} height={990} fit="cover" position={cropFor(image!)} widths={[480, 640, 800, 960, 1200]} sizes="(min-width: 1000px) 46vw, calc(100vw - 2rem)" loading="eager" fetchpriority="high" decoding="async" quality={66} style={`object-position:${heroPos}`} />
       </div>
     )}
   </div>

@@ -14,7 +14,7 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
-  build: { inlineStylesheets: 'auto', format: 'directory' },
+  build: { inlineStylesheets: 'always', format: 'directory' },
   image: { responsiveStyles: true },
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   compressHTML: true,

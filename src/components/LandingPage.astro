@@ -105,7 +105,7 @@ const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
     </section>
   )}
 
-  {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" />}
+  {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" openFirst={items.length < 4} />}
 
   {related.length > 0 && (
     <section class="section-tight">

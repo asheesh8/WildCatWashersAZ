@@ -104,7 +104,7 @@ const article = {
     </div>
   </article>
 
-  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} eyebrow="From our FAQ" />}
+  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} eyebrow="From our FAQ" openFirst={false} />}
 
   {related.length > 0 && (
     <section class="section-tight">
@@ -144,6 +144,8 @@ const article = {
   .rel a:hover { border-color: var(--blue); }
   .rel :global(svg) { flex: none; color: var(--blue-700); }
   .body :global(.g-loop) { max-width: 420px; }
-  @media (max-width: 759px) { .body :global(.g-loop) { max-width: 300px; margin-inline: auto; } }
+  @media (max-width: 759px) { .body :global(.g-loop) { max-width: 250px; margin-inline: auto; } }
+  /* Phones: related-question rows a little snugger (still well over 44px tall). */
+  @media (max-width: 699px) { .rel { gap: .5rem; } .rel a { padding: .8rem 1rem; } }
   .body :global(.g-loop video) { aspect-ratio: 4 / 5; height: auto; }
 </style>
