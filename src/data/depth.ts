@@ -1982,6 +1982,126 @@ for (const [url, d] of Object.entries(round12)) {
   depth[url] = d;
 }
 
+/* ============================== Round 13: next weakest town and HOA pages ==============================
+   Appended like round 12. Every line traces to a Doc 6 answer or a fact bank line. */
+const round13Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/areas/marana/sunflower-at-continental-ranch/': {
+    sections: [
+      { h: 'Arriving for the season?', p: 'Most seasonal residents have us come right when they arrive, so the house is clean and ready the day they get back. Tell us your arrival date and we’ll have it scheduled; you don’t need to be in town for us to do it.' },
+      { h: 'Senior and veteran discounts', p: 'We offer both. Just mention it when you call for your quote and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+    faq: [167, 19],
+  },
+  '/areas/sahuarita/rancho-sahuarita/': {
+    sections: [
+      { h: 'Seven days a week', p: 'We work seven days a week, and most people are scheduled within a week or two, often sooner. Same-day is possible more often than you’d think, so just ask.', q: { text: 'They arrived on time, were friendly and considerate of our property, AND did an excellent job washing windows and screens inside and out.', by: 'Bonnie S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Getting ready to sell?', p: 'Clean windows make a home look well kept, in person and in listing photos. Real estate agents use us for listing prep, and every agent who’s hired us once has kept coming back.' },
+    ],
+    quoted: [190],
+    faq: [142, 168],
+  },
+  '/areas/catalina-foothills/skyline-country-club/': {
+    sections: [
+      { h: 'French panes and divided lights', p: 'More panes means more detail work, which is what we do best. French panes and divided-light windows are quoted per pane like everything else.' },
+      { h: 'Transoms and entry glass', p: 'Transom and entryway glass is part of the job too. Chandeliers aren’t something we offer.' },
+    ],
+    faq: [50, 45],
+  },
+  '/areas/catalina-foothills/ventana-canyon/': {
+    sections: [
+      { h: 'Skylights', p: 'Skylights are counted as additional panes and handled in the same visit.' },
+      { h: 'Fog between the panes', p: 'We clean both surfaces, but fog between double panes is inside the sealed unit, where nobody can clean it. It’s a failed seal, and we’ll point it out during our inspection, before we start. [Can a foggy double-pane window be cleaned?](/guides/fogged-double-pane-window-can-it-be-cleaned/)' },
+    ],
+    faq: [42, 39],
+  },
+  '/areas/sahuarita/rancho-resort/': {
+    sections: [
+      { h: 'Out of town for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time. For exterior work you don’t need to be home: we can keep a card on file and charge after the job.', q: { text: 'Had my windows washed today and they did a great job. Showed up on time and worked till the job was done.', by: 'Denise L., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [226],
+    faq: [145, 153],
+  },
+  '/areas/tanque-verde/vactor-ranch/': {
+    sections: [
+      { h: 'If something isn’t right', p: 'Tell your technician during the walkthrough and it gets fixed on the spot. If anything comes up after you’ve paid, call us and we’ll make it right, including a refund.' },
+      { h: 'Drives, patios and pool decks', p: 'Pressure washing is priced by the surface and the scope of the job, and we’ll quote it by phone in a couple of minutes. Your bushes and landscaping are protected on every job. [Pressure washing](/services/pressure-washing/)' },
+    ],
+    faq: [188, 12],
+  },
+  '/areas/green-valley/links-at-santa-rita-springs/': {
+    sections: [
+      { h: 'Right after the monsoon', p: 'Monsoon storms leave heavy dirt and dust behind, so right after summer is the natural time for a clean. It resets everything going into fall.' },
+      { h: 'The glass, not just the view', p: 'Hard water left on a pane long enough etches it permanently, and etched glass has to be replaced. Maintaining your windows is far cheaper than replacing them.', q: { text: 'Everything the trees and flowers and mountains in the sky look brighter because my windows are so clean.', by: 'Betsy R., Green Valley' } },
+    ],
+    quoted: [52],
+    faq: [163, 173],
+  },
+  '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
+    sections: [
+      { h: 'The Wildcat Club, no premium', p: 'Club pricing is standard pricing, locked in for the year, with no premium for joining. You pay after each visit, same as a one-time clean, and we handle the scheduling and reminders. One-time cleans are always available. [The Wildcat Club](/wildcat-club/)' },
+      { h: 'Shower glass and mirrors', p: 'Shower glass, mirrors, glass doors and patio enclosures are all handled in the same visit.' },
+    ],
+    faq: [203, 44],
+  },
+  '/areas/marana/continental-ranch/': {
+    sections: [
+      { h: 'Rentals and absentee owners', p: 'We work with property managers, landlords and absentee owners regularly. Plenty of customers aren’t home, especially for exterior work, and we keep payment on file and charge after the job.' },
+      { h: 'A quote without a site visit', p: 'We quote over the phone: we walk you through counting your panes and have a number for you on the spot. It usually takes a minute or two.' },
+    ],
+    faq: [158, 140],
+  },
+  '/areas/marana/the-highlands-at-dove-mountain/': {
+    sections: [
+      { h: 'Back for the season', p: 'Tell us when you’re arriving and we’ll have the house clean and ready before you walk in. You don’t need to be in town for us to do it.' },
+      { h: '14 days of touch-ups', p: 'For 14 days after any service, if you want anything touched up for any reason, we come back and do it free: rain, dust, or a spot you noticed later. That’s the 14-Day Spotless Guarantee.' },
+    ],
+    faq: [238, 208],
+  },
+  '/areas/vail-az/del-webb-at-rocking-k/': {
+    sections: [
+      { h: 'Overspray on new glass', p: 'Builder dust, debris and construction cleanup on glass are regular work for us. Heavy paint or stucco overspray can be stubborn, but we usually get it with steel wool or a scraper. [New construction cleans](/who-we-help/builders-new-construction/)' },
+      { h: 'No deposit', p: 'You don’t pay until the work is finished, we’ve walked it with you, and you’re happy.' },
+    ],
+    faq: [236, 22],
+  },
+  '/areas/casas-adobes/': {
+    sections: [
+      { h: 'Solar screens, west side first', p: 'West-facing windows come first, since afternoon sun hits them hardest, then south-facing. Solar screens block up to 80 to 90 percent of the sun’s heat and glare, depending on the mesh. [Solar screens](/services/solar-screens/)' },
+      { h: 'Rain on the day', p: 'If it’s pouring, we reschedule. In a light drizzle we work through it, because with the tracks, sills, frames and screens clean there’s no dust left to wash back down. If weather ever does spot the glass, the 14-Day Spotless Guarantee covers it.' },
+    ],
+    faq: [222, 150],
+  },
+  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
+    sections: [
+      { h: 'Will the same crew come?', p: 'We try for continuity, but we can’t promise the same technician every visit. What we can promise is that every technician is trained to the same standard and held to the same guarantees.', q: { text: 'They do an excellent job and are very professional. They also clean the frames and tracks.', by: 'Irene G., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Senior and veteran discounts', p: 'Both are available. Let us know when you call and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+    quoted: [192],
+    faq: [19, 20],
+  },
+  '/areas/oro-valley/vistoso-village/': {
+    sections: [
+      { h: 'Attached homes, priced by the pane', p: 'Every home is quoted per pane, meaning each individual piece of glass, not per hour or per window opening. We count them with you on the phone and you have the price on the spot.' },
+      { h: 'Done in a few hours', p: 'A whole house takes anywhere from one to five hours depending on its size.', q: { text: 'Wildcat washers wash my windows today and did an excellent job. The work was done quickly and thoroughly.', by: 'Judy P., Oro Valley' } },
+    ],
+    quoted: [107],
+    faq: [4, 148],
+  },
+  '/areas/catalina-foothills/la-paloma/': {
+    sections: [
+      { h: 'Streak free in the heat', p: 'In Arizona heat, solution dries on the glass before most people can pull it, which is where streaks come from. Our technicians are trained to work quickly and precisely, and we double check every pane before we leave.' },
+      { h: 'Call, and we call back', p: 'There’s no online booking, and that’s on purpose. Call us or send a quick form and we’ll call you right back, because a real conversation is the best way to get your quote right.' },
+    ],
+    faq: [32, 240],
+  },
+};
+for (const [url, a] of Object.entries(round13Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 13: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
