@@ -110,6 +110,7 @@ const article = {
           if (ds.length < 4) return;
           l.classList.add('is-fold');
           ds.slice(2).forEach(function (d) { d.open = false; });
+          ds.slice(0, 2).forEach(function (d) { d.querySelector('summary').tabIndex = -1; });
         })();
       </script>
       {proof.length > 0 && (
@@ -165,6 +166,7 @@ const article = {
     .gsecs.is-fold { gap: 0; }
     .is-fold .gsec { border-bottom: 1px solid var(--line); padding: .35rem 0; }
     .is-fold .gsec:nth-child(-n+2) { border-bottom: 0; padding-bottom: 1.4rem; }
+    .is-fold .gsec:nth-child(-n+2) summary { pointer-events: none; }
     .is-fold .gsec:not(:nth-child(-n+2)) summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 52px; cursor: pointer; }
     .is-fold .gsec:not(:nth-child(-n+2)) .gsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
     .is-fold .gsec-plus::before, .is-fold .gsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }

@@ -369,7 +369,7 @@ const sceneGroups: string[][] = [
   ['sun-screens-installed-1', 'solar-screen-large-window'],
   ['sun-screens-tan-house', 'solar-screen-side-yard'],
   /* One gable house, same two screened windows, shot from several angles. */
-  ['sun-screens-installed-2', 'solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screens-two-windows-garden'],
+  ['sun-screens-installed-2', 'solar-screens-front-elevation', 'solar-screens-garden-home', 'solar-screens-two-windows-garden', 'solar-screen-gable-window', 'solar-screens-gable-garden'],
   ['tech-cleaning-solar-commercial-roof', 'tech-scrubbing-solar-flat-roof'],
   ['tech-cleaning-solar-mountains', 'tech-solar-pole-clean'],
   ['tech-waterfed-pole-stucco', 'tech-waterfed-stucco-window'],
@@ -378,6 +378,8 @@ const sceneGroups: string[][] = [
   ['tech-squeegee-reflection-glass', 'tech-squeegee-soapy-window-sky'],
   ['clean-window-front-yard-reflection', 'clean-window-porch-reflection'],
   ['tech-kneeling-french-doors-pool', 'tech-detailing-door-frame-pool'],
+  // same patio, sliders and Arizona room glass
+  ['clean-sliders-covered-patio-sunset', 'clean-arizona-room-glass'],
 ];
 const sceneIndex = new Map<string, string>();
 for (const g of sceneGroups) for (const k of g) sceneIndex.set(k, g[0]);
@@ -449,6 +451,8 @@ const focusOverride: Record<string, string> = {
   'solar-panels-hillside': '50% 70%',
   'solar-panels-tile-roof-closeup': '50% 45%',
   'tech-slider-squeegee': '50% 0%',
+  'clean-arizona-room-glass': '50% 78%',
+  'solar-screen-gable-window': '50% 55%',
 };
 /** CSS object-position for a photo: portrait shots anchor a little above centre. */
 export function focusFor(key: string): string {
