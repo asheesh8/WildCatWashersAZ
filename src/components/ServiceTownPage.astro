@@ -73,6 +73,12 @@ const kids = childrenOf(t.slug);
 const extraGuides = s.slug === 'window-cleaning' ? ['/guides/can-i-clean-my-own-windows/'] : [];
 const answers = [...new Set([...(ls.guides ?? []), ...extraGuides])].map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
 const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
+const ansItems = [
+  ...answers.map((g) => ({ href: g.url, label: g.row.h1 })),
+  ...sharedFaqs.filter((f) => !answers.some((g) => g.url === f.href)).map((f) => ({ href: f.href, label: f.q })),
+];
+/* Phones show the first few of these lists, then a "Show more" button (data-pfold in Base). */
+const moreCount = 2 + others.length + kids.length + (kids.length > 0 ? 1 : 0) + (s.slug === 'solar-screens' ? 1 : 0);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
 const short = t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, ''); // always "Vail AZ", never bare Vail
 const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
@@ -122,10 +128,10 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
     <section class="section-tight bg-mist">
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
-        <ul class="ans" role="list">
-          {answers.map((g) => <li><a href={g.url}><strong>{g.row.h1}</strong></a></li>)}
-          {sharedFaqs.filter((f) => !answers.some((g) => g.url === f.href)).map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}
+        <ul class="ans" role="list" id="ans-list" data-pfold="2">
+          {ansItems.map((a) => <li><a href={a.href}><strong>{a.label}</strong></a></li>)}
         </ul>
+        {ansItems.length > 3 && <button type="button" class="pf-more" aria-controls="ans-list" aria-expanded="false">Show {ansItems.length - 2} more answers</button>}
       </div>
     </section>
   )}
@@ -135,7 +141,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   <section class="section-tight">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">More for {t.name}</h2>
-      <ul class="chips m-grid" role="list">
+      <ul class="chips m-grid" role="list" id="more-links" data-pfold="4">
         <li><a href={townHref(t.slug)}><Icon name="pin" size={18} />All services in {t.name}</a></li>
         {others.map((o) => <li><a href={`/services/${o.slug}/${t.slug}/`}><Icon name="sparkle" size={18} />{o.name} in {t.name}</a></li>)}
         {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
@@ -143,6 +149,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
         {kids.length > 0 && <li><a href="/who-we-help/hoas-communities/"><Icon name="home" size={18} />HOAs and communities</a></li>}
         {s.slug === 'solar-screens' && <li><a href="/services/solar-screens/repair-rescreening/"><Icon name="sparkle" size={18} />Solar screen repair and rescreening</a></li>}
       </ul>
+      {moreCount > 5 && <button type="button" class="pf-more" aria-controls="more-links" aria-expanded="false">Show all {moreCount} links</button>}
     </div>
   </section>
 </Base>

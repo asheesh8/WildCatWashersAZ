@@ -180,6 +180,21 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
         nums.forEach((n) => io.observe(n));
       })();
       (() => {
+        // Phone list fold: past data-pfold items, the rest wait behind the list's "Show more" button.
+        document.querySelectorAll('[data-pfold]').forEach((l) => {
+          const keep = +l.dataset.pfold, items = [...l.children];
+          const btn = l.id && document.querySelector(`.pf-more[aria-controls="${l.id}"]`);
+          if (!btn || items.length <= keep + 1) { if (btn) btn.hidden = true; return; }
+          items.slice(keep).forEach((i) => i.classList.add('pf-x'));
+          btn.addEventListener('click', () => {
+            l.classList.add('is-all');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.hidden = true;
+            items[keep].querySelector('a')?.focus();
+          });
+        });
+      })();
+      (() => {
         // Phone swipe rows: add prev/next buttons and a live "1 of 6" count.
         document.querySelectorAll('.m-swipe').forEach((row) => {
           const items = [...row.children];

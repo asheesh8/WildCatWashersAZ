@@ -516,3 +516,11 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
   /* The same for a tight section (a photo row, a link list) right after a plain section. */
   .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section-tight:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft) { padding-top: .6rem; }
 }
+
+/* Phone list fold: items past data-pfold wait behind a .pf-more button (Base.astro). */
+.pf-more { display: none; }
+.pf-more[hidden] { display: none !important; }
+@media (max-width: 759px) {
+  .js [data-pfold]:not(.is-all) > .pf-x { display: none; }
+  .js .pf-more { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: .8rem; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--navy); font-weight: 700; font-size: 1.02rem; }
+}
