@@ -270,7 +270,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           p.closest('blockquote').after(b);
         });
         add();
-        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f]')) setTimeout(add, 50); });
+        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f], .rs-toggle')) setTimeout(add, 50); });
       })();
     </script>
   </body>
