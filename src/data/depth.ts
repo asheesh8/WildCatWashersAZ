@@ -1755,6 +1755,98 @@ const round9: Record<string, Depth> = {
 };
 for (const [url, d] of Object.entries(round9)) depth[url] = { ...depth[url], ...d };
 
+/* ============================== Round 10: town and HOA pages ============================== */
+const round10Add: Record<string, { sections: DepthSection[]; quoted?: number[] }> = {
+  '/areas/casas-adobes/': {
+    sections: [
+      { h: 'Inside too, furniture handled', p: 'Inside and out is the full 5-in-1 Deep Clean, and it’s what we recommend. You don’t need to move anything first: shoe covers go on before we come in, towels catch any drips, and furniture goes back exactly where it was. Exterior only is available if you prefer.' },
+      { h: 'Between Oro Valley and central Tucson', p: 'Casas Adobes sits between Oracle and La Cholla, with Tucson National on its edge, and our crews work all around it. See [Oro Valley](/areas/oro-valley/), [Marana](/areas/marana/), the [Catalina Foothills](/areas/catalina-foothills/) and [Tucson](/areas/tucson/).' },
+    ],
+  },
+  '/areas/saddlebrooke/saddlebrooke-two/': {
+    sections: [
+      { h: 'Solar panels on single-story roofs', p: 'We clean any panel type on any roof, by hand with deionized water and soap when it’s needed, and never with a pressure washer. Once or twice a year keeps panels performing, and every job gets before and after photos so you can see the roof you can’t see yourself. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/areas/marana/del-webb-at-dove-mountain/': {
+    sections: [
+      { h: 'Senior and veteran discounts', p: 'Both are real and both are published. Mention it when you call for your quote and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+  },
+  '/areas/tanque-verde/': {
+    sections: [
+      { h: 'Rooftop or ground-mount solar', p: 'Custom homes out here have every kind of array. We clean rooftop and ground-mount panels alike, on any roof type and pitch, by hand and never with a pressure washer. Once or twice a year keeps them performing. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/areas/oro-valley/rancho-vistoso/': {
+    sections: [
+      { h: 'Insurance, on paper', p: 'We’re fully insured, and if your village or HOA wants proof before work starts, ask for a certificate of insurance. A legitimate company provides it without hesitation, and we do.', q: { text: 'These young men do a great job washing my windows. It\'s great that they service Oro. Valley, AZ. They are friendly & professional. Would highly recommend!', by: 'Linda S., Oro Valley' } },
+    ],
+    quoted: [103],
+  },
+  '/areas/tucson/rita-ranch/': {
+    sections: [
+      { h: 'Inside and out, one visit', p: 'Doing inside and out in the same visit is more efficient than two trips, and that shows up in the price. Pets are welcome too: our crews are careful and kind with them on every job.', q: { text: 'Great work! Crystal clear!', by: 'Christina C., Tucson' } },
+    ],
+    quoted: [85],
+  },
+  '/areas/green-valley/legends/': {
+    sections: [
+      { h: 'Several services, one trip', p: 'One trip costs less than three, so windows, pressure washing and solar panels done together cost less than separate visits. Wildcat Club members also get 10 percent off every added service.', q: { text: 'We had Isaac and Angel clean our windows and do some pressure washing in green valley. Wonderful job, great prices. Highly recommend', by: 'Mary M., Green Valley' } },
+    ],
+    quoted: [29],
+  },
+  '/areas/catalina-foothills/sabino-canyon/': {
+    sections: [
+      { h: 'Will solar screens darken the house?', p: 'Barely. The view gets slightly darker and a touch less crisp, and from outside no one can see in at all, so you get daytime privacy and keep the view. West-facing windows come first, then south. [Can you see out of solar screens?](/guides/can-you-see-out-of-solar-screens/)' },
+    ],
+  },
+  '/areas/saddlebrooke/': {
+    sections: [
+      { h: 'Tell a friend first', p: 'SaddleBrooke runs on word of mouth, and our referral program rewards both sides. The one rule: the referral has to go through your referral text or email link before your friend’s service, since it can’t be added afterward. [How referrals work](/referrals/)' },
+    ],
+  },
+  '/areas/tanque-verde/forty-niner-country-club-estates/': {
+    sections: [
+      { h: 'Your yard, left as we found it', p: 'We watch where we step, where we set equipment and where the water goes, and bushes and desert landscaping are protected on every job. [Pressure washing](/services/pressure-washing/)' },
+      { h: 'Why quotes differ house to house', p: 'Almost always the pane count. Two homes that look alike can be very different once you count the glass, so we count it with you on the call. [How pricing works](/guides/window-cleaning-cost-guide/)' },
+    ],
+  },
+  '/areas/oro-valley/sun-city-oro-valley/': {
+    sections: [
+      { h: 'Pay at the end, any way you like', p: 'You pay after the work is done and walked with you, and only once you’re happy. We take all standard payment methods and can keep a card on file if you won’t be home.', q: { text: 'Arrived on time. Did a great job on the windows. Will hire again.', by: 'Ed C., Oro Valley' } },
+    ],
+    quoted: [114],
+  },
+  '/areas/sahuarita/': {
+    sections: [
+      { h: 'White spots on solar panels', p: 'Those are minerals. Rain dries on the panel glass and leaves them behind, and in Sahuarita the dust from nearby mining sticks to it too. Rain moves dust around rather than washing it off, so panels need a brush and soap. [White spots after rain](/guides/white-spots-on-solar-panels-after-rain/) and [Rancho Resort](/areas/sahuarita/rancho-resort/).' },
+    ],
+  },
+  '/areas/marana/dove-mountain/': {
+    sections: [
+      { h: 'Second-story glass, same pricing', p: 'Second-story glass is quoted per pane like everything else, with no separate surcharge. From the family homes in the Villages to the custom homes up the hill, high panes get pure deionized water on a water-fed pole or a ladder where that’s the right tool. [Two-story window cleaning](/guides/two-story-window-cleaning/)' },
+    ],
+  },
+  '/areas/oro-valley/stone-canyon/': {
+    sections: [
+      { h: 'Background checked, every hire', p: 'Every technician is background checked and trained before working at a customer’s home, and they arrive uniformed in a marked truck, so you know it’s us before we knock.', q: { text: 'Outstanding professional window cleaners in Oro Valley AZ', by: 'Nancy S., Oro Valley' } },
+    ],
+    quoted: [104],
+  },
+  '/areas/vail-az/': {
+    sections: [
+      { h: 'Rincon Valley, all of it', p: 'Rincon Valley is the local name for Vail and the area east of Houghton at the foot of the Rincons, and we cover all of it: [Del Webb at Rocking K](/areas/vail-az/del-webb-at-rocking-k/), [Del Webb at Rancho del Lago](/areas/vail-az/del-webb-at-rancho-del-lago/), [Academy Village](/areas/vail-az/academy-village/), Rancho del Lago and the newer family subdivisions.' },
+      { h: 'Pets and a busy house', p: 'Our crews love animals and are careful and kind with them on every job. There’s nothing to prepare before we arrive, and anything we move goes back where it was.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round10Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 10: no depth entry for ${url}`);
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
