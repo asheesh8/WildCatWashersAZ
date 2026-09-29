@@ -1300,6 +1300,187 @@ export const depth: Record<string, Depth> = {
   },
 };
 
+/* ============================== Round 7: weakest window, town and HOA pages ==============================
+   Merged over the entries above: a page that already has depth keeps its title, meta, answer and omit;
+   heading, sections, proof and faq come from here. */
+const round7: Record<string, Depth> = {
+  '/services/window-cleaning/casas-adobes/': {
+    heading: 'Mature landscaping and sprinkler spotting',
+    sections: [
+      { h: 'Where sprinklers meet glass', p: 'Casas Adobes is an established area, and plenty of homes have mature landscaping with irrigation near the windows. When that mineral-heavy water dries on glass, it leaves white spots behind, and spots left long enough etch in. If a sprinkler head keeps hitting the same window, it’s worth adjusting. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/).' },
+      { h: 'Spots come off, etching doesn’t', p: 'Mineral buildup sitting on the glass is buffed off with 0000-grade steel wool, included in every clean. Etching, where minerals have eaten into the glass, can’t be cleaned away. We inspect every window before we start and tell you which one you have before you’ve paid anything. [Spots vs etching](/guides/is-hard-water-damage-on-glass-permanent/).' },
+      { h: 'Frames, tracks and screens', p: 'Whether your home is a mid-century ranch or something newer, tracks are vacuumed out and hand-cleaned, frames and sills are wiped down, and screens come out and get reconditioned. A torn screen can usually be replaced in the same visit, because the crew carries equipment for every service. [Screen repair](/services/screen-repair/).' },
+      { h: 'Three times a year', p: threeAYear() },
+    ],
+    faq: windowFaqs,
+  },
+
+  '/services/window-cleaning/vail-az/': {
+    heading: 'Builder dust on new homes',
+    sections: [
+      { h: 'The first clean on a new home', p: 'A newly built home usually has builder dust, debris and construction residue on the glass, and we take all of it off, frames, sills and tracks included. Paint or stucco overspray usually comes off with steel wool or a scraper. Heavy overspray can be stubborn, and we’ll tell you what to expect before we start. [Builders and new construction](/who-we-help/builders-new-construction/).' },
+      { h: 'Open land at the foot of the Rincons', p: 'Where homes back onto open desert, noticeably more dust reaches the glass. That’s why screens get cleaned every visit: a dirty screen in front of clean glass puts the dust right back. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/).' },
+      { h: 'Two-story glass', p: 'Second-story glass is quoted per pane like everything else, with no separate surcharge. For high or hard-to-reach panes we use pure deionized water on a water-fed pole, which dries without a spot, and where a ladder is the right tool we use one safely. [Two-story window cleaning](/guides/two-story-window-cleaning/).' },
+      { h: 'Three times a year after that', p: `${threeAYear()} New to the area? See [Del Webb at Rocking K](/areas/vail-az/del-webb-at-rocking-k/) and all of [Vail AZ](/areas/vail-az/).` },
+    ],
+    faq: windowFaqs,
+  },
+
+  '/services/window-cleaning/sahuarita/': {
+    heading: 'Southern-metro dust on newer homes',
+    sections: [
+      { h: 'Inside and out, or exterior only', p: 'Both are quoted per pane over the phone in a few minutes. Most people choose inside and out, which is the full 5-in-1 Deep Clean, and doing both in one visit is more efficient, which shows up in the quote. Exterior only is available anytime. [How pricing works](/guides/how-much-does-window-cleaning-cost-tucson/).' },
+      { h: 'Dust that comes back fast', p: 'Sahuarita is in the southern metro, where mining adds measurably to the dust in the air, so glass here collects it faster than in most of Tucson, and hard water leaves spots on top. That’s why screens and tracks are cleaned every visit, not just the glass. We work all over town, [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/) included, and next door in [Green Valley](/services/window-cleaning/green-valley/).' },
+      { h: 'Sliding doors and nose prints', p: 'Sliding glass doors collect more handprints and pet nose prints than any other glass in most homes. They’re cleaned inside and out as part of the 5-in-1, tracks included. [Pet nose prints on sliding doors](/guides/pet-nose-prints-on-sliding-glass-doors/).' },
+      { h: 'Three times a year', p: threeAYear() },
+    ],
+    faq: windowFaqs,
+  },
+
+  '/services/window-cleaning/marana/': {
+    heading: 'From Continental Ranch to Dove Mountain',
+    sections: [
+      { h: 'Desert-edge dust', p: 'Marana runs from Continental Ranch up to Dove Mountain and the Tortolita foothills, and plenty of it borders open desert or unpaved roads. Both put more dust in the air, and it reaches the glass faster. Screens and tracks get cleaned every visit so it doesn’t come straight back. We work across [Continental Ranch](/areas/marana/continental-ranch/) and [Dove Mountain](/areas/marana/dove-mountain/).' },
+      { h: 'Just built?', p: 'Marana is growing fast, and a newly built home usually has builder dust and construction residue on the glass. We clean it off, frames and tracks included. Paint or stucco overspray usually comes off with steel wool or a scraper, and if it’s heavy we’ll say so up front. [Builders and new construction](/who-we-help/builders-new-construction/).' },
+      { h: 'Two-story and high glass', p: 'Second-story glass is quoted per pane with no separate surcharge. For high glass we use pure deionized water on a water-fed pole, which dries without spotting, and a ladder where that’s the right tool. [Water-fed pole vs hand washing](/guides/water-fed-pole-vs-hand-washing/).' },
+      { h: 'Solar while we’re there', p: 'Crews carry equipment for every service, so [solar panel cleaning](/services/solar-panel-cleaning/marana/) can go on the same visit. Wildcat Club members get 10 percent off added services.' },
+    ],
+    proof: [118, 115],
+    faq: windowFaqs,
+  },
+
+  '/services/window-cleaning/saddlebrooke/': {
+    heading: 'Single-story homes with mountain-view glass',
+    sections: [
+      { h: 'Mountain-view glass', p: 'Many SaddleBrooke homes are single-story with big windows facing the Catalinas. Big glass in full sun shows every spot, and where irrigation reaches the windows, mineral-heavy water dries into white spots. Hard water removal is included in every clean, across [SaddleBrooke One](/areas/saddlebrooke/saddlebrooke-one/) and [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/).' },
+      { h: 'Skylights and high glass', p: 'Skylights count as extra panes and are cleaned in the same visit. High interior windows and clerestories are one of the most common things people ask us for, and exactly the work most people don’t want to be on a ladder for. [Skylights and high windows](/guides/do-you-clean-skylights-and-high-windows/).' },
+      { h: 'Letting us in', p: 'You get a text 7 days out, another 24 hours out, and one when the crew is on the way, with a three-hour arrival window. The truck is marked, technicians are uniformed and background checked, and shoe covers go on before anyone steps inside. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/).' },
+      { h: 'Here for the season, or all year', p: `Seasonal owners can have the windows done before they arrive, timed to their travel dates, and don’t need to be in town for it. [Snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/). ${threeAYear()}` },
+    ],
+    proof: [129, 122],
+    faq: windowFaqs,
+  },
+
+  '/services/window-cleaning/tanque-verde/': {
+    heading: 'Acreage, long drives and desert dust',
+    sections: [
+      { h: 'Long drives and horse properties', p: 'Out where Tanque Verde Road ends, unpaved drives, horse properties and open desert all put more dust in the air, and on acreage the glass catches it from every side. So screens and tracks are cleaned every visit, not just the glass: a dirty screen in front of clean glass is how windows get dirty again within a week. [Dirt roads and desert dust](/guides/do-windows-get-dirtier-near-open-desert/).' },
+      { h: 'Mid-century glass', p: 'Angled panes, clerestories and sliders are common in the older east-side neighborhoods. Every pane is cleaned by hand whatever its shape, and very high glass gets the water-fed pole. [Skylights and high windows](/guides/do-you-clean-skylights-and-high-windows/).' },
+      { h: 'Out on the property?', p: 'You don’t need to be home for exterior work. We keep a card on file and charge after the job, and if you are home, we walk the job with you at the end. We cover all of east Tucson, Bear Canyon and Agua Caliente included, and [Vactor Ranch](/areas/tanque-verde/vactor-ranch/) has its own page.' },
+      { h: 'Three times a year', p: `${threeAYear()} [Why three?](/guides/how-often-clean-windows-tucson/)` },
+    ],
+    faq: windowFaqs,
+  },
+
+  '/areas/catalina/': {
+    title: 'Window Cleaning Catalina AZ | Windows, Solar and More',
+    meta: 'Windows, solar panels, screens and pressure washing in Catalina AZ, from Oracle Road to the acreage lots. No trip charge. (520) 525-0084.',
+    answer: 'Wildcat Washers cleans windows, solar panels, solar screens and more in Catalina, the unincorporated community on Oracle Road between Oro Valley and SaddleBrooke. Open desert means more dust on the glass, so screens and tracks get cleaned every visit. There’s no trip charge, and quotes take a few minutes by phone at (520) 525-0084.',
+    heading: 'Catalina, up close',
+    sections: [
+      { h: 'Open land on every side', p: 'Catalina is older, mixed housing, from acreage lots to smaller ones, with Catalina Mountain views. Open desert and unpaved roads put more dust in the air, and it reaches glass and solar panels faster than in town. We clean the screens and tracks along with the glass so the dust doesn’t blow straight back in. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/).' },
+      { h: 'Fences, walls and patios', p: 'We pressure wash fences, gates, block walls, patios and outdoor furniture too. Your landscaping is protected while we work: we watch where we step, where equipment goes and where the water runs. [Pressure washing](/services/pressure-washing/) and [patios and pool decks](/services/pressure-washing/patios-pool-decks/).' },
+      { h: 'Between Oro Valley and SaddleBrooke', p: 'Catalina is the last stop on Oracle Road before SaddleBrooke, and our crews work in both directions from here, with no trip charge anywhere. See [Oro Valley](/areas/oro-valley/) and [SaddleBrooke](/areas/saddlebrooke/).' },
+      { h: 'How often', p: 'For windows we recommend three cleanings a year: after summer and monsoon season, around the holidays, and in spring. Solar panels need it once or twice a year. One-time cleans are always available, and the [Wildcat Club](/wildcat-club/) can schedule the windows for you. [Window cleaning](/services/window-cleaning/) and [solar panel cleaning](/services/solar-panel-cleaning/).' },
+    ],
+  },
+
+  '/areas/corona-de-tucson/': {
+    title: 'Window Cleaning Corona de Tucson AZ | Wildcat Washers',
+    meta: 'Windows, solar panels and pressure washing in Corona de Tucson. No trip charge, and you pay only once you’re happy. (520) 525-0084.',
+    answer: 'Yes, Wildcat Washers serves Corona de Tucson and has customers there. We hand-clean windows, screens and tracks, clean solar panels and solar screens, and pressure wash driveways and patios, with no trip charge. Every job is quoted by phone in a few minutes at (520) 525-0084, and you don’t pay until you’re happy.',
+    heading: 'Corona de Tucson, up close',
+    sections: [
+      { h: 'Newer homes below the Santa Ritas', p: 'Corona de Tucson is a small, newer community tucked against the Santa Rita foothills. Open foothill land brings steady dust, and hard water leaves white spots wherever rain or sprinklers reach the glass. Hard water removal is included in every window cleaning. [What causes white spots](/guides/what-causes-white-spots-on-windows-arizona/). Next door, see [Vail AZ](/areas/vail-az/).' },
+      { h: 'Driveways a couple of times a year', p: 'Dust, sun and traffic turn concrete grey faster than most people expect. For most homes, pressure washing the driveway a couple of times a year keeps buildup from getting ahead of you. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/).' },
+      { h: 'Inside and out', p: 'Inside and out is the full 5-in-1 Deep Clean, and sliding doors get the same care as every other pane. Exterior only is available if you prefer. [Pet nose prints on sliding doors](/guides/pet-nose-prints-on-sliding-glass-doors/).' },
+      { h: 'Paying, and discounts', p: 'You pay after the job, after the walkthrough, and only once you’re happy. We take all standard payment methods and can keep a card on file if you’re not home. Seniors and veterans get a discount, just mention it when you call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/).' },
+    ],
+  },
+
+  '/areas/tubac/': {
+    title: 'Window Cleaning Tubac AZ | Windows, Solar and More',
+    meta: 'Windows, solar panels and solar screens for Tubac, Tumacacori, Amado and Rio Rico. No trip charge, and timed to your arrival. (520) 525-0084.',
+    answer: 'Wildcat Washers cleans windows, solar panels, solar screens and more in Tubac, with no trip charge, the same as anywhere else we work. Big fixed view windows are cleaned by hand, hard water removal included. Seasonal owners can have the house done before they arrive, timed to their travel dates. Call (520) 525-0084.',
+    heading: 'Tubac, up close',
+    sections: [
+      { h: 'Big fixed view glass', p: 'Tubac’s Santa Fe-style homes are known for big fixed view windows, and big glass in full sun shows every hard water spot. We check for tint, film and low-E coatings before anything touches the glass, then buff mineral buildup off by hand. [Tint and low-E coatings](/guides/will-window-cleaning-damage-tint-or-low-e/).' },
+      { h: 'Ready when you get back', p: 'Tell us when you’re arriving and we’ll have the house clean and ready before you walk in. You don’t need to be in town: we keep a card on file and charge after the job. [Snowbirds and seasonal residents](/who-we-help/snowbirds-seasonal-residents/).' },
+      { h: 'Skip the hose', p: 'Rinsing dusty windows with the hose between visits feels helpful, but the water is mineral heavy and dries into white spots, and spots left long enough etch the glass. [Should I hose off my windows?](/guides/should-i-hose-off-my-windows/)' },
+      { h: 'Tumacacori, Amado and Rio Rico', p: 'We work all around Tubac: Tumacacori by the historic mission, Amado and its horse properties between Green Valley and Tubac, and Rio Rico to the south. No trip charge for any of them. [How far we travel](/guides/how-far-outside-tucson-do-you-travel/) and [Green Valley](/areas/green-valley/).' },
+    ],
+  },
+
+  '/areas/sonoita/': {
+    title: 'Window Cleaning Sonoita AZ | Windows, Solar and More',
+    meta: 'Wall-to-wall glass, solar panels and screens for Sonoita and Elgin homes. No trip charge, and quotes by phone in minutes. (520) 525-0084.',
+    answer: 'Yes, Wildcat Washers works in Sonoita and Elgin, with no trip charge, the same as anywhere else we serve. We hand-clean windows, screens and tracks, including the wall-to-wall glass on ranch and view homes, and we clean solar panels and solar screens. Every job is quoted by phone in a few minutes.',
+    heading: 'Sonoita, up close',
+    sections: [
+      { h: 'Wall-to-wall glass in the grasslands', p: 'Sonoita’s custom view homes and ranch estates are known for wall-to-wall glass, and open exposure means more airborne dust reaching it. Every pane is cleaned by hand, frames, sills, tracks and screens included. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/).' },
+      { h: 'High glass and second stories', p: 'Second-story and high glass is quoted per pane like everything else. For high or hard-to-reach glass we use pure deionized water on a water-fed pole, which dries without leaving a spot. [Two-story window cleaning](/guides/two-story-window-cleaning/).' },
+      { h: 'Coated and filmed glass', p: 'Big view windows often carry low-E coatings or security film. We identify coatings and films first and use the right approach for each, and no type of glass is off limits. [Tint and low-E coatings](/guides/will-window-cleaning-damage-tint-or-low-e/).' },
+      { h: 'Elgin and the drive out', p: 'We work in Elgin’s ranch and winery country just east of Sonoita too. We serve Greater Tucson and Southern Arizona, generally within about an hour’s drive of central Tucson, with no trip charge. [How far we travel](/guides/how-far-outside-tucson-do-you-travel/).' },
+    ],
+  },
+
+  '/areas/vail-az/del-webb-at-rancho-del-lago/': {
+    answer: 'Yes. Wildcat Washers cleans windows for residents of Del Webb at Rancho del Lago, the 55+ golf section of Rancho del Lago on the north side of Vail AZ. Every visit is the 5-in-1 Deep Clean, hard water removal included, and you pay only after the walkthrough, once you’re happy. Quotes take minutes by phone.',
+    heading: 'Del Webb at Rancho del Lago, up close',
+    sections: [
+      { h: 'Nothing to prepare', p: 'You don’t need to do anything before we arrive. We move what needs moving and put it back exactly where it was. If it’s convenient, raising delicate blinds and clearing small items off interior sills speeds things up, but it’s not required. [How to prepare](/guides/how-to-prepare-for-window-cleaning/).' },
+      { h: 'The same standard every visit', p: 'We try for the same crew each time but can’t promise it. What we can promise is that every technician is trained to the same standard and held to the same guarantees, including the [14-Day Spotless Guarantee](/guarantee/).' },
+      { h: 'Paying at the end', p: 'You pay after the work is done, after we’ve walked it with you, and only once you’re happy. Seniors and veterans get a discount, just mention it when you call. [When do I pay?](/guides/when-do-i-pay-for-window-cleaning/)' },
+      { h: 'Clubhouses and common areas', p: 'We also clean clubhouses, common areas and community facilities on a recurring schedule. An HOA can call for a custom quote on community work. [HOAs and communities](/who-we-help/hoas-communities/). Nearby: [Academy Village](/areas/vail-az/academy-village/), [Del Webb at Rocking K](/areas/vail-az/del-webb-at-rocking-k/) and all of [Vail AZ](/areas/vail-az/).' },
+    ],
+  },
+
+  '/areas/vail-az/academy-village/': {
+    answer: 'Wildcat Washers cleans windows for Academy Village residents, the 55+ community in the Vail AZ area tied to the Arizona Senior Academy. Every visit is the 5-in-1 Deep Clean, done by hand. We move any furniture that needs moving and put it back, and you don’t pay until the walkthrough is done and you’re happy.',
+    heading: 'Academy Village, up close',
+    sections: [
+      { h: 'We handle the furniture', p: 'No need to move anything before we arrive. Shoe covers go on before we come in, towels catch any drips, and furniture goes back exactly where it was. No water left inside, no mess left behind. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/).' },
+      { h: 'Patios, walls and outdoor furniture', p: 'We pressure wash patios, walkways, block walls and fences, plus patio furniture, tables and grills. Landscaping is protected on every job. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/) and [pressure washing](/services/pressure-washing/).' },
+      { h: 'Rincon Valley dust', p: 'Academy Village sits in the Rincon Valley, the local name for the area at the foot of the Rincons. Homes near open land collect dust noticeably faster, so screens and tracks are cleaned every visit along with the glass. Seniors get a discount, just mention it when you call.' },
+      { h: 'Community spaces', p: 'We also clean clubhouses, common areas and community facilities on a recurring schedule, and the community can call for a custom quote. [HOAs and communities](/who-we-help/hoas-communities/). Nearby: [Del Webb at Rancho del Lago](/areas/vail-az/del-webb-at-rancho-del-lago/) and all of [Vail AZ](/areas/vail-az/).' },
+    ],
+  },
+
+  '/areas/catalina-foothills/sin-vacas/': {
+    answer: 'Wildcat Washers cleans windows for Sin Vacas residents, in the guard-gated community off Sunrise Drive in the Catalina Foothills. Large, high view glass is cleaned by hand, inside and out, by background-checked technicians. We inspect each window before we start and walk the job with you at the end, and you pay only once you’re happy.',
+    heading: 'Sin Vacas, up close',
+    sections: [
+      { h: 'Who comes through the gate', p: 'Every visit is a confirmed appointment, with texts 7 days out, 24 hours out and when the crew is on the way. The truck is marked and the technicians are uniformed, background checked and trained, so you know it’s us before we knock. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/).' },
+      { h: 'High glass, inside and out', p: 'Foothills homes tend to have large, high glass, and high interior windows and clerestories are some of the most common things we’re asked for. Outside, very high panes get pure deionized water on a water-fed pole; two-story work is done by trained technicians with the right equipment. [Skylights and high windows](/guides/do-you-clean-skylights-and-high-windows/).' },
+      { h: 'Tinted and coated glass', p: 'We check for tint, film and low-E coatings before anything touches the glass and adjust the method to match. We work on tinted and coated glass regularly. [Tint and low-E coatings](/guides/will-window-cleaning-damage-tint-or-low-e/).' },
+      { h: 'Solar screens, and nearby', p: 'Solar screens are washed in the same visit. If you’re thinking about new ones, check with your HOA’s architectural review first; see [solar screens in the Catalina Foothills](/services/solar-screens/catalina-foothills/). Nearby: [Skyline Country Club](/areas/catalina-foothills/skyline-country-club/), [Ventana Canyon](/areas/catalina-foothills/ventana-canyon/) and all of the [Catalina Foothills](/areas/catalina-foothills/).' },
+    ],
+  },
+
+  '/areas/oro-valley/vistoso-village/': {
+    answer: 'Wildcat Washers cleans windows for Vistoso Village residents, in the small gated 55+ community of attached homes in Rancho Vistoso, Oro Valley. You don’t need to be home, we protect floors and furniture when we work inside, and every technician is background checked. Quotes are per pane by phone in a few minutes.',
+    heading: 'Vistoso Village, up close',
+    sections: [
+      { h: 'You don’t need to be home', p: 'We like to walk the job with you at the end, but plenty of customers aren’t home, especially for exterior work. We keep payment on file and charge after the job. [Do I need to be home?](/guides/do-i-need-to-be-home-for-window-cleaning/)' },
+      { h: 'Inside, left as we found it', p: 'Shoe covers go on before we come in, towels catch any drips, and anything we move goes back exactly where it was. No water left inside, no mess left behind.' },
+      { h: 'Who we send', p: 'Every hire is background checked and trained before working at a customer’s home. You get a confirmed appointment, a marked truck and uniformed technicians who introduce themselves at the door. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/).' },
+      { h: 'Common areas and nearby', p: 'We also clean common areas and community facilities on a recurring schedule, and the HOA can call for a custom quote. Around you: [Rancho Vistoso](/areas/oro-valley/rancho-vistoso/), [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/) and [window cleaning in Oro Valley](/services/window-cleaning/oro-valley/).' },
+    ],
+  },
+
+  '/areas/marana/del-webb-at-dove-mountain/': {
+    answer: 'Wildcat Washers cleans windows for residents of Del Webb at Dove Mountain, the newer 55+ neighborhood of single-story homes inside Dove Mountain in Marana. Every visit is the 5-in-1 Deep Clean by hand, seniors and veterans get a discount when they mention it, and you pay only after the walkthrough. Call (520) 525-0084.',
+    heading: 'Del Webb at Dove Mountain, up close',
+    sections: [
+      { h: 'Tortolita foothills dust', p: 'Dove Mountain sits in the Tortolita foothills, and homes near open desert collect noticeably more dust on the glass. Screens and tracks are cleaned every visit along with the glass, so it doesn’t come straight back. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/).' },
+      { h: 'Driveways, even never-washed ones', p: 'Dust, sun and tire marks build up on concrete, and a driveway that has never been washed is usually the most satisfying result. For most homes, a couple of times a year keeps buildup from getting ahead of you. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/).' },
+      { h: 'Letting us in', p: 'A confirmed appointment, a marked truck, uniformed technicians who are background checked and trained, and shoe covers on before anyone steps inside. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/).' },
+      { h: 'Clubhouses and nearby', p: 'We also clean clubhouses and common areas on a recurring schedule, and an HOA can call for a custom quote. Around you: [Dove Mountain](/areas/marana/dove-mountain/), [The Highlands at Dove Mountain](/areas/marana/the-highlands-at-dove-mountain/) and [window cleaning in Marana](/services/window-cleaning/marana/).' },
+    ],
+  },
+};
+for (const [url, d] of Object.entries(round7)) depth[url] = { ...depth[url], ...d };
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */

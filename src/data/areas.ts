@@ -382,7 +382,7 @@ export const towns: Town[] = [
     tier: 3,
     intro:
       'The historic arts village 45 minutes south on I-19, where galleries, the Tubac Golf Resort and Santa Fe-style homes with big fixed view windows draw retirees and snowbirds. No trip charge, same as anywhere else we work.',
-    conditions: [metroConditions.snowbird, 'Large fixed view glass shows every spot of hard water.', metroConditions.mine],
+    conditions: [metroConditions.snowbird, 'Large fixed view glass shows every spot of hard water.'],
     emphasis: [
       { service: 'window-cleaning', why: 'Big fixed glass, timed to your arrival.' },
       { service: 'solar-screens', why: 'Sun-facing glass on Santa Fe-style homes.' },

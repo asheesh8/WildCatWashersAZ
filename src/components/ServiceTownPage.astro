@@ -113,9 +113,10 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
     </div>
   </section>
 
-  <Gallery keys={photos.gallery} title="From recent jobs" />
+  {/* No heading of its own: it sits right above the reviews heading. */}
+  <Gallery keys={photos.gallery} />
 
-  <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews`} />
+  <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
 
   {(answers.length > 0 || sharedFaqs.length > 0) && (
     <section class="section-tight bg-mist">
