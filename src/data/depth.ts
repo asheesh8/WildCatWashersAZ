@@ -2221,6 +2221,107 @@ for (const [url, a] of Object.entries(round14Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 15: next weakest pages ==============================
+   Appended like rounds 12 to 14. Every line traces to a Doc 6 answer or a fact bank line. */
+const round15Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/solar-panel-cleaning/oro-valley/': {
+    sections: [
+      { h: 'One membership, several schedules', p: 'Several services can be bundled into one Wildcat Club membership, each on its own schedule: windows three times a year, solar panels once or twice. [The Wildcat Club](/wildcat-club/)' },
+      { h: 'Pigeon proofing before the birds', p: 'An array with no birds yet is the cheapest one to protect, since there’s no nesting or droppings to clear out first. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+  },
+  '/services/window-cleaning/tanque-verde/': {
+    sections: [
+      { h: 'Arizona rooms and screen enclosures', p: 'Screens are scrubbed with a brush and cleaning solution, pressure washed from the inside out, then from the outside in with a surface cleaner, and the floor gets cleaned too. The mesh comes out looking new.' },
+      { h: 'Roofs, case by case', p: 'We pressure wash roofs as well, any roof type, most often for heavy dust, dirt or bird droppings. Give us a call and we’ll talk it through.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/green-valley/': {
+    sections: [
+      { h: 'Droppings, bagged and hauled', p: 'Droppings are a genuine biohazard. Crews wear protective equipment, bag everything and haul it away, so you never have to handle any of it.' },
+      { h: 'Before you call pest control', p: 'Customers have told us we came in at a fraction of what pest control quoted them for the same work, and we clean the panels while we’re up there.' },
+    ],
+  },
+  '/areas/marana/sunflower-at-continental-ranch/': {
+    sections: [
+      { h: 'Why three times a year', p: 'The three-visit rhythm was set for Tucson’s dust and hard water, not borrowed from a generic plan. Each visit clears minerals before they can harm the glass, and nobody gets a crew more often than the house needs.' },
+      { h: 'Tipping', p: 'Nobody on the crew expects one. If you do leave something, it goes in full to the people who cleaned your windows.' },
+    ],
+  },
+  '/services/pressure-washing/green-valley/': {
+    sections: [
+      { h: 'Walkways, entries and gates', p: 'Walkways, sidewalks, entryways, porches, gates and doors are all in scope: anywhere dirt, dust and debris build up around the outside of a property.', q: { text: 'These young men power washed my walkway and trash cans today.', by: 'Karen C., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Before the painters come', p: 'Paint won’t bond properly to a dusty surface, so pre-paint prep washing is exactly what a paint job needs. Homeowners and painting contractors both use us for it. [Pre-paint prep](/services/pressure-washing/pre-paint-prep/)' },
+    ],
+    quoted: [238],
+  },
+  '/services/window-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Club members save on add-ons', p: 'On a Wildcat Club membership, anything added to a window visit is 10 percent less, whether that’s panels on the roof, new or cleaned screens, a driveway or a pigeon barrier.' },
+      { h: 'Covered for 14 days', p: 'If a monsoon shower, a sprinkler or a dusty afternoon marks the glass within two weeks of your visit, call or text and we come back to touch it up at no charge. That’s the 14-Day Spotless Guarantee.' },
+    ],
+  },
+  '/services/window-cleaning/casas-adobes/': {
+    sections: [
+      { h: 'Cleaning or washing?', p: 'Casas Adobes customers ask for both, and they mean the same 5-in-1 visit either way.' },
+      { h: 'How soon we can come', p: 'Crews are out seven days a week, so a visit usually lands within a week or two of your call, and sometimes sooner.' },
+    ],
+  },
+  '/areas/catalina-foothills/skyline-country-club/': {
+    sections: [
+      { h: 'If something breaks', p: 'Accidents are rare because every pane is checked with you before work begins. If one ever happened, you’d be told on the spot, and our insurance covers putting it right.' },
+      { h: 'Ladders and gutters', p: 'Careful ladder placement keeps gutters safe on two-story custom homes. If one were ever damaged, that’s on us, and it’s insured.' },
+    ],
+  },
+  '/areas/marana/del-webb-at-dove-mountain/': {
+    sections: [
+      { h: 'The Wildcat Club', p: 'Members get the three seasonal window visits booked for them at a rate that holds for the year, and pay after each one. A single clean is always an option too. [The Wildcat Club](/wildcat-club/)' },
+      { h: 'Solar panels too', p: 'Rooftop or ground mount, any panel type, any roof pitch. Once or twice a year keeps them performing. [Solar panel cleaning in Marana](/services/solar-panel-cleaning/marana/)' },
+    ],
+  },
+  '/services/window-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Shower glass and mirrors', p: 'Bathroom mirrors, shower doors, glass doors and patio enclosures can all be done while the crew is already there.', q: { text: 'Wildcat Washers cleaned our windows today and did a great job!', by: 'Maria-Lyn N., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [198],
+  },
+  '/services/solar-panel-cleaning/sahuarita/': {
+    sections: [
+      { h: 'What pigeon proofing includes', p: 'Along with the mesh, pigeon proofing includes a full panel cleaning while we’re up there, roof cleaning in the affected area, and a roof and panel inspection with before-and-after photos.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/marana/': {
+    sections: [
+      { h: 'Doing it yourself', p: 'It’s possible, but a roof, a fragile panel and the wrong water are real risks. Keep the pressure washer and stiff brushes away, and never step on the panels.' },
+    ],
+  },
+  '/areas/green-valley/las-campanas/': {
+    sections: [
+      { h: 'Same pricing in Green Valley', p: 'Las Campanas homes are priced exactly like every other home we serve: by the pane, with no trip charge, and quoted on a short call.', q: { text: 'We are very pleased with the window cleaning and the customer service.', by: 'Lyle L., Green Valley' } },
+      { h: 'Wash It Forward started here', p: 'Our annual free community cleaning began in Green Valley, at the Santa Rita Fire Department. [Wash It Forward](/wash-it-forward/)' },
+    ],
+    quoted: [24],
+  },
+  '/services/window-cleaning/catalina-foothills/': {
+    sections: [
+      { h: 'What a pro does differently', p: 'On big Foothills glass the difference shows: no streaks even in afternoon heat, minerals removed without scratching, frames through screens included, high panes reached safely, and the house finished in hours.' },
+      { h: 'Comparing quotes', p: 'Line quotes up on three points: how the glass is counted, whether screens and tracks are in it, and what happens if you’re not happy. A glass-only price can look lower and deliver less.' },
+    ],
+  },
+  '/areas/catalina-foothills/sin-vacas/': {
+    sections: [
+      { h: 'Proof of insurance', p: 'Behind a guard gate, it’s reasonable to want paperwork first. We’ll send a certificate of insurance before the visit.' },
+      { h: 'Awards you can check', p: 'We’re the 2026 Arizona Daily Star Readers’ Choice Winner for Best Window Cleaning and BBB Accredited. [All our awards](/awards/)' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round15Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 15: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
