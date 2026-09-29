@@ -4,6 +4,7 @@ import PageHero from '@/components/PageHero.astro';
 import ClubBlock from '@/components/ClubBlock.astro';
 import FiveInOne from '@/components/FiveInOne.astro';
 import FaqList from '@/components/FaqList.astro';
+import LinkChips from '@/components/LinkChips.astro';
 import { club } from '@/data/business';
 import { faqList } from '@/data/faq';
 import { h1For } from '@/data/plan';
@@ -15,5 +16,6 @@ const faqs = faqList([202, 209, 203, 205, 206, 156, 155, 159]);
   <PageHero eyebrow={club.visits} title={h1For('/wildcat-club/', club.name)} lede={`${club.lede} ${club.oneTime}`} crumbs={crumbs} image="clean-three-windows-reflection" ctaLabel="Join the Wildcat Club" ctaHref="/quote/?service=window-cleaning" />
   <ClubBlock />
   <FiveInOne title="Every visit is the 5-in-1" />
+  <LinkChips title="What Club members get cleaned" links={[{ href: '/services/window-cleaning/', label: 'Window cleaning' }, { href: '/services/solar-panel-cleaning/', label: 'Solar panel cleaning' }, { href: '/guides/how-often-clean-windows-tucson/', label: 'How often to clean windows in Tucson' }]} />
   <FaqList items={faqs} title="Club questions" />
 </Base>

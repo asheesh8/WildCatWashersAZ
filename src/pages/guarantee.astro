@@ -3,6 +3,7 @@ import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
 import WildcatPromise from '@/components/Promise.astro';
 import FaqList from '@/components/FaqList.astro';
+import LinkChips from '@/components/LinkChips.astro';
 import WhyGrid from '@/components/WhyGrid.astro';
 import { protection } from '@/data/business';
 import { faqList } from '@/data/faq';
@@ -15,5 +16,6 @@ const faqs = faqList([208, 186, 187, 188, 152, 150]);
   <PageHero eyebrow="No risk, in writing" title={h1For('/guarantee/', 'Our Guarantees')} lede="Payment comes last, after the walkthrough, and only once you’re happy. Then for 14 days, any touch-up for any reason is free. If anything isn’t right, we fix it, no argument." crumbs={crumbs} image="clean-window-sunset-glow" />
   <WildcatPromise />
   <WhyGrid eyebrow="Every visit" title="How we protect your home" items={protection.map((p) => ({ title: p, body: '' }))} />
+  <LinkChips title="See what the guarantee covers" links={[{ href: '/services/window-cleaning/', label: 'Window cleaning, the 5-in-1 Deep Clean' }, { href: '/reviews/', label: 'Read our reviews' }, { href: '/how-it-works/', label: 'How a visit works' }]} />
   <FaqList items={faqs} title="Guarantee questions" />
 </Base>

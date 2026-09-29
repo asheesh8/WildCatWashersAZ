@@ -1,0 +1,12 @@
+---
+/** A short row of related-page links, so a page never ends at quote and call only. */
+import Icon from './Icon.astro';
+export interface Props { title: string; links: { href: string; label: string }[] }
+const { title, links } = Astro.props;
+---
+<section class="section-tight">
+  <div class="wrap">
+    <h2 class="h3" style="margin-bottom:1rem">{title}</h2>
+    <ul class="chips" role="list">{links.map((l) => <li><a href={l.href}><Icon name="arrow" size={18} />{l.label}</a></li>)}</ul>
+  </div>
+</section>

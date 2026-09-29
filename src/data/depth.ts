@@ -431,7 +431,7 @@ export const depth: Record<string, Depth> = {
 
   '/guides/is-it-safe-to-let-window-cleaners-inside/': {
     answer:
-      'It should be, and here’s what that looks like with Wildcat Washers: a confirmed appointment, a marked truck, uniformed technicians who are background checked and trained, an introduction at the door, and shoe covers on before anyone steps inside. Over 1,000 customers have let us in, and not one has rated us below five stars.',
+      'It should be, when the company earns it. With Wildcat Washers that means a confirmed appointment, a marked truck, uniformed technicians who are background checked and trained, an introduction at the door, and shoe covers on before anyone steps inside. Over 1,000 customers have let us in, and not one has rated us below five stars.',
     sections: [
       { h: 'If you’re not home', p: 'Exterior work is fine without you, and payment can stay on file. [Do I need to be home?](/guides/do-i-need-to-be-home-for-window-cleaning/) See [how a visit works](/how-it-works/) from call to walkthrough, and how we work with [senior living communities](/who-we-help/senior-living/).' },
     ],
@@ -1509,7 +1509,7 @@ const round8: Record<string, Depth> = {
 
   '/guides/how-much-does-pressure-washing-cost-tucson/': {
     answer:
-      'Pressure washing is priced per job, by the surfaces being cleaned and the scope of the work. A driveway, a patio and pool deck, or fences and block walls are each quoted on their own terms. Call (520) 525-0084 and we’ll quote it by phone in a couple of minutes, with no trip charge.',
+      'Pressure washing is priced per job, by the surfaces being cleaned and the scope of the work. A driveway, a patio and pool deck, or fences and block walls are each quoted on their own terms. Call (520) 525-0084 and we’ll quote it by phone in a couple of minutes, with no trip charge. You pay only once you’re happy.',
     sections: [
       { h: 'What we quote on', p: 'Driveways and garage floors, patios, walkways, pavers, pool decks, entryways, fences, gates, block walls, exterior walls, patio furniture, grills and trash cans. The general rule: anywhere dirt, dust and debris build up around the outside of a property. [Pressure washing](/services/pressure-washing/).' },
       { h: 'What we don’t take on', p: 'Rust, oil stain, graffiti and deep stain removal depend on heavy chemical treatment, which we stay away from. We don’t offer soft washing either; where a surface calls for it, we scrub in a cleaning solution by hand before rinsing. [Oil and rust stains](/guides/can-oil-and-rust-stains-be-removed-from-concrete/) and [pressure washing vs soft washing](/guides/pressure-washing-vs-soft-washing/).' },
@@ -1745,13 +1745,12 @@ const round9: Record<string, Depth> = {
       'Wildcat Washers cleans windows for Tucson Estates homeowners on the west side of Tucson, and we have customers there. Every visit is the 5-in-1 Deep Clean: glass, frames, sills, tracks and screens, by hand, with hard water removal included. Quotes are per pane by phone at (520) 525-0084, and you pay only once you’re happy.',
     heading: 'Tucson Estates, up close',
     sections: [
-      { h: 'Detail work', p: 'Frames and sills are hand cleaned, tracks are vacuumed out, and screens come out and get reconditioned. Every pane gets a double check before we walk the job with you.', q: { text: 'Super respectful guys, made my home look a lot better, and really detail oriented', by: 'Alex M., Tucson Estates' } },
+      { h: 'Detail work', p: 'Frames and sills are hand cleaned, tracks are vacuumed out, and screens come out and get reconditioned. Every pane gets a double check before we walk the job with you.' },
       { h: 'Where there’s open desert nearby', p: 'Homes close to open desert or unpaved roads collect noticeably more dust on the glass. Cleaning the screens and tracks every visit keeps it from blowing straight back. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/)' },
       { h: 'Walls, fences and gates', p: 'We pressure wash block walls, fences, gates, patios and driveways too, and protect your landscaping while we work. [Pressure washing](/services/pressure-washing/)' },
       { h: 'Elsewhere in Tucson', p: 'See [Sam Hughes](/areas/tucson/sam-hughes/), [Rita Ranch](/areas/tucson/rita-ranch/) and all of [Tucson](/areas/tucson/).' },
     ],
     proof: [88],
-    quoted: [93],
   },
 };
 for (const [url, d] of Object.entries(round9)) depth[url] = { ...depth[url], ...d };

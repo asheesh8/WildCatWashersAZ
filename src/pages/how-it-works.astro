@@ -4,6 +4,7 @@ import PageHero from '@/components/PageHero.astro';
 import ProcessSteps from '@/components/ProcessSteps.astro';
 import WhyGrid from '@/components/WhyGrid.astro';
 import FaqList from '@/components/FaqList.astro';
+import LinkChips from '@/components/LinkChips.astro';
 import LoopVideo from '@/components/LoopVideo.astro';
 import { protection } from '@/data/business';
 import { faqList } from '@/data/faq';
@@ -22,6 +23,7 @@ const faqs = faqList([139, 140, 141, 143, 144, 146, 150, 152, 153]);
     </div>
   </section>
   <WhyGrid eyebrow="Inside your home" title="How we treat your home" items={protection.map((p) => ({ title: p, body: '' }))} tone="mist" />
+  <LinkChips title="Before you book" links={[{ href: '/services/', label: 'All six services' }, { href: '/guarantee/', label: 'Our guarantees' }, { href: '/faq/', label: 'Every question we get' }]} />
   <FaqList items={faqs} title="Booking questions" />
 </Base>
 <style>

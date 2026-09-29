@@ -48,7 +48,7 @@ export const guides: Guide[] = [
   {
     slug: 'how-to-choose-a-window-cleaner',
     answer:
-      "When picking a window cleaner in Tucson, check five things: reviews you can verify, a real business address, proof of licensing and insurance, a clear written scope of what gets cleaned, and a guarantee that protects you before you pay. A company that asks about your windows before quoting is usually one worth calling back.",
+      "When picking a window cleaner in Tucson, check five things before you book. Look for reviews you can verify, a real business address, proof of licensing and insurance, a clear written scope of what gets cleaned, and a guarantee that protects you before you pay. A company that asks about your windows before quoting is usually one worth calling back.",
     service: 'window-cleaning',
     sections: [
       {
