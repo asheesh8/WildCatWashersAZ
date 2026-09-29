@@ -1651,6 +1651,111 @@ const round8: Record<string, Depth> = {
 };
 for (const [url, d] of Object.entries(round8)) depth[url] = { ...depth[url], ...d };
 
+/* ============================== Round 9: thin community pages ============================== */
+const round9Add: Record<string, { sections: DepthSection[]; quoted?: number[] }> = {
+  '/areas/sahuarita/rancho-resort/': {
+    sections: [
+      { h: 'Solar screens, off and back on', p: 'We take solar screens off, clean the glass behind them and put them back. Cleaning the screens themselves is a pressure washing service, separate from the 5-in-1, and it’s often done on the same visit. [Should solar screens come off first?](/guides/remove-solar-screens-before-window-cleaning/)', q: { text: 'They tackled all of my filthy solar screens and got all the dirt and grime off of them. They look brand new!', by: 'Sheri S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'How to check out any company', p: 'Look for reviews you can verify, a real business address, licensing and insurance, uniformed crews in marked vehicles, and a clear price before work starts. Our office is at 2101 N Country Club Rd, Suite 103, in central Tucson, and we’re licensed and fully insured. [How to choose a window cleaner](/guides/how-to-choose-a-window-cleaner/)' },
+    ],
+    quoted: [142],
+  },
+  '/areas/marana/the-highlands-at-dove-mountain/': {
+    sections: [
+      { h: 'Established homes, honest answers', p: 'The Highlands is established, with single-story homes and views at the entrance to Dove Mountain. Glass that has seen years of hard water can carry buildup, and some of it may have etched. We inspect every window before we start and tell you what will come off and what won’t, before you’ve paid anything. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)', q: { text: 'I was impressed with professionalism, promptness, efficiency, and quality of their work. My windows are spotless.', by: 'Linda S., Oro Valley, Marana & Northwest Tucson area' } },
+    ],
+    quoted: [248],
+  },
+  '/areas/marana/sunflower-at-continental-ranch/': {
+    sections: [
+      { h: 'Before and after, on the roof', p: 'You can’t see your own roof, so every solar job gets before and after photos. That’s the part one Sunflower at Continental Ranch customer mentioned first. Once or twice a year keeps panels performing and protects the glass from mineral damage. [Solar panel cleaning in Marana](/services/solar-panel-cleaning/marana/)' },
+    ],
+  },
+  '/areas/green-valley/links-at-santa-rita-springs/': {
+    sections: [
+      { h: 'More than the glass', p: 'Every window cleaning is the 5-in-1: glass, frames, sills, tracks and screens. A whole house takes anywhere from one to five hours depending on its size, and we move anything we need to and put it back. [How long does window cleaning take?](/guides/how-long-does-window-cleaning-take/)', q: { text: 'They arrived on time, worked three hours doing a full service of cleaning not only the windows, but the tracks, frames, and wiping the sills.', by: 'Chaille W., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [144],
+  },
+  '/areas/tanque-verde/vactor-ranch/': {
+    sections: [
+      { h: 'Tint, film and patio doors', p: 'We check for tint, film and low-E coatings before anything touches the glass and adjust the method to match. Sliders and patio doors get the same treatment as every other pane, tracks included. [Tint and low-E coatings](/guides/will-window-cleaning-damage-tint-or-low-e/)', q: { text: 'Did a great job on all of our windows and patio doors and at a fair price.', by: 'Olga E., Catalina Foothills & East Tucson area' } },
+    ],
+    quoted: [245],
+  },
+  '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
+    sections: [
+      { h: 'One trip, several jobs', p: 'Doing several services in one visit saves us time and routing, and we pass that back: one trip costs less than three. Windows, a patio or pool deck, and solar screens can all happen together, and Wildcat Club members get 10 percent off every added service.', q: { text: 'Angel did a great job! I would recommend!', by: 'Ken W., SaddleBrooke' } },
+    ],
+    quoted: [132],
+  },
+  '/areas/catalina-foothills/ventana-canyon/': {
+    sections: [
+      { h: 'Inside and out, or exterior only', p: 'Both are priced per pane, and exterior only costs less than doing both. Most customers choose inside and out, since that’s the full 5-in-1 and one visit for both is more efficient than two trips. Villa or view home, the quote works the same way. [How pricing works](/guides/window-cleaning-cost-guide/)' },
+    ],
+  },
+  '/areas/vail-az/del-webb-at-rocking-k/': {
+    sections: [
+      { h: 'We remind you when it’s time', p: 'Club members get automated reminders, and we reach out to everyone else when windows are due. Before each visit you get a text 7 days out, another 24 hours out, and one when the crew is on the way, with a three-hour arrival window.' },
+      { h: 'Who comes to the door', p: 'A marked truck, uniformed technicians who are background checked and trained, an introduction at the door, and shoe covers on before anyone steps inside. [Letting window cleaners in](/guides/is-it-safe-to-let-window-cleaners-inside/)' },
+    ],
+  },
+  '/areas/catalina-foothills/skyline-country-club/': {
+    sections: [
+      { h: 'Coatings and film', p: 'Custom-home glass can carry low-E coatings or security film. We identify coatings and films before anything touches the glass and use the right approach for each, so no type of glass is off limits. [Tint and low-E coatings](/guides/will-window-cleaning-damage-tint-or-low-e/)' },
+    ],
+  },
+  '/areas/marana/continental-ranch/': {
+    sections: [
+      { h: 'Why two quotes on one street differ', p: 'Almost always because one home has more panes of glass. Two similar-looking houses can be very different once you count the panes, which is why we count them with you on the phone and walk you through exactly what’s in your number. [How pricing works](/guides/window-cleaning-cost-guide/)' },
+    ],
+  },
+  '/areas/sahuarita/rancho-sahuarita/': {
+    sections: [
+      { h: 'Inside and out costs less together', p: 'One visit for inside and out is more efficient than two separate trips, and that shows up in the price. It’s also the better way to do it, since both sides get dirty at the same rate.', q: { text: 'The two young men did a splendid job on windows, screens, rails, etc. They were very efficient, polite, and respectful.', by: 'Wayne S., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [163],
+  },
+  '/areas/catalina-foothills/la-paloma/': {
+    sections: [
+      { h: 'Townhome or view home, it’s counted by pane', p: 'La Paloma has everything from townhomes to view homes, and every one is quoted the same way: per pane, meaning each individual piece of glass. Twenty windows can mean many more than twenty panes, so we count them together on the phone and you have your quote on the spot. [How pricing works](/guides/window-cleaning-cost-guide/)' },
+    ],
+  },
+  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
+    sections: [
+      { h: 'No prep on your end', p: 'There’s nothing to do before we arrive. We move what needs moving and put it back where it was; clearing small items off interior sills speeds things up, but it’s optional. [How to prepare](/guides/how-to-prepare-for-window-cleaning/)', q: { text: 'They arrived on time and they did a wonderful job, was a lot of windows. They\'re very courteous very polite. They put things back to the way they were, hire them!', by: 'Linda M., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [158],
+  },
+  '/areas/tucson/sam-hughes/': {
+    sections: [
+      { h: 'Frames and sills, not just the pane', p: 'We clean the whole window, not only the glass in the middle of it. On older windows with more frame and more sill, that’s a big part of the job, and it’s hand work on every visit. Our office is next door in Blenman-Elm.', q: { text: 'Cooper and Jose were professional, on time and generally great guys.', by: 'Traci E., Tucson' } },
+    ],
+    quoted: [83],
+  },
+};
+for (const [url, a] of Object.entries(round9Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 9: no depth entry for ${url}`);
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])] };
+}
+const round9: Record<string, Depth> = {
+  '/areas/tucson/tucson-estates/': {
+    answer:
+      'Wildcat Washers cleans windows for Tucson Estates homeowners on the west side of Tucson, and we have customers there. Every visit is the 5-in-1 Deep Clean: glass, frames, sills, tracks and screens, by hand, with hard water removal included. Quotes are per pane by phone at (520) 525-0084, and you pay only once you’re happy.',
+    heading: 'Tucson Estates, up close',
+    sections: [
+      { h: 'Detail work', p: 'Frames and sills are hand cleaned, tracks are vacuumed out, and screens come out and get reconditioned. Every pane gets a double check before we walk the job with you.', q: { text: 'Super respectful guys, made my home look a lot better, and really detail oriented', by: 'Alex M., Tucson Estates' } },
+      { h: 'Where there’s open desert nearby', p: 'Homes close to open desert or unpaved roads collect noticeably more dust on the glass. Cleaning the screens and tracks every visit keeps it from blowing straight back. [Windows near open desert](/guides/do-windows-get-dirtier-near-open-desert/)' },
+      { h: 'Walls, fences and gates', p: 'We pressure wash block walls, fences, gates, patios and driveways too, and protect your landscaping while we work. [Pressure washing](/services/pressure-washing/)' },
+      { h: 'Elsewhere in Tucson', p: 'See [Sam Hughes](/areas/tucson/sam-hughes/), [Rita Ranch](/areas/tucson/rita-ranch/) and all of [Tucson](/areas/tucson/).' },
+    ],
+    proof: [88],
+    quoted: [93],
+  },
+};
+for (const [url, d] of Object.entries(round9)) depth[url] = { ...depth[url], ...d };
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
