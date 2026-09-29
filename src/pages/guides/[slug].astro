@@ -34,13 +34,15 @@ const d = depthFor(url);
 const answer = d?.answer ?? g.answer;
 const items: Faq[] = withDepthFaqs(faqRefs(row.faq_refs), d);
 const proof = proofReviews(d);
-/* Depth sections that restate a guide section (same topic words in the heading) are left out, so the page never covers a point twice. */
+/* Depth sections that restate a guide section (two or more shared topic words in the heading) are left out, so the page never covers a point twice. */
 const topicWords = (h: string) => new Set(h.toLowerCase().replace(/[’']s\b/g, '').replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
   .map((w) => (/^(cost|costs|total|quote|quotes|pricing|prices)$/.test(w) ? 'price' : w))
   .filter((w) => w.length > 2 && !/^(the|and|what|why|how|does|your|you|our|for|into|with|them|that|this|are|can|goes|comes|down|more|three|things)$/.test(w)));
 const guideTopics = g.sections.map((x) => topicWords(x.h));
-const restates = (h: string) => { const a = topicWords(h); return a.size > 0 && guideTopics.some((b) => { const n = [...a].filter((w) => b.has(w)).length; return n > 0 && n / Math.min(a.size, b.size || 1) >= 0.5; }); };
-const depthSections = (d?.sections ?? []).filter((x) => !restates(x.h));
+const restates = (h: string) => { const a = topicWords(h); return a.size > 0 && guideTopics.some((b) => { const n = [...a].filter((w) => b.has(w)).length; return n >= 2 && n / Math.min(a.size, b.size) >= 0.5; }); };
+/* Kept even though the heading overlaps: it carries the only pane examples on its page. */
+const alwaysKeep = new Set(['Per pane, explained']);
+const depthSections = (d?.sections ?? []).filter((x) => alwaysKeep.has(x.h) || !restates(x.h));
 const links = ownerLinks(items, url);
 const related = g.related
   .filter((h) => h !== url && planFor(h))

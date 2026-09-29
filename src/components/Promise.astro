@@ -98,7 +98,7 @@ const H = headingLevel;
 
 <style>
   .promise-sec { background: var(--mist); }
-  .promise-grid { display: grid; gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: start; }
+  .promise-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: start; }
   @media (min-width: 1000px) { .promise-grid { grid-template-columns: 1.25fr .9fr; } }
   .cert {
     background: #fff; border-radius: 8px; padding: 12px;
@@ -175,7 +175,7 @@ const H = headingLevel;
     /* Phones: the two signatures sit side by side instead of stacking. */
     .cert-sign { margin-top: 1.4rem; gap: .8rem; flex-wrap: nowrap; }
     .cert-sign div { flex: 1 1 0; min-width: 0; }
-    .sig { font-size: 1.45rem; padding: 0 .2rem; white-space: nowrap; }
+    .sig { font-size: clamp(1.1rem, .35rem + 4.2vw, 1.45rem); padding: 0 .2rem; white-space: nowrap; }
     .sig-role { line-height: 1.35; }
   }
   @media (prefers-reduced-motion: reduce) { .cert-plus::before, .cert-plus::after { transition: none; } }
