@@ -25,6 +25,7 @@ import { faqSchema } from '@/lib/schema';
 import { company, telHref } from '@/data/business';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { communityPhotos } from '@/data/placement';
+import { photoTown } from '@/data/media';
 import Gallery from '@/components/Gallery.astro';
 
 export function getStaticPaths() {
@@ -119,7 +120,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </div>
   </section>
 
-  <Gallery keys={photos.gallery} title="From recent jobs" swipe />
+  <Gallery keys={photos.gallery} title={photos.gallery.some((k) => photoTown[k] === town.slug) ? 'From recent jobs' : 'Recent jobs across the Tucson area'} swipe />
 
   {c.sections && c.sections.length > 0 && (
     <section class="section-tight" data-mfold>

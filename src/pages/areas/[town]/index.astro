@@ -11,7 +11,7 @@ import { ownerLinks } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
 import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
-import { img, altFor, focusFor, cropFor } from '@/data/media';
+import { img, altFor, focusFor, cropFor, photoTown } from '@/data/media';
 import { townPhotos } from '@/data/placement';
 import Gallery from '@/components/Gallery.astro';
 import { h1For, planFor } from '@/data/plan';
@@ -90,7 +90,7 @@ const place = {
     </div>
   </section>
 
-  <Gallery keys={photos.gallery} title="From recent jobs" swipe />
+  <Gallery keys={photos.gallery} title={photos.gallery.some((k) => photoTown[k] === t.slug) ? 'From recent jobs' : 'Recent jobs across the Tucson area'} swipe />
 
   {(kids.length > 0 || t.sections.length > 0) && (
     <section class="section-tight bg-mist" data-mfold>
