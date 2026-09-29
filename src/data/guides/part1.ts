@@ -764,7 +764,7 @@ export const guides: Guide[] = [
         h: 'Where do-it-yourself jobs tend to go wrong',
         p: [
           "Streak-free glass takes practice and speed, and the desert sun cuts your working time short. Scrapers need to be used correctly, or they leave scratches that never come out. And before you touch a window with anything, it helps to know whether it has tint, a low-E coating or security film.",
-          "The physical side is real too. Step stools and ladders are where people get hurt. Screens are easy to damage coming out and hard to reinstall without bending the frame.",
+          "The physical side is real too. Upper panes need the right gear, and screens are easy to damage coming out and hard to reinstall without bending the frame.",
         ],
       },
       {

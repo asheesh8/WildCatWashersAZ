@@ -169,7 +169,7 @@ export const guides: Guide[] = [
         h: "If you still want to do it yourself",
         p: [
           "Work early or in the shade, keep your squeegee blade clean, and skip the hose rinse, which only adds more minerals. Clean the tracks and screens too, or the dust will be back on the glass within days.",
-          "And be honest about the ladder work. Step stools and ladders cause real injuries, and upper panes are worth leaving to someone with the right gear."
+          "And be honest about the ladder work. Upper panes are worth leaving to someone with the right gear."
         ]
       }
     ],

@@ -27,7 +27,7 @@ const fold = set.local.length > 0 && set.more.length > 0;
     )}
     {fold && (
       <button type="button" class="rs-toggle" aria-expanded="false" aria-controls="rs-more">
-        Show {set.more.length} more {set.moreLabel.charAt(0).toLowerCase() + set.moreLabel.slice(1)}
+        Show {set.more.length} more {set.moreLabel.replace(/^From /, 'from ')}
       </button>
     )}
     <p class="rs-all" style="margin-top:1.6rem"><a class="text-link" href="/reviews/">Read all our reviews <Icon name="arrow" size={20} /></a></p>
@@ -36,6 +36,7 @@ const fold = set.local.length > 0 && set.more.length > 0;
 <style>
   .rs-label { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; margin-bottom: 1rem; color: var(--navy); }
   .rs-toggle { display: none; }
+  .rs-toggle[hidden] { display: none !important; }
   @media (max-width: 759px) {
     .rs-label { margin-bottom: .6rem; } .rs-all { margin-top: 1rem !important; }
     :global(.js) .rs-more.is-fold:not(.is-open) { display: none; }

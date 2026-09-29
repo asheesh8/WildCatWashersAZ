@@ -512,7 +512,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers does one kind of work and does it thoroughly. Each window job gets the 5-in-1 Deep Clean, done by carefully trained, background-checked technicians. Call for a quick phone quote, and if you have other exterior work on your list, ask about adding it to the same visit.",
+    doAbout: "Wildcat Washers focuses on windows, solar and exterior cleaning, and does it thoroughly. Each window job gets the 5-in-1 Deep Clean, done by carefully trained, background-checked technicians. Call for a quick phone quote, and if you have other exterior work on your list, ask about adding it to the same visit.",
     related: [
       "/guides/how-to-choose-a-window-cleaner/",
       "/guides/are-window-cleaners-licensed-and-insured-arizona/",
