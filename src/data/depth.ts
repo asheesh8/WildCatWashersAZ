@@ -1847,6 +1847,141 @@ for (const [url, a] of Object.entries(round10Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])] };
 }
 
+/* ============================== Round 12: service-in-town pages ==============================
+   Appended to whatever the rounds above left: sections and quoted reviews are added, FAQ numbers merged. */
+const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/window-cleaning/catalina-foothills/': {
+    sections: [
+      { h: 'From Skyline to Sabino Canyon', p: 'We work all across the Foothills: [Skyline Country Club](/areas/catalina-foothills/skyline-country-club/), [La Paloma](/areas/catalina-foothills/la-paloma/), [Ventana Canyon](/areas/catalina-foothills/ventana-canyon/) and the area around [Sabino Canyon](/areas/catalina-foothills/sabino-canyon/) Road. Every window is inspected before we start, and anything already chipped, scratched or etched is pointed out first.' },
+      { h: 'Afternoon sun on big glass', p: 'Foothills view glass takes the afternoon sun hard. [Solar screens](/services/solar-screens/catalina-foothills/) block up to 80 to 90 percent of the heat and glare while you keep the view, and the glass behind them gets cleaned first.' },
+    ],
+    faq: [101, 102, 103],
+  },
+  '/services/solar-panel-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Newer stucco roofs, any array', p: 'Most Sahuarita homes are newer stucco houses in [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/), and plenty carry rooftop solar. We clean any panel type on any roof pitch, rooftop or ground mount. A residential array usually takes one to three hours, and we work from the roof surface, never standing on the panels.' },
+      { h: 'Photos from the roof', p: 'You can’t stand on your roof to check the work, so every job gets before and after photos. That’s how you see what came off.', q: { text: 'They did a great job of cleaning my solar panels yesterday! And it was cold and windy that day.', by: 'Barbara Z., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [243],
+    faq: [95, 65, 69],
+  },
+  '/services/solar-panel-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Careful footing on big roofs', p: 'Standing on panels is how microcracks happen, so we work from the roof surface with the right equipment. Rooftop or ground mount, any panel type, any pitch.' },
+      { h: 'Rancho Vistoso to Sun City', p: 'From the villages of [Rancho Vistoso](/areas/oro-valley/rancho-vistoso/) to the single-story roofs of [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/), we clean arrays all over town. A residential job usually takes one to three hours.' },
+    ],
+    faq: [97, 99, 58],
+  },
+  '/services/solar-screens/catalina-foothills/': {
+    sections: [
+      { h: 'Privacy on wall-to-wall glass', p: 'From outside, no one can see in through solar screens at all. On Foothills glass that means daytime privacy without drawing the curtains, and you still see out.' },
+      { h: 'Built to last, installed in weeks', p: 'We use top-grade Phifer materials in any color and shade. Screens typically last around a decade, and at least five years, and it’s usually two to three weeks from measure to install. [How long do solar screens last?](/guides/how-long-do-solar-screens-last/)' },
+    ],
+    faq: [221, 224, 225],
+  },
+  '/services/window-cleaning/green-valley/': {
+    sections: [
+      { h: 'Safer than the ladder', p: 'Ladders and step stools are where people get hurt doing their own windows. Our crews bring the right ladders and a water-fed pole for high glass, and we’re licensed and fully insured.', q: { text: 'At our age, we have to be aware of the safety aspects of any do-it-yourself projects, and Wildcat Washers are a safe and affordable solution.', by: 'Peter C., Green Valley' } },
+      { h: 'Quail Creek, Canoa Ranch and the GVR areas', p: '[Quail Creek](/areas/green-valley/quail-creek/) and [Canoa Ranch](/areas/green-valley/canoa-ranch/) are regular stops, along with GVR communities like [Legends](/areas/green-valley/legends/) and [The Links at Santa Rita Springs](/areas/green-valley/links-at-santa-rita-springs/).' },
+    ],
+    quoted: [66],
+    faq: [92, 93, 122],
+  },
+  '/services/window-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Setting it up is quick', p: 'Quotes happen on one short call: we count your panes together and give you a price on the spot, with no site visit. You get a text 7 days out, another 24 hours out, and one when the crew is on the way.', q: { text: 'Isaac did a very nice job cleaning my windows. Very pleasant guy! I talked to Jose first to set up the appt. He called back quickly and we set up the time. It all worked smoothly.', by: 'Barbara A., Oro Valley' } },
+      { h: 'Stone Canyon to Sun City', p: '[Stone Canyon](/areas/oro-valley/stone-canyon/) has some of the biggest and most specialized glass in Oro Valley, and we also work throughout [Rancho Vistoso](/areas/oro-valley/rancho-vistoso/) and [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/).' },
+    ],
+    quoted: [111],
+    faq: [97, 98, 99],
+  },
+  '/services/window-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Rancho Sahuarita and the 55+ side', p: 'Most Sahuarita residents live in [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/), around the lake, and we also work in [Sonora at Rancho Sahuarita](/areas/sahuarita/sonora-at-rancho-sahuarita/) and [Rancho Resort](/areas/sahuarita/rancho-resort/).', q: { text: 'Our windows are so clean, it appears there is no glass in the frames.', by: 'Carol J., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [141],
+    faq: [95],
+  },
+  '/services/pressure-washing/green-valley/': {
+    sections: [
+      { h: 'Garage floors and tire marks', p: 'Garage floors come up too. Years of tire marks and buildup come off readily, and a driveway or garage floor usually takes one to three hours. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)', q: { text: 'Jose and Cooper did a great job cleaning our garage floor of 15 years of tire marks. They showed up on time and kept us informed of their progress.', by: 'Ken C., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Furniture, grills and trash cans', p: 'Patio furniture, tables, chairs, grills and BBQ areas are common jobs, and trash cans too. You don’t need to be home for the work itself, though we like to walk it with you at the end.' },
+    ],
+    quoted: [216],
+    faq: [88, 85, 90],
+  },
+  '/services/solar-screens/oro-valley/': {
+    sections: [
+      { h: 'Daytime privacy', p: 'From outside, no one can see in through solar screens at all, so big Oro Valley view windows get daytime privacy while you keep the Pusch Ridge view.' },
+      { h: 'From measure to install', p: 'Usually two to three weeks from measure to install. Screens mount with brackets that rotate in and out, so they pop off easily whenever you want them off.' },
+    ],
+    faq: [221, 225, 227],
+  },
+  '/services/window-cleaning/tanque-verde/': {
+    sections: [
+      { h: 'Bear Canyon to the end of the road', p: 'We cover all of east Tucson, from Bear Canyon and Agua Caliente to where Tanque Verde Road ends, with no trip charge anywhere. That includes [Forty Niner Country Club Estates](/areas/tanque-verde/forty-niner-country-club-estates/), [Vactor Ranch](/areas/tanque-verde/vactor-ranch/), Tucson Country Club Estates and Indian Ridge Estates.' },
+      { h: 'Drives, walls and gates', p: 'Long drives, patios, block walls and gates gather desert dust too. We [pressure wash](/services/pressure-washing/) all of them and protect your landscaping while we work.' },
+    ],
+    faq: [117, 119],
+  },
+  '/services/window-cleaning/vail-az/': {
+    sections: [
+      { h: 'Senior and veteran discounts', p: 'Both are real and both are published. Mention it on the call and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+      { h: 'Regular coverage, no trip charge', p: 'Vail is part of our regular routes, not a special trip, so there’s no trip charge, and your quote happens by phone in a few minutes.' },
+    ],
+    faq: [117, 119],
+  },
+  '/services/solar-screens/green-valley/': {
+    sections: [
+      { h: 'Cleaning the screens you have', p: 'Solar screens collect dust like everything else. We take them off, pressure wash and recondition them, clean the glass behind them and put them back, often on the same visit as the windows.', q: { text: 'Washed my window panes and pressured washed my solar screens.', by: 'Deborah W., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'How long new screens last', p: 'Typically around a decade, and at least five years; fading is what eventually wears them out, which is why we use top-grade materials. It’s usually two to three weeks from measure to install.' },
+    ],
+    quoted: [137],
+    faq: [224, 225, 228],
+  },
+  '/services/window-cleaning/marana/': {
+    sections: [
+      { h: 'Gladden Farms to the Highlands', p: 'We cover all of Marana: Gladden Farms and the newer family subdivisions up north, [Continental Ranch](/areas/marana/continental-ranch/) and its 55+ [Sunflower](/areas/marana/sunflower-at-continental-ranch/) section, and [The Highlands](/areas/marana/the-highlands-at-dove-mountain/) and [Del Webb at Dove Mountain](/areas/marana/del-webb-at-dove-mountain/).' },
+      { h: 'Torn screens, fixed on the spot', p: 'Screens come out, get cleaned and reconditioned, and go back in. Most torn standard screens can be repaired on site during the same visit. [Repair or replace a torn screen](/guides/repair-or-replace-window-screen/)' },
+    ],
+    faq: [105, 106],
+  },
+  '/services/window-cleaning/saddlebrooke/': {
+    sections: [
+      { h: 'One, Two, The Preserve and the Ranch', p: 'We have customers throughout [SaddleBrooke One](/areas/saddlebrooke/saddlebrooke-one/), [SaddleBrooke Two](/areas/saddlebrooke/saddlebrooke-two/) and [The Preserve](/areas/saddlebrooke/the-preserve-at-saddlebrooke/), plus [SaddleBrooke Ranch](/areas/saddlebrooke/saddlebrooke-ranch/) up the road.' },
+      { h: 'West-facing glass first', p: 'Single-story homes with big west-facing windows heat up in the afternoon. For [solar screens](/services/solar-screens/), west-facing windows come first, then south.' },
+    ],
+    faq: [109, 122],
+  },
+};
+for (const [url, a] of Object.entries(round12Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 12: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+/* A new entry: this page had no depth copy. */
+const round12: Record<string, Depth> = {
+  '/services/solar-panel-cleaning/marana/': {
+    title: 'Solar Panel Cleaning in Marana AZ',
+    meta: 'Solar panel cleaning in Marana, from Continental Ranch to Dove Mountain. Hand washed with deionized water, before and after photos. (520) 525-0084.',
+    answer:
+      'Wildcat Washers cleans solar panels across Marana, from Continental Ranch up to Dove Mountain. Panels are hand washed with deionized water and a soft brush, never pressure washed, and every job gets before and after photos. Once or twice a year keeps them performing. Call (520) 525-0084 with your panel count for a quote.',
+    heading: 'New builds, established arrays and birds',
+    sections: [
+      { h: 'Construction dust on new arrays', p: 'Gladden Farms and other newer subdivisions are still building, and construction dust settles on nearby rooftop arrays as well as windows. Rain won’t clear it: it moves the dust around and dries mineral spots onto the glass. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+      { h: 'Continental Ranch to Dove Mountain', p: 'The established homes of [Continental Ranch](/areas/marana/continental-ranch/), the single-story roofs in Sunflower and The Highlands, and the big custom homes up [Dove Mountain](/areas/marana/dove-mountain/) all get the same method. We clean any panel type on any roof, rooftop or ground mount, and a residential array usually takes one to three hours.' },
+      { h: 'Birds under the panels', p: 'If pigeons have moved in under the array, we clear out the nesting debris and droppings and install exclusion mesh that clips on, with no drilling and nothing attached to the panel frames. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'Windows on the same visit', p: 'Crews carry equipment for every service, so panels can be cleaned on the same visit as your [Marana windows](/services/window-cleaning/marana/). Wildcat Club members get 10 percent off added services.' },
+    ],
+    faq: [105, 67, 69, 70, 61],
+  },
+};
+for (const [url, d] of Object.entries(round12)) {
+  if (depth[url]) throw new Error(`round 12: ${url} already has depth`);
+  depth[url] = d;
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
