@@ -69,9 +69,13 @@ const inline = variant === 'inline';
         }
       }
       if (fold.length) l.classList.add('is-fold');
+      /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
       ds.forEach(function (d) {
-        if (fold.indexOf(d) > -1) d.open = false;
-        else d.querySelector('summary').tabIndex = -1;
+        if (fold.indexOf(d) > -1) { d.open = false; return; }
+        var n = document.createElement('div'), sm = d.querySelector('summary');
+        n.className = d.className; n.appendChild(sm.firstElementChild); sm.remove();
+        while (d.firstChild) n.appendChild(d.firstChild);
+        d.replaceWith(n);
       });
     })();
   </script>

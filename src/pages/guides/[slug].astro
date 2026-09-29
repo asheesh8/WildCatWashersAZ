@@ -105,12 +105,18 @@ const article = {
            Runs before paint, so nothing jumps; without JS, or on wider screens, everything is open. */
         (function () {
           var l = document.currentScript && document.currentScript.previousElementSibling;
-          if (!l || !matchMedia('(max-width: 759px)').matches) return;
+          if (!l) return;
           var ds = [].slice.call(l.querySelectorAll('details'));
-          if (ds.length < 4) return;
-          l.classList.add('is-fold');
-          ds.slice(2).forEach(function (d) { d.open = false; });
-          ds.slice(0, 2).forEach(function (d) { d.querySelector('summary').tabIndex = -1; });
+          var fold = matchMedia('(max-width: 759px)').matches && ds.length >= 4 ? ds.slice(2) : [];
+          if (fold.length) l.classList.add('is-fold');
+          /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
+          ds.forEach(function (d) {
+            if (fold.indexOf(d) > -1) { d.open = false; return; }
+            var n = document.createElement('div'), sm = d.querySelector('summary');
+            n.className = d.className; n.appendChild(sm.firstElementChild); sm.remove();
+            while (d.firstChild) n.appendChild(d.firstChild);
+            d.replaceWith(n);
+          });
         })();
       </script>
       {proof.length > 0 && (
