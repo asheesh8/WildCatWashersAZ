@@ -22,7 +22,7 @@ export const GET: APIRoute = () => {
 ## Key facts
 - Phone: ${company.phone} (the only number; call or send the quote form)
 - Address: ${company.address.street}, ${company.address.city}, ${company.address.state} ${company.address.zip}
-- Hours: ${company.availability}
+- Hours: Open 7 days a week, any hour
 - Founders: ${company.founders.join(', ')}. Crew leaders: ${company.crewLeaders.join(', ')}
 - Reviews: ${proof.reviewsLong} (as of ${proof.asOf}); ${proof.recordClaim.toLowerCase()}
 - Awards: ${awards.map((a) => `${a.issuer} ${a.title}${a.year ? ` ${a.year}` : ''}${a.detail ? ` (${a.detail})` : ''}`).join('; ')}

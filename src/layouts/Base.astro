@@ -66,7 +66,8 @@ const localBusiness = {
     addressCountry: 'US',
   },
   geo: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng },
-  /* No openingHoursSpecification: the fact bank gives days (7 a week) but no hours, and days alone fail validation. */
+  /* Doc 1: seven days a week, any hour; Ashish OK'd showing 24/7 on 2026-09-29. */
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' }],
   areaServed: towns.map((t) => ({ '@type': 'Place', name: `${t.name === 'Vail AZ' ? 'Vail' : t.name}, AZ` })),
   founder: company.founders.map((n) => ({ '@type': 'Person', name: n })),
   sameAs: Object.values(company.social).filter(Boolean),
