@@ -61,14 +61,15 @@ const list = services.filter((s) => s.slug !== exclude && (!only || only.include
   /* Phones: a 2-up grid of photo tiles, a third of the height of full cards. */
   @media (max-width: 759px) {
     .sgrid { grid-template-columns: 1fr 1fr; gap: .7rem; }
-    .scard a { min-height: 176px; border-radius: var(--radius); }
+    .scard a { min-height: 148px; border-radius: var(--radius); }
     .scard-body { padding: .9rem; gap: .2rem; }
     .scard-name { font-size: 1.12rem; padding-right: 0; font-variation-settings: 'wdth' 100; line-height: 1.05; overflow-wrap: break-word; }
     .scard-line, .scard-go { display: none; }
     .sgrid-bento .scard:nth-child(1) { grid-column: 1 / -1; }
-    .sgrid-bento .scard:nth-child(1) a { min-height: 220px; }
+    .sgrid-bento .scard:nth-child(1) a { min-height: 196px; }
     .sgrid-bento .scard:nth-child(1) .scard-name { font-size: 1.5rem; }
     .sgrid-bento .scard:nth-child(1) .scard-line { display: block; }
     .sgrid-bento .scard:nth-child(6) { grid-column: 1 / -1; }
+    .sgrid-bento .scard:nth-child(6) a { min-height: 124px; }
   }
 </style>

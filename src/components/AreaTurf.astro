@@ -5,6 +5,8 @@ import { towns, townHref } from '@/data/areas';
 export interface Props { title?: string }
 const { title = 'Southern Arizona is our home turf' } = Astro.props;
 const names = towns.map((t) => t.name);
+const first = towns.slice(0, 6);
+const rest = towns.slice(6);
 ---
 <section class="turf" aria-labelledby="turf-title">
   <div class="turf-marquee" data-turf>
@@ -22,11 +24,28 @@ const names = towns.map((t) => t.name);
       <p class="lede">Based in Tucson and out across the metro seven days a week, from SaddleBrooke to Tubac. If you’re nearby and don’t see your town, call. We probably cover it.</p>
       <a class="btn btn-lg" href="/areas/"><span>See every area we serve</span><span class="chip"><Icon name="arrow" /></span></a>
     </div>
-    <ul class="turf-list" role="list">
-      {towns.map((t) => (
-        <li><a href={townHref(t.slug)}><Icon name="pin" size={20} /><span>{t.name}</span><Icon name="arrow" size={20} class="go" /></a></li>
-      ))}
-    </ul>
+    <div class="turf-towns">
+      <ul class="turf-list" role="list">
+        {first.map((t) => (
+          <li><a href={townHref(t.slug)}><Icon name="pin" size={20} /><span>{t.name}</span><Icon name="arrow" size={20} class="go" /></a></li>
+        ))}
+      </ul>
+      {/* Phones: the first six towns show; the rest sit one tap away. Desktop shows all of them. */}
+      <details class="turf-more" open>
+        <summary><span class="more-open">Show all {towns.length} towns</span><span class="more-close">Show fewer towns</span><Icon name="plus" size={20} /></summary>
+        <ul class="turf-list" role="list">
+          {rest.map((t) => (
+            <li><a href={townHref(t.slug)}><Icon name="pin" size={20} /><span>{t.name}</span><Icon name="arrow" size={20} class="go" /></a></li>
+          ))}
+        </ul>
+      </details>
+      <script is:inline>
+        (function () {
+          var d = document.currentScript && document.currentScript.previousElementSibling;
+          if (d && matchMedia('(max-width: 759px)').matches) d.open = false;
+        })();
+      </script>
+    </div>
   </div>
 </section>
 <style>
@@ -54,17 +73,29 @@ const names = towns.map((t) => t.name);
   .turf-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.2rem; }
   .turf-list a { display: flex; align-items: center; gap: .6rem; padding: .85rem .2rem; border-bottom: 2px solid rgb(18 24 50 / 16%); text-decoration: none; font-weight: 750; font-size: 1.15rem; }
   .turf-list a span { flex: 1; }
+  .turf-more summary { display: none; }
+  .turf-more summary::-webkit-details-marker { display: none; }
   .turf-list a :global(.go) { transition: transform .25s var(--ease); }
   .turf-list a:hover :global(.go) { transform: translateX(4px); }
   @media (max-width: 759px) {
-    .turf-marquee { padding: 1rem 0 1.6rem; }
-    .turf-track span { font-size: 2.2rem; }
+    .turf-marquee { padding: .8rem 0 1rem; }
+    .turf-track span { font-size: 2rem; }
     .turf-list, .turf-list { grid-template-columns: 1fr 1fr; gap: 0 .8rem; }
     .turf-list a { font-size: 1.05rem; padding: .5rem 0; min-height: 48px; gap: .4rem; }
     .turf-grid { gap: 1.8rem; }
     .turf-head { gap: 1rem; }
     .turf-list a :global(.go) { display: none; }
+    .turf-more summary {
+      display: flex; align-items: center; justify-content: space-between; gap: .6rem; list-style: none; cursor: pointer;
+      min-height: 48px; padding: .5rem 0; font-weight: 800; font-size: 1.05rem; border-bottom: 2px solid rgb(18 24 50 / 16%);
+    }
+    .turf-more summary:hover { color: inherit; }
+    .turf-more .more-close, .turf-more[open] .more-open { display: none; }
+    .turf-more[open] .more-close { display: inline; }
+    .turf-more summary :global(svg) { transition: rotate .25s var(--ease); }
+    .turf-more[open] summary :global(svg) { rotate: 45deg; }
   }
+  @media (prefers-reduced-motion: reduce) { .turf-more summary :global(svg) { transition: none; } }
 </style>
 <script>
   document.querySelectorAll('[data-turf]').forEach((m) => {

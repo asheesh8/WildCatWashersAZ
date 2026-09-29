@@ -82,7 +82,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 
   <WhyGrid eyebrow="Why it matters in Tucson" title={isWindow ? 'Why the whole window matters' : `Why ${s.name.toLowerCase()} matters here`} items={s.why} tone="mist" />
 
-  <Gallery keys={s.gallery} title="From recent jobs" avoid={onPage} />
+  <Gallery keys={s.gallery} title="From recent jobs" avoid={onPage} swipe />
 
   <FactsTrio pricing={s.pricing} frequency={s.frequency} duration={s.duration} limits={s.limits} />
 
@@ -99,7 +99,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
     </section>
   )}
 
-  {isWindow && <ClubBlock />}
+  {isWindow && <ClubBlock collapse />}
 
   {subPages.length > 0 && (
     <section class="section-tight">
@@ -113,10 +113,23 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   <section class="section-tight bg-mist">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">{isWindow ? 'Window cleaning near you' : `${s.name} across Southern Arizona`}</h2>
-      <ul class="chips" role="list">
-        {areaLinks.map((a) => <li><a href={a.href}><Icon name="pin" size={18} />{a.name}</a></li>)}
-        <li><a href="/areas/"><Icon name="plus" size={18} />All areas</a></li>
+      <ul class="chips town-chips" role="list">
+        {areaLinks.slice(0, 6).map((a) => <li><a href={a.href}><Icon name="pin" size={18} />{a.name}</a></li>)}
       </ul>
+      {/* Phones: six towns show and the rest open with one tap. Desktop shows every town. */}
+      <details class="town-more" open>
+        <summary><span class="tm-open">Show all {areaLinks.length} towns</span><span class="tm-close">Show fewer towns</span><Icon name="plus" size={20} /></summary>
+        <ul class="chips town-chips" role="list">
+          {areaLinks.slice(6).map((a) => <li><a href={a.href}><Icon name="pin" size={18} />{a.name}</a></li>)}
+          <li><a href="/areas/"><Icon name="plus" size={18} />All areas</a></li>
+        </ul>
+      </details>
+      <script is:inline>
+        (function () {
+          var d = document.currentScript && document.currentScript.previousElementSibling;
+          if (d && matchMedia('(max-width: 759px)').matches) d.open = false;
+        })();
+      </script>
     </div>
   </section>
 
@@ -137,4 +150,25 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   @media (min-width: 900px) { .see-one { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: center; } .see-one .section-head { margin: 0; } }
   .see-row :global(video) { aspect-ratio: 4 / 5; }
   @media (max-width: 759px) { .see-row { display: flex; } .see-row :global(.loop) { flex: 0 0 72%; } }
+  .town-more summary { display: none; }
+  .town-more > .town-chips { margin-top: .6rem; }
+  @media (max-width: 759px) {
+    /* Phones: towns in a tidy two-column grid instead of ragged rows of pills. */
+    .town-chips { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .town-chips a { width: 100%; height: 100%; padding: .55rem .8rem; line-height: 1.25; }
+    .town-more > .town-chips { margin-top: .5rem; }
+    .town-more summary {
+      display: flex; align-items: center; justify-content: space-between; gap: .6rem; list-style: none; cursor: pointer;
+      min-height: 48px; margin-top: .5rem; padding: .5rem 1rem; border-radius: 999px; background: #fff; border: 1px solid var(--line);
+      font-weight: 800; color: var(--navy);
+    }
+    .town-more summary::-webkit-details-marker { display: none; }
+    .town-more .tm-close, .town-more[open] .tm-open { display: none; }
+    .town-more[open] .tm-close { display: inline; }
+    .town-more summary :global(svg) { color: var(--blue-700); transition: rotate .25s var(--ease); }
+    .town-more[open] summary :global(svg) { rotate: 45deg; }
+    /* Five lines of each review before "Read the whole review". */
+    :global(.js .rgrid blockquote p:not(.open)) { -webkit-line-clamp: 5; line-clamp: 5; }
+  }
+  @media (prefers-reduced-motion: reduce) { .town-more summary :global(svg) { transition: none; } }
 </style>

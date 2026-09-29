@@ -53,16 +53,43 @@ const H = headingLevel;
     {showGuarantees && (
       <div class="guar">
         <p class="eyebrow">Two guarantees on every job</p>
-        <div class="guar-row m-swipe">
-        {guarantees.map((g, i) => (
-          <div class="guar-card reveal">
-            <span class="guar-icon"><Icon name={i === 0 ? 'shield' : 'calendar'} size={30} /></span>
-            <h3 class="h3">{g.name}</h3>
-            <p class="guar-head">{g.headline}</p>
-            <p>{g.body}</p>
+        {collapse ? (
+          <div class="guar-row is-collapsible">
+          {guarantees.map((g, i) => (
+            <details class="guar-card guar-fold reveal" open>
+              <summary>
+                <span class="guar-icon"><Icon name={i === 0 ? 'shield' : 'calendar'} size={30} /></span>
+                <h3 class="h3">{g.name}</h3>
+                <p class="guar-head">{g.headline}</p>
+                <span class="cert-plus" aria-hidden="true"></span>
+              </summary>
+              <p>{g.body}</p>
+            </details>
+          ))}
           </div>
-        ))}
-        </div>
+        ) : (
+          <div class="guar-row m-swipe">
+          {guarantees.map((g, i) => (
+            <div class="guar-card reveal">
+              <span class="guar-icon"><Icon name={i === 0 ? 'shield' : 'calendar'} size={30} /></span>
+              <h3 class="h3">{g.name}</h3>
+              <p class="guar-head">{g.headline}</p>
+              <p>{g.body}</p>
+            </div>
+          ))}
+          </div>
+        )}
+        {collapse && <script is:inline>
+          /* Phones: each guarantee starts as its name and headline; tap for the details. */
+          (function () {
+            var s = document.currentScript, l = s && s.previousElementSibling;
+            if (!l) return;
+            var phone = matchMedia('(max-width: 759px)').matches;
+            l.querySelectorAll('details').forEach(function (d) {
+              if (phone) d.open = false; else d.querySelector('summary').tabIndex = -1;
+            });
+          })();
+        </script>}
         <a class="text-link" href="/guarantee/">How our guarantees work <Icon name="arrow" size={20} /></a>
       </div>
     )}
@@ -109,11 +136,19 @@ const H = headingLevel;
   .guar-head { font-weight: 750; font-size: 1.2rem; color: var(--navy); }
   .guar-card p:last-child { color: var(--ink-2); }
   .guar-row { display: grid; gap: 1.1rem; }
+  /* Folding guarantee cards (home): the same card, its summary holding the icon, name and headline. */
+  .guar-fold { display: block; }
+  .guar-fold summary { list-style: none; display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; align-items: center; }
+  .guar-fold summary::-webkit-details-marker { display: none; }
+  .guar-fold summary:hover { color: inherit; }
+  .guar-fold summary .guar-head { grid-column: 1 / -1; }
+  .guar-fold > p { color: var(--ink-2); margin-top: .5rem; }
+  @media (min-width: 760px) { .guar-fold summary { pointer-events: none; } }
   @media (max-width: 759px) {
     .cert { padding: 8px; }
     .cert-inner { padding: 1.4rem 1.1rem; }
     .cert-seal { width: 84px; height: 84px; margin-top: -3.6rem; }
-    .cert-title { margin-bottom: 1.1rem; }
+    .cert-title { margin-bottom: 1.1rem; font-size: 2rem; }
     .cert-list { gap: .8rem; }
     .is-collapsible { gap: .35rem; }
     .is-collapsible li { align-items: center; gap: .8rem; }
@@ -128,8 +163,20 @@ const H = headingLevel;
     .cert-plus::after { rotate: 90deg; }
     details[open] .cert-plus { background: var(--blue); }
     details[open] .cert-plus::after { rotate: 0deg; }
-    .cert-sign { margin-top: 1.4rem; gap: .8rem 2rem; }
-    .sig { font-size: 1.7rem; }
+    .guar-row.is-collapsible { gap: .7rem; }
+    .guar-fold { padding: 1rem 1.1rem; }
+    .guar-fold summary { grid-template-columns: auto 1fr auto; gap: .35rem .8rem; cursor: pointer; }
+    .guar-fold summary .guar-icon { width: 44px; height: 44px; }
+    .guar-fold summary .h3 { font-size: 1.2rem; }
+    .guar-fold summary .guar-head { font-size: 1.08rem; }
+    .guar-fold summary .h3 { grid-column: 2 / -1; }
+    .guar-fold summary .guar-head { grid-row: 2; grid-column: 1 / 3; }
+    .guar-fold .cert-plus { display: block; grid-column: 3; grid-row: 2; align-self: end; position: relative; width: 32px; height: 32px; border-radius: 50%; background: var(--blue-50); }
+    /* Phones: the two signatures sit side by side instead of stacking. */
+    .cert-sign { margin-top: 1.4rem; gap: .8rem; flex-wrap: nowrap; }
+    .cert-sign div { flex: 1 1 0; min-width: 0; }
+    .sig { font-size: 1.45rem; padding: 0 .2rem; white-space: nowrap; }
+    .sig-role { line-height: 1.35; }
   }
   @media (prefers-reduced-motion: reduce) { .cert-plus::before, .cert-plus::after { transition: none; } }
 </style>

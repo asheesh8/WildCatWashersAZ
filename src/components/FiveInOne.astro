@@ -62,12 +62,13 @@ const {
   /* Phones: the five steps become a swipe row of cards; the photo becomes a short banner. */
   @media (max-width: 759px) {
     .five-grid { gap: 1.4rem; }
-    .five-photo { aspect-ratio: 16 / 9; }
+    .five-photo { aspect-ratio: 2 / 1; }
     .five-list li, .five-list li:last-child {
       grid-template-columns: 1fr; gap: .6rem; padding: 1.4rem; border: 1px solid var(--line);
       border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);
     }
     .five-num { font-size: 3rem; }
     .five-title { font-size: 1.6rem; }
+    .five-list p { font-size: 1.12rem; line-height: 1.55; }
   }
 </style>

@@ -53,27 +53,26 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
         <p class="eyebrow">{proof.reviewsLong}</p>
         <h2 id="reviews-title" class="h2 sweep">Neighbors say it better</h2>
       </div>
-      <div class="rev-layout">
+      <!-- One grid: the lead quote beside four cards on desktop; on phones all five share one swipe row. -->
+      <div class="rev-layout m-swipe">
         <figure class="rev-lead reveal">
           <span class="rev-quote" aria-hidden="true">“</span>
           <blockquote><p>{lead.text}</p></blockquote>
           <figcaption><strong>{displayName(lead)}</strong> · {placeLabel(lead)} · {lead.platform}</figcaption>
         </figure>
-        <div class="rev-grid m-swipe">
-          {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
-        </div>
+        {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
       </div>
       <figure class="rev-inst reveal">
         <blockquote><p>“{arroyoGardens.quote}”</p></blockquote>
         <figcaption><strong>{arroyoGardens.name}</strong><span>{arroyoGardens.role}</span></figcaption>
       </figure>
-      <div class="cta-row center" style="margin-top:2rem">
+      <div class="cta-row center rev-all">
         <a class="btn btn-lg btn-white" href="/reviews/"><span>Read all {proof.reviews} reviews</span><span class="chip"><Icon name="arrow" /></span></a>
       </div>
     </div>
   </section>
 
-  <ClubBlock />
+  <ClubBlock collapse />
 
   <section class="section bg-mist story" aria-labelledby="story-title">
     <div class="wrap story-grid">
@@ -101,8 +100,12 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
 </Base>
 
 <style>
-  .rev-layout { display: grid; gap: 1rem; }
-  @media (min-width: 1000px) { .rev-layout { grid-template-columns: 1fr 1.25fr; } }
+  .rev-layout { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+  .rev-lead { grid-column: 1 / -1; }
+  @media (min-width: 1000px) {
+    .rev-layout { grid-template-columns: 1.6fr 1fr 1fr; }
+    .rev-lead { grid-column: 1; grid-row: span 2; }
+  }
   .rev-lead {
     position: relative; background: var(--blue); color: var(--navy); border-radius: var(--radius-lg);
     padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1.2rem; align-content: start; overflow: hidden;
@@ -112,7 +115,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   .rev-lead p { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; font-weight: 550; }
   .rev-lead figcaption { font-weight: 650; }
   .rev-lead strong { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; }
-  .rev-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .rev-all { margin-top: 2rem; }
   .rev-inst { margin-top: 1rem; background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.6rem, 1rem + 3vw, 3rem); display: grid; gap: 1rem; }
   .rev-inst p { font-size: var(--step-1); line-height: 1.5; max-width: 70ch; }
   .rev-inst figcaption { display: grid; }
@@ -132,14 +135,18 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   /* Phones: a shorter quote mark, a wider story photo and the inset photo
      tucked closer, so these two sections take less scrolling. */
   @media (max-width: 699px) {
+    /* Five lines of each quote before "Read the whole review", so the row stays short. */
+    :global(.js) .rev-layout :global(blockquote p:not(.open)) { -webkit-line-clamp: 5; line-clamp: 5; }
+    .rev-all { margin-top: 1.2rem; }
     .rev-lead { gap: .9rem; padding: 1.4rem 1.4rem 1.5rem; }
     .rev-quote { font-size: 6.5rem; height: 2.4rem; }
     .story-grid { gap: 1.6rem; }
-    .story-photos { padding-bottom: 12%; }
-    .sp-1 { aspect-ratio: 16 / 10; }
-    .sp-2 { width: 44%; right: -2%; border-width: 4px; }
+    .story-photos { padding-bottom: 9%; }
+    .sp-1 { aspect-ratio: 2 / 1; }
+    .sp-2 { width: 40%; right: -2%; border-width: 4px; }
     .story-copy { gap: 1rem; }
     .story-copy .h2 { font-size: 1.75rem; }
+    .story-copy .lede { font-size: 1.15rem; }
   }
   .story-copy a:not(.text-link) { font-weight: 700; }
 </style>
