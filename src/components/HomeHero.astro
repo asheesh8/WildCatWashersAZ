@@ -101,5 +101,8 @@ const photo = img('hero-crew-trucks-sky');
     .hero-copy > * { max-width: 100%; }
     .hero-title { font-size: clamp(1.9rem, 8.6vw, 2.8rem); font-variation-settings: 'wdth' 100; }
     .nowrap { white-space: normal; }
+    /* Phones: the quote button stays in the first screen; the answer sentence follows it. */
+    .hero-cta { order: 1; }
+    .hero-sub { order: 2; font-size: 1.05rem; line-height: 1.5; }
   }
 </style>
