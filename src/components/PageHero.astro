@@ -1,10 +1,10 @@
 ---
 /** Inner-page hero: light blue, big type, one CTA, the phone number, and a photo. */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Breadcrumbs from './Breadcrumbs.astro';
 import Icon from './Icon.astro';
 import LoopVideo from './LoopVideo.astro';
-import { img, altFor, hasImg, focusFor, cropFor } from '@/data/media';
+import { img, altFor, hasImg, focusFor, cropFor, bandFor } from '@/data/media';
 import { company, cta, telHref, proof } from '@/data/business';
 export interface Props {
   eyebrow?: string;
@@ -36,6 +36,12 @@ const heroPos = (() => {
 })();
 /* Short H1s stay as bold uppercase headlines; longer or question H1s read as
    sentences, so they fit in four lines on a phone (design review 1). */
+/* Phones and tablets show the photo as a wide band (about 16:9 or wider), so they get
+   their own 16:9 crop instead of downloading the 4:3.3 one and hiding a third of it. */
+const band = photo && image
+  ? await Promise.all([480, 640, 720, 800, 960].map((w) => getImage({ src: photo, width: w, height: Math.round(w * 9 / 16), fit: 'cover', position: bandFor(image), format: 'webp', quality: 66 })))
+  : [];
+const bandSrcset = band.map((b, i) => `${b.src} ${[480, 640, 720, 800, 960][i]}w`).join(', ');
 const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
 ---
 <section class:list={['phero', (photo || video) && 'has-photo']}>
@@ -77,7 +83,10 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
       <div class="phero-photo photo">
         {/* Cropped at build time to the frame's 4:3.3, anchored on the photo's focus,
             so a portrait photo doesn't ship the half that object-fit would hide. */}
-        <Image src={photo} alt={altFor(image!)} width={1200} height={990} fit="cover" position={cropFor(image!)} widths={[480, 640, 800, 960, 1200]} sizes="(min-width: 1000px) 46vw, calc(100vw - 2rem)" loading="eager" fetchpriority="high" decoding="async" quality={66} style={`object-position:${heroPos}`} />
+        <picture>
+          <source media="(max-width: 999px)" type="image/webp" srcset={bandSrcset} sizes="calc(100vw - 2rem)" />
+          <Image src={photo} alt={altFor(image!)} width={1200} height={990} fit="cover" position={cropFor(image!)} widths={[480, 640, 720, 800, 960, 1200]} sizes="(min-width: 1000px) 46vw, calc(100vw - 2rem)" loading="eager" fetchpriority="high" decoding="async" quality={66} style={`object-position:${heroPos};--fpos:${focusFor(image!)}`} />
+        </picture>
       </div>
     )}
   </div>
@@ -98,11 +107,12 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
   .phero .lede { max-width: 52ch; }
   /* Phones: a calmer intro so the quote button stays near the first screen */
   @media (max-width: 699px) { .phero .lede { font-size: 1.1rem; line-height: 1.55; } }
-  .phero .lede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  @media (max-width: 759px) { .phero .lede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }
   :global(.lede-more) { all: unset; cursor: pointer; font-weight: 700; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
   :global(.lede-more:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
   .nowrap { white-space: nowrap; }
   .phero-photo { aspect-ratio: 4 / 3.3; border: 6px solid #fff; }
+  .phero-photo picture { display: contents; }
   .phero-photo :global(img), .phero-photo :global(.loop) { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
   /* Phones: the photo moves up under the headline, as a short band, so every
      inner page shows a real photo on its first screen. */
@@ -114,6 +124,8 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     .has-photo .phero-grid > .phero-copy > .pill { order: 2; }
     .has-photo .phero-grid > .phero-copy > .eyebrow { order: 3; }
     .has-photo .phero-grid > .phero-copy > .h1 { order: 4; }
+    /* The band gets its own 16:9 crop (the <source> above), so aim it at the photo's focus. */
+    .has-photo .phero-photo :global(img) { object-position: var(--fpos, 50% 50%) !important; }
     .has-photo .phero-photo { order: 5; aspect-ratio: auto; height: clamp(180px, 26vh, 240px); margin-bottom: 1.1rem; border-width: 4px; }
     /* The quote button sits right under the photo so it clears the bottom bar; the lede follows (DOM order unchanged). */
     .has-photo .phero-grid > .phero-copy > .cta-row { order: 6; margin-bottom: 1.1rem; }

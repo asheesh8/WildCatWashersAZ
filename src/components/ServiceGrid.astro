@@ -1,18 +1,30 @@
 ---
 /** Bento grid of the six services, each a photo card with one plain line. */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Icon from './Icon.astro';
 import { services, serviceHref } from '@/data/business';
-import { img, altFor, focusFor } from '@/data/media';
+import { img, altFor, focusFor, bandFor } from '@/data/media';
 export interface Props { exclude?: string; only?: string[] }
 const { exclude, only } = Astro.props;
 const list = services.filter((s) => s.slug !== exclude && (!only || only.includes(s.slug)));
+const bento = list.length === 6;
+/* Phones: the bento's first and last cards are full-width bands (about 2:1), so they get
+   their own 2:1 crop; the rest are half-width tiles. */
+const wide = (i: number) => bento && (i === 0 || i === 5);
+const bandW = [480, 720, 960];
+const bands = await Promise.all(list.map((s, i) => wide(i)
+  ? Promise.all(bandW.map((w) => getImage({ src: img(s.image), width: w, height: w / 2, fit: 'cover', position: bandFor(s.image), format: 'webp', quality: 66 })))
+      .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))
+  : Promise.resolve('')));
 ---
-<ul class:list={['sgrid', list.length === 6 && 'sgrid-bento']} role="list">
+<ul class:list={['sgrid', bento && 'sgrid-bento']} role="list">
   {list.map((s, i) => (
     <li class="scard reveal">
       <a href={serviceHref(s.slug)}>
-        <Image src={img(s.image)} alt={altFor(s.image)} widths={[400, 640, 900]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, 100vw" quality={70} style={`object-position:${focusFor(s.image)}`} />
+        <picture>
+          {bands[i] && <source media="(max-width: 759px)" type="image/webp" srcset={bands[i]} sizes="calc(100vw - 2rem)" />}
+          <Image src={img(s.image)} alt={altFor(s.image)} widths={[320, 400, 640, 900]} sizes={`(min-width: 1000px) 33vw, (min-width: 640px) 50vw, ${wide(i) ? 'calc(100vw - 2rem)' : 'calc(50vw - 1.4rem)'}`} quality={70} style={`object-position:${focusFor(s.image)}`} />
+        </picture>
         <span class="scard-body">
           <span class="scard-num">/{String(i + 1).padStart(2, '0')}</span>
           <span class="scard-name">{s.name}</span>
@@ -41,6 +53,7 @@ const list = services.filter((s) => s.slug !== exclude && (!only || only.include
   .scard a:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
   .scard a:active { transform: scale(.985); box-shadow: var(--shadow-sm); transition-duration: .08s; }
   .scard a:focus-visible { outline-offset: 4px; }
+  .scard picture { display: contents; }
   .scard :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s var(--ease); }
   .scard a::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(18 24 50 / 0%) 30%, rgb(18 24 50 / 88%) 100%); }
   .scard a:hover :global(img) { transform: scale(1.05); }

@@ -1,7 +1,7 @@
 ---
 /** The numbered /01–/05 section Cooper liked, with larger type for 55+ readers. */
-import { Image } from 'astro:assets';
-import { img, altFor, focusFor } from '@/data/media';
+import { Image, getImage } from 'astro:assets';
+import { img, altFor, focusFor, bandFor } from '@/data/media';
 import { serviceBySlug } from '@/data/business';
 export interface Props { title?: string; lede?: string; image?: string; eyebrow?: string; items?: { title: string; body: string }[] }
 const win = serviceBySlug['window-cleaning'];
@@ -12,6 +12,10 @@ const {
   eyebrow = 'Every window job',
   items = win.included,
 } = Astro.props;
+/* Phones show the photo as a 2:1 banner, so they get their own 2:1 crop. */
+const bandW = [480, 720, 960];
+const band = (await Promise.all(bandW.map((w) => getImage({ src: img(image), width: w, height: w / 2, fit: 'cover', position: bandFor(image), format: 'webp', quality: 66 }))))
+  .map((b, i) => `${b.src} ${bandW[i]}w`).join(', ');
 ---
 <section class="section five" aria-labelledby="five-title">
   <div class="wrap five-grid">
@@ -20,7 +24,10 @@ const {
       <h2 id="five-title" class="h2 sweep">{title}</h2>
       <p class="lede">{lede}</p>
       <div class="five-photo photo">
-        <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} style={`object-position:${focusFor(image)}`} />
+        <picture>
+          <source media="(max-width: 759px)" type="image/webp" srcset={band} sizes="calc(100vw - 2rem)" />
+          <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, calc(100vw - 2rem)" quality={70} style={`object-position:${focusFor(image)}`} />
+        </picture>
       </div>
     </div>
     <ol class="five-list m-swipe" role="list">
@@ -45,6 +52,7 @@ const {
   }
   .five-head { --stack-gap: 1.1rem; display: grid; gap: 1.1rem; }
   .five-photo { aspect-ratio: 4 / 3; margin-top: .8rem; }
+  .five-photo picture { display: contents; }
   .five-photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .five-list { list-style: none; padding: 0; display: grid; }
   .five-list li {

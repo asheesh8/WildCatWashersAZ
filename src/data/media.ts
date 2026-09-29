@@ -454,6 +454,18 @@ const focusOverride: Record<string, string> = {
   'clean-arizona-room-glass': '50% 55%',
   'solar-screen-gable-window': '50% 55%',
 };
+/** Phone hero bands (16:9) use sharp's attention crop, which finds people well;
+    these photos need a fixed anchor instead (the crop would drop heads or the subject). */
+const bandOverride: Record<string, string> = {
+  'crew-yard-sign-patio': 'centre',
+  'crew-yard-sign-arched-window': 'centre',
+  'crew-yard-sign-living-room': 'centre',
+  'tech-solar-screen-carry': 'centre',
+  'tech-arched-door-ladder': 'centre',
+  'tech-crouching-gridded-door': 'centre',
+  'tech-squeegee-desert-window': 'centre',
+};
+export function bandFor(key: string): string { return bandOverride[key] ?? 'attention'; }
 /** CSS object-position for a photo: portrait shots anchor a little above centre. */
 export function focusFor(key: string): string {
   if (focusOverride[key]) return focusOverride[key];
