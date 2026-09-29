@@ -4,33 +4,42 @@
  * with object-fit: cover anchored on the photo's focus point, and loads lazily
  * (galleries always sit below the hero). The first photo leads as a wide tile.
  */
-import { Image } from 'astro:assets';
-import { img, altFor, hasImg, focusFor, sceneOf } from '@/data/media';
+import { Image, getImage } from 'astro:assets';
+import { img, altFor, hasImg, focusFor, sceneOf, bandFor } from '@/data/media';
 export interface Props { keys: string[]; title?: string; /** Photos already shown elsewhere on the page; their scenes are skipped here. */ avoid?: string[]; /** Phones: one swipe row of photos instead of a stacked grid, when there are three or more (two already sit side by side). */ swipe?: boolean }
 const { keys, title, avoid = [], swipe = false } = Astro.props;
 /* One copy of a scene per grid, even if a caller passes both twins, and none
    the page already shows. */
 const seen = new Set<string>(avoid.filter(Boolean).map(sceneOf));
 const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(sceneOf(k))).slice(0, 6);
+/* Phones: swipe tiles are 3:2, so they get their own 3:2 crop instead of a portrait
+   file that is mostly cropped away. */
+const swiping = swipe && list.length > 2;
+const bandW = [360, 560, 720];
+const bands = swiping
+  ? await Promise.all(list.map((k) => Promise.all(bandW.map((w) => getImage({ src: img(k), width: w, height: Math.round(w * 2 / 3), fit: 'cover', position: bandFor(k), format: 'webp', quality: 66 })))
+      .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))))
+  : [];
 ---
 {list.length > 0 && (
   <section class="section-tight" aria-label={title ?? 'Photos from our jobs'}>
     <div class="wrap">
       {title && <h2 class="h3" style="margin-bottom:1.2rem">{title}</h2>}
-      <ul class:list={['gal', swipe && list.length > 2 && 'm-swipe gal-swipe']} role="list" data-n={list.length}>
+      <ul class:list={['gal', swiping && 'm-swipe gal-swipe']} role="list" data-n={list.length}>
         {list.map((k, i) => (
-          <li class="photo reveal">
+          <li class="photo reveal"><picture>
+            {bands[i] && <source media="(max-width: 759px)" type="image/webp" srcset={bands[i]} sizes="86vw" />}
             <Image
               src={img(k)}
               alt={altFor(k)}
               widths={i === 0 ? [480, 800, 1200] : [360, 560, 800]}
-              sizes={i === 0 ? '(min-width: 1200px) 760px, (min-width: 900px) 62vw, 100vw' : `(min-width: 1200px) 380px, (min-width: 900px) 31vw, ${swipe && list.length > 2 ? '(max-width: 759px) 86vw, ' : ''}50vw`}
+              sizes={i === 0 ? '(min-width: 1200px) 760px, (min-width: 900px) 62vw, 100vw' : `(min-width: 1200px) 380px, (min-width: 900px) 31vw, ${swiping ? '(max-width: 759px) 86vw, ' : ''}50vw`}
               loading="lazy"
               decoding="async"
               quality={68}
               style={`object-position:${focusFor(k)}`}
             />
-          </li>
+          </picture></li>
         ))}
       </ul>
     </div>
@@ -39,6 +48,7 @@ const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(s
 <style>
   .gal { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gal li { aspect-ratio: 4 / 3; border-radius: var(--radius); margin: 0; }
+  .gal picture { display: contents; }
   .gal :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
   /* Phones: the lead photo runs full width; an odd last tile does too, so nothing is orphaned. */
   .gal li:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
