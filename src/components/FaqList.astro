@@ -3,6 +3,9 @@
 import type { Faq } from '@/data/faq';
 export interface Props { items: Faq[]; title?: string; eyebrow?: string; id?: string; /** Question number → the page that owns it, for a "more on this" link. */ links?: Record<number, { href: string; label: string }>; /** Open the first answer (off where the page must stay short on phones). */ openFirst?: boolean; /** Phones only: the first answer starts closed too (town, community and service-town pages). */ phoneClosed?: boolean }
 const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', links = {}, openFirst = true, phoneClosed = false } = Astro.props;
+// Phones: past five questions, the rest wait behind a "Show more questions" button (all stay in the HTML and the FAQ schema).
+const PHONE_LIMIT = 5;
+const extra = items.length > PHONE_LIMIT + 1 ? items.length - PHONE_LIMIT : 0;
 ---
 <section class="section" aria-labelledby={`${id}-title`}>
   <div class="wrap-narrow">
@@ -12,7 +15,7 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
     </div>
     <div class="faq">
       {items.map((f, i) => (
-        <details open={openFirst && i === 0}>
+        <details open={openFirst && i === 0} class:list={[extra && i >= PHONE_LIMIT && 'faq-x']}>
           <summary><span>{f.q}</span><span class="plus" aria-hidden="true"></span></summary>
           <div class="faq-a"><p>{f.a}</p>{links[f.n] && <a class="faq-more" href={links[f.n].href}>{links[f.n].label}</a>}</div>
         </details>
@@ -25,6 +28,9 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
           if (d && matchMedia('(max-width: 759px)').matches) d.open = false;
         })();
       </script>
+    )}
+    {extra > 0 && (
+      <button type="button" class="faq-all" aria-expanded="false" data-faq-all>Show {extra} more questions</button>
     )}
     <slot />
   </div>
@@ -55,5 +61,22 @@ const { items, title = 'Questions people ask us', eyebrow = 'FAQ', id = 'faq', l
     .plus { width: 36px; height: 36px; }
     .faq-a { padding: 0 1.1rem 1.1rem; }
   }
+  .faq-all { display: none; }
+  @media (max-width: 759px) {
+    :global(.js) .faq:not(.is-all) .faq-x { display: none; }
+    :global(.js) .faq-all { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: .8rem; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--navy); font-weight: 700; font-size: 1.02rem; }
+  }
   @media (prefers-reduced-motion: reduce) { .plus, .plus::before, .plus::after { transition: none; } summary:active .plus { transform: none; } }
 </style>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-faq-all]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const list = b.parentElement?.querySelector('.faq');
+      if (!list) return;
+      list.classList.add('is-all');
+      b.setAttribute('aria-expanded', 'true');
+      b.hidden = true;
+      list.querySelector<HTMLElement>('.faq-x summary')?.focus();
+    });
+  });
+</script>
