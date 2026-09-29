@@ -59,7 +59,7 @@ const place = {
   <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={photos.hero} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />
 
-  {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} />}
+  {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} mfold />}
 
   <Conditions title={`What ${t.name} does to your glass`} items={t.conditions} swipe mfold />
 
@@ -198,7 +198,7 @@ const place = {
     /* The service cards' photos run a little shorter. */
     .emph-img { aspect-ratio: 2 / 1; }
     .emph-body { padding: 1.1rem 1.2rem 1.2rem; gap: .5rem; }
-    .also { margin-top: 1.2rem; }
+    .also { margin-top: 1.2rem; font-size: 1rem; }
   }
   @media (prefers-reduced-motion: reduce) { .kids-toggle :global(svg) { transition: none; } }
   .secs { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }

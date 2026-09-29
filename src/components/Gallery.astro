@@ -47,7 +47,7 @@ const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(s
     .gal:not([data-n='2']) li:last-child:nth-child(even) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
   }
   @media (max-width: 759px) {
-    .gal-swipe li, .gal-swipe li:first-child, .gal-swipe li:last-child:nth-child(even) { aspect-ratio: 4 / 3; }
+    .gal-swipe li, .gal-swipe li:first-child, .gal-swipe li:last-child:nth-child(even) { aspect-ratio: 3 / 2; }
   }
   @media (min-width: 900px) {
     .gal { grid-template-columns: repeat(3, minmax(0, 1fr)); }

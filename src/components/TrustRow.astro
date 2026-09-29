@@ -19,5 +19,6 @@ const items: { icon: string; text: string; href?: string }[] = [
   @media (min-width: 900px) { .trow ul { grid-template-columns: repeat(4, auto); justify-content: space-between; } }
   .trow li { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.02rem; line-height: 1.25; }
   .trow a { color: inherit; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 3px; }
+  @media (max-width: 759px) { .trow ul { gap: .55rem .9rem; padding-block: .8rem; } .trow li { font-size: .92rem; gap: .5rem; } .trow .ti { width: 28px; height: 28px; } }
   .ti { width: 34px; height: 34px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
 </style>

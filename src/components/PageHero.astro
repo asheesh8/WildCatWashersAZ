@@ -47,7 +47,23 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
       )}
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h1 class:list={['h1 sweep', long && 'is-long']}>{title.split(/(5-in-1)/).map((part) => part === '5-in-1' ? <span class="nowrap">{part}</span> : part)}</h1>
-      {lede && <p class="lede">{lede}</p>}
+      {lede && <p class="lede" id="phero-lede">{lede}</p>}
+      {lede && lede.length > 200 && (
+        <script is:inline>
+          /* Phones: a long answer shows three lines, then "Read the full answer". The text stays in the page. */
+          (function () {
+            var p = document.getElementById('phero-lede');
+            if (!p || !matchMedia('(max-width: 759px)').matches) return;
+            p.classList.add('is-clamp');
+            if (p.scrollHeight <= p.clientHeight + 4) { p.classList.remove('is-clamp'); return; }
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'lede-more'; b.textContent = 'Read the full answer';
+            b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', 'phero-lede');
+            b.addEventListener('click', function () { p.classList.remove('is-clamp'); b.remove(); p.setAttribute('tabindex', '-1'); p.focus(); });
+            p.after(b);
+          })();
+        </script>
+      )}
       <slot />
       <div class="cta-row">
         <a class="btn btn-lg" href={ctaHref} data-track="quote-page-hero"><span>{ctaLabel}</span><span class="chip"><Icon name="arrow" /></span></a>
@@ -82,6 +98,9 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
   .phero .lede { max-width: 52ch; }
   /* Phones: a calmer intro so the quote button stays near the first screen */
   @media (max-width: 699px) { .phero .lede { font-size: 1.1rem; line-height: 1.55; } }
+  .phero .lede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  :global(.lede-more) { all: unset; cursor: pointer; font-weight: 700; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
+  :global(.lede-more:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
   .nowrap { white-space: nowrap; }
   .phero-photo { aspect-ratio: 4 / 3.3; border: 6px solid #fff; }
   .phero-photo :global(img), .phero-photo :global(.loop) { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
@@ -99,10 +118,14 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     /* The quote button sits right under the photo so it clears the bottom bar; the lede follows (DOM order unchanged). */
     .has-photo .phero-grid > .phero-copy > .cta-row { order: 6; margin-bottom: 1.1rem; }
     .has-photo .phero-grid > .phero-copy > .lede { order: 7; }
+    .has-photo .phero-grid > .phero-copy > :global(.lede-more) { order: 8; margin-top: -.6rem; }
   }
   @media (max-width: 759px) {
     /* The last crumb repeats the H1; drop it on phones. */
     .phero :global(.crumbs li:last-child) { display: none; }
+    /* The bottom bar already has Call, and the trust strip right below repeats the review count. */
+    .phero .phone-link { display: none; }
+    .phero:has(+ :global(.trow)) .pill { display: none; }
   }
   .cta-row { margin-top: .4rem; }
 </style>
