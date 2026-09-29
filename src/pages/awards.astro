@@ -18,7 +18,7 @@ const crumbs = [{ name: 'Awards', href: '/awards/' }];
             <div class="aw-badge">
               {a.badge ? <img src={a.badge} alt={`${a.issuer} ${a.title}`} width="140" height="140" loading="lazy" /> : <span class="aw-tile"><Icon name="award" size={40} /><b>{a.year}</b><small>Winner</small></span>}
             </div>
-            <div>
+            <div style="--stack-gap:0px">
               <p class="eyebrow">{a.issuer}{a.year ? ` · ${a.year}` : ''}</p>
               <h2 class="h3">{a.title}</h2>
               <p class="aw-d">{a.detail}</p>
@@ -31,7 +31,7 @@ const crumbs = [{ name: 'Awards', href: '/awards/' }];
   </section>
   <section class="section bg-navy">
     <div class="wrap press">
-      <div>
+      <div style="--stack-gap:0px">
         <p class="eyebrow">In the press</p>
         <h2 class="h2">{press.outlet}</h2>
         <p class="lede">“{press.title}” by {press.author}.</p>
