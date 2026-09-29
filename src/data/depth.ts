@@ -2102,6 +2102,125 @@ for (const [url, a] of Object.entries(round13Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 14: next weakest service-in-town pages ==============================
+   Appended like rounds 12 and 13. Every line traces to a Doc 6 answer or a fact bank line. */
+const round14Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/solar-panel-cleaning/green-valley/': {
+    sections: [
+      { h: 'Protecting the glass itself', p: 'Cleaning does more than restore output. It protects the panel’s glass surface from hard water and mineral damage, which protects the life of an expensive investment.' },
+      { h: 'Windows and panels, one visit', p: 'Crews carry equipment for every service. Customers have posted that a whole house of windows plus solar panels took about three hours.', q: { text: 'Cleaned the windows, solar panels and Arizona room screens. Awesome job. Looks great.', by: 'Daniel C., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [230],
+    faq: [157],
+  },
+  '/services/solar-screens/catalina-foothills/': {
+    sections: [
+      { h: 'What 80 and 90 mean', p: 'The 80 or 90 on a screen refers to heat and glare, not UV. SunTex 80 blocks about 75 percent of UV, so the two numbers aren’t the same thing.' },
+      { h: 'East and north windows', p: 'East-facing windows get morning sun at a low angle: real heat gain, but during cooler hours. North-facing windows get little direct sun. The simple rule is that any window that gets sun is worth screening, and the more sun it gets, the more it’s worth.' },
+    ],
+    faq: [],
+  },
+  '/services/solar-panel-cleaning/marana/': {
+    sections: [
+      { h: 'Why panels here get dirty', p: 'The region’s arid climate and frequent winds put more dust in the air than most places, and it settles evenly across panels. Hard water from rain or irrigation dries into mineral deposits that further reduce efficiency.' },
+      { h: 'What buildup costs', p: 'Research puts production loss anywhere from 5 to 30 percent, depending on how much has built up and local conditions. Your actual number depends on your panels, which is why every job gets before and after photos.' },
+    ],
+    faq: [52, 65],
+  },
+  '/services/solar-panel-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Will production go up?', p: 'If the panels were dirty, yes: you’re removing what was blocking the light. How much depends on how much had built up, which is why we show you the before and after.' },
+      { h: 'Commercial arrays too', p: 'We also clean commercial rooftop arrays, including on a recurring schedule.' },
+    ],
+    faq: [66, 68],
+  },
+  '/services/window-cleaning/casas-adobes/': {
+    sections: [
+      { h: 'Grates and tricky glass', p: 'Decorative metal grates over windows are handled without issue, and so is decorative glass taken down from a high window.' },
+      { h: 'Inspected before we start', p: 'We inspect every window first and walk you through anything we find: existing chips, scratches, etching, failed seals or prior damage. You should never learn about pre-existing damage after the crew leaves.' },
+    ],
+    faq: [],
+  },
+  '/services/window-cleaning/sahuarita/': {
+    sections: [
+      { h: 'A double check before you see it', p: 'At the end of every job, the crew double checks all the work before you see anything. Then we walk the property with you, and nobody pays until that walkthrough is done and you’re satisfied.', q: { text: 'They also double inspected their work just to make sure they didn\'t miss anything.', by: 'Patty S., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [139],
+    faq: [188],
+  },
+  '/services/solar-panel-cleaning/sahuarita/': {
+    sections: [
+      { h: 'The water we use', p: 'Deionized water is ideal because it dries clean and leaves nothing behind. We use it with hand washing, and soap when the buildup calls for it.' },
+      { h: 'Added to a window visit', p: 'Adding solar panel cleaning to a window cleaning appointment costs less than two separate visits, and our trucks carry equipment for every service.', q: { text: 'I also had them do our solar panels!! Very happy!!', by: 'Mike K., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [194],
+    faq: [59, 157],
+  },
+  '/services/window-cleaning/catalina-foothills/': {
+    sections: [
+      { h: 'Mirrors, glass doors and high interior glass', p: 'Mirrors, skylights, glass doors, shower glass, patio enclosures and high interior glass are all handled, usually counted as additional panes.' },
+      { h: 'Anything else, same day', p: 'Crews carry equipment for every service, so anything spotted during the inspection can usually be added and finished the same day. If you want to think it over, we send you an estimate instead.' },
+    ],
+    faq: [],
+  },
+  '/services/window-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Who comes, and for how long', p: 'A residential crew is usually two technicians, sometimes one. A whole house takes anywhere from one to five hours depending on its size.', q: { text: 'Wildcat Washers - Oro Valley and Marana Window Cleaning I highly recommend!', by: 'Trish P., Oro Valley' } },
+    ],
+    quoted: [113],
+    faq: [],
+  },
+  '/services/window-cleaning/vail-az/': {
+    sections: [
+      { h: 'Inside on the same schedule', p: 'Inside and out is the default and what we recommend, and interiors are cleaned on the same schedule as exteriors. Exterior only and interior only are available too.' },
+      { h: 'Sliding doors and their rails', p: 'Sliding glass doors and their rails are part of the job, not an extra.' },
+    ],
+    faq: [],
+  },
+  '/services/solar-screens/oro-valley/': {
+    sections: [
+      { h: 'Colors to match stucco', p: 'Any color and any shade, fully custom. The most common choices are 80 and 90 percent mesh in black or beige, and beige is usually picked to match stucco.' },
+      { h: 'Warranty on material and work', p: 'The material carries a 10-year manufacturer warranty, and we warranty the work too.' },
+    ],
+    faq: [],
+  },
+  '/services/window-cleaning/saddlebrooke/': {
+    sections: [
+      { h: 'Getting a quote', p: 'Call (520) 525-0084 or fill out the short form on our site and we’ll call you right back. Quotes usually take a minute or two.' },
+      { h: 'No deposit', p: 'You don’t pay until the work is finished, we’ve walked it with you, and you’re happy.' },
+    ],
+    faq: [139, 22],
+  },
+  '/services/solar-screens/green-valley/': {
+    sections: [
+      { h: 'Clean screens, cleaner windows', p: 'Clean solar screens keep the windows cleaner longer, since dirty screens shed dust back onto freshly cleaned glass.', q: { text: 'Had my outdoor windows done outside first time with these guys and my sunscreens never looked better.', by: 'Sherry C., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Priced per screen', p: 'New solar screens are priced per screen, based on size, with quantity discounts on larger jobs.' },
+    ],
+    quoted: [182],
+    faq: [],
+  },
+  '/services/window-cleaning/green-valley/': {
+    sections: [
+      { h: 'Hand washed, pane by pane', p: 'Hand scrubbing, washing and squeegeeing is how most residential glass gets cleaned, because being right at the glass allows far more attention to detail.', q: { text: 'They did a good job. No spots or streaks. Great green valley window cleaners.', by: 'Richard S., Green Valley' } },
+    ],
+    quoted: [28],
+    faq: [],
+  },
+  '/services/window-cleaning/marana/': {
+    sections: [
+      { h: 'If you’re not happy, you don’t pay', p: 'Our guarantee covers every service, every visit. We don’t leave until it’s right, and if something ever comes up after you’ve paid, we make it right, including a refund.' },
+      { h: 'Why skipping cleanings costs more', p: 'Minerals left on glass long enough etch into it permanently, and etched glass gets replaced, not cleaned. Regular cleaning prevents that entirely.' },
+    ],
+    faq: [186, 170],
+  },
+};
+for (const [url, a] of Object.entries(round14Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 14: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
