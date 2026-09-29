@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 /* Phones show the photo as a 2:1 banner, so they get their own 2:1 crop. */
 const bandW = [480, 720, 960];
-const band = (await Promise.all(bandW.map((w) => getImage({ src: img(image), width: w, height: w / 2, fit: 'cover', position: bandFor(image), format: 'webp', quality: 66 }))))
+const band = !bandFor(image) ? '' : (await Promise.all(bandW.map((w) => getImage({ src: img(image), width: w, height: w / 2, fit: 'cover', position: bandFor(image), format: 'webp', quality: 66 }))))
   .map((b, i) => `${b.src} ${bandW[i]}w`).join(', ');
 ---
 <section class="section five" aria-labelledby="five-title">
@@ -25,7 +25,7 @@ const band = (await Promise.all(bandW.map((w) => getImage({ src: img(image), wid
       <p class="lede">{lede}</p>
       <div class="five-photo photo">
         <picture>
-          <source media="(max-width: 759px)" type="image/webp" srcset={band} sizes="calc(100vw - 2rem)" />
+          {band && <source media="(max-width: 759px)" type="image/webp" srcset={band} sizes="calc(100vw - 2rem)" />}
           <Image src={img(image)} alt={altFor(image)} widths={[480, 720, 960]} sizes="(min-width: 1000px) 40vw, calc(100vw - 2rem)" quality={70} style={`object-position:${focusFor(image)}`} />
         </picture>
       </div>

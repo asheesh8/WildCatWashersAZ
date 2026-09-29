@@ -17,7 +17,7 @@ const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(s
 const swiping = swipe && list.length > 2;
 const bandW = [360, 560, 720];
 const bands = swiping
-  ? await Promise.all(list.map((k) => Promise.all(bandW.map((w) => getImage({ src: img(k), width: w, height: Math.round(w * 2 / 3), fit: 'cover', position: bandFor(k), format: 'webp', quality: 66 })))
+  ? await Promise.all(list.map((k) => !bandFor(k) ? Promise.resolve('') : Promise.all(bandW.map((w) => getImage({ src: img(k), width: w, height: Math.round(w * 2 / 3), fit: 'cover', position: bandFor(k), format: 'webp', quality: 66 })))
       .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))))
   : [];
 ---

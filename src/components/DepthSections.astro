@@ -7,15 +7,26 @@
  * Phones: a block becomes a swipe row only when its cards come out even and
  * short (tallest under ~450px, less than 150px between tallest and shortest).
  * Otherwise the cards stack and start closed, each one its heading; tap to
- * read it. The inline list keeps its first section open and folds the rest.
- * A pre-paint script makes the call, so nothing jumps; without JS, or on
- * tablet and desktop, every section is open and the headings are plain.
+ * read it. The block's call is made at build time from the text lengths, so
+ * the page arrives in its final phone layout (a script measuring it could run
+ * after a paint on a slow connection and move the page). The inline list keeps
+ * its first section open and folds the rest. On tablet and desktop every
+ * section is open and the headings are plain.
  */
 import DepthText from './DepthText.astro';
 import type { DepthSection } from '@/data/depth';
 export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline'; eyebrow?: string; heading?: string; intro?: string; tone?: 'mist' | 'plain'; /** Phones: the whole section folds to its heading (Base.astro, data-mfold). */ mfold?: boolean }
 const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain', mfold = false } = Astro.props;
 const inline = variant === 'inline';
+/* Estimated phone height of a swipe card (305px wide), fitted against measured cards:
+   heading at ~24 characters a line, body ~33, quote ~26. */
+const plain = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+const cardH = (s: DepthSection) => 41 + Math.ceil(s.h.length / 24) * 25 + Math.ceil(plain(s.p).length / 33) * 28.2
+  + (s.q ? Math.ceil((s.q.text.length + 2) / 26) * 28.2 + Math.ceil(s.q.by.length / 34) * 25 + 40 : 0);
+const hs = sections.map(cardH);
+const tall = Math.max(...hs) > 450 || Math.max(...hs) - Math.min(...hs) >= 150;
+const swipe = sections.length > 1 && !tall;
+const blockFold = sections.length > 1 && tall;
 ---
 {inline ? (
   <div class="dsec-list inline" data-dsec="inline">
@@ -39,9 +50,9 @@ const inline = variant === 'inline';
         </div>
       )}
       {intro && <p class="dsec-intro">{intro}</p>}
-      <div class:list={['dsec-list', sections.length > 1 && 'm-swipe']} data-dsec="block">
+      <div class:list={['dsec-list', swipe && 'm-swipe', blockFold && 'is-fold']} data-dsec="block">
         {sections.map((s) => (
-          <details class:list={['dsec', s.q && 'has-q']} open>
+          <details class:list={['dsec', s.q && 'has-q']} open={!blockFold}>
             <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
             <div class="dsec-b">
               <p><DepthText text={s.p} /></p>
@@ -60,15 +71,12 @@ const inline = variant === 'inline';
       if (l && !l.hasAttribute('data-dsec')) l = l.querySelector('[data-dsec]');
       if (!l) return;
       var ds = [].slice.call(l.querySelectorAll('details')), fold = [];
+      /* A folded block arrives closed and marked from the build; phones keep it that way. */
       if (matchMedia('(max-width: 759px)').matches) {
         if (l.getAttribute('data-dsec') === 'inline') fold = ds.slice(1);
-        else if (l.classList.contains('m-swipe')) {
-          var h = ds.map(function (d) { return d.offsetHeight; });
-          var hi = Math.max.apply(Math, h), lo = Math.min.apply(Math, h);
-          if (hi > 450 || hi - lo >= 150) { l.classList.remove('m-swipe'); fold = ds; }
-        }
+        else if (l.classList.contains('is-fold')) fold = ds;
       }
-      if (fold.length) l.classList.add('is-fold');
+      l.classList.toggle('is-fold', fold.length > 0);
       /* A long inline list shows its first four topics on phones, then a button for the rest. */
       if (l.getAttribute('data-dsec') === 'inline' && fold.length > 4) {
         var extra = ds.slice(4), btn = document.createElement('button');
@@ -111,6 +119,8 @@ const inline = variant === 'inline';
   .inline .dsec + .dsec { padding-top: .9rem; border-top: 1px solid var(--line); }
   /* Headings only open and close where the pre-paint script folded the list (phones). */
   .dsec-list:not(.is-fold) summary { pointer-events: none; }
+  /* Tablet and desktop: a block folded for phones shows its text before the script opens it. */
+  @media (min-width: 760px) { .dsec-list.is-fold .dsec::details-content { content-visibility: visible; display: block; } }
   @media (max-width: 759px) {
     .is-fold .dsec summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 48px; cursor: pointer; }
     .is-fold .dsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }

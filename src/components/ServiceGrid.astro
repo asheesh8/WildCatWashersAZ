@@ -12,7 +12,7 @@ const bento = list.length === 6;
    their own 2:1 crop; the rest are half-width tiles. */
 const wide = (i: number) => bento && (i === 0 || i === 5);
 const bandW = [480, 720, 960];
-const bands = await Promise.all(list.map((s, i) => wide(i)
+const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
   ? Promise.all(bandW.map((w) => getImage({ src: img(s.image), width: w, height: w / 2, fit: 'cover', position: bandFor(s.image), format: 'webp', quality: 66 })))
       .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))
   : Promise.resolve('')));
