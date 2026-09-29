@@ -22,16 +22,17 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
   data-endpoint={endpoint} data-email={company.email}
 >
   <input type="hidden" name="form-name" value="quote" />
+  <input type="hidden" name="t" value="" data-qf-t />
   <p class="qf-hp" aria-hidden="true"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
 
   <div class="qf-grid">
     <div class="field">
       <label for={`${id}-name`}>Your name <span class="req" aria-hidden="true">*</span></label>
-      <input id={`${id}-name`} name="name" type="text" required autocomplete="name" />
+      <input id={`${id}-name`} name="name" type="text" required autocomplete="name" maxlength="100" />
     </div>
     <div class="field">
       <label for={`${id}-phone`}>Phone <span class="req" aria-hidden="true">*</span></label>
-      <input id={`${id}-phone`} name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
+      <input id={`${id}-phone`} name="phone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="40" />
     </div>
     <div class="field">
       <label for={`${id}-service`}>What can we clean?</label>
@@ -52,11 +53,12 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
     </div>
     <div class="field qf-full">
       <label for={`${id}-details`}>Anything we should know? <small>(optional)</small></label>
-      <textarea id={`${id}-details`} name="details" rows="3"></textarea>
+      <textarea id={`${id}-details`} name="details" rows="3" maxlength="2000"></textarea>
     </div>
   </div>
 
   <button type="submit" class="btn btn-lg btn-block btn-red"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></button>
+  <p class="qf-status" data-qf-status aria-live="polite"></p>
   <p class="qf-note"><Icon name="phone" size={18} /> {cta.responseLine}</p>
 
   <div class="qf-fallback" data-qf-fallback hidden role="alert">
@@ -75,6 +77,8 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
   .qf-full { grid-column: 1 / -1; }
   @media (max-width: 620px) { .qf-grid { grid-template-columns: 1fr; } }
   .field small { font-size: 1rem; font-weight: 500; color: var(--ink-3); }
+  .qf-status:empty { display: none; }
+  .qf-status { text-align: center; font-weight: 700; color: var(--navy); }
   .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .qf-note { display: flex; gap: .5rem; align-items: center; justify-content: center; text-align: center; color: var(--ink-2); font-weight: 600; font-size: 1.02rem; }
   .qf-fallback { background: #fff8e6; border: 1px solid #f0d489; border-left: 5px solid #e0a800; border-radius: 12px; padding: 1rem 1.15rem; display: grid; gap: .5rem; color: #5b4500; }
@@ -92,27 +96,50 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
         const v = params.get(key); const el = form.querySelector(sel);
         if (v && el && [...el.options].some((o) => o.value === v)) el.value = v;
       }
+      /* Load time, so the server can drop submits that come too fast to be a person. */
+      const t = form.querySelector('[data-qf-t]');
+      if (t) t.value = String(Date.now());
+      const phone = form.querySelector('input[name=phone]');
+      if (phone) phone.addEventListener('input', () => phone.setCustomValidity(''));
       const endpoint = form.dataset.endpoint || '';
       if (onNetlify && endpoint === '/api/quote') return;
       const fallback = form.querySelector('[data-qf-fallback]');
       const mailto = form.querySelector('[data-qf-mailto]');
       form.addEventListener('submit', async (e) => {
-        if (!form.reportValidity()) return;
+        if (phone) phone.setCustomValidity(phone.value.replace(/\D/g, '').length < 7 ? 'Please enter a phone number we can call or text.' : '');
+        if (!form.reportValidity()) { e.preventDefault(); return; }
         e.preventDefault();
         const data = new FormData(form);
         data.set('page', location.pathname);
         if (data.get('company-website')) return;
-        const submit = form.querySelector('button[type=submit] span');
+        const button = form.querySelector('button[type=submit]');
+        if (button && button.disabled) return;
+        const submit = button && button.querySelector('span');
+        const status = form.querySelector('[data-qf-status]');
         const label = submit ? submit.textContent : '';
         if (submit) submit.textContent = 'Sending…';
+        if (button) button.disabled = true;
+        form.setAttribute('aria-busy', 'true');
+        if (status) status.textContent = 'Sending your request…';
+        const reset = () => {
+          if (submit) submit.textContent = label;
+          if (button) button.disabled = false;
+          form.removeAttribute('aria-busy');
+          if (status) status.textContent = '';
+        };
         const showFallback = () => {
           const lines = ['name', 'phone', 'service', 'area', 'details'].map((k) => `${k}: ${data.get(k) || '-'}`).join('\n');
           if (mailto) mailto.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('Quote request: ' + (data.get('name') || 'website'))}&body=${encodeURIComponent(lines)}`;
           if (fallback) { fallback.hidden = false; fallback.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
-          if (submit) submit.textContent = label;
+          reset();
         };
-                try {
+        try {
           const res = await fetch(endpoint, { method: 'POST', body: new URLSearchParams(data), headers: { Accept: 'application/json' } });
+          if (res.status === 400) {
+            reset();
+            if (phone) { phone.setCustomValidity('Please enter a phone number we can call or text.'); form.reportValidity(); }
+            return;
+          }
           if (!res.ok) throw new Error(String(res.status));
           location.assign('/thank-you/');
         } catch {

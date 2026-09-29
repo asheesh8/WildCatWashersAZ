@@ -33,8 +33,10 @@ async function readBody(req) {
   if (req.body && typeof req.body === 'object') return req.body;
   const raw = typeof req.body === 'string' ? req.body : await new Promise((resolve) => {
     let s = '';
-    req.on('data', (c) => { s += c; if (s.length > 20000) req.destroy(); });
+    req.on('data', (c) => { s += c; if (s.length > 20000) { resolve(''); req.destroy(); } });
     req.on('end', () => resolve(s));
+    req.on('error', () => resolve(''));
+    req.on('close', () => resolve(s.length > 20000 ? '' : s));
   });
   try { return JSON.parse(raw); } catch { return Object.fromEntries(new URLSearchParams(raw)); }
 }
@@ -49,7 +51,7 @@ export default async function handler(req, res) {
   try { sameSite = !!origin && new URL(origin).host === req.headers.host; } catch { sameSite = false; }
   if (!sameSite) return res.status(403).json({ ok: false });
 
-  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  const ip = String(req.headers['x-real-ip'] || req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
   if (limited(ip)) return res.status(429).json({ ok: false });
 
   if (!process.env.RESEND_API_KEY) return res.status(503).json({ ok: false, error: 'not-configured' });
@@ -65,6 +67,13 @@ export default async function handler(req, res) {
     page: line(body.page, FIELDS.page),
   };
   if (!f.name || f.phone.replace(/\D/g, '').length < 7) return res.status(400).json({ ok: false, error: 'missing' });
+
+  // Bot signals answer with fake success so bots learn nothing: no load time or a submit
+  // under 3 seconds after the page loaded, a link in the name, or two or more links in the note.
+  const loaded = Number(line(body.t, 20));
+  const tooFast = !loaded || Date.now() - loaded < 3000;
+  const links = (f.details.match(/https?:\/\//gi) || []).length;
+  if (tooFast || /https?:\/\/|www\./i.test(f.name) || links >= 2) return res.status(200).json({ ok: true });
 
   const text = [
     'New quote request from the website',

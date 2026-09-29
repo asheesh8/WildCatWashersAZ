@@ -97,7 +97,7 @@ const path = Astro.url.pathname;
   .desk-nav { display: none; }
   .desk-nav ul { list-style: none; padding: 0; display: flex; gap: .2rem; }
   .desk-nav a {
-    display: block; padding: .6rem .8rem; border-radius: 999px;
+    display: block; min-width: 44px; text-align: center; padding: .6rem .8rem; border-radius: 999px;
     font-weight: 700; font-size: 1.02rem; text-decoration: none; color: var(--navy);
   }
   .desk-nav a:hover, .desk-nav a[aria-current] { background: var(--blue-50); }
@@ -149,7 +149,7 @@ const path = Astro.url.pathname;
     font-variation-settings: 'wdth' 100;
   }
   .menu-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
-  .menu-links a { display: block; padding: .55rem 0; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+  .menu-links a { display: block; min-width: 44px; min-height: 44px; padding: .55rem 0; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
   .menu-cta { margin-top: auto; display: grid; gap: .8rem; justify-items: center; }
 </style>
 
