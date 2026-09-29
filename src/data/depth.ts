@@ -1881,7 +1881,7 @@ const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/green-valley/': {
     sections: [
-      { h: 'Safer than the ladder', p: 'Ladders and step stools are where people get hurt doing their own windows. Our crews bring the right ladders and a water-fed pole for high glass, and we’re licensed and fully insured.', q: { text: 'At our age, we have to be aware of the safety aspects of any do-it-yourself projects, and Wildcat Washers are a safe and affordable solution.', by: 'Peter C., Green Valley' } },
+      { h: 'Safer than the ladder', p: 'Our crews bring the right ladders and a water-fed pole for high glass, and we’re licensed and fully insured.', q: { text: 'At our age, we have to be aware of the safety aspects of any do-it-yourself projects, and Wildcat Washers are a safe and affordable solution.', by: 'Peter C., Green Valley' } },
       { h: 'Quail Creek, Canoa Ranch and the GVR areas', p: '[Quail Creek](/areas/green-valley/quail-creek/) and [Canoa Ranch](/areas/green-valley/canoa-ranch/) are regular stops, along with GVR communities like [Legends](/areas/green-valley/legends/) and [The Links at Santa Rita Springs](/areas/green-valley/links-at-santa-rita-springs/).' },
     ],
     quoted: [66],
@@ -1889,7 +1889,7 @@ const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/oro-valley/': {
     sections: [
-      { h: 'Setting it up is quick', p: 'Quotes happen on one short call: we count your panes together and give you a price on the spot, with no site visit. You get a text 7 days out, another 24 hours out, and one when the crew is on the way.', q: { text: 'Isaac did a very nice job cleaning my windows. Very pleasant guy! I talked to Jose first to set up the appt. He called back quickly and we set up the time. It all worked smoothly.', by: 'Barbara A., Oro Valley' } },
+      { h: 'Setting it up is quick', p: 'Quotes happen on one short call: we count your panes together and give you a price on the spot, with no site visit. You get a text 7 days out, another 24 hours out, and one when the crew is on the way.', q: { text: 'Isaac did a very nice job cleaning my windows. Very pleasant guy! I talked to Jose first to set up the appt. He called back quickly.', by: 'Barbara A., Oro Valley' } },
       { h: 'Stone Canyon to Sun City', p: '[Stone Canyon](/areas/oro-valley/stone-canyon/) has some of the biggest and most specialized glass in Oro Valley, and we also work throughout [Rancho Vistoso](/areas/oro-valley/rancho-vistoso/) and [Sun City Oro Valley](/areas/oro-valley/sun-city-oro-valley/).' },
     ],
     quoted: [111],
@@ -1969,7 +1969,7 @@ const round12: Record<string, Depth> = {
       'Wildcat Washers cleans solar panels across Marana, from Continental Ranch up to Dove Mountain. Panels are hand washed with deionized water and a soft brush, never pressure washed, and every job gets before and after photos. Once or twice a year keeps them performing. Call (520) 525-0084 with your panel count for a quote.',
     heading: 'New builds, established arrays and birds',
     sections: [
-      { h: 'Construction dust on new arrays', p: 'Gladden Farms and other newer subdivisions are still building, and construction dust settles on nearby rooftop arrays as well as windows. Rain won’t clear it: it moves the dust around and dries mineral spots onto the glass. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+      { h: 'Construction dust on new arrays', p: 'Gladden Farms and other newer subdivisions are still building out. When dust does collect on panels, rain won’t clear it: it moves the dust around and dries mineral spots onto the glass. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
       { h: 'Continental Ranch to Dove Mountain', p: 'The established homes of [Continental Ranch](/areas/marana/continental-ranch/), the single-story roofs in Sunflower and The Highlands, and the big custom homes up [Dove Mountain](/areas/marana/dove-mountain/) all get the same method. We clean any panel type on any roof, rooftop or ground mount, and a residential array usually takes one to three hours.' },
       { h: 'Birds under the panels', p: 'If pigeons have moved in under the array, we clear out the nesting debris and droppings and install exclusion mesh that clips on, with no drilling and nothing attached to the panel frames. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
       { h: 'Windows on the same visit', p: 'Crews carry equipment for every service, so panels can be cleaned on the same visit as your [Marana windows](/services/window-cleaning/marana/). Wildcat Club members get 10 percent off added services.' },
