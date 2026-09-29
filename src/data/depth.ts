@@ -1509,7 +1509,7 @@ const round8: Record<string, Depth> = {
 
   '/guides/how-much-does-pressure-washing-cost-tucson/': {
     answer:
-      'Pressure washing is priced per job, by the surfaces being cleaned and the scope of the work. A driveway, a patio and pool deck, or fences and block walls are each quoted on their own terms. Call (520) 525-0084 and we’ll have a number for you in a couple of minutes, and you pay only once you’re happy.',
+      'Pressure washing is priced per job, by the surfaces being cleaned and the scope of the work. A driveway, a patio and pool deck, or fences and block walls are each quoted on their own terms. Call (520) 525-0084 and we’ll quote it by phone in a couple of minutes, with no trip charge.',
     sections: [
       { h: 'What we quote on', p: 'Driveways and garage floors, patios, walkways, pavers, pool decks, entryways, fences, gates, block walls, exterior walls, patio furniture, grills and trash cans. The general rule: anywhere dirt, dust and debris build up around the outside of a property. [Pressure washing](/services/pressure-washing/).' },
       { h: 'What we don’t take on', p: 'Rust, oil stain, graffiti and deep stain removal depend on heavy chemical treatment, which we stay away from. We don’t offer soft washing either; where a surface calls for it, we scrub in a cleaning solution by hand before rinsing. [Oil and rust stains](/guides/can-oil-and-rust-stains-be-removed-from-concrete/) and [pressure washing vs soft washing](/guides/pressure-washing-vs-soft-washing/).' },
