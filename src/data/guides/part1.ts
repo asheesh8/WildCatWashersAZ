@@ -82,6 +82,7 @@ export const guides: Guide[] = [
     doAbout:
       "Wildcat Washers is licensed and fully insured, and certificates of insurance are available. Background-checked, uniformed technicians arrive in marked trucks after a reminder 7 days out, another 24 hours out and an on-the-way text. There's no deposit. Every window gets inspected with you first, and the bill comes at the very end, once you're satisfied.",
     related: [
+      '/guides/window-cleaning-vs-window-washing/',
       '/guides/how-to-compare-window-cleaning-quotes/',
       '/guides/are-window-cleaners-licensed-and-insured-arizona/',
       '/guides/is-it-safe-to-let-window-cleaners-inside/',
@@ -437,6 +438,7 @@ export const guides: Guide[] = [
     doAbout:
       "Wildcat Washers can handle windows, screens and pressure washing in one visit, since the crew carries equipment for every service. The 5-in-1 Deep Clean covers glass, frames, sills, tracks and screens, and hard water spotting is removed at no extra charge. Scheduling runs seven days a week and next-few-days requests are common, which helps when a listing date is close.",
     related: [
+      '/who-we-help/real-estate-agents/',
       '/guides/do-i-need-to-be-home-for-window-cleaning/',
       '/guides/how-soon-can-a-window-cleaner-come-out/',
       '/guides/repair-or-replace-window-screen/',

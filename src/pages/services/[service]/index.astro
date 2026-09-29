@@ -39,7 +39,9 @@ const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: 
 const localTowns = new Set(localServices.filter((x) => x.service === s.slug).map((x) => x.town));
 /* Sub-service pages under this hub; screen repair also points to solar screen rescreening. */
 const subPages = landings
-  .filter((l) => l.url.startsWith(`/services/${s.slug}/`) || (s.slug === 'screen-repair' && l.url === '/services/solar-screens/repair-rescreening/'))
+  .filter((l) => l.url.startsWith(`/services/${s.slug}/`) || (s.slug === 'screen-repair' && l.url === '/services/solar-screens/repair-rescreening/')
+    /* Solar hubs also point to commercial arrays. */
+    || (['solar-panel-cleaning', 'solar-panel-pigeon-proofing'].includes(s.slug) && l.url === '/commercial/commercial-solar/'))
   .filter((l) => planFor(l.url))
   .map((l) => ({ href: l.url, label: planFor(l.url)!.h1 }));
 /* Other names people search for sit in one plain sentence, not a keyword-list eyebrow. */
