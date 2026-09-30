@@ -3187,7 +3187,7 @@ const round24Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/guides/how-soon-can-a-window-cleaner-come-out/': {
     sections: [
-      { h: 'Calling after hours', p: 'The phone is answered any day, at any hour, so you don’t have to wait for a weekday morning to get on the schedule.' },
+      { h: 'Reaching us early or late', p: 'Call or message any day, early or late, and we get back to you fast, so there’s no waiting for a weekday morning.' },
       { h: 'Or book well ahead', p: 'If you’d rather plan, a date a month or two from now is just as easy to set.' },
     ],
   },
@@ -3300,7 +3300,7 @@ const round25Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/guides/how-far-outside-tucson-do-you-travel/': {
     sections: [
-      { h: 'Seven days a week', p: 'Wherever you are in our area, crews work any day of the week, and the phone is answered every day.' },
+      { h: 'Seven days a week', p: 'Wherever you are in our area, crews work any day of the week. Call or message any day, early or late, and we get back to you fast.' },
     ],
   },
   '/guides/best-time-of-year-to-clean-windows-tucson/': {
