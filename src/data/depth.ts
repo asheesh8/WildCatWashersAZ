@@ -2963,6 +2963,106 @@ for (const [url, a] of Object.entries(round21Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 22: next weakest pages ==============================
+   Appended like rounds 12 to 21. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round22Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/guides/why-does-my-concrete-look-grey/': {
+    sections: [
+      { h: 'Tire marks on the garage floor', p: 'A garage floor that had gathered fifteen years of tire tracks came up clean for one customer, and the difference is hard to miss. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+      { h: 'Oil and rust are another matter', p: 'We leave those to specialists, since lifting them takes strong chemistry and we keep that out of our work. [Oil and rust on concrete](/guides/can-oil-and-rust-stains-be-removed-from-concrete/)' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-solar-panels/': {
+    sections: [
+      { h: 'Pollen on top of dust', p: 'Airborne dust, spring pollen and mineral residue all land on Tucson panels, and they settle evenly across the glass rather than in a few spots.' },
+      { h: 'Folding it into a Club visit', p: 'Members pay ten percent less on anything added to a window appointment, panels included, so the two fit naturally on one day. [Wildcat Club](/wildcat-club/)' },
+    ],
+  },
+  '/guides/is-pressure-washing-safe-for-desert-landscaping/': {
+    sections: [
+      { h: 'Cleaning, not chemical restoration', p: 'The goal is taking grime off hard surfaces. Restoration work that leans on harsh chemistry, such as rust or graffiti, stays off our list.' },
+      { h: 'How long the crew is in the yard', p: 'A standard driveway takes one to three hours, so the time equipment spends near your plants is short.' },
+    ],
+  },
+  '/guides/bird-droppings-on-solar-panels/': {
+    sections: [
+      { h: 'Nothing fastened to the panels', p: 'The mesh holds with clips and wire and a one-way locking disc. It isn’t attached to the panel frames and nothing goes into the roof, so the solar warranty is left alone. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'The tops get cleaned too', p: 'Once the droppings and nesting are out from underneath, the crew washes the panel surfaces while they’re already on the roof.' },
+    ],
+  },
+  '/guides/can-you-pressure-wash-a-pool-deck-safely/': {
+    sections: [
+      { h: 'Furniture and the grill while we’re there', p: 'Patio tables, chairs, grills and the BBQ area around the pool can all be washed in the same visit.' },
+      { h: 'We clean, we don’t seal', p: 'Sealing, staining or coating a deck isn’t a service we offer. The job ends when the surface is clean.' },
+    ],
+  },
+  '/guides/handyman-or-window-cleaning-company/': {
+    sections: [
+      { h: 'What no cleaner can fix', p: 'Etched or scratched glass and a fogged double-pane unit can’t be cleaned back to new by anyone. A specialist will tell you that before starting, not after.' },
+      { h: 'A second pass before you look', p: 'The crew rechecks every pane before the walkthrough, then fixes anything you point out on the spot.' },
+    ],
+  },
+  '/guides/pressure-washing-pavers-sand/': {
+    sections: [
+      { h: 'How often pavers need it', p: 'Twice a year or so stops grit and grime from building back up on most home patios.' },
+      { h: 'Walkways and entries alongside', p: 'Paver walkways, entries and porches are usually done on the same trip as the patio. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
+    ],
+  },
+  '/guides/how-far-outside-tucson-do-you-travel/': {
+    sections: [
+      { h: 'Owners who live out of state', p: 'Plenty of our customers aren’t in Arizona when we clean. Service is timed to their travel, and they don’t need to be here.' },
+      { h: 'No site visit to get a price', p: 'We price the job on a short call, counting panes together, whatever part of the region the house is in.' },
+    ],
+  },
+  '/guides/senior-and-veteran-discounts-window-cleaning/': {
+    sections: [
+      { h: 'Tipping is up to you', p: 'It’s never expected. Any tip you leave, in cash, by check or online, is passed in full to the crew who cleaned.' },
+      { h: 'No plan required', p: 'A single clean is always available, and joining the Wildcat Club is a recommendation, not a condition.' },
+    ],
+  },
+  '/guides/can-you-pressure-wash-solar-panels/': {
+    sections: [
+      { h: 'What a proper cleaning takes', p: 'Most home arrays are finished within a few hours by hand, and we photograph them first and last.' },
+      { h: 'Why the photos matter', p: 'You can’t see the tops of your own panels from the ground, so the pictures are how you know what came off.' },
+    ],
+  },
+  '/guides/does-cleaning-void-solar-warranty/': {
+    sections: [
+      { h: 'Bird mesh and the warranty', p: 'Pigeon-proofing mesh clips on around the array without drilling and without touching the panel frames, so it doesn’t affect the solar warranty. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'Every kind of array', p: 'Home or business, up on the roof or down at ground level, steep pitch or shallow: the method doesn’t change with the setup. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/guides/are-window-cleaners-licensed-and-insured-arizona/': {
+    sections: [
+      { h: 'Who is actually at your door', p: 'Before anyone works at a home, they’ve passed a background check and our training process. They show up uniformed, in a branded truck.' },
+      { h: 'Paperwork for businesses', p: 'Commercial customers can get a certificate of insurance for their records before work starts. [Commercial window cleaning](/commercial/)' },
+    ],
+  },
+  '/guides/what-water-to-clean-solar-panels/': {
+    sections: [
+      { h: 'Sprinklers near the array', p: 'Irrigation overspray that reaches a ground-mounted or low array dries into mineral deposits, the same way hard water spots a window.' },
+      { h: 'Rain is not a rinse', p: 'Rainwater moves dust around rather than carrying it off, and when it dries it can leave spots behind. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
+    ],
+  },
+  '/guides/remove-solar-screens-before-window-cleaning/': {
+    sections: [
+      { h: 'Fixing them while they’re down', p: 'If a solar screen is torn, new mesh can usually go on the frame it already has. A badly bent frame gets a replacement instead. [Screen repair](/services/screen-repair/)' },
+      { h: 'Security screens are a different product', p: 'Heavy-gauge metal security gate screens and retractable screens can be cleaned and reconditioned, but making or fixing them is outside what we do.' },
+    ],
+  },
+  '/guides/water-fed-pole-vs-hand-washing/': {
+    sections: [
+      { h: 'Storefronts and big commercial jobs', p: 'Pure water on a pole is the usual choice for storefront glass and large commercial work, where it dries spot-free across a lot of panes. [Commercial window cleaning](/commercial/)' },
+      { h: 'High glass inside the house', p: 'Interior clerestories and other high panes are handled too, counted as extra panes on the quote.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round22Add)) {
+  const cur: Depth = depth[url] ?? {};
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
