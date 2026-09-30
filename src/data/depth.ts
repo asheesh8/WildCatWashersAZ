@@ -1969,7 +1969,6 @@ const round12: Record<string, Depth> = {
       'Wildcat Washers cleans solar panels across Marana, from Continental Ranch up to Dove Mountain. Panels are hand washed with deionized water and a soft brush, never pressure washed, and every job gets before and after photos. Once or twice a year keeps them performing. Call (520) 525-0084 with your panel count for a quote.',
     heading: 'New builds, established arrays and birds',
     sections: [
-      { h: 'Construction dust on new arrays', p: 'Gladden Farms and other newer subdivisions are still building out. When dust does collect on panels, rain won’t clear it: it moves the dust around and dries mineral spots onto the glass. [Does rain clean solar panels?](/guides/does-rain-clean-solar-panels/)' },
       { h: 'Continental Ranch to Dove Mountain', p: 'The established homes of [Continental Ranch](/areas/marana/continental-ranch/), the single-story roofs in Sunflower and The Highlands, and the big custom homes up [Dove Mountain](/areas/marana/dove-mountain/) all get the same method. We clean any panel type on any roof, rooftop or ground mount, and a residential array usually takes one to three hours.' },
       { h: 'Birds under the panels', p: 'If pigeons have moved in under the array, we clear out the nesting debris and droppings and install exclusion mesh that clips on, with no drilling and nothing attached to the panel frames. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
       { h: 'Windows on the same visit', p: 'Crews carry equipment for every service, so panels can be cleaned on the same visit as your [Marana windows](/services/window-cleaning/marana/). Wildcat Club members get 10 percent off added services.' },
@@ -2483,9 +2482,9 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/rancho-sahuarita/': {
     sections: [
-      { h: 'Driveways and walkways', p: 'Driveways, walkways and entries are pressure washed to take off dust and tire marks, and a driveway usually takes one to three hours. [Pressure washing](/services/pressure-washing/)', q: { text: 'The Wildcat Washers just finished washing my windows and power washing my patio. I am so pleased with their work. They will now be my "go to" window cleaners. They were so nice and friendly while being professional and punctual!', by: 'Paula K., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Driveways and walkways', p: 'Driveways, walkways and entries are pressure washed to take off dust and tire marks, and a driveway usually takes one to three hours. [Pressure washing](/services/pressure-washing/)', q: { text: 'Guys did a great job! I highly recommend them!', by: 'Al M., Tucson, Sahuarita & Green Valley area' } },
     ],
-    quoted: [151],
+    quoted: [209],
   },
   '/areas/tucson/rita-ranch/': {
     sections: [
@@ -2520,6 +2519,114 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
 for (const [url, a] of Object.entries(round17Add)) {
   const cur = depth[url];
   if (!cur) throw new Error(`round 17: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
+/* ============================== Round 18: next weakest pages ==============================
+   Appended like rounds 12 to 17. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round18Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/solar-panel-cleaning/marana/': {
+    sections: [
+      { h: 'An hour or three on the roof', p: 'A typical home array takes one to three hours, and the crew doesn’t need you there while they’re up top.' },
+      { h: 'Photos of your own panels', p: 'Nobody can see the face of their array from the yard, so you get pictures of the panels as they were and as we left them.' },
+    ],
+  },
+  '/areas/tanque-verde/': {
+    sections: [
+      { h: 'Long private drives', p: 'Tire marks and packed-on dust lift off a drive with pressure washing, and an ordinary one runs one to three hours. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+      { h: 'Texts before the truck shows up', p: 'You get a text a week ahead, another the day before, and one more once the crew is on the road, all inside a three-hour arrival window.' },
+    ],
+  },
+  '/areas/green-valley/legends/': {
+    sections: [
+      { h: 'Views of the Santa Ritas', p: 'Every pane is washed by hand, and the mineral film that dulls a view gets buffed off during the same clean at no extra charge.', q: { text: 'Just had them wash my windows for the second time this year! Josiah, Isaac and Jose did a super job. I have a great see-through window to the Santa Rita Mountains now!', by: 'Ilse G., Green Valley' } },
+      { h: 'A light shower after we leave', p: 'Frames, sills, tracks and screens are all cleaned too, so a light rain has no dust left to carry down the glass. That thoroughness is what lets us offer the 14-Day Spotless Guarantee.' },
+    ],
+    quoted: [58],
+  },
+  '/services/solar-panel-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Panels on their own schedule', p: 'One Wildcat Club membership can cover windows and panels together, with the panels booked once or twice a year on a separate rhythm. [Wildcat Club](/wildcat-club/)' },
+      { h: 'How long a cleaning runs', p: 'Plan on one to three hours for most home arrays, depending on panel count and buildup.' },
+    ],
+  },
+  '/areas/tanque-verde/vactor-ranch/': {
+    sections: [
+      { h: 'Who shows up at the gate', p: 'A confirmed time, a marked truck and uniformed technicians who introduce themselves, with shoe covers on before anyone comes inside.' },
+      { h: 'Fog between the panes', p: 'Haze trapped inside a double-pane unit means the seal has failed, and no cleaning reaches it. If we see one, we point it out before we start.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Pure water, soft brushes', p: 'Panels are hand washed with deionized water, adding soap only when the buildup needs it, and nothing abrasive touches the glass.' },
+      { h: 'Time on the roof', p: 'Most residential arrays take between one and three hours from start to finish.' },
+    ],
+  },
+  '/areas/marana/': {
+    sections: [
+      { h: 'Pigeons under the array', p: 'Birds nesting beneath rooftop panels get cleared out, droppings and all, and a clip-on mesh keeps them from coming back. Nothing is drilled. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'Any day of the week', p: 'Crews work seven days a week, so a request for the next few days is often doable, and so is booking a month or two out.' },
+    ],
+  },
+  '/services/window-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Screens and tracks, never an extra', p: 'On every visit the screens come out for a wash and the tracks are vacuumed and wiped by hand. It’s all part of the clean, not a line item.', q: { text: 'The guys did a great job for us and even our dog liked them!', by: 'Mernie G., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Cloudy double-pane glass', p: 'When moisture shows up between two panes, the seal has let go and the unit needs replacing. We tell you that up front, before any work begins.' },
+    ],
+    quoted: [149],
+  },
+  '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
+    sections: [
+      { h: 'Patios, pavers and walkways', p: 'Brick and paver patios, walkways and entries are pressure washed to lift the dust and dirt that settle on them. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)', q: { text: 'they did an excellent job and are very polite I definitely recommend them', by: 'Peggy S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'A three-hour window', p: 'Arrival falls within a three-hour window, with a text when the crew heads your way.' },
+    ],
+    quoted: [195],
+  },
+  '/services/window-cleaning/tanque-verde/': {
+    sections: [
+      { h: 'Low-E and tinted panes', p: 'Coatings and film get identified first, and the method is adjusted before a squeegee goes near them. We don’t turn down any kind of glass.' },
+      { h: 'Seals that have failed', p: 'A fogged double pane has moisture sealed inside it, and only replacing the unit fixes that. You’ll hear it from us before the work starts, never after.' },
+    ],
+  },
+  '/services/window-cleaning/casas-adobes/': {
+    sections: [
+      { h: 'Mirrors, skylights and shower glass', p: 'Inside extras like mirrors, skylights, glass doors and shower glass are counted as added panes and handled in the same visit.' },
+      { h: 'Pay once you’ve seen it', p: 'Payment comes only after the walkthrough, and only if you’re happy with what you see.' },
+    ],
+  },
+  '/areas/saddlebrooke/': {
+    sections: [
+      { h: 'West-facing windows first', p: 'If you’re adding solar screens a few at a time, start with the windows that take the late-day sun. [Solar screens](/services/solar-screens/)' },
+      { h: 'Ready when you get back', p: 'Part-year residents often have a clean timed for their return, so the house is ready the day they arrive, and nobody has to be in town for it.' },
+      { h: 'Arizona rooms', p: 'Enclosure mesh is scrubbed with a cleaning solution, then flushed through from both sides, and the floor is washed as well. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+  },
+  '/areas/marana/dove-mountain/': {
+    sections: [
+      { h: 'Solar on any roof', p: 'Whatever the roof pitch or panel type, rooftop and ground-mounted arrays are both in scope. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Coated and filmed glass', p: 'Low-E coatings, tint and security film are all fine; the crew checks for them first and works to suit.' },
+    ],
+  },
+  '/areas/catalina-foothills/sin-vacas/': {
+    sections: [
+      { h: 'Pool decks and courtyards', p: 'Pool decks, patios, walkways and outdoor furniture are pressure washed, with care for the plantings around them. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
+      { h: 'Panels on any pitch', p: 'Steep roofs and ground mounts alike: every panel type is cleaned by hand. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Nothing owed until you’re happy', p: 'The crew walks the job with you at the end, and you pay after that, once everything looks right.' },
+    ],
+  },
+  '/services/pressure-washing/green-valley/': {
+    sections: [
+      { h: 'Roofs, when they need it', p: 'Heavy dust, dirt or bird droppings on a roof can be pressure washed too, on any roof type. Call and we’ll talk through yours.' },
+      { h: 'Porch screening up close', p: 'Dust packed deep into porch mesh is what the brush-and-flush process is built to pull out.', q: { text: 'Isaac came to our home in Green Valley, and did an excellent job with the screens on our screened in back porch. He was very meticulous and paid attention to details.', by: 'Michael R., Green Valley' } },
+      { h: 'Where we draw the line', p: 'Rust, oil stains and graffiti depend on heavy chemicals, so we leave those alone. Our work is about lifting dirt, dust and debris.' },
+    ],
+    quoted: [22],
+  },
+};
+for (const [url, a] of Object.entries(round18Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 18: no depth entry for ${url}`);
   const faq = cur.faq ?? [];
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
