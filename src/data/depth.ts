@@ -3157,6 +3157,94 @@ for (const [url, a] of Object.entries(round23Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 24: next weakest pages ==============================
+   Appended like rounds 12 to 23. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round24Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/guides/why-does-my-concrete-look-grey/': {
+    sections: [
+      { h: 'Keeping it from greying again', p: 'Once the first wash brings the color back, a couple of washes a year keeps the dust and sun film from settling in again.' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-solar-panels/': {
+    sections: [
+      { h: 'It’s also about the glass', p: 'Mineral residue left on panel glass does more than dim output. Over time it contributes to wear, so regular cleaning protects an expensive investment.' },
+    ],
+  },
+  '/guides/is-pressure-washing-safe-for-desert-landscaping/': {
+    sections: [
+      { h: 'Grills, bins and patio chairs', p: 'Outdoor furniture, the grill and even the trash cans get washed on the hard surfaces, well away from the planting beds.' },
+    ],
+  },
+  '/guides/is-dawn-or-vinegar-good-for-windows/': {
+    sections: [
+      { h: 'Careful with scrapers and ladders', p: 'A scraper used the wrong way scratches glass, and scratches can’t be repaired. Ladders and step stools are where people get hurt, so think twice before climbing for the top row.' },
+    ],
+  },
+  '/guides/do-windows-get-dirtier-near-open-desert/': {
+    sections: [
+      { h: 'Panels near the desert edge', p: 'Rooftop solar on these lots collects the same airborne dust, and it spreads evenly across every panel rather than in patches. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/guides/how-soon-can-a-window-cleaner-come-out/': {
+    sections: [
+      { h: 'Calling after hours', p: 'The phone is answered any day, at any hour, so you don’t have to wait for a weekday morning to get on the schedule.' },
+      { h: 'Or book well ahead', p: 'If you’d rather plan, a date a month or two from now is just as easy to set.' },
+    ],
+  },
+  '/guides/pressure-washing-pavers-sand/': {
+    sections: [
+      { h: 'Leave the furniture where it is', p: 'Patio tables and chairs don’t need to be cleared first; the crew moves them and puts them back.' },
+    ],
+  },
+  '/guides/bird-droppings-on-solar-panels/': {
+    sections: [
+      { h: 'Who people call first', p: 'Pest control is where most homeowners look first. Customers have publicly reported that our price came in far below what pest control quoted them, and our crews are often already on the roof for the cleaning.' },
+    ],
+  },
+  '/guides/can-you-see-out-of-solar-screens/': {
+    sections: [
+      { h: 'Black or beige', p: 'Black and a stucco-toned beige are the two usual choices, though any color can be ordered.' },
+      { h: 'Taking them down yourself', p: 'Each screen hangs on rotating brackets, so loosening the hardware lets it come off without tools beyond a screwdriver.' },
+    ],
+  },
+  '/guides/two-story-window-cleaning/': {
+    sections: [
+      { h: 'Where the ladder goes', p: 'Ladders are placed with care against the house, and screens from upper windows are set down safely rather than dropped.' },
+    ],
+  },
+  '/guides/how-much-do-solar-screens-cost/': {
+    sections: [
+      { h: 'Materials and installation, together', p: 'We sell finished screens, measured, built and installed, with materials included. It isn’t a counter sale of mesh and frames.' },
+      { h: 'From measuring to install', p: 'Plan on two to three weeks between the measure and the day they go up.' },
+    ],
+  },
+  '/guides/is-a-pressure-washer-safe-on-windows/': {
+    sections: [
+      { h: 'Screens can take it, glass can’t', p: 'Once a solar screen is off the frame, pressure is exactly what lifts the packed dust out of its weave. The pane behind it is washed by hand.' },
+    ],
+  },
+  '/guides/handyman-or-window-cleaning-company/': {
+    sections: [
+      { h: 'One truck, every service', p: 'Our trucks carry equipment for windows, screens, solar and pressure washing, so something noticed on the day can usually be handled before we leave.' },
+    ],
+  },
+  '/guides/solar-screens-vs-sun-screens/': {
+    sections: [
+      { h: 'Whose mesh we use', p: 'Phifer is one of our main suppliers, and its SunTex line is what most of our screens are built from.' },
+    ],
+  },
+  '/guides/window-cleaning-vs-window-washing/': {
+    sections: [
+      { h: 'Five parts, whichever word you use', p: 'Ask for either one and you get the same visit: the panes, plus the frames and sills around them, the tracks below and the screens in front.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round24Add)) {
+  const cur: Depth = depth[url] ?? {};
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
