@@ -3330,6 +3330,91 @@ for (const [url, a] of Object.entries(round25Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 26: next weakest pages ==============================
+   Appended like rounds 12 to 25. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round26Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/guides/why-does-my-concrete-look-grey/': {
+    sections: [
+      { h: 'Same company, another name', p: 'In reviews you’ll sometimes see us called Wildcat Window Washers. That’s us.' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-solar-panels/': {
+    sections: [
+      { h: 'The system behind the reminders', p: 'We build our own software and internal systems, designed so every job gets the same standard rather than leaving it to chance. It’s what sends the reminders and keeps recurring visits on track.' },
+    ],
+  },
+  '/guides/do-windows-get-dirtier-near-open-desert/': {
+    sections: [
+      { h: 'Screens washed, dried, then returned', p: 'Every screen is taken out, washed by hand and dried before it goes back in, so the dust it caught doesn’t return to the glass.' },
+    ],
+  },
+  '/guides/why-do-my-windows-streak/': {
+    sections: [
+      { h: 'By hand, not sprayed and rinsed', p: 'Every part of every window is washed by hand. Nothing is just sprayed down and rinsed off.' },
+    ],
+  },
+  '/guides/can-you-pressure-wash-a-pool-deck-safely/': {
+    sections: [
+      { h: 'Nothing left behind', p: 'When the crew packs up, the deck is clean and so is everything around it. Leaving no mess is part of the job.' },
+    ],
+  },
+  '/guides/what-if-it-rains-after-window-cleaning/': {
+    sections: [
+      { h: 'Why the visit runs longer', p: 'Hand-cleaning glass, frames, sills, tracks and screens takes longer than a quick wipe of the panes, so plan on us being there a while. That scope is also what holds up after a shower.' },
+    ],
+  },
+  '/guides/when-do-i-pay-for-window-cleaning/': {
+    sections: [
+      { h: 'If anything isn’t right', p: 'Should something be off, it gets made right without a debate, including a full refund if needed.' },
+    ],
+  },
+  '/guides/two-story-window-cleaning/': {
+    sections: [
+      { h: 'Trained before the ladder comes out', p: 'New technicians go through a defined training period, a shadowing period and ride-alongs with experienced technicians before working on their own.' },
+    ],
+  },
+  '/guides/are-window-cleaners-licensed-and-insured-arizona/': {
+    sections: [
+      { h: 'What the crew looks like', p: 'Polos and matching hats, with suit pants and black Oxfords, arriving in branded, marked vehicles. How a crew looks at the door is a fair thing to judge a company by.' },
+    ],
+  },
+  '/guides/is-dawn-or-vinegar-good-for-windows/': {
+    sections: [
+      { h: 'Professional tools for the job', p: 'For the cleaning itself, our crews use the best professional window cleaning equipment available.' },
+    ],
+  },
+  '/guides/how-much-does-pigeon-proofing-cost/': {
+    sections: [
+      { h: 'Who leads the crew', p: 'Crew Leader is our title for the technicians who manage a crew.' },
+    ],
+  },
+  '/guides/will-window-cleaning-damage-tint-or-low-e/': {
+    sections: [
+      { h: 'Checklists on every job', p: 'Technicians work from checklists, which is how steps like checking for coatings happen the same way on every visit.' },
+    ],
+  },
+  '/guides/what-water-to-clean-solar-panels/': {
+    sections: [
+      { h: 'A small team on purpose', p: 'Growth never comes at the cost of quality: the team stays small and close, and every technician is highly trained.' },
+    ],
+  },
+  '/guides/do-i-tip-window-cleaners/': {
+    sections: [
+      { h: 'Careers, not temporary jobs', p: 'The people who clean your windows are building careers here, with real training and real advancement.' },
+    ],
+  },
+  '/guides/is-it-safe-to-let-window-cleaners-inside/': {
+    sections: [
+      { h: 'Trusted only when they’re ready', p: 'Technicians work with customers only once they’re performing at an elite level, after training, shadowing and ride-alongs.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round26Add)) {
+  const cur: Depth = depth[url] ?? {};
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
