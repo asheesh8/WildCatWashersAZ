@@ -237,6 +237,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
       (() => {
         // Phones: a data-mfold section folds to its heading, which becomes a toggle.
         // Everything stays in the HTML (search engines and wider screens see it all).
+        // global.css already folds it from first paint; this adds the button and opens it.
         if (!matchMedia('(max-width: 759px)').matches) return;
         document.querySelectorAll('[data-mfold]').forEach((sec, k) => {
           const h = sec.querySelector('h2, h3');
@@ -259,6 +260,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
             const open = b.getAttribute('aria-expanded') !== 'true';
             b.setAttribute('aria-expanded', String(open));
             sec.classList.toggle('is-mfold', !open);
+            sec.classList.toggle('mf-open', open);
             parts.forEach((x) => { x.hidden = !open; });
           });
         });

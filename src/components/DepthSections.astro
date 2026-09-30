@@ -29,17 +29,20 @@ const swipe = sections.length > 1 && !tall;
 const blockFold = sections.length > 1 && tall;
 ---
 {inline ? (
-  <div class="dsec-list inline" data-dsec="inline">
-    {sections.map((s) => (
-      <details class="dsec" open>
-        <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
-        <div class="dsec-b">
-          <p><DepthText text={s.p} /></p>
-          {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
-        </div>
-      </details>
-    ))}
-  </div>
+  <>
+    <div class:list={['dsec-list inline', sections.length > 1 && 'is-fold']} data-dsec="inline">
+      {sections.map((s, i) => (
+        <details class:list={['dsec', sections.length > 5 && i >= 4 && 'dsx']} open>
+          <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
+          <div class="dsec-b">
+            <p><DepthText text={s.p} /></p>
+            {s.q && <blockquote class="dsec-q"><p>“{s.q.text}”</p><footer>{s.q.by}</footer></blockquote>}
+          </div>
+        </details>
+      ))}
+    </div>
+    {sections.length > 5 && <button type="button" class="dsec-more pf-more" aria-expanded="false">Show {sections.length - 4} more topics</button>}
+  </>
 ) : (
   <section class:list={['section-tight', tone === 'mist' && 'bg-mist']} data-mfold={mfold ? '' : undefined}>
     <div class="wrap">
@@ -52,7 +55,7 @@ const blockFold = sections.length > 1 && tall;
       {intro && <p class="dsec-intro">{intro}</p>}
       <div class:list={['dsec-list', swipe && 'm-swipe', blockFold && 'is-fold']} data-dsec="block">
         {sections.map((s) => (
-          <details class:list={['dsec', s.q && 'has-q']} open={!blockFold}>
+          <details class:list={['dsec', s.q && 'has-q']} open>
             <summary><h3 class="dsec-h">{s.h}</h3><span class="dsec-plus" aria-hidden="true"></span></summary>
             <div class="dsec-b">
               <p><DepthText text={s.p} /></p>
@@ -67,35 +70,36 @@ const blockFold = sections.length > 1 && tall;
 {(
   <script is:inline>
     (function () {
-      var s = document.currentScript, l = s && s.previousElementSibling;
+      /* The fold is in the HTML and CSS (phones, .js): folded sections arrive looking closed.
+         This makes it real (closed details), wires "Show more", and turns sections that
+         stay open into plain blocks so screen readers don't announce them as toggles. */
+      var s = document.currentScript, l = s && s.previousElementSibling, more = null;
+      if (l && l.classList.contains('dsec-more')) { more = l; l = l.previousElementSibling; }
       if (l && !l.hasAttribute('data-dsec')) l = l.querySelector('[data-dsec]');
       if (!l) return;
       var ds = [].slice.call(l.querySelectorAll('details')), fold = [];
-      /* A folded block arrives closed and marked from the build; phones keep it that way. */
-      if (matchMedia('(max-width: 759px)').matches) {
-        if (l.getAttribute('data-dsec') === 'inline') fold = ds.slice(1);
-        else if (l.classList.contains('is-fold')) fold = ds;
+      var phone = matchMedia('(max-width: 759px)').matches;
+      if (phone && l.classList.contains('is-fold')) fold = l.getAttribute('data-dsec') === 'inline' ? ds.slice(1) : ds;
+      if (!fold.length) l.classList.remove('is-fold');
+      if (more) {
+        var extra = ds.slice(4);
+        if (!phone) more.remove();
+        else {
+          extra.forEach(function (d, i) { d.hidden = true; d.id = d.id || 'dsx' + i; });
+          more.setAttribute('aria-controls', extra.map(function (d) { return d.id; }).join(' '));
+          more.addEventListener('click', function () { extra.forEach(function (d) { d.hidden = false; d.classList.remove('dsx'); }); more.remove(); extra[0].querySelector('summary').focus(); });
+        }
       }
-      l.classList.toggle('is-fold', fold.length > 0);
-      /* A long inline list shows its first four topics on phones, then a button for the rest. */
-      if (l.getAttribute('data-dsec') === 'inline' && fold.length > 4) {
-        var extra = ds.slice(4), btn = document.createElement('button');
-        extra.forEach(function (d, i) { d.hidden = true; d.id = d.id || 'dsx' + i; });
-        btn.type = 'button'; btn.className = 'dsec-more pf-more';
-        btn.textContent = 'Show ' + extra.length + ' more topics';
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-controls', extra.map(function (d) { return d.id; }).join(' '));
-        btn.addEventListener('click', function () { extra.forEach(function (d) { d.hidden = false; }); btn.remove(); extra[0].querySelector('summary').focus(); });
-        l.after(btn);
-      }
-      /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
       ds.forEach(function (d) {
         if (fold.indexOf(d) > -1) { d.open = false; return; }
         var n = document.createElement('div'), sm = d.querySelector('summary');
-        n.className = d.className; n.appendChild(sm.firstElementChild); sm.remove();
+        /* Copy every attribute (the class and Astro's scoping attribute), so the block keeps its styles. */
+        [].forEach.call(d.attributes, function (a) { if (a.name !== 'open') n.setAttribute(a.name, a.value); });
+        n.appendChild(sm.firstElementChild); sm.remove();
         while (d.firstChild) n.appendChild(d.firstChild);
         d.replaceWith(n);
       });
+      l.classList.add('is-ready');
     })();
   </script>
 )}
@@ -119,22 +123,30 @@ const blockFold = sections.length > 1 && tall;
   .inline .dsec + .dsec { padding-top: .9rem; border-top: 1px solid var(--line); }
   /* Headings only open and close where the pre-paint script folded the list (phones). */
   .dsec-list:not(.is-fold) summary { pointer-events: none; }
-  /* Tablet and desktop: a block folded for phones shows its text before the script opens it. */
-  @media (min-width: 760px) { .dsec-list.is-fold .dsec::details-content { content-visibility: visible; display: block; } }
+  /* Phones: before the script runs, folded sections look closed (their details are open in the
+     HTML so desktop and no-JS readers get everything), and topics past the fourth wait. */
+  @media (max-width: 759px) {
+    :global(.js) .is-fold:not(.is-ready) .dsec:not(:first-child) > .dsec-b,
+    :global(.js) .is-fold:not(.is-ready):not(.inline) .dsec:first-child > .dsec-b { display: none; }
+    :global(.js) .inline.is-fold:not(.is-ready) .dsx { display: none; }
+  }
+  /* The inline list's first topic stays open as a plain block; look like one from the start. */
+  .inline.is-fold .dsec:first-child summary { display: block !important; min-height: 0 !important; }
+  .inline.is-fold .dsec:first-child .dsec-plus { display: none !important; }
   @media (max-width: 759px) {
     .is-fold .dsec summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 48px; cursor: pointer; }
     .is-fold .dsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
     .is-fold .dsec-plus::before, .is-fold .dsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
     .is-fold .dsec-plus::after { rotate: 90deg; }
-    .is-fold details[open] .dsec-plus { background: var(--blue); }
-    .is-fold details[open] .dsec-plus::after { rotate: 0deg; }
+    .is-fold.is-ready details[open] .dsec-plus { background: var(--blue); }
+    .is-fold.is-ready details[open] .dsec-plus::after { rotate: 0deg; }
     .dsec-list.is-fold:not(.inline) { gap: .6rem; }
     .dsec-list.is-fold:not(.inline) .dsec { padding: .55rem 1rem .55rem 1.1rem; }
-    .dsec-list.is-fold:not(.inline) .dsec[open] { padding-bottom: 1rem; }
+    .dsec-list.is-fold.is-ready:not(.inline) .dsec[open] { padding-bottom: 1rem; }
     .is-fold .dsec-b { margin-top: .2rem; }
     .inline.is-fold .dsec + .dsec { padding-top: .5rem; }
-    .inline.is-fold .dsec[open] + .dsec { padding-top: .9rem; }
-    .inline.is-fold .dsec:not(:first-child)[open] { padding-bottom: .4rem; }
+    .inline.is-fold.is-ready .dsec[open] + .dsec { padding-top: .9rem; }
+    .inline.is-fold.is-ready .dsec:not(:first-child)[open] { padding-bottom: .4rem; }
   }
   @media (prefers-reduced-motion: reduce) { .dsec-plus::before, .dsec-plus::after { transition: none; } }
 </style>

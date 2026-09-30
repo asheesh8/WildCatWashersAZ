@@ -113,7 +113,8 @@ const article = {
           ds.forEach(function (d) {
             if (fold.indexOf(d) > -1) { d.open = false; return; }
             var n = document.createElement('div'), sm = d.querySelector('summary');
-            n.className = d.className; n.appendChild(sm.firstElementChild); sm.remove();
+            [].forEach.call(d.attributes, function (a) { if (a.name !== 'open') n.setAttribute(a.name, a.value); });
+            n.appendChild(sm.firstElementChild); sm.remove();
             while (d.firstChild) n.appendChild(d.firstChild);
             d.replaceWith(n);
           });
