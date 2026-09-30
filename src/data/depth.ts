@@ -2969,7 +2969,7 @@ const round22Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/guides/why-does-my-concrete-look-grey/': {
     sections: [
       { h: 'Tire marks on the garage floor', p: 'A garage floor that had gathered fifteen years of tire tracks came up clean for one customer, and the difference is hard to miss. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
-      { h: 'Oil and rust are another matter', p: 'We leave those to specialists, since lifting them takes strong chemistry and we keep that out of our work. [Oil and rust on concrete](/guides/can-oil-and-rust-stains-be-removed-from-concrete/)' },
+      { h: 'Oil and rust are another matter', p: 'We don’t take those on, since lifting them takes heavy chemical treatment, and we keep that out of our work. [Oil and rust on concrete](/guides/can-oil-and-rust-stains-be-removed-from-concrete/)' },
     ],
   },
   '/guides/best-time-of-year-to-clean-solar-panels/': {
