@@ -3187,7 +3187,7 @@ const round24Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/guides/how-soon-can-a-window-cleaner-come-out/': {
     sections: [
-      { h: 'Calling after hours', p: 'The phone is answered any day, at any hour, so you don’t have to wait for a weekday morning to get on the schedule.' },
+      { h: 'Reaching us early or late', p: 'Call or message any day, early or late, and we get back to you fast, so you don’t have to wait for a weekday morning to get on the schedule.' },
       { h: 'Or book well ahead', p: 'If you’d rather plan, a date a month or two from now is just as easy to set.' },
     ],
   },
