@@ -2748,12 +2748,12 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/areas/marana/sunflower-at-continental-ranch/': {
     sections: [
       { h: 'Screens and tracks, each time', p: 'Every visit pulls the screens for a wash and cleans out the tracks, so a clean pane stays clean.' },
-      { h: 'Driveways and garage floors', p: 'Tire marks and settled dust lift off concrete with pressure washing, and most driveways are done in one to three hours. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+      { h: 'Concrete out front', p: 'Tire marks and settled dust lift off concrete with pressure washing, and a typical drive is finished in a morning or an afternoon. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
     ],
   },
   '/areas/casas-adobes/': {
     sections: [
-      { h: 'Rooftop solar', p: 'A gentle hand wash with pure water once or twice a year keeps an array producing, with photos of the result. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Rooftop solar', p: 'Panels here do best with one or two soft-brush cleanings a year using deionized water, and we send pictures of how they look afterward. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
       { h: 'Screened rooms', p: 'Arizona room mesh is scrubbed with a cleaning solution, rinsed through both ways with pressure, and the floor is cleaned too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
     ],
   },
@@ -2772,20 +2772,20 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/areas/sahuarita/rancho-sahuarita/': {
     sections: [
       { h: 'Grimy glass, crystal clear', p: 'Built-up mineral film is buffed away in the same visit, included in every window clean.', q: { text: 'We had very dirty windows and Dominic and Isaac did a wonderful job getting them Crystal clean!', by: 'Sylvia F., Tucson, Sahuarita & Green Valley area' } },
-      { h: 'Pigeons under the panels', p: 'Nesting and droppings are cleared out and bagged, then a clip-on mesh goes around the array with no drilling. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'Pigeons under the panels', p: 'Nesting and droppings are cleared out and bagged, then a locking-disc mesh seals the edge of the rooftop panels, fastened without a single hole. [Pigeon proofing for solar](/services/solar-panel-pigeon-proofing/)' },
     ],
     quoted: [179],
   },
   '/areas/vail-az/academy-village/': {
     sections: [
       { h: 'Screens and tracks included', p: 'Tracks are vacuumed and wiped and screens are washed on every visit, not added on.' },
-      { h: 'Knowing when we’ll arrive', p: 'Expect a text a week out, one the day before and one as the crew leaves for your home, with arrival inside a three-hour window.' },
+      { h: 'Knowing when we’ll arrive', p: 'Three reminder texts come before each visit, the last as the truck heads your way, and the crew arrives inside a three-hour window.' },
     ],
   },
   '/areas/green-valley/links-at-santa-rita-springs/': {
     sections: [
       { h: 'Checked before you see it', p: 'The crew goes back over every pane before calling you out for the walkthrough.', q: { text: 'Amazing job, done neatly and a wonderful experience. The crew is excellent and polite and the windows look great.', by: 'Dennis H., Green Valley' } },
-      { h: 'Birds under the array', p: 'If pigeons have found your panels, the mess is cleaned out and a mesh barrier clips on around the edges. The roof isn’t drilled. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'When pigeons move in', p: 'Nests and droppings come out first, then a clip-fastened mesh skirt closes the gap beneath the panels, and nothing is screwed into the roof. [Keeping birds out from under panels](/services/solar-panel-pigeon-proofing/)' },
     ],
     quoted: [21],
   },
@@ -2817,7 +2817,7 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/saddlebrooke/saddlebrooke-ranch/': {
     sections: [
-      { h: 'Solar on a new roof', p: 'Rooftop arrays of any kind get a hand wash once or twice a year, with before-and-after photos. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Solar on a new roof', p: 'Newly installed arrays stay productive with a gentle cleaning once or twice a year, photographed from the roof so you can compare. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
       { h: 'Texts ahead of the visit', p: 'You’ll hear from us a week before, the day before and when the crew sets out, with a three-hour arrival window.' },
     ],
   },
@@ -2831,13 +2831,134 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
     sections: [
       { h: 'Solar screens for west glass', p: 'West-facing windows take the low afternoon sun head on, so they’re where solar screens do the most. [Solar screens](/services/solar-screens/)' },
       { h: 'Arizona rooms', p: 'Screen enclosures are scrubbed by hand, then flushed through with pressure from both sides, and the floor is cleaned. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
-      { h: 'Any day of the week', p: 'Crews work seven days a week, so a visit in the next few days is often possible, and booking a month or two out works too.' },
+      { h: 'Any day of the week', p: 'Saturdays and Sundays are regular workdays for our crews, so an Oro Valley visit can often happen within days, or be set a month or two ahead.' },
     ],
   },
 };
 for (const [url, a] of Object.entries(round20Add)) {
   const cur = depth[url];
   if (!cur) throw new Error(`round 20: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
+/* ============================== Round 21: next weakest pages ==============================
+   Appended like rounds 12 to 20. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/window-cleaning/green-valley/': {
+    sections: [
+      { h: 'Thirty-seven windows in about two hours', p: 'One customer posted that two technicians finished a 37-window house in roughly two hours. Most homes land somewhere between one and five.', q: { text: 'Quick and efficient and through windows clean and perfect in green Valley', by: 'Robert S., Green Valley' } },
+      { h: 'Nothing left on the stucco', p: 'Cleaning solution stays off stucco, paint and window sills, so they look just as they did before the crew arrived.' },
+    ],
+    quoted: [8],
+  },
+  '/areas/oro-valley/rancho-vistoso/': {
+    sections: [
+      { h: 'A small sign out front', p: 'If you’re fine with it, a little Wildcat Washers yard sign goes up while the crew works, and it leaves with them.' },
+    ],
+  },
+  '/areas/sahuarita/rancho-resort/': {
+    sections: [
+      { h: 'The thrice-yearly plan', p: 'One customer’s name for the Wildcat Club, and it fits: windows on a steady rhythm without you having to remember when.', q: { text: 'On time, fabulous job cleaning windows and screens, very friendly. Will definitely use them again. 5stars!', by: 'Julie S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Dry floors inside', p: 'Towels go down under interior work, and no drips are left on sills or floors.' },
+    ],
+    quoted: [172],
+  },
+  '/services/window-cleaning/vail-az/': {
+    sections: [
+      { h: 'Usually a crew of two', p: 'Most homes get one or two technicians, now and then three on a bigger house.' },
+    ],
+  },
+  '/areas/tucson/rita-ranch/': {
+    sections: [
+      { h: 'Want to think it over?', p: 'If the inspection turns up something else worth doing, it can usually be done the same day. If you’d rather wait, we send an estimate to you instead of leaving a paper one.' },
+    ],
+  },
+  '/services/window-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Why our technicians stay', p: 'We pay well above the industry standard, and technicians have left other companies to work here. It shows on the glass.' },
+      { h: 'No membership needed', p: 'You can book one clean and stop there. Nobody has to sign up for anything to get on the schedule.' },
+    ],
+  },
+  '/areas/marana/the-highlands-at-dove-mountain/': {
+    sections: [
+      { h: 'Windows and panels in one morning', p: 'Posted by a customer: every window in the home, plus the rooftop solar, done in roughly three hours.' },
+    ],
+  },
+  '/areas/catalina-foothills/ventana-canyon/': {
+    sections: [
+      { h: 'Morning-side windows', p: 'East-facing glass picks up heat from low morning sun, a real gain though during cooler hours. North-facing windows see little direct sun and rank last for solar screens. [Solar screens](/services/solar-screens/)' },
+    ],
+  },
+  '/areas/tucson/tucson-estates/': {
+    sections: [
+      { h: 'Rained the day after?', p: 'There’s no separate rain guarantee, but you’re covered anyway: under the 14-Day Spotless Guarantee we come back and redo it free.' },
+    ],
+  },
+  '/areas/corona-de-tucson/': {
+    sections: [
+      { h: 'Inside, outside, screens and tracks', p: 'One customer’s whole house, windows, screens and tracks on both sides, took the crew about two hours.' },
+      { h: 'Settling up while you’re out', p: 'Store a card with us and it’s charged once the job is finished and checked.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/oro-valley/': {
+    sections: [
+      { h: 'Gentle with the birds', p: 'When pigeons are nesting under an array, the crew first coaxes them to fly off, then clears the nest. We take care not to hurt wildlife. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+  },
+  '/areas/green-valley/colonia-de-los-alamos/': {
+    sections: [
+      { h: 'A single visit is welcome', p: 'You don’t have to join anything to book. One-time cleans are always on offer.', q: { text: 'They did a great through job with my Windows in Green valley!', by: 'Nancy S., Green Valley' } },
+      { h: 'Spotted during the walk-around', p: 'Crews carry gear for every service, so a dusty patio or dirty panels noticed on the way in can often be handled that day.' },
+    ],
+    quoted: [4],
+  },
+  '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
+    sections: [
+      { h: 'Already paid and not happy?', p: 'It rarely happens because payment waits for the walkthrough, but if it does, we make it right, up to a refund.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/sahuarita/': {
+    sections: [
+      { h: 'Critter guard, pigeon guard, same thing', p: 'Whatever you call it, it’s galvanized steel mesh fitted around the panel edges to keep birds from getting underneath. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+  },
+  '/services/window-cleaning/catalina-foothills/': {
+    sections: [
+      { h: 'Why there’s no booking button', p: 'Getting the pane count right takes a quick conversation, so we quote by phone. Send the form and we usually call back within a minute or two.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/green-valley/': {
+    sections: [
+      { h: 'An inspection while we’re up there', p: 'Pigeon-proofing visits come with a check of the roof surface and each panel, photographed so you see what we saw.' },
+    ],
+  },
+  '/services/pressure-washing/green-valley/': {
+    sections: [
+      { h: 'Solar screens and loose mesh', p: 'Solar screens and other screen mesh can be pressure washed and reconditioned, which brings back a lot of the look.', q: { text: 'They did a great job!', by: 'Margaret R., Green Valley' } },
+      { h: 'Its own schedule in the Club', p: 'Pressure washing can ride along in a Wildcat Club membership at whatever pace the property needs, separate from the windows.' },
+    ],
+    quoted: [9],
+  },
+  '/areas/catalina-foothills/sabino-canyon/': {
+    sections: [
+      { h: 'Ladders and screens handled with care', p: 'Ladders are set properly on the property, and screens are laid down safely while they’re out of the frame.' },
+    ],
+  },
+  '/areas/tanque-verde/': {
+    sections: [
+      { h: 'Pressure, plus a hand scrub', p: 'We don’t sell soft washing. Surfaces get pressure washed, and a stubborn one gets a cleaning solution worked in with a brush. [Pressure washing](/services/pressure-washing/)' },
+    ],
+  },
+  '/areas/marana/': {
+    sections: [
+      { h: 'Plans change', p: 'Moving your appointment just takes 48 hours’ notice.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round21Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 21: no depth entry for ${url}`);
   const faq = cur.faq ?? [];
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
