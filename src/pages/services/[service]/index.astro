@@ -136,20 +136,19 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
     </div>
   </section>
 
-  {answers.length > 0 && (
-    <section class="section-tight">
-      <div class="wrap">
-        <h2 class="h3" style="margin-bottom:1rem">Answers about {s.name.toLowerCase()}</h2>
+  {/* One section for the quick answers and the guide links, so phones don't scroll through two in a row. */}
+  <FaqList items={faqs} title={`${s.name} questions`} openFirst={false}>
+    {answers.length > 0 && (
+      <div class="svc-ans">
+        <h3 class="h3" style="margin-bottom:.8rem">More answers about {s.name.toLowerCase()}</h3>
         <ul class="ans-links" role="list" id="svc-answers" data-pfold="6">
           {answers.map((a) => <li><a href={a.url}><Icon name="arrow" size={18} />{a.row.h1}</a></li>)}
         </ul>
         {answers.length > 7 && <button type="button" class="pf-more" aria-controls="svc-answers" aria-expanded="false">Show {answers.length - 6} more answers</button>}
         <p style="margin-top:1rem"><a class="text-link" href="/guides/">All answers and guides <Icon name="arrow" size={20} /></a></p>
       </div>
-    </section>
-  )}
-
-  <FaqList items={faqs} title={`${s.name} questions`} openFirst={false} />
+    )}
+  </FaqList>
 
   <section class="section-tight">
     <div class="wrap">
@@ -160,6 +159,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 </Base>
 
 <style>
+  .svc-ans { margin-top: clamp(1.8rem, 1.4rem + 1.5vw, 2.6rem); }
   .ans-links { list-style: none; padding: 0; display: grid; gap: .1rem 1.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
   .ans-links a { display: flex; gap: .5rem; align-items: flex-start; min-height: 44px; padding: .55rem 0; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line); }
   .ans-links a :global(svg) { flex: none; margin-top: .2rem; color: var(--blue-700); }

@@ -32,7 +32,7 @@ const photo = img('hero-crew-trucks-sky');
       <span class="sr-only">Wildcat Washers: </span>Tucson’s award-winning <span class="nowrap">window cleaners</span>
     </h1>
     <p class="hero-script">{company.tagline}</p>
-    <p class="hero-sub">Wildcat Washers cleans windows, solar panels and solar screens and does pressure washing across Greater Tucson and Southern Arizona, seven days a week, backed by a 14-Day Spotless Guarantee.</p>
+    <p class="hero-sub">Wildcat Washers cleans windows, solar panels and solar screens and does pressure washing across Greater Tucson and Southern Arizona<span class="sub-tail">, seven days a week, backed by a 14-Day Spotless Guarantee</span>.</p>
     <div class="hero-cta">
       <a class="btn btn-lg btn-blue" href={cta.quoteHref} data-track="quote-hero"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></a>
       <a class="hero-call" href={telHref} data-track="call-hero">or call <strong>{company.phone}</strong></a>
@@ -94,7 +94,7 @@ const photo = img('hero-crew-trucks-sky');
      cropping the crew away. */
   @media (max-width: 760px) {
     .hero { min-height: 0; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
-    .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 4 / 3; object-position: 50% 75%; order: 2; margin-top: -3.5rem;
+    .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 10; object-position: 50% 75%; order: 2; margin-top: -3.5rem;
       -webkit-mask: linear-gradient(180deg, transparent 0, #000 22%); mask: linear-gradient(180deg, transparent 0, #000 22%); }
     .hero-shade { display: none; }
     .hero-copy { order: 1; padding-bottom: 0; }
@@ -104,5 +104,10 @@ const photo = img('hero-crew-trucks-sky');
     /* Phones: the quote button stays in the first screen; the answer sentence follows it. */
     .hero-cta { order: 1; }
     .hero-sub { order: 2; font-size: 1.05rem; line-height: 1.5; }
+    /* Phones: the short half of the sentence, so the stats row under the hero shows on the first screen. */
+    .sub-tail { display: none; }
+    /* The fixed bottom bar already carries Call, so the hero's call line steps aside on phones. */
+    .hero-call { display: none; }
+    .hero-copy { gap: .6rem; }
   }
 </style>
