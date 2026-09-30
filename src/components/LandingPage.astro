@@ -62,7 +62,7 @@ const description = d?.meta ?? fitDescription(l.lede);
 const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} schema={[svc, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s.slug}>
-  <PageHero eyebrow={eyebrow} title={row.h1} lede={heroLede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
+  <PageHero trust eyebrow={eyebrow} title={row.h1} lede={heroLede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
   <TrustRow />
 
   <section class="section">

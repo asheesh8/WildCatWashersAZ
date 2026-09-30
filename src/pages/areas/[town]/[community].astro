@@ -72,7 +72,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   ctaPlace={c.name}
   noindex={c.pending}
 >
-  <PageHero eyebrow={`${c.name} · ${townName}`} title={h1} lede={d?.answer ?? c.lead} crumbs={crumbs} image={hero} ctaHref={`/quote/?area=${town.slug}`} />
+  <PageHero trust eyebrow={`${c.name} · ${townName}`} title={h1} lede={d?.answer ?? c.lead} crumbs={crumbs} image={hero} ctaHref={`/quote/?area=${town.slug}`} />
   <TrustRow />
 
   <section class="section">

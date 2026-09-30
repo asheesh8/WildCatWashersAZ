@@ -24,7 +24,8 @@ const plain = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 const cardH = (s: DepthSection) => 41 + Math.ceil(s.h.length / 24) * 25 + Math.ceil(plain(s.p).length / 33) * 28.2
   + (s.q ? Math.ceil((s.q.text.length + 2) / 26) * 28.2 + Math.ceil(s.q.by.length / 34) * 25 + 40 : 0);
 const hs = sections.map(cardH);
-const tall = Math.max(...hs) > 450 || Math.max(...hs) - Math.min(...hs) >= 150;
+/* The spread limit sits under the 150px the cards should stay within, since the estimate runs a little low. */
+const tall = Math.max(...hs) > 450 || Math.max(...hs) - Math.min(...hs) >= 130;
 const swipe = sections.length > 1 && !tall;
 const blockFold = sections.length > 1 && tall;
 ---

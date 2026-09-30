@@ -65,7 +65,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   schema={[serviceSchema(s), faqSchema(faqs)]}
   ctaService={s.slug}
 >
-  <PageHero eyebrow={`${s.name} · Tucson metro`} title={title} lede={heroLede} crumbs={crumbs} image={s.image} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
+  <PageHero trust eyebrow={`${s.name} · Tucson metro`} title={title} lede={heroLede} crumbs={crumbs} image={s.image} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}`} />
   <TrustRow />
 
   {isWindow ? (

@@ -56,7 +56,7 @@ const place = {
   ctaArea={t.slug}
   ctaPlace={t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, '')}
 >
-  <PageHero eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={photos.hero} ctaHref={`/quote/?area=${t.slug}`} />
+  <PageHero trust eyebrow={`Serving ${t.name}${t.name.endsWith('AZ') ? '' : ', AZ'}`} title={title} lede={d?.answer ?? t.intro} crumbs={crumbs} image={photos.hero} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />
 
   {d?.sections && <DepthSections sections={d.sections} eyebrow={`About ${t.name}`} heading={d.heading ?? `Serving ${t.name}`} intro={d.answer ? t.intro : undefined} mfold />}

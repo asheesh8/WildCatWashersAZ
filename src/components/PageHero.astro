@@ -17,8 +17,10 @@ export interface Props {
   rating?: boolean;
   /** A loop from src/data/videos.ts, shown in place of the photo. */
   video?: string;
+  /** The trust strip follows the hero (phones then drop the review pill it repeats). */
+  trust?: boolean;
 }
-const { eyebrow, title, lede, crumbs = [], image, ctaLabel = cta.primary, ctaHref = cta.quoteHref, rating = true, video } = Astro.props;
+const { eyebrow, title, lede, crumbs = [], image, ctaLabel = cta.primary, ctaHref = cta.quoteHref, rating = true, video, trust = false } = Astro.props;
 const photo = image && hasImg(image) ? img(image) : null;
 /* The photo is cropped at build time to the 4:3.3 frame (anchored on its focus),
    so the frame shows it whole on desktop. On phones the frame is a wider band;
@@ -44,7 +46,7 @@ const band = photo && image && bandFor(image)
 const bandSrcset = band.map((b, i) => `${b.src} ${[480, 640, 720, 800, 960][i]}w`).join(', ');
 const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
 ---
-<section class:list={['phero', (photo || video) && 'has-photo']}>
+<section class:list={['phero', (photo || video) && 'has-photo', trust && 'has-trow']}>
   <div class="wrap phero-grid">
     <div class="phero-copy">
       {crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
@@ -128,13 +130,16 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
     .has-photo .phero-grid > .phero-copy > .cta-row { order: 6; margin-bottom: 1.1rem; }
     .has-photo .phero-grid > .phero-copy > .lede { order: 7; }
     .has-photo .phero-grid > .phero-copy > .lede-more { order: 8; margin-top: -.6rem; }
+    /* On a slow connection the copy can paint before the photo arrives; everything that sits
+       under the photo waits for it, so it doesn't paint under the headline and get pushed down. */
+    .has-photo .phero-grid:not(:has(> .phero-photo)) > .phero-copy > :not(:global(.crumbs), .pill, .eyebrow, .h1) { display: none; }
   }
   @media (max-width: 759px) {
     /* The last crumb repeats the H1; drop it on phones. */
     .phero :global(.crumbs li:last-child) { display: none; }
     /* The bottom bar already has Call, and the trust strip right below repeats the review count. */
     .phero .phone-link { display: none; }
-    .phero:has(+ :global(.trow)) .pill { display: none; }
+    .phero.has-trow .pill { display: none; }
   }
   .cta-row { margin-top: .4rem; }
 </style>
