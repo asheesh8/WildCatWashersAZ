@@ -3204,7 +3204,7 @@ const round24Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/guides/can-you-see-out-of-solar-screens/': {
     sections: [
       { h: 'Black or beige', p: 'Black and a stucco-toned beige are the two usual choices, though any color can be ordered.' },
-      { h: 'Taking them down yourself', p: 'Each screen hangs on rotating brackets, so loosening the hardware lets it come off without tools beyond a screwdriver.' },
+      { h: 'Taking them down yourself', p: 'Each screen hangs on rotating brackets, so loosening the hardware lets it come off whenever you want.' },
     ],
   },
   '/guides/two-story-window-cleaning/': {
@@ -3230,7 +3230,7 @@ const round24Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/guides/solar-screens-vs-sun-screens/': {
     sections: [
-      { h: 'Whose mesh we use', p: 'Phifer is one of our main suppliers, and its SunTex line is what most of our screens are built from.' },
+      { h: 'Whose mesh we use', p: 'Phifer is one of our main suppliers, and its SunTex mesh is what we build with.' },
     ],
   },
   '/guides/window-cleaning-vs-window-washing/': {
