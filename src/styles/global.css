@@ -390,7 +390,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
   .js :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p.is-long:not(.open) {
     display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden;
   }
-  .more-btn {
+  .js .more-btn {
     display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none;
     font-weight: 800; font-size: 1.05rem; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; justify-self: start;
   }

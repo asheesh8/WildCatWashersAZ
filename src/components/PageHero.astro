@@ -105,9 +105,9 @@ const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
   .phero .lede { max-width: 52ch; }
   /* Phones: a calmer intro so the quote button stays near the first screen */
   @media (max-width: 699px) { .phero .lede { font-size: 1.1rem; line-height: 1.55; } }
-  @media (max-width: 759px) { .phero .lede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }
+  @media (max-width: 759px) { :global(.js) .phero .lede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }
   .lede-more { display: none; }
-  @media (max-width: 759px) { .lede-more { all: unset; cursor: pointer; font-weight: 700; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
+  @media (max-width: 759px) { :global(.js) .lede-more { all: unset; cursor: pointer; font-weight: 700; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
     .lede-more:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; } }
   .nowrap { white-space: nowrap; }
   .phero-photo { aspect-ratio: 4 / 3.3; border: 6px solid #fff; }

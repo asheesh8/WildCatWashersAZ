@@ -19,13 +19,13 @@ export interface Props { sections: DepthSection[]; variant?: 'block' | 'inline';
 const { sections, variant = 'block', eyebrow, heading, intro, tone = 'plain', mfold = false } = Astro.props;
 const inline = variant === 'inline';
 /* Estimated phone height of a swipe card (305px wide), fitted against measured cards:
-   heading at ~24 characters a line, body ~33, quote ~26. */
+   heading at ~24 characters a line, body ~29, quote ~26. */
 const plain = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-const cardH = (s: DepthSection) => 41 + Math.ceil(s.h.length / 24) * 25 + Math.ceil(plain(s.p).length / 33) * 28.2
-  + (s.q ? Math.ceil((s.q.text.length + 2) / 26) * 28.2 + Math.ceil(s.q.by.length / 34) * 25 + 40 : 0);
+const cardH = (s: DepthSection) => 20 + Math.ceil(s.h.length / 24) * 25 + Math.ceil(plain(s.p).length / 29) * 28.2
+  + (s.q ? Math.ceil((s.q.text.length + 2) / 26) * 28.2 + Math.ceil(s.q.by.length / 34) * 25 + 64 : 0);
 const hs = sections.map(cardH);
 /* The spread limit sits under the 150px the cards should stay within, since the estimate runs a little low. */
-const tall = Math.max(...hs) > 450 || Math.max(...hs) - Math.min(...hs) >= 130;
+const tall = Math.max(...hs) > 450 || Math.max(...hs) - Math.min(...hs) >= 115;
 const swipe = sections.length > 1 && !tall;
 const blockFold = sections.length > 1 && tall;
 ---

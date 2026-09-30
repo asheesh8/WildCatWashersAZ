@@ -2470,7 +2470,7 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/vail-az/academy-village/': {
     sections: [
-      { h: 'Senior discount', p: 'Residents of a 55+ community like Academy Village qualify for our senior discount; just say so when you call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+      { h: 'Senior discount', p: 'We offer a senior discount. Just mention it when you call for your quote. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
       { h: 'Solar on the roof', p: 'Panels get cleaned by hand with pure water, never a pressure washer, and never by standing on them. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
     ],
   },
