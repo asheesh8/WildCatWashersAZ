@@ -2736,6 +2736,112 @@ for (const [url, a] of Object.entries(round19Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 20: next weakest pages ==============================
+   Appended like rounds 12 to 19. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/window-cleaning/saddlebrooke/': {
+    sections: [
+      { h: 'Spotting on the big panes', p: 'Mineral deposits are lifted with 0000-grade steel wool and walnut pads during every clean, and there’s no extra charge for it.' },
+      { h: 'A haze between the panes', p: 'If moisture has worked its way inside a double-pane unit, the seal has gone and the glass has to be replaced. We’ll show you before we begin.' },
+    ],
+  },
+  '/areas/marana/sunflower-at-continental-ranch/': {
+    sections: [
+      { h: 'Screens and tracks, each time', p: 'Every visit pulls the screens for a wash and cleans out the tracks, so a clean pane stays clean.' },
+      { h: 'Driveways and garage floors', p: 'Tire marks and settled dust lift off concrete with pressure washing, and most driveways are done in one to three hours. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+    ],
+  },
+  '/areas/casas-adobes/': {
+    sections: [
+      { h: 'Rooftop solar', p: 'A gentle hand wash with pure water once or twice a year keeps an array producing, with photos of the result. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Screened rooms', p: 'Arizona room mesh is scrubbed with a cleaning solution, rinsed through both ways with pressure, and the floor is cleaned too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+  },
+  '/areas/vail-az/del-webb-at-rocking-k/': {
+    sections: [
+      { h: 'Arizona rooms on new homes', p: 'Dust builds up in enclosure mesh quickly. A brush scrub and a two-way pressure rinse bring it back, and the floor is washed as well. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+      { h: 'Panels on any roof', p: 'Every panel type and roof pitch is in scope, rooftop or ground mount. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/services/solar-screens/catalina-foothills/': {
+    sections: [
+      { h: 'Off and on again easily', p: 'Brackets screwed into the house hold each screen, and they rotate so a screen can come out by loosening the hardware.' },
+      { h: 'Solar screens or security screens?', p: 'People often say security screens when they mean solar screens. We build and install solar screens; heavy metal security screens and retractable screens aren’t something we make, though we can clean them.' },
+    ],
+  },
+  '/areas/sahuarita/rancho-sahuarita/': {
+    sections: [
+      { h: 'Grimy glass, crystal clear', p: 'Built-up mineral film is buffed away in the same visit, included in every window clean.', q: { text: 'We had very dirty windows and Dominic and Isaac did a wonderful job getting them Crystal clean!', by: 'Sylvia F., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Pigeons under the panels', p: 'Nesting and droppings are cleared out and bagged, then a clip-on mesh goes around the array with no drilling. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+    quoted: [179],
+  },
+  '/areas/vail-az/academy-village/': {
+    sections: [
+      { h: 'Screens and tracks included', p: 'Tracks are vacuumed and wiped and screens are washed on every visit, not added on.' },
+      { h: 'Knowing when we’ll arrive', p: 'Expect a text a week out, one the day before and one as the crew leaves for your home, with arrival inside a three-hour window.' },
+    ],
+  },
+  '/areas/green-valley/links-at-santa-rita-springs/': {
+    sections: [
+      { h: 'Checked before you see it', p: 'The crew goes back over every pane before calling you out for the walkthrough.', q: { text: 'Amazing job, done neatly and a wonderful experience. The crew is excellent and polite and the windows look great.', by: 'Dennis H., Green Valley' } },
+      { h: 'Birds under the array', p: 'If pigeons have found your panels, the mess is cleaned out and a mesh barrier clips on around the edges. The roof isn’t drilled. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+    quoted: [21],
+  },
+  '/areas/green-valley/quail-creek/': {
+    sections: [
+      { h: 'Screens out, every visit', p: 'Screens get removed and washed and tracks get cleaned each time, which keeps dust from drifting back onto the glass.', q: { text: 'Great job! They were on time, reliable, proud of their work, and very friendly. We\'ll see them next year.', by: 'Richard B., Green Valley' } },
+      { h: 'Panels once or twice a year', p: 'That’s the usual rhythm for home arrays, hand washed with pure water. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+    quoted: [39],
+  },
+  '/areas/saddlebrooke/saddlebrooke-one/': {
+    sections: [
+      { h: 'Arizona rooms', p: 'Screen enclosures get a brush and solution scrub, a pressure rinse from both sides, and a clean floor. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+      { h: 'Water spots on the glass', p: 'Deposits from irrigation and rain are buffed off every visit. Left in place for years, they etch in for good.' },
+    ],
+  },
+  '/areas/saddlebrooke/saddlebrooke-two/': {
+    sections: [
+      { h: 'Tracks and screens with the glass', p: 'Screens come out for a wash and tracks are vacuumed and wiped as part of every clean.' },
+      { h: 'When a window looks foggy inside', p: 'Fog between double panes is a seal failure, and cleaning can’t reach it. We flag any we find before starting.' },
+    ],
+  },
+  '/areas/green-valley/las-campanas/': {
+    sections: [
+      { h: 'Spots gone, glass protected', p: 'Mineral spots are removed on every visit at no extra cost, before they can etch.', q: { text: 'Wildcat Washers have done a very nice job for me and are most courteous . I highly recommend them.', by: 'Elaine O., Green Valley' } },
+      { h: 'Arizona rooms', p: 'Enclosure screens are scrubbed and rinsed through with pressure from inside and out, then the floor is washed. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+    quoted: [16],
+  },
+  '/areas/saddlebrooke/saddlebrooke-ranch/': {
+    sections: [
+      { h: 'Solar on a new roof', p: 'Rooftop arrays of any kind get a hand wash once or twice a year, with before-and-after photos. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Texts ahead of the visit', p: 'You’ll hear from us a week before, the day before and when the crew sets out, with a three-hour arrival window.' },
+    ],
+  },
+  '/services/window-cleaning/marana/': {
+    sections: [
+      { h: 'Mirrors, skylights and shower doors', p: 'Glass inside the house can be added to the visit and is counted as extra panes.' },
+      { h: 'A second look before you see it', p: 'Before the walkthrough, the crew rechecks every pane so anything missed is caught first.' },
+    ],
+  },
+  '/areas/oro-valley/': {
+    sections: [
+      { h: 'Solar screens for west glass', p: 'West-facing windows take the low afternoon sun head on, so they’re where solar screens do the most. [Solar screens](/services/solar-screens/)' },
+      { h: 'Arizona rooms', p: 'Screen enclosures are scrubbed by hand, then flushed through with pressure from both sides, and the floor is cleaned. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+      { h: 'Any day of the week', p: 'Crews work seven days a week, so a visit in the next few days is often possible, and booking a month or two out works too.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round20Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 20: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
