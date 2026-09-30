@@ -128,6 +128,13 @@ const path = Astro.url.pathname;
     .menu-btn { display: none; }
   }
   @media (min-width: 640px) and (max-width: 1099px) { .head-phone { display: inline-flex; } .head-phone-text small { display: none; } }
+  /* Seven menu links on a laptop: nothing wraps, and until there's room the phone shows as its round icon
+     (the number stays in the link for screen readers, and the bar at the foot of phones has it too). */
+  .desk-nav a, .head-quote, .head-phone-text { white-space: nowrap; }
+  @media (min-width: 1100px) and (max-width: 1439px) {
+    .desk-nav a { padding-inline: .65rem; }
+    .head-phone-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  }
 
   /* Menu sheet */
   .menu {

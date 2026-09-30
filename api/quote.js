@@ -29,6 +29,19 @@ function limited(ip) {
   return list.length > 5;
 }
 
+/* A plain form post (JavaScript off) gets pages, not JSON: success goes on to /thank-you/,
+   anything else gets a short page with the phone number so the request is never lost silently. */
+const wantsHtml = (req) => !String(req.headers.accept || '').includes('application/json');
+const PHONE = '(520) 525-0084';
+function sendPage(res, status, heading, text) {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  return res.status(status).send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>${heading} | Wildcat Washers</title><style>body{font:1.15rem/1.5 system-ui,sans-serif;color:#121832;background:#f3f8fd;margin:0;padding:3rem 1.2rem}main{max-width:36rem;margin:auto}a{color:#0b5d8f;font-weight:700}</style></head><body><main><h1>${heading}</h1><p>${text}</p><p>Call or text us at <a href="tel:+15205250084">${PHONE}</a>, seven days a week.</p><p><a href="/quote/">Back to the quote form</a> · <a href="/">Homepage</a></p></main></body></html>`);
+}
+const done = (req, res) => (wantsHtml(req) ? (res.setHeader('Location', '/thank-you/'), res.status(303).end()) : res.status(200).json({ ok: true }));
+const failed = (req, res, status, extra = {}) => (wantsHtml(req)
+  ? sendPage(res, status, 'We couldn’t send that automatically', status === 400 ? 'Please go back and add your name and a phone number we can call or text.' : 'Something went wrong on our end, so your request didn’t reach us. Please give us a call instead.')
+  : res.status(status).json({ ok: false, ...extra }));
+
 async function readBody(req) {
   if (req.body && typeof req.body === 'object') return req.body;
   const raw = typeof req.body === 'string' ? req.body : await new Promise((resolve) => {
@@ -49,15 +62,15 @@ export default async function handler(req, res) {
   const origin = req.headers.origin;
   let sameSite = false;
   try { sameSite = !!origin && new URL(origin).host === req.headers.host; } catch { sameSite = false; }
-  if (!sameSite) return res.status(403).json({ ok: false });
+  if (!sameSite) return failed(req, res, 403);
 
   const ip = String(req.headers['x-real-ip'] || req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
-  if (limited(ip)) return res.status(429).json({ ok: false });
+  if (limited(ip)) return failed(req, res, 429);
 
-  if (!process.env.RESEND_API_KEY) return res.status(503).json({ ok: false, error: 'not-configured' });
+  if (!process.env.RESEND_API_KEY) return failed(req, res, 503, { error: 'not-configured' });
 
   const body = await readBody(req);
-  if (clean(body['company-website'], 200)) return res.status(200).json({ ok: true }); // honeypot: pretend success
+  if (clean(body['company-website'], 200)) return done(req, res); // honeypot: pretend success
   const f = {
     name: line(body.name, FIELDS.name),
     phone: line(body.phone, FIELDS.phone),
@@ -66,14 +79,15 @@ export default async function handler(req, res) {
     details: clean(body.details, FIELDS.details),
     page: line(body.page, FIELDS.page),
   };
-  if (!f.name || f.phone.replace(/\D/g, '').length < 7) return res.status(400).json({ ok: false, error: 'missing' });
+  if (!f.name || f.phone.replace(/\D/g, '').length < 7) return failed(req, res, 400, { error: 'missing' });
 
   // Bot signals answer with fake success so bots learn nothing: no load time or a submit
   // under 3 seconds after the page loaded, a link in the name, or two or more links in the note.
+  // A plain form post (JavaScript off) has no load time, so only the other checks apply to it.
   const loaded = Number(line(body.t, 20));
-  const tooFast = !loaded || Date.now() - loaded < 3000;
+  const tooFast = loaded ? Date.now() - loaded < 3000 : !wantsHtml(req);
   const links = (f.details.match(/https?:\/\//gi) || []).length;
-  if (tooFast || /https?:\/\/|www\./i.test(f.name) || links >= 2) return res.status(200).json({ ok: true });
+  if (tooFast || /https?:\/\/|www\./i.test(f.name) || links >= 2) return done(req, res);
 
   const text = [
     'New quote request from the website',
@@ -92,10 +106,10 @@ export default async function handler(req, res) {
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from: FROM, to: [TO], subject: `Quote request: ${f.name} (${f.area || 'town not given'})`, text }),
     });
-    if (!r.ok) { console.error('resend', r.status, await r.text()); return res.status(502).json({ ok: false }); }
-    return res.status(200).json({ ok: true });
+    if (!r.ok) { console.error('resend', r.status, await r.text()); return failed(req, res, 502); }
+    return done(req, res);
   } catch (err) {
     console.error('resend', err);
-    return res.status(502).json({ ok: false });
+    return failed(req, res, 502);
   }
 }

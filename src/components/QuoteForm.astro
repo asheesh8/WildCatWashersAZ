@@ -15,14 +15,19 @@ import { towns } from '@/data/areas';
 export interface Props { service?: string; area?: string; id?: string }
 const { service, area, id = 'quote-form' } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
+/* Without JavaScript the form posts straight to the quote function, which redirects to
+   /thank-you/. (On Netlify the script below switches it back to Netlify Forms.) */
+const action = endpoint === '/api/quote' ? '/api/quote' : '/thank-you/';
+const here = Astro.url.pathname;
 ---
 <form
-  class="qf" id={id} method="POST" action="/thank-you/" name="quote"
+  class="qf" id={id} method="POST" action={action} name="quote"
   data-netlify="true" netlify-honeypot="company-website" data-quote-form
   data-endpoint={endpoint} data-email={company.email}
 >
   <input type="hidden" name="form-name" value="quote" />
   <input type="hidden" name="t" value="" data-qf-t />
+  <input type="hidden" name="page" value={here} data-qf-page />
   <p class="qf-hp" aria-hidden="true"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
 
   <div class="qf-grid">
@@ -72,7 +77,7 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
 </form>
 
 <style>
-  .qf { display: grid; gap: 1.1rem; }
+  .qf { display: grid; gap: 1.1rem; scroll-margin-top: calc(var(--header-h, 80px) + 1rem); }
   .qf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .qf-full { grid-column: 1 / -1; }
   @media (max-width: 620px) { .qf-grid { grid-template-columns: 1fr; } }
@@ -101,8 +106,14 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
       if (t) t.value = String(Date.now());
       const phone = form.querySelector('input[name=phone]');
       if (phone) phone.addEventListener('input', () => phone.setCustomValidity(''));
+      /* The page the visitor came from: the bar's ?from=, else a same-site referrer, else this page. */
+      const pageIn = form.querySelector('[data-qf-page]');
+      let from = params.get('from') || '';
+      if (!/^\/[\w\-/]*$/.test(from)) from = '';
+      if (!from && document.referrer) { try { const r = new URL(document.referrer); if (r.host === location.host && r.pathname !== location.pathname) from = r.pathname; } catch {} }
+      if (pageIn) pageIn.value = from || location.pathname;
       const endpoint = form.dataset.endpoint || '';
-      if (onNetlify && endpoint === '/api/quote') return;
+      if (onNetlify && endpoint === '/api/quote') { form.setAttribute('action', '/thank-you/'); return; }
       const fallback = form.querySelector('[data-qf-fallback]');
       const mailto = form.querySelector('[data-qf-mailto]');
       form.addEventListener('submit', async (e) => {
@@ -110,7 +121,6 @@ const endpoint = import.meta.env.PUBLIC_QUOTE_ENDPOINT || '/api/quote';
         if (!form.reportValidity()) { e.preventDefault(); return; }
         e.preventDefault();
         const data = new FormData(form);
-        data.set('page', location.pathname);
         if (data.get('company-website')) return;
         const button = form.querySelector('button[type=submit]');
         if (button && button.disabled) return;

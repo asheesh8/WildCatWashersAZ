@@ -444,6 +444,7 @@ export const nav = [
   { label: 'Wildcat Club', href: '/wildcat-club/' },
   { label: 'Areas', href: '/areas/' },
   { label: 'Reviews', href: '/reviews/' },
+  { label: 'Answers', href: '/guides/' },
   { label: 'Commercial', href: '/commercial/' },
   { label: 'About', href: '/about/' },
 ] as const;

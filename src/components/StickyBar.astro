@@ -1,11 +1,26 @@
 ---
 /** Slim mobile bar: Call and Free Quote only (Doc 7: no Text button, less bulk). */
 import Icon from './Icon.astro';
-import { telHref, cta } from '@/data/business';
+import { telHref, cta, services } from '@/data/business';
+import { towns } from '@/data/areas';
+/* Free Quote carries the page's context the way the page's own quote button does:
+   the service and town from the URL, plus the page it came from. On the quote page
+   itself it jumps to the form instead of reloading (which would wipe what was typed). */
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const [, a, b, c] = path.split('/');
+const isSvc = (x?: string) => !!x && services.some((s) => s.slug === x);
+const isTown = (x?: string) => !!x && towns.some((t) => t.slug === x);
+const q = new URLSearchParams();
+if (a === 'services' && isSvc(b)) { q.set('service', b!); if (isTown(c)) q.set('area', c!); }
+else if (a === 'areas' && isTown(b)) q.set('area', b!);
+else if (a === 'commercial') q.set('service', 'commercial');
+if (path !== '/' && !path.startsWith('/404')) q.set('from', path);
+const qs = q.toString();
+const href = path === cta.quoteHref ? '#quote-page-form' : `${cta.quoteHref}${qs ? `?${qs}` : ''}`;
 ---
 <nav class="sticky-bar" aria-label="Call or get a quote">
   <a class="sb-call" href={telHref} data-track="call-sticky"><Icon name="phone" size={22} /><span>Call</span></a>
-  <a class="sb-quote" href={cta.quoteHref} data-track="quote-sticky"><span>Free Quote</span><Icon name="arrow" size={22} /></a>
+  <a class="sb-quote" href={href} data-track="quote-sticky"><span>Free Quote</span><Icon name="arrow" size={22} /></a>
 </nav>
 
 <style>
