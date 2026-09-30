@@ -3063,6 +3063,100 @@ for (const [url, a] of Object.entries(round22Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 23: next weakest pages ==============================
+   Appended like rounds 12 to 22. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round23Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/guides/why-does-my-concrete-look-grey/': {
+    sections: [
+      { h: 'Fresh concrete after the builders leave', p: 'Construction dust and debris cleanup is in scope for any service, driveways and entries included.' },
+      { h: 'Block walls and gates', p: 'The same dust that greys a driveway settles on block walls, gates and fences, and they wash up on the same visit.' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-solar-panels/': {
+    sections: [
+      { h: 'Businesses follow the same rhythm', p: 'Commercial arrays generally need one or two cleanings a year as well, and we can keep them on a set schedule. [Commercial solar](/commercial/commercial-solar/)' },
+    ],
+  },
+  '/guides/is-pressure-washing-safe-for-desert-landscaping/': {
+    sections: [
+      { h: 'Dogs in the yard', p: 'Your dog can stay out. The people we send are fond of animals and gentle with them.' },
+    ],
+  },
+  '/guides/window-cleaning-vs-window-washing/': {
+    sections: [
+      { h: 'What our own reviews show', p: 'Across roughly 400 customer reviews, people wrote window washing and window cleaning almost equally often. Power washing and pressure washing split about the same way.' },
+    ],
+  },
+  '/guides/can-i-clean-my-own-solar-panels/': {
+    sections: [
+      { h: 'Birds living underneath', p: 'Nesting under an array is a different job from washing the top: the debris has to come out and a barrier has to go in. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+      { h: 'A business roof is another matter', p: 'Commercial arrays are larger and harder to reach, and we clean those too, on a recurring plan if you want one.' },
+    ],
+  },
+  '/guides/how-to-prepare-for-window-cleaning/': {
+    sections: [
+      { h: 'If the forecast turns', p: 'Heavy rain means we reschedule. A light shower doesn’t stop the work.' },
+      { h: 'Need a different day?', p: 'Moving the appointment only needs 48 hours’ notice.' },
+    ],
+  },
+  '/guides/is-it-safe-to-let-window-cleaners-inside/': {
+    sections: [
+      { h: 'Drips stay off your floors', p: 'Towels are laid under inside work, and the interior is left dry, with no water on sills or floors.' },
+      { h: 'Pets at home', p: 'Dogs and cats can stay put. Our technicians are comfortable with animals and treat them gently.' },
+    ],
+  },
+  '/guides/when-do-i-pay-for-window-cleaning/': {
+    sections: [
+      { h: 'Extra work you want to think about', p: 'If the inspection turns up something more, like panels or a patio, you can have it done that day or get an estimate sent to you to decide on later.' },
+    ],
+  },
+  '/guides/can-oil-and-rust-stains-be-removed-from-concrete/': {
+    sections: [
+      { h: 'Paint on concrete', p: 'Paint removal used to be something we did, but it relies on chemicals, and we’ve stopped offering it.' },
+      { h: 'Tire marks are a different story', p: 'Rubber from tires lifts off garage floors and driveways readily with pressure washing. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+    ],
+  },
+  '/guides/cleaning-divided-light-french-pane-windows/': {
+    sections: [
+      { h: 'Grates over the glass', p: 'Decorative metal grates in front of windows make for fiddly work, and customers have told us we handled them without trouble.' },
+      { h: 'Decorative panels up high', p: 'Ornamental glass mounted high on a wall can be taken down, cleaned and put back.' },
+    ],
+  },
+  '/guides/do-i-need-to-be-home-for-window-cleaning/': {
+    sections: [
+      { h: 'A sign on the lawn', p: 'If you agree, a small company sign goes in the front yard for the length of the job and leaves with the crew.' },
+      { h: 'What the walkthrough catches', p: 'Being there at the end lets us confirm you’re happy and spot anything else we can take care of while the truck is outside.' },
+    ],
+  },
+  '/guides/do-you-clean-skylights-and-high-windows/': {
+    sections: [
+      { h: 'Mirrors and shower glass on the same visit', p: 'While the crew is inside for the high panes, bathroom mirrors and shower doors can be added as extra panes.' },
+      { h: 'Hard to reach is still in scope', p: 'We don’t turn down window jobs over access, whether it’s a tall entry, a stairwell or a second story.' },
+    ],
+  },
+  '/guides/can-you-pressure-wash-a-pool-deck-safely/': {
+    sections: [
+      { h: 'The screened room beside the pool', p: 'If an Arizona room opens onto the pool, its screening can be brushed with solution and flushed clean in the same trip, floor included. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+  },
+  '/guides/do-i-tip-window-cleaners/': {
+    sections: [
+      { h: 'How our crews are paid', p: 'We pay well above what the industry normally does, which is how we hire and keep the best window cleaners in town. Anything you add goes straight to them, over and above that.' },
+    ],
+  },
+  '/guides/how-long-does-window-cleaning-take/': {
+    sections: [
+      { h: 'How many people come', p: 'Usually two technicians, sometimes one, and only rarely three.' },
+      { h: 'Adding panels or a driveway', p: 'Solar panels and a standard driveway each take about one to three hours on their own, so adding one lengthens the visit accordingly.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round23Add)) {
+  const cur: Depth = depth[url] ?? {};
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
