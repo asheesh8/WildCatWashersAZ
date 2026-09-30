@@ -17,7 +17,7 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
         <p class="eyebrow">Topics</p>
         <ul role="list">{faqCategories.map((c) => <li><a href={`#${slug(c)}`}>{c}</a></li>)}</ul>
       </nav>
-      <div>
+      <div class="cats">
         {faqCategories.map((c) => (
           <details id={slug(c)} class="cat" open data-cat>
             <summary class="cat-sum"><h2 class="h3">{c}</h2><span class="cat-n">{faqs.filter((f) => f.category === c).length}</span></summary>
@@ -27,19 +27,21 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
           </details>
         ))}
       </div>
+      <script is:inline>
+        // Phones: topics start closed so the page is a short list; a link to a topic or question opens it.
+        // Runs right after the list, and CSS shows the topics closed from first paint, so nothing jumps.
+        (() => {
+          const cats = document.querySelectorAll('[data-cat]');
+          const openFor = () => { const t = location.hash && document.getElementById(location.hash.slice(1)); if (!t) return; const c = t.closest('[data-cat]'); if (c) c.open = true; if (t.matches('.q')) t.open = true; t.scrollIntoView(); };
+          if (matchMedia('(max-width: 999px)').matches) cats.forEach((c) => { c.open = false; });
+          document.querySelector('.cats')?.classList.add('is-ready');
+          openFor();
+          addEventListener('hashchange', openFor);
+        })();
+      </script>
     </div>
   </section>
 </Base>
-<script is:inline>
-  // Phones: topics start closed so the page is a short list; a link to a topic or question opens it.
-  (() => {
-    const cats = document.querySelectorAll('[data-cat]');
-    const openFor = () => { const t = location.hash && document.getElementById(location.hash.slice(1)); if (!t) return; const c = t.closest('[data-cat]'); if (c) c.open = true; if (t.matches('.q')) t.open = true; t.scrollIntoView(); };
-    if (matchMedia('(max-width: 999px)').matches) cats.forEach((c) => { c.open = false; });
-    openFor();
-    addEventListener('hashchange', openFor);
-  })();
-</script>
 <style>
   .faq-layout { display: grid; gap: 2rem; }
   @media (min-width: 1000px) { .faq-layout { grid-template-columns: 280px 1fr; } .toc { position: sticky; top: 110px; align-self: start; } }
@@ -49,6 +51,10 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
   @media (max-width: 999px) { .toc { display: none; } }
   .cat { margin-bottom: 1rem; scroll-margin-top: 110px; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; padding: 0 1.2rem; }
   .cat[open] { border-color: var(--blue); padding-bottom: .6rem; }
+  @media (max-width: 999px) {
+    :global(.js) .cats:not(.is-ready) .cat > :not(summary) { display: none; }
+    :global(.js) .cats:not(.is-ready) .cat[open] { border-color: var(--line); padding-bottom: 0; }
+  }
   .cat-sum { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 0; }
   .cat-sum::-webkit-details-marker { display: none; }
   .cat-sum h2 { margin: 0; }

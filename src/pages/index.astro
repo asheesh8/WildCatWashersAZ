@@ -57,13 +57,15 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
       <div class="rev-layout m-swipe">
         <figure class="rev-lead reveal">
           <span class="rev-quote" aria-hidden="true">“</span>
-          <blockquote><p>{lead.text}</p></blockquote>
+          <blockquote><p class:list={[lead.text.length > 150 && 'is-long']}>{lead.text}</p></blockquote>
+          {lead.text.length > 150 && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
           <figcaption><strong>{displayName(lead)}</strong> · {placeLabel(lead)} · {lead.platform}</figcaption>
         </figure>
         {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
       </div>
       <figure class="rev-inst reveal">
-        <blockquote><p>“{arroyoGardens.quote}”</p></blockquote>
+        <blockquote><p class:list={[arroyoGardens.quote.length > 180 && 'is-long']}>“{arroyoGardens.quote}”</p></blockquote>
+        {arroyoGardens.quote.length > 180 && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
         <figcaption><strong>{arroyoGardens.name}</strong><span>{arroyoGardens.role}</span></figcaption>
       </figure>
       <div class="cta-row center rev-all">
@@ -88,6 +90,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
         <div class="cta-row">
           <a class="text-link" href="/about/">Meet the crew <Icon name="arrow" size={20} /></a>
           <a class="text-link" href="/awards/">See our awards <Icon name="arrow" size={20} /></a>
+          <a class="text-link" href="/how-it-works/">How a visit works <Icon name="arrow" size={20} /></a>
         </div>
       </div>
     </div>

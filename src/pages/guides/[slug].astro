@@ -83,7 +83,7 @@ const article = {
   <article class="section">
     <div class="wrap-narrow body">
       {guideLoop[g.slug] && <LoopVideo name={guideLoop[g.slug]} class="g-loop" caption />}
-      <div class="gsecs" data-gsecs>
+      <div class:list={['gsecs', g.sections.length + depthSections.length >= 4 && 'is-fold']} data-gsecs>
         {g.sections.map((sec) => (
           <details class="gsec" open>
             <summary><h2 class="h3">{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
@@ -102,13 +102,14 @@ const article = {
       </div>
       <script is:inline>
         /* Phones: the first two sections stay open and the rest fold to their headings (tap to read).
-           Runs before paint, so nothing jumps; without JS, or on wider screens, everything is open. */
+           The fold is marked in the HTML and phone CSS makes it look closed from first paint, so
+           nothing jumps; without JS, or on wider screens, everything is open. */
         (function () {
           var l = document.currentScript && document.currentScript.previousElementSibling;
           if (!l) return;
           var ds = [].slice.call(l.querySelectorAll('details'));
-          var fold = matchMedia('(max-width: 759px)').matches && ds.length >= 4 ? ds.slice(2) : [];
-          if (fold.length) l.classList.add('is-fold');
+          var fold = matchMedia('(max-width: 759px)').matches && l.classList.contains('is-fold') ? ds.slice(2) : [];
+          if (!fold.length) l.classList.remove('is-fold');
           /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
           ds.forEach(function (d) {
             if (fold.indexOf(d) > -1) { d.open = false; return; }
@@ -118,6 +119,7 @@ const article = {
             while (d.firstChild) n.appendChild(d.firstChild);
             d.replaceWith(n);
           });
+          l.classList.add('is-ready');
         })();
       </script>
       {proof.length > 0 && (
@@ -178,8 +180,9 @@ const article = {
     .is-fold .gsec:not(:nth-child(-n+2)) .gsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
     .is-fold .gsec-plus::before, .is-fold .gsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
     .is-fold .gsec-plus::after { rotate: 90deg; }
-    .is-fold .gsec[open] .gsec-plus::after { rotate: 0deg; }
-    .is-fold .gsec[open]:not(:nth-child(-n+2)) .gsec-b { padding-bottom: 1rem; }
+    .is-fold.is-ready .gsec[open] .gsec-plus::after { rotate: 0deg; }
+    :global(.js) .is-fold:not(.is-ready) .gsec:not(:nth-child(-n+2)) > .gsec-b { display: none; }
+    .is-fold.is-ready .gsec[open]:not(:nth-child(-n+2)) .gsec-b { padding-bottom: 1rem; }
   }
   @media (prefers-reduced-motion: reduce) { .gsec-plus::before, .gsec-plus::after { transition: none; } }
   .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }

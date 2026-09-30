@@ -2347,7 +2347,7 @@ const round16Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/vail-az/del-webb-at-rancho-del-lago/': {
     sections: [
-      { h: 'The 55+ side of Rancho del Lago', p: 'This is the 55+ golf section of Rancho del Lago, the master-planned golf community on the north side of Vail, and it sits on our regular Rincon Valley routes.' },
+      { h: 'The 55+ side of Rancho del Lago', p: 'This is the 55+ golf section of Rancho del Lago, the master-planned golf community on the north side of Vail AZ, and it sits on our regular Rincon Valley routes.' },
       { h: 'Seniors and veterans', p: 'Seniors and veterans each get a discount. Bring it up on the quote call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
     ],
   },

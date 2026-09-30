@@ -373,6 +373,13 @@ h1, h2, h3, h4 { text-wrap: balance; }
   }
   .swipe-ctrl button:disabled { opacity: .35; }
   .swipe-ctrl p { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); text-align: center; }
+  /* Room for the controls from first paint (Base.astro adds them after load), so nothing moves. */
+  .js .m-swipe:has(> :nth-child(2)):not(.has-ctrl) { border-bottom: calc(.6rem + 52px + var(--swipe-gap, 0px)) solid transparent; }
+  /* Rows in a grid also get the grid's gap above their controls. */
+  .five-grid > .m-swipe { --swipe-gap: 1.4rem; }
+  .guar > .m-swipe { --swipe-gap: 1.1rem; }
+  .proof > .m-swipe { --swipe-gap: .8rem; }
+  .hoa > .m-swipe { --swipe-gap: 1.2rem; }
   .bg-navy .swipe-ctrl p, .on-dark .swipe-ctrl p { color: #dbe6f5; }
 }
 
@@ -380,7 +387,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
    button (added in Base.astro) so one long quote doesn't fill three screens. */
 .more-btn { display: none; }
 @media (max-width: 759px) {
-  .js :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p:not(.open) {
+  .js :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p.is-long:not(.open) {
     display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden;
   }
   .more-btn {
@@ -388,8 +395,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
     font-weight: 800; font-size: 1.05rem; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; justify-self: start;
   }
   .rev-lead .more-btn, .rev-inst .more-btn { color: inherit; }
-  /* In a swipe row every quote stops at five lines, so the cards come out close to even. */
-  .js .m-swipe :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p:not(.open) { -webkit-line-clamp: 5; line-clamp: 5; }
+  /* In a swipe row every long quote stops at four lines (always short of its full length), so the cards come out close to even. */
+  .js .m-swipe :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p.is-long:not(.open) { -webkit-line-clamp: 4; line-clamp: 4; }
   .m-swipe { align-items: flex-start; }
 }
 
@@ -522,6 +529,10 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 .pf-more[hidden] { display: none !important; }
 @media (max-width: 759px) {
   .js [data-pfold]:not(.is-all) > .pf-x { display: none; }
+  /* The same fold from first paint, before the script marks the items (lists with a button only). */
+  .js [data-pfold='2']:not(.is-all):has(> :nth-child(4)) > :nth-child(n+3),
+  .js [data-pfold='4']:not(.is-all):has(> :nth-child(6)) > :nth-child(n+5),
+  .js [data-pfold='6']:not(.is-all):has(> :nth-child(8)) > :nth-child(n+7) { display: none; }
   .js .pf-more { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: .8rem; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--navy); font-weight: 700; font-size: 1.02rem; }
 }
 

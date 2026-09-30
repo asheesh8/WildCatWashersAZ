@@ -503,6 +503,7 @@ export const guides: Guide[] = [
     ],
     doAbout: "Our crews clean solar panels by hand with soft-bristle brushes and spot-free deionized water, adding soap only for stubborn grime, and they stay on the roof surface instead of stepping on the array. Because you cannot see your own roof, you get before and after pictures of the panels. Most jobs take one to three hours.",
     related: [
+      "/guides/what-water-to-clean-solar-panels/",
       "/guides/white-spots-on-solar-panels-after-rain/",
       "/guides/how-often-clean-solar-panels-tucson/",
       "/guides/how-much-output-do-dirty-solar-panels-lose/",
@@ -643,6 +644,7 @@ export const guides: Guide[] = [
     ],
     doAbout: "If you would rather stay off the roof, Wildcat Washers handles any panel type on any roof pitch, plus ground mounts. Our technicians use soft brushes and purified water by hand, and we are licensed and fully insured. Photos taken before and after show you the result without climbing a ladder.",
     related: [
+      "/guides/what-water-to-clean-solar-panels/",
       "/guides/can-you-pressure-wash-solar-panels/",
       "/guides/does-cleaning-void-solar-warranty/",
       "/guides/white-spots-on-solar-panels-after-rain/",

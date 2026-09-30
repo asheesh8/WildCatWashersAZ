@@ -204,6 +204,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           ctrl.className = 'swipe-ctrl';
           ctrl.innerHTML = '<button type="button" aria-label="Previous">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next">\u2192</button>';
           row.after(ctrl);
+          row.classList.add('has-ctrl');
           // A scrolling row must be reachable by keyboard (arrow keys scroll it once focused).
           if (row.scrollWidth > row.clientWidth + 4) {
             const h = row.closest('section')?.querySelector('h2, h3');
@@ -305,19 +306,15 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
         vids.forEach((v) => io.observe(v));
       })();
       (() => {
-        // "Read the whole review" for quotes clamped on phones.
-        if (!matchMedia('(max-width: 759px)').matches) return;
-        const add = () => document.querySelectorAll(':is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p').forEach((p) => {
-          if (p.dataset.clamped || p.scrollHeight <= p.clientHeight + 4) return;
-          p.dataset.clamped = '1';
-          const b = document.createElement('button');
-          b.type = 'button'; b.className = 'more-btn'; b.textContent = 'Read the whole review';
-          b.setAttribute('aria-expanded', 'false');
-          b.addEventListener('click', () => { const o = p.classList.toggle('open'); b.textContent = o ? 'Show less' : 'Read the whole review'; b.setAttribute('aria-expanded', String(o)); });
-          p.closest('blockquote').after(b);
+        // "Read the whole review": the clamp and button are in the HTML (long quotes, phones only).
+        document.addEventListener('click', (e) => {
+          const b = e.target.closest('.more-btn');
+          const p = b && b.previousElementSibling && b.previousElementSibling.querySelector('p');
+          if (!p) return;
+          const o = p.classList.toggle('open');
+          b.textContent = o ? 'Show less' : 'Read the whole review';
+          b.setAttribute('aria-expanded', String(o));
         });
-        add();
-        document.addEventListener('click', (e) => { if (e.target.closest('button[data-more], [data-f], .rs-toggle, .mfold-t')) setTimeout(add, 50); });
       })();
     </script>
   </body>

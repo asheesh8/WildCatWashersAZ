@@ -36,7 +36,8 @@ const ordered = [featured.anneWebb, featured.rainTest, ...reviews.filter((r) => 
         {ordered.map((r, i) => (
           <figure class:list={['rv', i >= 8 && 'over']} data-c={cats(r.services)}>
             <div class="rv-top"><span class="stars" aria-label="Five stars" role="img">★★★★★</span><span>{r.platform}</span></div>
-            <blockquote><p>{r.text}</p></blockquote>
+            <blockquote><p class:list={[r.text.length > 240 && 'is-long']}>{r.text}</p></blockquote>
+            {r.text.length > 240 && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
             <figcaption><strong>{displayName(r)}</strong>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).length > 0 && <span>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).join(' · ')}</span>}</figcaption>
           </figure>
         ))}

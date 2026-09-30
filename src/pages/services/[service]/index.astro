@@ -23,6 +23,7 @@ import { faqList } from '@/data/faq';
 import { h1For, planFor } from '@/data/plan';
 import { landings } from '@/data/landing';
 import { faqSchema, serviceSchema } from '@/lib/schema';
+import { guidePages } from '@/data/guides';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { service: s.slug }, props: { s } }));
@@ -53,6 +54,8 @@ const heroLede = akaText ? `${s.lede} Some people know it as ${akaText}.` : s.le
 const fiveImage = isWindow ? 'tech-kneeling-window-detail' : s.gallery.find((k) => sceneOf(k) !== sceneOf(s.image)) ?? s.image;
 const relatedImages = services.filter((x) => s.related.includes(x.slug)).map((x) => x.image);
 const onPage = [s.image, fiveImage, ...relatedImages];
+/* Answer guides that lead to this service: the hub links every one (phones show six, then "Show more"). */
+const answers = guidePages.filter((p) => p.g.service === s.slug || (s.slug === 'solar-panel-pigeon-proofing' && p.url === '/guides/bird-droppings-on-solar-panels/')).sort((a, b) => a.row.id - b.row.id);
 const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/${s.slug}/${t.slug}/`, name: t.name } : { href: townHref(t.slug), name: t.name }));
 ---
 <Base
@@ -133,6 +136,19 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
     </div>
   </section>
 
+  {answers.length > 0 && (
+    <section class="section-tight">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">Answers about {s.name.toLowerCase()}</h2>
+        <ul class="ans-links" role="list" id="svc-answers" data-pfold="6">
+          {answers.map((a) => <li><a href={a.url}><Icon name="arrow" size={18} />{a.row.h1}</a></li>)}
+        </ul>
+        {answers.length > 7 && <button type="button" class="pf-more" aria-controls="svc-answers" aria-expanded="false">Show {answers.length - 6} more answers</button>}
+        <p style="margin-top:1rem"><a class="text-link" href="/guides/">All answers and guides <Icon name="arrow" size={20} /></a></p>
+      </div>
+    </section>
+  )}
+
   <FaqList items={faqs} title={`${s.name} questions`} openFirst={false} />
 
   <section class="section-tight">
@@ -144,6 +160,10 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 </Base>
 
 <style>
+  .ans-links { list-style: none; padding: 0; display: grid; gap: .1rem 1.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .ans-links a { display: flex; gap: .5rem; align-items: flex-start; min-height: 44px; padding: .55rem 0; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .ans-links a :global(svg) { flex: none; margin-top: .2rem; color: var(--blue-700); }
+  .ans-links a:hover { color: var(--blue-700); }
   .see-row { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
   .see-row :global(.loop) { align-self: start; }
   .see-row.is-single { grid-template-columns: minmax(0, 380px); }

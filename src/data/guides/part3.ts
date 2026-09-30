@@ -37,6 +37,7 @@ export const guides: Guide[] = [
     doAbout:
       "Wildcat Washers handles the whole job in a single trip: a gentle exit for the birds, a complete cleanout of droppings and nesting debris, a no-drill mesh barrier around the array, and a full panel cleaning on top. A warranty comes with the work. Call (520) 525-0084 and we'll ask a few questions about your array and quote it on the phone.",
     related: [
+      '/guides/bird-droppings-on-solar-panels/',
       '/guides/are-pigeons-under-solar-panels-a-problem/',
       '/guides/does-pigeon-proofing-damage-roof-or-warranty/',
       '/guides/should-i-pigeon-proof-before-birds-arrive/',

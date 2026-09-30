@@ -1,8 +1,11 @@
 ---
 import type { Review } from '@/data/reviews';
 import { displayName, placeLabel } from '@/data/reviews';
-export interface Props { review: Review; large?: boolean }
-const { review: r, large = false } = Astro.props;
+export interface Props { review: Review; large?: boolean; /** The only card in its row (full width on phones). */ solo?: boolean }
+const { review: r, large = false, solo = false } = Astro.props;
+/* Phones clamp a long quote to five lines with "Read the whole review". Decided here from its
+   length (measured against the phone card widths), so the button is in the HTML from first paint. */
+const long = r.text.length > (solo ? 205 : 150);
 const place = placeLabel(r);
 const service = r.services[0];
 ---
@@ -11,7 +14,8 @@ const service = r.services[0];
     <span class="stars" role="img" aria-label="Five stars">★★★★★</span>
     <span class="rcard-platform">{r.platform}</span>
   </div>
-  <blockquote><p>{r.text}</p></blockquote>
+  <blockquote><p class:list={[long && 'is-long']}>{r.text}</p></blockquote>
+  {long && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
   <figcaption>
     <span class="rcard-avatar" aria-hidden="true">{displayName(r)[0]}</span>
     <span>
