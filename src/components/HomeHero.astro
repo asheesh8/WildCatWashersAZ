@@ -1,0 +1,113 @@
+---
+/**
+ * Homepage hero in the dirtymint.com pattern Cooper pointed to: a static
+ * photo, a star-rating pill, one bold headline, a short line and a single
+ * centered CTA. The type sits in the open sky so the crew and trucks stay in
+ * view (Doc 7: "don't cover the photo").
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { img, altFor } from '@/data/media';
+import { company, proof, cta, telHref } from '@/data/business';
+const photo = img('hero-crew-trucks-sky');
+---
+<section class="hero" aria-labelledby="hero-title">
+  <Image
+    src={photo}
+    alt={altFor('hero-crew-trucks-sky')}
+    class="hero-img"
+    widths={[480, 640, 720, 800, 960, 1280, 1800]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    quality={72}
+  />
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-copy wrap">
+    <p class="hero-pill">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span><strong>{proof.reviews} five-star reviews</strong><span class="hide-sm"> · not one below five</span></span>
+    </p>
+    <h1 id="hero-title" class="hero-title">
+      <span class="sr-only">Wildcat Washers: </span>Tucson’s award-winning <span class="nowrap">window cleaners</span>
+    </h1>
+    <p class="hero-script">{company.tagline}</p>
+    <p class="hero-sub">Wildcat Washers cleans windows, solar panels and solar screens and does pressure washing across Greater Tucson and Southern Arizona<span class="sub-tail">, seven days a week, backed by a 14-Day Spotless Guarantee</span>.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg btn-blue" href={cta.quoteHref} data-track="quote-hero"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></a>
+      <a class="hero-call" href={telHref} data-track="call-hero">or call <strong>{company.phone}</strong></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    /* Tall enough to show the whole photo, so the crew is never cropped away. */
+    min-height: min(100svh, 1000px);
+    display: grid; grid-template-columns: minmax(0, 1fr); align-items: start;
+    background: #3b689c;
+    color: #fff;
+  }
+  .hero-img {
+    position: absolute; inset: 0; z-index: -2;
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 5%;
+  }
+  /* Only darkens the sky behind the words; the crew below stays untouched. */
+  .hero-shade {
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgb(18 24 50 / 55%) 0%, rgb(18 24 50 / 25%) 30%, transparent 52%);
+  }
+  .hero-copy {
+    display: grid; justify-items: center; text-align: center; gap: .8rem;
+    padding-top: calc(var(--header-h) + clamp(1rem, .5rem + 2vw, 2.5rem));
+    padding-bottom: 2rem;
+  }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: .65rem; flex-wrap: wrap; justify-content: center;
+    padding: .5rem 1.1rem; border-radius: 999px;
+    background: rgb(255 255 255 / 94%); color: var(--navy);
+    font-size: 1.02rem; box-shadow: 0 10px 30px -12px rgb(0 0 0 / 40%);
+  }
+  .hero-pill .stars { font-size: 1.15rem; }
+  .hero-title {
+    font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+    font-variation-settings: 'wdth' 112; letter-spacing: -.02em; line-height: .95;
+    font-size: clamp(2.3rem, 1.2rem + 3.6vw, 5rem);
+    max-width: 24ch;
+    text-shadow: 0 2px 24px rgb(18 24 50 / 35%);
+  }
+  .nowrap { white-space: nowrap; }
+  .hero-script {
+    font-family: var(--font-script); color: #fff; font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.5rem);
+    transform: rotate(-3deg); margin-top: -.2rem;
+    text-shadow: 0 2px 14px rgb(18 24 50 / 45%);
+  }
+  .hero-script::first-letter { color: inherit; }
+  .hero-sub { font-size: var(--step-1); max-width: 46ch; line-height: 1.45; text-shadow: 0 1px 12px rgb(18 24 50 / 50%); font-weight: 500; }
+  .hero-cta { display: grid; justify-items: center; gap: .7rem; margin-top: .6rem; }
+  .hero-call { color: #fff; text-decoration: none; font-size: 1.1rem; text-shadow: 0 1px 10px rgb(18 24 50 / 60%); }
+  .hero-call strong { font-family: var(--font-display); font-weight: 800; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 4px; }
+  @media (max-width: 560px) { .hide-sm { display: none; } }
+
+  /* Phones: the photo is landscape, so stack it under the words instead of
+     cropping the crew away. */
+  @media (max-width: 760px) {
+    .hero { min-height: 0; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
+    .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 10; object-position: 50% 75%; order: 2; margin-top: -3.5rem;
+      -webkit-mask: linear-gradient(180deg, transparent 0, #000 22%); mask: linear-gradient(180deg, transparent 0, #000 22%); }
+    .hero-shade { display: none; }
+    .hero-copy { order: 1; padding-bottom: 0; }
+    .hero-copy > * { max-width: 100%; }
+    .hero-title { font-size: clamp(1.9rem, 8.6vw, 2.8rem); font-variation-settings: 'wdth' 100; }
+    .nowrap { white-space: normal; }
+    /* Phones: the quote button stays in the first screen; the answer sentence follows it. */
+    .hero-cta { order: 1; }
+    .hero-sub { order: 2; font-size: 1.05rem; line-height: 1.5; }
+    /* Phones: the short half of the sentence, so the stats row under the hero shows on the first screen. */
+    .sub-tail { display: none; }
+    /* The fixed bottom bar already carries Call, so the hero's call line steps aside on phones. */
+    .hero-call { display: none; }
+    .hero-copy { gap: .6rem; }
+  }
+</style>

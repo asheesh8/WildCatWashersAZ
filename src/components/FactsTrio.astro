@@ -1,0 +1,39 @@
+---
+/** How it's priced, how often, how long — plus the honest limits (never promise what we can't). */
+import Icon from './Icon.astro';
+export interface Props { pricing: string; frequency: string; duration: string; limits?: string[] }
+const { pricing, frequency, duration, limits = [] } = Astro.props;
+const facts = [
+  { icon: 'message', title: 'How it’s priced', body: pricing },
+  { icon: 'calendar', title: 'How often', body: frequency },
+  { icon: 'clock', title: 'How long it takes', body: duration },
+];
+---
+<section class="section bg-mist">
+  <div class="wrap">
+    <ul class="trio m-swipe" role="list">
+      {facts.map((f) => (
+        <li class="card reveal"><span class="tri-i"><Icon name={f.icon} size={26} /></span><h2 class="h3">{f.title}</h2><p>{f.body}</p></li>
+      ))}
+      {/* The honest limits: a full-width box under the three facts on desktop, the last card of the swipe row on phones. */}
+      {limits.length > 0 && (
+        <li class="limits reveal">
+          <h2 class="h3">Straight talk: what we won’t promise</h2>
+          <ul>{limits.map((l) => <li>{l}</li>)}</ul>
+        </li>
+      )}
+    </ul>
+  </div>
+</section>
+<style>
+  .trio { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  @media (min-width: 900px) { .trio { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .trio > li { display: grid; grid-template-columns: auto 1fr; gap: .7rem .9rem; align-items: center; align-content: start; }
+  .trio > li > p { grid-column: 1 / -1; }
+  .tri-i { width: 48px; height: 48px; border-radius: var(--radius-sm); display: grid; place-items: center; background: var(--blue); color: var(--navy); }
+  .trio p, .limits li { color: var(--ink-2); }
+  .limits { grid-column: 1 / -1; border: 2px dashed var(--line-strong); border-radius: var(--radius-lg); padding: 1.6rem; background: #fff; }
+  .trio > li.limits { display: block; }
+  @media (max-width: 699px) { .limits { padding: 1.3rem 1.25rem; } }
+  .limits ul { list-style: disc; margin-top: .7rem; padding-left: 1.2rem; display: grid; gap: .4rem; color: var(--ink-2); }
+</style>

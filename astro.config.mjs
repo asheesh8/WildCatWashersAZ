@@ -1,21 +1,21 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { pendingUrls } from './src/data/areas.ts';
 
 export default defineConfig({
-  site: 'https://www.wildcatwashers.com',
+  site: 'https://wildcatwashers.com',
   trailingSlash: 'always',
   devToolbar: { enabled: false },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/thank-you'),
+      filter: (page) => !page.includes('/thank-you') && !pendingUrls.some((u) => page.endsWith(u)),
       changefreq: 'weekly',
       lastmod: new Date(),
     }),
   ],
-  build: { inlineStylesheets: 'auto', format: 'directory' },
+  build: { inlineStylesheets: 'always', format: 'directory' },
   image: { responsiveStyles: true },
-  prefetch: { prefetchAll: true, defaultStrategy: 'viewport' },
+  prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   compressHTML: true,
-  vite: { optimizeDeps: { include: ['three', 'three/addons/environments/RoomEnvironment.js'] } },
 });

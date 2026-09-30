@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { img, altFor } from '@/data/media';
+import { press } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Wash It Forward', href: '/wash-it-forward/' }];
+---
+<Base title="Wash It Forward: Annual Community Clean | Wildcat Washers" description="Every year on our anniversary we do one free community cleaning. Year one: every window at the Santa Rita Fire Department in Green Valley." breadcrumbs={crumbs}>
+  <PageHero eyebrow="Giving back to the people who make Tucson a better home" title={h1For('/wash-it-forward/', 'Wash It Forward')} lede="Each year on our company anniversary, we do one free community cleaning somewhere in Greater Tucson for people who serve everyone else." crumbs={crumbs} image="crew-firefighters-santa-rita" rating={false} />
+  <section class="section">
+    <div class="wrap wif">
+      <div class="stack-lg">
+        <p class="eyebrow">Year one · February</p>
+        <h2 class="h2 sweep">Santa Rita Fire Department, Green Valley</h2>
+        <p class="lede">We cleaned every window at the station at no charge, taking one more task off the hands of the firefighters who serve our community.</p>
+        <p>As the KGVY Spring Home &amp; Life 2026 feature by {press.author} put it, Jose and Cooper are proud to serve the Green Valley community, and wanted to give back and say thank you to the people who do so much for it.</p>
+        <p>The recipient changes every year. It isn’t always a fire station.</p>
+        <p>Outside Wash It Forward, we also clean windows for <a href="/commercial/schools-churches-civic/">schools, churches and civic buildings</a>.</p>
+      </div>
+      <div class="wif-photos">
+        <div class="photo"><Image src={img('crew-fire-station-commercial')} alt={altFor('crew-fire-station-commercial')} widths={[480, 800]} sizes="(min-width: 1000px) 40vw, 100vw" quality={70} /></div>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .wif { display: grid; gap: clamp(2rem, 1rem + 3vw, 4rem); align-items: center; }
+  @media (min-width: 1000px) { .wif { grid-template-columns: 1.1fr 1fr; } }
+  .wif-photos { display: grid; }
+  .wif-photos .photo { aspect-ratio: 4 / 3; }
+  .wif-photos :global(img) { width: 100%; height: 100%; object-fit: cover; }
+</style>

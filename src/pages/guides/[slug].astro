@@ -1,0 +1,207 @@
+---
+/**
+ * Guide and answer pages (plan families "guide" and "answer"). The answer comes
+ * first and stands alone when quoted; detail sections follow, then what we do
+ * about it, the doc 6 answers this page covers, and related questions.
+ */
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import LoopVideo from '@/components/LoopVideo.astro';
+import { guideLoop } from '@/data/videos';
+import { guidePages, guideByUrl, type GuidePage } from '@/data/guides';
+import { faqRefs, type Faq } from '@/data/faq';
+import { planFor } from '@/data/plan';
+import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
+import { faqSchema } from '@/lib/schema';
+import { ownerLinks } from '@/lib/faqOwner';
+import { questionTitle, fitDescription } from '@/lib/seo';
+import DepthText from '@/components/DepthText.astro';
+import ReviewGrid from '@/components/ReviewGrid.astro';
+import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
+import { getImage } from 'astro:assets';
+import { img, hasImg } from '@/data/media';
+
+export function getStaticPaths() {
+  return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: GuidePage };
+const { row, g, url } = p;
+const isGuide = row.family === 'guide';
+const s = g.service ? serviceBySlug[g.service] : undefined;
+const d = depthFor(url);
+const answer = d?.answer ?? g.answer;
+const items: Faq[] = withDepthFaqs(faqRefs(row.faq_refs), d);
+const proof = proofReviews(d);
+/* Depth sections that restate a guide section (two or more shared topic words in the heading) are left out, so the page never covers a point twice. */
+const topicWords = (h: string) => new Set(h.toLowerCase().replace(/[’']s\b/g, '').replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
+  .map((w) => (/^(cost|costs|total|quote|quotes|pricing|prices)$/.test(w) ? 'price' : w))
+  .filter((w) => w.length > 2 && !/^(the|and|what|why|how|does|your|you|our|for|into|with|them|that|this|are|can|goes|comes|down|more|three|things)$/.test(w)));
+const guideTopics = g.sections.map((x) => topicWords(x.h));
+const restates = (h: string) => { const a = topicWords(h); return a.size > 0 && guideTopics.some((b) => { const n = [...a].filter((w) => b.has(w)).length; return n >= 2 && n / Math.min(a.size, b.size) >= 0.5; }); };
+/* Kept even though the heading overlaps: it carries the only pane examples on its page. */
+const alwaysKeep = new Set(['Per pane, explained']);
+const depthSections = (d?.sections ?? []).filter((x) => alwaysKeep.has(x.h) || !restates(x.h));
+const links = ownerLinks(items, url);
+const related = g.related
+  .filter((h) => h !== url && planFor(h))
+  .map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h }))
+  .slice(0, 5);
+const crumbs = [{ name: 'Guides and answers', href: '/guides/' }, { name: row.h1.replace(/\?$/, ''), href: url }];
+const title = questionTitle(row.h1);
+const description = fitDescription(answer);
+/* Article rich results want an image and dates; the photo is the guide's service photo. */
+const photoKey = s && hasImg(s.image) ? s.image : undefined;
+const photo = photoKey ? await getImage({ src: img(photoKey), width: 1200, format: 'jpg', quality: 72 }) : undefined;
+const imageUrl = `${company.url}${photo ? photo.src : '/og-default.jpg'}`;
+const published = '2026-09-27';
+const modified = new Date().toISOString().slice(0, 10);
+const updatedLabel = new Date(`${modified}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const article = {
+  '@type': 'Article',
+  headline: row.h1,
+  description,
+  url: `${company.url}${url}`,
+  mainEntityOfPage: `${company.url}${url}`,
+  author: { '@id': `${company.url}/#business` },
+  publisher: { '@id': `${company.url}/#business` },
+  inLanguage: 'en-US',
+  image: [imageUrl],
+  datePublished: published,
+  dateModified: modified,
+  ...(s ? { about: { '@type': 'Service', name: s.name, url: `${company.url}${serviceHref(s.slug)}` } } : {}),
+};
+---
+<Base title={title} description={description} ogImage={imageUrl} breadcrumbs={crumbs} schema={[article, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s?.slug}>
+  <div class="read-bar" aria-hidden="true"></div>
+  <PageHero eyebrow={isGuide ? 'Guide' : 'Straight answer'} title={row.h1} crumbs={crumbs} rating={false} ctaHref={s ? `/quote/?service=${s.slug}` : '/quote/'}>
+    <p class="answer"><strong>Short answer:</strong> {answer}</p>
+    <p class="updated">Updated <time datetime={modified}>{updatedLabel}</time></p>
+  </PageHero>
+
+  <article class="section">
+    <div class="wrap-narrow body">
+      {guideLoop[g.slug] && <LoopVideo name={guideLoop[g.slug]} class="g-loop" caption />}
+      <div class:list={['gsecs', g.sections.length + depthSections.length >= 4 && 'is-fold']} data-gsecs>
+        {g.sections.map((sec) => (
+          <details class="gsec" open>
+            <summary><h2 class="h3">{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
+            <div class="gsec-b">{sec.p.map((t) => <p>{t}</p>)}</div>
+          </details>
+        ))}
+        {depthSections.map((sec) => (
+          <details class="gsec" open>
+            <summary><h2 class="h3">{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
+            <div class="gsec-b">
+              <p><DepthText text={sec.p} /></p>
+              {sec.q && <blockquote class="gq"><p>“{sec.q.text}”</p><footer>{sec.q.by}</footer></blockquote>}
+            </div>
+          </details>
+        ))}
+      </div>
+      <script is:inline>
+        /* Phones: the first two sections stay open and the rest fold to their headings (tap to read).
+           The fold is marked in the HTML and phone CSS makes it look closed from first paint, so
+           nothing jumps; without JS, or on wider screens, everything is open. */
+        (function () {
+          var l = document.currentScript && document.currentScript.previousElementSibling;
+          if (!l) return;
+          var ds = [].slice.call(l.querySelectorAll('details'));
+          var fold = matchMedia('(max-width: 759px)').matches && l.classList.contains('is-fold') ? ds.slice(2) : [];
+          if (!fold.length) l.classList.remove('is-fold');
+          /* Sections that stay open become plain blocks, so screen readers don't announce them as toggles. */
+          ds.forEach(function (d) {
+            if (fold.indexOf(d) > -1) { d.open = false; return; }
+            var n = document.createElement('div'), sm = d.querySelector('summary');
+            [].forEach.call(d.attributes, function (a) { if (a.name !== 'open') n.setAttribute(a.name, a.value); });
+            n.appendChild(sm.firstElementChild); sm.remove();
+            while (d.firstChild) n.appendChild(d.firstChild);
+            d.replaceWith(n);
+          });
+          l.classList.add('is-ready');
+        })();
+      </script>
+      {proof.length > 0 && (
+        <section class="proof">
+          <h2 class="h3">{proof.length > 1 ? 'What customers told us' : 'What a customer told us'}</h2>
+          <ReviewGrid reviews={proof} />
+        </section>
+      )}
+      <aside class="do reveal">
+        <p class="eyebrow">What we do about it</p>
+        <p>{g.doAbout}</p>
+        <div class="do-row">
+          {s && <a class="text-link" href={serviceHref(s.slug)}>{s.name} <Icon name="arrow" size={20} /></a>}
+          <a class="phone-cta" href={telHref} data-track="call-guide"><Icon name="phone" size={22} />{company.phone}</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+
+  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} eyebrow="From our FAQ" openFirst={false} />}
+
+  {related.length > 0 && (
+    <section class="section-tight">
+      <div class="wrap-narrow">
+        <h2 class="h3" style="margin-bottom:1rem">Related questions</h2>
+        <ul class="rel" role="list">{related.map((r) => <li><a href={r.href}><span>{r.label}</span><Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  /* A thin reading-progress line under the header, where the browser can drive it from scroll. */
+  .read-bar { display: none; }
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .read-bar { display: block; position: fixed; inset: 0 0 auto; height: 4px; z-index: 60; background: linear-gradient(90deg, var(--blue), var(--blue-600)); transform-origin: 0 50%; animation-name: read-grow; animation-timing-function: linear; animation-fill-mode: both; animation-duration: auto; animation-timeline: scroll(root); }
+      @keyframes read-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    }
+  }
+  .answer { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height: 1.5; color: var(--navy); background: #fff; border-left: 6px solid var(--blue); border-radius: var(--radius); padding: 1.1rem 1.3rem; max-width: 60ch; }
+  .answer strong { font-family: var(--font-display); }
+  .updated { margin-top: .8rem; font-size: 1rem; color: var(--ink-2); }
+  .body { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
+  .body section { display: grid; gap: .8rem; }
+  .gsecs { display: grid; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
+  .gsec summary { display: block; list-style: none; }
+  .gsec summary::-webkit-details-marker { display: none; }
+  .gsecs:not(.is-fold) summary { pointer-events: none; }
+  .gsec-b { display: grid; gap: .8rem; margin-top: .8rem; }
+  .gsec-b p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+  .gsec-plus { display: none; }
+  @media (max-width: 759px) {
+    .gsecs.is-fold { gap: 0; }
+    .is-fold .gsec { border-bottom: 1px solid var(--line); padding: .35rem 0; }
+    .is-fold .gsec:nth-child(-n+2) { border-bottom: 0; padding-bottom: 1.4rem; }
+    .is-fold .gsec:nth-child(-n+2) summary { pointer-events: none; }
+    .is-fold .gsec:not(:nth-child(-n+2)) summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 52px; cursor: pointer; }
+    .is-fold .gsec:not(:nth-child(-n+2)) .gsec-plus { display: block; position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
+    .is-fold .gsec-plus::before, .is-fold .gsec-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+    .is-fold .gsec-plus::after { rotate: 90deg; }
+    .is-fold.is-ready .gsec[open] .gsec-plus::after { rotate: 0deg; }
+    :global(.js) .is-fold:not(.is-ready) .gsec:not(:nth-child(-n+2)) > .gsec-b { display: none; }
+    .is-fold.is-ready .gsec[open]:not(:nth-child(-n+2)) .gsec-b { padding-bottom: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gsec-plus::before, .gsec-plus::after { transition: none; } }
+  .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+  /* A review excerpt quoted in a depth section (depth.ts `q`), exact words, never the full card. */
+  .gq { margin: .2rem 0 0; padding: .9rem 1rem; border-left: 4px solid var(--blue); background: var(--blue-50); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: 66ch; }
+  .body .gq p { color: var(--navy); font-style: italic; }
+  .gq footer { margin-top: .4rem; font-size: 1rem; font-weight: 700; color: var(--ink-3); }
+  .do { background: var(--blue-50); border-radius: var(--radius-lg); padding: clamp(1.3rem, 1rem + 1.5vw, 2rem); display: grid; gap: .8rem; }
+  .do p:not(.eyebrow) { font-size: 1.14rem; color: var(--navy); }
+  .do-row { display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; align-items: center; }
+  .phone-cta { display: inline-flex; align-items: center; gap: .5rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.3rem; text-decoration: none; }
+  .phone-cta :global(svg) { color: var(--blue-700); }
+  .rel { list-style: none; padding: 0; display: grid; gap: .6rem; }
+  .rel a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.2rem; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; text-decoration: none; font-weight: 700; color: var(--navy); font-size: 1.1rem; }
+  .rel a:hover { border-color: var(--blue); }
+  .rel :global(svg) { flex: none; color: var(--blue-700); }
+  .body :global(.g-loop) { max-width: 420px; }
+  @media (max-width: 759px) { .body :global(.g-loop) { max-width: 250px; margin-inline: auto; } }
+  /* Phones: related-question rows a little snugger (still well over 44px tall). */
+  @media (max-width: 699px) { .rel { gap: .5rem; } .rel a { padding: .8rem 1rem; } }
+  .body :global(.g-loop video) { aspect-ratio: 4 / 5; height: auto; }
+</style>

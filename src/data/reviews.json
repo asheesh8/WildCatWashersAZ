@@ -1,0 +1,5390 @@
+[
+ {
+  "n": 1,
+  "name": "Barbara Richards",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Replacement"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning windows\" · Screen Replacement: \"replaced a damaged screen\"",
+  "text": "Great job cleaning windows and even replaced a damaged screen at our home on Green Valley."
+ },
+ {
+  "n": 2,
+  "name": "Lynda Ellickson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my 37 windows\"",
+  "text": "Izaac & Eric just did a fantastic job cleaning my 37 windows. I've never been able to see through them so clearly. Izaac even helped me recognize a scam text message on my phone. Thankfully he was standing here when it came in. These guys are both personable and professional and very polite. I highly recommend them and Wildcat Washers."
+ },
+ {
+  "n": 3,
+  "name": "Rene Hailey",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The guys did A great job with our windows here at Green Valley. They were very friendly and very professional. We are looking forward to seeing them again in six months. Rene and Susan Hailey"
+ },
+ {
+  "n": 4,
+  "name": "Nancy Smith",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "serviceLine": "Also done (not named): Windows, Track Cleaning",
+  "text": "They did a great through job with my Windows in Green valley!"
+ },
+ {
+  "n": 5,
+  "name": "Cheryl Tardy-Albin",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Windows (other wording)"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows (other wording): \"Did our windows\"",
+  "text": "Very professional and thorough and would highly recommend! Did our windows in Green Valley!"
+ },
+ {
+  "n": 6,
+  "name": "Jim Ayers",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"clean our home windows n screens\"",
+  "text": "2 outstanding young guys came by from Wildcat Washers to clean our home windows n screens, which were embarrassingly dirty. They were outstanding and our windows look .. like we just had them replaced. Definitely will use them again."
+ },
+ {
+  "n": 7,
+  "name": "shana ferguson",
+  "platform": "Google, Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Screen Washing: \"washing my windows and screens\"",
+  "text": "The young men did a great job washing my windows and screens in green valley!"
+ },
+ {
+  "n": 8,
+  "name": "Robert Sutton",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Quick and efficient and through windows clean and perfect in green Valley"
+ },
+ {
+  "n": 9,
+  "name": "Margaret Rowland",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Also done (not named): Windows, Pressure/Power Washing",
+  "text": "They did a great job!"
+ },
+ {
+  "n": 10,
+  "name": "Lucille Chavez",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my windows\"",
+  "text": "Great Job Wildcat Washers cleaning my windows! In Green Valley!"
+ },
+ {
+  "n": 11,
+  "name": "Sandra Thompson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Track Cleaning",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Washing: \"wash my windows\" · Also done (not named): Track Cleaning, Solar/Sun Screens",
+  "text": "Had the wildcat washers come to wash my windows in green valley today. They were very respectful, thorough, and would definitely recommend!"
+ },
+ {
+  "n": 12,
+  "name": "sherwood morf",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"clean my windows and screens\"",
+  "text": "The young men that helped clean my windows and screens in green valley did a great job!"
+ },
+ {
+  "n": 13,
+  "name": "Kathy Goers",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat washers are awesome! They do a great job here in Green Valley."
+ },
+ {
+  "n": 14,
+  "name": "D Scheffer",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning",
+   "Power Washing"
+  ],
+  "alsoDone": [
+   "Arizona Room"
+  ],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"Cleaned my windows and screens\" · Power Washing: \"power washed my patio\" · Also done (not named): Arizona Room",
+  "text": "Cooper and Angel were wonderful! Cleaned my windows and screens to perfection. And also power washed my patio. Great reliable workers here in green valley, Arizona."
+ },
+ {
+  "n": 15,
+  "name": "James Bremer",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "First time using Wildcat Washers...they did a great job. Very pleasant to work with. Very happy with the job."
+ },
+ {
+  "n": 16,
+  "name": "Elaine Owens",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers have done a very nice job for me and are most courteous . I highly recommend them."
+ },
+ {
+  "n": 17,
+  "name": "Betsy Relin",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Window Washing: \"window washers\", \"washed my screens, my windows\" · Screen Washing: \"washed my screens\" · Also done (not named): Pressure/Power Washing",
+  "text": "I live in Green valley, Arizona and I've had many experience with the window washers today we had wildcats here and angel and Kai were fabulous. They were professional. They worked right along. There was no breaks. They washed my screens, my windows and just I'm so happy you have no idea they've done a fabulous fabulous job the best ones I've ever had and I would highly recommend them, but any place Green Valley or Tucson or any place that they're willing to go they were good."
+ },
+ {
+  "n": 18,
+  "name": "Deborah Daly",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wonderful job and courteous associates. Would hire again. Green Valley, AZ."
+ },
+ {
+  "n": 19,
+  "name": "Beryl Kizer",
+  "platform": "Google, Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Solar Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my windows\" · Solar Screens: \"pressure washing my solar screens\"",
+  "text": "Angel and Kai arrived early on time and did a great job cleaning my windows and pressure washing my solar screens in the green valley area, definitely will use again, I'd recommend."
+ },
+ {
+  "n": 20,
+  "name": "Denys Dorr",
+  "platform": "Google, Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Screens",
+   "Pressure Washing",
+   "Arizona Room"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash my windows\" · Solar Screens: \"washed all of my solar screens\" · Pressure Washing + Arizona Room: \"pressure washed my arizona room\"",
+  "text": "I just had the Wildcat Washers wash my windows in green valley. They pressure washed my arizona room, washed all of my solar screens and even some other stuff! They did a fabulous job with a real challenge! 10/10 would have them back in an instant."
+ },
+ {
+  "n": 21,
+  "name": "Dennis Henderson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Amazing job, done neatly and a wonderful experience. The crew is excellent and polite and the windows look great."
+ },
+ {
+  "n": 22,
+  "name": "Michael Roche",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Screens",
+   "Screened Porch"
+  ],
+  "alsoDone": [
+   "Windows",
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Screens + Screened Porch: \"screens on our screened in back porch\" · Also done (not named): Windows, Pressure/Power Washing",
+  "text": "Isaac came to our home in Green Valley, and did an excellent job with the screens on our screened in back porch. He was very meticulous and paid attention to details."
+ },
+ {
+  "n": 23,
+  "name": "Vicky Reyes",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Canoa Ranch",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The charming character of each crew member is phenomenal. Very courtesy, caring, creative individuals who did a fantastic job on my windows in Canoa Ranch. I will hire again!"
+ },
+ {
+  "n": 24,
+  "name": "Lyle Lininger",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaning\"",
+  "text": "Wildcat Washers did an outstanding job. The staff were extremely efficient, professional and thorough! We are very pleased with the window cleaning and the customer service. We highly recommend Wildcat Washers! You won't be disappointed…our windows have NEVER looked better."
+ },
+ {
+  "n": 25,
+  "name": "Peggy Wahlke",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Canoa Ranch",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "It's the second time I've had them out. They did a great job the first time and a fantastic job this second time! Highly recommend!"
+ },
+ {
+  "n": 26,
+  "name": "Jahnae Barnett",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Could not ask for a nicer group of young men, and the windows look brand new. They were recommended to us by a neighbor, and he was 100 percent correct-We will definitely have a return visit when the time is right- Also might add that we have more windows than any home they have worked on in Quail Creek- and they have worked on 500!!"
+ },
+ {
+  "n": 27,
+  "name": "Monte Wittmann",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Washing our windows\"",
+  "text": "Job well done. Washing our windows in Quial Creek"
+ },
+ {
+  "n": 28,
+  "name": "Richard Smolen",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaners\"",
+  "text": "They did a good job. No spots or streaks. Great green valley window cleaners."
+ },
+ {
+  "n": 29,
+  "name": "Mary Mccallum",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Pressure Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"clean our windows\" · Pressure Washing: \"pressure washing\"",
+  "text": "We had Isaac and Angel clean our windows and do some pressure washing in green valley. Wonderful job, great prices. Highly recommend"
+ },
+ {
+  "n": 30,
+  "name": "Mark Gerrard",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned all windows inside and out\"",
+  "text": "Three guys swept in to our home in Green Valley AZ....cleaned all windows inside and out. Very happy with results and pricing."
+ },
+ {
+  "n": 31,
+  "name": "Bev Montgomery",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaning\"",
+  "text": "Great job 5 stars. Very thorough window cleaning in Green valley."
+ },
+ {
+  "n": 32,
+  "name": "Linda Anderson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Windows: \"did the windows\" · Solar Panels: \"solar panels\" · Also done (not named): Screen Repair/Replacement",
+  "text": "The whole team was very efficient and friendly. Windows have never looked so good! They not only did the windows, but also the solar panels at our home in Green Valley."
+ },
+ {
+  "n": 33,
+  "name": "Christene Taylor",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\"",
+  "text": "Fantastic window washing in Green Valley AZ! Very professional and the crew were great to work with."
+ },
+ {
+  "n": 34,
+  "name": "S JANE LEWIS",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"did my windows\"",
+  "text": "Fantastic job as usual, they did my windows in green valley for the second time. I highly reccomend wildcat washers"
+ },
+ {
+  "n": 35,
+  "name": "Donna Friesen",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\"",
+  "text": "They were great Green Valley window washers! They were very personable, very polite, and did an excellent job."
+ },
+ {
+  "n": 36,
+  "name": "Jerome Pinson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screen Repair/Replacement",
+  "text": "They do a very thorough job, with quality checks. We will recommend them to our friends in Quail Creek in Green Valley."
+ },
+ {
+  "n": 37,
+  "name": "Chris Pinson",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screen Repair/Replacement",
+  "text": "They did a very thorough job inside and outside. I would highly recommend Wildcat Washers."
+ },
+ {
+  "n": 38,
+  "name": "Chris Porter",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "I saw Jose and his crew across the street in Quail Creek and asked him to come over and check our house for his services. He was eager to stop, was very very pleasant and gave me a quote on the spot. He admitted that he was not the cheapest BUT I would use them again in a heart beat. They did a great job and the guys were unbelievably friendly. Our glass have never been so clean. Give them a try and you wont be disappointed."
+ },
+ {
+  "n": 39,
+  "name": "Richard Boucher",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Great job! They were on time, reliable, proud of their work, and very friendly. We'll see them next year."
+ },
+ {
+  "n": 40,
+  "name": "Sofia Herod",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screens",
+  "text": "Great group of young men.. honest work, polite and respectful.. hard to find now a days. This was their 2nd visit and love my clean windows and shiny screens. No mess and done! Thank you, wildcats! Sofie n Mike Covert in GV."
+ },
+ {
+  "n": 41,
+  "name": "Gene Klara",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [
+   "Pressure Washing",
+   "Other"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Pressure Washing: \"pressure washing\" · Other: \"removing paint flrm our patio\" (discontinued service)",
+  "text": "I am a retiree who understands hard work and effort. The gentlemen of Wildcat Washers are indeed an incredibly hard working and diligent team. Their work in removing paint flrm our patio was exemplary and outstanding. I would not hesitate to use them again for any pressure washing needs I may have in the future. Wildcat Washers are the best and I was so glad I used their services. Gene, Quail Creek Green Valley"
+ },
+ {
+  "n": 42,
+  "name": "Carol Mossholder",
+  "platform": "Google",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "They were very professional and did a good job."
+ },
+ {
+  "n": 43,
+  "name": "John Leggat",
+  "platform": "Facebook",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Screens",
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screens: \"screens\" · Solar Panels: \"solar panels\" · Also done (not named): Windows",
+  "text": "Wildcat washers was very professional and did an outstanding job on our screens and windows and solar panels in greenvalley. If you have any questions about any of this call wildcat washers. This is not me making a sales pitch this is me telling you they did a good job."
+ },
+ {
+  "n": 44,
+  "name": "Karen Long",
+  "platform": "Facebook, Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Pressure/Power Washing",
+   "Arizona Room"
+  ],
+  "serviceLine": "Window Washing: \"window washers\" · Also done (not named): Pressure/Power Washing, Arizona Room",
+  "text": "Jose, Isaac, and Josiah are very customer focused. Jose did and amazing job with the estimate and scheduling. Isaac and Josiah did are professional window washers! Wildcat Washers comes highly recommended by me!"
+ },
+ {
+  "n": 45,
+  "name": "Marie Butcher",
+  "platform": "Facebook, Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "Very polite and thorough!!"
+ },
+ {
+  "n": 46,
+  "name": "Tom M.",
+  "platform": "Yelp",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\"",
+  "text": "Jose, Cooper and Team did an AMAZING Job at our home today. They are all young hard working guys just trying to build a successful window washing business. Well, they are on the right track as they are very honest, communicative and very respectful young men. They take pride in their work and strive to have a 'Spotless Reputation'…… We were so satisfied and will recommend them to anyone needing there services!"
+ },
+ {
+  "n": 47,
+  "name": "Sheila Sipple",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcat Washers Angel and Kai did a wonderful job I highly recommend them!"
+ },
+ {
+  "n": 48,
+  "name": "Jeanne Piper",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Screen Repair"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screen Repair: \"repaired a few screens\" · Also done (not named): Windows",
+  "text": "After doing my own windows for decades, I decided to finally get it done professionally. I can't say enough good things about WILDCAT WASHERS!!! The two young men Angel and Kai did a fabulous job, were very impressive and even repaired a few screens also. This young company is definitely striving to be the best at what they do. My windows look beautiful!"
+ },
+ {
+  "n": 49,
+  "name": "Christy Brown",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Track Cleaning",
+   "Screen Washing",
+   "Screen Replacement"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Track Cleaning + Screen Washing: \"wash the windows, tracks and screens\" · Screen Replacement: \"replace screens on two of the windows\"",
+  "text": "Angel and Issac showed up on time (a little bit early!) and quickly introduced themselves. After going over the quote they preceded to thoroughly wash the windows, tracks and screens. We had them replace screens on two of the windows. Excellent work! Love looking out clean windows! * I am pleased with their customer service."
+ },
+ {
+  "n": 50,
+  "name": "Sandy Thompson",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Track Cleaning",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Washing: \"washed all my windows\" · Also done (not named): Track Cleaning, Solar/Sun Screens",
+  "text": "Wildcat team came today and they did a Fantastic job! The young men were clean hardworking and got the job done in record time. They were on time too! They washed all my windows in Beautiful Green Valley, Arizona! We are shining today!"
+ },
+ {
+  "n": 51,
+  "name": "Yolanda Stahl",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Screen Washing: \"washing my windows and screens\"",
+  "text": "Angel and Isaac did a great job washing my windows and screens in green valley my windows look great!"
+ },
+ {
+  "n": 52,
+  "name": "Betsy Relin",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Window Washing: \"washing my windows\" · Also done (not named): Pressure/Power Washing",
+  "text": "Everything the trees and flowers and mountains in the sky look brighter because my windows are so clean. Angel and Kai did a fabulous job, but my whole world has changed because every thing is so much cleaner and beautiful. They did a fabulous job washing my windows."
+ },
+ {
+  "n": 53,
+  "name": "Janet Bramley",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "I would recommend Wildcat Washers without reservation. They are so courteous and their work is thorough and efficient. What a delight to have sparkling windows again."
+ },
+ {
+  "n": 54,
+  "name": "Mark Cohen",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "Amazing job, wonderful people. Will definitely use them again and refer them to others in Quail Creek."
+ },
+ {
+  "n": 55,
+  "name": "Tom Murray",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The Wildcat Washer Team are hardworking young UA Entrepreneurs that have been successful with this 'startup' company by hard work and complete customer satisfaction…. They are not the cheapest but they are the best in our opinion……it's nice to support our hard working youth in today's economy……"
+ },
+ {
+  "n": 56,
+  "name": "Ilse Gudehus",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "I have used the Wildcat Washers and will use them gain. They were efficient and professional."
+ },
+ {
+  "n": 57,
+  "name": "Tom Murray",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The Wildcat Washers are young UA college entrepreneurs that are very friendly,respectful and honest hard working young men! I totally recommend them to anyone!"
+ },
+ {
+  "n": 58,
+  "name": "Ilse Gudehus",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash my windows\"",
+  "text": "Just had them wash my windows for the second time this year! Josiah, Isaac and Jose did a super job. I have a great see-through window to the Santa Rita Mountains now!"
+ },
+ {
+  "n": 59,
+  "name": "Teresa Hawkins",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Screen Replacement"
+  ],
+  "alsoDone": [
+   "Windows",
+   "Solar Panels",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Screen Replacement: \"replaced my screens\" · Also done (not named): Windows, Solar Panels, Solar/Sun Screens",
+  "text": "These guys did my whole house and replaced my screens.And the cost was very good. I highly recommend them."
+ },
+ {
+  "n": 60,
+  "name": "Tom Murray",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers do great work and they are young UA Entrepreneurs so fun too……"
+ },
+ {
+  "n": 61,
+  "name": "Rebecca Meinking",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Springs Canoa",
+  "services": [
+   "Window Washing",
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\" · Windows: \"do your windows\"",
+  "text": "These guys are GREAT! They are very professional, very hard-working, and my windows are now SPOTLESS. You won't be disappointed if you have them to do your windows. They are my new go-to window washers for sure! Highly recommend! Thanks Cooper and Jose!"
+ },
+ {
+  "n": 62,
+  "name": "Carolyn McBride",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash my windows\"",
+  "text": "Had some young men wash my windows today. They did a great job and were very meticulous. Would 10/10 recommend!"
+ },
+ {
+  "n": 63,
+  "name": "Tom Murray",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Jose,Cooper and the Wildcat Team are Great young entrepreneurs!!! They do fantastic work! Fun guys!👍"
+ },
+ {
+  "n": 64,
+  "name": "Linda Bengtson",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Legends",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning",
+   "Blinds",
+   "Track Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning + Blinds: \"cleaning all of the blinds, windows and screens\" · Track Cleaning: \"window tracks\"",
+  "text": "Four young men worked exceedingly hard for 2 hours yesterday cleaning all of the blinds, windows and screens at my house and did a phenomenal job!! They even covered their shoes before they came inside to work. The blinds don't have a speck of dust; every single inch is spotless and they look like they're new. The screens and windows look amazing too (even the window tracks are super clean). I was very impressed by them and will certainly be reaching out to them again when the need arises."
+ },
+ {
+  "n": 65,
+  "name": "Victoria Roche",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Screens",
+   "Screened Porch",
+   "Pressure/Power Washing"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screens + Screened Porch: \"screened in porch\" · Pressure/Power Washing: \"pavers and furniture\" · Also done (not named): Windows",
+  "text": "Cooper and Jose did a great job on our screened in porch, pavers and furniture! They were on time, very polite. Will definitely be using them again!"
+ },
+ {
+  "n": 66,
+  "name": "Peter Caroline",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Window Cleaning: \"cleaned our windows\" · Also done (not named): Pressure/Power Washing",
+  "text": "Wildcat Washers cleaned our windows yesterday, and did an amazing job. The whole house is brighter and lighter, and my wife and I were spared the onerous task of doing it ourselves (and nowhere near as well). The price was most reasonable. At our age, we have to be aware of the safety aspects of any do-it-yourself projects, and Wildcat Washers are a safe and affordable solution."
+ },
+ {
+  "n": 67,
+  "name": "Anita Garrett",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do my windows\"",
+  "text": "I also had Wildcat Washers do my windows and they did an excellent job! I highly recommend them!!"
+ },
+ {
+  "n": 68,
+  "name": "Tom Murray",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Team Jose and the UA Wildcat Washers are a great group of college entrepreneurs trying to get a startup business going. These are honest young men who work hard and do an excellent job through and through….best we have ever had!! Highly recommend!👍"
+ },
+ {
+  "n": 69,
+  "name": "Doris Frost",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Colonia de los Alamos",
+  "services": [
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Solar Panel Cleaning: \"Had my solar panel cleaned\" · Also done (not named): Windows",
+  "text": "Great job by these guys! Had my solar panel cleaned, the dust & muck that came off was enormous! The water was brown if that tells you anything! Highly recommend this young company and polite young men. There's some parents that did something right."
+ },
+ {
+  "n": 70,
+  "name": "Peggy Wahlke",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Canoa Ranch",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed some of our neighbors windows\"",
+  "text": "So glad we decided to give them a chance! We usually don't hire anyone who just comes to the door. However, these young men were so polite and took pride in doing a great job for their customers. They had already washed some of our neighbors windows. They gave us a quote and came the next day. They had a crew of three who did a fantastic job inside and out. The price was very reasonable. We highly recommend Wildcat Washers!"
+ },
+ {
+  "n": 71,
+  "name": "Lisa Fenner",
+  "platform": "Nextdoor",
+  "area": "Green Valley",
+  "detail": "Canoa Ranch",
+  "services": [
+   "Window Washing",
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\" · Window Cleaning: \"cleaned all our windows inside and out\"",
+  "text": "Just wanted to give a glowing review to Wildcat Washers - a group of highly professional, motivated and awesome guys who are building a window washing (and also power washing and solar panel cleaning) business. They cleaned all our windows inside and out today and did an EXCELLENT job - they were incredibly meticulous, personable, polite, punctual and impressive. We would highly recommend them."
+ },
+ {
+  "n": 72,
+  "name": "Tom Murray",
+  "platform": "Online review",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Jose, Cooper and team are amazing young UA College entrepreneurs that have an amazing 'work ethic' and Charm to add to their business where customer service is always first…. Sadly, in today's world this is RARE and not found in many of our new young adults…..we have now had them here twice and they do an amazing job and they are just a joy to do business with……"
+ },
+ {
+  "n": 73,
+  "name": "Peg Hadley",
+  "platform": "Online review",
+  "area": "Green Valley",
+  "detail": "The Links at Santa Rita Springs",
+  "services": [
+   "Window Washing",
+   "Solar Panels"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\" · Solar Panels: \"solar panels\"",
+  "text": "This company is comprised of two ambitious, respectful college students who washers windows, solar panels and more. We are very appreciated of the solar panels and window washing they did for us. We highly recommend them. They are a delight"
+ },
+ {
+  "n": 74,
+  "name": "Lisa Rosenburg",
+  "platform": "Online review",
+  "area": "Green Valley",
+  "detail": "Quail Creek",
+  "services": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows + Track Cleaning: \"our windows, tracks, trim - both inside and out\"",
+  "text": "Blinded by the light… I can't say enough for the work that WildCat cleaners did on our windows, tracks, trim - both inside and out …. I gave them some dirty windows for sure - even with doggy nose art. On time - done in 2 hours !!! Well done guys"
+ },
+ {
+  "n": 75,
+  "name": "Anne Dodge",
+  "platform": "Online review",
+  "area": "Green Valley",
+  "detail": "Legends",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"had my windows washed\"",
+  "text": "know this has been posted on before, but this deserves a second shout out. I had my windows washed today by Wildcat Washers and they did a fantastic job. They are very personable, polite, thorough, and reasonably priced. Plus you are helping some young ambitious college guys. They are running a really good business as they study technology in college. I highly recommend them."
+ },
+ {
+  "n": 76,
+  "name": "Jim Hassel",
+  "platform": "Online review",
+  "area": "Green Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Window washing experience\"",
+  "text": "We are excited to recommend Wildcat Washers to anyone who wants a thorough, no nonsense, professionally oriented Window washing experience. Jose and his amazing crew of hard working young men took pride in satisfying our concerns. Our windows were so clean that on one occasion I walked into our patio door thinking it was open. My head left an oily smudge which created an extremely amusing moment. Everyone got a laugh out of the situation, but Jose wiped away the smear with a smile on his face. These young men were patient with us and worked quickly so we could enjoy our very clear windows when they left."
+ },
+ {
+  "n": 77,
+  "name": "LindaDugan Landry",
+  "platform": "Google",
+  "area": "Sahuarita",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaning service\"",
+  "text": "Awesome company all around! These fine young men have their priorities in the right place. Hire them for the best window cleaning service in the Tucson metro area."
+ },
+ {
+  "n": 78,
+  "name": "Michael LaFond",
+  "platform": "Google",
+  "area": "Sahuarita",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do your windows\"",
+  "text": "We were very happy with the quality of the work done by the 2 Techs, Kai and Angel. They were also very professional with us. I would recommend having them do your windows. M&M in Sahuarita."
+ },
+ {
+  "n": 79,
+  "name": "Karen Rhodes",
+  "platform": "Google, Nextdoor",
+  "area": "Sahuarita",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do my windows\"",
+  "text": "Issac came to do my windows today and I'm totally excited how well they came out!!!!! I could barely see out of them and now they are awesome. I would highly recommend Wildcat Washers!"
+ },
+ {
+  "n": 80,
+  "name": "John Brierton",
+  "platform": "Google",
+  "area": "Sahuarita",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Guys were very prompt and professional... Good job!!!"
+ },
+ {
+  "n": 81,
+  "name": "Linda Dugan",
+  "platform": "Nextdoor",
+  "area": "Sahuarita",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Love these guys!!!!"
+ },
+ {
+  "n": 82,
+  "name": "Shelley Blickenstaff",
+  "platform": "Online review",
+  "area": "Sahuarita",
+  "detail": "Rancho Resort",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"had our windows cleaned today both inside and out\"",
+  "text": "We had our windows cleaned today both inside and out. Wildcat Washers were very professional, polite, and thorough. Admirably, they are students working their way thru college. And they did an excellent job!! Highly recommend!!"
+ },
+ {
+  "n": 83,
+  "name": "Traci Eller",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Cooper and Jose were professional, on time and generally great guys."
+ },
+ {
+  "n": 84,
+  "name": "Jill Emmons",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Replacement",
+   "Pigeon Proofing",
+   "Bird Nest Removal"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned all our windows\" · Screen Replacement: \"replaced broken/torn screens\" · Pigeon Proofing: \"install pigeon proofing\" · Bird Nest Removal: \"remove bird nests from under our solar panels\"",
+  "text": "Had a fantastic experience with Wildcat Washers! They cleaned all our windows with care and replaced broken/torn screens all over our house. Really respectful, these young fellows are a joy to work with. They are also coming back to remove bird nests from under our solar panels & install pigeon proofing for a fraction of the cost quoted to me by pest control services in my area. Highly recommend!! 👍"
+ },
+ {
+  "n": 85,
+  "name": "Christina A Cutshaw",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great work! Crystal clear!"
+ },
+ {
+  "n": 86,
+  "name": "Margi Rhodes",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\"",
+  "text": "The two young men who came from Wildcat Washers were on time, friendly, worked efficiently, and did a great job washing my windows. I highly recommend this company."
+ },
+ {
+  "n": 87,
+  "name": "Kami Kessler",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Fast and friendly great service."
+ },
+ {
+  "n": 88,
+  "name": "saundra fielder",
+  "platform": "Google",
+  "area": "Tucson",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Both of the guys were so nice and polite. Excellent job done on windows."
+ },
+ {
+  "n": 89,
+  "name": "Matt Cyndi Mann",
+  "platform": "Facebook",
+  "area": "Tucson",
+  "detail": "Central Tucson",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The team does an awesome job, amazing work & we would recommend them 110%. The team was so polite and engaging. Our windows through out our home are clear and beautiful. 👍🏽👍🏽👍🏽👏🏽👏🏽"
+ },
+ {
+  "n": 90,
+  "name": "Mary Ann Snodgrass",
+  "platform": "Nextdoor",
+  "area": "Tucson",
+  "detail": "Northeast Tucson",
+  "services": [
+   "Solar Panel Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Solar Panel Washing: \"washing my solar panels\"",
+  "text": "The young men did an amazing job washing my solar panels in North East Tucson!"
+ },
+ {
+  "n": 91,
+  "name": "Peggy Lockwood",
+  "platform": "Nextdoor",
+  "area": "Tucson",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash my windows\" · Solar Panel Cleaning: \"cleaned my solar panels\"",
+  "text": "Jessiah and Angel came to wash my windows and also cleaned my solar panels. They were in and out in an hour and did a wonderful job. I would highly recommend them again. They also have various other jobs they can do (pressure washing and rescreening screens that are damaged, etc.) They have never had a rating under 5 stars. Great service!"
+ },
+ {
+  "n": 92,
+  "name": "Kathy Bennett",
+  "platform": "Nextdoor",
+  "area": "Tucson",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "The guys showed up on time, we're professional and explained everything I needed to know!"
+ },
+ {
+  "n": 93,
+  "name": "Alex Molinar",
+  "platform": "Online review",
+  "area": "Tucson",
+  "detail": "Tucson Estates",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "\"First time home owner having family over to see my house for the first time! Super respectful guys, made my home look a lot better, and really detail oriented😄\""
+ },
+ {
+  "n": 94,
+  "name": "Gerry Heaslip",
+  "platform": "Nextdoor",
+  "area": "Tanque Verde",
+  "detail": "Vactor Ranch",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Do not hesitate to contact the Wildcat Washers. I highly recommend this team of young men. Personally, they are respectful and courteous with exemplary communication skills.Professionally, they are hard-working, efficient, and extremely attentive to detail. Moreover, they arrive on time. Thanks so much Jose, Cooper and Josiah for giving me many brighter days ahead.(Tucson)"
+ },
+ {
+  "n": 95,
+  "name": "Dan Wong",
+  "platform": "Google",
+  "area": "Catalina Foothills",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning all my windows\"",
+  "text": "Catalina foothills .. Eric and angel did a great job cleaning all my windows especially the ones on the second floor .. would definitely use them again!!"
+ },
+ {
+  "n": 96,
+  "name": "Kim Elliott",
+  "platform": "Google",
+  "area": "Catalina Foothills",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Solar Panel Cleaning: \"having my windows and solar panels cleaned\"",
+  "text": "I could not be happier with the work and results of having my windows and solar panels cleaned by Isaac and Dominick from Wildcat Washing. I live in the lower Catalina Foothills and had been dreading having to clean my windows. I had toyed with the idea of hiring someone, but hadn't researched it when I found a flyer with my mail from Wildcat. I went online to check them out and was very impressed with the results. I was even more impressed when I talked to Jose, one of the founders of the business. Every interaction I had was warmly professional, and the results are perfect. I highly recommend Wildcat Washers."
+ },
+ {
+  "n": 97,
+  "name": "Mary Howe",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my windows\"",
+  "text": "Isaac did a wonderful job cleaning my windows and he was very careful with all of the bushes in the yard. His work was meticulous. I would highly recommend this company. Thank you!"
+ },
+ {
+  "n": 98,
+  "name": "lewis vansant",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed my windows\"",
+  "text": "Wild cat washers are great, they left it streak free and sparking. Very hardworking young men, they washed my windows in Oro Valley!"
+ },
+ {
+  "n": 99,
+  "name": "Liza Crawford",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "Rancho Vistoso, Stone Canyon",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [
+   "Skylights"
+  ],
+  "serviceLine": "Window Cleaning: \"cleaning the windows\" · Also done (not named): Skylights",
+  "text": "Wildcat Washers did a great job cleaning the windows in our Rancho Vistoso home. The workers were hard-working and friendly."
+ },
+ {
+  "n": 100,
+  "name": "Gary Ariniello",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "Stone Canyon",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing the windows\"",
+  "text": "Wildlife Washers did a great job washing the windows of my house and I would use them again in the future!"
+ },
+ {
+  "n": 101,
+  "name": "Carla Weston",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\"",
+  "text": "This was our second time using this group of enterprising young window washers. They did a great job and I will be happy to use them again."
+ },
+ {
+  "n": 102,
+  "name": "Tom Marks",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Replacement"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed the windows\" · Screen Replacement: \"replaced a torn screen\"",
+  "text": "They washed the windows in our home in Oro Valley, AZ inside and out and did a terrific job. They even replaced a torn screen. Nice guys, top notch service, fantastic results."
+ },
+ {
+  "n": 103,
+  "name": "Linda Simon",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\"",
+  "text": "These young men do a great job washing my windows. It's great that they service Oro. Valley, AZ. They are friendly & professional. Would highly recommend!"
+ },
+ {
+  "n": 104,
+  "name": "Nancy Sopwith",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaners\"",
+  "text": "Outstanding professional window cleaners in Oro Valley AZ"
+ },
+ {
+  "n": 105,
+  "name": "Barbara Kazmierczak",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcat washers did an amazing job for me in Oro Valley. The entire team was very professional and polite. The attention to detail was phenomenal. I am totally happy with the results."
+ },
+ {
+  "n": 106,
+  "name": "Diane",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great team of personable young men did professional job on my home in Oro Valley"
+ },
+ {
+  "n": 107,
+  "name": "Judy Petersen",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash my windows\"",
+  "text": "Wildcat washers wash my windows today and did an excellent job. The work was done quickly and thoroughly. Would definitely use them again."
+ },
+ {
+  "n": 108,
+  "name": "Anne Webb",
+  "platform": "Google",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Windows",
+   "Track Cleaning",
+   "Screen Cleaning",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned my windows\" · Windows: \"glass sparkling inside and out\" · Track Cleaning: \"window ledges and patio door tracks vacuumed\" · Screen Cleaning: \"screens meticulously cleaned\" · Solar Panel Cleaning: \"cleaning my solar panels\"",
+  "text": "Cooper and Jose first cleaned my windows over a year ago, back when they were college students balancing studies with building their small business. Even then, their work was thorough, personable, and fairly priced, so when they reached out again, I didn't hesitate. This time, I was blown away by how much they've elevated their craft. Every detail was addressed: window ledges and patio door tracks vacuumed, screens meticulously cleaned, glass sparkling inside and out, and furniture carefully moved and replaced with respect. Their professionalism shone through, yet they remained approachable and friendly throughout. What impressed me most was their commitment to excellence, they double-checked every pane for missed spots or stubborn streaks before calling the job complete. Their diligence gave me such confidence that I entrusted them with cleaning my solar panels as well, which they handled flawlessly. Cooper and Jose have transformed from hardworking students into polished professionals, and I cannot recommend them highly enough."
+ },
+ {
+  "n": 109,
+  "name": "Annette Gustafson",
+  "platform": "Facebook",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "They did a good job, even with the sun starting to go down. Super friendly and great quality professional work!"
+ },
+ {
+  "n": 110,
+  "name": "Trish Putignano",
+  "platform": "Nextdoor",
+  "area": "Oro Valley",
+  "detail": "Oro Valley; Marana",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash our windows\"",
+  "text": "Today I hired Wildcat Washers to wash our windows. They arrived on time and were as kind and hard working as can be. I HIGHLY recommend Wildcat Washers. The windows look brand new- there is not a streak in sight!!! I'm so glad we found them. Give Wildcat Washers a call, you won't be disappointed!"
+ },
+ {
+  "n": 111,
+  "name": "Barbara Anderson",
+  "platform": "Nextdoor",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my windows\"",
+  "text": "Isaac did a very nice job cleaning my windows. Very pleasant guy! I talked to Jose first to set up the appt. He called back quickly and we set ip the time. It all worked smoothly. I would recommend Wildcat Washers!!!"
+ },
+ {
+  "n": 112,
+  "name": "Susan Roessler",
+  "platform": "Nextdoor",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "They did a great job, and very nice to deal with. Now to keep the birds from striking our clean windows."
+ },
+ {
+  "n": 113,
+  "name": "Trish Putignano",
+  "platform": "Nextdoor",
+  "area": "Oro Valley",
+  "detail": "Oro Valley; Marana",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"Window Cleaning\"",
+  "text": "Wildcat Washers - Oro Valley and Marana Window Cleaning I highly recommend!"
+ },
+ {
+  "n": 114,
+  "name": "Ed Caine",
+  "platform": "Nextdoor",
+  "area": "Oro Valley",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Arrived on time. Did a great job on the windows. Will hire again."
+ },
+ {
+  "n": 115,
+  "name": "Terry Chick",
+  "platform": "Google",
+  "area": "Marana",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"Cleaning my windows\"",
+  "text": "Great service, nice young men! Cleaning my windows in Marana!"
+ },
+ {
+  "n": 116,
+  "name": "Kathy Austin",
+  "platform": "Google",
+  "area": "Marana",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing",
+   "Solar Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Screen Washing + Solar Screens: \"washed our windows and screens and solar screens\"",
+  "text": "Outstanding job! Totally Through unbelievably good. Very kind and efficient. They washed our windows and screens and solar screens in Marana. I would use them again in a heartbeat."
+ },
+ {
+  "n": 117,
+  "name": "Suzanne Short",
+  "platform": "Google, Nextdoor",
+  "area": "Marana",
+  "detail": "Sunflower at Continental Ranch",
+  "services": [
+   "Window Cleaning",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Solar Panel Cleaning: \"cleaned my solar panels and exterior windows\"",
+  "text": "Kai and his team cleaned my solar panels and exterior windows today. I was impressed with their attention to detail and competence. Took before and after pictures of the solar panels so I could see for myself what a difference they made."
+ },
+ {
+  "n": 118,
+  "name": "Traci McMahon",
+  "platform": "Google",
+  "area": "Marana",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Isaac and Eric did a great job. I could see through my windows now. They're brilliantly clean!"
+ },
+ {
+  "n": 119,
+  "name": "Ken Saddler",
+  "platform": "Nextdoor",
+  "area": "Marana",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "The whole experience was very professional. They were prompt, true to their price quote, which was fair, and the quality was excellent."
+ },
+ {
+  "n": 120,
+  "name": "Patricia Thompson",
+  "platform": "Nextdoor",
+  "area": "Marana",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Track Cleaning"
+  ],
+  "serviceLine": "Windows: \"did all our windows\" · Solar Panels: \"solar panels\" · Also done (not named): Track Cleaning",
+  "text": "Great guys just did all our windows and the solar panels. Neatly and efficiently. Fair price…will have them again."
+ },
+ {
+  "n": 121,
+  "name": "Barbara Neiwert",
+  "platform": "Nextdoor",
+  "area": "Marana",
+  "detail": "Dove Mountain",
+  "services": [
+   "Window Washing",
+   "Screen Washing",
+   "Windows"
+  ],
+  "alsoDone": [
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Washing + Screen Washing: \"wash our windows and screens, inside and out\" · Windows: \"window service\" · Also done (not named): Solar/Sun Screens",
+  "text": "We just had the crew from Wildcat Washers in our home to wash our windows and screens, inside and out. I must say they delivered the best, most professional window service we've ever had! From start to finish, they cared for the cleanliness of our home by wearing footies over their shoes, they pointed out small details about our windows and screens that we had overlooked, and they gave 110% to the job. Not only do our windows shine, we have a company to rely on and we'll certainly call again. Thanks you, Wildcat Washers. We're very pleased with your service."
+ },
+ {
+  "n": 122,
+  "name": "Bobbie Thompson",
+  "platform": "Google",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaning\"",
+  "text": "Great work from young professionals on great window cleaning in SaddleBrooke."
+ },
+ {
+  "n": 123,
+  "name": "Marilynn Smith",
+  "platform": "Google, Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "The Preserve at SaddleBrooke",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash our windows\"",
+  "text": "Just had Kai and Eric wash our windows, in saddlebrooke preserve. They did a outstanding job, easy to work with, and respectful."
+ },
+ {
+  "n": 124,
+  "name": "Chris Robinson",
+  "platform": "Google",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Very attentive to details. Wonderful finish! Very personable guys too!"
+ },
+ {
+  "n": 125,
+  "name": "Cheryl Coulter",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do our windows\"",
+  "text": "I live in Saddlebrooke and we just had Wildcat Washers do our windows. They did a great job. Also they are very pleasant to deal with and I highly recommend them."
+ },
+ {
+  "n": 126,
+  "name": "Florence Broudy",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Did a fantastic job. Would definitely recommend them."
+ },
+ {
+  "n": 127,
+  "name": "Heather L.",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Had my windows washed\"",
+  "text": "Had my windows washed in Saddlebrooke, they are beautiful! the boys, Kai and Erik did a amazing job. Definitely would recommend!"
+ },
+ {
+  "n": 128,
+  "name": "Nina Burnett",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Screen Washing: \"washed my screens and outside windows\"",
+  "text": "This is a great company, really good guys. Polite, thorough, professional and meticulous. They washed my screens and outside windows, in an hour."
+ },
+ {
+  "n": 129,
+  "name": "Linda S.",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\"",
+  "text": "Wildcat Washers did a wonderful job washing my windows. Friendly, efficient, & did an excellent job."
+ },
+ {
+  "n": 130,
+  "name": "Rand & Susan Hill",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "These young men did a thorough job. Excellent customer service, kind and generous all around most excellent job. Would hire them again."
+ },
+ {
+  "n": 131,
+  "name": "Sue Madigan",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"had our windows cleaned\"",
+  "text": "Just had our windows cleaned, they did an amazing job, & a good group of guys! Will definitely be using them again!"
+ },
+ {
+  "n": 132,
+  "name": "Ken Wright",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Angel did a great job! I would recommend!"
+ },
+ {
+  "n": 133,
+  "name": "Chris Niehus",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke",
+  "detail": "",
+  "services": [
+   "Track Cleaning",
+   "Screens"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Track Cleaning: \"window tracks\" · Screens: \"screens\" · Also done (not named): Windows",
+  "text": "Angel and his crew did a great job! Prompt, focused and respectful. The windows shine, the screens and window tracks are clean. Highly recommend!"
+ },
+ {
+  "n": 134,
+  "name": "James Blanchard",
+  "platform": "Google",
+  "area": "SaddleBrooke Ranch",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [
+   "Track Cleaning"
+  ],
+  "serviceLine": "Window Washing: \"washing my windows\" · Screen Cleaning: \"cleaning my screens\" · Also done (not named): Track Cleaning",
+  "text": "Angel did a great job at washing my windows and cleaning my screens the team did an amazing job at my house in Saddlebrooke Ranch Tucson!"
+ },
+ {
+  "n": 135,
+  "name": "Wonona & Jerry D.",
+  "platform": "Nextdoor",
+  "area": "SaddleBrooke Ranch",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "serviceLine": "Also done (not named): Windows, Track Cleaning",
+  "text": "Had great service!"
+ },
+ {
+  "n": 136,
+  "name": "Maureen and Jim Botz",
+  "platform": "Nextdoor",
+  "area": "Oracle",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "They came today and did a good job! They were courteous and prompt!"
+ },
+ {
+  "n": 137,
+  "name": "Deborah Webster",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Washed my window panes\" · Solar Screens: \"pressured washed my solar screens\"",
+  "text": "Washed my window panes and pressured washed my solar screens. They are fantastic young men that are polite and came very early and professional and courteous! I would recommend!"
+ },
+ {
+  "n": 138,
+  "name": "Emily Starr-McCann",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning all the windows\"",
+  "text": "Josiah and Eric just finished cleaning all the windows in my house and I am delighted with the quality of their work. These windows haven't looked this good since the day they were installed. They were very professional. I was so happy with their work that I purchased the thrice yearly plan. I'm sure I will be as happy with their work the next time they come here as I am today. Well done gentlemen."
+ },
+ {
+  "n": 139,
+  "name": "Patty Snider",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned our windows inside & out\"",
+  "text": "Wildcat Washers cleaned our windows inside & out today. Issac & Dominick did an awesome job. Very professional, friendly, respectful, caring & nice. They also double inspected their work just to make sure they didn't miss anything. Highly recommend this company!"
+ },
+ {
+  "n": 140,
+  "name": "Nancy Datte",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [
+   "Solar Panels"
+  ],
+  "serviceLine": "Window Cleaning: \"clean our windows\" · Also done (not named): Solar Panels",
+  "text": "Kai and Dom came out today for the first time to clean our windows. They did a great job. They were also very respectful of us and our home. They happily accommodated the plan for we needed since we have an attached suite for one of our kids. We plan to continue using their services for our windows and solar panels."
+ },
+ {
+  "n": 141,
+  "name": "Carol Jordan",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "Our windows are so clean, it appears there is no glass in the frames. Cooper & Jose & team did a fabulous and thorough job! Highly recommend!"
+ },
+ {
+  "n": 142,
+  "name": "Sheri Shepherd",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Solar Screens"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Solar Screens: \"tackled all of my filthy solar screens\" · Also done (not named): Windows",
+  "text": "First time customer of Wildcat Washers. Always a little apprehensive but this company is legit! Josiah & Angel were friendly & professional. They tackled all of my filthy solar screens and got all the dirt and grime off of them. They look brand new! Oh, and my windows shine too! Thanks to them, I can enjoy my view again!"
+ },
+ {
+  "n": 143,
+  "name": "Lori Johnson",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "They did an amazing job. My windows are very shiny, way better than what they looked like before! Highly recommend!"
+ },
+ {
+  "n": 144,
+  "name": "Chaille Womack",
+  "platform": "Google, Facebook, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Track Cleaning",
+   "Sun Screens"
+  ],
+  "alsoDone": [
+   "Solar Panels"
+  ],
+  "serviceLine": "Window Cleaning: \"cleaning not only the windows\" · Track Cleaning: \"the tracks, frames, and wiping the sills\" · Sun Screens: \"pressure washed my sun screens\" · Also done (not named): Solar Panels",
+  "text": "They arrived on time, worked three hours doing a full service of cleaning not only the windows, but the tracks, frames, and wiping the sills. Also pressure washed my sun screens which look amazing. They are very polite, considerate, and moved everything back afterwards! Highly recommend!"
+ },
+ {
+  "n": 145,
+  "name": "Sarah Glibert",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers did an amazing job on our windows. I might walk into our sliding glass doors now! Highly recommend!"
+ },
+ {
+  "n": 146,
+  "name": "Susan Roberts",
+  "platform": "Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Our windows look great! Thank you Wildcat Washers!"
+ },
+ {
+  "n": 147,
+  "name": "David Lacey",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "We really like this company. We've used their services twice. They do a very professional service and do it with a smile. It's a pleasure to support young entrepreneurs and we will be using their services again. Bonus. We can see the Catalina Mountains again. :-))"
+ },
+ {
+  "n": 148,
+  "name": "Gregg Brockhouse",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Serious hard working guys. Highly recommend. Thank you!"
+ },
+ {
+  "n": 149,
+  "name": "Mernie Graham",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screens",
+   "Solar Panels"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screens, Solar Panels",
+  "text": "The guys did a great job for us and even our dog liked them!"
+ },
+ {
+  "n": 150,
+  "name": "Geri Mizak",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\"",
+  "text": "They did a quick, efficient, and wonderful job washing my windows."
+ },
+ {
+  "n": 151,
+  "name": "Paula Krueger",
+  "platform": "Google, Facebook, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Window Cleaning",
+   "Power Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\" · Window Cleaning: \"window cleaners\" · Power Washing: \"power washing my patio\"",
+  "text": "The Wildcat Washers just finished washing my windows and power washing my patio. I am so pleased with their work. They will now be my \"go to\" window cleaners. They were so nice and friendly while being professional and punctual!"
+ },
+ {
+  "n": 152,
+  "name": "Marcie Cayton",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Reasonably priced, responsible young men and detail oriented. Great job with the windows!"
+ },
+ {
+  "n": 153,
+  "name": "Norma Hartsock",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Power Washing"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Power Washing: \"power washed our brick patio\" · Also done (not named): Windows",
+  "text": "Another SHOUT OUT to WILDCAT WASHERS!!! Cooper power washed our brick patio and it looks amazing!! Our windows are next!!! Hard working, pleasant and professional! Very pleased!"
+ },
+ {
+  "n": 154,
+  "name": "Loretta Potenzieri",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "They did a wonderful job! Very impressed with their cleaning techniques. Two wonderful young men, highly recommend."
+ },
+ {
+  "n": 155,
+  "name": "Nancy Viands",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "These gentlemen are quite impressive. The windows look fabulous, very clean. They have great attention to detail and are very personable."
+ },
+ {
+  "n": 156,
+  "name": "Jerry & Terry Nance",
+  "platform": "Google, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"having my windows done\"",
+  "text": "I found out about this service from this site and kept the information handy for when I would get around to having my windows done. I have just had them done and they work was fabulous. Not only was the work excellent but their work ethic was also excellent. Oh! and they are very nice and working with them was a pleasure."
+ },
+ {
+  "n": 157,
+  "name": "Emily McCann",
+  "platform": "Facebook",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "serviceLine": "Also done (not named): Windows, Track Cleaning",
+  "text": "Professional in every aspect. They arrived on time, went over expectations with me (I had more windows than I had counted!) and adjusted price accordingly. Cleaned up everything from the window sills to themselves after the work was done. I definitely recommend them. In fact, I bought their thrice yearly plan I was so impressed. Josiah and Eric were excellent."
+ },
+ {
+  "n": 158,
+  "name": "Linda Means",
+  "platform": "Facebook, Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "They arrived on time and they did a wonderful job, was a lot of windows. They're very courteous very polite. They put things back to the way they were, hire them!"
+ },
+ {
+  "n": 159,
+  "name": "Billie Grueneich",
+  "platform": "Facebook",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "My second time using them!! Very professional and my windows are amazing."
+ },
+ {
+  "n": 160,
+  "name": "Tria Dassler",
+  "platform": "Facebook",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screens",
+  "text": "Awesome experience using Wildcat Washers. The owners are enthusiastic and professional. Most importantly, the windows AND screens look great! Give them a call!"
+ },
+ {
+  "n": 161,
+  "name": "Carol Jordan",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "Great group of young owners and workers."
+ },
+ {
+  "n": 162,
+  "name": "Claudia Burnett",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcats Washers did great work on some very grimy."
+ },
+ {
+  "n": 163,
+  "name": "Wayne Sorlie",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Windows",
+   "Track Cleaning",
+   "Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"had our windows cleaned\" · Windows + Track Cleaning + Screens: \"windows, screens, rails\"",
+  "text": "We just had our windows cleaned and the two young men did a splendid job on windows, screens, rails, etc. They were very efficient, polite, and respectful. Highly recommended!"
+ },
+ {
+  "n": 164,
+  "name": "Terri Bacon",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great value, very friendly and professional worker. Angel was awesome."
+ },
+ {
+  "n": 165,
+  "name": "Dick Nunez",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Josiah and Eric were very pleasant and professional. We are very happy with a job well done! We signed up for regular service from them!"
+ },
+ {
+  "n": 166,
+  "name": "Mindy Zech",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\"",
+  "text": "Exceptional window washing by Issac and Dominic 👏."
+ },
+ {
+  "n": 167,
+  "name": "C J Fleming",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Young entrepreneurs with a customer satisfaction attitude."
+ },
+ {
+  "n": 168,
+  "name": "Nancy Mann",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Track Cleaning",
+   "Screens"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Track Cleaning: \"window track\" · Screens: \"screens\" · Also done (not named): Windows",
+  "text": "I highly recommend using Wildcat Washers!! Not only are my windows sparkly clean, but the screens and window track as well!!"
+ },
+ {
+  "n": 169,
+  "name": "Cassie Steig",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Screen Cleaning"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screen Cleaning: \"Screens cleaned\" · Also done (not named): Windows",
+  "text": "Highly recommend! Excellent service and customer service. Windows are sparkling now. Screens cleaned too."
+ },
+ {
+  "n": 170,
+  "name": "Martha Shira-Mauhl",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "This business does everything right! AND they do a great job!! We worked with Isaac today and he is a wonderful young man. Our windows look like new…."
+ },
+ {
+  "n": 171,
+  "name": "Lynne Dibble",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "They were wonderful!!"
+ },
+ {
+  "n": 172,
+  "name": "Julie Shearer",
+  "platform": "Nextdoor, Yelp",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"cleaning windows and screens\"",
+  "text": "On time, fabulous job cleaning windows and screens, very friendly. Will definitely use them again. 5stars!"
+ },
+ {
+  "n": 173,
+  "name": "Maxine Ranicke",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\"",
+  "text": "Just had Angel and Eric (Wild cat window washers). Nice, clean cut young men starting their own business. They are pleasant and thorough, even put a couple boxes up on the shelf for me in the garage. Said they do it all the time for their grandparents. Hire them! Encourage hard working young people. My windows look great."
+ },
+ {
+  "n": 174,
+  "name": "Carol Wood",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "What a great day! Our windows are sparkling clean! Wildcat Washers are great! True professionals. We certainly give them 5 stars!!"
+ },
+ {
+  "n": 175,
+  "name": "Mark Sim",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "These guys are great! Showed up on time and completed my windows in a very reasonable timeframe. What a great group of young men. Looking to have them back on a regular maintenance schedule."
+ },
+ {
+  "n": 176,
+  "name": "Jennifer Mullins",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning my windows and doors\"",
+  "text": "Had the Wildcat Washers out today cleaning my windows and doors. They did a great job! Very efficient and polite. Give them a try, you won't be disappointed."
+ },
+ {
+  "n": 177,
+  "name": "Beth Lie",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"clean our windows and screens\"",
+  "text": "We had the Wildcat Washers come by to clean our windows and screens, they did great job! I recommend!"
+ },
+ {
+  "n": 178,
+  "name": "Jo Wilson",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Angel and his partner came early and were very professional. Our windows look beautiful and make our Mountain View amazing. You will love the service they provide."
+ },
+ {
+  "n": 179,
+  "name": "Sylvia Forehand",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "serviceLine": "Also done (not named): Windows, Track Cleaning",
+  "text": "We had very dirty windows and Dominic and Isaac did a wonderful job getting them Crystal clean!"
+ },
+ {
+  "n": 180,
+  "name": "Debbie Edstrom",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning",
+   "Windows"
+  ],
+  "alsoDone": [
+   "Track Cleaning"
+  ],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"cleaning screens and windows\" · Windows: \"sliders\" · Also done (not named): Track Cleaning",
+  "text": "They did a great job cleaning screens and windows. And we have a dog that makes a mess if sliders and they look great."
+ },
+ {
+  "n": 181,
+  "name": "Brenda Jones",
+  "platform": "Nextdoor, Facebook",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Excellent work. Arrived on time. Very professional. Job well done. My windows are bright and shiny. Highly recommend the Wildcats!!!"
+ },
+ {
+  "n": 182,
+  "name": "Sherry Courson",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Sun Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"outdoor windows done outside\" · Sun Screens: \"sunscreens\"",
+  "text": "Had my outdoor windows done outside first time with these guys and my sunscreens never looked better."
+ },
+ {
+  "n": 183,
+  "name": "Michael Sandez",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The Wildcat guys were friendly, efficient, and did a great job on our windows. We'll have them back, for sure."
+ },
+ {
+  "n": 184,
+  "name": "Tom Cooke",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wonderful job at reasonable price! We will use regularly."
+ },
+ {
+  "n": 185,
+  "name": "Gay R.",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"sliders\"",
+  "text": "These guys are wonderful. Our windows and sliders look so nice! Would definitely use them again."
+ },
+ {
+  "n": 186,
+  "name": "Karen Messinger",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Solar/Sun Screens",
+   "Pressure/Power Washing",
+   "Arizona Room"
+  ],
+  "serviceLine": "Window Washing: \"windows washing in and out\" · Also done (not named): Solar/Sun Screens, Pressure/Power Washing, Arizona Room",
+  "text": "Very nice and competitive young men. Definitely recommend them for your windows washing in and out."
+ },
+ {
+  "n": 187,
+  "name": "Sheri Shepherd",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "Thanks everyone! I went with Wildcat Washers. They did an excellent job and I'm very pleased with them."
+ },
+ {
+  "n": 188,
+  "name": "Tria Dassler",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcat Washers all the way!! 👍🏼👍🏼"
+ },
+ {
+  "n": 189,
+  "name": "Mike Knerl",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Also done (not named): Windows, Screen Repair/Replacement",
+  "text": "We used Wildcat! They did an excellent job for us!! Very easy to work with. Showed up on time! Very friendly! We had a couple of small issues, but they were back here the next day!!! ALL GOOD!"
+ },
+ {
+  "n": 190,
+  "name": "Bonnie Stephens",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Washing + Screen Washing: \"washing windows and screens inside and out\" · Also done (not named): Solar/Sun Screens",
+  "text": "Very happy with the job done by Wildcat Washers this morning. They arrived on time, were friendly and considerate of our property, AND did an excellent job washing windows and screens inside and out."
+ },
+ {
+  "n": 191,
+  "name": "Cheri Abraham",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "I'll give a third recommendation for Wildcat washers. They do excellent work."
+ },
+ {
+  "n": 192,
+  "name": "Irene Goltz",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Screens",
+   "Solar Screens",
+   "Track Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows + Screens + Solar Screens: \"the windows, screens, and solar screens\" · Track Cleaning: \"clean the frames and tracks\"",
+  "text": "Wildcat Washers just finished the windows, screens, and solar screens. They do an excellent job and are very professional. They also clean the frames and tracks. A nice business run by younger people."
+ },
+ {
+  "n": 193,
+  "name": "Cindi Hickman",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washing\"",
+  "text": "Wildcat Washers Efficient, good price, great attitudes, & dog lovers. They are the total package. Give them a call for window washing."
+ },
+ {
+  "n": 194,
+  "name": "Mike Knerl",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Screen Replacement",
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screen Replacement: \"replaced 2 screens\" · Solar Panels: \"do our solar panels\" · Also done (not named): Windows",
+  "text": "Had these guys out today & they did a fantastic job. Showed up on time, & were very thorough!!! Even replaced 2 screens for us. I also had them do our solar panels!! Very happy!!"
+ },
+ {
+  "n": 195,
+  "name": "Peggy Swanson",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens",
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens, Pressure/Power Washing",
+  "text": "they did an excellent job and are very polite I definitely recommend them"
+ },
+ {
+  "n": 196,
+  "name": "Bev C.",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers did a great job on our windows for a reasonable price. It is so good to see young people working hard to build a business and be polite, personable, and responsible. Thank you, Jose and crew!"
+ },
+ {
+  "n": 197,
+  "name": "Nila Taylor",
+  "platform": "Nextdoor, Google",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"have your windows cleaned\"",
+  "text": "A big shout out to Wildcat Washers! THANK YOU! These guys are incredible. They showed up exactly when they said they would, did the job (not on their phones), and the windows haven't looked this good since they were new. If you have a need to have your windows cleaned, I highly recommend Wildcat Washers. You will not be disappointed. Cooper and Jose are no joke. They treat your windows like their own. They inspected the windows when done to make sure you are completely satisfied. Once again, highly, highly recommended."
+ },
+ {
+  "n": 198,
+  "name": "Maria-Lyn Nicholas",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned our windows\"",
+  "text": "Wildcat Washers cleaned our windows today and did a great job! Highly recommended."
+ },
+ {
+  "n": 199,
+  "name": "Michelle Robinson",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Absolutely superb job! Hire these guys!"
+ },
+ {
+  "n": 200,
+  "name": "Jodi Harris",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "I have known the wildcats 2 years, they're very meticulous and personal while doing the job. I recommend these group of young men to do your job. They're on time and very polite."
+ },
+ {
+  "n": 201,
+  "name": "Karen Strand",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "All set for the holidays with nice clean windows. Great crew!"
+ },
+ {
+  "n": 202,
+  "name": "Cindi MacDonald",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Can't believe these guys!!!! They did such an awesome job. Showed two window that need replacing. They are really the best."
+ },
+ {
+  "n": 203,
+  "name": "Carol Perry",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do our windows\"",
+  "text": "We also had Wildcat Window Washers do our windows, awesome. They showed up on time, did an incredible job on the windows, cleaned up afterwards and it was a reasonable price. Thank you guys, well done 👍🏻"
+ },
+ {
+  "n": 204,
+  "name": "Judy Oestreich",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers the guys were very nice, they did a wonderful job. Price was right! Extra effort was very appreciated! Would highly recommend!"
+ },
+ {
+  "n": 205,
+  "name": "Kathy Farnum",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Arizona Room"
+  ],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning",
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Arizona Room: \"washing out Arizona room\" · Also done (not named): Windows, Track Cleaning, Screen Repair/Replacement",
+  "text": "Huge shout out to Wildcat Washers, they just did a fabulous job on or windows and washing out Arizona room. Highly recommend."
+ },
+ {
+  "n": 206,
+  "name": "Regina Faller",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wonderful job."
+ },
+ {
+  "n": 207,
+  "name": "Jane Meredith",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"had our windows washed\"",
+  "text": "we just had our windows washed for the second time by Isaac and Jose.they did a fantastic job. 10/10! Wildcat Washers"
+ },
+ {
+  "n": 208,
+  "name": "Bill Bowman",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Very good job! They all work together and don't stop til you are happy."
+ },
+ {
+  "n": 209,
+  "name": "Al Monaco",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Also done (not named): Windows, Pressure/Power Washing",
+  "text": "Guys did a great job! I highly recommend them!"
+ },
+ {
+  "n": 210,
+  "name": "Eladio Gutierrez",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "The Wildcats were an outstanding group and did a fabulous job. We will call them again."
+ },
+ {
+  "n": 211,
+  "name": "Jean Fleck",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "My windows shine! I could not be more pleased with the job Wildcat Washers did for me. I highly recommend them."
+ },
+ {
+  "n": 212,
+  "name": "Pamela Kulbarsh",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Outstanding professional service. Kind university students. A+++++. My window are now spotless. I highly recommend this company. The views are now breathtaking."
+ },
+ {
+  "n": 213,
+  "name": "Billie Grueneich",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Washed my windows inside and out\"",
+  "text": "They were on time. Washed my windows inside and out. Cleaned up after they were done. I'm very pleased. Will use them again."
+ },
+ {
+  "n": 214,
+  "name": "Jan McNabb",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "They were on time and are very efficient and very pleasant. All around A plus."
+ },
+ {
+  "n": 215,
+  "name": "Cheri Abraham",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcat washers do a great job, young college kids."
+ },
+ {
+  "n": 216,
+  "name": "Ken Crombie",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Pressure/Power Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Pressure/Power Washing: \"cleaning our garage floor\"",
+  "text": "Jose and Cooper did a great job cleaning our garage floor of 15 years of tire marks. They showed up on time and kept us informed of their progress. I highly recommend them."
+ },
+ {
+  "n": 217,
+  "name": "Nancy Ermoian",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "They were prompt, efficient, thorough, personable!! 👍"
+ },
+ {
+  "n": 218,
+  "name": "Don Thompson",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job and very quick."
+ },
+ {
+  "n": 219,
+  "name": "Ron Rollison",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Pressure Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows + Pressure Washing: \"Did both pressure washing and windows\"",
+  "text": "Great job, fast and efficient. Did both pressure washing and windows. Moved all our outdoor furniture prior to pressure washing. Thanks Guys!"
+ },
+ {
+  "n": 220,
+  "name": "Elisabeth Cox",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"clean our windows, screens and sliding doors\"",
+  "text": "We just had Wildcat Washers clean our windows, screens and sliding doors in our house. They are young entrepreneurs/college students, Jose and Cooper. They returned calls quickly and gave us a quote that was quite fair for the number of windows/screens/sliders that we have. Some of the windows in our house have the metal decorative grates over the windows and hard to clean BUT not for them. They were very efficient! I would highly recommend using their services!"
+ },
+ {
+  "n": 221,
+  "name": "Laura Leick",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\", \"washing our screens and windows\" · Screen Washing: \"washing our screens and windows\"",
+  "text": "I was very pleased with the service provided by Wildcat window washers. Very professional, kind and caring. Cooper, Isaac and Josia did a fabulous job of washing our screens and windows. Contact them, you will not be disappointed. They also helped us hang an art piece. Carl and Laura"
+ },
+ {
+  "n": 222,
+  "name": "Tria Dassler",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Amazing results! They were quick to schedule, showed up on time, worked diligently, communicated throughout, and my windows were cleaner than ever!! I will hire them again!! 👍🏼👍🏼"
+ },
+ {
+  "n": 223,
+  "name": "Sandee Spiker",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed all windows inside and out\"",
+  "text": "I agree, they washed all windows inside and out. Very friendly and excellent price. I highly recommend Wildcat Washers…."
+ },
+ {
+  "n": 224,
+  "name": "Chuck & Betty Guay",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do your windows\"",
+  "text": "We were very pleased with Wildcat Washers. Called and they were on time and gave us a great quote. Super thorough job, I highly recommend Cooper and Jose to do your windows!"
+ },
+ {
+  "n": 225,
+  "name": "Peggy Rushford",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "These young men did a superior job and I would highly recommend them. They seem to be perfectionists. Thanks for the great job!"
+ },
+ {
+  "n": 226,
+  "name": "Denise Long",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Washing: \"Had my windows washed\" · Also done (not named): Solar/Sun Screens",
+  "text": "Had my windows washed today and they did a great job. Showed up on time and worked till the job was done."
+ },
+ {
+  "n": 227,
+  "name": "Lynn Henry",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Screens"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Screens: \"screens\" · Also done (not named): Windows",
+  "text": "Wildcat Washers did a great job on my windows and screens. Highly recommend them! Will use them again next year."
+ },
+ {
+  "n": 228,
+  "name": "Jan Agner",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job. Highly recommend them."
+ },
+ {
+  "n": 229,
+  "name": "Doris Pritchert",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed our windows inside an out\"",
+  "text": "Wildcat Washers just washed our windows inside an out. They did an awesome job. Will definitely use them next year!"
+ },
+ {
+  "n": 230,
+  "name": "Daniel Cady",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Solar Panel Cleaning",
+   "Screens",
+   "Arizona Room"
+  ],
+  "alsoDone": [
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Window Cleaning + Solar Panel Cleaning: \"Cleaned the windows, solar panels and Arizona room screens\" · Screens + Arizona Room: \"Arizona room screens\" · Also done (not named): Pressure/Power Washing",
+  "text": "Cleaned the windows, solar panels and Arizona room screens. Awesome job. Looks great. Great price too."
+ },
+ {
+  "n": 231,
+  "name": "Jean Carranza",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Wildcat Washers. They did a terrific Job on my windows."
+ },
+ {
+  "n": 232,
+  "name": "Jane Lewis",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "I definitely recommend Wildcat washers!"
+ },
+ {
+  "n": 233,
+  "name": "Victoria Chan",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Very happy with the results. Enterprising young college students looking to make their mark in the community!! 10 out 10!!!"
+ },
+ {
+  "n": 234,
+  "name": "Nancy Coon",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done (not named): Windows, Solar/Sun Screens",
+  "text": "We highly recommend this group of college students! They did a wonderful job!"
+ },
+ {
+  "n": 235,
+  "name": "Dar Pogose",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "What a joy to work with these industrious young men. They did a great job on our windows, were very polite, and worked efficiently. Jose and his team are great. I would rate them a 10 out of 10."
+ },
+ {
+  "n": 236,
+  "name": "Denise Barber",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "We, too, had Wildcat Washers this week, before it rained. This morning, you can't even tell we had rain - my windows are still clean! Shout out to Cooper - they were great!"
+ },
+ {
+  "n": 237,
+  "name": "Fritz Crabb",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great company. The men were on time, thorough. polite, and did a wonderful job. They went about their work so quietly that I hardly knew they were there."
+ },
+ {
+  "n": 238,
+  "name": "Karen Copley",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Power Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Power Washing: \"power washed my walkway and trash cans\"",
+  "text": "These young men power washed my walkway and trash cans today. They were personable and did an excellent job."
+ },
+ {
+  "n": 239,
+  "name": "Peggy Myers",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning our windows and doors\"",
+  "text": "Cooper and his crew did an amazing job cleaning our windows and doors. They were timely, professional, friendly, and we will definitely use them again. I highly recommend this company!"
+ },
+ {
+  "n": 240,
+  "name": "Sue Johns",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "It has been a pleasure to work with this company- they are honest, they do what they say they will do- in fact more than you could expect! Please pass on this recommendation along- I know I am passing this along."
+ },
+ {
+  "n": 241,
+  "name": "Deb Tuttle",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Great group of young men that were prompt and did a beautiful job on my windows and doors. Highly recommend."
+ },
+ {
+  "n": 242,
+  "name": "Harold Lindamood",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "Cooper and his crew Did a great job on our windows. showed up on time. cleaned up after. will use them again."
+ },
+ {
+  "n": 243,
+  "name": "Barbara Zimmer",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Solar Panel Cleaning: \"cleaning my solar panels\"",
+  "text": "They did a great job of cleaning my solar panels yesterday! And it was cold and windy that day. Eager and happy to work."
+ },
+ {
+  "n": 244,
+  "name": "Susan Roberts",
+  "platform": "Nextdoor",
+  "area": "Tucson, Sahuarita & Green Valley area",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing our windows\"",
+  "text": "Wildcat Washers did an excellent job washing our windows. They were very personable and the price was fair."
+ },
+ {
+  "n": 245,
+  "name": "Olga Elbert",
+  "platform": "Nextdoor",
+  "area": "Catalina Foothills & East Tucson area",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"patio doors\"",
+  "text": "Did a great job on all of our windows and patio doors and at a fair price."
+ },
+ {
+  "n": 246,
+  "name": "Victoria Monarrez",
+  "platform": "Nextdoor",
+  "area": "Catalina Foothills & East Tucson area",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"wash our windows\", \"windows and large heavy solar screens washed\" · Solar Screens: \"windows and large heavy solar screens washed\"",
+  "text": "Just had ALL our windows and large heavy solar screens washed by Wildcat Washers. This is not the first time we've hired people to wash our windows and screens but this is the BEST results we've ever had! I don't post reviews unless I am either very very happy or very very not happy… These young men did a fabulous job!!! Joined their membership club and plan to stick with them from now on!"
+ },
+ {
+  "n": 247,
+  "name": "Mary Ann Hanley",
+  "platform": "Nextdoor",
+  "area": "Catalina Foothills & East Tucson area",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Skylights"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Skylights: \"cleaning my windows and skylights\"",
+  "text": "Isaac and Dominic just finished up cleaning my windows and skylights. I could not be happier. They are professional and very kind. Prices are reasonable, too."
+ },
+ {
+  "n": 248,
+  "name": "Linda Shaheen",
+  "platform": "Nextdoor",
+  "area": "Oro Valley, Marana & Northwest Tucson area",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done (not named): Windows",
+  "text": "I was impressed with professionalism, promptness, efficiency, and quality of their work. My windows are spotless."
+ },
+ {
+  "n": 249,
+  "name": "William Ramsey",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screens"
+  ],
+  "serviceLine": "Also done: Windows, Screens",
+  "text": "Great service, timely, attention to detail, crystal clear windows and screens. Second experience was first rate as was the first. Recommended"
+ },
+ {
+  "n": 250,
+  "name": "Alison Svoboda",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "On time and early to our house! Neat and efficient and our windows are crystal clear! This is our 2nd time using Wildcat Washers and we will continue to use them. Last thing, these are really nice young men (in today's case) that are hard working and ambitious. So good to see that entrepreneurial spirit in today's youth!"
+ },
+ {
+  "n": 251,
+  "name": "Matthew Dyck",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Awesome service and very nice people."
+ },
+ {
+  "n": 252,
+  "name": "Michael Lutterbie",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Love this place………..(T.Tok)"
+ },
+ {
+  "n": 253,
+  "name": "Midge Stone",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "These guys are awesome"
+ },
+ {
+  "n": 254,
+  "name": "Dean Ellerman",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Very thorough and complete job, they even took out 5 wasps for me. And great attentiojn to detail!"
+ },
+ {
+  "n": 255,
+  "name": "Dave",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Angel did a great job! He was very nice and answered all of my questions."
+ },
+ {
+  "n": 256,
+  "name": "John Thompson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Excellent work"
+ },
+ {
+  "n": 257,
+  "name": "Carmel Dehn",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaned our windows inside and outside\"",
+  "text": "Kai and Erik, two very polite and professional young men cleaned our windows inside and outside today. We are very pleased with their work and the windows look great. Alaska"
+ },
+ {
+  "n": 258,
+  "name": "Nina Smith",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Awesome work! I don't want to wash my windows anymore. They were very professional, courteous and you could see that they cared about the quality of their work. I have two offices and will be hiring Wildcat Washers to keep our doors and windows spotless. Thank you!"
+ },
+ {
+  "n": 259,
+  "name": "Rick Colt",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Very professional and very thorough."
+ },
+ {
+  "n": 260,
+  "name": "Adiv Johnson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wildcat Washers is a fantastic business that does high-quality work."
+ },
+ {
+  "n": 261,
+  "name": "Jane",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Once again, GREAT SERVICE!!!!! We love and highly encourage everyone to use them!!"
+ },
+ {
+  "n": 262,
+  "name": "Gary Smith",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great service and friendly!"
+ },
+ {
+  "n": 263,
+  "name": "Joan Patko",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Did a great job"
+ },
+ {
+  "n": 264,
+  "name": "Patti White",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great job on the windows. Very friendly and polite young men. Reasonable cost. Definitely will call them again."
+ },
+ {
+  "n": 265,
+  "name": "Angie McCormick",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Solar Panel Cleaning: \"window and solar panel cleaning\"",
+  "text": "Great window and solar panel cleaning. I highly recommend."
+ },
+ {
+  "n": 266,
+  "name": "Bernie Herrgesell",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Friendly, reasonably priced and double check their work before they left, Great job!"
+ },
+ {
+  "n": 267,
+  "name": "Karl Schirmer",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning of my house windows\"",
+  "text": "Excellent, efficient cleaning of my house windows that were very neglected for many years."
+ },
+ {
+  "n": 268,
+  "name": "Joanne Brodsky",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\" · Solar Screens: \"solar screens power washed\"",
+  "text": "Had a great experience with Wild cat window washers did an excellent job on our windows and solar screens power washed highy recommend this company!"
+ },
+ {
+  "n": 269,
+  "name": "Jay Diehl",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows + Screens: \"finished up our windows and screens\"",
+  "text": "Angel and Dom just finished up our windows and screens. Not only did they do an absolutely a superb job, but were two of the nicest young men you could ever meet!"
+ },
+ {
+  "n": 270,
+  "name": "Melanie Morgan",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Solar Panel Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing + Solar Panel Washing: \"washing our windows and solar panels\"",
+  "text": "Wildcat Washers have done an excellent job washing our windows and solar panels. They're always pleasant, professional and respectful. We're happy to give them 5 Stars 🌟!"
+ },
+ {
+  "n": 271,
+  "name": "Nancy Doyle",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job, easy to work with. I will be using them again"
+ },
+ {
+  "n": 272,
+  "name": "James Hudson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Awesome job!. First time users. We are very pleased with the work. Angel came out and finished the job in a little over an hour. Very nice job, very nice man. I highly recommend."
+ },
+ {
+  "n": 273,
+  "name": "Karensa Gordon",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Very nice guys and super clean windows. Even came back to clean a streak that they showed me was on the inside! Amazing service."
+ },
+ {
+  "n": 274,
+  "name": "Judy",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows",
+   "Power Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"finishing my windows\" · Power Washing: \"power washing\"",
+  "text": "From Jose giving a bid and Isaac and Dominic finishing my windows, and power washing, it was a wonderful experience."
+ },
+ {
+  "n": 275,
+  "name": "Claudia Host",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Track Cleaning"
+  ],
+  "alsoDone": [
+   "Windows",
+   "Screens"
+  ],
+  "serviceLine": "Track Cleaning: \"cleaned the window tracks\" · Also done: Windows, Screens",
+  "text": "Our windows and screens haven't been this sparkling clean in years! And these 2 polite employees even cleaned the window tracks. We haven't enjoyed such competent customer service since the 1980's! Highly recommend without hesitation."
+ },
+ {
+  "n": 276,
+  "name": "John Roberts",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"cleaning the widows and screens\"",
+  "text": "Eric and Angel were awesome! They were on time, moved pertinent furniture, did a fabulous job cleaning the widows and screens! I would highly recommend them! 🎉🎊"
+ },
+ {
+  "n": 277,
+  "name": "Thomas Wilding",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Replacement"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"had the windows cleaned\" · Screen Replacement: \"replace three or four screens\"",
+  "text": "We hadn't had the windows cleaned for way too long. They did a fantastic job on cleaning all of them, and they were also able to replace three or four screens that had gotten damaged in hail storm a couple of years ago. They did an overall excellent job, and we signed up for them to come back twice a year!"
+ },
+ {
+  "n": 278,
+  "name": "Tisha Stril",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Isaac was here on time and did an excellent job on all our windows. You can join their Wildcat Club and sign up for 2 or 3 times per year and they will call me to set up the next appointment. One last thing to remember!"
+ },
+ {
+  "n": 279,
+  "name": "Judy M Hogan",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "The crew scheduled us a week out, and did a great job on all our windows. Very friendly, kind and professional service."
+ },
+ {
+  "n": 280,
+  "name": "Joseph Gifford",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"windows REALLY needed cleaned\"",
+  "text": "tremendous care and professionalism. windows REALLY needed cleaned, and they all are, very well. great professional workers!"
+ },
+ {
+  "n": 281,
+  "name": "Andrew Roush",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "These guys are the real deal!"
+ },
+ {
+  "n": 282,
+  "name": "Nan Probst",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "great job friendly service guys! clean and effecient"
+ },
+ {
+  "n": 283,
+  "name": "Lisa Fette",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "I'm really happy. Isaac and Dominic did a fantastic job on my windows!"
+ },
+ {
+  "n": 284,
+  "name": "Sharon Kreis",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Track Cleaning"
+  ],
+  "serviceLine": "Window Washing: \"windows washed\" · Also done: Track Cleaning",
+  "text": "If you need your windows washed wildcat washers is the company to go to. They've done a fabulous job for me. Angel and Kai and Kai worked very well together and got the job done very quickly. Be sure and check them out if you need your windows washed."
+ },
+ {
+  "n": 285,
+  "name": "Donovan Mertz",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Cleaning",
+   "Screen Repair"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my windows\" · Screen Cleaning: \"cleaning my screens\" · Screen Repair: \"fixing my bug screens\"",
+  "text": "The guys did a fantastic job on washing my windows and cleaning my screens and fixing my bug screens that were ripped. Here on time and have great communication skills! Would recommend."
+ },
+ {
+  "n": 286,
+  "name": "Kathleen Stolarski",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Track Cleaning"
+  ],
+  "serviceLine": "Window Washing: \"washing my windows\" · Also done: Track Cleaning",
+  "text": "WILDCAT WASHERS just finished washing my windows and they sparkle. Young men were polite and very efficient. I give them an A ++++++ rating"
+ },
+ {
+  "n": 287,
+  "name": "Dan Ives",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Track Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Track Cleaning + Screen Cleaning: \"cleaning my windows as well as my screens and windows tracks\"",
+  "text": "I called Jose and set up an appointment to have my outside widows cleaned by Wildcat Washers. They arrived on time and were very courteous. They got right to work and did a very fine job of cleaning my windows as well as my screens and windows tracks as well. Very satisfied and will call them again to perform the service again when needed."
+ },
+ {
+  "n": 288,
+  "name": "Walt Stevenson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job. , fast"
+ },
+ {
+  "n": 289,
+  "name": "Jo P",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screens"
+  ],
+  "serviceLine": "Also done: Windows, Screens",
+  "text": "Very fine workers. Prompt and diligent. Couldn't be happier."
+ },
+ {
+  "n": 290,
+  "name": "Fred Jaeckle",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Do a great job, very thorough."
+ },
+ {
+  "n": 291,
+  "name": "Freddy Vega",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Solar Panel Cleaning: \"clean my solar panels\"",
+  "text": "They met me at my house to clean my solar panels. They explained the process, showed me the before and after pics and was very pleased with the job they did. They communicated well and are very polite. Good job 👍🏼"
+ },
+ {
+  "n": 292,
+  "name": "Heidi J",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "Absolutely stellar service! Thorough and professional."
+ },
+ {
+  "n": 293,
+  "name": "JoAnn McBride",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"the outside to be done\", \"the inside done\"",
+  "text": "Excellent job on my windows! Initially I just asked for the outside to be done but they looked so good I wanted the inside done, too. They came right in and took care of it! Im very pleased!!"
+ },
+ {
+  "n": 294,
+  "name": "Becky Black",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"done our windows\"",
+  "text": "They've done our windows now for two years, and we are as satisfied or even more satisfied this year! Although last year they did great too. Thank you, Becky"
+ },
+ {
+  "n": 295,
+  "name": "Ken Watson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They showed up in time, stuck to the price. Hopefully our neighbors will see them working here"
+ },
+ {
+  "n": 296,
+  "name": "Kadi Jensen",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Guys were prompt and very efficient. Great workers and friendly. Definitely will be calling on them again to keep our windows clean."
+ },
+ {
+  "n": 297,
+  "name": "Jim Mullhaupt",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"clean your windows\", \"cleans inside and outside window glass and frames\"",
+  "text": "We highly recommend Wildcat Washer clean your windows. Josiah meticulously cleans inside and outside window glass and frames. You won't be disappointed and the price is well worth the job."
+ },
+ {
+  "n": 298,
+  "name": "Gina Dougherty",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Awesome guys!! Wonderful job, recommend!!"
+ },
+ {
+  "n": 299,
+  "name": "TJ Wilson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They were prompt and did an excellent job, recommend."
+ },
+ {
+  "n": 300,
+  "name": "Mary Eckert",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Excellent work. Everyone was very friendly. Awesome to have clean windows again!"
+ },
+ {
+  "n": 301,
+  "name": "Diane Rankin",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great work done by these two guys! Very friendly and professional."
+ },
+ {
+  "n": 302,
+  "name": "Kristyne Pernau",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens",
+   "Pressure/Power Washing",
+   "Arizona Room"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens, Pressure/Power Washing, Arizona Room",
+  "text": "Very efficient and friendly!"
+ },
+ {
+  "n": 303,
+  "name": "Mark Habegger",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"outside service\"",
+  "text": "Isaac did a great job on the windows. Had the outside service and all great. Both Isaac and Jose very professional young men. Great job!"
+ },
+ {
+  "n": 304,
+  "name": "Jen Meller",
+  "platform": "Google, Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Wildcat Washers did a fantastic job. I was very happy with the entire experience. The team was respectful professional and easy to have in my home. Communication was clear from start to finish and everything went smoothly. The windows look great and I would absolutely use them again and recommend them to others."
+ },
+ {
+  "n": 305,
+  "name": "Karin Sandell",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Very nice young men. Detail oriented. Am happy with my clean windows."
+ },
+ {
+  "n": 306,
+  "name": "SCOTT LOSEY",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great job. Very through. Bery clean windows"
+ },
+ {
+  "n": 307,
+  "name": "Kandy Gies",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "Quick, professional, awesome job!"
+ },
+ {
+  "n": 308,
+  "name": "Carole Paveglio",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"did both of our homes window\"",
+  "text": "Wildcat Washers did both of our homes window today. They were prompt and extremely thorough. I highly recommend this company."
+ },
+ {
+  "n": 309,
+  "name": "Neil Best",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Friendly staff, efficient, and really clean windows now!"
+ },
+ {
+  "n": 310,
+  "name": "Joe Millar",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great Job and excellent price..."
+ },
+ {
+  "n": 311,
+  "name": "Layla Green",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing the inside and outside of our home windows\"",
+  "text": "Wildcat Washers did a wonderful job washing the inside and outside of our home windows! The team was professional - they arrived on time, introduced themselves and set to getting the job done. The quality of the work was excellent. Thank you Wildcat Washers."
+ },
+ {
+  "n": 312,
+  "name": "Ann Gertz",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens",
+   "Pressure/Power Washing",
+   "Arizona Room"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens, Pressure/Power Washing, Arizona Room",
+  "text": "If I could have put six stars I would. They were fantastic. The windows look great!!"
+ },
+ {
+  "n": 313,
+  "name": "Teri Feller",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"windows and sliding glass doors\"",
+  "text": "Wildcat Washers did a fantastic job with our windows and sliding glass doors. Jose explained the pricing for the quote and was very thorough. The crew was FANTASTIC. They are very thorough paying attention to minute details. They also have a 💯% satisfaction guarantee. We highly recommend this company!!"
+ },
+ {
+  "n": 314,
+  "name": "Kenneth Lindeman",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Track Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\" · Track Cleaning: \"cleaned the sills and tracks\"",
+  "text": "Five stars for Wildcat window washers. These wonderful young men came to our house right on time and did an exceptional job on our windows. They cleaned the sills and tracks and left everything very clean. Besides that they were very courteous and a pleasure to have around. Use them, you will not be disappointed!"
+ },
+ {
+  "n": 315,
+  "name": "Big Papi",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "The guys just got done and did a super job. Very detailed and efficient, glad we went with Wildcat Washers, would use them again if needed."
+ },
+ {
+  "n": 316,
+  "name": "Mike Kelly",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They did a great job."
+ },
+ {
+  "n": 317,
+  "name": "Heather Rogers",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "The guys were wonderful! Very thorough, detail oriented, and professional! Their work was worth every penny!"
+ },
+ {
+  "n": 318,
+  "name": "Andrea Drake",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Good job by two handsome young men!"
+ },
+ {
+  "n": 319,
+  "name": "Cathy Mello",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They did an awesome job, highly recommend! They're really friendly and nice."
+ },
+ {
+  "n": 320,
+  "name": "BeckyS",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing my extremely dirty windows inside and out\"",
+  "text": "Both Josiah and KY were very polite and did a great job washing my extremely dirty windows inside and out. More sun is shining in! Highly recommend!"
+ },
+ {
+  "n": 321,
+  "name": "Shirley Hill",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "Great job."
+ },
+ {
+  "n": 322,
+  "name": "kevin ryan",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "Josiah and crew were Excellent. The service crew was on time and very respectful and professional with my property."
+ },
+ {
+  "n": 323,
+  "name": "Ann Gardner",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Window Cleaning: \"window cleaning\" · Also done: Solar/Sun Screens",
+  "text": "Excellent quality workmanship. Very satisfied with the window cleaning. Definitely will use this company yearly."
+ },
+ {
+  "n": 324,
+  "name": "Bob Stephenson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "Excellent job, fast & very reasonably."
+ },
+ {
+  "n": 325,
+  "name": "Julie King",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "On time. Double checked all window. Very polite."
+ },
+ {
+  "n": 326,
+  "name": "Jane Allen",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Wildcat washer did a great job, highly recommended!"
+ },
+ {
+  "n": 327,
+  "name": "Jack Alexander",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Hard working young men. Polite, kind and they do a thorough job. We are pleased with our CLEAN windows!!"
+ },
+ {
+  "n": 328,
+  "name": "Tom Rozwod",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job. Very polite and professional."
+ },
+ {
+  "n": 329,
+  "name": "Thomas Clancy",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Track Cleaning",
+   "Screen Cleaning",
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Track Cleaning: \"the runners for the moving panels\" · Screen Cleaning: \"cleaned the screens\" · Solar Panels: \"solar panels\" · Also done: Windows",
+  "text": "Jose and Angel from WILDCAT WASHERS just left me with absolutely spotless windows and solar panels. They cleaned the screens and the runners for the moving panels,too. I'm very happy with the work and the price."
+ },
+ {
+  "n": 330,
+  "name": "Debra Logan",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning"
+  ],
+  "serviceLine": "Also done: Windows, Track Cleaning",
+  "text": "Excellent cleaning, meticulous work. I will definitely use them again!! And they are really wonderful people!!"
+ },
+ {
+  "n": 331,
+  "name": "Duane Hatfield",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Very thorough. On time. Everything went well."
+ },
+ {
+  "n": 332,
+  "name": "Audrey Atkinson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [
+   "Screens"
+  ],
+  "serviceLine": "Window Cleaning: \"cleaning my windows\" · Also done: Screens",
+  "text": "I've never seen my screens so clean, they did a wonderful job cleaning my windows. I'm very happy. Give them a call!"
+ },
+ {
+  "n": 333,
+  "name": "Pam Weber",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "My windows look fantastic!"
+ },
+ {
+  "n": 334,
+  "name": "cheryl saathoff",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Very professional! Meticulously executed and extremely great to work with!!! 10 stars!!!"
+ },
+ {
+  "n": 335,
+  "name": "William Choat",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Sun Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"windows washed professionally (inside and out)\" · Sun Screens: \"removed the sun screens, power-washed them\"",
+  "text": "We are new to the area and needed to get our windows washed professionally (inside and out). We saw the Wildcat Washers truck in our neighborhood and asked the owner for a quote. Cooper came to our house, gave a bid, and was able to come right after the New Year. He and his crew came on time and did an excellent job. They even removed the sun screens, power-washed them, and made everything look great. We will certainly use them when it's time to get the windows washed again."
+ },
+ {
+  "n": 336,
+  "name": "Barbara Lentz",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job! Easy to work with!"
+ },
+ {
+  "n": 337,
+  "name": "Frederique Wolf",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Track Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Track Cleaning + Screen Cleaning: \"Cleaning the tracks and screen\" · Also done: Windows",
+  "text": "Amazing wonderful results. Cleaning the tracks and screen not just the windows. Marvelous"
+ },
+ {
+  "n": 338,
+  "name": "Janet DallaMura",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "My windows are sparkling. These guys have done a great job thank you and very affordable."
+ },
+ {
+  "n": 339,
+  "name": "Gail Kowalski",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Window Washing: \"window washing\" · Also done: Screen Repair/Replacement",
+  "text": "I am so pleased with the work that was done. They do great window washing!"
+ },
+ {
+  "n": 340,
+  "name": "Kris Murphy",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "These guys are thorough, friendly & professional. They did an excellent job on our windows and made sure they were clean & streak free. Definitely recommend them!"
+ },
+ {
+  "n": 341,
+  "name": "Val M",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"windows cleaned\"",
+  "text": "Wildcat Washers did a great job on our windows today! The guys were personable, efficient and showed attention to detail.If you need your windows cleaned....don't hesitate to call WildCat Washers!"
+ },
+ {
+  "n": 342,
+  "name": "Broni Maranger",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Pressure/Power Washing"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Pressure/Power Washing: \"patio furniture\" · Also done: Windows",
+  "text": "They did a wonderful job on our windows and patio furniture. Very respectful and helpful. Highly recommend them, you won't be disappointed."
+ },
+ {
+  "n": 343,
+  "name": "Cyndi Paulette",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "The guys did a great job and were very nice to do business with! I will use them again and recommend them to others!"
+ },
+ {
+  "n": 344,
+  "name": "Rex Gulbranson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "happy with the job windows look great!"
+ },
+ {
+  "n": 345,
+  "name": "Patricia Kenmore",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Wildcat washers are extremely professional, friendly, and helpful. My windows look amazing! They have never been so clean. Highly recommend!!"
+ },
+ {
+  "n": 346,
+  "name": "Nora braman Knox",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They were fantastic, work really fast very very thorough and did everything that we were expecting. I highly recommend wildcat washers."
+ },
+ {
+  "n": 347,
+  "name": "Jeanne Buell",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Good job"
+ },
+ {
+  "n": 348,
+  "name": "Barbara Doerr",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Super good workers and gentlemen, they did an excellent job! Such nice young men. - Barb Doerr"
+ },
+ {
+  "n": 349,
+  "name": "Susan Fensch",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great job done by all the guys! Will be using Wildcat again."
+ },
+ {
+  "n": 350,
+  "name": "Kevin Holmgren",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Track Cleaning"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Track Cleaning: \"tracks\" · Also done: Windows",
+  "text": "Jose did my neighbor and now he did me with his crew and gave me comfortability of clean windows with no spots cleaned. All the tracks was very professional and I would recommend him to anybody an asset to our community. Thank you"
+ },
+ {
+  "n": 351,
+  "name": "Steve Wells",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Pressure/Power Washing"
+  ],
+  "serviceLine": "Also done: Windows, Pressure/Power Washing",
+  "text": "First time using them. They did an excellent job. Highly recommend."
+ },
+ {
+  "n": 352,
+  "name": "Linda G",
+  "platform": "Google, Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Track Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Track Cleaning + Screen Cleaning: \"clean of our windows, tracks, and screens\"",
+  "text": "Wildcat Washers exceeded my expectations. This is a great group of hardworking young men who did a deep, meticulous clean of our windows, tracks, and screens. We've used two other companies before, but Wildcat Washers was by far the best. We'll definitely be using them again."
+ },
+ {
+  "n": 353,
+  "name": "Thomas Dalsasso",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "The work was completed to what was agreed upon. GREAT JOB!!!!!!!!!!!!!!"
+ },
+ {
+  "n": 354,
+  "name": "Patricia Vincent",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Window Washers\" · Screens: \"screens\"",
+  "text": "Wild Cat Window Washers did an excellent job on our windows and screens today. The young men were very detail-oriented and pleasant to have in our home. We will have them do this chore for us again."
+ },
+ {
+  "n": 355,
+  "name": "Carol Claton",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Track Cleaning",
+   "Screen Cleaning",
+   "Sun Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"window washers\" · Track Cleaning: \"track scrubbers\" · Screen Cleaning: \"screen cleaners\" · Sun Screens: \"power washing sun screens\"",
+  "text": "We just had a GREAT experience with this group of window washers. Window washers, screen cleaners (including power washing sun screens), track scrubbers. Our world is brighter! They are so accommodating; we're super happy. Oh, and on time and out of the way."
+ },
+ {
+  "n": 356,
+  "name": "Teresa Buttelman",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great Job! Windows sparkle. Would recommend them to anyone!"
+ },
+ {
+  "n": 357,
+  "name": "Lavonda Cortez",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Wonderful job. Cooper and Isaac are super professional and so very kind."
+ },
+ {
+  "n": 358,
+  "name": "Lisa Kelley",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Showed up early, got it done quick, everything looks great."
+ },
+ {
+  "n": 359,
+  "name": "sherry bowers",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Nice having the guys go back and double check their work. Good job. Very personable."
+ },
+ {
+  "n": 360,
+  "name": "Dave McQuitty",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"clean our windows\"",
+  "text": "We had Isaac and Josiah clean our windows, they did a great job! 10/10 recommend."
+ },
+ {
+  "n": 361,
+  "name": "Debbie Wilganowski",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Wildcat washers did a fantastic job on my windows. Very pleased. Use them."
+ },
+ {
+  "n": 362,
+  "name": "Barbara Crane",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Track Cleaning",
+   "Screens"
+  ],
+  "serviceLine": "Also done: Windows, Track Cleaning, Screens",
+  "text": "Young guys did a wonderful job on my windows. They showed up on times and were very pleasant. 5 stars will definitely use them again!!"
+ },
+ {
+  "n": 363,
+  "name": "Anne",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Cooper, Jose and the Wildcat Crew was great to work with. They were efficient, thorough, and did an excellent job. I will definitely use their service again, and will confidently recommend Wildcat to friends."
+ },
+ {
+  "n": 364,
+  "name": "chuck laursen",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Sun Screens"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Sun Screens: \"sun screens\" · Also done: Windows",
+  "text": "The team was very prompt and efficient. The windows had several years of dust on them as did the sun screens, but all were excellently cleaned. The staff was very professional, friendly and informative. We would recommend them for all our future window needs."
+ },
+ {
+  "n": 365,
+  "name": "Janet Thompson",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Fantastic job, highly recommend."
+ },
+ {
+  "n": 366,
+  "name": "Bill Vollink",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Nice, hardworking crew. Windows look great."
+ },
+ {
+  "n": 367,
+  "name": "Robert Simon",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "On time, polite and hard working. Great job. No streaks! Recommend this company."
+ },
+ {
+  "n": 368,
+  "name": "Sally Culler",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Windows: \"do my windows inside and out\"",
+  "text": "Today I had the Wildcat Washers do my windows inside and out. They did an extremely professional job and were very polite gentlemen. I highly recommend them to anybody and everybody who wants their windows looking spotless."
+ },
+ {
+  "n": 369,
+  "name": "Rick Fuller",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Good product, good results. Great group of guys"
+ },
+ {
+  "n": 370,
+  "name": "G. Brendle-Lamb",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Patio Cleaning & Sealing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Patio Cleaning & Sealing: \"backyard patio\"",
+  "text": "I am so pleased with this company! They turned my backyard patio into an oasis, and in the most pleasant way. They are responsible, energetic, and mindful. I can recommend these young gentlemen heartily."
+ },
+ {
+  "n": 371,
+  "name": "Dave Maher",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "We were first time users and we were extremely pleased and I like the idea of something isn't right that they will come back. I think five stars says it all! I unequivocally recommend this company. Dave"
+ },
+ {
+  "n": 372,
+  "name": "Robert Pesquera",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Highly recommend these guy very professional and honest priced fairly and completed the services in a timely manner"
+ },
+ {
+  "n": 373,
+  "name": "Steve Garn",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Windows",
+   "Track Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning the windows\" · Windows: \"sliding glass patio doors\" · Track Cleaning: \"cleaning the framework and tracks\"",
+  "text": "We had four windows and two sliding glass patio doors that needed cleaning. The team arrived and did a fantastic job of not only cleaning the windows but also cleaning the framework and tracks. Highly recommend them!!"
+ },
+ {
+  "n": 374,
+  "name": "Jan Howard",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Power Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"window cleaners\" · Power Washing: \"power washings\"",
+  "text": "Above our expectations. Will have them for our window cleaners and power washings."
+ },
+ {
+  "n": 375,
+  "name": "Joleen Detor",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great team of guys, nice work!"
+ },
+ {
+  "n": 376,
+  "name": "Vicky Key",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Pressure Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"windows washed\" · Pressure Washing: \"patio pressure washed\"",
+  "text": "Just had windows washed and patio pressure washed by Wildcat Washers! Young men who did a great job! Very respectful and friendly. I highly suggest you try them."
+ },
+ {
+  "n": 377,
+  "name": "Jonathan",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Solar Panel Cleaning",
+   "Pigeon Proofing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Solar Panel Cleaning + Pigeon Proofing: \"clean and add pigeon proofing to my solar panels\"",
+  "text": "Had them clean and add pigeon proofing to my solar panels. Very efficient and great at answering any questions I had. Overall, a great experience."
+ },
+ {
+  "n": 378,
+  "name": "Maridel Wise",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Pressure Washing",
+   "Arizona Room"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washing the inside and outside of the windows\" · Pressure Washing: \"pressure washing our garage\" · Arizona Room: \"washing our AZ room\"",
+  "text": "They did a great job washing the inside and outside of the windows, pressure washing our garage, and washing our AZ room. They cleaned up afterwards and carefully put everything back in its place. Super happy with the service."
+ },
+ {
+  "n": 379,
+  "name": "Frances Cecil",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Solar Panels"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Solar Panels: \"solar panels\" · Also done: Windows",
+  "text": "Wow! What an experience! Great crew of guys from Wildcat Washers came to our home, & in 3hrs left our windows and solar panels sparkling! Organized, efficient, wonderful experience! We'll have them as our \"go to guys\"! Highly recommend!"
+ },
+ {
+  "n": 380,
+  "name": "linda shreve",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"Windows washed\"",
+  "text": "Windows washed today, Excellent Job"
+ },
+ {
+  "n": 381,
+  "name": "Steve Fangman",
+  "platform": "Google",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"washed all windows inside and out\" · Screens: \"Screens too\"",
+  "text": "Very pleased with this group. On time, careful, and.clean. They washed all windows inside and out. Screens too. Great service. Fair price. Stuck to their bid. No streak guaranteed. Highly recommend."
+ },
+ {
+  "n": 382,
+  "name": "Michel Martin",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Jose and his crew are the BEST - efficient, considerate, honest, excellent results, reasonable and I would be proud to have them as a part of my family ❤️"
+ },
+ {
+  "n": 383,
+  "name": "Sherri Harpoole Jones",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Screens"
+  ],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Screens: \"screens\" · Also done: Windows, Solar/Sun Screens",
+  "text": "Jose and his crew did an amazing job on my windows and screens!!"
+ },
+ {
+  "n": 384,
+  "name": "Sue Woodward",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Very professional crew. Always on time and they do a great job. I highly recommend using Wildcat Washers!"
+ },
+ {
+  "n": 385,
+  "name": "Herb Sue Hausman",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning our windows inside and out\"",
+  "text": "These young men did a fantastic job cleaning our windows inside and out and even let me take time to wash some decorative glass they took down from a high window. The windows look great! Best of all, all three guys were very kind to us!"
+ },
+ {
+  "n": 386,
+  "name": "Gail Ann Lenning-kowalski",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Screen Repair/Replacement"
+  ],
+  "serviceLine": "Also done: Windows, Screen Repair/Replacement",
+  "text": "They were kind and courteous, and work was neat and tidy. It's obvious they take pride in their work! 👍"
+ },
+ {
+  "n": 387,
+  "name": "Pat Daujotas Kelly",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screen Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning + Screen Cleaning: \"Cleaned the screens as well as the windows\"",
+  "text": "Did a great job. Cleaned the screens as well as the windows for a very reasonable price. Really took pride in the work and made sure I was happy with the results."
+ },
+ {
+  "n": 388,
+  "name": "Mark Guizlo",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing",
+   "Screen Replacement"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"windows wash\" · Screen Replacement: \"replace my screen\", \"screen replacement\"",
+  "text": "The crew were great! I had them replace my screen which were 19 yrs old and definitely in need of replacement. The price for screen replacement and windows wash were more than fare. The wife and I couldn't be more satisfied!"
+ },
+ {
+  "n": 389,
+  "name": "Wyatt Works HVAC LLC",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Great Local Small Business, Shop Local, Support Local!!!"
+ },
+ {
+  "n": 390,
+  "name": "Lisa Leslie Stilson",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Screens"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning all my windows, inside and out\" · Screens: \"plus the screens\"",
+  "text": "Wildcat Washers came yesterday and did a great job cleaning all my windows, inside and out, plus the screens. Very professional, courteous and friendly. Even my dog, Elino, highly recommends them!"
+ },
+ {
+  "n": 391,
+  "name": "Mike Archer",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Copper and helper showed up on time and didn't stop working until the job was done. The results were fantastic. We can see again! Though this is a relatively new startup they performed like pros. Well worth the cost."
+ },
+ {
+  "n": 392,
+  "name": "Tina Biegalski Freisleben",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "The guys did a great job and the price was competitive. They were there when they said they would and were very professional. I would recommend them anytime!"
+ },
+ {
+  "n": 393,
+  "name": "Marina Carey",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "This company rocks…dirty windows they are above and beyond. Great price and efficient. Very careful around my belongings!! Thanks"
+ },
+ {
+  "n": 394,
+  "name": "Rosalia J. Coffen",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Solar Panel Cleaning: \"cleaned our solar panels\" · Also done: Windows",
+  "text": "They did a fantastic job, and are great guys. They cleaned our solar panels and the price was super good, we highly recommend them! 👍"
+ },
+ {
+  "n": 395,
+  "name": "Sharon Craig",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "We were very pleased with the job these young men did on all our windows. They were energetic, efficient and very personable. Sensible pricing as well. We highly recommend them and will definitely call on them again."
+ },
+ {
+  "n": 396,
+  "name": "Richard Chamberlin",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [],
+  "serviceLine": "No service named",
+  "text": "Good job. Good price. Good people."
+ },
+ {
+  "n": 397,
+  "name": "Gaston Garey",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "They're college students that work hard, very polite, did a great job on the windows, and very reasonably priced👏"
+ },
+ {
+  "n": 398,
+  "name": "Heather Fobel",
+  "platform": "Facebook",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Washing: \"had my windows washed\"",
+  "text": "I had my windows washed by these polite, motivated, friendly group of young men. They did a fantastic job. I would highly recommend them."
+ },
+ {
+  "n": 399,
+  "name": "Judy W.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Solar Panel Cleaning"
+  ],
+  "alsoDone": [
+   "Screens"
+  ],
+  "serviceLine": "Window Cleaning + Solar Panel Cleaning: \"cleaning our windows and rooftop solar panels\" · Also done: Screens",
+  "text": "Wildcat Washers did a fantastic job cleaning our windows and rooftop solar panels today! Every window is spotless and streak-free. The screens are so clean that they look brand new. The team, Isaac and Josiah, were respectful, professional and personable. It was delightful to meet the representatives of this young local business, and we look forward to inviting them back after Monsoon. Thanks, gentlemen, for a job well done!"
+ },
+ {
+  "n": 400,
+  "name": "Heidi J.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows",
+   "Solar/Sun Screens"
+  ],
+  "serviceLine": "Also done: Windows, Solar/Sun Screens",
+  "text": "They are thorough and professional. They wear uniforms, and arrive in a truck with their business logo."
+ },
+ {
+  "n": 401,
+  "name": "Rhonda S.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [],
+  "alsoDone": [
+   "Windows"
+  ],
+  "serviceLine": "Also done: Windows",
+  "text": "Great group of young people. Respectful, thorough, a review upon completion. Windows look great, will certainly use their services again."
+ },
+ {
+  "n": 402,
+  "name": "Az C.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Windows"
+  ],
+  "alsoDone": [
+   "Screens"
+  ],
+  "serviceLine": "Windows: \"did the windows\" · Also done: Screens",
+  "text": "They did the windows this morning, and we are amazed how much more we can enjoy the outside, even tonight. They were on time, careful of everything around the windows and screens, and extremely accommodating. Our windows are reflecting!"
+ },
+ {
+  "n": 403,
+  "name": "Heidi G.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"cleaning our windows\"",
+  "text": "Wildcat showed up and did a FABULOUS job of cleaning our windows in an efficient, timely manner. I highly recommend their service!"
+ },
+ {
+  "n": 404,
+  "name": "Will H.",
+  "platform": "Yelp",
+  "area": "Location not stated",
+  "detail": "",
+  "services": [
+   "Window Cleaning",
+   "Pressure Washing"
+  ],
+  "alsoDone": [],
+  "serviceLine": "Window Cleaning: \"windows cleaned\" · Pressure Washing: \"exterior pressure washed\"",
+  "text": "Cooper and Jose are incredible hard working young entrepreneurs who embody the values every college student needs. They are honest stand up professionals. If you need windows cleaned or your exterior pressure washed they should be your #1 choice."
+ }
+]

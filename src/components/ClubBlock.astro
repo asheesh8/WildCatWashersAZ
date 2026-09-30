@@ -1,0 +1,96 @@
+---
+import Icon from './Icon.astro';
+import { club } from '@/data/business';
+export interface Props { /** Phones: each point starts as its title; tap to read it (home and window hub). */ collapse?: boolean }
+const { collapse = false } = Astro.props;
+---
+<section class="section" aria-labelledby="club-title">
+  <div class="wrap">
+    <div class="club reveal">
+      <div class="club-copy">
+        <p class="eyebrow">Our recommendation for Tucson</p>
+        <h2 id="club-title" class="h2">{club.name}</h2>
+        <p class="lede">{club.lede}</p>
+        <ul class:list={['club-points', collapse && 'is-collapsible']} role="list">
+          {club.points.map((p) => collapse ? (
+            <li><details open><summary><Icon name="check-circle" size={26} /><strong>{p.title}</strong><span class="club-plus" aria-hidden="true"></span></summary><p>{p.body}</p></details></li>
+          ) : (
+            <li><Icon name="check-circle" size={26} /><div><strong>{p.title}</strong><p>{p.body}</p></div></li>
+          ))}
+        </ul>
+        {collapse && <script is:inline>
+          /* Phones: the three points start as titles; tap one to read it. */
+          (function () {
+            var s = document.currentScript, l = s && s.previousElementSibling;
+            if (!l) return;
+            var phone = matchMedia('(max-width: 759px)').matches;
+            l.querySelectorAll('details').forEach(function (d) {
+              if (phone) d.open = false; else d.querySelector('summary').tabIndex = -1;
+            });
+          })();
+        </script>}
+        <p class="club-note">{club.oneTime}</p>
+        <a class="btn btn-lg btn-blue" href="/wildcat-club/"><span>Join the Wildcat Club</span><span class="chip"><Icon name="arrow" /></span></a>
+      </div>
+      <div class="club-art"><img src="/brand/wildcat-club.webp" alt="The Wildcat Club logo" width="404" height="183" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+<style>
+  .club {
+    display: grid; gap: 2rem; align-items: center; border-radius: calc(var(--radius-lg) + 8px);
+    padding: clamp(1.8rem, 1rem + 4vw, 4.5rem); color: #fff;
+    background: var(--navy) radial-gradient(90% 120% at 100% 100%, rgb(54 198 244 / 30%), transparent 60%);
+    box-shadow: var(--shadow-lg);
+  }
+  @media (min-width: 1000px) { .club { grid-template-columns: 1.4fr 1fr; } }
+  .club .h2 { color: #fff; }
+  .club .eyebrow { color: var(--blue); }
+  .club .lede { color: #d7e3f5; }
+  .club-copy { display: grid; gap: 1.2rem; justify-items: start; }
+  .club-points { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .club-points li { display: grid; grid-template-columns: auto 1fr; gap: .8rem; }
+  .club-points :global(svg) { color: var(--blue); margin-top: .15rem; }
+  .club-points strong { font-family: var(--font-display); font-size: 1.2rem; }
+  .club-points p { color: #cfdaf0; }
+  .club-note { color: #b8c6e3; font-size: 1.02rem; }
+  /* Collapsible points: plain rows on desktop, tap-to-open titles on phones. */
+  .is-collapsible summary { list-style: none; display: grid; grid-template-columns: auto 1fr auto; gap: .8rem; align-items: start; }
+  .is-collapsible summary::-webkit-details-marker { display: none; }
+  .is-collapsible details > p { padding-left: calc(26px + .8rem); }
+  .club-plus { display: none; }
+  .is-collapsible summary:hover { color: inherit; }
+  @media (min-width: 760px) { .is-collapsible summary { pointer-events: none; } }
+  @media (max-width: 759px) {
+    .club-points.is-collapsible { gap: .2rem; }
+    .is-collapsible li { display: block; }
+    .is-collapsible summary { align-items: center; min-height: 48px; cursor: pointer; }
+    .is-collapsible summary :global(svg) { margin-top: 0; }
+    .is-collapsible details > p { padding-bottom: .6rem; }
+    .club-plus { display: block; position: relative; width: 32px; height: 32px; border-radius: 50%; background: rgb(255 255 255 / 12%); }
+    .club-plus::before, .club-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 13px; height: 2.5px; border-radius: 2px; background: #fff; translate: -50% -50%; transition: rotate .25s var(--ease); }
+    .club-plus::after { rotate: 90deg; }
+    details[open] .club-plus { background: var(--blue); }
+    details[open] .club-plus::before, details[open] .club-plus::after { background: var(--navy); }
+    details[open] .club-plus::after { rotate: 0deg; }
+  }
+  @media (prefers-reduced-motion: reduce) { .club-plus::before, .club-plus::after { transition: none; } }
+  .club-art img { width: min(100%, 420px); margin-inline: auto; filter: drop-shadow(0 20px 40px rgb(0 0 0 / 35%)); }
+  @media (max-width: 999px) {
+    .club { grid-template-columns: 1fr auto; }
+    .club-copy { grid-column: 1 / -1; grid-row: 2; }
+    .club-art { grid-column: 2; grid-row: 1; justify-self: end; margin: -.5rem -.5rem -1.5rem 0; }
+    .club-art img { width: 220px; }
+  }
+  @media (max-width: 699px) {
+    .club { gap: 1rem; padding: 1.5rem 1.35rem 1.7rem; border-radius: var(--radius-lg); }
+    .club-copy { gap: 1rem; }
+    .club-points { gap: .8rem; }
+    /* The logo sits in the top corner beside the eyebrow instead of taking its own row. */
+    .club { position: relative; grid-template-columns: 1fr; }
+    .club-copy { grid-row: 1; }
+    .club-copy > .eyebrow { max-width: calc(100% - 96px); min-height: 44px; }
+    .club-art { position: absolute; grid-area: auto; top: 1.2rem; right: .9rem; margin: 0; }
+    .club-art img { width: 92px; }
+  }
+</style>

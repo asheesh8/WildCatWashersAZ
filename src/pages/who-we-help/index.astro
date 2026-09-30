@@ -1,0 +1,26 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import { landingsUnder } from '@/data/landing';
+import { planFor } from '@/data/plan';
+const crumbs = [{ name: 'Who we help', href: '/who-we-help/' }];
+const list = [...landingsUnder('/who-we-help/'), ...landingsUnder('/commercial/')];
+---
+<Base title="Who We Help: Homes, HOAs and Businesses | Wildcat Washers" description="Homeowners, snowbirds, HOAs, property managers, real estate agents, builders, painters and businesses across Greater Tucson. See how we work with each." breadcrumbs={crumbs}>
+  <PageHero eyebrow="Homes, communities and businesses" title="Who We Help" lede="Most of our work is for homeowners. We also work with the people and properties around them, and each one gets its own page below." crumbs={crumbs} rating={false} image="crew-yard-sign-patio" />
+  <section class="section-tight">
+    <div class="wrap">
+      <ul class="topics" role="list">
+        {list.map((l) => <li><a href={l.url}><strong>{planFor(l.url)!.h1}</strong><Icon name="arrow" size={20} /></a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+<style>
+  .topics { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .topics a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 64px; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; background: #fff; box-shadow: var(--shadow-xs); }
+  @media (max-width: 699px) { .topics { gap: .6rem; } .topics a { min-height: 56px; padding: .8rem 1.1rem; } .topics strong { font-size: 1.08rem; } }
+  .topics strong { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); }
+  .topics :global(svg) { flex: none; color: var(--blue-700); }
+</style>

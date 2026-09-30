@@ -1,0 +1,139 @@
+---
+/**
+ * Shared body for sub-service, commercial property-type and audience pages
+ * (plan families "sub-service", "commercial", "audience"). Content comes from
+ * src/data/landing; the H1 and FAQ refs come from the plan row.
+ */
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import type { Landing } from '@/data/landing/types';
+import { planFor } from '@/data/plan';
+import { guideByUrl } from '@/data/guides';
+import { faqRefs, type Faq } from '@/data/faq';
+import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
+import { reviewsForService, pick, hashSeed } from '@/data/reviews';
+import type { ReviewSet } from '@/lib/local';
+import { faqSchema, serviceSchema } from '@/lib/schema';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
+import DepthSections from '@/components/DepthSections.astro';
+import { depthFor, withDepthFaqs } from '@/data/depth';
+import { pendingUrls } from '@/data/areas';
+import { questionTitle, fitDescription } from '@/lib/seo';
+import { heroPools, rotateFrom } from '@/data/media';
+import { landings } from '@/data/landing';
+
+export interface Props { l: Landing; crumbs: { name: string; href: string }[]; eyebrow: string; image?: string; quote?: string }
+const { l, crumbs, eyebrow, image, quote } = Astro.props;
+const row = planFor(l.url)!;
+/* Sibling landing pages rotate through their family's photos. */
+const family = l.url.startsWith('/commercial/') && l.service !== 'solar-panel-cleaning' ? 'commercial' : l.service;
+const siblings = landings.filter((x) => (x.url.startsWith('/commercial/') && x.service !== 'solar-panel-cleaning' ? 'commercial' : x.service) === family).map((x) => x.url);
+const heroImg = image ?? (heroPools[family] ? rotateFrom(heroPools[family], siblings, l.url) : undefined);
+const s = serviceBySlug[l.service];
+/* Depth copy (src/data/depth.ts, round 6) overrides title, meta, hero lede, sections and links when present. */
+const d = depthFor(l.url);
+const allFaqs: Faq[] = withDepthFaqs(faqRefs(row.faq_refs), d);
+/* With depth copy, questions another page owns are shown as links to that page, not reprinted;
+   the full answers (and the FAQPage markup, which Base limits to owned questions) are this page's own. */
+const isShared = (n: number) => Boolean(d) && Boolean(faqOwner(n)) && faqOwner(n) !== l.url;
+const items: Faq[] = allFaqs.filter((f) => !isShared(f.n));
+const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
+const links = ownerLinks(items, l.url);
+const isCommercial = l.url.startsWith('/commercial/');
+/* Commercial pages: no commercial reviews exist, so prefer ones that don't talk about a home. */
+const homey = /\b(home|house|live|neighbou?r|neighborhood|saddlebrooke|preserve|wife|husband|our windows)\b/i;
+const pool = reviewsForService(s.reviewTags);
+const reviewPool = isCommercial && pool.filter((r) => !homey.test(r.text)).length >= 3 ? pool.filter((r) => !homey.test(r.text)) : pool;
+const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewPool, 3, { seed: hashSeed(l.url) }), moreLabel: isCommercial ? 'From customers across Greater Tucson' : `${s.name} reviews from across Greater Tucson`, count: 0 };
+const pending = new Set(pendingUrls);
+const related = (d?.related ?? l.related).filter((h) => h !== l.url && planFor(h) && !pending.has(h)).map((h) => ({ href: h, label: guideByUrl.get(h)?.row.h1 ?? planFor(h)?.h1 ?? h })).slice(0, d?.related ? 8 : 5);
+const title = d?.title ?? questionTitle(row.h1);
+// Phone-first: the hero carries the opening sentence; the rest of the lead opens the body.
+const leadParts = l.lede.split(/(?<=[.!?])\s+(?=[A-Z])/);
+let heroLede = '';
+while (leadParts.length && heroLede.length < 90) heroLede = `${heroLede} ${leadParts.shift()}`.trim();
+const leadRest = d?.answer ? '' : leadParts.join(' ');
+if (d?.answer) heroLede = d.answer;
+const description = d?.meta ?? fitDescription(l.lede);
+const svc = { ...serviceSchema(s, undefined, l.url), name: row.h1 };
+---
+<Base title={title} description={description} breadcrumbs={crumbs} schema={[svc, ...(items.length ? [faqSchema(items)] : [])]} ctaService={s.slug}>
+  <PageHero trust eyebrow={eyebrow} title={row.h1} lede={heroLede} crumbs={crumbs} image={heroImg ?? s.image} ctaHref={quote ?? `/quote/?service=${s.slug}`} />
+  <TrustRow />
+
+  <section class="section">
+    <div class="wrap lp">
+      <div>
+        {leadRest && <p class="lead-rest">{leadRest}</p>}
+        <p class="eyebrow">How it works</p>
+        <ul class="pts" role="list">{l.points.map((p) => <li><Icon name="check-circle" size={22} /><span>{p}</span></li>)}</ul>
+      </div>
+      <aside class="lp-aside reveal">
+        <p class="eyebrow">Straightforward</p>
+        <p>Every job is quoted up front. You don’t pay until you’re happy, and we answer the phone seven days a week.</p>
+        <a class="text-link" href={serviceHref(s.slug)}>More about {s.name.toLowerCase()} <Icon name="arrow" size={20} /></a>
+        <a class="phone-cta" href={telHref} data-track="call-landing"><Icon name="phone" size={22} />{company.phone}</a>
+      </aside>
+    </div>
+  </section>
+
+  {d?.sections ? <DepthSections sections={d.sections} heading="The details" tone="mist" /> : (
+  <section class="section-tight bg-mist">
+    <div class="wrap-narrow body">
+      {l.sections.map((sec) => (
+        <section>
+          <h2 class="h3">{sec.h}</h2>
+          {sec.p.map((t) => <p>{t}</p>)}
+        </section>
+      ))}
+    </div>
+  </section>
+  )}
+
+  <ReviewSetBlock set={set} title={isCommercial ? 'What customers say about our crews' : `${s.name} reviews`} />
+
+  {sharedFaqs.length > 0 && (
+    <section class="section-tight bg-mist">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">More straight answers</h2>
+        <ul class="ans" role="list">{sharedFaqs.map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}</ul>
+      </div>
+    </section>
+  )}
+
+  {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" openFirst={items.length < 4} />}
+
+  {related.length > 0 && (
+    <section class="section-tight">
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">Related</h2>
+        <ul class="chips" role="list">{related.map((r) => <li><a href={r.href}><Icon name="arrow" size={18} />{r.label}</a></li>)}</ul>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  .lead-rest { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 60ch; margin-bottom: 1.8rem; }
+  .lp { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); }
+  @media (min-width: 1000px) { .lp { grid-template-columns: 1.3fr 1fr; align-items: start; } }
+  .pts { list-style: none; padding: 0; display: grid; gap: .8rem; margin-top: .8rem; }
+  .pts li { display: flex; gap: .7rem; align-items: flex-start; font-size: 1.14rem; color: var(--ink-2); }
+  .pts :global(svg) { flex: none; color: var(--blue-700); margin-top: .15rem; }
+  .lp-aside { background: var(--navy) radial-gradient(100% 120% at 100% 0%, rgb(54 198 244 / 22%), transparent 60%); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.2rem); display: grid; gap: .8rem; align-content: start; box-shadow: var(--shadow); }
+  .lp-aside .eyebrow { color: var(--blue); }
+  .lp-aside p:not(.eyebrow) { color: #d7e3f5; font-size: 1.12rem; }
+  .lp-aside .text-link { color: #fff; justify-self: start; }
+  .phone-cta { display: inline-flex; align-items: center; gap: .6rem; color: #fff; font-family: var(--font-display); font-weight: 850; font-size: 1.45rem; text-decoration: none; }
+  .phone-cta :global(svg) { color: var(--blue); }
+  .body { display: grid; gap: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); }
+  .body section { display: grid; gap: .8rem; }
+  .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .ans a { display: grid; height: 100%; min-height: 56px; align-content: center; padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-xs); }
+  .ans a:hover { border-color: var(--blue); }
+  .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
+  .body section p { font-size: 1.14rem; color: var(--ink-2); max-width: 66ch; }
+</style>

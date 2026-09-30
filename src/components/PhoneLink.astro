@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+import { company, telHref } from '@/data/business';
+export interface Props { class?: string; label?: string }
+const { class: cls, label } = Astro.props;
+---
+<a class:list={['phone-link', cls]} href={telHref} data-track="call">
+  <Icon name="phone" />
+  <span>{label ? `${label} ` : ''}{company.phone}</span>
+</a>

@@ -1,0 +1,88 @@
+---
+/** Bento grid of the six services, each a photo card with one plain line. */
+import { Image, getImage } from 'astro:assets';
+import Icon from './Icon.astro';
+import { services, serviceHref } from '@/data/business';
+import { img, altFor, focusFor, bandFor } from '@/data/media';
+export interface Props { exclude?: string; only?: string[] }
+const { exclude, only } = Astro.props;
+const list = services.filter((s) => s.slug !== exclude && (!only || only.includes(s.slug)));
+const bento = list.length === 6;
+/* Phones: the bento's first and last cards are full-width bands (about 2:1), so they get
+   their own 2:1 crop; the rest are half-width tiles. */
+const wide = (i: number) => bento && (i === 0 || i === 5);
+const bandW = [480, 720, 960];
+const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
+  ? Promise.all(bandW.map((w) => getImage({ src: img(s.image), width: w, height: w / 2, fit: 'cover', position: bandFor(s.image), format: 'webp', quality: 66 })))
+      .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))
+  : Promise.resolve('')));
+---
+<ul class:list={['sgrid', bento && 'sgrid-bento']} role="list">
+  {list.map((s, i) => (
+    <li class="scard reveal">
+      <a href={serviceHref(s.slug)}>
+        <picture>
+          {bands[i] && <source media="(max-width: 759px)" type="image/webp" srcset={bands[i]} sizes="calc(100vw - 2rem)" />}
+          <Image src={img(s.image)} alt={altFor(s.image)} widths={[320, 400, 640, 900]} sizes={`(min-width: 1000px) 33vw, (min-width: 640px) 50vw, ${wide(i) ? 'calc(100vw - 2rem)' : 'calc(50vw - 1.4rem)'}`} quality={70} style={`object-position:${focusFor(s.image)}`} />
+        </picture>
+        <span class="scard-body">
+          <span class="scard-num">/{String(i + 1).padStart(2, '0')}</span>
+          <span class="scard-name">{s.name}</span>
+          <span class="scard-line">{s.cardLine}</span>
+          <span class="scard-go" aria-hidden="true"><Icon name="arrow-up-right" size={26} /></span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .sgrid { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  @media (min-width: 1000px) {
+    .sgrid-bento { grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(300px, auto); }
+    .sgrid-bento .scard:nth-child(1) { grid-row: span 2; }
+    .sgrid-bento .scard:nth-child(6) { grid-column: 1 / -1; }
+    .sgrid-bento .scard:nth-child(6) a { min-height: 320px; }
+  }
+  .scard a {
+    position: relative; display: block; height: 100%; min-height: 300px; overflow: hidden;
+    border-radius: var(--radius-lg); color: #fff; text-decoration: none; isolation: isolate;
+    box-shadow: var(--shadow);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .scard a:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .scard a:active { transform: scale(.985); box-shadow: var(--shadow-sm); transition-duration: .08s; }
+  .scard a:focus-visible { outline-offset: 4px; }
+  .scard picture { display: contents; }
+  .scard :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s var(--ease); }
+  .scard a::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(18 24 50 / 0%) 30%, rgb(18 24 50 / 88%) 100%); }
+  .scard a:hover :global(img) { transform: scale(1.05); }
+  .scard-body { position: absolute; inset: auto 0 0; padding: 1.4rem 1.4rem 1.3rem; display: grid; gap: .3rem; }
+  .scard-num { font-family: var(--font-display); font-weight: 800; color: var(--blue); font-size: 1rem; }
+  .scard-name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 1.3rem + .8vw, 2rem); line-height: 1; font-variation-settings: 'wdth' 105; padding-right: 3rem; }
+  .scard-line { font-size: 1.08rem; color: #e3ecf8; max-width: 34ch; }
+  .scard-go {
+    position: absolute; right: 1.1rem; bottom: 1.2rem; width: 50px; height: 50px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--blue); color: var(--navy);
+    transition: transform .3s var(--ease);
+  }
+  .scard a:hover .scard-go { transform: rotate(45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .scard a, .scard :global(img), .scard-go { transition: none; }
+    .scard a:hover, .scard a:active, .scard a:hover :global(img), .scard a:hover .scard-go { transform: none; }
+  }
+  /* Phones: a 2-up grid of photo tiles, a third of the height of full cards. */
+  @media (max-width: 759px) {
+    .sgrid { grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .scard a { min-height: 148px; border-radius: var(--radius); }
+    .scard-body { padding: .9rem; gap: .2rem; }
+    .scard-name { font-size: 1.12rem; padding-right: 0; font-variation-settings: 'wdth' 100; line-height: 1.05; overflow-wrap: break-word; }
+    .scard-line, .scard-go { display: none; }
+    .sgrid-bento .scard:nth-child(1) { grid-column: 1 / -1; }
+    .sgrid-bento .scard:nth-child(1) a { min-height: 196px; }
+    .sgrid-bento .scard:nth-child(1) .scard-name { font-size: 1.5rem; }
+    .sgrid-bento .scard:nth-child(1) .scard-line { display: block; }
+    .sgrid-bento .scard:nth-child(6) { grid-column: 1 / -1; }
+    .sgrid-bento .scard:nth-child(6) a { min-height: 124px; }
+  }
+</style>

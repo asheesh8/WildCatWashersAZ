@@ -1,0 +1,45 @@
+---
+/** Slim mobile bar: Call and Free Quote only (Doc 7: no Text button, less bulk). */
+import Icon from './Icon.astro';
+import { telHref, cta, services } from '@/data/business';
+import { towns } from '@/data/areas';
+/* Free Quote carries the page's context the way the page's own quote button does:
+   the service and town from the URL, plus the page it came from. On the quote page
+   itself it jumps to the form instead of reloading (which would wipe what was typed). */
+const path = Astro.url.pathname.replace(/\/?$/, '/');
+const [, a, b, c] = path.split('/');
+const isSvc = (x?: string) => !!x && services.some((s) => s.slug === x);
+const isTown = (x?: string) => !!x && towns.some((t) => t.slug === x);
+const q = new URLSearchParams();
+if (a === 'services' && isSvc(b)) { q.set('service', b!); if (isTown(c)) q.set('area', c!); }
+else if (a === 'areas' && isTown(b)) q.set('area', b!);
+else if (a === 'commercial') q.set('service', 'commercial');
+if (path !== '/' && !path.startsWith('/404')) q.set('from', path);
+const qs = q.toString();
+const href = path === cta.quoteHref ? '#quote-page-form' : `${cta.quoteHref}${qs ? `?${qs}` : ''}`;
+---
+<nav class="sticky-bar" aria-label="Call or get a quote">
+  <a class="sb-call" href={telHref} data-track="call-sticky"><Icon name="phone" size={22} /><span>Call</span></a>
+  <a class="sb-quote" href={href} data-track="quote-sticky"><span>Free Quote</span><Icon name="arrow" size={22} /></a>
+</nav>
+
+<style>
+  .sticky-bar {
+    position: fixed; z-index: 60; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom));
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 6px; padding: 6px;
+    height: var(--bar-h);
+    background: rgb(255 255 255 / 94%);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(18 24 50 / 10%); border-radius: 999px;
+    box-shadow: 0 14px 34px -12px rgb(18 24 50 / 40%);
+  }
+  .sticky-bar a {
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    border-radius: 999px; text-decoration: none;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.12rem;
+  }
+  .sb-call { color: var(--navy); background: var(--blue-50); }
+  .sb-quote { background: var(--navy); color: #fff; }
+  .sb-quote :global(svg) { color: var(--blue); }
+  @media (min-width: 900px) { .sticky-bar { display: none; } }
+</style>

@@ -1,29 +1,187 @@
 ---
-import { company } from '@/data/business';
+/**
+ * Header. At the top of the page it sits quietly over the content with a big
+ * logo. Once the visitor scrolls, it floats back in as a slim rounded bar
+ * (the "menu bar that appears only after you scroll" Cooper liked), still with
+ * a large logo. No quote button up here on phones: the bottom bar carries
+ * Call + Quote, so a second one would be redundant (Doc 7).
+ */
+import Icon from './Icon.astro';
+import { company, nav, services, telHref, cta } from '@/data/business';
+export interface Props { overlay?: boolean }
+const { overlay = false } = Astro.props;
 const path = Astro.url.pathname;
-const links = [{ label: 'OUR SERVICES', href: '/services/' }, { label: 'THE WILDCAT WAY', href: '/about/' }, { label: 'HAPPY NEIGHBORS', href: '/reviews/' }];
 ---
-<div class="announcement"><span>YOUR FIRST CLEAN? THAT’S 10% OFF.</span><a href="/quote/">LET’S MAKE IT SHINE <span aria-hidden="true">↗</span></a></div>
-<header class="brand-header" id="site-header">
-  <a class="brand-logo" href="/" aria-label="Wildcat Washers home"><img src="/brand/logo-long.svg" alt="Wildcat Washers" width="190" height="64" /></a>
-  <nav class="brand-nav" aria-label="Primary">{links.map(l => <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>)}<a href="/areas/">OUR TURF</a></nav>
-  <a class="header-call" href={`tel:${company.phoneRaw}`}>{company.phone}</a>
-  <a class="header-quote" href="/quote/">FREE QUOTE <span aria-hidden="true">↗</span></a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span><span></span></button>
-  <nav class="brand-mobile-nav" id="mobile-menu" aria-label="Mobile" hidden>{links.map(l => <a href={l.href}>{l.label}<span aria-hidden="true">↗</span></a>)}<a href="/areas/">OUR TURF <span aria-hidden="true">↗</span></a><a href="/quote/">GET A FREE QUOTE <span aria-hidden="true">↗</span></a><a href={`tel:${company.phoneRaw}`}>{company.phone}</a></nav>
+<header class:list={['site-header', overlay && 'is-overlay']} data-header>
+  <div class="bar wrap">
+    <a class="brand" href="/" aria-label={`${company.name} home`}>
+      <img src="/brand/logo-long.webp" alt={company.name} width="380" height="160" fetchpriority="high" />
+    </a>
+
+    <nav class="desk-nav" aria-label="Main">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a class="head-phone" href={telHref} data-track="call-header">
+        <span class="head-phone-icon"><Icon name="phone" size={20} /></span>
+        <span class="head-phone-text"><small>Open 7 days a week</small>{company.phone}</span>
+      </a>
+      <a class="head-quote" href={cta.quoteHref}>Free Quote</a>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-haspopup="dialog" data-menu-open>
+        <Icon name="menu" size={28} />
+      </button>
+    </div>
+  </div>
 </header>
-<script>
- const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
- const menu = document.querySelector<HTMLElement>('#mobile-menu');
- const header = document.querySelector<HTMLElement>('.brand-header');
- if(document.querySelector('.wash-world') && header) {
-  const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 45);
-  updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
- }
- const closeMenu = () => { if(menuButton && menu) { menuButton.setAttribute('aria-expanded','false'); menuButton.setAttribute('aria-label','Open navigation'); menu.hidden = true; }};
- menuButton?.addEventListener('click', () => { if(!menu) return; const open = menuButton.getAttribute('aria-expanded') !== 'true'; menuButton.setAttribute('aria-expanded',String(open)); menuButton.setAttribute('aria-label',open ? 'Close navigation' : 'Open navigation'); menu.hidden = !open; });
- document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu && !menu.hidden) { closeMenu(); menuButton?.focus(); } });
- document.addEventListener('click', e => { if(e.target instanceof Node && !document.querySelector('.brand-header')?.contains(e.target)) closeMenu(); });
- matchMedia('(min-width: 1061px)').addEventListener('change', e => { if(e.matches) closeMenu(); });
+
+<dialog class="menu" data-menu aria-label="Menu">
+  <div class="menu-inner">
+    <div class="menu-top">
+      <img src="/brand/logo-long.webp" alt="" width="380" height="160" loading="lazy" />
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close><Icon name="close" size={30} /></button>
+    </div>
+    <nav aria-label="Menu">
+      <p class="menu-label">Services</p>
+      <ul class="menu-services">
+        {services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.name}</a></li>)}
+      </ul>
+      <p class="menu-label">Wildcat Washers</p>
+      <ul class="menu-links">
+        {nav.filter((n) => n.label !== 'Services').map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href="/guarantee/">Guarantees</a></li>
+        <li><a href="/how-it-works/">How it works</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="menu-cta">
+      <a class="btn btn-blue btn-lg btn-block" href={cta.quoteHref}><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></a>
+      <a class="phone-link" href={telHref}><Icon name="phone" /><span>{company.phone}</span></a>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .site-header {
+    position: relative; z-index: 50;
+    height: var(--header-h);
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header.is-overlay { position: absolute; inset: 0 0 auto; background: transparent; border: 0; }
+  .bar { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { flex-shrink: 0; }
+  .brand img { height: 78px; width: auto; max-width: none; flex-shrink: 0; }
+  @media (min-width: 900px) { .brand img { height: 88px; } }
+
+  /* Floating state after scroll */
+  .site-header.is-floating {
+    position: fixed; inset: 10px 0 auto; height: auto; background: transparent; border: 0;
+    animation: drop .45s var(--ease) both;
+  }
+  .site-header.is-floating .bar {
+    height: 90px; padding: 0 .6rem 0 .8rem;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-radius: 999px; border: 1px solid rgb(18 24 50 / 8%);
+    box-shadow: 0 12px 30px -12px rgb(18 24 50 / 30%);
+  }
+  .site-header.is-floating .brand img { height: 74px; }
+  .site-header.is-hidden { transform: translateY(-140%); transition: transform .35s var(--ease); }
+  @keyframes drop { from { transform: translateY(-120%); } to { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .site-header.is-floating { animation: none; } }
+
+  .desk-nav { display: none; }
+  .desk-nav ul { list-style: none; padding: 0; display: flex; gap: .2rem; }
+  .desk-nav a {
+    display: block; min-width: 44px; text-align: center; padding: .6rem .8rem; border-radius: 999px;
+    font-weight: 700; font-size: 1.02rem; text-decoration: none; color: var(--navy);
+  }
+  .desk-nav a:hover, .desk-nav a[aria-current] { background: var(--blue-50); }
+  .is-overlay:not(.is-floating) .desk-nav a,
+  .is-overlay:not(.is-floating) .head-phone { color: #fff; }
+  .is-overlay:not(.is-floating) .head-phone-text small { color: rgb(255 255 255 / 80%); }
+  .is-overlay:not(.is-floating) .desk-nav a:hover { background: rgb(255 255 255 / 18%); }
+  .is-overlay:not(.is-floating) .menu-btn { background: #fff; color: var(--navy); }
+
+  .actions { display: flex; align-items: center; gap: .5rem; }
+  .head-phone { display: none; align-items: center; gap: .6rem; text-decoration: none; color: var(--navy); }
+  .head-phone-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: var(--navy); }
+  .head-phone-text { display: grid; line-height: 1.1; font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
+  .head-phone-text small { font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--ink-3); letter-spacing: .02em; }
+  .head-quote { display: none; }
+  .menu-btn {
+    display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
+    border: 0; background: var(--navy); color: #fff;
+  }
+
+  @media (min-width: 1100px) {
+    .desk-nav { display: block; }
+    .head-phone { display: inline-flex; }
+    .head-quote {
+      display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.2rem; border-radius: 999px;
+      background: var(--red); color: #fff; text-decoration: none; font-family: var(--font-display); font-weight: 800;
+    }
+    .menu-btn { display: none; }
+  }
+  @media (min-width: 640px) and (max-width: 1099px) { .head-phone { display: inline-flex; } .head-phone-text small { display: none; } }
+  /* Seven menu links on a laptop: nothing wraps, and until there's room the phone shows as its round icon
+     (the number stays in the link for screen readers, and the bar at the foot of phones has it too). */
+  .desk-nav a, .head-quote, .head-phone-text { white-space: nowrap; }
+  @media (min-width: 1100px) and (max-width: 1319px) {
+    .desk-nav a { padding-inline: .65rem; }
+    .head-phone-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  }
+  @media (min-width: 1100px) and (max-width: 1199px) { .desk-nav a { padding-inline: .45rem; font-size: 1rem; } .bar { gap: .6rem; } }
+
+  /* Menu sheet */
+  .menu {
+    width: 100%; max-width: 520px; height: 100dvh; max-height: none; margin: 0 0 0 auto;
+    border: 0; padding: 0; background: #fff; color: var(--navy);
+  }
+  .menu::backdrop { background: rgb(18 24 50 / 55%); backdrop-filter: blur(3px); }
+  .menu[open] { animation: slide .35s var(--ease); }
+  @keyframes slide { from { transform: translateX(40px); opacity: 0; } }
+  .menu-inner { min-height: 100%; display: flex; flex-direction: column; padding: 1rem 1.25rem 2rem; gap: 1.2rem; }
+  .menu-top { display: flex; align-items: center; justify-content: space-between; }
+  .menu-top img { height: 70px; width: auto; }
+  .menu-close { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--line); background: #fff; display: grid; place-items: center; color: var(--navy); }
+  .menu-label { font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 1rem; color: var(--blue-700); margin: .6rem 0 .3rem; }
+  .menu ul { list-style: none; padding: 0; }
+  .menu-services a {
+    display: block; padding: .55rem 0; text-decoration: none;
+    font-family: var(--font-display); font-weight: 850; font-size: 1.6rem; text-transform: uppercase; line-height: 1.05;
+    font-variation-settings: 'wdth' 100;
+  }
+  .menu-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+  .menu-links a { display: block; min-width: 44px; min-height: 44px; padding: .55rem 0; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+  .menu-cta { margin-top: auto; display: grid; gap: .8rem; justify-items: center; }
+</style>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector('[data-header]');
+    const menu = document.querySelector('[data-menu]');
+    document.querySelector('[data-menu-open]')?.addEventListener('click', () => menu.showModal());
+    document.querySelector('[data-menu-close]')?.addEventListener('click', () => menu.close());
+    menu?.addEventListener('click', (e) => { if (e.target === menu) menu.close(); });
+
+    // Float in after the visitor starts scrolling; tuck away while reading down,
+    // come back on the first scroll up.
+    let last = 0, ticking = false;
+    const threshold = 180;
+    const update = () => {
+      const y = window.scrollY;
+      const float = y > threshold;
+      header.classList.toggle('is-floating', float);
+      header.classList.toggle('is-hidden', float && y > last + 4 && y > 600);
+      last = y; ticking = false;
+    };
+    addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+    update();
+  })();
 </script>

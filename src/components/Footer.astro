@@ -1,9 +1,146 @@
 ---
-import { company } from '@/data/business';
+/**
+ * Footer. Navy, calm, everything a 55+ reader looks for (phone, hours, areas,
+ * guarantees), finished with the oversized embroidery "WILDCAT WASHERS"
+ * wordmark (droplet in the D, no star) in light blue, the one part of the old
+ * site Cooper asked to keep as-is (Doc 7).
+ */
+import Icon from './Icon.astro';
+import { company, telHref, services, awards, cta } from '@/data/business';
+import { towns, townHref } from '@/data/areas';
 const year = new Date().getFullYear();
+const topTowns = towns.filter((t) => t.tier === 1 || t.tier === 2).slice(0, 10);
+const badges = awards.filter((a) => a.badge);
 ---
-<footer class="wild-footer">
- <div class="wild-footer-top"><div class="footer-brand"><img src="/brand/logo-long-outline.svg" alt="Wildcat Washers" width="225" height="85" loading="lazy"/><p>GOOD PEOPLE.<br/>SPOTLESS WORK.</p></div><nav aria-label="Explore"><h3>TAKE A LOOK AROUND</h3><a href="/services/">Our services</a><a href="/about/">The Wildcat way</a><a href="/reviews/">Happy neighbors</a><a href="/areas/">Our turf</a></nav><nav aria-label="Helpful links"><h3>THE GOOD STUFF</h3><a href="/residential/">For your home</a><a href="/commercial/">For your business</a><a href="/guarantee/">Our guarantee</a><a href="/faq/">Your questions, answered</a></nav><div class="footer-contact"><h3>GIVE US A SHOUT</h3><a class="footer-tel" href={`tel:${company.phoneRaw}`}>{company.phone}</a><a href={`mailto:${company.email}`}>{company.email}</a><p>Greater Tucson, Arizona<br/>Locally owned. Licensed &amp; insured.</p><a class="underlined-link" href="/quote/">GET A FREE QUOTE <span aria-hidden="true">↗</span></a></div></div>
- <a class="footer-bigtype" href="/" aria-label="Wildcat Washers home">WILDCAT<span aria-hidden="true">✳</span></a>
- <div class="footer-bottom"><p>© {year} WILDCAT WASHERS. ALL RIGHTS RESERVED.</p><span>TUCSON RAISED. WILDCAT CLEAN.</span><nav aria-label="Legal"><a href="/privacy/">PRIVACY</a><a href="/contact/">CONTACT</a><a href="/sitemap-index.xml">SITEMAP</a></nav><a href="#main">BACK TO TOP ↑</a></div>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="/brand/logo-long-outline.webp" alt={company.name} width="380" height="160" loading="lazy" class="foot-logo" />
+      <p class="foot-tag">{company.tagline}</p>
+      <a class="foot-phone" href={telHref} data-track="call-footer"><Icon name="phone" size={26} />{company.phone}</a>
+      <ul class="foot-facts">
+        <li><Icon name="clock" size={20} />{company.availability}</li>
+        <li><Icon name="mail" size={20} /><a href={`mailto:${company.email}`}>{company.email}</a></li>
+        <li><Icon name="pin" size={20} /><span>{company.address.street}<br />{company.address.city}, {company.address.state} {company.address.zip}</span></li>
+      </ul>
+    </div>
+
+    <nav class="foot-col" aria-label="Services">
+      <details open data-foot>
+      <summary class="foot-head">Services<Icon name="plus" size={20} class="foot-plus" /></summary>
+      <ul>
+        {services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.name}</a></li>)}
+        <li><a href="/wildcat-club/">The Wildcat Club</a></li>
+        <li><a href="/commercial/">Commercial</a></li>
+      </ul>
+      </details>
+    </nav>
+
+    <nav class="foot-col" aria-label="Areas we serve">
+      <details open data-foot>
+      <summary class="foot-head">Areas<Icon name="plus" size={20} class="foot-plus" /></summary>
+      <ul>
+        {topTowns.map((t) => <li><a href={townHref(t.slug)}>{t.name}</a></li>)}
+        <li><a href="/areas/">All areas</a></li>
+      </ul>
+      </details>
+    </nav>
+
+    <nav class="foot-col" aria-label="Company">
+      <details open data-foot>
+      <summary class="foot-head">Company<Icon name="plus" size={20} class="foot-plus" /></summary>
+      <ul>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+        <li><a href="/awards/">Awards</a></li>
+        <li><a href="/guarantee/">Our guarantees</a></li>
+        <li><a href="/how-it-works/">How it works</a></li>
+        <li><a href="/wash-it-forward/">Wash It Forward</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/guides/">Answers and guides</a></li>
+        <li><a href={cta.quoteHref}>Free quote</a></li>
+      </ul>
+      </details>
+    </nav>
+  </div>
+
+  <script is:inline>
+    // Phones: the three link lists fold into tap-to-open rows, so the footer
+    // isn't two and a half screens long. Without JS they stay open.
+    if (matchMedia('(max-width: 699px)').matches) document.querySelectorAll('[data-foot]').forEach((d) => { d.open = false; });
+  </script>
+
+  <div class="wrap foot-badges">
+    {badges.map((a) => <img src={a.badge!} alt={`${a.issuer} ${a.title}${a.year ? ` ${a.year}` : ''}`} loading="lazy" height="72" width="72" />)}
+  </div>
+
+  <div class="wordmark" role="img" aria-label="Wildcat Washers"></div>
+
+  <div class="wrap foot-legal">
+    <p>© {year} {company.legalName}. Licensed and fully insured. {company.serviceAreaStatement}.</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="/sitemap-index.xml">Sitemap</a></p>
+  </div>
 </footer>
+
+<style>
+  .site-footer { background: var(--navy); color: #cfdaf0; padding-top: clamp(3.5rem, 3rem + 3vw, 6rem); overflow: hidden; }
+  .foot-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1040px) { .foot-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; } }
+  .foot-logo { height: 76px; width: auto; }
+  .foot-tag { font-family: var(--font-script); color: var(--blue); font-size: 1.8rem; margin: .6rem 0 1.2rem; transform: rotate(-2deg); transform-origin: left; }
+  .foot-phone {
+    display: inline-flex; align-items: center; gap: .7rem; color: #fff; text-decoration: none;
+    font-family: var(--font-display); font-weight: 850; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem);
+    font-variation-settings: 'wdth' 110;
+  }
+  .foot-phone :global(svg) { color: var(--blue); }
+  .foot-facts { list-style: none; padding: 0; margin-top: 1.2rem; display: grid; gap: .7rem; }
+  .foot-facts li { display: flex; gap: .7rem; align-items: flex-start; }
+  .foot-facts :global(svg) { color: var(--blue); flex: none; margin-top: .25rem; }
+  .foot-facts a { color: inherit; }
+  .foot-head { font-family: var(--font-display); font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; margin-bottom: .8rem; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .foot-head::-webkit-details-marker { display: none; }
+  .foot-head :global(.foot-plus) { display: none; }
+  @media (min-width: 700px) { .foot-head { pointer-events: none; } }
+  .foot-col ul { list-style: none; padding: 0; display: grid; gap: .15rem; }
+  .foot-col a { color: #cfdaf0; text-decoration: none; display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; padding: .3rem 0; }
+  .foot-col a { transition: color .2s, transform .25s var(--ease); }
+  .foot-col a:hover { color: #fff; text-decoration: underline; text-decoration-color: var(--blue); transform: translateX(3px); }
+  .foot-badges img { transition: transform .3s var(--ease); }
+  .foot-badges img:hover { transform: translateY(-3px) rotate(-2deg); }
+  @media (prefers-reduced-motion: reduce) { .foot-col a, .foot-badges img { transition: none; transform: none !important; } }
+  .foot-badges { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgb(255 255 255 / 12%); }
+  .foot-badges img { height: 72px; width: auto; object-fit: contain; background: #fff; border-radius: 14px; padding: 6px; }
+  .wordmark {
+    width: min(100% - 2 * var(--gutter), 1500px); margin: clamp(2.5rem, 2rem + 3vw, 5rem) auto 0;
+    aspect-ratio: 2769 / 802;
+    background: linear-gradient(180deg, var(--blue) 0%, #7fdcf9 100%);
+    -webkit-mask: url('/brand/wordmark-embroidery.webp') center / contain no-repeat;
+    mask: url('/brand/wordmark-embroidery.webp') center / contain no-repeat;
+  }
+  .foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 2rem; padding: 1.6rem 0 2rem; font-size: 1rem; color: #9fb0cf; }
+  .foot-legal a { color: inherit; }
+  @media (max-width: 699px) {
+    .foot-grid { grid-template-columns: 1fr; gap: 0; }
+    .foot-brand { margin-bottom: 1.6rem; }
+    .foot-col { border-top: 1px solid rgb(255 255 255 / 14%); }
+    .foot-col:last-child { border-bottom: 1px solid rgb(255 255 255 / 14%); }
+    .foot-head { min-height: 56px; margin: 0; cursor: pointer; font-size: 1.05rem; }
+    .foot-head :global(.foot-plus) { display: block; color: var(--blue); transition: rotate .25s var(--ease); }
+    details[open] > .foot-head :global(.foot-plus) { rotate: 45deg; }
+    .foot-col ul { grid-template-columns: 1fr 1fr; gap: 0 1rem; padding-bottom: 1rem; }
+    .foot-badges { margin-top: 2rem; }
+    .foot-badges { flex-wrap: nowrap; gap: .5rem; }
+    .foot-badges img { height: auto; width: calc((100% - 2rem) / 5); min-width: 0; aspect-ratio: 1; padding: 4px; border-radius: 10px; }
+    /* Tighter phone rhythm: same content, less navy to scroll through. */
+    .site-footer { padding-top: 2.6rem; }
+    .foot-logo { height: 64px; }
+    .foot-tag { margin: .4rem 0 .9rem; }
+    .foot-facts { margin-top: .9rem; gap: .5rem; }
+    .foot-brand { margin-bottom: 1.2rem; }
+    .foot-badges { margin-top: 1.6rem; padding-top: 1.4rem; }
+    .wordmark { margin-top: 1.6rem; }
+    .foot-legal { padding: 1.1rem 0 1.4rem; }
+  }
+</style>

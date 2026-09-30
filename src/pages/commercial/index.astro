@@ -1,0 +1,56 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import WhyGrid from '@/components/WhyGrid.astro';
+import FaqList from '@/components/FaqList.astro';
+import { arroyoGardens } from '@/data/reviews';
+import { proof } from '@/data/business';
+import { faqList } from '@/data/faq';
+import { h1For, planFor } from '@/data/plan';
+import Icon from '@/components/Icon.astro';
+import { landings } from '@/data/landing';
+import { faqSchema } from '@/lib/schema';
+/* Every commercial property-type page, linked from its hub. */
+const typePages = landings.filter((l) => l.url.startsWith('/commercial/') && planFor(l.url)).map((l) => ({ href: l.url, label: planFor(l.url)!.h1 }));
+const crumbs = [{ name: 'Commercial', href: '/commercial/' }];
+const faqs = faqList([189, 190, 191, 193, 194, 195, 196, 197, 199, 68]);
+const who = [
+  { title: 'Storefronts and offices', body: 'Glass that customers see first, cleaned before open, after close or on weekends.', href: '/commercial/storefronts-retail/' },
+  { title: 'Senior living', body: 'Large buildings cleaned carefully and on schedule, with residents in mind.', href: '/who-we-help/senior-living/' },
+  { title: 'HOAs and clubhouses', body: 'Clubhouses, common areas, leasing offices and community facilities on a recurring schedule.', href: '/who-we-help/hoas-communities/' },
+  { title: 'Property managers', body: 'Multi-property portfolios on a single schedule with one point of contact.', href: '/who-we-help/property-managers/' },
+  { title: 'Real estate agents', body: `Listing prep and pre-sale cleaning. ${proof.agentRebook}`, href: '/who-we-help/real-estate-agents/' },
+  { title: 'Commercial solar', body: 'Rooftop and ground-mount arrays, cleaned with panel-safe methods.', href: '/commercial/commercial-solar/' },
+];
+---
+<Base title="Commercial Window Cleaning Tucson | Wildcat Washers" description="Commercial window cleaning, solar and pressure washing for storefronts, offices, senior living, HOAs and property managers across Greater Tucson." breadcrumbs={crumbs} schema={[faqSchema(faqs)]} ctaService="commercial">
+  <PageHero trust eyebrow="For businesses, HOAs and property managers" title={h1For('/commercial/', 'Commercial Window Cleaning and Exterior Services')} lede="We handle window washing for local businesses across a wide range of industries. Before open, after close or weekends, seven days a week, with insurance paperwork ready before we start." crumbs={crumbs} image="fire-station-windows" ctaLabel="Get a Commercial Quote" ctaHref="/quote/?service=commercial" />
+  <TrustRow />
+  <section class="section">
+    <div class="wrap">
+      <figure class="inst reveal">
+        <p class="eyebrow">Senior living, Green Valley</p>
+        <blockquote><p>“{arroyoGardens.quote}”</p></blockquote>
+        <figcaption><strong>{arroyoGardens.name}</strong><span>{arroyoGardens.role}</span></figcaption>
+      </figure>
+    </div>
+  </section>
+  <WhyGrid eyebrow="Who we work with" title="Built for properties that need to look right" items={who} tone="mist" />
+  <section class="section-tight">
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">Commercial work by property type</h2>
+      <ul class="chips" role="list">{typePages.map((t) => <li><a href={t.href}><Icon name="arrow" size={18} />{t.label}</a></li>)}</ul>
+    </div>
+  </section>
+  <FaqList items={faqs} title="Commercial questions" />
+</Base>
+<style>
+  .inst { background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: clamp(1.8rem, 1rem + 4vw, 4rem); display: grid; gap: 1.2rem; }
+  .inst .eyebrow { color: var(--blue); }
+  .inst p:not(.eyebrow) { font-size: var(--step-2); line-height: 1.35; font-family: var(--font-display); font-weight: 700; }
+  @media (max-width: 699px) { .inst p:not(.eyebrow) { font-size: 1.2rem; line-height: 1.5; } }
+  .inst figcaption { display: grid; }
+  .inst strong { color: var(--blue); font-family: var(--font-display); font-size: 1.2rem; }
+  .inst span { color: #cfdaf0; }
+</style>

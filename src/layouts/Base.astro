@@ -1,11 +1,17 @@
 ---
 import '@/styles/global.css';
-import '@/styles/brand.css';
-import '@/styles/immersive.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import StickyCTA from '@/components/StickyCTA.astro';
-import { company } from '@/data/business';
+import StickyBar from '@/components/StickyBar.astro';
+import CtaShine from '@/components/CtaShine.astro';
+import { company, services } from '@/data/business';
+import { towns } from '@/data/areas';
+import { faqs } from '@/data/faq';
+import { ownsFaq } from '@/lib/faqOwner';
+import { getImage } from 'astro:assets';
+import { img } from '@/data/media';
+import archivo from '@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url';
+import figtree from '@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url';
 
 export interface Props {
   title: string;
@@ -14,22 +20,26 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
-  /** Extra JSON-LD nodes to merge into the page graph. */
+  /** Extra JSON-LD nodes merged into the page graph. */
   schema?: Record<string, any>[];
   breadcrumbs?: { name: string; href: string }[];
+  /** Header floats over a full-bleed hero (homepage). */
+  overlay?: boolean;
+  /** Hide the closing "Let's make your place shine" band (quote page). */
+  hideCta?: boolean;
+  ctaService?: string;
+  ctaArea?: string;
+  ctaPlace?: string;
 }
 
 const {
-  title,
-  description,
-  canonical = Astro.url.pathname,
-  ogImage = '/og-default.jpg',
-  noindex = false,
-  schema = [],
-  breadcrumbs = [],
+  title, description, canonical = Astro.url.pathname, ogImage = '/og-default.jpg',
+  noindex = false, schema = [], breadcrumbs = [], overlay = false, hideCta = false, ctaService, ctaArea, ctaPlace,
 } = Astro.props;
 
 const site = company.url;
+/* Business image: a crew photo (the logo stays as logo). */
+const crewPhoto = await getImage({ src: img('crew-chamber-of-commerce'), width: 1200, format: 'jpg', quality: 72 });
 const canonicalUrl = new URL(canonical, site).href;
 const ogUrl = new URL(ogImage, site).href;
 
@@ -38,67 +48,72 @@ const localBusiness = {
   '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': `${site}/#business`,
   name: company.name,
+  legalName: company.legalName,
   description: company.shortDescription,
   slogan: company.tagline,
   url: site,
   telephone: company.phoneRaw,
   email: company.email,
-  image: `${site}/brand/logo-stacked.svg`,
-  logo: `${site}/brand/logo-stacked.svg`,
-  priceRange: '$$',
+  image: `${site}${crewPhoto.src}`,
+  logo: `${site}/brand/logo-stacked.webp`,
+  foundingDate: String(company.founded),
   address: {
     '@type': 'PostalAddress',
-    addressLocality: company.city,
-    addressRegion: company.state,
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    addressRegion: company.address.state,
+    postalCode: company.address.zip,
     addressCountry: 'US',
   },
   geo: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng },
-  areaServed: { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lng }, geoRadius: company.serviceRadiusM },
+  /* Doc 1: seven days a week, any hour; Ashish OK'd showing 24/7 on 2026-09-29. */
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' }],
+  areaServed: towns.map((t) => ({ '@type': 'Place', name: `${t.name === 'Vail AZ' ? 'Vail' : t.name}, AZ` })),
   founder: company.founders.map((n) => ({ '@type': 'Person', name: n })),
   sameAs: Object.values(company.social).filter(Boolean),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Exterior cleaning services',
+    itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.name, url: `${site}/services/${s.slug}/` } })),
+  },
 };
 
-const website = {
-  '@type': 'WebSite',
-  '@id': `${site}/#website`,
-  url: site,
-  name: company.name,
-  publisher: { '@id': `${site}/#business` },
-};
+const website = { '@type': 'WebSite', '@id': `${site}/#website`, url: site, name: company.name, publisher: { '@id': `${site}/#business` } };
 
-const breadcrumbNode =
-  breadcrumbs.length > 0
-    ? [
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((b, i) => ({
-            '@type': 'ListItem',
-            position: i + 1,
-            name: b.name,
-            item: new URL(b.href, site).href,
-          })),
-        },
-      ]
-    : [];
+const breadcrumbNode = breadcrumbs.length
+  ? [{
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'Home', href: '/' }, ...breadcrumbs].map((b, i) => ({
+        '@type': 'ListItem', position: i + 1, name: b.name, item: new URL(b.href, site).href,
+      })),
+    }]
+  : [];
 
-const graph = {
-  '@context': 'https://schema.org',
-  '@graph': [localBusiness, website, ...breadcrumbNode, ...schema],
-};
+/* FAQ markup only for questions this page owns (one owner per question, site-wide). */
+const path = Astro.url.pathname;
+const faqText = new Map(faqs.map((f) => [f.q, f.n]));
+const ownedSchema = schema
+  .map((node) => {
+    if (node?.['@type'] !== 'FAQPage') return node;
+    const mainEntity = node.mainEntity.filter((q: { name: string }) => { const n = faqText.get(q.name); return n !== undefined && ownsFaq(n, path); });
+    return mainEntity.length ? { ...node, mainEntity } : null;
+  })
+  .filter(Boolean);
+const graph = { '@context': 'https://schema.org', '@graph': [localBusiness, website, ...breadcrumbNode, ...ownedSchema] };
+/* Escape "<" so no string in the data can close the script tag. */
+const graphJson = JSON.stringify(graph).replace(/</g, '\\u003c');
+const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PROVIDER === 'netlify';
 ---
-
 <!doctype html>
-<html lang="en-US" data-netlify={process.env.NETLIFY === "true" || import.meta.env.PUBLIC_FORM_PROVIDER === "netlify" ? "true" : undefined}>
+<html lang="en-US" data-netlify={netlify ? 'true' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
-
-    <meta name="theme-color" content="#121832" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
+    <meta name="theme-color" content="#36c6f4" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="geo.region" content="US-AZ" />
     <meta name="geo.placename" content="Tucson, Arizona" />
@@ -111,60 +126,201 @@ const graph = {
     <meta property="og:image" content={ogUrl} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogUrl} />
 
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Chivo:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Figtree:wght@400;500;600;700;800&display=swap"
-    />
-
-    <script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />
+    <link rel="preload" href={archivo} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={figtree} as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json" set:html={graphJson} is:inline />
   </head>
 
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    {/* Pages can push a full-bleed element above the navigation — the homepage
-        puts its film here, so the header sits beneath it and sticks on scroll. */}
-    <slot name="above-header" />
-    <Header />
+    <Header overlay={overlay} />
     <main id="main">
       <slot />
     </main>
+    {!hideCta && <CtaShine service={ctaService} area={ctaArea} place={ctaPlace} />}
     <Footer />
-    <StickyCTA />
-
-
+    <StickyBar />
 
     <script is:inline>
-      // Scroll reveal — progressive enhancement only.
+      // Fade-up and the one-time light "swipe". Progressive enhancement only:
+      // without JS (or with reduced motion) everything is simply visible.
       (() => {
-        const els = document.querySelectorAll('.reveal');
-        if (!els.length) return;
-        if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          els.forEach((e) => e.classList.add('in'));
-          return;
-        }
-        document.documentElement.classList.add('js-reveals');
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('in');
-                io.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
-        );
+        const els = document.querySelectorAll('.reveal, .sweep');
+        const show = (e) => e.classList.add('in');
+        if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return els.forEach(show);
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((en) => { if (en.isIntersecting) { show(en.target); io.unobserve(en.target); } });
+        }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
         els.forEach((e) => io.observe(e));
+      })();
+      (() => {
+        // Stat numbers count up once when they scroll in. The real value is
+        // already in the HTML, so crawlers and no-JS readers see it as is.
+        const nums = document.querySelectorAll('[data-count]');
+        if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const run = (el) => {
+          const final = el.textContent.trim();
+          const m = final.match(/^([\d,]+)(\.\d+)?(.*)$/);
+          if (!m) return;
+          const end = parseFloat((m[1] + (m[2] || '')).replace(/,/g, '')), dec = m[2] ? m[2].length - 1 : 0, t0 = performance.now(), dur = 1100;
+          el.style.minWidth = el.offsetWidth + 'px';
+          const tick = (t) => {
+            const k = Math.min(1, (t - t0) / dur), v = end * (1 - Math.pow(1 - k, 3));
+            el.textContent = k < 1 ? v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + m[3] : final;
+            if (k < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        };
+        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: 0.6 });
+        nums.forEach((n) => io.observe(n));
+      })();
+      (() => {
+        // Phone list fold: past data-pfold items, the rest wait behind the list's "Show more" button.
+        document.querySelectorAll('[data-pfold]').forEach((l) => {
+          const keep = +l.dataset.pfold, items = [...l.children];
+          const btn = l.id && document.querySelector(`.pf-more[aria-controls="${l.id}"]`);
+          if (!btn || items.length <= keep + 1) { if (btn) btn.hidden = true; return; }
+          items.slice(keep).forEach((i) => i.classList.add('pf-x'));
+          btn.addEventListener('click', () => {
+            l.classList.add('is-all');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.hidden = true;
+            items[keep].querySelector('a')?.focus();
+          });
+        });
+      })();
+      (() => {
+        // Phone swipe rows: add prev/next buttons and a live "1 of 6" count.
+        document.querySelectorAll('.m-swipe').forEach((row) => {
+          const items = [...row.children];
+          if (items.length < 2) return;
+          const ctrl = document.createElement('div');
+          ctrl.className = 'swipe-ctrl';
+          const sec = row.closest('section');
+          const h = sec?.querySelector('h2, h3');
+          const title = h ? h.textContent.trim() : sec?.getAttribute('aria-label') || '';
+          const name = title ? `: ${title}` : '';
+          ctrl.innerHTML = `<button type="button" aria-label="Previous${name}">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next${name}">\u2192</button>`;
+          row.after(ctrl);
+          row.classList.add('has-ctrl');
+          // A scrolling row must be reachable by keyboard (arrow keys scroll it once focused).
+          if (row.scrollWidth > row.clientWidth + 4) {
+            row.tabIndex = 0;
+            if (!/^(UL|OL)$/.test(row.tagName)) row.setAttribute('role', 'region');
+            row.setAttribute('aria-label', title ? `${title}, scrollable` : 'Scrollable list');
+          }
+          const [prev, next] = ctrl.querySelectorAll('button');
+          const label = ctrl.querySelector('p');
+          const current = () => {
+            const left = row.getBoundingClientRect().left;
+            let best = 0, dist = Infinity;
+            items.forEach((el, i) => { const d = Math.abs(el.getBoundingClientRect().left - left - parseFloat(getComputedStyle(row).paddingLeft)); if (d < dist) { dist = d; best = i; } });
+            return best;
+          };
+          const update = () => {
+            const i = current();
+            label.textContent = `${i + 1} of ${items.length} \u00b7 swipe for more`;
+            // aria-disabled, not disabled, so keyboard focus stays on the button at either end.
+            prev.setAttribute('aria-disabled', String(i === 0)); next.setAttribute('aria-disabled', String(i === items.length - 1));
+          };
+          const go = (d, b) => {
+            if (b.getAttribute('aria-disabled') === 'true') return;
+            const el = items[Math.max(0, Math.min(items.length - 1, current() + d))];
+            row.scrollBy({ left: el.getBoundingClientRect().left - row.getBoundingClientRect().left - parseFloat(getComputedStyle(row).paddingLeft), behavior: 'smooth' });
+          };
+          prev.addEventListener('click', () => go(-1, prev));
+          next.addEventListener('click', () => go(1, next));
+          let t; row.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+          update();
+        });
+      })();
+      (() => {
+        // Phones: a data-mfold section folds to its heading, which becomes a toggle.
+        // Everything stays in the HTML (search engines and wider screens see it all).
+        // global.css already folds it from first paint; this adds the button and opens it.
+        if (!matchMedia('(max-width: 759px)').matches) return;
+        document.querySelectorAll('[data-mfold]').forEach((sec, k) => {
+          const h = sec.querySelector('h2, h3');
+          if (!h) return;
+          const parts = [];
+          for (let n = h; n && n !== sec; n = n.parentElement) {
+            for (let x = n.nextElementSibling; x; x = x.nextElementSibling) if (x.tagName !== 'SCRIPT' && !x.hidden) parts.push(x);
+          }
+          if (!parts.length) return;
+          parts.forEach((x, i) => { x.id ||= `mf${k}-${i}`; x.hidden = true; });
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'mfold-t';
+          b.setAttribute('aria-expanded', 'false');
+          b.setAttribute('aria-controls', parts.map((x) => x.id).join(' '));
+          while (h.firstChild) b.appendChild(h.firstChild);
+          b.insertAdjacentHTML('beforeend', '<span class="mfold-plus" aria-hidden="true"></span>');
+          h.appendChild(b);
+          sec.classList.add('is-mfold');
+          b.addEventListener('click', () => {
+            const open = b.getAttribute('aria-expanded') !== 'true';
+            b.setAttribute('aria-expanded', String(open));
+            sec.classList.toggle('is-mfold', !open);
+            sec.classList.toggle('mf-open', open);
+            parts.forEach((x) => { x.hidden = !open; });
+          });
+        });
+      })();
+      (() => {
+        // Job loops: play while on screen, pause off screen. Reduced motion keeps the poster and shows controls.
+        const vids = document.querySelectorAll('video[data-loop]');
+        if (!vids.length) return;
+        // Every clip gets a pause/play button (WCAG 2.2.2, Doc 7). A clip the
+        // reader paused stays paused; with reduced motion nothing starts on its own.
+        const still = matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window);
+        const set = (v, paused) => {
+          const fig = v.closest('.loop'); const b = fig && fig.querySelector('[data-loop-toggle]');
+          if (fig) fig.classList.toggle('is-paused', paused);
+          if (b) b.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+        };
+        const play = (v) => { dress(v); v.preload = 'auto'; return v.play().catch(() => set(v, true)); };
+        // Posters load only as a clip nears the screen, so they never compete with the hero image.
+        const dress = (v) => { if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster; };
+        if ('IntersectionObserver' in window) {
+          const near = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { dress(e.target); near.unobserve(e.target); } }), { rootMargin: '300px 0px' });
+          vids.forEach((v) => near.observe(v));
+        } else vids.forEach(dress);
+        vids.forEach((v) => {
+          const b = v.closest('.loop')?.querySelector('[data-loop-toggle]');
+          set(v, true);
+          v.addEventListener('play', () => set(v, false));
+          v.addEventListener('pause', () => set(v, true));
+          if (b) {
+            b.hidden = false;
+            b.addEventListener('click', () => {
+              if (v.paused) { v.dataset.held = ''; play(v); } else { v.dataset.held = '1'; v.pause(); }
+            });
+          }
+        });
+        if (still) return;
+        const io = new IntersectionObserver((es) => es.forEach((e) => {
+          const v = e.target;
+          if (v.dataset.held === '1') return;
+          if (e.isIntersecting) play(v); else v.pause();
+        }), { threshold: 0.25 });
+        vids.forEach((v) => io.observe(v));
+      })();
+      (() => {
+        // "Read the whole review": the clamp and button are in the HTML (long quotes, phones only).
+        document.addEventListener('click', (e) => {
+          const b = e.target.closest('.more-btn');
+          const p = b && b.previousElementSibling && b.previousElementSibling.querySelector('p');
+          if (!p) return;
+          const o = p.classList.toggle('open');
+          b.textContent = o ? 'Show less' : 'Read the whole review';
+          b.setAttribute('aria-expanded', String(o));
+        });
       })();
     </script>
   </body>

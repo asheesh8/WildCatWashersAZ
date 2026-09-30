@@ -1,0 +1,10 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import { offers } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Refer a neighbor', href: '/referrals/' }];
+---
+<Base title="Refer a Neighbor: Give $25, Get $50 | Wildcat Washers" description="Refer a friend or neighbor to Wildcat Washers. They get $25 off their first service and you get $50 off your next one." breadcrumbs={crumbs}>
+  <PageHero eyebrow="Referral program" title={h1For('/referrals/', 'Refer a Neighbor')} lede={`${offers.referral.headline}. ${offers.referral.body}`} crumbs={crumbs} image="clean-patio-sliders" />
+</Base>

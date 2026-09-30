@@ -1,0 +1,181 @@
+---
+/**
+ * Service × town (plan family "service-x-location"). Goes deep on one service in
+ * one town and links to the town page for everything else, so the two never
+ * compete. The page's own content is the local angle; the service basics are a
+ * short summary with a link to the service hub, not a copy of it.
+ */
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
+import FaqList from '@/components/FaqList.astro';
+import Icon from '@/components/Icon.astro';
+import { serviceBySlug, serviceHref, company, telHref } from '@/data/business';
+import { townBySlug, childrenOf, townHref, communityHref, type Town } from '@/data/areas';
+import { localServices, type LocalService } from '@/data/localServices';
+import { reviewsForService, pick, hashSeed } from '@/data/reviews';
+import { planFor } from '@/data/plan';
+import { townReviews, withProof, metroFill, type ReviewSet } from '@/lib/local';
+import DepthSections from './DepthSections.astro';
+import { depth, depthFor, withDepthFaqs, proofReviews, keptOut } from '@/data/depth';
+import { faqSchema, serviceSchema } from '@/lib/schema';
+import { fitTitle, fitDescription } from '@/lib/seo';
+import { serviceTownPhotos } from '@/data/placement';
+import Gallery from './Gallery.astro';
+import { faqRefs } from '@/data/faq';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
+import { guideByUrl } from '@/data/guides';
+
+export interface Props { ls: LocalService; t: Town }
+const { ls, t } = Astro.props as { ls: LocalService; t: Town };
+const s = serviceBySlug[ls.service];
+const url = `/services/${s.slug}/${t.slug}/`;
+const row = planFor(url);
+const h1 = row?.h1 ?? `${s.name} in ${t.name}`;
+const tags = s.reviewTags;
+const base = townReviews(t, 24, hashSeed(t.slug));
+/* A review printed on this town's window page isn't repeated on its other service pages. */
+const windowTags = serviceBySlug['window-cleaning'].reviewTags;
+const onWindowPage = new Set(
+  s.slug !== 'window-cleaning' && localServices.some((x) => x.town === t.slug && x.service === 'window-cleaning')
+    ? base.local.filter((r) => r.services.some((x) => windowTags.includes(x))).slice(0, 6).map((r) => r.n)
+    : [],
+);
+const localForService = base.local.filter((r) => r.services.some((x) => tags.includes(x)) && !onWindowPage.has(r.n));
+const d = depthFor(url);
+/* Metro fill never borrows a review another page features as its local proof. */
+const proofElsewhere = new Set(Object.entries(depth).filter(([u]) => u !== url).flatMap(([, v]) => v.proof ?? []));
+/* Pages without a researched answer open with one line of proof instead. */
+const localCount = base.local.filter((r) => r.services.some((x) => tags.includes(x))).length;
+const az19 = t.slug === 'green-valley' || t.slug === 'sahuarita';
+const proofLede = az19
+  ? `${s.name} in ${t.name} from the team readers voted Best Window Cleaners in Green Valley and Sahuarita (2025 AZ-19 Readers’ Pick). Every job is quoted up front, and you don’t pay until you’re happy.`
+  : localCount >= 5
+  ? `${localCount} ${t.name} customers have left five-star reviews for our ${s.name.toLowerCase()}. Every job is quoted up front, and you don’t pay until you’re happy.`
+  : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. Every job is quoted up front, and you don’t pay until you’re happy.`;
+const baseSet: ReviewSet = localForService.length
+  ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
+  : { local: [], localLabel: '', more: metroFill(reviewsForService(tags).filter((r) => !proofElsewhere.has(r.n)), 3, hashSeed(url)), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
+/* A review featured on this town's window page isn't repeated here in full. */
+const windowProof = new Set(s.slug === 'window-cleaning' ? [] : depth[`/services/window-cleaning/${t.slug}/`]?.proof ?? []);
+const set = withProof(baseSet, proofReviews(d).filter((r) => !windowProof.has(r.n)), (r) => r.area === t.reviewArea, 6, keptOut(d));
+const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
+/* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */
+const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Boolean(faqOwner(n));
+const placeFaqs = allFaqs.filter((f) => !isShared(f.n));
+const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
+const faqLinks = ownerLinks(placeFaqs, url);
+const photos = serviceTownPhotos(s.slug, t.slug, s.image);
+const photo = photos.hero;
+const kids = childrenOf(t.slug);
+/* Window pages also point to the do-it-yourself guide; solar screen pages to rescreening. */
+const extraGuides = s.slug === 'window-cleaning' ? ['/guides/can-i-clean-my-own-windows/'] : [];
+const answers = [...new Set([...(ls.guides ?? []), ...extraGuides])].map((h) => guideByUrl.get(h)).filter((g) => g !== undefined);
+const others = localServices.filter((x) => x.town === t.slug && x.service !== s.slug).map((x) => serviceBySlug[x.service]);
+const ansItems = [
+  ...answers.map((g) => ({ href: g.url, label: g.row.h1 })),
+  ...sharedFaqs.filter((f) => !answers.some((g) => g.url === f.href)).map((f) => ({ href: f.href, label: f.q })),
+];
+/* Phones show the first few of these lists, then a "Show more" button (data-pfold in Base). */
+const moreCount = 2 + others.length + kids.length + (kids.length > 0 ? 1 : 0) + (s.slug === 'solar-screens' ? 1 : 0);
+const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.name, href: serviceHref(s.slug) }, { name: t.name, href: url }];
+const short = t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, ''); // always "Vail AZ", never bare Vail
+const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]);
+/* Keep the angle's proper nouns (Pusch Ridge, Arizona rooms): only the first letter drops to lower case. */
+const properStart = /^(Arizona|Pusch|Tucson|Santa|Catalina|Sonoran|Tortolita|Rincon|Tanque|Oro|Green|HOA)\b/.test(ls.angle.title);
+const angleLower = properStart ? ls.angle.title : ls.angle.title.charAt(0).toLowerCase() + ls.angle.title.slice(1);
+const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLower}. ${s.cardLine} You don’t pay until you’re happy. ${company.phone}.`);
+---
+<Base
+  title={title}
+  description={description}
+  breadcrumbs={crumbs}
+  schema={[serviceSchema(s, short, url), ...(placeFaqs.length ? [faqSchema(placeFaqs)] : [])]}
+  ctaService={s.slug}
+  ctaArea={t.slug}
+  ctaPlace={short}
+>
+  <PageHero trust eyebrow={`${s.name} · ${t.name}`} title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
+  <TrustRow />
+
+  <section class="section">
+    <div class="wrap local">
+      <div class="local-copy">
+        <p class="eyebrow">{s.name} in {t.name}</p>
+        <h2 class="h2 sweep">{d?.heading ?? ls.angle.title}</h2>
+        {d?.sections ? <DepthSections sections={d.sections} variant="inline" /> : ls.angle.body.map((p, i) => <p class:list={[i === 0 && 'lede']}>{p}</p>)}
+      </div>
+      <aside class="svc reveal">
+        <p class="eyebrow">The basics</p>
+        <h3 class="h3">{s.name}</h3>
+        <p>{s.cardLine}</p>
+        <ul role="list">
+          <li><Icon name="check-circle" size={22} /><span>You don’t pay until you’re happy.</span></li>
+        </ul>
+        <a class="text-link" href={serviceHref(s.slug)}>Everything about {s.name.toLowerCase()} <Icon name="arrow" size={20} /></a>
+        <a class="phone-cta" href={telHref} data-track="call-service-town"><Icon name="phone" size={22} />{company.phone}</a>
+      </aside>
+    </div>
+  </section>
+
+  {/* No heading of its own: it sits right above the reviews heading. */}
+  <Gallery keys={photos.gallery} swipe />
+
+  <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
+
+  {(answers.length > 0 || sharedFaqs.length > 0) && (
+    <section class="section-tight bg-mist" data-mfold>
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
+        <ul class="ans" role="list" id="ans-list" data-pfold="2">
+          {ansItems.map((a) => <li><a href={a.href}><strong>{a.label}</strong></a></li>)}
+        </ul>
+        {ansItems.length > 3 && <button type="button" class="pf-more" aria-controls="ans-list" aria-expanded="false">Show {ansItems.length - 2} more answers</button>}
+      </div>
+    </section>
+  )}
+
+  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold />}
+
+  <section class="section-tight" data-mfold>
+    <div class="wrap">
+      <h2 class="h3" style="margin-bottom:1rem">More for {t.name}</h2>
+      <ul class="chips m-grid" role="list" id="more-links" data-pfold="4">
+        <li><a href={townHref(t.slug)}><Icon name="pin" size={18} />All services in {t.name}</a></li>
+        {others.map((o) => <li><a href={`/services/${o.slug}/${t.slug}/`}><Icon name="sparkle" size={18} />{o.name} in {t.name}</a></li>)}
+        {kids.map((k) => <li><a href={communityHref(k)}><Icon name="home" size={18} />{k.name}</a></li>)}
+        <li><a href={serviceHref(s.slug)}><Icon name="sparkle" size={18} />{s.name} across Tucson</a></li>
+        {kids.length > 0 && <li><a href="/who-we-help/hoas-communities/"><Icon name="home" size={18} />HOAs and communities</a></li>}
+        {s.slug === 'solar-screens' && <li><a href="/services/solar-screens/repair-rescreening/"><Icon name="sparkle" size={18} />Solar screen repair and rescreening</a></li>}
+      </ul>
+      {moreCount > 5 && <button type="button" class="pf-more" aria-controls="more-links" aria-expanded="false">Show all {moreCount} links</button>}
+    </div>
+  </section>
+</Base>
+<style>
+  .local { display: grid; gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); }
+  @media (min-width: 1000px) { .local { grid-template-columns: 1.3fr 1fr; align-items: start; } }
+  .local-copy { --stack-gap: 1.1rem; display: grid; gap: 1.1rem; }
+  .local-copy p:not(.eyebrow):not(.lede) { font-size: 1.12rem; color: var(--ink-2); }
+  .svc { --stack-gap: .8rem; background: linear-gradient(180deg, #fff, var(--mist)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.2rem); display: grid; gap: .8rem; align-content: start; box-shadow: var(--shadow-sm); }
+  .svc ul { list-style: none; padding: 0; display: grid; gap: .6rem; }
+  .svc li { display: flex; gap: .6rem; align-items: flex-start; color: var(--ink-2); }
+  .svc li :global(svg) { flex: none; color: var(--blue-700); margin-top: .15rem; }
+  .svc .text-link { justify-self: start; }
+  .phone-cta { display: inline-flex; align-items: center; gap: .6rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.4rem; text-decoration: none; }
+  .phone-cta :global(svg) { color: var(--blue-700); }
+  .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .ans a { display: grid; gap: .4rem; height: 100%; min-height: 56px; align-content: center; padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-xs); }
+  .ans a:hover { border-color: var(--blue); }
+  .ans strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.12rem; }
+  .ans span { color: var(--ink-2); }
+  @media (max-width: 759px) {
+    /* The basics card a little snugger (same type). */
+    .svc { padding: 1.2rem 1.2rem 1.25rem; gap: .6rem; }
+    .svc .phone-cta { display: none; } /* the bottom bar has Call */
+    .phone-cta { min-height: 48px; }
+    .ans { gap: .55rem; }
+    .ans a { padding: .7rem 1rem; }
+  }
+</style>

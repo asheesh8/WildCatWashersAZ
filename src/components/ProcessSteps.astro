@@ -1,42 +1,28 @@
 ---
-import { process } from '@/data/business';
+import { processSteps } from '@/data/business';
+export interface Props { title?: string }
+const { title = 'Booking takes one phone call' } = Astro.props;
 ---
-<ol class="ps">
-  {process.map((p, i) => (
-    <li class="ps-item reveal" style={`transition-delay:${i * 55}ms`}>
-      <span class="ps-n" aria-hidden="true">{p.step}</span>
-      <div class="ps-body">
-        <h3>{p.name}</h3>
-        <p>{p.body}</p>
-        <p class="ps-detail">{p.detail}</p>
-      </div>
-    </li>
-  ))}
-</ol>
-
+<section class="section" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">How it works</p>
+      <h2 id="process-title" class="h2 sweep">{title}</h2>
+    </div>
+    <ol class="steps m-swipe" role="list">
+      {processSteps.map((s, i) => (
+        <li class="step reveal">
+          <span class="step-n">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="h3">{s.title}</h3>
+          <p>{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
 <style>
-  .ps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: step; }
-  .ps-item {
-    display: grid; grid-template-columns: 62px 1fr; gap: 1.4rem;
-    padding: 1.6rem 0;
-    border-bottom: 1px solid var(--line);
-    position: relative;
-  }
-  .ps-item:last-child { border-bottom: 0; }
-  .ps-n {
-    width: 48px; height: 48px; border-radius: 14px;
-    display: grid; place-items: center;
-    background: var(--navy); color: #fff;
-    font-family: var(--font-display); font-weight: 900; font-size: 1.15rem;
-    font-variant-numeric: tabular-nums;
-  }
-  .ps-item:last-child .ps-n { background: var(--red); }
-  .ps-body { display: grid; gap: .3rem; align-content: start; }
-  .ps-body h3 { font-size: 1.2rem; }
-  .ps-body p { color: var(--ink-2); font-size: .99rem; line-height: 1.6; max-width: 66ch; }
-  .ps-detail { color: var(--cyan-600) !important; font-weight: 600; font-size: .92rem !important; }
-  @media (max-width: 560px) {
-    .ps-item { grid-template-columns: 44px 1fr; gap: 1rem; }
-    .ps-n { width: 40px; height: 40px; font-size: 1rem; border-radius: 12px; }
-  }
+  .steps { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); counter-reset: s; }
+  .step { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem 1.4rem; display: grid; gap: .6rem; align-content: start; }
+  .step-n { font-family: var(--font-display); font-weight: 900; font-size: 2.6rem; line-height: 1; color: var(--blue-600); }
+  .step p { color: var(--ink-2); font-size: 1.08rem; }
 </style>

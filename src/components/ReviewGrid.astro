@@ -1,0 +1,12 @@
+---
+import ReviewCard from './ReviewCard.astro';
+import type { Review } from '@/data/reviews';
+export interface Props { reviews: Review[] }
+const { reviews } = Astro.props;
+---
+<div class="rgrid m-swipe">
+  {reviews.map((r) => <ReviewCard review={r} solo={reviews.length === 1} />)}
+</div>
+<style>
+  .rgrid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); align-items: stretch; }
+</style>

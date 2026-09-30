@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+export interface Props { title: string; eyebrow?: string; items: { title: string; body: string; href?: string }[]; tone?: 'white' | 'mist' }
+const { title, eyebrow, items, tone = 'white' } = Astro.props;
+---
+<section class:list={['section', tone === 'mist' && 'bg-mist']}>
+  <div class="wrap">
+    <div class="section-head">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h2 class="h2 sweep">{title}</h2>
+    </div>
+    <ul class="why m-swipe" role="list">
+      {items.map((w) => (
+        <li class="card reveal">
+          <span class="why-i"><Icon name="check" size={26} /></span>
+          <h3 class="h3">{w.href ? <a class="why-link" href={w.href}>{w.title}</a> : w.title}</h3>
+          {w.body && <p>{w.body}</p>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .why-link { color: inherit; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: .2em; }
+  .why-link:hover { color: var(--blue-700); }
+  .why { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .why li { display: grid; grid-template-columns: auto 1fr; gap: .7rem .9rem; align-items: center; align-content: start; }
+  .why li > p { grid-column: 1 / -1; }
+  .why-i { width: 48px; height: 48px; border-radius: var(--radius-sm); display: grid; place-items: center; background: var(--blue-50); color: var(--blue-700); }
+  .why p { color: var(--ink-2); }
+  @media (max-width: 759px) {
+    .why li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.3rem; box-shadow: var(--shadow-sm); }
+  }
+</style>

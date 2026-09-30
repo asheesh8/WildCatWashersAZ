@@ -1,380 +1,561 @@
 /* ==========================================================================
-   WILDCAT WASHERS — DESIGN SYSTEM
-   Premium · warm · local · high-legibility (audience skews 55+)
+   Wildcat Washers — design system
+   Light-blue forward, navy and red in support (Doc 7). Big, legible type for
+   a 55+ reader on a phone. Motion is quiet and optional.
    ========================================================================== */
 
-/* ------------------------------------------------------------- tokens */
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/figtree/wght.css';
+@import '@fontsource/yellowtail/400.css';
+
 :root {
-  /* Brand */
-  --navy:        #121832;
-  --navy-700:    #1b2450;
-  --navy-600:    #26326b;
-  --cyan:        #36c6f4;
-  /* --cyan-600 is the text-safe cyan: 5.2:1 on white, 5.0:1 on --surface-2.
-     --cyan-500 is the brighter decorative tone, for icons and fills only. */
-  --cyan-600:    #0a7599;
-  --cyan-500:    #12a8db;
-  --cyan-100:    #d9f2fd;
-  --cyan-50:     #eef9fe;
-  --red:         #d91e3d;
-  --red-600:     #b8152f;
-  --red-50:      #fdeef1;
+  /* Brand (C§6) */
+  --blue: #36c6f4;
+  --blue-600: #0e8fba;
+  --blue-700: #0a6a8e;
+  --blue-50: #eaf8fe;
+  --blue-100: #d3f1fc;
+  --blue-200: #a9e5f9;
+  --navy: #121832;
+  --navy-800: #1b2447;
+  --navy-700: #2a3560;
+  --red: #d91e3d;
+  --red-700: #b3142f;
+  --gold: #f5b301;
 
-  /* Neutrals */
-  --ink:         #101425;
-  --ink-2:       #3a4260;
-  --ink-3:       #626b8a;
-  --line:        #e2e7f0;
-  --line-2:      #eef1f7;
-  --surface:     #ffffff;
-  --surface-2:   #f6f9fc;
-  --surface-3:   #eef3f9;
-  /* Warm ground. Navy reads richer and less corporate against a cream than
-     against a cold grey — the same move Pink's makes with their palette. */
-  --cream:       #f4efe6;
-  --cream-2:     #eae3d6;
-
-  /* Accents */
-  --gold:        #c99a12;
-  --green:       #17845b;
+  --paper: #ffffff;
+  --mist: #f4fbfe;
+  --ink: #121832;
+  --ink-2: #333c5e;
+  --ink-3: #56607f;
+  --line: #d9e6ef;
+  --line-strong: #b9cfdd;
 
   /* Type */
-  --font-display: 'Chivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-body: 'Figtree Variable', 'Figtree', system-ui, sans-serif;
+  --font-script: 'Yellowtail', 'Brush Script MT', cursive;
 
-  --step--1: clamp(0.94rem, 0.92rem + 0.10vw, 1.00rem);
-  --step-0:  clamp(1.06rem, 1.02rem + 0.20vw, 1.19rem);
-  --step-1:  clamp(1.25rem, 1.18rem + 0.35vw, 1.50rem);
-  --step-2:  clamp(1.52rem, 1.38rem + 0.70vw, 2.00rem);
-  --step-3:  clamp(1.85rem, 1.60rem + 1.25vw, 2.75rem);
-  --step-4:  clamp(2.25rem, 1.80rem + 2.25vw, 3.80rem);
-  --step-5:  clamp(2.70rem, 1.95rem + 3.75vw, 5.20rem);
+  --step--1: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
+  --step-0: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.45vw, 1.55rem);
+  --step-2: clamp(1.6rem, 1.4rem + 0.9vw, 2.1rem);
+  --step-3: clamp(1.9rem, 1.35rem + 2.5vw, 3.2rem);
+  --step-4: clamp(2.6rem, 1.9rem + 3.4vw, 4.6rem);
+  --step-5: clamp(3rem, 2rem + 5vw, 6.4rem);
 
-  /* Space */
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --section-y: clamp(3.5rem, 8vw, 7rem);
+  /* Space & shape */
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --section: clamp(4rem, 3rem + 5vw, 8rem);
   --max: 1240px;
-  --max-narrow: 760px;
+  /* One radius scale: small controls, cards, large panels, pills. */
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  /* Soft, layered shadows tinted toward the brand blue-navy, never grey.
+     Each level stacks a crisp contact shadow with a wide, faint ambient one. */
+  --shadow-c: 16 42 74;
+  --shadow-xs: 0 1px 1px rgb(var(--shadow-c) / 4%), 0 2px 6px -2px rgb(var(--shadow-c) / 8%);
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-c) / 5%), 0 3px 8px -2px rgb(var(--shadow-c) / 7%), 0 10px 24px -12px rgb(var(--shadow-c) / 10%);
+  --shadow: 0 1px 2px rgb(var(--shadow-c) / 5%), 0 6px 14px -4px rgb(var(--shadow-c) / 8%), 0 20px 40px -16px rgb(var(--shadow-c) / 18%);
+  --shadow-lg: 0 2px 4px rgb(var(--shadow-c) / 5%), 0 12px 24px -8px rgb(var(--shadow-c) / 10%), 0 36px 64px -24px rgb(var(--shadow-c) / 26%);
+  --ring: 0 0 0 4px rgb(54 198 244 / 28%);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.3, 0, 0.2, 1);
 
-  /* Effects */
-  --radius: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 30px;
-  --shadow-sm: 0 1px 2px rgba(18, 24, 50, .06), 0 2px 6px rgba(18, 24, 50, .04);
-  --shadow: 0 4px 12px rgba(18, 24, 50, .07), 0 12px 32px rgba(18, 24, 50, .07);
-  --shadow-lg: 0 8px 24px rgba(18, 24, 50, .10), 0 32px 64px rgba(18, 24, 50, .12);
-  --shadow-cta: 0 6px 18px rgba(217, 30, 61, .30);
-  --ease: cubic-bezier(.2, .7, .3, 1);
+  /* Rhythm: eyebrow sits close to its heading; heading to lede a step more. */
+  --eyebrow-gap: .55rem;
+  --head-gap: .9rem;
+
+  --header-h: 100px;
+  --bar-h: 64px;
 }
 
-/* --------------------------------------------------------------- reset */
+/* ------------------------------------------------------------- reset */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-}
-
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 16px); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
   font-family: var(--font-body);
   font-size: var(--step-0);
-  line-height: 1.62;
+  line-height: 1.6;
   color: var(--ink);
-  background: var(--surface);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
-
-img, svg, video, canvas { display: block; max-width: 100%; }
-img, video { height: auto; }
-
+img, picture, video, svg { display: block; max-width: 100%; height: auto; }
 input, button, textarea, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+p, li { text-wrap: pretty; }
+h1, h2, h3, h4 { text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--blue-700); outline-offset: 3px; border-radius: 6px; }
+/* On the bright blue bands the ring goes navy; on navy it goes light blue. */
+:is(.bg-blue, .turf, .shine, .rev-lead) :focus-visible { outline-color: var(--navy); }
+:is(.bg-navy, .club, .trow, .ticker, .lp-aside, .rev-inst, .site-footer) :focus-visible { outline-color: var(--blue); }
 
-/* ----------------------------------------------------------- typography */
-h1, h2, h3, h4, h5 {
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 100;
+  background: var(--navy); color: #fff; padding: .8rem 1.2rem; border-radius: var(--radius-sm); font-weight: 700;
+}
+.skip-link:focus { top: 1rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ------------------------------------------------------------ layout */
+.wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+.wrap-narrow { width: min(100% - 2 * var(--gutter), 860px); margin-inline: auto; }
+.section { padding-block: var(--section); position: relative; }
+.section-tight { padding-block: calc(var(--section) * 0.6); }
+.bg-mist { background: var(--mist); }
+.bg-blue { background: var(--blue); color: var(--navy); }
+.bg-blue-soft { background: linear-gradient(180deg, var(--blue-50), #fff); }
+.bg-navy { background: var(--navy); color: #fff; }
+.center { text-align: center; }
+.stack > * + * { margin-top: 1rem; }
+.stack-lg > * + * { margin-top: 1.6rem; }
+/* Margin stacks have no gap to take back, so an eyebrow sits its own distance from the heading. */
+.stack, .stack-lg { --stack-gap: 0px; }
+
+/* ------------------------------------------------------------- type */
+.display, .h1, .h2, .h3 {
   font-family: var(--font-display);
-  font-weight: 900;
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
+  font-weight: 850;
+  font-variation-settings: 'wdth' 112;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
   color: var(--navy);
 }
-
-/* Section headings run uppercase — the single strongest brand-consistency
-   device on the site. Body copy stays sentence case for readability. */
-h2, h3 { text-transform: uppercase; letter-spacing: -0.012em; }
-h2 em, h3 em { font-style: italic; font-weight: 900; color: var(--cyan-600); }
-h1 { font-size: var(--step-4); }
-h2 { font-size: var(--step-3); }
-h3 { font-size: var(--step-2); }
-h4 { font-size: var(--step-1); line-height: 1.2; }
-p  { text-wrap: pretty; }
-
-a { color: var(--cyan-600); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-a:hover { color: var(--navy); }
-
-::selection { background: var(--cyan); color: var(--navy); }
-
-:focus-visible {
-  outline: 3px solid var(--cyan-600);
-  outline-offset: 3px;
-  border-radius: 4px;
+.display { font-size: var(--step-5); }
+.h1 { font-size: var(--step-4); }
+.h2 { font-size: var(--step-3); }
+.h3 { font-size: var(--step-1); line-height: 1.1; }
+.bg-navy .display, .bg-navy .h1, .bg-navy .h2, .bg-navy .h3 { color: #fff; }
+.condensed { font-variation-settings: 'wdth' 72; letter-spacing: -0.01em; }
+.outline {
+  color: transparent !important;
+  -webkit-text-stroke: 2px currentColor;
+  -webkit-text-stroke-color: var(--navy);
 }
+.accent { color: var(--blue-700); }
+.bg-navy .accent { color: var(--blue); }
+.red-dot { color: var(--red); }
 
-/* --------------------------------------------------------------- layout */
-.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
-.wrap-narrow { width: 100%; max-width: var(--max-narrow); margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: var(--section-y); }
-.section-sm { padding-block: clamp(2.5rem, 5vw, 4rem); }
-
-.stack > * + * { margin-top: var(--stack, 1rem); }
-
-/* Section tone */
-.tone-navy  { background: var(--navy); color: #dfe5f2; }
-.tone-navy h1, .tone-navy h2, .tone-navy h3, .tone-navy h4 { color: #fff; }
-/* Buttons and pills carry their own colour — the dark-section link colour must
-   not bleed into them (or into links on light cards nested inside a dark band). */
-.tone-navy a:not(.btn):not(.pill):not(.tel-link) { color: var(--cyan); }
-.tone-soft  { background: var(--surface-2); }
-.tone-cream { background: var(--cream); }
-.tone-cream .card, .tone-cream .comm, .tone-cream .proc-inner { background: #fff; }
-.tone-cyan  { background: var(--cyan-50); }
-
-/* ---------------------------------------------------------------- eyebrow */
-.eyebrow {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: .78rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--cyan-600);
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-}
-.eyebrow::before {
-  content: '';
-  width: 26px; height: 3px; border-radius: 2px;
-  background: var(--cyan);
-  flex: none;
-}
-.tone-navy .eyebrow { color: var(--cyan); }
-
-.lede {
-  font-size: var(--step-1);
-  line-height: 1.5;
-  color: var(--ink-2);
+.script {
+  font-family: var(--font-script);
   font-weight: 400;
-}
-.tone-navy .lede { color: #b9c3dd; }
-
-/* --------------------------------------------------------------- buttons */
-.btn {
-  --btn-bg: var(--red);
-  --btn-fg: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .55rem;
-  min-height: 56px;
-  padding: 0 1.65rem;
-  border: 0;
-  border-radius: 999px;
-  background: var(--btn-bg);
-  color: var(--btn-fg);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.02rem;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  box-shadow: var(--shadow-cta);
-  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-/* Squeegee wipe — a single angled highlight sweeps across on hover. */
-.btn::after {
-  content: '';
-  position: absolute;
-  top: -60%; bottom: -60%; left: -30%;
-  width: 32%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
-  transform: skewX(-18deg) translateX(-260%);
-  transition: transform .62s cubic-bezier(.25,.8,.3,1);
-  pointer-events: none;
-  z-index: 1;
-}
-.btn:hover::after, .btn:focus-visible::after { transform: skewX(-18deg) translateX(560%); }
-@media (prefers-reduced-motion: reduce) { .btn::after { display: none; } }
-.btn:hover { --btn-bg: var(--red-600); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 26px rgba(217,30,61,.36); }
-.btn:active { transform: translateY(0); }
-
-/* Safety net. A container rule like `.some-nav a { color: … }` has the same
-   specificity as `.btn` and, because scoped page styles are emitted after this
-   file, would silently win and repaint a button's label. The doubled class
-   (0,2,1) keeps a button's foreground its own business wherever it's dropped. */
-a.btn.btn, button.btn.btn { color: var(--btn-fg); }
-
-.btn-lg { min-height: 64px; padding: 0 2.1rem; font-size: 1.12rem; }
-.btn-sm { min-height: 46px; padding: 0 1.15rem; font-size: .95rem; }
-
-.btn-ghost {
-  --btn-bg: transparent;
-  --btn-fg: var(--navy);
-  border: 2px solid var(--line);
-  box-shadow: none;
-}
-.btn-ghost:hover { --btn-bg: var(--surface-2); --btn-fg: var(--navy); border-color: var(--navy); box-shadow: none; }
-
-.btn-navy { --btn-bg: var(--navy); box-shadow: 0 6px 18px rgba(18,24,50,.22); }
-.btn-navy:hover { --btn-bg: var(--navy-700); box-shadow: 0 10px 26px rgba(18,24,50,.28); }
-
-.btn-white { --btn-bg: #fff; --btn-fg: var(--navy); box-shadow: 0 6px 18px rgba(0,0,0,.18); }
-.btn-white:hover { --btn-bg: #fff; --btn-fg: var(--navy); }
-
-.btn-outline-light {
-  --btn-bg: rgba(255,255,255,.06);
-  --btn-fg: #fff;
-  border: 2px solid rgba(255,255,255,.35);
-  box-shadow: none;
-  backdrop-filter: blur(8px);
-}
-.btn-outline-light:hover { --btn-bg: rgba(255,255,255,.16); --btn-fg: #fff; border-color: #fff; box-shadow: none; }
-
-.btn-block { width: 100%; }
-
-/* Phone link that always looks tappable.
-   Selector is `a.tel-link` so it outranks `.tone-navy a` when the link sits on a
-   light card nested inside a dark section. */
-a.tel-link, .tel-link {
-  display: inline-flex; align-items: center; gap: .5rem;
-  font-family: var(--font-display); font-weight: 800;
-  text-decoration: none; color: var(--navy);
-  letter-spacing: -0.02em;
-}
-a.tel-link:hover, .tel-link:hover { color: var(--red); }
-
-/* ---------------------------------------------------------------- cards */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-.card-hover { transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease); }
-.card-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--cyan); }
-
-/* ---------------------------------------------------------------- grid */
-.grid { display: grid; gap: clamp(1rem, 2.5vw, 1.75rem); }
-.g-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.g-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
-.g-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
-
-/* ------------------------------------------------------------ utilities */
-.center { text-align: center; }
-.center .eyebrow { justify-content: center; }
-.measure { max-width: 62ch; }
-.measure-tight { max-width: 48ch; }
-.mx-auto { margin-inline: auto; }
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-}
-.skip-link {
-  position: absolute; left: 50%; translate: -50% -140%;
-  z-index: 999; background: var(--navy); color: #fff;
-  padding: .8rem 1.4rem; border-radius: 0 0 12px 12px; text-decoration: none;
-  font-weight: 700; transition: translate .2s var(--ease);
-}
-.skip-link:focus { translate: -50% 0; color: #fff; }
-
-/* Text accents */
-.hl { color: var(--cyan); }
-.hl-red { color: var(--red); }
-
-/* Underline swipe — the "squeegee stroke" brand device */
-.swipe {
-  position: relative;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.1;
+  color: var(--red);
+  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.6rem);
   display: inline-block;
-  white-space: nowrap;
-  /* Isolate so the bar's negative z-index stays inside the swipe — without this
-     it paints behind the section background and disappears entirely. */
-  isolation: isolate;
+  transform: rotate(-3deg);
 }
-.swipe::after {
-  content: '';
-  position: absolute;
-  left: -.06em; right: -.06em; bottom: .04em;
-  height: .30em;
-  background: var(--cyan);
-  opacity: .38;
-  border-radius: 3px;
-  z-index: -1;
-  transform: skewX(-14deg);
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--blue-700);
 }
+.eyebrow::before { content: ''; flex: none; width: 22px; height: 3px; border-radius: 3px; background: currentColor; align-self: flex-start; margin-top: .6em; }
+/* Consistent eyebrow → heading spacing wherever an eyebrow leads a heading,
+   whatever gap its parent uses. */
+.eyebrow + :is(h1, h2, h3, .h1, .h2, .h3) { margin-top: calc(var(--eyebrow-gap) - var(--stack-gap, 1rem)); }
+.bg-navy .eyebrow, .bg-blue .eyebrow { color: inherit; }
+.lede { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); max-width: 44ch; }
+.bg-navy .lede { color: #d7e3f5; }
+.bg-blue .lede { color: var(--navy); }
+.muted { color: var(--ink-3); }
+.prose { max-width: 68ch; }
+.prose p + p { margin-top: 1rem; }
+.prose h2 { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.1; margin: 2.4rem 0 .8rem; font-weight: 800; }
+.prose ul { padding-left: 1.3rem; }
+.prose li + li { margin-top: .4rem; }
 
-/* Checklist */
-.ticks { list-style: none; padding: 0; display: grid; gap: .8rem; }
-.ticks li {
-  display: grid; grid-template-columns: 26px 1fr; gap: .8rem;
-  align-items: start; line-height: 1.5;
-}
-.ticks li::before {
-  content: '';
-  width: 24px; height: 24px; border-radius: 50%;
-  background: var(--cyan-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312a8db' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 15px no-repeat;
-  margin-top: .18em;
-}
-.tone-navy .ticks li::before { background-color: rgba(54,198,244,.16); }
+.section-head { --stack-gap: var(--head-gap); display: grid; gap: var(--head-gap); margin-bottom: clamp(1.6rem, 1.2rem + 2vw, 3rem); }
+.section-head > .eyebrow + * { margin-top: calc(var(--eyebrow-gap) - var(--head-gap)); }
+.section-head.center { justify-items: center; }
+.section-head.center .lede { margin-inline: auto; }
 
-/* Pills */
-.pill {
+/* ----------------------------------------------------------- buttons
+   UIverse-inspired: a solid pill with a floating arrow chip that slides on
+   hover, a soft light sweep, and a tactile pressed state. Big tap targets. */
+.btn {
+  --bg: var(--navy); --fg: #fff; --chip: var(--blue); --chip-fg: var(--navy); --edge: #05091a;
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: .9rem;
+  min-height: 60px; padding: .5rem .6rem .5rem 1.6rem;
+  border: 0; border-radius: var(--radius-pill);
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: .01em;
+  font-variation-settings: 'wdth' 100;
+  text-decoration: none; white-space: nowrap;
+  /* A thin top highlight, a short tactile edge and a soft ambient shadow. */
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%), 0 2px 0 var(--edge), 0 2px 4px rgb(var(--shadow-c) / 10%), 0 12px 24px -10px rgb(var(--shadow-c) / 38%);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+}
+.btn::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(110deg, transparent 25%, rgb(255 255 255 / 28%) 45%, transparent 65%);
+  transform: translateX(-120%);
+}
+.btn .chip {
+  display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--chip); color: var(--chip-fg); flex: none;
+  transition: transform .3s var(--ease);
+}
+.btn .chip svg { width: 22px; height: 22px; }
+.btn:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%), 0 3px 0 var(--edge), 0 4px 8px rgb(var(--shadow-c) / 10%), 0 18px 32px -12px rgb(var(--shadow-c) / 42%); }
+.btn:hover .chip { transform: translateX(3px) rotate(-45deg); }
+.btn:active { transform: translateY(1px) scale(.985); box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 0 0 var(--edge), 0 2px 6px -2px rgb(var(--shadow-c) / 30%); transition-duration: .08s; transition-timing-function: var(--ease-press); }
+.btn:active .chip { transform: scale(.94); }
+/* Keyboard focus: the outline plus a soft halo, offset clear of the edge. */
+.btn:focus-visible { outline-offset: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .btn:hover::after { transform: translateX(120%); transition: transform .8s var(--ease); }
+}
+.btn-blue { --bg: var(--blue); --fg: var(--navy); --chip: var(--navy); --chip-fg: #fff; --edge: #0b86ad; }
+.btn-red { --bg: var(--red); --fg: #fff; --chip: #fff; --chip-fg: var(--red); --edge: #8d0f25; }
+.btn-white { --bg: #fff; --fg: var(--navy); --chip: var(--blue); --chip-fg: var(--navy); --edge: #b9cfdd; }
+.btn-lg { min-height: 68px; font-size: 1.22rem; padding-left: 1.9rem; }
+.btn-lg .chip { width: 52px; height: 52px; }
+.btn-block { width: 100%; }
+@media (max-width: 480px) { .btn { white-space: normal; text-align: left; line-height: 1.2; } }
+
+/* Phone link: the number itself is a primary element (Doc 7). */
+.phone-link {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.25rem;
+  color: inherit; text-decoration: none;
+  padding: .7rem 1.2rem; border-radius: 999px;
+  border: 2px solid currentColor;
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.phone-link svg { width: 22px; height: 22px; }
+.phone-link:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.bg-navy .phone-link:hover { background: #fff; color: var(--navy); border-color: #fff; }
+
+.text-link {
   display: inline-flex; align-items: center; gap: .45rem;
-  padding: .42rem .85rem;
-  border-radius: 999px;
-  background: var(--surface-2);
-  border: 1px solid var(--line);
-  font-size: .88rem; font-weight: 600; color: var(--ink-2);
-  text-decoration: none;
-  white-space: nowrap;
+  font-weight: 750; color: var(--navy); text-decoration: none;
+  border-bottom: 3px solid var(--blue); padding-bottom: 2px;
 }
-a.pill:hover { border-color: var(--cyan); background: var(--cyan-50); color: var(--navy); }
+.text-link:hover { border-color: var(--navy); }
+.bg-navy .text-link { color: #fff; }
 
-.pill-cyan { background: var(--cyan-50); border-color: var(--cyan-100); color: var(--navy-600); }
-.pill-light { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); color: #fff; backdrop-filter: blur(6px); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.2rem; align-items: center; }
+.center .cta-row, .cta-row.center { justify-content: center; }
 
-/* Stars */
-.stars { display: inline-flex; gap: 2px; color: var(--gold); flex: none; }
-.stars svg { width: 1em; height: 1em; fill: currentColor; }
-
-/* Aspect ratios */
-.ar-16-9 { aspect-ratio: 16/9; }
-.ar-4-3  { aspect-ratio: 4/3; }
-.ar-1-1  { aspect-ratio: 1/1; }
-.ar-4-5  { aspect-ratio: 4/5; }
-.cover { width: 100%; height: 100%; object-fit: cover; }
-
-/* Reveal on scroll */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-
-/* Bottom padding so the mobile sticky bar never covers content */
-@media (max-width: 860px) {
-  body { padding-bottom: 76px; }
+/* ----------------------------------------------------------- cards */
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: clamp(1.3rem, 1rem + 1vw, 2rem);
 }
+.stars { color: var(--gold); letter-spacing: .08em; font-size: 1.1rem; line-height: 1; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .45rem .95rem .45rem .5rem; border-radius: 999px;
+  background: rgb(255 255 255 / 92%); color: var(--navy);
+  font-weight: 700; font-size: var(--step--1);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgb(18 24 50 / 8%);
+}
+
+/* Photo frame shared by content images */
+.photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); background: var(--blue-50); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ------------------------------------------------------------- motion
+   The light "swipe" Cooper liked: a thin sheen passes over a heading once as
+   it scrolls in. Cards fade up. Nothing loops except the paused-able ticker. */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal:nth-child(2) { transition-delay: .06s; }
+.js .reveal:nth-child(3) { transition-delay: .12s; }
+.js .reveal:nth-child(4) { transition-delay: .18s; }
+.sweep { position: relative; }
+/* The sheen is painted into the letters themselves (background-clip: text),
+   so it never shows a box edge. Headings with coloured spans keep their
+   colours and skip it. */
+.js .sweep:not(:has(.accent, .outline, .red-dot, .script)) {
+  background-image: linear-gradient(100deg, currentColor 44%, var(--blue) 50%, #fff 51%, var(--blue) 52%, currentColor 58%);
+  background-size: 260% 100%; background-position: 100% 0; background-repeat: no-repeat;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.js .sweep.in:not(:has(.accent, .outline, .red-dot, .script)) { animation: sweep 1.4s var(--ease) .15s both; }
+@keyframes sweep { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .js .sweep, .js .sweep.in { animation: none !important; background-image: none !important; -webkit-text-fill-color: currentColor !important; }
+  .btn, .btn .chip { transition: none; }
+  .btn:hover, .btn:active, .btn:hover .chip, .btn:active .chip { transform: none; }
+}
+
+/* --------------------------------------------------------------- forms */
+.field { display: grid; gap: .4rem; }
+.field label { font-weight: 750; font-size: 1.02rem; color: var(--navy); }
+.field label .req { color: var(--red); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 58px; padding: .8rem 1rem;
+  border: 2px solid var(--line-strong); border-radius: 14px; background: #fff;
+  font-size: 1.1rem; color: var(--ink);
+  transition: border-color .15s, box-shadow .15s;
+}
+.field textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 4px rgb(54 198 244 / 25%); }
+.field select {
+  appearance: none; padding-right: 2.8rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121832' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 1rem center / 20px;
+}
+
+/* ------------------------------------------------------ breadcrumbs */
+.crumbs { font-size: var(--step--1); color: var(--ink-3); }
+.crumbs ol { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem .55rem; }
+.crumbs li + li::before { content: '/'; margin-right: .55rem; color: var(--line-strong); }
+.crumbs a { color: var(--ink-2); text-decoration: none; font-weight: 600; }
+.crumbs a:hover { text-decoration: underline; }
+
+/* Space for the mobile call/quote bar */
+@media (max-width: 899px) { .site-footer { padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom)); } }
+
+/* Phones: tighter section rhythm so pages scroll less; centered eyebrows drop the lead dash */
+@media (max-width: 699px) {
+  :root { --section: 3.25rem; }
+  .section-head.center .eyebrow { text-align: center; justify-content: center; }
+  .section-head.center .eyebrow::before { display: none; }
+}
+
+/* Link chips (areas, related pages) */
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.chips a { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.1rem; border-radius: 999px; background: #fff; border: 2px solid var(--line); text-decoration: none; font-weight: 700; color: var(--navy); }
+.chips a:hover { border-color: var(--blue); background: var(--blue-50); }
+.chips svg { color: var(--blue-700); }
+/* Phones: a long run of link chips as a tidy two-column grid instead of ragged
+   one-per-line pills (related-page lists at the foot of town and community pages). */
+@media (max-width: 759px) {
+  .chips.m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .chips.m-grid a { width: 100%; height: 100%; min-height: 48px; padding: .5rem .75rem; gap: .4rem; border-radius: var(--radius); font-size: 1rem; line-height: 1.25; }
+  .chips.m-grid svg { flex: none; }
+}
+
+/* ── Phone swipe rows ─────────────────────────────────────────────
+   Any grid marked .m-swipe becomes a sideways row of cards on phones,
+   so a stack of six tall cards takes one card's height instead of six.
+   Base.astro adds big prev/next buttons and a "2 of 6" count under it. */
+.swipe-ctrl { display: none; }
+@media (max-width: 759px) {
+  .m-swipe {
+    display: flex !important; gap: .9rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter)); padding: .2rem var(--gutter) .6rem;
+    scrollbar-width: none;
+  }
+  .m-swipe::-webkit-scrollbar { display: none; }
+  .m-swipe:focus-visible { outline-offset: -3px; }
+  .m-swipe > * { flex: 0 0 86%; scroll-snap-align: start; min-width: 0; }
+  /* A row of one (a town with a single local review) takes the full width, no empty strip beside it. */
+  .m-swipe > :only-child { flex-basis: 100%; }
+  .js .m-swipe > .reveal, .js .m-swipe .reveal { opacity: 1; transform: none; }
+  .swipe-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
+  .swipe-ctrl button {
+    width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center;
+    border: 2px solid var(--line); background: #fff; color: var(--navy); font-size: 1.4rem; font-weight: 800;
+  }
+  .swipe-ctrl button[aria-disabled=true] { opacity: .35; cursor: default; }
+  .swipe-ctrl p { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); text-align: center; }
+  /* Room for the controls from first paint (Base.astro adds them after load), so nothing moves. */
+  .js .m-swipe:has(> :nth-child(2)):not(.has-ctrl) { border-bottom: calc(.6rem + 52px + var(--swipe-gap, 0px)) solid transparent; }
+  /* Rows in a grid also get the grid's gap above their controls. */
+  .five-grid > .m-swipe { --swipe-gap: 1.4rem; }
+  .guar > .m-swipe { --swipe-gap: 1.1rem; }
+  .proof > .m-swipe { --swipe-gap: .8rem; }
+  .hoa > .m-swipe { --swipe-gap: 1.2rem; }
+  .bg-navy .swipe-ctrl p, .on-dark .swipe-ctrl p { color: #dbe6f5; }
+}
+
+/* Long reviews on phones: show the first lines with a "Read the whole review"
+   button (added in Base.astro) so one long quote doesn't fill three screens. */
+.more-btn { display: none; }
+@media (max-width: 759px) {
+  .js :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p.is-long:not(.open) {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; line-clamp: 7; overflow: hidden;
+  }
+  .js .more-btn {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none;
+    font-weight: 800; font-size: 1.05rem; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; justify-self: start;
+  }
+  .rev-lead .more-btn, .rev-inst .more-btn { color: inherit; }
+  /* In a swipe row every long quote stops at four lines (always short of its full length), so the cards come out close to even. */
+  .js .m-swipe :is(.rcard, .rev-lead, .rev-inst, .rv) blockquote p.is-long:not(.open) { -webkit-line-clamp: 4; line-clamp: 4; }
+  .m-swipe { align-items: flex-start; }
+}
+
+/* ── Micro-interactions ───────────────────────────────────────────
+   Small, quiet feedback on everything you can press: links draw their
+   underline, chips and link rows lift a little, FAQ answers slide open.
+   All of it switches off with reduced motion. */
+html { -webkit-tap-highlight-color: transparent; }
+
+/* Text links: the underline draws in from the left on hover. */
+.text-link {
+  border-bottom: 0; padding-bottom: 5px;
+  background:
+    linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 3px,
+    linear-gradient(var(--blue), var(--blue)) no-repeat 0 100% / 100% 3px;
+  transition: background-size .35s var(--ease);
+}
+.text-link:hover { background-size: 100% 3px, 100% 3px; }
+
+/* Inline links in running copy get a softer, thicker hover underline. */
+:is(.prose, .faq-a, .lede, .g-body) a:not(.btn):not(.text-link) {
+  text-decoration-color: var(--blue); text-decoration-thickness: 2px;
+  transition: text-decoration-color .2s, text-decoration-thickness .2s, color .2s;
+}
+:is(.prose, .faq-a, .lede, .g-body) a:not(.btn):not(.text-link):hover { text-decoration-color: var(--navy); text-decoration-thickness: 3px; color: var(--blue-700); }
+
+/* Chips: lift, tint and nudge the icon. */
+.chips a { transition: transform .25s var(--ease), border-color .2s, background .2s, box-shadow .25s var(--ease); }
+.chips a svg { transition: transform .3s var(--ease); }
+.chips a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -12px rgb(18 24 50 / 35%); }
+.chips a:hover svg { transform: translateX(3px); }
+.chips a:active { transform: translateY(0) scale(.98); box-shadow: none; }
+
+/* Phone-swipe arrows and "read more" get a pressed state. */
+.swipe-ctrl button { transition: transform .15s var(--ease), background .2s, border-color .2s, opacity .2s; }
+.swipe-ctrl button:not([aria-disabled=true]):hover { border-color: var(--blue); background: var(--blue-50); }
+.swipe-ctrl button:not([aria-disabled=true]):active { transform: scale(.92); }
+
+/* Phone links: the icon rings once on hover. */
+.phone-link svg { transition: transform .3s var(--ease); }
+.phone-link:hover svg { animation: ring .6s var(--ease) 1; }
+@keyframes ring { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-14deg); } 40% { transform: rotate(12deg); } 60% { transform: rotate(-8deg); } 80% { transform: rotate(4deg); } }
+
+/* FAQ answers slide open where the browser supports animating details. */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  details::details-content { height: 0; overflow: clip; transition: height .35s var(--ease), content-visibility .35s allow-discrete; }
+  details[open]::details-content { height: auto; }
+}
+details > summary { transition: color .2s; }
+details > summary:hover { color: var(--blue-700); }
+
+/* Cards that are links lift on hover. */
+a.card { display: block; text-decoration: none; color: inherit; transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .2s; }
+a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--blue-200); }
+
+/* Photos inside links zoom gently. */
+a .photo img, a.photo img { transition: transform .8s var(--ease); }
+a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
+
+/* Job-video frames: a soft blue ring so they read as part of the page. */
+.loop { box-shadow: var(--shadow), 0 0 0 1px rgb(54 198 244 / 20%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .text-link, .chips a, .chips a svg, a.card, .swipe-ctrl button, a .photo img, a.photo img { transition: none; }
+  .phone-link:hover svg { animation: none; }
+  .chips a:hover, a.card:hover { transform: none; }
+  details::details-content { transition: none; }
+}
+
+/* ── Tap targets ──────────────────────────────────────────────────
+   Every standalone link or button is at least 44px tall (WCAG 2.5.8,
+   and kinder to older fingers), grown with padding, not bigger type. */
+.text-link, .phone-cta, .faq-more, .q-more, .town-name, .hero-call, .foot-phone { min-height: 44px; }
+.faq-more, .q-more, .hero-call { display: inline-flex; align-items: center; }
+.phone-link { min-height: 48px; }
+.subs a { min-height: 44px; display: inline-flex !important; align-items: center; }
+.foot-col a, .foot-facts a { min-height: 44px; display: inline-flex !important; align-items: center; }
+
+/* Phones: section headings a step smaller, so long place names stay within
+   four lines (design review 1, optional item). */
+@media (max-width: 759px) { .h2 { font-size: clamp(1.6rem, 1.1rem + 2.6vw, 1.9rem); } }
+
+/* ── Polish pass: calm surfaces and quiet feedback ─────────────────
+   Everything pressable shares one vocabulary: rest on a soft layered
+   shadow, lift 2px with a deeper shadow on hover, settle back with a
+   slight scale on press. Reduced motion keeps the colour and shadow
+   changes and drops the movement. */
+.card { border-color: var(--line); box-shadow: var(--shadow-sm); }
+.phone-link { transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .15s var(--ease-press); }
+.phone-link:active { transform: scale(.98); }
+
+:is(.topics, .ans) a {
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s, background .2s;
+}
+:is(.topics, .ans) a:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--blue-200); }
+:is(.topics, .ans) a:active, a.card:active { transform: translateY(0) scale(.99); box-shadow: var(--shadow-xs); transition-duration: .08s; }
+:is(.topics, .ans) a :is(svg) { transition: transform .3s var(--ease); }
+.topics a:hover svg { transform: translateX(3px); }
+
+/* Chips: slightly calmer at rest, a soft shadow instead of a heavy border. */
+.chips a { border-width: 1px; border-color: var(--line); box-shadow: var(--shadow-xs); min-height: 48px; }
+
+/* Swipe arrows read as the same soft buttons. */
+.swipe-ctrl button { border-width: 1px; box-shadow: var(--shadow-xs); }
+.swipe-ctrl button[aria-disabled=true] { box-shadow: none; }
+
+/* FAQ rows: one border weight, a soft shadow, and a blue edge when open. */
+.faq details { box-shadow: var(--shadow-xs); }
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-link, :is(.topics, .ans) a, :is(.topics, .ans) a svg { transition: none; }
+  .phone-link:active, :is(.topics, .ans) a:hover, :is(.topics, .ans) a:active, a.card:active, .topics a:hover svg { transform: none; }
+}
+
+/* Phones: a slightly tighter vertical rhythm so pages scroll less, while
+   keeping the same type sizes. */
+@media (max-width: 699px) {
+  :root { --section: 2.9rem; --head-gap: .8rem; }
+  .section-head { margin-bottom: 1.4rem; }
+  .section-tight { padding-block: 2.2rem; }
+  /* Two plain white sections in a row: don't stack both paddings. */
+  .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) { padding-top: calc(var(--section) * .35); }
+  /* The same for a tight section (a photo row, a link list) right after a plain section. */
+  .section:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft, .promise-sec) + .section-tight:not(.bg-mist, .bg-navy, .bg-blue, .bg-blue-soft) { padding-top: .6rem; }
+}
+
+/* Phone list fold: items past data-pfold wait behind a .pf-more button (Base.astro). */
+.pf-more { display: none; }
+.pf-more[hidden] { display: none !important; }
+@media (max-width: 759px) {
+  .js [data-pfold]:not(.is-all) > .pf-x { display: none; }
+  /* The same fold from first paint, before the script marks the items (lists with a button only). */
+  .js [data-pfold='2']:not(.is-all):has(> :nth-child(4)) > :nth-child(n+3),
+  .js [data-pfold='4']:not(.is-all):has(> :nth-child(6)) > :nth-child(n+5),
+  .js [data-pfold='6']:not(.is-all):has(> :nth-child(8)) > :nth-child(n+7) { display: none; }
+  .js .pf-more { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: .8rem; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--navy); font-weight: 700; font-size: 1.02rem; }
+}
+
+/* Phone section fold (Base.astro, data-mfold): the heading is the toggle. */
+.mfold-t { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: .8rem; width: 100%; min-height: 48px; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+.mfold-t:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 6px; }
+.mfold-plus { position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
+.mfold-plus::before, .mfold-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }
+.mfold-plus::after { rotate: 90deg; }
+.mfold-t[aria-expanded="true"] .mfold-plus { background: var(--blue); }
+.mfold-t[aria-expanded="true"] .mfold-plus::after { rotate: 0deg; }
+@media (max-width: 759px) {
+  /* Folded from first paint (the html gets .js in the head), so the page doesn't move when
+     the script runs: everything after the first heading, up to the section, is hidden.
+     Later headings all sit inside that hidden part, so the only visible h2/h3 is the first. */
+  .is-mfold, .js [data-mfold]:not(.mf-open) { padding-block: 1.1rem !important; }
+  .is-mfold .section-head, .is-mfold h2, .is-mfold h3,
+  .js [data-mfold]:not(.mf-open) :is(.section-head, h2, h3) { margin-bottom: 0 !important; }
+  .js [data-mfold]:not(.mf-open) :is(h2, h3) ~ :not(script),
+  .js [data-mfold]:not(.mf-open) :has(h2, h3) ~ :not(script) { display: none !important; }
+  /* Until the script turns it into a button, the heading keeps the button's size and room for the + */
+  .js [data-mfold]:not(.mf-open) :is(h2, h3):not(:has(.mfold-t)) { display: flex; align-items: center; min-height: 48px; padding-right: calc(36px + .8rem); }
+}
+@media (prefers-reduced-motion: reduce) { .mfold-plus::before, .mfold-plus::after { transition: none; } }
+/* The hidden attribute always wins over a component's display value. */
+[hidden] { display: none !important; }

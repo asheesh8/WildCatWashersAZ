@@ -1,83 +1,56 @@
 ---
 import Base from '@/layouts/Base.astro';
-import SectionHead from '@/components/SectionHead.astro';
-import AreaGrid from '@/components/AreaGrid.astro';
-import CtaBand from '@/components/CtaBand.astro';
-import AskWildcat from '@/components/AskWildcat.astro';
-import { services, locations, alsoServing, proof, allAreaNames, company } from '@/data/business';
+import PageHero from '@/components/PageHero.astro';
+import TrustRow from '@/components/TrustRow.astro';
+import Icon from '@/components/Icon.astro';
+import { towns, childrenOf, townHref, communityHref } from '@/data/areas';
+import { company } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Areas', href: '/areas/' }];
+const tiers = [
+  { t: 1, label: 'Where we work most' },
+  { t: 2, label: 'Across the metro' },
+  { t: 3, label: 'Further out' },
+];
 ---
-<Base
-  title="Service Areas | Window Cleaning Across Greater Tucson | Wildcat Washers"
-  description={`Window cleaning, solar panel cleaning and pressure washing in ${allAreaNames()} and surrounding communities. ${proof.customersServedLabel} customers served across Pima and Pinal County.`}
-  canonical="/areas/"
-  breadcrumbs={[{ name: 'Service Areas', href: '/areas/' }]}
->
-  <section class="hub tone-navy">
-    <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Service Areas</span></nav>
-      <h1>Eight towns. <span class="swipe">One crew.</span></h1>
-      <p class="lede">
-        We run a weekly route through {allAreaNames()} — which is why we can usually get to
-        you this week rather than next month.
-      </p>
-      <div class="hub-ask"><AskWildcat variant="hero" placeholder="Try “do you serve Quail Creek?”" /></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <SectionHead eyebrow="Pick your town" title="Where we work." />
-      <AreaGrid />
-    </div>
-  </section>
-
-  <section class="section tone-soft">
-    <div class="wrap">
-      <SectionHead eyebrow="Every combination" title="Service by town." />
-      <div class="matrix">
-        {locations.map((l) => (
-          <div>
-            <h3><a href={`/areas/${l.slug}/`}>{l.name}</a></h3>
-            <ul>
-              {services.map((s) => (
-                <li><a href={`/services/${s.slug}/${l.slug}/`}>{s.name}</a></li>
-              ))}
-            </ul>
-            <p>{l.communities.slice(0, 4).join(' · ')}</p>
-          </div>
-        ))}
-      </div>
-      <p class="also">
-        We also serve {alsoServing.join(', ')} and surrounding communities across Pima and Pinal
-        County. Not sure whether you are in range? Call or text {company.phone} — the answer is
-        usually yes.
-      </p>
-    </div>
-  </section>
-
-  <CtaBand />
+<Base title="Service Areas Across Greater Tucson | Wildcat Washers" description={`${company.serviceAreaStatement}: Green Valley, SaddleBrooke, Oro Valley, Catalina Foothills, Marana and more.`} breadcrumbs={crumbs}>
+  <PageHero trust eyebrow="Where we work" title={h1For('/areas/', 'Service Areas Across Greater Tucson and Southern Arizona')} lede={`Based in Tucson at ${company.address.street}, and out across the metro seven days a week. If you don’t see your neighborhood, call. We probably cover it.`} crumbs={crumbs} image="crew-chamber-of-commerce" />
+  <TrustRow />
+  {tiers.map((tier) => {
+    const list = towns.filter((x) => x.tier === tier.t);
+    return list.length ? (
+      <section class="section-tight">
+        <div class="wrap">
+          <h2 class="h2" style="margin-bottom:1.4rem">{tier.label}</h2>
+          <ul class="towns" role="list">
+            {list.map((town) => (
+              <li class="reveal">
+                <a class="town-name" href={townHref(town.slug)}><Icon name="pin" size={22} />{town.name}<Icon name="arrow" size={20} /></a>
+                <p>{town.intro.split('. ')[0].replace(/\.$/, '')}.</p>
+                {childrenOf(town.slug).length > 0 && (
+                  <ul class="subs" role="list">{childrenOf(town.slug).map((c) => <li><a href={communityHref(c)}>{c.name}</a></li>)}</ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ) : null;
+  })}
 </Base>
-
 <style>
-  .hub { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
-  .hub h1 { font-size: var(--step-4); color: #fff; margin-block: .6rem .8rem; text-transform: none; }
-  .hub h1 .swipe::after { background: var(--cyan); opacity: .95; height: .15em; }
-  .hub .lede { max-width: 62ch; margin-bottom: 1.75rem; }
-  .hub-ask { max-width: 680px; }
-  .crumbs { font-size: .85rem; color: #9fadcb; display: flex; gap: .4rem; }
-  .crumbs a { color: #cfd8ec; text-decoration: none; }
-  .crumbs span[aria-current] { color: #fff; font-weight: 600; }
-
-  .matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.25rem, 2.5vw, 2rem); }
-  @media (max-width: 1000px) { .matrix { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 600px) { .matrix { grid-template-columns: 1fr; } }
-  .matrix > div { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.25rem; }
-  .matrix h3 { font-size: 1.1rem; margin-bottom: .7rem; }
-  .matrix h3 a { color: var(--navy); text-decoration: none; }
-  .matrix h3 a:hover { color: var(--cyan-600); }
-  .matrix ul { list-style: none; margin: 0 0 .9rem; padding: 0; display: grid; gap: .35rem; }
-  .matrix ul a { font-size: .92rem; color: var(--ink-2); text-decoration: none; font-weight: 600; }
-  .matrix ul a:hover { color: var(--cyan-600); }
-  .matrix p { font-size: .82rem; color: var(--ink-3); line-height: 1.4; padding-top: .8rem; border-top: 1px solid var(--line-2); }
-  .also { margin-top: 2rem; color: var(--ink-3); font-size: .96rem; max-width: 80ch; line-height: 1.6; }
+  .towns { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  .towns > li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem; display: grid; gap: .7rem; align-content: start; box-shadow: var(--shadow-sm); }
+  .town-name { display: flex; align-items: center; gap: .5rem; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.5rem; text-decoration: none; color: var(--navy); }
+  .town-name :global(svg:first-child) { color: var(--blue-700); }
+  .town-name :global(svg:last-child) { margin-left: auto; }
+  .towns p { color: var(--ink-2); }
+  .subs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .subs a { display: inline-block; padding: .35rem .8rem; border-radius: 999px; background: var(--blue-50); font-weight: 650; font-size: 1rem; text-decoration: none; }
+  .subs a:hover { background: var(--blue-100); }
+  @media (max-width: 759px) {
+    .towns { gap: .7rem; }
+    .towns > li { padding: 1.1rem 1.2rem; gap: .5rem; }
+    .town-name { font-size: 1.3rem; }
+  }
 </style>

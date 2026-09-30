@@ -1,8 +1,51 @@
 ---
 import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import QuoteForm from '@/components/QuoteForm.astro';
-import { company } from '@/data/business';
+import Icon from '@/components/Icon.astro';
+import { company, telHref, guarantees, proof, cta } from '@/data/business';
+import { h1For } from '@/data/plan';
+const crumbs = [{ name: 'Free quote', href: '/quote/' }];
 ---
-<Base title="Your Free Quote | Wildcat Washers, Tucson" description="Tell the Wildcat crew what needs cleaning. Get a free quote for windows, solar panels or pressure washing, with 10% off your first service." canonical="/quote/" breadcrumbs={[{name:'Get a quote',href:'/quote/'}]}>
- <section class="home-quote brand-section quote-page"><div class="home-quote-copy"><p class="brand-label">A FRESH START FOR YOUR PLACE.</p><h1 class="impact-heading">GOODBYE,<br/>GRIME. <br/><span class="outline-type">HELLO, VIEW.</span></h1><p>Tell us what needs a little Wildcat attention.<br/>We’ll take it from there.</p><ol class="quote-next-steps"><li><span>01</span><div><strong>Tell us about your place.</strong><p>A few details help us get your quote right.</p></div></li><li><span>02</span><div><strong>Get a clear price.</strong><p>Know the scope and the cost before you book.</p></div></li><li><span>03</span><div><strong>Leave the dirty work to us.</strong><p>A friendly crew. A proper clean. A better view.</p></div></li></ol><a href={`tel:${company.phoneRaw}`} class="quote-phone">{company.phone} <span aria-hidden="true">↗</span></a><span class="quote-phone-caption">RATHER JUST TALK? WE’RE RIGHT HERE IN TUCSON.</span></div><div class="home-quote-form"><div class="quote-form-heading"><span>YOUR FREE QUOTE</span><span>FIRST CLEAN? SAVE 10% ↗</span></div><QuoteForm id="main-quote" /><p class="quote-reassurance">LOCAL CREW · LICENSED &amp; INSURED · NO OBLIGATION</p></div></section>
+<Base title="Get Your Free Quote | Wildcat Washers Tucson" description={`Call ${company.phone} for a free quote in a few minutes, or send the short form and we’ll call you right back. You don’t pay until you’re happy.`} breadcrumbs={crumbs} hideCta>
+  <section class="q">
+    <div class="wrap q-grid">
+      <div class="q-copy">
+        <Breadcrumbs items={crumbs} />
+        <h1 class="h1">{h1For('/quote/', 'Get Your Free Quote')}</h1>
+        <p class="lede">The fastest way is a phone call. For windows we count panes together and quote in a few minutes, no site visit needed.</p>
+        <a class="q-phone" href={telHref} data-track="call-quote"><span><Icon name="phone" size={30} /></span>{company.phone}</a>
+        <p class="muted">{company.availabilityLong}</p>
+        <ul class="q-g" role="list">
+          {guarantees.map((g) => <li><Icon name="check-circle" size={24} /><div><strong>{g.name}</strong><span>{g.headline}</span></div></li>)}
+        </ul>
+      </div>
+      <div class="q-card">
+        <h2 class="q-card-title">Or send the short form</h2>
+        <p class="muted" style="margin-bottom:1.2rem">{cta.responseLine}</p>
+        <QuoteForm id="quote-page-form" />
+      </div>
+    </div>
+  </section>
 </Base>
+<style>
+  .q { background: linear-gradient(180deg, var(--blue-100), var(--blue-50) 60%, #fff); padding-block: clamp(2rem, 1.5rem + 3vw, 5rem); }
+  .q-grid { display: grid; gap: 2.5rem; align-items: start; }
+  @media (min-width: 1000px) { .q-grid { grid-template-columns: 1fr 1.1fr; } }
+  .q-copy { display: grid; gap: 1.2rem; }
+  /* Phones: the form comes right after the phone number; guarantees follow it */
+  @media (max-width: 999px) {
+    .q-grid { gap: 1.2rem; }
+    .q-copy { display: contents; }
+    .q-card { order: 1; margin-block: .8rem; }
+    .q-g { order: 2; }
+  }
+  .q-phone { display: inline-flex; align-items: center; gap: .9rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.4rem); color: var(--navy); text-decoration: none; }
+  .q-phone span { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: var(--blue); display: grid; place-items: center; }
+  .q-g { list-style: none; padding: 0; display: grid; gap: .8rem; }
+  .q-g li { display: flex; gap: .7rem; }
+  .q-g :global(svg) { color: var(--blue-700); flex: none; margin-top: .2rem; }
+  .q-g div { display: grid; }
+  .q-card { background: #fff; border-radius: calc(var(--radius-lg) + 4px); padding: clamp(1.4rem, 1rem + 2vw, 2.6rem); box-shadow: var(--shadow-lg); }
+  .q-card-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.7rem; }
+</style>

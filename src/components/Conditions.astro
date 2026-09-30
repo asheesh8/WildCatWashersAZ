@@ -1,0 +1,32 @@
+---
+/** "What the desert does here": local conditions as the numbered /01 list. */
+export interface Props { title: string; items: string[]; lede?: string; /** Phones: the conditions sit in one swipe row instead of a stack (town hubs). */ swipe?: boolean; /** Phones: fold the section to its heading. */ mfold?: boolean }
+const { title, items, lede, swipe = false, mfold = false } = Astro.props;
+---
+<section class="section bg-mist" data-mfold={mfold ? '' : undefined}>
+  <div class="wrap cond">
+    <div class="section-head">
+      <p class="eyebrow">Local conditions</p>
+      <h2 class="h2 sweep">{title}</h2>
+      {lede && <p class="lede">{lede}</p>}
+    </div>
+    <ol class:list={[swipe && items.length > 1 && 'm-swipe']} role="list">
+      {items.map((c, i) => (
+        <li class="reveal"><span class="n">/{String(i + 1).padStart(2, '0')}</span><p>{c}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .cond ol { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .cond li { background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 1.6rem; display: grid; gap: .6rem; align-content: start; }
+  .n { font-family: var(--font-display); font-weight: 900; font-size: 2.8rem; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--blue-600); }
+  .cond p { font-size: var(--step-1); line-height: 1.45; color: var(--ink-2); }
+  /* Phones: the number sits beside its line instead of above it, so three
+     conditions take about half the height; the type stays the same size. */
+  @media (max-width: 699px) {
+    .cond ol { gap: .7rem; }
+    .cond li { grid-template-columns: auto minmax(0, 1fr); gap: .9rem; align-items: start; padding: 1.1rem 1.2rem; }
+    .n { font-size: 2rem; }
+  }
+</style>
