@@ -2718,7 +2718,7 @@ const round19Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/areas/oro-valley/stone-canyon/': {
     sections: [
       { h: 'Shade for the big west glass', p: 'West- and south-facing panes take the most heat, so that’s where solar screens do the most good. [Solar screens](/services/solar-screens/)' },
-      { h: 'Paying at the end', p: 'You don’t pay until the crew has walked the job with you and you’re happy with it.' },
+      { h: 'Paying at the end', p: 'Nobody pays until the final walkthrough is done and they’re happy with the work.' },
     ],
   },
   '/services/solar-screens/green-valley/': {
