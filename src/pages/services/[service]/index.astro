@@ -139,8 +139,8 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
   {/* One section for the quick answers and the guide links, so phones don't scroll through two in a row. */}
   <FaqList items={faqs} title={`${s.name} questions`} openFirst={false}>
     {answers.length > 0 && (
-      <div class="svc-ans">
-        <h3 class="h3" style="margin-bottom:.8rem">More answers about {s.name.toLowerCase()}</h3>
+      <div class="svc-ans" data-mfold>
+        <h3 class="h3" style="margin-bottom:.8rem">More answers about {s.name.toLowerCase()} ({answers.length})</h3>
         <ul class="ans-links" role="list" id="svc-answers" data-pfold="6">
           {answers.map((a) => <li><a href={a.url}><Icon name="arrow" size={18} />{a.row.h1}</a></li>)}
         </ul>
@@ -160,6 +160,13 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 
 <style>
   .svc-ans { margin-top: clamp(1.8rem, 1.4rem + 1.5vw, 2.6rem); }
+  /* Wider screens: the list breaks out of the narrow FAQ column to the full page width (three columns). */
+  @media (min-width: 760px) { .svc-ans { --w: min(100vw - 2 * var(--gutter), var(--max)); width: var(--w); margin-inline: calc(50% - var(--w) / 2); } }
+  /* Phones: one closed row styled like the questions above it (data-mfold folds it from first paint). */
+  @media (max-width: 759px) {
+    :global(.js) .svc-ans { margin-top: .6rem; padding-inline: 1.1rem !important; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+    :global(.js) .svc-ans h3 { font-size: 1.12rem; }
+  }
   .ans-links { list-style: none; padding: 0; display: grid; gap: .1rem 1.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
   .ans-links a { display: flex; gap: .5rem; align-items: flex-start; min-height: 44px; padding: .55rem 0; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line); }
   .ans-links a :global(svg) { flex: none; margin-top: .2rem; color: var(--blue-700); }
