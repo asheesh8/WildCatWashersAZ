@@ -2322,6 +2322,108 @@ for (const [url, a] of Object.entries(round15Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 16: next weakest pages ==============================
+   Appended like rounds 12 to 15, worded apart from the pages that own each fact. Every line traces to a Doc 6 answer or a fact bank line. */
+const round16Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/solar-screens/catalina-foothills/': {
+    sections: [
+      { h: 'The room that always runs hot', p: 'Most houses have one room that heats up every afternoon. Screening its windows makes it noticeably more comfortable and takes the edge off the glare.' },
+      { h: 'Keeping furnishings from fading', p: 'Stopping UV at the screen, before it reaches the glass, helps keep furniture, floors, artwork and window treatments from fading.' },
+    ],
+  },
+  '/areas/oro-valley/rancho-vistoso/': {
+    sections: [
+      { h: 'Dozens of gated villages', p: 'Rancho Vistoso covers the north end of Oro Valley, with dozens of gated villages, golf and trailheads into the Tortolitas. Whichever village is yours, the visit and the pricing work the same way.' },
+      { h: 'Timing that fits your day', p: 'Crews are out seven days a week and flexible about timing, so the visit can fit around your schedule.', q: { text: 'They did a good job, even with the sun starting to go down.', by: 'Annette G., Oro Valley' } },
+    ],
+    quoted: [109],
+  },
+  '/areas/saddlebrooke/saddlebrooke-ranch/': {
+    sections: [
+      { h: 'Homes still going up', p: 'SaddleBrooke Ranch is still being built. On a newly finished home, the first clean takes builder dust and debris off the glass; heavy paint or stucco overspray usually comes off with steel wool or a scraper, though it can be stubborn.', q: { text: 'Had great service!', by: 'Wonona & Jerry D., SaddleBrooke Ranch' } },
+      { h: 'Oracle, just up the road', p: 'Oracle, the small mountain town just north with its older hillside custom homes, is on our routes as well.' },
+    ],
+    quoted: [135],
+  },
+  '/areas/vail-az/del-webb-at-rancho-del-lago/': {
+    sections: [
+      { h: 'The 55+ side of Rancho del Lago', p: 'This is the 55+ golf section of Rancho del Lago, the master-planned golf community on the north side of Vail, and it sits on our regular Rincon Valley routes.' },
+      { h: 'Seniors and veterans', p: 'Seniors and veterans each get a discount. Bring it up on the quote call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+  },
+  '/areas/oro-valley/stone-canyon/': {
+    sections: [
+      { h: 'Among the boulders', p: 'Custom homes set among the boulders at the top of Rancho Vistoso tend to carry enormous, specialty glass. Coatings and films are identified before anything touches a pane, and no type of glass is turned away.', q: { text: 'Great team of personable young men did professional job on my home in Oro Valley', by: 'Diane, Oro Valley' } },
+    ],
+    quoted: [106],
+  },
+  '/areas/saddlebrooke/saddlebrooke-two/': {
+    sections: [
+      { h: 'The larger, north-side HOA', p: 'SaddleBrooke Two is the bigger of the two HOAs, on the north side, and residents know it by name. We have customers all through it.' },
+      { h: 'Adding a service costs less for members', p: 'On a Wildcat Club membership, anything added to a window visit, like the panels or a patio, is 10 percent less.' },
+    ],
+  },
+  '/areas/tucson/sam-hughes/': {
+    sections: [
+      { h: 'Original glass, handled with care', p: 'Many Sam Hughes owners are keeping original windows, so each one is looked over before we start. Existing chips, scratches or failed seals get pointed out to you first.', q: { text: 'The guys showed up on time, we\'re professional and explained everything I needed to know!', by: 'Kathy B., Tucson' } },
+    ],
+    quoted: [92],
+  },
+  '/areas/green-valley/springs-at-canoa/': {
+    sections: [
+      { h: 'Inside and outside, one visit', p: 'Most Springs at Canoa customers have both sides of the glass done together, since the full 5-in-1 covers inside and out in a single trip.', q: { text: 'Three guys swept in to our home in Green Valley AZ....cleaned all windows inside and out. Very happy with results and pricing.', by: 'Mark G., Green Valley' } },
+    ],
+    quoted: [30],
+  },
+  '/services/solar-screens/green-valley/': {
+    sections: [
+      { h: 'Easy to take down', p: 'Each screen is held by brackets screwed into the house, which keeps it secure without any risk to the window. The brackets rotate, so you can pop a screen out yourself by loosening the hardware.' },
+    ],
+  },
+  '/services/window-cleaning/vail-az/': {
+    sections: [
+      { h: 'Dogs at home are fine', p: 'Our crews like animals and are gentle with them, so there’s no need to shut the dog away for the day.' },
+      { h: 'Quoted from your kitchen table', p: 'Nobody needs to come out and look. Count the panes with us on the phone and the price is settled on the same call.' },
+    ],
+  },
+  '/services/window-cleaning/saddlebrooke/': {
+    sections: [
+      { h: 'Mirrors and shower doors', p: 'Bathroom mirrors, shower doors and patio enclosures can be done while the crew is already inside.' },
+      { h: 'Three visits, booked for you', p: 'Wildcat Club members have all three seasonal visits scheduled for them at a rate that holds for the year, with reminders along the way.' },
+    ],
+  },
+  '/areas/saddlebrooke/saddlebrooke-one/': {
+    sections: [
+      { h: 'The original, south side', p: 'SaddleBrooke One is the original HOA, on the south side, and residents use the name. We have customers throughout it.' },
+      { h: 'Panels on the roof', p: 'Rooftop arrays of any type and pitch get a hand wash with pure water, once or twice a year, with photos of the roof you can’t see. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/services/solar-screens/oro-valley/': {
+    sections: [
+      { h: 'Pets, mildew and lead', p: 'The Phifer mesh we use is pet-resistant, mildew-resistant and lead-free.' },
+      { h: 'A skin-health connection', p: 'Phifer is a member of the Skin Cancer Foundation’s Corporate Council.' },
+    ],
+  },
+  '/services/window-cleaning/green-valley/': {
+    sections: [
+      { h: 'Screens out, every visit', p: 'A clean pane behind a dusty screen doesn’t stay clean long, so screens come out, get reconditioned and go back in on every visit.', q: { text: 'The young men that helped clean my windows and screens in green valley did a great job!', by: 'Sherwood M., Green Valley' } },
+    ],
+    quoted: [12],
+  },
+  '/services/solar-panel-cleaning/green-valley/': {
+    sections: [
+      { h: 'Ground mounts too', p: 'Arrays on the ground get the same careful hand wash as rooftop panels.' },
+      { h: 'Businesses and communities', p: 'Commercial rooftop arrays are cleaned too, and they can run on a recurring schedule.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round16Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 16: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
