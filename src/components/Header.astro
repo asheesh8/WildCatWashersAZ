@@ -74,7 +74,8 @@ const path = Astro.url.pathname;
   }
   .site-header.is-overlay { position: absolute; inset: 0 0 auto; background: transparent; border: 0; }
   .bar { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .brand img { height: 78px; width: auto; }
+  .brand { flex-shrink: 0; }
+  .brand img { height: 78px; width: auto; max-width: none; flex-shrink: 0; }
   @media (min-width: 900px) { .brand img { height: 88px; } }
 
   /* Floating state after scroll */
@@ -131,10 +132,11 @@ const path = Astro.url.pathname;
   /* Seven menu links on a laptop: nothing wraps, and until there's room the phone shows as its round icon
      (the number stays in the link for screen readers, and the bar at the foot of phones has it too). */
   .desk-nav a, .head-quote, .head-phone-text { white-space: nowrap; }
-  @media (min-width: 1100px) and (max-width: 1439px) {
+  @media (min-width: 1100px) and (max-width: 1319px) {
     .desk-nav a { padding-inline: .65rem; }
     .head-phone-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   }
+  @media (min-width: 1100px) and (max-width: 1199px) { .desk-nav a { padding-inline: .45rem; font-size: 1rem; } .bar { gap: .6rem; } }
 
   /* Menu sheet */
   .menu {
