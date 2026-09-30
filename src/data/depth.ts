@@ -3245,6 +3245,91 @@ for (const [url, a] of Object.entries(round24Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 25: next weakest pages ==============================
+   Appended like rounds 12 to 24. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round25Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/guides/why-does-my-concrete-look-grey/': {
+    sections: [
+      { h: 'Pavers and pool decks', p: 'The same dust and sun film settles on pavers and pool decks, and they’re pressure washed the same way. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-solar-panels/': {
+    sections: [
+      { h: 'Booked around your calendar', p: 'We schedule around you, short-notice requests included, so a post-monsoon cleaning can land when it suits your week.' },
+    ],
+  },
+  '/guides/is-pressure-washing-safe-for-desert-landscaping/': {
+    sections: [
+      { h: 'Roofs, case by case', p: 'Roofs of any type are in scope, on homes and businesses. The usual reason is a heavy layer of dust, dirt or droppings from birds.' },
+    ],
+  },
+  '/guides/senior-and-veteran-discounts-window-cleaning/': {
+    sections: [
+      { h: 'After the visit', p: 'Once the job’s done, a referral link arrives by text and by email, in case someone you know could use us. [Referral program](/referrals/)' },
+    ],
+  },
+  '/guides/how-to-prepare-for-window-cleaning/': {
+    sections: [
+      { h: 'Once the crew leaves', p: 'The 14-Day Spotless Guarantee starts, and Wildcat Club members are put on the schedule for their next visit automatically.' },
+    ],
+  },
+  '/guides/how-often-clean-solar-panels-tucson/': {
+    sections: [
+      { h: 'Twice a year without the reminders', p: 'On a Wildcat Club membership the panel visits are put on the calendar for you, alongside the windows. [Wildcat Club](/wildcat-club/)' },
+    ],
+  },
+  '/guides/how-to-keep-windows-clean-longer/': {
+    sections: [
+      { h: 'After a light rain', p: 'Customers keep telling us that when a light shower follows a clean, the glass shows no sign of it, because the dust in the tracks, on the sills and in the screens was cleared out as well.' },
+    ],
+  },
+  '/guides/can-you-pressure-wash-solar-panels/': {
+    sections: [
+      { h: 'Soap only when needed', p: 'Depending on the grime, panels get a hand wash in deionized water, with soap added only if they need it.' },
+    ],
+  },
+  '/guides/should-i-pigeon-proof-before-birds-arrive/': {
+    sections: [
+      { h: 'Why the cleanup costs more', p: 'Droppings are a genuine biohazard, so crews suit up in protective gear and bag and remove all of it. An array birds haven’t found skips that step entirely.' },
+    ],
+  },
+  '/guides/which-windows-need-solar-screens/': {
+    sections: [
+      { h: 'Doing the whole house', p: 'Plenty of customers screen every window, for complete protection and a clean, uniform look from the street.' },
+    ],
+  },
+  '/guides/how-far-outside-tucson-do-you-travel/': {
+    sections: [
+      { h: 'Seven days a week', p: 'Wherever you are in our area, crews work any day of the week, and the phone is answered every day.' },
+    ],
+  },
+  '/guides/best-time-of-year-to-clean-windows-tucson/': {
+    sections: [
+      { h: 'Just one visit?', p: 'That’s available too. The three-visit rhythm is what we recommend, not a requirement to book.' },
+    ],
+  },
+  '/guides/pressure-washing-pavers-sand/': {
+    sections: [
+      { h: 'Club members save on it', p: 'On a Wildcat Club membership, pressure washing added to a window visit is ten percent off. [Wildcat Club](/wildcat-club/)' },
+    ],
+  },
+  '/guides/are-pigeons-under-solar-panels-a-problem/': {
+    sections: [
+      { h: 'Solar panels only', p: 'Our work here is limited to solar arrays. Bird control for eaves, roofs in general, or pests is outside what we offer. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+  },
+  '/guides/white-spots-on-solar-panels-after-rain/': {
+    sections: [
+      { h: 'Sprinklers leave them too', p: 'Hard water from irrigation dries into the same mineral deposits as rain does, and it further cuts efficiency.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round25Add)) {
+  const cur: Depth = depth[url] ?? {};
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
