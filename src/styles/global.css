@@ -371,7 +371,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
     width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center;
     border: 2px solid var(--line); background: #fff; color: var(--navy); font-size: 1.4rem; font-weight: 800;
   }
-  .swipe-ctrl button:disabled { opacity: .35; }
+  .swipe-ctrl button[aria-disabled=true] { opacity: .35; cursor: default; }
   .swipe-ctrl p { font-weight: 700; font-size: 1.05rem; color: var(--ink-2); text-align: center; }
   /* Room for the controls from first paint (Base.astro adds them after load), so nothing moves. */
   .js .m-swipe:has(> :nth-child(2)):not(.has-ctrl) { border-bottom: calc(.6rem + 52px + var(--swipe-gap, 0px)) solid transparent; }
@@ -432,8 +432,8 @@ html { -webkit-tap-highlight-color: transparent; }
 
 /* Phone-swipe arrows and "read more" get a pressed state. */
 .swipe-ctrl button { transition: transform .15s var(--ease), background .2s, border-color .2s, opacity .2s; }
-.swipe-ctrl button:not(:disabled):hover { border-color: var(--blue); background: var(--blue-50); }
-.swipe-ctrl button:not(:disabled):active { transform: scale(.92); }
+.swipe-ctrl button:not([aria-disabled=true]):hover { border-color: var(--blue); background: var(--blue-50); }
+.swipe-ctrl button:not([aria-disabled=true]):active { transform: scale(.92); }
 
 /* Phone links: the icon rings once on hover. */
 .phone-link svg { transition: transform .3s var(--ease); }
@@ -502,7 +502,7 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 
 /* Swipe arrows read as the same soft buttons. */
 .swipe-ctrl button { border-width: 1px; box-shadow: var(--shadow-xs); }
-.swipe-ctrl button:disabled { box-shadow: none; }
+.swipe-ctrl button[aria-disabled=true] { box-shadow: none; }
 
 /* FAQ rows: one border weight, a soft shadow, and a blue edge when open. */
 .faq details { box-shadow: var(--shadow-xs); }

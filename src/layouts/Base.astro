@@ -202,15 +202,18 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           if (items.length < 2) return;
           const ctrl = document.createElement('div');
           ctrl.className = 'swipe-ctrl';
-          ctrl.innerHTML = '<button type="button" aria-label="Previous">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next">\u2192</button>';
+          const sec = row.closest('section');
+          const h = sec?.querySelector('h2, h3');
+          const title = h ? h.textContent.trim() : sec?.getAttribute('aria-label') || '';
+          const name = title ? `: ${title}` : '';
+          ctrl.innerHTML = `<button type="button" aria-label="Previous${name}">\u2190</button><p aria-live="polite"></p><button type="button" aria-label="Next${name}">\u2192</button>`;
           row.after(ctrl);
           row.classList.add('has-ctrl');
           // A scrolling row must be reachable by keyboard (arrow keys scroll it once focused).
           if (row.scrollWidth > row.clientWidth + 4) {
-            const h = row.closest('section')?.querySelector('h2, h3');
             row.tabIndex = 0;
             if (!/^(UL|OL)$/.test(row.tagName)) row.setAttribute('role', 'region');
-            row.setAttribute('aria-label', h ? `${h.textContent.trim()}, scrollable` : 'Scrollable list');
+            row.setAttribute('aria-label', title ? `${title}, scrollable` : 'Scrollable list');
           }
           const [prev, next] = ctrl.querySelectorAll('button');
           const label = ctrl.querySelector('p');
@@ -223,14 +226,16 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
           const update = () => {
             const i = current();
             label.textContent = `${i + 1} of ${items.length} \u00b7 swipe for more`;
-            prev.disabled = i === 0; next.disabled = i === items.length - 1;
+            // aria-disabled, not disabled, so keyboard focus stays on the button at either end.
+            prev.setAttribute('aria-disabled', String(i === 0)); next.setAttribute('aria-disabled', String(i === items.length - 1));
           };
-          const go = (d) => {
+          const go = (d, b) => {
+            if (b.getAttribute('aria-disabled') === 'true') return;
             const el = items[Math.max(0, Math.min(items.length - 1, current() + d))];
             row.scrollBy({ left: el.getBoundingClientRect().left - row.getBoundingClientRect().left - parseFloat(getComputedStyle(row).paddingLeft), behavior: 'smooth' });
           };
-          prev.addEventListener('click', () => go(-1));
-          next.addEventListener('click', () => go(1));
+          prev.addEventListener('click', () => go(-1, prev));
+          next.addEventListener('click', () => go(1, next));
           let t; row.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
           update();
         });
