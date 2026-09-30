@@ -2936,7 +2936,7 @@ const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/services/pressure-washing/green-valley/': {
     sections: [
       { h: 'Solar screens and loose mesh', p: 'Solar screens and other screen mesh can be pressure washed and reconditioned, which brings back a lot of the look.', q: { text: 'They did a great job!', by: 'Margaret R., Green Valley' } },
-      { h: 'Added to a Club visit', p: 'Wildcat Club members get 10 percent off added services, pressure washing included, whenever they add it to a visit.' },
+      { h: 'Its own schedule in the Club', p: 'Pressure washing can ride along in a Wildcat Club membership at whatever pace the property needs, separate from the windows.' },
     ],
     quoted: [9],
   },
