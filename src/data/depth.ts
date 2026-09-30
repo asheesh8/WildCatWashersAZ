@@ -2631,6 +2631,111 @@ for (const [url, a] of Object.entries(round18Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 19: next weakest pages ==============================
+   Appended like rounds 12 to 18. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round19Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/services/solar-panel-cleaning/marana/': {
+    sections: [
+      { h: 'How the panels get washed', p: 'By hand, with deionized water and a little soap where the grime needs it. No harsh chemicals and nothing abrasive go near the glass.' },
+      { h: 'Business rooftops', p: 'Commercial arrays in Marana are in scope too, and they can be put on a recurring schedule.' },
+    ],
+  },
+  '/areas/oro-valley/vistoso-village/': {
+    sections: [
+      { h: 'Screens out, tracks cleaned', p: 'On each visit the screens are taken out and washed, and the tracks are vacuumed and wiped, so no dust is left to drift back onto the glass.' },
+      { h: 'Rooftop panels', p: 'Panels need a hand wash once or twice a year, and you get before-and-after photos since you can’t see the roof yourself. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/areas/oro-valley/sun-city-oro-valley/': {
+    sections: [
+      { h: 'Fog you can’t wipe away', p: 'Cloudiness trapped between the two panes of a double-pane window is a failed seal, and only a new unit clears it. We point any out before the work starts.' },
+      { h: 'Mirrors and shower doors', p: 'Indoor glass like mirrors, shower doors and skylights can go on the same visit, counted as extra panes.' },
+    ],
+  },
+  '/areas/marana/del-webb-at-dove-mountain/': {
+    sections: [
+      { h: 'Screened patios', p: 'Enclosure mesh gets a brush and cleaning solution, is flushed from inside and then outside, and the floor is washed at the end. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+      { h: 'Mineral spots on the glass', p: 'Deposits from sprinklers and rain are buffed off with 0000-grade steel wool and walnut pads on every clean, at no added charge.' },
+    ],
+  },
+  '/services/solar-panel-cleaning/green-valley/': {
+    sections: [
+      { h: 'One to three hours', p: 'That’s the usual time on the roof for a home array, and nobody has to be home while the crew works.' },
+      { h: 'Pictures from up top', p: 'You get photos of your panels before and after, which is the only way most owners ever see them up close.' },
+    ],
+  },
+  '/services/solar-screens/oro-valley/': {
+    sections: [
+      { h: 'How long they hold up', p: 'Expect around ten years, and five at the very least. Fading is what wears them out in the end, and quality mesh slows that down.' },
+      { h: 'Keeping them clean', p: 'When the windows behind them are cleaned, the screens come off, and they’re usually pressure washed and reconditioned before going back up.' },
+    ],
+  },
+  '/areas/green-valley/canoa-ranch/': {
+    sections: [
+      { h: 'Spots off, on every visit', p: 'Hard-water spotting on the glass is buffed away as part of the clean rather than billed separately, and regular visits stop it before it etches.', q: { text: 'Had the wildcat washers come to wash my windows in green valley today. They were very respectful, thorough, and would definitely recommend!', by: 'Sandra T., Green Valley' } },
+      { h: 'Tracks and screens included', p: 'Tracks get vacuumed and hand wiped and screens come out for a wash, on every job, with nothing extra to add.' },
+    ],
+    quoted: [11],
+  },
+  '/areas/green-valley/springs-at-canoa/': {
+    sections: [
+      { h: 'Three window visits a year', p: 'After monsoon, around the holidays and in spring is the rhythm that keeps glass from ever reaching the point of etching.', q: { text: 'Wonderful job and courteous associates. Would hire again. Green Valley, AZ.', by: 'Deborah D., Green Valley' } },
+      { h: 'Screened rooms out back', p: 'Arizona room mesh is scrubbed by hand, flushed through from both sides with pressure, and the floor gets washed too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+    quoted: [18],
+  },
+  '/areas/sahuarita/': {
+    sections: [
+      { h: 'Solar screens, west side first', p: 'Glass facing west takes the harshest afternoon sun, so it’s the first place solar screens pay off; south-facing windows come next. [Solar screens](/services/solar-screens/)', q: { text: 'Great group of young owners and workers.', by: 'Carol J., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Arizona rooms', p: 'Screen enclosures come back looking new after a hand scrub and a pressure rinse through the mesh, floor included. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+    quoted: [161],
+  },
+  '/areas/tucson/sam-hughes/': {
+    sections: [
+      { h: 'Worn screens, same frames', p: 'Most torn screens just get new mesh on their existing frame. If a frame is past saving, we’ll recommend a new one instead. [Screen repair](/services/screen-repair/)' },
+      { h: 'Porches, walks and entries', p: 'Front porches, walkways and entryways can be pressure washed to lift the dust and dirt that collect around an older home. [Pressure washing](/services/pressure-washing/)' },
+    ],
+  },
+  '/areas/vail-az/del-webb-at-rancho-del-lago/': {
+    sections: [
+      { h: 'Solar once or twice a year', p: 'That’s enough for most home arrays, washed by hand with pure water and photographed before and after. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Water spots, handled', p: 'Mineral spotting is buffed off during every clean. Spots that sit for years eat into the glass, and that damage can’t be undone.' },
+    ],
+  },
+  '/areas/catalina-foothills/skyline-country-club/': {
+    sections: [
+      { h: 'Solar on a steep roof', p: 'Roof pitch and panel type don’t limit us, and ground-mounted arrays are included. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Pool decks and terraces', p: 'Pool decks, patios and walkways are pressure washed, with attention to the plantings around them. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
+    ],
+  },
+  '/areas/tanque-verde/forty-niner-country-club-estates/': {
+    sections: [
+      { h: 'Reminders along the way', p: 'A text arrives seven days before, another the day before, and a last one when the crew is heading out, with a three-hour arrival window.' },
+      { h: 'Screens every visit', p: 'Screens are pulled and washed and tracks are cleaned on each visit, so a dusty screen can’t undo a clean pane.' },
+    ],
+  },
+  '/areas/oro-valley/stone-canyon/': {
+    sections: [
+      { h: 'Shade for the big west glass', p: 'West- and south-facing panes take the most heat, so that’s where solar screens do the most good. [Solar screens](/services/solar-screens/)' },
+      { h: 'Paying at the end', p: 'You don’t pay until the crew has walked the job with you and you’re happy with it.' },
+    ],
+  },
+  '/services/solar-screens/green-valley/': {
+    sections: [
+      { h: 'You can still see out', p: 'From inside, even the darker mesh dims the view only a little. From outside, nobody can see in during the day.', q: { text: 'Very polite and thorough!!', by: 'Marie B., Green Valley' } },
+      { h: 'The mesh itself', p: 'We build with Phifer SunTex, which is made in the USA, fade resistant and GREENGUARD Gold certified.' },
+    ],
+    quoted: [45],
+  },
+};
+for (const [url, a] of Object.entries(round19Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 19: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
