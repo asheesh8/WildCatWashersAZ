@@ -93,3 +93,11 @@
   status = 301
   force = true
 
+
+# The quote form posts to /api/quote when JavaScript is off (the Vercel function).
+# Netlify has no such function, so send that post on to the thank-you page.
+[[redirects]]
+  from = "/api/quote"
+  to = "/thank-you/"
+  status = 303
+  force = true

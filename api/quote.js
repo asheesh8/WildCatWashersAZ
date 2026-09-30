@@ -28,6 +28,28 @@ function limited(ip) {
   if (hits.size > 5000) hits.clear();
   return list.length > 5;
 }
+/* Posts without JavaScript carry no load-time token, so they get a tighter budget:
+   2 per IP per 10 minutes and about 20 an hour across this instance. */
+const noJsHits = new Map();
+let noJsHour = [];
+function noJsLimited(ip) {
+  const now = Date.now();
+  const list = (noJsHits.get(ip) || []).filter((t) => now - t < 600000);
+  noJsHour = noJsHour.filter((t) => now - t < 3600000);
+  if (list.length >= 2 || noJsHour.length >= 20) return true;
+  list.push(now); noJsHour.push(now);
+  noJsHits.set(ip, list);
+  if (noJsHits.size > 5000) noJsHits.clear();
+  return false;
+}
+/* A real browser submitting the form with JavaScript off: a top-level navigation from this site. */
+function isBrowserFormPost(req) {
+  const h = req.headers;
+  const accept = String(h.accept || '');
+  const mode = h['sec-fetch-mode'];
+  const site = h['sec-fetch-site'];
+  return accept.includes('text/html') && (!mode || mode === 'navigate') && (!site || site === 'same-origin');
+}
 
 /* A plain form post (JavaScript off) gets pages, not JSON: success goes on to /thank-you/,
    anything else gets a short page with the phone number so the request is never lost silently. */
@@ -77,17 +99,24 @@ export default async function handler(req, res) {
     service: slug(body.service),
     area: slug(body.area),
     details: clean(body.details, FIELDS.details),
-    page: line(body.page, FIELDS.page),
+    page: '',
   };
+  // Only a path on this site; anything else (an outside URL) never reaches the email as a link.
+  const page = line(body.page, FIELDS.page);
+  f.page = /^\/[\w\-/]{0,150}$/.test(page) ? page : '';
   if (!f.name || f.phone.replace(/\D/g, '').length < 7) return failed(req, res, 400, { error: 'missing' });
 
   // Bot signals answer with fake success so bots learn nothing: no load time or a submit
   // under 3 seconds after the page loaded, a link in the name, or two or more links in the note.
-  // A plain form post (JavaScript off) has no load time, so only the other checks apply to it.
+  // A post with no load time counts only when it looks like a browser's own form submit
+  // (JavaScript off); everything else without one gets the fake success.
   const loaded = Number(line(body.t, 20));
-  const tooFast = loaded ? Date.now() - loaded < 3000 : !wantsHtml(req);
+  const noJs = !loaded && isBrowserFormPost(req);
+  const tooFast = loaded ? Date.now() - loaded < 3000 : !noJs;
   const links = (f.details.match(/https?:\/\//gi) || []).length;
-  if (tooFast || /https?:\/\/|www\./i.test(f.name) || links >= 2) return done(req, res);
+  const pageUrl = /https?:|\/\//i.test(page);
+  if (tooFast || pageUrl || /https?:\/\/|www\./i.test(f.name) || links >= 2) return done(req, res);
+  if (noJs && noJsLimited(ip)) return failed(req, res, 429);
 
   const text = [
     'New quote request from the website',
@@ -104,7 +133,7 @@ export default async function handler(req, res) {
     const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: FROM, to: [TO], subject: `Quote request: ${f.name} (${f.area || 'town not given'})`, text }),
+      body: JSON.stringify({ from: FROM, to: [TO], subject: `Quote request: ${f.name} (${f.area || 'town not given'})${noJs ? ' (no-JS)' : ''}`, text }),
     });
     if (!r.ok) { console.error('resend', r.status, await r.text()); return failed(req, res, 502); }
     return done(req, res);
