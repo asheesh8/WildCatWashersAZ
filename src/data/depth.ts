@@ -2753,7 +2753,7 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/casas-adobes/': {
     sections: [
-      { h: 'Rooftop solar', p: 'Panels here do best with one or two soft-brush cleanings a year using deionized water, and we send pictures of how they look afterward. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+      { h: 'Rooftop solar', p: 'Panels here do best with one or two hand cleanings a year using deionized water, and we send pictures of how they look afterward. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
       { h: 'Screened rooms', p: 'Arizona room mesh is scrubbed with a cleaning solution, rinsed through both ways with pressure, and the floor is cleaned too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
     ],
   },
@@ -2936,7 +2936,7 @@ const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/services/pressure-washing/green-valley/': {
     sections: [
       { h: 'Solar screens and loose mesh', p: 'Solar screens and other screen mesh can be pressure washed and reconditioned, which brings back a lot of the look.', q: { text: 'They did a great job!', by: 'Margaret R., Green Valley' } },
-      { h: 'Its own schedule in the Club', p: 'Pressure washing can ride along in a Wildcat Club membership at whatever pace the property needs, separate from the windows.' },
+      { h: 'Added to a Club visit', p: 'Wildcat Club members get 10 percent off added services, pressure washing included, whenever they add it to a visit.' },
     ],
     quoted: [9],
   },
