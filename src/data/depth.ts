@@ -2424,6 +2424,106 @@ for (const [url, a] of Object.entries(round16Add)) {
   depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
 }
 
+/* ============================== Round 17: next weakest pages ==============================
+   Appended like rounds 12 to 16. Where an area has no unused reviews, no quote. Every line traces to a Doc 6 answer or a fact bank line. */
+const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
+  '/areas/marana/continental-ranch/': {
+    sections: [
+      { h: 'Torn screens on older homes', p: 'A torn screen usually just needs new mesh on the frame it already has, and most standard screens get that done on site during the visit. If a frame is too far gone, we’ll tell you replacement makes more sense. [Screen repair](/services/screen-repair/)' },
+      { h: 'Where solar screens pay off first', p: 'The windows facing west take the hardest afternoon sun in any Continental Ranch home, so they’re the first place a solar screen earns its keep. [Solar screens](/services/solar-screens/)' },
+    ],
+  },
+  '/areas/catalina-foothills/sabino-canyon/': {
+    sections: [
+      { h: 'Film, tint and coatings', p: 'Before any tool or solution touches a coated or filmed pane, the crew finds out what’s on it and changes the method to suit.' },
+      { h: 'Birds nesting under the panels', p: 'If pigeons have settled under a rooftop array, we clear out the mess, then clip a mesh barrier around the edge with nothing drilled into the roof. [Solar panel pigeon proofing](/services/solar-panel-pigeon-proofing/)' },
+    ],
+  },
+  '/areas/tucson/tucson-estates/': {
+    sections: [
+      { h: 'Quick to get on the schedule', p: 'Most west-side visits land within a week or two of the call, and crews work seven days a week.', q: { text: 'Fast and friendly great service.', by: 'Kami K., Tucson' } },
+      { h: 'Panels on the roof', p: 'Rooftop or ground-mounted arrays get a hand wash with pure water once or twice a year, with photos so you can see the roof yourself. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+    quoted: [87],
+  },
+  '/areas/vail-az/del-webb-at-rocking-k/': {
+    sections: [
+      { h: 'Solar screens for a new home', p: 'Screens are custom measured, built and installed for your windows, in any color, and beige is the usual pick to match stucco. Expect two to three weeks from measuring to installation. [Solar screens](/services/solar-screens/)' },
+    ],
+  },
+  '/areas/catalina-foothills/ventana-canyon/': {
+    sections: [
+      { h: 'Pool decks and patios', p: 'Pool decks, patios, walkways and outdoor furniture come clean with pressure washing, with care taken around the landscaping. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
+      { h: 'Screened patios', p: 'The mesh on an Arizona room or screened patio gets brushed with a cleaning solution, then rinsed through from both sides until it looks new. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+  },
+  '/areas/green-valley/links-at-santa-rita-springs/': {
+    sections: [
+      { h: 'Solar screens down and back up', p: 'Solar screens come off so the glass behind them gets cleaned, and they can be pressure washed and reconditioned before they go back on.', q: { text: 'Great Job Wildcat Washers cleaning my windows! In Green Valley!', by: 'Lucille C., Green Valley' } },
+    ],
+    quoted: [10],
+  },
+  '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
+    sections: [
+      { h: 'Course water on the glass', p: 'On a golf lot, irrigation can reach the windows, and spots pile up between visits. Keeping to three visits a year removes them before they can etch.' },
+      { h: 'Arizona rooms', p: 'Screen enclosures get a brush scrub, then a rinse through the mesh from inside and out, and the floor is cleaned too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
+    ],
+  },
+  '/areas/vail-az/academy-village/': {
+    sections: [
+      { h: 'Senior discount', p: 'Residents of a 55+ community like Academy Village qualify for our senior discount; just say so when you call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+      { h: 'Solar on the roof', p: 'Panels get cleaned by hand with pure water, never a pressure washer, and never by standing on them. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/areas/sahuarita/rancho-resort/': {
+    sections: [
+      { h: 'Screens with every clean', p: 'Every visit includes the window screens: out, reconditioned and back in, so dust in the mesh doesn’t end up on clean glass.', q: { text: 'Highly recommend! Excellent service and customer service. Windows are sparkling now. Screens cleaned too.', by: 'Cassie S., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [169],
+  },
+  '/areas/sahuarita/rancho-sahuarita/': {
+    sections: [
+      { h: 'Driveways and walkways', p: 'Driveways, walkways and entries are pressure washed to take off dust and tire marks, and a driveway usually takes one to three hours. [Pressure washing](/services/pressure-washing/)', q: { text: 'The Wildcat Washers just finished washing my windows and power washing my patio. I am so pleased with their work. They will now be my "go to" window cleaners. They were so nice and friendly while being professional and punctual!', by: 'Paula K., Tucson, Sahuarita & Green Valley area' } },
+    ],
+    quoted: [151],
+  },
+  '/areas/tucson/rita-ranch/': {
+    sections: [
+      { h: 'Driveways and garage floors', p: 'Years of tire marks come off a garage floor readily, and driveways, walkways and block walls are all part of the job. [Driveways and garage floors](/services/pressure-washing/driveways-garage-floors/)' },
+      { h: 'Panels once or twice a year', p: 'Rooftop solar gets a gentle hand wash and before-and-after photos, once or twice a year. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
+    ],
+  },
+  '/areas/green-valley/colonia-de-los-alamos/': {
+    sections: [
+      { h: 'Spots now, or etching later', p: 'Mineral spots come off with a careful buff on every visit. Left for years, they eat into the glass, and at that point the pane has to be replaced.', q: { text: 'Great job 5 stars. Very thorough window cleaning in Green valley.', by: 'Bev M., Green Valley' } },
+    ],
+    quoted: [31],
+  },
+  '/services/window-cleaning/marana/': {
+    sections: [
+      { h: 'Tinted and coated glass', p: 'Tint, low-E coatings and security film are checked for first, and the method changes to suit. No kind of glass is turned away.' },
+      { h: 'Sliders and their tracks', p: 'Sliding glass doors get the same full treatment as the windows, rails included.' },
+    ],
+  },
+  '/areas/marana/the-highlands-at-dove-mountain/': {
+    sections: [
+      { h: 'Solar screens and the view', p: 'A solar screen dims the view only slightly, so a Highlands home keeps its outlook while blocking most of the heat and glare. [Solar screens](/services/solar-screens/)' },
+      { h: 'Senior and veteran discounts', p: 'Both are offered; bring either one up on the quote call. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
+    ],
+  },
+  '/areas/oro-valley/sun-city-oro-valley/': {
+    sections: [
+      { h: 'Coming back each season', p: 'Wildcat Club members have their three visits a year booked for them, at a rate that holds for the year.' },
+    ],
+  },
+};
+for (const [url, a] of Object.entries(round17Add)) {
+  const cur = depth[url];
+  if (!cur) throw new Error(`round 17: no depth entry for ${url}`);
+  const faq = cur.faq ?? [];
+  depth[url] = { ...cur, sections: [...(cur.sections ?? []), ...a.sections], quoted: [...(cur.quoted ?? []), ...(a.quoted ?? [])], faq: [...faq, ...(a.faq ?? []).filter((n) => !faq.includes(n))] };
+}
+
 export const depthFor = (url: string): Depth | undefined => depth[url];
 
 /** A plan's FAQ list plus the depth list, in order, skipping repeats and withheld answers. */
