@@ -3335,7 +3335,7 @@ for (const [url, a] of Object.entries(round25Add)) {
 const round26Add: Record<string, { sections: DepthSection[]; quoted?: number[]; faq?: number[] }> = {
   '/guides/why-does-my-concrete-look-grey/': {
     sections: [
-      { h: 'Same company, another name', p: 'In reviews you’ll sometimes see us called Wildcat Window Washers. That’s us.' },
+      { h: 'Same company, another name', p: 'You may see us listed as Wildcat Window Washers, as on one published award list. That’s us.' },
     ],
   },
   '/guides/best-time-of-year-to-clean-solar-panels/': {
