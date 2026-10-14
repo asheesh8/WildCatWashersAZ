@@ -77,6 +77,8 @@ const heroPhoto = heroImg ?? s.image;
 const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 1.2);
 /* Siblings vary: about half the pages show reviews before the detail sections. */
 const reviewsFirst = vary(l.url, 2, 'rev') === 1;
+/* Audience pages: the crew block comes before or after the details, by page. */
+const whoLate = vary(l.url, 2, 'wholate') === 1;
 const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'From businesses we work for', 'What our commercial customers say']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
 const pool2 = (heroPools[family] ?? []).filter((k) => sceneOf(k) !== sceneOf(heroPhoto) && !weakHero.has(k));
@@ -103,7 +105,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   {fam === 'sub' && <StepsRail title="How it works" steps={l.points} />}
   {fam === 'commercial' && <RuledList title={say(l.url, 'how-h', ['How it works on a commercial property', 'How a commercial job runs', 'Working on your property'])} items={l.points} size="md" tone="plain" />}
   {fam === 'audience' && l.points.length > 5 && <RuledList title="Also worth knowing" items={l.points.slice(5)} size="md" tone="plain" />}
-  {fam === 'audience' && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
+  {fam === 'audience' && !whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
   {reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
@@ -120,6 +122,8 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
     </div>
   </section>
   )}
+
+  {fam === 'audience' && whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
   {!reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
