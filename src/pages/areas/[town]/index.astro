@@ -101,7 +101,7 @@ const place = {
     </div>
   </section>
 
-  {reviewsFirst && featured && <PullQuote review={featured} heading={`A ${t.name} customer`} />}
+  {reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} />}
   {reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}
 
   <Filmstrip keys={film} title={film.some((k) => photoTown[k] === t.slug) ? `More from ${t.name} jobs` : 'Recent jobs across the Tucson area'} max={4} />
@@ -110,7 +110,7 @@ const place = {
     <Directory title={`Where we work in ${t.name}`} links={kids.map((c) => ({ name: c.name, href: communityHref(c) }))} named={secs} id="where" />
   )}
 
-  {!reviewsFirst && featured && <PullQuote review={featured} heading={`A ${t.name} customer`} tone="mist" />}
+  {!reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone="mist" />}
   {!reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}
 
   {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}

@@ -41,9 +41,15 @@ const { title, intro, rows, tone = 'plain', startRight = false } = Astro.props;
   .zz-t a:hover { text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: .15em; }
   .zz-copy p { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 52ch; }
   @media (max-width: 899px) {
-    /* Phones: photo beside the words, small, so three rows don't become three screens. */
-    .zz-row:not(.no-photo) { grid-template-columns: 38% minmax(0, 1fr); align-items: start; gap: .9rem; }
+    /* Phones: a small square photo beside the heading and the words at full width, so the
+       rows stay short (a 38% column made every paragraph twice as tall). */
+    .zz-list { gap: 1.6rem; }
+    .zz-row:not(.no-photo) { grid-template-columns: 88px minmax(0, 1fr); align-items: center; gap: .8rem 1rem; }
+    .zz-row:not(.no-photo) .zz-copy { display: contents; }
+    .zz-row :global(.zz-ph) { grid-column: 1; grid-row: 1; order: 0; --r: 1; }
     .zz-row :global(.zz-ph figcaption) { display: none; }
+    .zz-row:not(.no-photo) .zz-t { grid-column: 2; grid-row: 1; }
+    .zz-row:not(.no-photo) .zz-copy > :not(.zz-t) { grid-column: 1 / -1; }
     .zz-t { font-size: 1.3rem; }
     .zz-copy p { font-size: 1.06rem; line-height: 1.5; }
     .zz-copy .text-link { display: none; }

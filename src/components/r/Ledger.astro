@@ -31,6 +31,7 @@ const { rows, title, intro, tone = 'plain', id, compact = false, wrap = true } =
   .led dd { margin: 0; font-size: 1.12rem; line-height: 1.6; color: var(--ink-2); max-width: 64ch; }
   .led dd :global(a) { font-weight: 700; }
   .led-note { display: block; margin-top: .35rem; font-size: 1rem; color: var(--ink-3); }
+  @media (max-width: 699px) { .led-row { padding: .85rem 0; } .led dt { font-size: 1.1rem; } .led dd { font-size: 1.05rem; line-height: 1.5; } }
   .is-compact .led-row { padding: .8rem 0; }
   .is-compact dt { font-size: 1.08rem; }
 </style>

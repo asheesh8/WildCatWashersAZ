@@ -129,7 +129,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
     </div>
   </section>
 
-  {featured && <PullQuote review={featured} heading={`A ${t.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
+  {featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
 
   <Filmstrip keys={photos.gallery} title={`More ${s.name.toLowerCase()} jobs`} avoid={[photo]} max={3} />
 
