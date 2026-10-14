@@ -7,7 +7,7 @@
 import Base from '@/layouts/Base.astro';
 import HeroArticle from '@/components/r/HeroArticle.astro';
 import Photo from '@/components/r/Photo.astro';
-import { vary } from '@/lib/vary';
+import { vary, say } from '@/lib/vary';
 import FaqList from '@/components/FaqList.astro';
 import Icon from '@/components/Icon.astro';
 import LoopVideo from '@/components/LoopVideo.astro';
@@ -71,6 +71,8 @@ const minutes = Math.max(1, Math.round(words / 220));
 /* Siblings vary: the photo sits after the first or second section, and the "what we do" box
    comes before or after the customer quotes. */
 const figAt = Math.min(vary(url, 2, 'figat'), g.sections.length - 1);
+/* A third of the guides put their related links ahead of the questions, so the closing sections don't always run in one order. */
+const relFirst = vary(url, 3, 'relfirst') === 0;
 const doFirst = vary(url, 2, 'do') === 1;
 const article = {
   '@type': 'Article',
@@ -148,7 +150,7 @@ const article = {
         </section>
       )}
       <aside class="do">
-        <h2 class="h3">What we do about it</h2>
+        <h2 class="h3">{say(url, 'do-h', ['What we do about it', 'How we handle it', 'What we do on the job'])}</h2>
         <p>{g.doAbout}</p>
         <div class="do-row">
           {s && <a class="text-link" href={serviceHref(s.slug)}>{s.name} <Icon name="arrow" size={20} /></a>}
@@ -160,16 +162,15 @@ const article = {
     </div>
   </article>
 
-  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} openFirst={false} />}
-
-  {related.length > 0 && (
+  {/* DOM order follows the visual order, so keyboard and screen-reader order match. */}
+  {(relFirst ? ['rel', 'faq'] : ['faq', 'rel']).map((k) => k === 'faq' ? (items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? say(url, 'faq-h', ['The questions behind this page', 'Questions people ask us about this', 'More on this, in short answers']) : 'In our own words'} openFirst={false} />) : (related.length > 0 && (
     <section class="section-tight">
       <div class="wrap-narrow">
-        <h2 class="h3" style="margin-bottom:1rem">Related questions</h2>
+        <h2 class="h3" style="margin-bottom:1rem">{say(url, 'rel-h', ['Related questions', 'Read next', 'More questions like this'])}</h2>
         <ul class="rel" role="list">{related.map((r) => <li><a href={r.href}><span>{r.label}</span><Icon name="arrow" size={20} /></a></li>)}</ul>
       </div>
     </section>
-  )}
+  )))}
 </Base>
 <style>
   .tail { display: flex; flex-direction: column; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }

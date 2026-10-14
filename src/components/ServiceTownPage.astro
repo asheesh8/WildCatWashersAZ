@@ -9,7 +9,7 @@ import Base from '@/layouts/Base.astro';
 import HeroField from '@/components/r/HeroField.astro';
 import Filmstrip from '@/components/r/Filmstrip.astro';
 import PullQuote from '@/components/r/PullQuote.astro';
-import { vary } from '@/lib/vary';
+import { vary, say } from '@/lib/vary';
 import TrustRow from '@/components/TrustRow.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
@@ -118,7 +118,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
         {d?.sections ? <DepthSections sections={d.sections} variant="inline" /> : ls.angle.body.map((p, i) => <p class:list={[i === 0 && 'lede']}>{p}</p>)}
       </div>
       <aside class="svc reveal">
-        <h3 class="h3">{s.name}: the basics</h3>
+        <h3 class="h3">{say(url, 'basics-h', [`${s.name}: the basics`, `${s.name} at a glance`, `About our ${s.name.toLowerCase()}`])}</h3>
         <p>{s.cardLine}</p>
         <ul role="list">
           <li><Icon name="check-circle" size={22} /><span>You don’t pay until you’re happy.</span></li>
@@ -131,9 +131,9 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
 
   {featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
 
-  <Filmstrip keys={photos.gallery} title={`More ${s.name.toLowerCase()} jobs`} avoid={[photo]} max={3} />
+  <Filmstrip keys={photos.gallery} title={say(url, 'film-h', [`More ${s.name.toLowerCase()} jobs`, `Recent ${s.name.toLowerCase()} work`, 'From our recent jobs'])} avoid={[photo]} max={3} />
 
-  <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
+  <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${t.name} customers say`, `${s.name} reviews from ${t.name}`, `From customers in ${t.name}`]) : say(url, 'rev-h', [`${s.name} reviews from across Greater Tucson`, `What Tucson-area customers say about our ${s.name.toLowerCase()}`, `${s.name} reviews from around the metro`])} />
 
   {(answers.length > 0 || sharedFaqs.length > 0) && (
     <section class="section-tight bg-mist" data-mfold>

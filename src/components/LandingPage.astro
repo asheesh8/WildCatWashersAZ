@@ -12,7 +12,7 @@ import HeroSplit from '@/components/r/HeroSplit.astro';
 import StepsRail from '@/components/r/StepsRail.astro';
 import Ledger from '@/components/r/Ledger.astro';
 import RuledList from '@/components/r/RuledList.astro';
-import { vary } from '@/lib/vary';
+import { vary, say } from '@/lib/vary';
 import { sceneOf, weakHero, ratioOf } from '@/data/media';
 import TrustRow from '@/components/TrustRow.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
@@ -77,7 +77,9 @@ const heroPhoto = heroImg ?? s.image;
 const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 1.2);
 /* Siblings vary: about half the pages show reviews before the detail sections. */
 const reviewsFirst = vary(l.url, 2, 'rev') === 1;
-const reviewsTitle = isCommercial ? 'What customers say about our crews' : `${s.name} reviews`;
+/* Audience pages: the crew block comes before or after the details, by page. */
+const whoLate = vary(l.url, 2, 'wholate') === 1;
+const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'From businesses we work for', 'What our commercial customers say']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
 const pool2 = (heroPools[family] ?? []).filter((k) => sceneOf(k) !== sceneOf(heroPhoto) && !weakHero.has(k));
 const second = pool2.length ? rotateFrom(pool2, siblings, l.url) : undefined;
@@ -101,14 +103,14 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
     </section>
   )}
   {fam === 'sub' && <StepsRail title="How it works" steps={l.points} />}
-  {fam === 'commercial' && <RuledList title="How it works on a commercial property" items={l.points} size="md" tone="plain" />}
+  {fam === 'commercial' && <RuledList title={say(l.url, 'how-h', ['How it works on a commercial property', 'How a commercial job runs', 'Working on your property'])} items={l.points} size="md" tone="plain" />}
   {fam === 'audience' && l.points.length > 5 && <RuledList title="Also worth knowing" items={l.points.slice(5)} size="md" tone="plain" />}
-  {fam === 'audience' && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
+  {fam === 'audience' && !whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
   {reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
-  {d?.sections && fam === 'commercial' ? <Ledger title="The details" tone="mist" rows={d.sections.map((x) => ({ term: x.h, body: x.p }))} />
-   : d?.sections ? <DepthSections sections={d.sections} heading="The details" tone="mist" variant={fam === 'audience' ? 'prose' : 'block'} /> : (
+  {d?.sections && fam === 'commercial' ? <Ledger title={say(l.url, 'det-h', ['The details', 'What to know', 'Specifics'])} tone="mist" rows={d.sections.map((x) => ({ term: x.h, body: x.p }))} />
+   : d?.sections ? <DepthSections sections={d.sections} heading={say(l.url, 'det-h', ['The details', 'What to know', 'Good to know'])} tone="mist" variant={fam === 'audience' ? 'prose' : 'block'} /> : (
   <section class="section-tight bg-mist">
     <div class="wrap-narrow body">
       {l.sections.map((sec) => (
@@ -121,23 +123,25 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   </section>
   )}
 
+  {fam === 'audience' && whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
+
   {!reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
   {sharedFaqs.length > 0 && (
     <section class="section-tight bg-mist">
       <div class="wrap">
-        <h2 class="h3" style="margin-bottom:1rem">More straight answers</h2>
+        <h2 class="h3" style="margin-bottom:1rem">{say(l.url, 'ans-h', ['More straight answers', 'Other questions we answer', 'More answers'])}</h2>
         <ul class="ans" role="list">{sharedFaqs.map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}</ul>
       </div>
     </section>
   )}
 
-  {items.length > 0 && <FaqList items={items} links={links} title="Questions we get about this" openFirst={items.length < 4} />}
+  {items.length > 0 && <FaqList items={items} links={links} title={say(l.url, 'faq-h', ['Questions we get about this', 'What people ask us', 'Short answers'])} openFirst={items.length < 4} />}
 
   {related.length > 0 && (
     <section class="section-tight">
       <div class="wrap">
-        <h2 class="h3" style="margin-bottom:1rem">Related</h2>
+        <h2 class="h3" style="margin-bottom:1rem">{say(l.url, 'rel-h', ['Related', 'See also', 'Keep reading'])}</h2>
         <ul class="chips" role="list">{related.map((r) => <li><a href={r.href}><Icon name="arrow" size={18} />{r.label}</a></li>)}</ul>
       </div>
     </section>
