@@ -136,7 +136,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   )}
 
   {featured && <PullQuote review={featured} heading={`From a ${c.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
-  {(restSet.local.length > 0 || restSet.more.length > 0) && <ReviewSetBlock set={restSet} title={set.count ? `What ${c.name} residents say` : `What ${townName} neighbors say`} />}
+  {(restSet.local.length > 0 || restSet.more.length > 0) && <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${c.name} residents say`, `Reviews from ${c.name}`, `${c.name} customers, in their words`]) : say(url, 'rev-h', [`What ${townName} neighbors say`, `Reviews from around ${townName}`, `From customers near ${c.name}`])} />}
 
   {hoaFaqs.length > 0 && (
     <section class="section-tight bg-mist" data-mfold>

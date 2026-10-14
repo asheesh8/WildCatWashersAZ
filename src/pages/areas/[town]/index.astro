@@ -79,6 +79,7 @@ const place = {
   name: `${t.name.replace(/ AZ$/, '')}, AZ`,
   containedInPlace: { '@type': 'State', name: 'Arizona' },
 };
+const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, `Reviews from ${t.name}`, `${t.name} customers, in their words`]) : say(url, 'rev-h', ['What customers across the metro say', 'Reviews from around Tucson', 'What Tucson-area customers say']);
 ---
 <Base
   title={d?.title ?? fitTitle([`${t.name} Window, Solar & Exterior Cleaning`, `Exterior Cleaning ${t.name}`])}
@@ -105,7 +106,7 @@ const place = {
   <WhoComes url={url} area={t.reviewArea} avoid={[...set.local, ...set.more].map((r) => r.n)} tone="mist" />
 
   {reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} />}
-  {reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}
+  {reviewsFirst && <ReviewSetBlock set={restSet} title={revTitle} />}
 
   <Filmstrip keys={film} title={film.some((k) => photoTown[k] === t.slug) ? `More from ${t.name} jobs` : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs'])} max={4} />
 
@@ -114,7 +115,7 @@ const place = {
   )}
 
   {!reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone="mist" />}
-  {!reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}
+  {!reviewsFirst && <ReviewSetBlock set={restSet} title={revTitle} />}
 
   {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
   <section class="section-tight bg-mist" data-mfold>

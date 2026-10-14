@@ -77,7 +77,7 @@ const heroPhoto = heroImg ?? s.image;
 const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 1.2);
 /* Siblings vary: about half the pages show reviews before the detail sections. */
 const reviewsFirst = vary(l.url, 2, 'rev') === 1;
-const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'From businesses we work for', 'What our commercial customers say']) : `${s.name} reviews`;
+const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'From businesses we work for', 'What our commercial customers say']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
 const pool2 = (heroPools[family] ?? []).filter((k) => sceneOf(k) !== sceneOf(heroPhoto) && !weakHero.has(k));
 const second = pool2.length ? rotateFrom(pool2, siblings, l.url) : undefined;
@@ -126,7 +126,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   {sharedFaqs.length > 0 && (
     <section class="section-tight bg-mist">
       <div class="wrap">
-        <h2 class="h3" style="margin-bottom:1rem">More straight answers</h2>
+        <h2 class="h3" style="margin-bottom:1rem">{say(l.url, 'ans-h', ['More straight answers', 'Other questions we answer', 'More answers'])}</h2>
         <ul class="ans" role="list">{sharedFaqs.map((f) => <li><a href={f.href}><strong>{f.q}</strong></a></li>)}</ul>
       </div>
     </section>

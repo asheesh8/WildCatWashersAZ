@@ -133,7 +133,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
 
   <Filmstrip keys={photos.gallery} title={say(url, 'film-h', [`More ${s.name.toLowerCase()} jobs`, `Recent ${s.name.toLowerCase()} work`, 'From our recent jobs'])} avoid={[photo]} max={3} />
 
-  <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
+  <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${t.name} customers say`, `${s.name} reviews from ${t.name}`, `From customers in ${t.name}`]) : say(url, 'rev-h', [`${s.name} reviews from across Greater Tucson`, `What Tucson-area customers say about our ${s.name.toLowerCase()}`, `${s.name} reviews from around the metro`])} />
 
   {(answers.length > 0 || sharedFaqs.length > 0) && (
     <section class="section-tight bg-mist" data-mfold>
