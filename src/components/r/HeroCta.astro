@@ -1,0 +1,15 @@
+---
+/** The hero's one action and the phone number (phones drop the number: the bottom bar has Call). */
+import Icon from '../Icon.astro';
+import { company, cta, telHref } from '@/data/business';
+export interface Props { label?: string; href?: string; track?: string; tone?: 'navy' | 'white' }
+const { label = cta.primary, href = cta.quoteHref, track = 'page-hero', tone = 'navy' } = Astro.props;
+---
+<div class:list={['hcta', tone === 'white' && 'on-dark']}>
+  <a class:list={['btn btn-lg', tone === 'white' && 'btn-white']} href={href} data-track={`quote-${track}`}><span>{label}</span><span class="chip"><Icon name="arrow" /></span></a>
+  <a class="phone-link" href={telHref} data-track={`call-${track}`}><Icon name="phone" /><span>{company.phone}</span></a>
+</div>
+<style>
+  .hcta { display: flex; flex-wrap: wrap; gap: 1rem 1.2rem; align-items: center; }
+  @media (max-width: 759px) { .hcta .phone-link { display: none; } .hcta .btn { width: 100%; justify-content: space-between; } }
+</style>

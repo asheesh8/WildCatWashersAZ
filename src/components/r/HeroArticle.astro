@@ -1,0 +1,32 @@
+---
+/** Guide / answer hero: an article opening. No photo; the short answer is the lead paragraph, set large. */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import HeroTitle from './HeroTitle.astro';
+import Icon from '../Icon.astro';
+export interface Props { title: string; answer: string; crumbs: { name: string; href: string }[]; kind: string; updated: { iso: string; label: string }; minutes?: number }
+const { title, answer, crumbs, kind, updated, minutes } = Astro.props;
+---
+<header class="hart">
+  <div class="wrap-narrow ha-in">
+    <Breadcrumbs items={crumbs} />
+    <p class="ha-kind">{kind}</p>
+    <HeroTitle title={title} size="lg" />
+    <div class="ha-answer">
+      <span class="ha-i" aria-hidden="true"><Icon name="droplet" size={22} /></span>
+      <p><strong>Short answer.</strong> {answer}</p>
+    </div>
+    <p class="ha-meta">Answered by the Wildcat Washers crew · Updated <time datetime={updated.iso}>{updated.label}</time>{minutes ? ` · ${minutes} min read` : ''}</p>
+  </div>
+</header>
+<style>
+  .hart { background: linear-gradient(180deg, var(--blue-50), #fff 85%); padding-block: clamp(1.3rem, 1rem + 2vw, 3rem) clamp(1.6rem, 1.2rem + 2vw, 3rem); }
+  .ha-in { display: grid; gap: 1rem; }
+  .ha-kind { font-weight: 800; color: var(--blue-700); font-size: 1.08rem; }
+  .hart :global(.htitle) { max-width: 26ch; }
+  .ha-answer { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: start; margin-top: .4rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(1.1rem, .9rem + 1vw, 1.7rem); box-shadow: 0 18px 36px -28px rgb(18 24 50 / 40%); }
+  .ha-i { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: var(--navy); display: grid; place-items: center; }
+  .ha-answer p { font-size: clamp(1.18rem, 1.05rem + .5vw, 1.42rem); line-height: 1.5; color: var(--navy); }
+  .ha-answer strong { font-family: var(--font-display); font-weight: 900; }
+  .ha-meta { font-size: 1rem; color: var(--ink-3); font-weight: 600; }
+  @media (max-width: 759px) { .hart :global(.crumbs li:last-child) { display: none; } .ha-answer { grid-template-columns: 1fr; gap: .6rem; } .ha-i { width: 38px; height: 38px; } }
+</style>

@@ -1,6 +1,8 @@
 ---
 import Icon from './Icon.astro';
 import { proof } from '@/data/business';
+export interface Props { /** navy (default) or a quieter light band for pages whose hero is already strong. */ tone?: 'navy' | 'light' | 'white' }
+const { tone = 'navy' } = Astro.props;
 const items: { icon: string; text: string; href?: string }[] = [
   { icon: 'star', text: `${proof.reviews} five-star reviews` },
   { icon: 'award', text: '2026 AZ Daily Star Readers’ Choice Winner', href: '/awards/' },
@@ -8,7 +10,7 @@ const items: { icon: string; text: string; href?: string }[] = [
   { icon: 'calendar', text: '14-Day Spotless Guarantee' },
 ];
 ---
-<div class="trow">
+<div class:list={['trow', tone !== 'navy' && `trow-${tone}`]}>
   <ul class="wrap" role="list">
     {items.map((i) => <li><span class="ti"><Icon name={i.icon} size={20} /></span>{i.href ? <a href={i.href}>{i.text}</a> : i.text}</li>)}
   </ul>
@@ -21,4 +23,8 @@ const items: { icon: string; text: string; href?: string }[] = [
   .trow a { color: inherit; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 3px; }
   @media (max-width: 759px) { .trow ul { gap: .55rem .9rem; padding-block: .8rem; } .trow li { font-size: 1rem; gap: .5rem; } .trow .ti { width: 28px; height: 28px; } }
   .ti { width: 34px; height: 34px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--navy); }
+  .trow-light { background: var(--blue-100); color: var(--navy); }
+  .trow-white { background: #fff; color: var(--navy); border-block: 1px solid var(--line); }
+  .trow-light .ti, .trow-white .ti { background: var(--navy); color: #fff; }
+  .trow-light a, .trow-white a { text-decoration-color: var(--blue-600); }
 </style>

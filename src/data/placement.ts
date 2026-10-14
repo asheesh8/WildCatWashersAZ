@@ -13,7 +13,7 @@
 import { towns, communities, type Town, type Community } from './areas';
 import { localServices } from './localServices';
 import { services } from './business';
-import { allKeys, photoTown, photoKind, sceneOf, type PhotoKind } from './media';
+import { allKeys, photoTown, photoKind, sceneOf, weakHero, type PhotoKind } from './media';
 
 export type Placement = { hero: string; gallery: string[] };
 
@@ -41,7 +41,7 @@ const heroKinds: Record<string, PhotoKind[]> = {
   community: ['window-action', 'window-result'],
 };
 /* No crop of these keeps a head in frame at hero size (review thread, mobile pass 1). */
-const notHero = (k: string) => /^before-after|split$/.test(k) || k.startsWith('award-') || k === 'tech-slider-squeegee'
+const notHero = (k: string) => weakHero.has(k) || /^before-after|split$/.test(k) || k.startsWith('award-') || k === 'tech-slider-squeegee'
   /* Only ~570px wide: sharp in gallery tiles, soft as a hero on phones. */
   || k === 'tech-squeegee-reflection-glass' || k === 'tech-squeegee-soapy-window-sky';
 
@@ -105,7 +105,8 @@ const asks: Ask[] = [];
 const placements = new Map<string, Placement>();
 const serviceImage = new Map(services.map((s) => [s.slug, s.image]));
 /* Town pages already show each emphasised service's card photo. */
-for (const t of towns) asks.push({ id: `/areas/${t.slug}/`, town: t.slug, want: wants.town, heroWant: heroKinds.town, size: 3, avoid: t.emphasis.map((e) => serviceImage.get(e.service) ?? '') });
+/* Redesign (Oct 2026): a town page shows a three-photo strip, one photo per service row and a filmstrip, so it draws seven. */
+for (const t of towns) asks.push({ id: `/areas/${t.slug}/`, town: t.slug, want: wants.town, heroWant: heroKinds.town, size: 6 });
 for (const ls of localServices) {
   const want = wants[ls.service] ?? wants['window-cleaning'];
   asks.push({ id: `/services/${ls.service}/${ls.town}/`, town: ls.town, want, heroWant: want, size: 3 });

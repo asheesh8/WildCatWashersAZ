@@ -1,0 +1,62 @@
+---
+/**
+ * Community / HOA hero: a postcard from the neighborhood. Copy on one side; one
+ * job photo printed with a white border and a round place stamp. Phones get a
+ * squarer print so the first screen still shows the action.
+ */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Photo from './Photo.astro';
+import HeroTitle from './HeroTitle.astro';
+import HeroLede from './HeroLede.astro';
+import HeroCta from './HeroCta.astro';
+import { proof } from '@/data/business';
+export interface Props { title: string; lede?: string; crumbs: { name: string; href: string }[]; photo?: string; place: string; town: string; ctaHref?: string; flip?: boolean; kind?: string }
+const { title, lede, crumbs, photo, place, town, ctaHref, flip = false, kind } = Astro.props;
+---
+<section class:list={['hpost', flip && 'is-flip']}>
+  <div class="wrap hpo-grid">
+    <div class="hpo-copy">
+      <Breadcrumbs items={crumbs} />
+      <p class="hpo-where">{kind ? `${kind} in ${town}` : town}</p>
+      <HeroTitle title={title} size="lg" />
+      <HeroCta href={ctaHref} track="community-hero" />
+      <HeroLede text={lede} />
+      <p class="hpo-proof"><span class="stars" aria-hidden="true">★★★★★</span> {proof.reviews} five-star reviews · You don’t pay until you’re happy</p>
+    </div>
+    {photo && (
+      <div class="hpo-card">
+        <Photo k={photo} look="print" shapes={[0.8, 1, 4 / 3]} eager sizes="(min-width: 1000px) 34vw, 90vw" widths={[400, 600, 800, 1000]} />
+        <div class="hpo-stamp" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id={`arc-${place.length}`} d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0" /></defs>
+            <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 4" />
+            <circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="2" />
+            <text font-size="11.5" font-weight="800" letter-spacing="2" fill="currentColor"><textPath href={`#arc-${place.length}`}>{`${town.toUpperCase()} · SOUTHERN ARIZONA · `}</textPath></text>
+            <path d="M60 44c-5 8-10 13-10 19a10 10 0 0 0 20 0c0-6-5-11-10-19Z" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+<style>
+  .hpost { background: linear-gradient(180deg, #fff, var(--blue-50)); padding-block: clamp(1.3rem, 1rem + 2vw, 3rem) clamp(2.2rem, 1.6rem + 3vw, 4.5rem); overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hpo-grid { display: grid; gap: 1.4rem; }
+  @media (min-width: 1000px) { .hpo-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; } .is-flip .hpo-card { order: -1; } }
+  .hpo-copy { display: grid; gap: 1rem; justify-items: start; }
+  .hpo-where { font-weight: 800; font-size: 1.1rem; color: var(--blue-700); }
+  .hpo-proof { font-size: 1.02rem; color: var(--ink-2); font-weight: 600; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .hpo-card { position: relative; justify-self: center; width: min(100%, 470px); rotate: 1.5deg; }
+  .is-flip .hpo-card { rotate: -1.5deg; }
+  .hpo-stamp { position: absolute; right: -14px; top: -18px; width: 112px; height: 112px; color: var(--blue-700); background: rgb(255 255 255 / 92%); border-radius: 50%; rotate: 12deg; box-shadow: 0 6px 16px -8px rgb(18 24 50 / 45%); }
+  .is-flip .hpo-stamp { right: auto; left: -14px; rotate: -10deg; }
+  @media (max-width: 999px) {
+    .hpo-copy { display: contents; }
+    .hpo-grid > .hpo-copy > :global(*) { order: 1; }
+    .hpo-grid > .hpo-copy > :global(.crumbs), .hpo-grid > .hpo-copy > .hpo-where, .hpo-grid > .hpo-copy > :global(.htitle) { order: 0; }
+    .hpo-card { order: 0; width: min(80%, 340px); margin-block: .4rem .6rem; }
+    .hpo-card :global(.ph-frame) { aspect-ratio: 1 !important; }
+    .hpo-grid { gap: .95rem; }
+    .hpo-stamp { width: 84px; height: 84px; right: -8px; top: -12px; }
+  }
+  @media (max-width: 759px) { .hpost :global(.crumbs li:last-child) { display: none; } .hpo-proof { display: none; } }
+</style>

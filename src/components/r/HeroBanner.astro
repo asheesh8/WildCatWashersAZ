@@ -1,0 +1,52 @@
+---
+/** Commercial hero: a wide photo banner with the headline card overlapping its foot, like a property sheet. */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import HeroTitle from './HeroTitle.astro';
+import HeroLede from './HeroLede.astro';
+import HeroCta from './HeroCta.astro';
+import { Image } from 'astro:assets';
+import { img, altFor, focusFor, hasImg, ratioOf } from '@/data/media';
+export interface Props { title: string; lede?: string; crumbs: { name: string; href: string }[]; photo?: string; label: string; ctaHref?: string; ctaLabel?: string }
+const { title, lede, crumbs, photo, label, ctaHref, ctaLabel } = Astro.props;
+const ok = photo && hasImg(photo);
+/* A portrait photo can't fill a wide banner without heavy zoom; it sits in the card's corner as a print instead. */
+const wide = ok && ratioOf(photo!) >= 1.2;
+---
+<section class:list={['hban', wide ? 'is-wide' : 'is-print']}>
+  <div class="wrap">
+    <Breadcrumbs items={crumbs} />
+  </div>
+  {wide && <div class="wrap hb-pwrap"><div class="hb-photo"><Image src={img(photo!)} alt={altFor(photo!)} widths={[640, 960, 1280, 1600]} sizes="100vw" loading="eager" fetchpriority="high" decoding="async" quality={66} style={`object-position:${focusFor(photo!)}`} /></div></div>}
+  <div class="wrap">
+    <div class="hb-card">
+      <div class="hb-main">
+        <p class="hb-label">{label}</p>
+        <HeroTitle title={title} size="lg" />
+        <HeroLede text={lede} />
+        <HeroCta href={ctaHref} label={ctaLabel} track="commercial-hero" />
+      </div>
+      {ok && !wide && <div class="hb-print"><Image src={img(photo!)} alt={altFor(photo!)} widths={[360, 520, 720]} sizes="(min-width: 1000px) 26vw, 80vw" loading="eager" fetchpriority="high" decoding="async" quality={68} style={`object-position:${focusFor(photo!)}`} /></div>}
+    </div>
+  </div>
+</section>
+<style>
+  .hban { background: var(--mist); padding-top: clamp(1rem, .8rem + 1vw, 1.6rem); padding-bottom: clamp(2rem, 1.5rem + 3vw, 4rem); }
+  .hban > .wrap:first-child { margin-bottom: 1rem; }
+  .hb-photo { aspect-ratio: 2.1; max-height: 560px; width: 100%; overflow: hidden; border-radius: var(--radius-lg); }
+  .hb-photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .hb-card { position: relative; background: #fff; border-radius: var(--radius-lg); padding: clamp(1.3rem, 1rem + 2vw, 2.6rem); box-shadow: 0 28px 60px -36px rgb(18 24 50 / 50%); display: grid; gap: 1.4rem; border-top: 6px solid var(--blue); }
+  .is-wide .hb-card { margin-top: clamp(-9rem, -8vw, -2.5rem); margin-left: clamp(0rem, 3vw, 3rem); max-width: 820px; }
+  @media (min-width: 1000px) { .is-print .hb-card { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; } }
+  .hb-main { display: grid; gap: 1rem; justify-items: start; }
+  .hb-label { font-weight: 800; color: var(--blue-700); font-size: 1.08rem; }
+  .hb-print { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; max-height: 460px; }
+  .hb-print :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 999px) { .hb-print { aspect-ratio: 4 / 3; order: -1; } }
+  @media (max-width: 759px) {
+    .hban :global(.crumbs li:last-child) { display: none; }
+    .hb-photo { aspect-ratio: 3 / 2; border-radius: var(--radius); }
+    .is-wide .hb-card { margin-left: 0; }
+    .is-wide .hb-card { margin-top: -2rem; }
+    .hb-card { padding: 1.2rem 1.1rem 1.3rem; }
+  }
+</style>

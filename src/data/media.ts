@@ -10,6 +10,18 @@
  * Alt text lives here so the same photo is always described the same way.
  */
 
+/** Per-photo focal points from the October 2026 audit of all 101 photos (focus, safe box, subject). */
+import focusAudit0 from './photo-focus.json';
+const focusAudit = focusAudit0 as Record<string, { focus: string; safe: number[]; subject: string; quality: string }>;
+
+/** Photos the audit marked as poor heroes (soft, mostly sky, or a visible paint-over on a shirt). */
+export const weakHero = new Set(['hero-poster', 'tech-squeegee-reflection-glass', 'tech-squeegee-soapy-window-sky', 'clean-window-sky-reflection',
+  'clean-window-front-yard-reflection', 'clean-window-porch-reflection', 'tech-shirt-back-scrubbing', 'tech-slider-squeegee',
+  'tech-spotless-reputation-shirt', 'tech-solar-screen-carry', 'before-after-solar-1', 'before-after-solar-2', 'before-after-solar-3',
+  'clean-arizona-room-glass', 'clean-window-stucco-sky',
+  /* Shirt backs with a smudged-out number: fine small in a strip, not as a large photo. */
+  'tech-scrubbing-sliding-door']);
+
 const files = import.meta.glob<{ default: ImageMetadata }>('../assets/img/*.{jpg,jpeg,png}', {
   eager: true,
 });
@@ -27,7 +39,7 @@ export const alt: Record<string, string> = {
   'hero-poster': 'Wildcat Washers technician squeegeeing a window with the Tucson desert behind',
 
   // Team & brand
-  'team-truck-lineup-tucson': 'The Wildcat Washers crew lined up in front of two branded trucks in the Tucson desert',
+  'team-truck-lineup-tucson': 'The Wildcat Washers crew lined up in front of branded trucks in the Tucson desert',
   'team-lineup-commercial-plaza': 'Wildcat Washers crew and truck outside a Tucson commercial plaza',
   'award-az19-winner-2025': 'Wildcat Washers founders holding the 2025 AZ-19 Readers’ Picks winner plaque',
   'award-presentation-team': 'The Wildcat Washers team receiving the 2025 AZ-19 Readers’ Picks award',
@@ -95,7 +107,7 @@ export const alt: Record<string, string> = {
   'sun-screens-tan-house': 'Sun screens on a tan stucco home in the Tucson area',
   'screen-door-clean': 'Cleaned screen door and surrounding glass',
   // Added for the final build (supplied by Wildcat Washers, September 2026)
-  'hero-crew-trucks-sky': 'The Wildcat Washers crew standing between two branded trucks under a clear blue Tucson sky',
+  'hero-crew-trucks-sky': 'The Wildcat Washers crew standing between branded trucks under a clear blue Tucson sky',
   'crew-chamber-of-commerce': 'Wildcat Washers crew in uniform with their branded truck outside a chamber of commerce',
   'crew-firefighters-santa-rita': 'Wildcat Washers crew with firefighters in front of a fire station after a free Wash It Forward cleaning',
   'fire-station-windows': 'Technicians cleaning the entry glass of a fire station',
@@ -137,7 +149,7 @@ export const alt: Record<string, string> = {
   // truck wraps and shirt backs is painted out; every file is stripped of EXIF/GPS.
   'crew-yard-sign-arched-window': 'Two Wildcat Washers technicians holding a window washing yard sign in front of an arched, shuttered window',
   'team-on-truck-desert': 'The Wildcat Washers crew sitting on a branded pickup truck in the desert with mountains behind',
-  'team-trucks-desert-mountains': 'The Wildcat Washers crew with a ladder and gear between two branded pickup trucks, mountains behind',
+  'team-trucks-desert-mountains': 'The Wildcat Washers crew with a ladder and gear between branded pickup trucks, mountains behind',
   'tech-shirt-back-scrubbing': 'Technician in a Wildcat Washers shirt scrubbing the top of a soapy window',
   'tech-scrubbing-sliding-door': 'Technician scrubbing a sliding glass door under a covered patio',
   'tech-crouching-gridded-door': 'Technician crouching to squeegee a gridded glass door on a wood-sided home',
@@ -434,6 +446,8 @@ for (const [kind, keys] of Object.entries(kindLists) as [PhotoKind, string[]][])
 
 /** Where to anchor a crop so faces and the work stay in frame. */
 const focusOverride: Record<string, string> = {
+  /* Keep the painted-over box on the right truck (x > 0.93) out of frame. */
+  'crew-chamber-of-commerce': '38% 50%',
   'crew-yard-sign-patio': '50% 45%',
   'crew-yard-sign-arched-window': '50% 55%',
   'crew-yard-sign-living-room': '45% 50%',
@@ -477,6 +491,7 @@ export function bandFor(key: string): string { const b = bandOverride[key] ?? 'a
 /** CSS object-position for a photo: portrait shots anchor a little above centre. */
 export function focusFor(key: string): string {
   if (focusOverride[key]) return focusOverride[key];
+  if (focusAudit[key]?.focus) return focusAudit[key].focus;
   const m = byKey[key];
   return m && m.height > m.width * 1.1 ? '50% 40%' : '50% 50%';
 }
@@ -488,3 +503,32 @@ export function cropFor(key: string): string {
   const h = x <= 35 ? 'left' : x >= 65 ? 'right' : '';
   return [h, v].filter(Boolean).join(' ') || 'centre';
 }
+
+/* ---------------------------------------------------------------------------
+ * CAPTIONS (redesign, Oct 2026): what the photo shows and, when its GPS put it
+ * in a town we serve, that town. Captions never name a street or a home.
+ * ------------------------------------------------------------------------- */
+const townLabel: Record<string, string> = {
+  'green-valley': 'Green Valley', marana: 'Marana', 'oro-valley': 'Oro Valley', 'casas-adobes': 'Casas Adobes',
+  'catalina-foothills': 'the Catalina Foothills',
+};
+const kindLabel: Record<PhotoKind, string> = {
+  'window-action': 'Window cleaning', 'window-result': 'Clean glass', solar: 'Solar panel cleaning', screens: 'Solar screens',
+  pressure: 'Pressure washing', team: 'The Wildcat Washers crew', commercial: 'Commercial window cleaning',
+};
+/** A short caption: "Solar screens in Marana", or just "Solar screens" when the town isn't known. */
+export function captionFor(key: string): string {
+  const kind = photoKind[key];
+  if (!kind) return '';
+  const t = townLabel[photoTown[key]];
+  return t ? `${kindLabel[kind]} in ${t}` : kindLabel[kind];
+}
+/** Phone screenshots with black bars: the picture is only the middle 62% of the height. */
+const shownRatio: Record<string, number> = { 'before-after-solar-1': 0.745, 'before-after-solar-2': 0.745, 'before-after-solar-3': 0.745 };
+/** Width / height of a photo as it should be framed (1 when unknown). */
+export function ratioOf(key: string): number {
+  if (shownRatio[key]) return shownRatio[key];
+  const m = byKey[key];
+  return m ? m.width / m.height : 1;
+}
+export const isPortrait = (key: string) => ratioOf(key) < 0.95;

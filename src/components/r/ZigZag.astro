@@ -1,0 +1,51 @@
+---
+/** Alternating photo / text rows. Each photo keeps its own shape; rows swap sides. */
+import Photo from './Photo.astro';
+import Icon from '../Icon.astro';
+export interface Props { title: string; intro?: string; rows: { title: string; body: string; photo?: string; href?: string; linkLabel?: string }[]; tone?: 'plain' | 'mist'; startRight?: boolean }
+const { title, intro, rows, tone = 'plain', startRight = false } = Astro.props;
+---
+<section class:list={['section zz', tone === 'mist' && 'bg-mist']}>
+  <div class="wrap">
+    <div class="zz-head"><h2 class="h2">{title}</h2>{intro && <p class="zz-intro">{intro}</p>}</div>
+    <ul class="zz-list" role="list">
+      {rows.map((r, i) => (
+        <li class:list={['zz-row', (i % 2 === 1) !== startRight && 'is-flip', !r.photo && 'no-photo']}>
+          {r.photo && <Photo k={r.photo} shapes={[1, 4 / 3]} caption sizes="(min-width: 900px) 34vw, 100vw" class="zz-ph" />}
+          <div class="zz-copy">
+            <h3 class="zz-t">{r.href ? <a href={r.href}>{r.title}</a> : r.title}</h3>
+            <p>{r.body}</p>
+            {r.href && <a class="text-link" href={r.href} aria-hidden="true" tabindex="-1">{r.linkLabel ?? 'Learn more'} <Icon name="arrow" size={18} /></a>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .zz-head { display: grid; gap: .8rem; margin-bottom: clamp(1.4rem, 1rem + 2vw, 3rem); max-width: 50rem; }
+  .zz-intro { font-size: 1.15rem; color: var(--ink-2); }
+  .zz-list { list-style: none; padding: 0; display: grid; gap: clamp(1.8rem, 1rem + 3vw, 4rem); }
+  .zz-row { display: grid; gap: 1.1rem; align-items: center; }
+  @media (min-width: 900px) {
+    .zz-list { gap: 0; border-top: 2px solid var(--navy); }
+    .zz-row { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4.5rem); padding-block: 1.8rem; border-bottom: 1px solid var(--line-strong); }
+    .zz-row.is-flip { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+    .zz-row.is-flip :global(.zz-ph) { order: 2; }
+    .zz-row :global(.zz-ph) { width: 100%; }
+    .zz-row.no-photo { grid-template-columns: minmax(0, 1fr); }
+  }
+  .zz-copy { display: grid; gap: .7rem; justify-items: start; }
+  .zz-t { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.2rem); line-height: 1.05; color: var(--navy); }
+  .zz-t a { color: inherit; text-decoration: none; }
+  .zz-t a:hover { text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: .15em; }
+  .zz-copy p { font-size: 1.15rem; line-height: 1.6; color: var(--ink-2); max-width: 52ch; }
+  @media (max-width: 899px) {
+    /* Phones: photo beside the words, small, so three rows don't become three screens. */
+    .zz-row:not(.no-photo) { grid-template-columns: 38% minmax(0, 1fr); align-items: start; gap: .9rem; }
+    .zz-row :global(.zz-ph figcaption) { display: none; }
+    .zz-t { font-size: 1.3rem; }
+    .zz-copy p { font-size: 1.06rem; line-height: 1.5; }
+    .zz-copy .text-link { display: none; }
+  }
+</style>

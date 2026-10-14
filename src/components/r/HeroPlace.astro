@@ -1,0 +1,86 @@
+---
+/**
+ * Town hero: the town's name set very large on the brand light blue (Cooper's
+ * "home turf" look), the plan's H1 above it as the sentence, then a strip of
+ * photos from that town at their own shapes. Phones: the strip becomes a short
+ * swipe row so the first screen still holds the name, a photo and the action.
+ */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import HeroLede from './HeroLede.astro';
+import HeroCta from './HeroCta.astro';
+import { Image } from 'astro:assets';
+import { img, altFor, focusFor, ratioOf, captionFor, hasImg } from '@/data/media';
+import { proof } from '@/data/business';
+export interface Props { title: string; place: string; lede?: string; crumbs: { name: string; href: string }[]; photos: string[]; ctaHref?: string; ctaLabel?: string }
+const { title, place, lede, crumbs, photos, ctaHref, ctaLabel } = Astro.props;
+/* The H1 is the plan's sentence; the place name inside it is what gets the big type. */
+const at = title.lastIndexOf(place);
+const before = at >= 0 ? title.slice(0, at).trim() : title;
+const after = at >= 0 ? title.slice(at + place.length).trim() : '';
+const shots = photos.filter(hasImg).slice(0, 3);
+const r = (k: string) => Math.min(1.5, Math.max(0.72, ratioOf(k)));
+---
+<section class="hplace">
+  <div class="wrap hp-top">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="hp-h1">
+      {at >= 0 ? (<><span class="hp-pre">{before}</span> <span class="hp-name">{place}</span>{after && <span class="hp-pre"> {after}</span>}</>) : <span class="hp-name is-full">{title}</span>}
+    </h1>
+    <p class="hp-proof"><span class="stars" aria-hidden="true">★★★★★</span> {proof.reviews} five-star reviews</p>
+  </div>
+  <div class="wrap hp-body">
+    <ul class="hp-strip" role="list">
+      {shots.map((k, i) => (
+        <li style={`--r:${r(k).toFixed(3)}`}>
+          <figure>
+            <div class="hp-frame"><Image src={img(k)} alt={altFor(k)} widths={[300, 480, 640, 820]} sizes="(min-width: 1000px) 22vw, 62vw" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async" quality={68} style={`object-position:${focusFor(k)}`} /></div>
+            {captionFor(k) && <figcaption>{captionFor(k)}</figcaption>}
+          </figure>
+        </li>
+      ))}
+    </ul>
+    <div class="hp-act">
+      <HeroLede text={lede} />
+      <HeroCta href={ctaHref} label={ctaLabel} track="town-hero" />
+    </div>
+  </div>
+</section>
+<style>
+  .hplace { background: var(--blue); color: var(--navy); padding-block: clamp(1.3rem, 1rem + 2vw, 2.8rem) clamp(2rem, 1.5rem + 3vw, 4.5rem); overflow: hidden; }
+  .hplace :global(.crumbs), .hplace :global(.crumbs a) { color: var(--navy); }
+  .hplace :global(.crumbs li + li::before) { color: rgb(18 24 50 / 45%); }
+  .hp-top { display: grid; gap: .9rem; }
+  .hp-h1 { font-family: var(--font-display); color: var(--navy); margin-top: .4rem; display: grid; gap: .2rem; }
+  .hp-pre { font-weight: 800; font-size: clamp(1.25rem, 1rem + 1vw, 1.9rem); line-height: 1.15; letter-spacing: -0.005em; max-width: 34ch; }
+  .hp-name { font-weight: 900; text-transform: uppercase; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em; line-height: .86; font-size: clamp(3rem, 1.2rem + 8.4vw, 9rem); overflow-wrap: anywhere; }
+  .hp-name.is-full { font-size: clamp(2.2rem, 1.4rem + 3vw, 4rem); line-height: 1; }
+  .hp-proof { font-weight: 700; font-size: 1.05rem; display: flex; gap: .5rem; align-items: center; margin-top: .3rem; }
+  .hplace .stars { color: var(--navy); }
+  .hp-body { display: grid; gap: clamp(1.2rem, 1rem + 1.5vw, 2.4rem); margin-top: clamp(1.4rem, 1rem + 2vw, 2.6rem); }
+  @media (min-width: 1000px) { .hp-body { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: end; } }
+  .hp-strip { list-style: none; padding: 0; display: flex; gap: .8rem; align-items: flex-end; }
+  .hp-strip li { flex: var(--r) 1 0; min-width: 0; }
+  .hp-strip figure { margin: 0; }
+  .hp-frame { aspect-ratio: var(--r); overflow: hidden; border-radius: 6px; border: 5px solid #fff; background: var(--blue-100); box-shadow: 0 16px 34px -20px rgb(18 24 50 / 55%); }
+  .hp-strip li:nth-child(2) .hp-frame { rotate: -1.2deg; }
+  .hp-strip li:nth-child(3) .hp-frame { rotate: 1deg; }
+  .hp-frame :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  figcaption { margin-top: .45rem; font-size: .98rem; font-weight: 700; color: var(--navy); opacity: .82; }
+  .hp-act { display: grid; gap: 1.1rem; justify-items: start; }
+  .hp-act :global(.hlede) { color: var(--navy); }
+  .hplace :global(.phone-link) { border-color: var(--navy); }
+  @media (max-width: 759px) {
+    .hplace :global(.crumbs li:last-child) { display: none; }
+    .hp-strip { overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scrollbar-width: none; align-items: flex-start; }
+    .hp-strip::-webkit-scrollbar { display: none; }
+    .hp-strip li { flex: none; width: calc(210px * var(--r)); max-width: 78vw; scroll-snap-align: start; }
+    .hp-strip li:nth-child(n) .hp-frame { rotate: none; }
+    .hp-proof { font-size: 1rem; }
+    .hp-body { margin-top: 1.1rem; }
+    .hp-body { display: flex; flex-direction: column; }
+    .hp-act { display: contents; }
+    .hp-act :global(.hcta) { order: -1; width: 100%; }
+    .hp-strip { order: 0; }
+    .hp-act :global(.hlede), .hp-act :global(.hlede-more) { order: 1; }
+  }
+</style>

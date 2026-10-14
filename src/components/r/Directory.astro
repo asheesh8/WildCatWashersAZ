@@ -1,0 +1,36 @@
+---
+/** A neighborhood index: linked places and named sections in tidy columns, like the index of a map. */
+import Icon from '../Icon.astro';
+export interface Props { title: string; intro?: string; links: { name: string; href: string; note?: string }[]; named?: { name: string; body: string }[]; id?: string }
+const { title, intro, links, named = [], id = 'dir' } = Astro.props;
+const total = links.length + named.length;
+---
+<section class="section-tight dir" data-mfold>
+  <div class="wrap">
+    <div class="dir-head"><h2 class="h2">{title}</h2>{intro && <p>{intro}</p>}</div>
+    {links.length > 0 && (
+      <ul class="dir-links" role="list" id={`${id}-links`} data-pfold={links.length > 6 ? 6 : undefined}>
+        {links.map((l) => <li><a href={l.href}><span>{l.name}</span><Icon name="arrow" size={20} /></a>{l.note && <small>{l.note}</small>}</li>)}
+      </ul>
+    )}
+    {links.length > 7 && <button type="button" class="pf-more" aria-controls={`${id}-links`} aria-expanded="false">Show all {links.length} neighborhoods</button>}
+    {named.length > 0 && (
+      <dl class="dir-named">
+        {named.map((n) => <div><dt>{n.name}</dt><dd>{n.body}</dd></div>)}
+      </dl>
+    )}
+  </div>
+</section>
+<style>
+  .dir-head { display: grid; gap: .7rem; margin-bottom: 1.4rem; }
+  .dir-head p { font-size: 1.12rem; color: var(--ink-2); max-width: 60ch; }
+  .dir-links { list-style: none; padding: 0; columns: 3 15rem; column-gap: 2.4rem; border-top: 2px solid var(--navy); }
+  .dir-links li { break-inside: avoid; border-bottom: 1px solid var(--line-strong); }
+  .dir-links a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; padding: .6rem 0; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--navy); }
+  .dir-links a :global(svg) { flex: none; color: var(--blue-700); transition: translate .25s var(--ease); }
+  .dir-links a:hover :global(svg) { translate: 4px 0; }
+  .dir-links a:hover span { text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: .2em; }
+  .dir-named { margin: 2rem 0 0; display: grid; gap: 1.1rem 2.4rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .dir-named dt { font-family: var(--font-display); font-weight: 800; font-size: 1.12rem; color: var(--navy); }
+  .dir-named dd { margin: .2rem 0 0; color: var(--ink-2); font-size: 1.06rem; }
+</style>

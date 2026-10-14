@@ -1,0 +1,51 @@
+---
+/**
+ * Orientation-aware photo (redesign, Oct 2026). The frame takes the ratio from
+ * `shapes` nearest the photo's own, so a portrait phone shot stays portrait and is
+ * never cropped by more than the gap between its ratio and the frame's. It aims at
+ * the photo's hand-set focal point (media.ts focusFor). The whole file ships and CSS
+ * crops it: at most about a fifth is hidden, which is cheaper than a second encode.
+ */
+import { Image } from 'astro:assets';
+import { img, altFor, focusFor, hasImg, captionFor } from '@/data/media';
+export interface Props {
+  k: string;
+  /** Allowed frame ratios (width / height). The nearest to the photo wins. */
+  shapes?: number[];
+  /** Force one ratio (overrides shapes). */
+  ratio?: number;
+  widths?: number[];
+  sizes?: string;
+  eager?: boolean;
+  /** true: the town caption from media.ts; a string: that caption. */
+  caption?: boolean | string;
+  class?: string;
+  /** A frame style: plain (rounded), print (white border, soft shadow). */
+  look?: 'plain' | 'print' | 'bare';
+}
+const { k, shapes = [0.8, 1, 4 / 3, 3 / 2], ratio, widths = [360, 560, 800, 1100], sizes = '(min-width: 1000px) 40vw, 100vw', eager = false, caption = false, class: cls, look = 'plain' } = Astro.props;
+const ok = hasImg(k);
+const meta = ok ? img(k) : null;
+const own = meta ? meta.width / meta.height : 1;
+const r = ratio ?? shapes.reduce((a, b) => (Math.abs(Math.log(b / own)) < Math.abs(Math.log(a / own)) ? b : a));
+const cap = caption === true ? captionFor(k) : caption || '';
+---
+{meta && (
+  <figure class:list={['ph', `ph-${look}`, cls]} style={`--r:${r.toFixed(4)}`}>
+    <div class="ph-frame">
+      <Image src={meta} alt={altFor(k)} widths={widths.filter((w) => w <= meta.width)} sizes={sizes} quality={70}
+        loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async"
+        style={`object-position:${focusFor(k)}`} />
+    </div>
+    {cap && <figcaption>{cap}</figcaption>}
+  </figure>
+)}
+<style>
+  .ph { margin: 0; min-width: 0; }
+  .ph-frame { aspect-ratio: var(--r); overflow: hidden; border-radius: var(--radius); background: var(--blue-50); }
+  .ph-frame :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .ph-print .ph-frame { border: 7px solid #fff; border-radius: 6px; box-shadow: 0 1px 2px rgb(18 24 50 / 10%), 0 18px 40px -18px rgb(18 24 50 / 40%); }
+  .ph-bare .ph-frame { border-radius: 0; }
+  figcaption { margin-top: .55rem; font-size: 1rem; line-height: 1.35; color: var(--ink-3); font-weight: 600; }
+  .ph-print figcaption { padding-inline: .2rem; }
+</style>
