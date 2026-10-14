@@ -1,0 +1,183 @@
+---
+/*
+ * Decorative spot illustrations. The page sends its artwork pool; a small
+ * script measures every section after load and drops a piece only into space
+ * where no text, photo, card, button or line sits (and where no sticky panel
+ * will travel). Purely decorative: alt="", aria-hidden, no pointer events,
+ * lazy loaded, and nothing is placed without JS.
+ */
+import { artPool } from '@/data/art';
+
+const pool = artPool(Astro.url.pathname).map((a) => [a.f, a.w, a.h]);
+const json = JSON.stringify(pool);
+---
+{pool.length > 0 && (
+  <>
+    <script type="application/json" id="art-pool" set:html={json} is:inline />
+    <script is:inline>
+      (() => {
+        const data = document.getElementById('art-pool');
+        const main = document.getElementById('main');
+        if (!data || !main) return;
+        const pool = JSON.parse(data.textContent);
+        // Sections that never get art: the hero (first block), the trust bar,
+        // reviews, the ticker and anything holding a form.
+        const SKIP = '.trow, .ticker, form, .rgrid, .rcard, [data-ticker], .pq, .rs-more';
+        const TEXTISH = /\S/;
+        const CELL = 12;
+        let layer = null, timer = 0, lastH = 0;
+
+        const blocks = () => {
+          const out = [];
+          [...main.children].forEach((el) => {
+            const inner = el.matches('section') ? [] : [...el.querySelectorAll(':scope > section')];
+            (inner.length ? inner : [el]).forEach((b) => out.push(b));
+          });
+          return out.slice(1).filter((b) => !b.matches(SKIP) && !b.querySelector(SKIP) && b.offsetHeight > 160);
+        };
+
+        // Every box inside a block that art must keep clear of, in page coordinates.
+        const obstacles = (b, br) => {
+          const rs = [], sx = scrollX, sy = scrollY;
+          const add = (r, stickyTo) => {
+            if (r.width < 1 || r.height < 1) return;
+            rs.push([r.left + sx, r.top + sy, r.right + sx, (stickyTo || r.bottom) + sy]);
+          };
+          const walker = document.createTreeWalker(b, NodeFilter.SHOW_TEXT);
+          const range = document.createRange();
+          for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+            if (!TEXTISH.test(n.data)) continue;
+            range.selectNodeContents(n);
+            // Headings get extra air so art never crowds them.
+            const hp = n.parentElement.closest('h1, h2, h3') ? 20 : 0;
+            for (const r of range.getClientRects()) add(hp ? { left: r.left - hp, top: r.top - hp, right: r.right + hp, bottom: r.bottom + hp, width: r.width, height: r.height } : r);
+          }
+          // The bottom padding holds the scenery ridgeline: keep art off it.
+          const pb = parseFloat(getComputedStyle(b).paddingBottom) || 0;
+          if (pb) rs.push([br.left + sx, br.bottom + sy - pb - 40, br.right + sx, br.bottom + sy]);
+          // Leave the top of each section clear too (no art tucked under a band above).
+          rs.push([br.left + sx, br.top + sy, br.right + sx, br.top + sy + 60]);
+          const area = br.width * br.height;
+          b.querySelectorAll('*').forEach((el) => {
+            const cs = getComputedStyle(el);
+            if (cs.display === 'none' || cs.visibility === 'hidden') return;
+            const r = el.getBoundingClientRect();
+            // A sticky panel slides down its column, so block the whole column.
+            const stick = cs.position === 'sticky' ? el.parentElement.getBoundingClientRect().bottom : 0;
+            if (/^(IMG|PICTURE|VIDEO|SVG|svg|IFRAME|CANVAS|INPUT|SELECT|TEXTAREA|BUTTON|HR|TABLE|LI|ARTICLE|FIGURE|DETAILS)$/.test(el.tagName) || stick) return add(r, stick);
+            // Swipe rows and their pager: block the row plus the pager band under it.
+            if (el.matches('.m-swipe, .swipe-ctrl')) return add({ left: r.left, top: r.top, right: r.right, bottom: r.bottom + 56, width: r.width, height: r.height + 56 });
+            const bg = cs.backgroundColor, img = cs.backgroundImage;
+            const painted = (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') || img !== 'none' ||
+              cs.boxShadow !== 'none' || ['Top', 'Right', 'Bottom', 'Left'].some((s) => parseFloat(cs['border' + s + 'Width']) > 0 && cs['border' + s + 'Style'] !== 'none');
+            if (painted && r.width * r.height < area * 0.85) add(r);
+          });
+          return rs;
+        };
+
+        // Prefix-sum occupancy grid: answers "is this rectangle empty?" in O(1).
+        const grid = (br, rs, pad) => {
+          const x0 = br.left + scrollX, y0 = br.top + scrollY;
+          const W = Math.ceil(br.width / CELL), H = Math.ceil(br.height / CELL);
+          const occ = new Uint8Array(W * H);
+          rs.forEach(([l, t, r, btm]) => {
+            const a = Math.max(0, Math.floor((l - pad - x0) / CELL)), c = Math.min(W - 1, Math.floor((r + pad - x0) / CELL));
+            const d = Math.max(0, Math.floor((t - pad - y0) / CELL)), e = Math.min(H - 1, Math.floor((btm + pad - y0) / CELL));
+            for (let y = d; y <= e; y++) occ.fill(1, y * W + a, y * W + c + 1);
+          });
+          const S = new Uint32Array((W + 1) * (H + 1));
+          for (let y = 0; y < H; y++) for (let x = 0; x < W; x++)
+            S[(y + 1) * (W + 1) + x + 1] = occ[y * W + x] + S[y * (W + 1) + x + 1] + S[(y + 1) * (W + 1) + x] - S[y * (W + 1) + x];
+          const empty = (cx, cy, cw, ch) => S[(cy + ch) * (W + 1) + cx + cw] - S[cy * (W + 1) + cx + cw] - S[(cy + ch) * (W + 1) + cx] + S[cy * (W + 1) + cx] === 0;
+          return { x0, y0, W, H, empty };
+        };
+
+        // Display size range by shape. Phones only get small, square-ish accents.
+        const sizes = (w, h, desk) => {
+          const r = w / h;
+          if (!desk) return r < 0.7 || r > 1.6 ? [] : [88, 80, 72].map((s) => (r >= 1 ? [s, s / r] : [s * r, s]));
+          const ws = r < 0.6 ? [190, 170, 150, 130, 110] : r > 1.6 ? [420, 380, 340, 300, 260, 220] : [230, 210, 190, 170, 150, 130];
+          return ws.map((x) => [x, x / r]).filter(([, y]) => y <= 440);
+        };
+
+        const fit = (g, item, desk, right, vw, minY) => {
+          const edge = desk ? 48 : 12, y0 = Math.max(2, Math.ceil((minY - g.y0) / CELL));
+          for (const [w, h] of sizes(item[1], item[2], desk)) {
+            const cw = Math.ceil(w / CELL), ch = Math.ceil(h / CELL);
+            for (let y = y0; y + ch <= g.H - 2; y++) {
+              for (let i = 0; i + cw <= g.W; i++) {
+                const x = right ? g.W - cw - i : i;
+                const px = g.x0 + x * CELL;
+                if (px < edge || px + w > vw - edge) continue;
+                if (g.empty(x, y, cw, ch)) return { x: px, y: g.y0 + y * CELL, w, h };
+              }
+            }
+          }
+          return null;
+        };
+
+        let run = 0;
+        const place = async () => {
+          const me = ++run;
+          if (layer) layer.remove();
+          const vw = document.documentElement.clientWidth, desk = vw >= 1100;
+          const max = desk ? 6 : 2, gap = desk ? 620 : 1400, pad = desk ? 44 : 16;
+          layer = document.createElement('div');
+          layer.className = 'art-layer';
+          layer.setAttribute('aria-hidden', 'true');
+          document.body.appendChild(layer);
+          const used = new Set();
+          let n = 0, lastY = -1e9, right = true;
+          for (const b of blocks()) {
+            if (n >= max) break;
+            // Yield between sections so measuring never blocks the page.
+            await new Promise((r) => setTimeout(r, 0));
+            if (me !== run) return;
+            const br = b.getBoundingClientRect();
+            if (br.bottom + scrollY - lastY < gap + 120) continue;
+            const g = grid(br, obstacles(b, br), pad);
+            // A long section (an article) can take more than one piece, each a screen apart.
+            for (let tries = 0; tries < 4 && n < max; tries++) {
+              let spot = null, item = null;
+              for (const cand of pool) {
+                if (used.has(cand[0].replace(/-[a-z]+\.webp$/, ''))) continue;
+                spot = fit(g, cand, desk, right, vw, lastY + gap);
+                if (spot) { item = cand; break; }
+              }
+              if (!spot) break;
+              used.add(item[0].replace(/-[a-z]+\.webp$/, ''));
+              const im = new Image();
+              im.alt = '';
+              im.loading = 'lazy';
+              im.decoding = 'async';
+              im.width = Math.round(spot.w);
+              im.height = Math.round(spot.h);
+              im.style.cssText = `left:${Math.round(spot.x)}px;top:${Math.round(spot.y)}px;width:${Math.round(spot.w)}px;height:${Math.round(spot.h)}px`;
+              im.onload = () => im.classList.add('in');
+              im.src = '/art/' + item[0];
+              layer.appendChild(im);
+              n++; lastY = spot.y; right = !right;
+            }
+          }
+          lastH = document.documentElement.scrollHeight;
+        };
+
+        const later = () => { clearTimeout(timer); timer = setTimeout(place, 300); };
+        const start = () => (window.requestIdleCallback ? requestIdleCallback(place, { timeout: 1500 }) : setTimeout(place, 200));
+        if (document.readyState === 'complete') start(); else addEventListener('load', start, { once: true });
+        let lastW = innerWidth;
+        addEventListener('resize', () => { if (innerWidth !== lastW) { lastW = innerWidth; later(); } });
+        // Layout that grows later (opened answers, "show more") gets a fresh pass.
+        if ('ResizeObserver' in window) new ResizeObserver(() => { if (layer && Math.abs(document.documentElement.scrollHeight - lastH) > 40) later(); }).observe(main);
+      })();
+    </script>
+  </>
+)}
+
+<style is:global>
+  .art-layer { position: absolute; top: 0; left: 0; width: 0; height: 0; z-index: 1; pointer-events: none; }
+  .art-layer img { position: absolute; max-width: none; object-fit: contain; opacity: 0; transition: opacity .8s ease; user-select: none; }
+  .art-layer img.in { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .art-layer img { transition: none; } }
+  @media print { .art-layer { display: none; } }
+</style>

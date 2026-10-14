@@ -561,3 +561,43 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .mfold-plus::before, .mfold-plus::after { transition: none; } }
 /* The hidden attribute always wins over a component's display value. */
 [hidden] { display: none !important; }
+
+/* ---------------------------------------------------------- Scenery
+ * Original SVG ridgelines (public/scene/, sources in the artwork folder).
+ * Painted only inside a section's bottom padding, so never behind text.
+ * Pale on light sections; the one strong range is the band above the footer.
+ */
+:root { --scene-h: calc(var(--section) * .9); --scene-w: max(100%, 1100px); }
+main > .bg-mist.section, main > .bg-mist.section-tight {
+  background: var(--mist) url(/scene/catalina-mist.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat;
+}
+/* Short bands and review bands stay plain, so ridges don't read as a divider on every break. */
+main > .bg-mist.section-tight, main > .bg-mist:has(.rgrid, .pq, .rcard) { background: var(--mist) !important; }
+main > .bg-mist.section-tight::after, main > .bg-mist:has(.rgrid, .pq, .rcard)::after { display: none; }
+/* A saguaro (or palo verde) stands on the ridge, alternating sides. Art: the client's pack, see SOURCES.md. */
+main > .bg-mist.section::after {
+  content: ''; position: absolute; right: max(28px, 7vw); bottom: 2px; width: calc(var(--section) * .3); height: calc(var(--section) * .78);
+  background: url(/art/ww-168-saguaro-slender.webp) center bottom / contain no-repeat; pointer-events: none;
+}
+main > .bg-mist.section:nth-of-type(even)::after { right: auto; left: max(28px, 7vw); width: calc(var(--section) * .7); height: calc(var(--section) * .62); background-image: url(/art/ww-172-desert-sprig-compact.webp); }
+/* Hero horizon: a pale far range in the hero's bottom padding, just above the trust bar. */
+:is(.hsplit, .hfield, .hplace, .hpost, .hbrief, .hban, .phero) { position: relative; isolation: isolate; }
+:is(.hsplit, .hfield, .hplace, .hpost, .hbrief, .hban, .phero)::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: clamp(24px, .9rem + 2vw, 52px); z-index: -1; pointer-events: none;
+  background: url(/scene/hero-horizon.svg) center bottom / var(--scene-w) 100% no-repeat;
+}
+.hsplit::after { height: clamp(20px, .8rem + 1vw, 30px); }
+main > .bg-mist:nth-of-type(3n+1) { background-image: url(/scene/rincon-mist.svg); }
+main > .bg-mist:nth-of-type(3n+2) { background-image: url(/scene/santarita-mist.svg); }
+/* Every other plain white section gets a soft sky; every fourth also a faint far range (kept rare so it never reads as a divider). */
+main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(even) { background: linear-gradient(180deg, #fff 30%, #f2fafe); }
+main > section.section:not([class*='bg-'], .pq, .promise-sec, :has(.rgrid, .rcard)):nth-of-type(4n) {
+  background: url(/scene/santarita-white.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat, linear-gradient(180deg, #fff 30%, #f2fafe);
+}
+@media (max-width: 760px) {
+  :root { --scene-w: max(100%, 760px); }
+  /* Phones: ridges only on full mist bands, never on folded (accordion) sections with no bottom room. */
+  main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(4n),
+  main > .bg-mist.section-tight, main > .is-mfold, main > [data-mfold] { background-image: none; }
+  main > .bg-mist.is-mfold, main > .bg-mist[data-mfold] { background: var(--mist); }
+}

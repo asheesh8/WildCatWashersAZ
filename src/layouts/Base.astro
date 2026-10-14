@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import StickyBar from '@/components/StickyBar.astro';
 import CtaShine from '@/components/CtaShine.astro';
+import ArtScatter from '@/components/ArtScatter.astro';
 import { company, services } from '@/data/business';
 import { towns } from '@/data/areas';
 import { faqs } from '@/data/faq';
@@ -147,6 +148,7 @@ const netlify = process.env.NETLIFY === 'true' || import.meta.env.PUBLIC_FORM_PR
     {!hideCta && <CtaShine service={ctaService} area={ctaArea} place={ctaPlace} />}
     <Footer />
     <StickyBar />
+    <ArtScatter />
 
     <script is:inline>
       // Fade-up and the one-time light "swipe". Progressive enhancement only:
