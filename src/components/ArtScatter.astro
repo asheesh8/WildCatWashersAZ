@@ -48,11 +48,15 @@ const json = JSON.stringify(pool);
           for (let n = walker.nextNode(); n; n = walker.nextNode()) {
             if (!TEXTISH.test(n.data)) continue;
             range.selectNodeContents(n);
-            for (const r of range.getClientRects()) add(r);
+            // Headings get extra air so art never crowds them.
+            const hp = n.parentElement.closest('h1, h2, h3') ? 20 : 0;
+            for (const r of range.getClientRects()) add(hp ? { left: r.left - hp, top: r.top - hp, right: r.right + hp, bottom: r.bottom + hp, width: r.width, height: r.height } : r);
           }
           // The bottom padding holds the scenery ridgeline: keep art off it.
           const pb = parseFloat(getComputedStyle(b).paddingBottom) || 0;
-          if (pb) rs.push([br.left + sx, br.bottom + sy - pb, br.right + sx, br.bottom + sy]);
+          if (pb) rs.push([br.left + sx, br.bottom + sy - pb - 40, br.right + sx, br.bottom + sy]);
+          // Leave the top of each section clear too (no art tucked under a band above).
+          rs.push([br.left + sx, br.top + sy, br.right + sx, br.top + sy + 60]);
           const area = br.width * br.height;
           b.querySelectorAll('*').forEach((el) => {
             const cs = getComputedStyle(el);
@@ -93,7 +97,7 @@ const json = JSON.stringify(pool);
           const r = w / h;
           if (!desk) return r < 0.7 || r > 1.6 ? [] : [88, 80, 72].map((s) => (r >= 1 ? [s, s / r] : [s * r, s]));
           const ws = r < 0.6 ? [190, 170, 150, 130, 110] : r > 1.6 ? [420, 380, 340, 300, 260, 220] : [230, 210, 190, 170, 150, 130];
-          return ws.map((x) => [x, x / r]).filter(([, y]) => y <= 600);
+          return ws.map((x) => [x, x / r]).filter(([, y]) => y <= 440);
         };
 
         const fit = (g, item, desk, right, vw, minY) => {

@@ -10,17 +10,18 @@ import index from './art-index.json';
 export type ArtItem = { f: string; w: number; h: number; k: string };
 const all = index as ArtItem[];
 
-const WINDOW = ['squeegee', 'strip-washer', 'squeegee-and-scrubber-pair', 'window-bucket', 'microfiber-stack', 'microfiber-draped', 'buffing-kit', 'tool-belt', 'track-vacuum', 'window-screen', 'sliding-door-track', 'clean-window', 'step-ladder', 'water-fed-pole', 'glass-scraper'];
+const WINDOW = ['squeegee', 'strip-washer', 'squeegee-and-scrubber-pair', 'window-bucket', 'microfiber-stack', 'microfiber-draped', 'buffing-kit', 'tool-belt', 'track-vacuum', 'window-screen', 'sliding-door-track', 'clean-window', 'step-ladder', 'water-fed-pole'];
 /* Left out after review: pure-water-tank reads as a chemical sprayer; sun-and-dust is off-palette. */
 const SOLAR = ['solar-panel', 'solar-brush', 'solar-panel-clean-half', 'water-fed-pole', 'water-droplets', 'monsoon-cloud'];
 const PIGEON = ['pigeon-mesh', 'solar-panel', 'checklist-clipboard', 'solar-brush'];
 const SCREENS = ['solar-screen-roll', 'window-screen', 'clean-window', 'screen-repair-kit'];
 const REPAIR = ['screen-repair-kit', 'window-screen', 'solar-screen-roll', 'sliding-door-track'];
-const PRESSURE = ['pressure-washer', 'surface-cleaner', 'spray-wand', 'deck-brush', 'hose-coil'];
+/* Left out after review: surface-cleaner (beige concrete swatch is off-palette), glass-scraper (reads as a screwdriver). */
+const PRESSURE = ['pressure-washer', 'spray-wand', 'deck-brush', 'hose-coil'];
 const DESERT = ['saguaro', 'desert-sprig'];
 const CARE = ['shoe-covers', 'checklist-clipboard', 'microfiber-stack', 'buffing-kit', 'tool-belt', 'window-bucket'];
 const COMMERCIAL = ['clean-window', 'water-fed-pole', 'pressure-washer', 'checklist-clipboard', 'squeegee-and-scrubber-pair', 'step-ladder'];
-const HARD_WATER = ['water-droplets', 'buffing-kit', 'clean-window', 'glass-scraper'];
+const HARD_WATER = ['water-droplets', 'buffing-kit', 'clean-window'];
 const WEATHER = ['monsoon-cloud'];
 
 /* Pages that stay clean: conversion, legal, and the home page (not part of this pass). */
