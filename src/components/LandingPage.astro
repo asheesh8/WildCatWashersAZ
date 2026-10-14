@@ -74,6 +74,9 @@ const slug = l.url.split('/')[2];
 const heroPhoto = heroImg ?? s.image;
 /* Commercial banners want a wide photo; a portrait one becomes a print beside the copy. */
 const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 1.2);
+/* Siblings vary: about half the pages show reviews before the detail sections. */
+const reviewsFirst = vary(l.url, 2, 'rev') === 1;
+const reviewsTitle = isCommercial ? 'What customers say about our crews' : `${s.name} reviews`;
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
 const pool2 = (heroPools[family] ?? []).filter((k) => sceneOf(k) !== sceneOf(heroPhoto) && !weakHero.has(k));
 const second = pool2.length ? rotateFrom(pool2, siblings, l.url) : undefined;
@@ -100,6 +103,8 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   {fam === 'commercial' && <RuledList title="How it works on a commercial property" items={l.points} size="md" tone="plain" />}
   {fam === 'audience' && l.points.length > 5 && <RuledList title="Also worth knowing" items={l.points.slice(5)} size="md" tone="plain" />}
 
+  {reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
+
   {d?.sections && fam === 'commercial' ? <Ledger title="The details" tone="mist" rows={d.sections.map((x) => ({ term: x.h, body: x.p }))} />
    : d?.sections ? <DepthSections sections={d.sections} heading="The details" tone="mist" variant={fam === 'audience' ? 'prose' : 'block'} /> : (
   <section class="section-tight bg-mist">
@@ -114,7 +119,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   </section>
   )}
 
-  <ReviewSetBlock set={set} title={isCommercial ? 'What customers say about our crews' : `${s.name} reviews`} />
+  {!reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
   {sharedFaqs.length > 0 && (
     <section class="section-tight bg-mist">

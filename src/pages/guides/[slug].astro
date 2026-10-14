@@ -68,7 +68,10 @@ const figPool = (s ? heroPools[s.slug] ?? [s.image] : heroPools['window-cleaning
 const figure = figPool.length ? figPool[vary(url, figPool.length, 'fig')] : undefined;
 const words = [answer, ...g.sections.flatMap((x) => x.p), ...depthSections.map((x) => x.p)].join(' ').split(/\s+/).length;
 const minutes = Math.max(1, Math.round(words / 220));
-const figAt = Math.min(1, g.sections.length - 1);
+/* Siblings vary: the photo sits after the first or second section, and the "what we do" box
+   comes before or after the customer quotes. */
+const figAt = Math.min(vary(url, 2, 'figat'), g.sections.length - 1);
+const doFirst = vary(url, 2, 'do') === 1;
 const article = {
   '@type': 'Article',
   headline: row.h1,
@@ -137,6 +140,7 @@ const article = {
           l.classList.add('is-ready');
         })();
       </script>
+      <div class:list={['tail', doFirst && 'is-swap']}>
       {proof.length > 0 && (
         <section class="proof">
           <h2 class="h3">{proof.length > 1 ? 'What customers told us' : 'What a customer told us'}</h2>
@@ -152,10 +156,11 @@ const article = {
         </div>
       </aside>
       </div>
+      </div>
     </div>
   </article>
 
-  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} eyebrow="From our FAQ" openFirst={false} />}
+  {items.length > 0 && <FaqList items={items} links={links} title={items.length > 1 ? 'The questions behind this page' : 'In our own words'} openFirst={false} />}
 
   {related.length > 0 && (
     <section class="section-tight">
@@ -167,6 +172,8 @@ const article = {
   )}
 </Base>
 <style>
+  .tail { display: flex; flex-direction: column; gap: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); }
+  .tail.is-swap { flex-direction: column-reverse; }
   /* A thin reading-progress line under the header, where the browser can drive it from scroll. */
   .read-bar { display: none; }
   @supports (animation-timeline: scroll()) {
