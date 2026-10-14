@@ -10,6 +10,8 @@ const { label = cta.primary, href = cta.quoteHref, track = 'page-hero', tone = '
   <a class="phone-link" href={telHref} data-track={`call-${track}`}><Icon name="phone" /><span>{company.phone}</span></a>
 </div>
 <style>
-  .hcta { display: flex; flex-wrap: wrap; gap: 1rem 1.2rem; align-items: center; }
+  .hcta { display: flex; flex-wrap: wrap; gap: 1rem 1.2rem; align-items: center; max-width: 100%; }
+  /* In a narrow hero column (tablets) a long label wraps inside the button instead of widening the page. */
+  .hcta .btn { max-width: 100%; white-space: normal; text-align: left; }
   @media (max-width: 759px) { .hcta .phone-link { display: none; } .hcta .btn { width: 100%; justify-content: space-between; } }
 </style>
