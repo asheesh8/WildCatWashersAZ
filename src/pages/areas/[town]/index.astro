@@ -79,6 +79,8 @@ const place = {
   name: `${t.name.replace(/ AZ$/, '')}, AZ`,
   containedInPlace: { '@type': 'State', name: 'Arizona' },
 };
+/* Half the towns lead with the work we do there, then what the desert does to the glass. */
+const workFirst = vary(url, 2, 'workfirst') === 1;
 const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, `Reviews from ${t.name}`, `${t.name} customers, in their words`]) : say(url, 'rev-h', ['What customers across the metro say', 'Reviews from around Tucson', 'What Tucson-area customers say']);
 ---
 <Base
@@ -94,7 +96,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
 
   {d?.sections && <DepthSections sections={d.sections} variant="prose" heading={d.heading ?? `${t.name}, up close`} intro={d.answer ? t.intro : undefined} mfold />}
 
-  <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />
+  {!workFirst && <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />}
 
   <ZigZag title={`What we do most in ${t.name}`} rows={rows} startRight={vary(url, 2, 'zz') === 1} />
   <section class="section-tight also-sec">
@@ -102,6 +104,8 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
       <p class="also">We also do <a href="/services/screen-repair/">screen repair</a>, <a href="/services/solar-panel-pigeon-proofing/">solar panel pigeon proofing</a>, <a href="/services/pressure-washing/patios-pool-decks/">patio and pool deck washing</a> and every other service in {t.name}.{kids.length > 0 && <> We also work with <a href="/who-we-help/hoas-communities/">HOAs and communities</a>.</>} <a href="/services/">See all services</a>.</p>
     </div>
   </section>
+
+  {workFirst && <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />}
 
   <WhoComes url={url} area={t.reviewArea} avoid={[...set.local, ...set.more].map((r) => r.n)} tone="mist" />
 
@@ -120,7 +124,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
   <section class="section-tight bg-mist" data-mfold>
     <div class="wrap diy">
-      <h2 class="h3">More answers for {t.name} homeowners</h2>
+      <h2 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h2>
       <ul class="diy-list" role="list">
         <li><a href="/guides/can-i-clean-my-own-windows/">Can I just clean my own windows?<Icon name="arrow" size={20} /></a></li>
         <li><a href="/guides/why-do-windows-look-worse-after-i-clean-them/">Why do my windows look worse after I clean them?<Icon name="arrow" size={20} /></a></li>
