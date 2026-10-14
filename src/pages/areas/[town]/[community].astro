@@ -71,6 +71,9 @@ const kindLabel = c.kind === 'hoa' || c.hoa ? 'HOA community' : 'Neighborhood';
 /* Sibling variation: photo side, and whether the local conditions or the depth copy comes first. */
 const flipHero = vary(url, 2, 'hero') === 1;
 const condFirst = vary(url, 2, 'cond') === 1;
+/* The link to the town's conditions is on every one of these pages, so its wording changes by page. */
+const condLine = vary(url, 3, 'condline');
+const townPoss = townName.endsWith('s') ? `${townName}’` : `${townName}’s`;
 const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(Yes|We do|Wildcat Washers)\.\s*/, '')} Call ${company.phone}.`);
 ---
 <Base
@@ -98,7 +101,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
           <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</p>
         )}
         {/* The desert conditions are the town's (community angles are metro-wide), so they live on the town page, linked once here. */}
-        <p class="cond-link"><a href={`${townHref(town.slug)}#conditions`}>What {townName.endsWith('s') ? `${townName}’` : `${townName}’s`} dust and hard water do to glass</a>, and why it calls for the whole window cleaned.</p>
+        <p class="cond-link">{condLine === 0 && <><a href={`${townHref(town.slug)}#conditions`}>What {townPoss} dust and hard water do to glass</a>, and why it calls for the whole window cleaned.</>}{condLine === 1 && <>Dust and hard water are the same here as across {townName}. <a href={`${townHref(town.slug)}#conditions`}>How they mark the glass, and what we do about it</a>.</>}{condLine === 2 && <>Wondering why the spots come back? <a href={`${townHref(town.slug)}#conditions`}>The {townName} dust and water story</a> explains it.</>}</p>
       </div>
       <NoteCard to={`${c.name} homeowners`} title={c.emphasis.title} body={c.emphasis.body} />
     </div>

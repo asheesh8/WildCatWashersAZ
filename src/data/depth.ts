@@ -1685,7 +1685,7 @@ const round9Add: Record<string, { sections: DepthSection[]; quoted?: number[] }>
   },
   '/areas/saddlebrooke/the-preserve-at-saddlebrooke/': {
     sections: [
-      { h: 'One trip, several jobs', p: 'Doing several services in one visit saves us time and routing, and we pass that back: one trip costs less than three. Windows, a patio or pool deck, and solar screens can all happen together, and Wildcat Club members get 10 percent off every added service.', q: { text: 'Angel did a great job! I would recommend!', by: 'Ken W., SaddleBrooke' } },
+      { h: 'One trip, several jobs', p: 'Doing several services in one visit saves us time and routing, and we pass that back: one trip costs less than three. Windows, a patio or pool deck, and solar screens can all happen together, and Wildcat Club members get 10 percent off every added service.' },
     ],
     quoted: [132],
   },
@@ -1786,7 +1786,7 @@ const round10Add: Record<string, { sections: DepthSection[]; quoted?: number[] }
   },
   '/areas/tucson/rita-ranch/': {
     sections: [
-      { h: 'Inside and out, one visit', p: 'Doing inside and out in the same visit is more efficient than two trips, and that shows up in the price. Pets are welcome too: our crews are careful and kind with them on every job.', q: { text: 'Great work! Crystal clear!', by: 'Christina C., Tucson' } },
+      { h: 'Inside and out, one visit', p: 'Doing inside and out in the same visit is more efficient than two trips, and that shows up in the price. Pets are welcome too: our crews are careful and kind with them on every job.' },
     ],
     quoted: [85],
   },
@@ -1814,7 +1814,7 @@ const round10Add: Record<string, { sections: DepthSection[]; quoted?: number[] }
   },
   '/areas/oro-valley/sun-city-oro-valley/': {
     sections: [
-      { h: 'Pay at the end, any way you like', p: 'You pay after the work is done and walked with you, and only once you’re happy. We take all standard payment methods and can keep a card on file if you won’t be home.', q: { text: 'Arrived on time. Did a great job on the windows. Will hire again.', by: 'Ed C., Oro Valley' } },
+      { h: 'Pay at the end, any way you like', p: 'You pay after the work is done and walked with you, and only once you’re happy. We take all standard payment methods and can keep a card on file if you won’t be home.' },
     ],
     quoted: [114],
   },
@@ -1830,7 +1830,7 @@ const round10Add: Record<string, { sections: DepthSection[]; quoted?: number[] }
   },
   '/areas/oro-valley/stone-canyon/': {
     sections: [
-      { h: 'Background checked, every hire', p: 'Every technician is background checked and trained before working at a customer’s home, and they arrive uniformed in a marked truck, so you know it’s us before we knock.', q: { text: 'Outstanding professional window cleaners in Oro Valley AZ', by: 'Nancy S., Oro Valley' } },
+      { h: 'Background checked, every hire', p: 'Every technician is background checked and trained before working at a customer’s home, and they arrive uniformed in a marked truck, so you know it’s us before we knock.', q: { text: 'The entire team was very professional and polite. The attention to detail was phenomenal.', by: 'Barbara K., Oro Valley' } },
     ],
     quoted: [104],
   },
@@ -2164,7 +2164,7 @@ const round14Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/oro-valley/': {
     sections: [
-      { h: 'Who comes, and for how long', p: 'A residential crew is usually two technicians, sometimes one. A whole house takes anywhere from one to five hours depending on its size.', q: { text: 'Wildcat Washers - Oro Valley and Marana Window Cleaning I highly recommend!', by: 'Trish P., Oro Valley' } },
+      { h: 'Who comes, and for how long', p: 'A residential crew is usually two technicians, sometimes one. A whole house takes anywhere from one to five hours depending on its size.', q: { text: 'Isaac did a wonderful job cleaning my windows and he was very careful with all of the bushes in the yard.', by: 'Mary H., Oro Valley' } },
     ],
     quoted: [113],
     faq: [],
@@ -2280,7 +2280,7 @@ const round15Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/sahuarita/': {
     sections: [
-      { h: 'Shower glass and mirrors', p: 'Bathroom mirrors, shower doors, glass doors and patio enclosures can all be done while the crew is already there.', q: { text: 'Wildcat Washers cleaned our windows today and did a great job!', by: 'Maria-Lyn N., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Shower glass and mirrors', p: 'Bathroom mirrors, shower doors, glass doors and patio enclosures can all be done while the crew is already there.' },
     ],
     quoted: [198],
   },
@@ -2339,7 +2339,7 @@ const round16Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/saddlebrooke/saddlebrooke-ranch/': {
     sections: [
-      { h: 'Homes still going up', p: 'SaddleBrooke Ranch is still being built. On a newly finished home, the first clean takes builder dust and debris off the glass; heavy paint or stucco overspray usually comes off with steel wool or a scraper, though it can be stubborn.', q: { text: 'Had great service!', by: 'Wonona & Jerry D., SaddleBrooke Ranch' } },
+      { h: 'Homes still going up', p: 'SaddleBrooke Ranch is still being built. On a newly finished home, the first clean takes builder dust and debris off the glass; heavy paint or stucco overspray usually comes off with steel wool or a scraper, though it can be stubborn.' },
       { h: 'Oracle, just up the road', p: 'Oracle, the small mountain town just north with its older hillside custom homes, is on our routes as well.' },
     ],
     quoted: [135],
@@ -2458,7 +2458,7 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/links-at-santa-rita-springs/': {
     sections: [
-      { h: 'Solar screens down and back up', p: 'Solar screens come off so the glass behind them gets cleaned, and they can be pressure washed and reconditioned before they go back on.', q: { text: 'Great Job Wildcat Washers cleaning my windows! In Green Valley!', by: 'Lucille C., Green Valley' } },
+      { h: 'Solar screens down and back up', p: 'Solar screens come off so the glass behind them gets cleaned, and they can be pressure washed and reconditioned before they go back on.', q: { text: 'Angel and Kai arrived early on time and did a great job cleaning my windows and pressure washing my solar screens in the green valley area, definitely will use again, I’d recommend.', by: 'Beryl K., Green Valley' } },
     ],
     quoted: [10],
   },
@@ -2482,7 +2482,7 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/rancho-sahuarita/': {
     sections: [
-      { h: 'Driveways and walkways', p: 'Driveways, walkways and entries are pressure washed to take off dust and tire marks, and a driveway usually takes one to three hours. [Pressure washing](/services/pressure-washing/)', q: { text: 'Guys did a great job! I highly recommend them!', by: 'Al M., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Driveways and walkways', p: 'Driveways, walkways and entries are pressure washed to take off dust and tire marks, and a driveway usually takes one to three hours. [Pressure washing](/services/pressure-washing/)', q: { text: 'Did both pressure washing and windows. Moved all our outdoor furniture prior to pressure washing.', by: 'Ron R., Tucson, Sahuarita & Green Valley area' } },
     ],
     quoted: [209],
   },
@@ -2494,7 +2494,7 @@ const round17Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/colonia-de-los-alamos/': {
     sections: [
-      { h: 'Spots now, or etching later', p: 'Mineral spots come off with a careful buff on every visit. Left for years, they eat into the glass, and at that point the pane has to be replaced.', q: { text: 'Great job 5 stars. Very thorough window cleaning in Green valley.', by: 'Bev M., Green Valley' } },
+      { h: 'Spots now, or etching later', p: 'Mineral spots come off with a careful buff on every visit. Left for years, they eat into the glass, and at that point the pane has to be replaced.', q: { text: 'They are very professional, very hard-working, and my windows are now SPOTLESS.', by: 'Rebecca M., Green Valley' } },
     ],
     quoted: [31],
   },
@@ -2571,7 +2571,7 @@ const round18Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/sahuarita/': {
     sections: [
-      { h: 'Screens and tracks, never an extra', p: 'On every visit the screens come out for a wash and the tracks are vacuumed and wiped by hand. It’s all part of the clean, not a line item.', q: { text: 'The guys did a great job for us and even our dog liked them!', by: 'Mernie G., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Screens and tracks, never an extra', p: 'On every visit the screens come out for a wash and the tracks are vacuumed and wiped by hand. It’s all part of the clean, not a line item.', q: { text: 'Not only are my windows sparkly clean, but the screens and window track as well!!', by: 'Nancy M., Tucson, Sahuarita & Green Valley area' } },
       { h: 'Cloudy double-pane glass', p: 'When moisture shows up between two panes, the seal has let go and the unit needs replacing. We tell you that up front, before any work begins.' },
     ],
     quoted: [149],
@@ -2686,7 +2686,7 @@ const round19Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/': {
     sections: [
-      { h: 'Solar screens, west side first', p: 'Glass facing west takes the harshest afternoon sun, so it’s the first place solar screens pay off; south-facing windows come next. [Solar screens](/services/solar-screens/)', q: { text: 'Great group of young owners and workers.', by: 'Carol J., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Solar screens, west side first', p: 'Glass facing west takes the harshest afternoon sun, so it’s the first place solar screens pay off; south-facing windows come next. [Solar screens](/services/solar-screens/)' },
       { h: 'Arizona rooms', p: 'Screen enclosures come back looking new after a hand scrub and a pressure rinse through the mesh, floor included. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
     ],
     quoted: [161],
@@ -2723,7 +2723,7 @@ const round19Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/solar-screens/green-valley/': {
     sections: [
-      { h: 'You can still see out', p: 'From inside, even the darker mesh dims the view only a little. From outside, nobody can see in during the day.', q: { text: 'Very polite and thorough!!', by: 'Marie B., Green Valley' } },
+      { h: 'You can still see out', p: 'From inside, even the darker mesh dims the view only a little. From outside, nobody can see in during the day.' },
       { h: 'The mesh itself', p: 'We build with Phifer SunTex, which is made in the USA, fade resistant and GREENGUARD Gold certified.' },
     ],
     quoted: [45],
@@ -2908,7 +2908,7 @@ const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/colonia-de-los-alamos/': {
     sections: [
-      { h: 'A single visit is welcome', p: 'You don’t have to join anything to book. One-time cleans are always on offer.', q: { text: 'They did a great through job with my Windows in Green valley!', by: 'Nancy S., Green Valley' } },
+      { h: 'A single visit is welcome', p: 'You don’t have to join anything to book. One-time cleans are always on offer.' },
       { h: 'Spotted during the walk-around', p: 'Crews carry gear for every service, so a dusty patio or dirty panels noticed on the way in can often be handled that day.' },
     ],
     quoted: [4],
@@ -2935,7 +2935,7 @@ const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/pressure-washing/green-valley/': {
     sections: [
-      { h: 'Solar screens and loose mesh', p: 'Solar screens and other screen mesh can be pressure washed and reconditioned, which brings back a lot of the look.', q: { text: 'They did a great job!', by: 'Margaret R., Green Valley' } },
+      { h: 'Solar screens and loose mesh', p: 'Solar screens and other screen mesh can be pressure washed and reconditioned, which brings back a lot of the look.', q: { text: 'They pressure washed my arizona room, washed all of my solar screens and even some other stuff! They did a fabulous job with a real challenge!', by: 'Denys D., Green Valley' } },
       { h: 'Its own schedule in the Club', p: 'Pressure washing can ride along in a Wildcat Club membership at whatever pace the property needs, separate from the windows.' },
     ],
     quoted: [9],
