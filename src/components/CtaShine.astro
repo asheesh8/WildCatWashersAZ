@@ -30,9 +30,11 @@ const { service, area, place } = Astro.props;
 </section>
 
 <style>
-  .shine { background: var(--blue); color: var(--navy); padding-block: var(--section); position: relative; overflow: hidden; }
+  /* Blue ranges into a navy foreground that runs straight into the footer (public/scene/shine-ridge.svg). */
+  .shine { background: var(--blue) url(/scene/shine-ridge.svg) center bottom / var(--scene-w) clamp(70px, 9vw, 150px) no-repeat; color: var(--navy); padding-block: var(--section) calc(var(--section) + clamp(56px, 7vw, 110px)); position: relative; overflow: hidden; }
   .shine::before {
-    content: ''; position: absolute; inset: auto -10% -40% auto; width: 60vw; aspect-ratio: 1; border-radius: 50%;
+    /* Glow sits high on the right so the mountains below stay crisp. */
+    content: ''; position: absolute; inset: -30% -10% auto auto; width: 60vw; aspect-ratio: 1; border-radius: 50%;
     background: radial-gradient(circle, rgb(255 255 255 / 35%), transparent 65%); pointer-events: none;
   }
   .shine-grid { position: relative; display: grid; gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center; }
