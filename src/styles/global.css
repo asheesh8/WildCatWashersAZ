@@ -538,6 +538,8 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 
 /* Phone section fold (Base.astro, data-mfold): the heading is the toggle. */
 .mfold-t { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: .8rem; width: 100%; min-height: 48px; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+/* A long place name (SaddleBrooke) wraps instead of pushing the page sideways on 320px phones. */
+.mfold-t { overflow-wrap: anywhere; hyphens: auto; }
 .mfold-t:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 6px; }
 .mfold-plus { position: relative; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue-50); }
 .mfold-plus::before, .mfold-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2.5px; border-radius: 2px; background: var(--navy); translate: -50% -50%; transition: rotate .25s var(--ease); }

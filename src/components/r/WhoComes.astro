@@ -1,0 +1,77 @@
+---
+/**
+ * Who comes to your door: a crew photo, three plain facts about the people (Doc 2 §3–5:
+ * uniform, background checks, training, crew leaders, founders) and one real review that
+ * names a crew member, from this area when one exists. The page's URL picks the facts,
+ * their order, the photo and the review, so sibling pages don't print the same block.
+ */
+import Photo from './Photo.astro';
+import { reviews, displayName, placeLabel, hashSeed } from '@/data/reviews';
+import { vary } from '@/lib/vary';
+import { company } from '@/data/business';
+export interface Props { url: string; area?: string; avoid?: number[]; tone?: 'plain' | 'mist' }
+const { url, area, avoid = [], tone = 'plain' } = Astro.props;
+
+const [lead1, lead2] = company.crewLeaders;
+const facts = [
+  'You’ll see a uniformed technician in a polo, suit pants, black Oxford shoes and a matching hat, arriving in a marked Wildcat Washers truck.',
+  'Every technician is background-checked before they are hired.',
+  'Nobody works on a customer’s home until they have finished training, shadowed experienced technicians and done ride-alongs.',
+  `Our crew leaders, ${lead1} and ${lead2}, have each been with us for more than a year.`,
+  'Cooper and Jose, who started the company in 2024, are mostly off the trucks now but still step in when needed.',
+  'We keep the team small on purpose. We’d rather be the best than the biggest.',
+];
+/* A seeded shuffle per page, so neighbors rarely share the same three lines. */
+const picked = facts
+  .map((f, i) => ({ f, k: hashSeed(`${i}who${url}`) }))
+  .sort((x, y) => x.k - y.k)
+  .slice(0, 3)
+  .map((x) => x.f);
+
+const named = /\b(Isaac|Josiah|Jose|Cooper|Angel|Eric)\b/;
+/* Skip reviews that mention work outside the six services, so the quote never implies one. */
+const offMenu = /furniture|roof|gutter|paint|seal|stain|carpet/i;
+const pool = reviews.filter((r) => named.test(r.text) && !offMenu.test(r.text) && r.text.length >= 60 && r.text.length <= 260 && !avoid.includes(r.n));
+const local = area ? pool.filter((r) => r.area === area) : [];
+const from = local.length ? local : pool.filter((r) => r.area === 'Location not stated' || r.area.endsWith(' area'));
+const quote = from.length ? from[hashSeed(url + 'who') % from.length] : undefined;
+
+const photos = ['crew-yard-sign-arched-window', 'crew-yard-sign-patio', 'team-on-truck-desert', 'two-techs-front-window', 'award-az19-winner-2025'];
+const photo = photos[vary(url, photos.length, 'who-ph')];
+const headings = ['Who comes to your door', 'Who you’ll meet', 'Who shows up at your house'];
+const heading = headings[vary(url, headings.length, 'who-h')];
+---
+<section class:list={['section who', tone === 'mist' && 'bg-mist']}>
+  <div class="wrap who-grid">
+    <Photo k={photo} shapes={[4 / 5, 1, 4 / 3]} caption sizes="(min-width: 900px) 30vw, 100vw" class="who-ph" look="print" />
+    <div class="who-copy">
+      <h2 class="h2">{heading}</h2>
+      <ul class="who-list" role="list">{picked.map((f) => <li>{f}</li>)}</ul>
+      {quote && (
+        <figure class="who-q">
+          <blockquote><p>“{quote.text}”</p></blockquote>
+          <figcaption><strong>{displayName(quote)}</strong>{placeLabel(quote) && <span>{placeLabel(quote)}</span>}</figcaption>
+        </figure>
+      )}
+    </div>
+  </div>
+</section>
+<style>
+  .who-grid { display: grid; gap: clamp(1.4rem, 1rem + 2vw, 3rem); align-items: center; }
+  @media (min-width: 900px) { .who-grid { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); } }
+  .who-copy { display: grid; gap: 1.1rem; max-width: 46rem; }
+  .who-list { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--navy); }
+  .who-list li { padding: .85rem 0; border-bottom: 1px solid var(--line-strong); font-size: 1.15rem; line-height: 1.5; color: var(--ink); }
+  .who-q { margin: .4rem 0 0; display: grid; gap: .45rem; }
+  .who-q p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.15rem, 1rem + .5vw, 1.4rem); line-height: 1.35; color: var(--navy); }
+  .who-q figcaption { display: flex; flex-wrap: wrap; gap: .2rem 1rem; font-size: 1.04rem; color: var(--ink-2); }
+  @media (max-width: 899px) {
+    .who-grid { grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 1rem; }
+    .who-copy { display: contents; }
+    .who-grid :global(.who-ph) { grid-column: 1; grid-row: 1; --r: 1; }
+    .who-grid :global(.who-ph figcaption) { display: none; }
+    .who-copy .h2 { grid-column: 2; grid-row: 1; }
+    .who-list, .who-q { grid-column: 1 / -1; }
+    .who-list li { font-size: 1.06rem; padding: .7rem 0; }
+  }
+</style>

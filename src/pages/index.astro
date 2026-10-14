@@ -132,6 +132,8 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
 
   .story-grid { display: grid; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
   @media (min-width: 1000px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+  /* The tilted second photo hangs past the column; on tablets that reached the page edge. */
+  .story { overflow-x: clip; }
   .story-photos { position: relative; padding-bottom: 18%; }
   .sp-1 { aspect-ratio: 4 / 3; }
   .sp-2 { position: absolute; width: 52%; aspect-ratio: 4 / 3; right: -4%; bottom: 0; border: 6px solid #fff; transform: rotate(3deg); }

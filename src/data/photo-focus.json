@@ -1,0 +1,1517 @@
+{
+  "award-az19-winner-2025": {
+    "focus": "50% 45%",
+    "safe": [
+      0.03,
+      0.12,
+      0.97,
+      0.82
+    ],
+    "subject": "Two techs pointing up holding 2025 AZ19 Readers Picks certificate",
+    "orientation_fit": "both",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-square (1170x1104). Faces at y~0.25-0.4; certificate at y~0.45-0.7. Sponsor backdrop logos (Green Valley News) cropped at edges."
+  },
+  "award-presentation-team": {
+    "focus": "52% 35%",
+    "safe": [
+      0.02,
+      0.0,
+      0.98,
+      0.85
+    ],
+    "subject": "Five people posing with Green Valley News 2025 Winner certificate",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Wide (1.87:1). Two caps touch top edge, so do not crop from top; trim bottom first. Speaker at podium in background."
+  },
+  "before-after-patio-1": {
+    "focus": "62% 55%",
+    "safe": [
+      0.25,
+      0.15,
+      1.0,
+      0.95
+    ],
+    "subject": "Freshly pressure-washed curved flagstone patio with tree shadows",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Clean (after) frame of the split; before-after-patio-split is this photo with the left half replaced by the dirty version. Strong tree shadows; surface cleaner hose visible top right."
+  },
+  "before-after-patio-2": {
+    "focus": "50% 55%",
+    "safe": [
+      0.1,
+      0.1,
+      0.9,
+      1.0
+    ],
+    "subject": "Flagstone walkway mid pressure-wash, wet glossy stone",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of pressure-wash-flagstone-split. Not actually a split image; just wet vs dry stone. Dark wrought-iron gate on right edge."
+  },
+  "before-after-patio-split": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      0.95
+    ],
+    "subject": "Flagstone patio split: dirty left half, cleaned right half",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Vertical before/after seam at x=0.5; both halves must stay visible, so never crop horizontally. Same scene as before-after-patio-1."
+  },
+  "before-after-solar-1": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.19,
+      1.0,
+      0.81
+    ],
+    "subject": "Clean rooftop solar row with mountains and tile roof",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Phone screenshot: black letterbox bars top 0-19% and bottom 81-100% (plus home-indicator bar at y~0.96). Real image is only y 0.19-0.81 (about 1.8:1 landscape), so it must be cropped to that band or it shows black bars. Not actually a before/after."
+  },
+  "before-after-solar-2": {
+    "focus": "50% 50%",
+    "safe": [
+      0.0,
+      0.19,
+      1.0,
+      0.81
+    ],
+    "subject": "Flat-roof solar array, left half cleaned, right half dusty",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Phone screenshot with black letterbox bars outside y 0.19-0.81. Before/after seam at x~0.5 of the array. Crop to the band; usable as a landscape image after cropping to y 0.19-0.81."
+  },
+  "before-after-solar-3": {
+    "focus": "45% 55%",
+    "safe": [
+      0.0,
+      0.19,
+      1.0,
+      0.81
+    ],
+    "subject": "Solar panels on clay tile roof with strong sun glare",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Phone screenshot with black letterbox outside y 0.19-0.81. Large sun hotspot on lower panel at x~0.3,y~0.58. Upper panels look slightly dusty; weak as a before/after."
+  },
+  "before-after-window-dust-split": {
+    "focus": "50% 45%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.92
+    ],
+    "subject": "Sliding window split: dusty hazy left, crystal-clear right",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of before-after-window-split (same shot, slightly different crop/edit). Seam at x~0.5; keep full width."
+  },
+  "before-after-window-split": {
+    "focus": "50% 45%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.92
+    ],
+    "subject": "Sliding window split: dusty hazy left, crystal-clear right",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of before-after-window-dust-split. Seam at x~0.5; keep full width."
+  },
+  "clean-arizona-room-glass": {
+    "focus": "60% 60%",
+    "safe": [
+      0.0,
+      0.2,
+      0.9,
+      1.0
+    ],
+    "subject": "Arizona room glass walls overlooking desert at dusk",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Very wide panorama (2.2:1); top 20% is plain ceiling. Do not use in portrait crops; the right 10% is a plain stucco column."
+  },
+  "clean-covered-patio": {
+    "focus": "50% 55%",
+    "safe": [
+      0.05,
+      0.2,
+      1.0,
+      0.95
+    ],
+    "subject": "Covered patio with clean windows and outdoor furniture",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Warm, slightly orange cast. Windows at y 0.3-0.7; furniture bottom right."
+  },
+  "clean-fireplace-view-windows": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.95
+    ],
+    "subject": "Living room fireplace flanked by two clean picture windows",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-living-room-fireplace-windows. Windows at x 0.05-0.3 and 0.7-0.95; cropping narrower than ~0.9 width loses a window."
+  },
+  "clean-french-doors-golf-view": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.95
+    ],
+    "subject": "Wall of French doors and transoms facing golf course",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-glass-wall-golf-course. Interior is dark silhouette; glass reads well."
+  },
+  "clean-glass-wall-golf-course": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.95
+    ],
+    "subject": "Wall of French doors and transoms facing golf course",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-french-doors-golf-view (higher resolution)."
+  },
+  "clean-living-room-fireplace-windows": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.95
+    ],
+    "subject": "Living room fireplace flanked by two clean picture windows",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-fireplace-view-windows (higher resolution)."
+  },
+  "clean-patio-sliders": {
+    "focus": "62% 60%",
+    "safe": [
+      0.3,
+      0.15,
+      1.0,
+      0.95
+    ],
+    "subject": "Clean sliding glass wall reflecting pool and patio umbrella",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-patio-through-glass. Bright turquoise cushions and kayak in foreground are a bit busy."
+  },
+  "clean-patio-through-glass": {
+    "focus": "62% 60%",
+    "safe": [
+      0.3,
+      0.15,
+      1.0,
+      0.95
+    ],
+    "subject": "Clean sliding glass wall reflecting pool and patio umbrella",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Duplicate of clean-patio-sliders (higher resolution)."
+  },
+  "clean-patio-view-glass": {
+    "focus": "45% 45%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      0.85
+    ],
+    "subject": "Covered patio bay windows with furniture, view into home",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "cluttered",
+    "phone_number_seen": "none",
+    "notes": "Patio table and chairs fill lower third; glass at y 0.1-0.7."
+  },
+  "clean-sliders-covered-patio-sunset": {
+    "focus": "60% 50%",
+    "safe": [
+      0.3,
+      0.0,
+      1.0,
+      0.95
+    ],
+    "subject": "Clean sliding doors on covered patio at sunset",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Strong diagonal perspective; left 30% is open patio and lawn view."
+  },
+  "clean-three-windows-reflection": {
+    "focus": "50% 52%",
+    "safe": [
+      0.05,
+      0.28,
+      0.95,
+      0.8
+    ],
+    "subject": "Three clean windows in red stucco reflecting desert sky",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of clean-windows-desert-reflection. Wide-angle lens keystone tilt. Plain stucco top 28% and bottom 20% can be cropped."
+  },
+  "clean-window-blinds-stucco": {
+    "focus": "45% 55%",
+    "safe": [
+      0.1,
+      0.25,
+      0.9,
+      0.85
+    ],
+    "subject": "Clean window with interior blinds on tan stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shot at an angle; lots of plain stucco. Some clutter bottom-left."
+  },
+  "clean-window-bougainvillea": {
+    "focus": "40% 50%",
+    "safe": [
+      0.0,
+      0.15,
+      0.75,
+      1.0
+    ],
+    "subject": "Patio window reflecting mountains above pink bougainvillea",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Colourful; patio umbrella and string lights on right."
+  },
+  "clean-window-front-yard-reflection": {
+    "focus": "55% 55%",
+    "safe": [
+      0.15,
+      0.0,
+      0.95,
+      0.95
+    ],
+    "subject": "Tall clean window reflecting front yard and parked car",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Abstract, hard to read at small size; reflection of a red car."
+  },
+  "clean-window-mountain-view": {
+    "focus": "45% 40%",
+    "safe": [
+      0.2,
+      0.0,
+      0.85,
+      0.95
+    ],
+    "subject": "Clean sliding window reflecting Catalina mountains and blue sky",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Steep angle along wall; mountain reflection at y~0.35."
+  },
+  "clean-window-porch-reflection": {
+    "focus": "50% 50%",
+    "safe": [
+      0.1,
+      0.0,
+      0.95,
+      1.0
+    ],
+    "subject": "Clean storefront-style window reflecting porch and yard",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "cluttered",
+    "phone_number_seen": "none",
+    "notes": "Busy reflections; reads as glass only up close."
+  },
+  "clean-window-sky-reflection": {
+    "focus": "45% 40%",
+    "safe": [
+      0.2,
+      0.0,
+      0.75,
+      1.0
+    ],
+    "subject": "Corner window edge reflecting blue sky over block wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Subject is a thin sliver of glass at x 0.3-0.6; mostly sky, block wall and gravel. Weak."
+  },
+  "clean-window-stucco-desert": {
+    "focus": "45% 55%",
+    "safe": [
+      0.15,
+      0.1,
+      0.95,
+      0.95
+    ],
+    "subject": "Clean window on textured stucco reflecting desert trees",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Angled view."
+  },
+  "clean-window-stucco-sky": {
+    "focus": "58% 45%",
+    "safe": [
+      0.3,
+      0.0,
+      0.85,
+      0.8
+    ],
+    "subject": "Narrow clean window reflecting clouds in textured stucco",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Tilted ~25 degrees; large foreground stucco texture; bottom 20% blank."
+  },
+  "clean-window-sunset-glow": {
+    "focus": "45% 55%",
+    "safe": [
+      0.05,
+      0.15,
+      0.95,
+      1.0
+    ],
+    "subject": "Clean patio window reflecting orange sunset sky",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of clean-window-sunset-reflection (wider crop). Grill/cooler clutter bottom right."
+  },
+  "clean-window-sunset-reflection": {
+    "focus": "40% 50%",
+    "safe": [
+      0.05,
+      0.15,
+      0.75,
+      0.95
+    ],
+    "subject": "Clean patio window reflecting orange sunset sky",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of clean-window-sunset-glow (tighter). Cooler and cart clutter bottom right."
+  },
+  "clean-windows-desert-reflection": {
+    "focus": "50% 52%",
+    "safe": [
+      0.05,
+      0.28,
+      0.95,
+      0.8
+    ],
+    "subject": "Three clean windows in red stucco reflecting desert sky",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of clean-three-windows-reflection."
+  },
+  "crew-chamber-of-commerce": {
+    "focus": "62% 50%",
+    "safe": [
+      0.0,
+      0.2,
+      1.0,
+      0.85
+    ],
+    "subject": "Crew of eight with two wrapped trucks at Chamber of Commerce",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Truck wrap phone number on right truck is covered by a flat blue-grey rectangle at x~0.95-1.0, y~0.52-0.6; obvious when zoomed, small at normal size. Crop slightly from right (keep x<=0.93) to hide it."
+  },
+  "crew-fire-station-commercial": {
+    "focus": "45% 70%",
+    "safe": [
+      0.0,
+      0.1,
+      0.8,
+      1.0
+    ],
+    "subject": "Two techs cleaning windows at Fire Station 151 entrance",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of fire-station-windows (slightly different size). Techs are small (x 0.4-0.65, y 0.55-0.95)."
+  },
+  "crew-firefighters-santa-rita": {
+    "focus": "50% 52%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.8
+    ],
+    "subject": "Crew and Santa Rita firefighters before wrapped truck and engine",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of team-fire-station-truck. Group at y 0.35-0.8; bottom 20% plain asphalt."
+  },
+  "crew-yard-sign-arched-window": {
+    "focus": "50% 52%",
+    "safe": [
+      0.15,
+      0.2,
+      0.85,
+      0.85
+    ],
+    "subject": "Two techs holding Wildcat Window Washing sign by arched window",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Sign has no phone number (Window Washing and MORE). Symmetric shutters and chairs."
+  },
+  "crew-yard-sign-living-room": {
+    "focus": "40% 45%",
+    "safe": [
+      0.15,
+      0.15,
+      0.65,
+      0.95
+    ],
+    "subject": "Two techs with Wildcat sign in client living room",
+    "orientation_fit": "both",
+    "people": true,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Sign has no phone number. Slightly soft; dining chair overlaps right tech."
+  },
+  "crew-yard-sign-patio": {
+    "focus": "55% 40%",
+    "safe": [
+      0.15,
+      0.15,
+      0.95,
+      0.7
+    ],
+    "subject": "Four techs with Wildcat sign on client patio",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Sign has no phone number. Warm cast; bottom 30% is patio floor."
+  },
+  "fire-station-windows": {
+    "focus": "45% 70%",
+    "safe": [
+      0.0,
+      0.1,
+      0.8,
+      1.0
+    ],
+    "subject": "Two techs cleaning windows at Fire Station 151 entrance",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of crew-fire-station-commercial."
+  },
+  "hero-crew-trucks-sky": {
+    "focus": "50% 70%",
+    "safe": [
+      0.0,
+      0.5,
+      1.0,
+      0.9
+    ],
+    "subject": "Crew between two wrapped trucks in desert at golden hour",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 55% is empty sky (good for text overlay). Phone numbers on both truck beds blurred into soft grey rectangles (left truck x~0.07-0.33,y~0.6; right truck x~0.71-0.93,y~0.68); noticeable when zoomed."
+  },
+  "hero-film-poster": {
+    "focus": "60% 40%",
+    "safe": [
+      0.25,
+      0.0,
+      0.95,
+      0.95
+    ],
+    "subject": "Tech scrubbing window with soapy applicator, tool belt visible",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Video frame (1280x720). Head cut off at top; subject is torso, applicator and tool belt."
+  },
+  "hero-poster": {
+    "focus": "50% 50%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "subject": "Window glass reflecting sky, tech's arm and waist at edge",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Video frame; person only visible as white sleeve/waist at the right edge, face cut. Hard to read; avoid outside its video-poster use."
+  },
+  "patio-screen-enclosure": {
+    "focus": "50% 50%",
+    "safe": [
+      0.0,
+      0.12,
+      1.0,
+      0.92
+    ],
+    "subject": "Clean black screen enclosure across patio opening",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Flat, frontal; reflections of interior lights."
+  },
+  "pressure-wash-flagstone-split": {
+    "focus": "50% 55%",
+    "safe": [
+      0.1,
+      0.1,
+      0.9,
+      1.0
+    ],
+    "subject": "Flagstone walkway mid pressure-wash, wet glossy stone",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of before-after-patio-2. Despite the name, not a split image."
+  },
+  "pressure-washing-solar-screen": {
+    "focus": "50% 50%",
+    "safe": [
+      0.0,
+      0.35,
+      0.85,
+      1.0
+    ],
+    "subject": "Tech pressure-washing a removed solar screen against wall",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of tech-washing-screens. Tech at x 0-0.4, screen x 0.5-0.95."
+  },
+  "screen-door-clean": {
+    "focus": "45% 50%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "subject": "Security screen door split: clean top, dusty bottom",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Horizontal before/after seam at y=0.5 (top clean, bottom dusty); keep full height. Clean version is security-screen-door-clean."
+  },
+  "security-screen-door-clean": {
+    "focus": "45% 50%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "subject": "Clean security screen door and side panel",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Frontal, dark; same door as screen-door-clean."
+  },
+  "solar-array-clean": {
+    "focus": "60% 60%",
+    "safe": [
+      0.0,
+      0.2,
+      1.0,
+      1.0
+    ],
+    "subject": "Close angled view of clean blue solar panels",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Strong diagonal grid; very versatile background."
+  },
+  "solar-array-pool-golf-view": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.15,
+      1.0,
+      0.8
+    ],
+    "subject": "Clean rooftop panels above pool with golf course and mountains",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of solar-panels-pool-mountain-view. Visible stitching seam in the sky at x~0.5 (brightness jump, mountains cut off)."
+  },
+  "solar-array-road-view": {
+    "focus": "60% 50%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      1.0
+    ],
+    "subject": "Long glossy solar array receding toward neighbourhood",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Sun flare at bottom centre."
+  },
+  "solar-panel-closeup": {
+    "focus": "50% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.85
+    ],
+    "subject": "Close-up of solar panel edge over clay tile roof",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Abstract detail; tiles bottom-left."
+  },
+  "solar-panels-cloud-reflection": {
+    "focus": "50% 65%",
+    "safe": [
+      0.0,
+      0.35,
+      1.0,
+      0.95
+    ],
+    "subject": "Clean solar panels on tile roof reflecting puffy clouds",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 35% clouds sky (good for overlay)."
+  },
+  "solar-panels-clouds": {
+    "focus": "50% 70%",
+    "safe": [
+      0.0,
+      0.4,
+      1.0,
+      1.0
+    ],
+    "subject": "Clean solar panels reflecting clouds under dramatic sky",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Portrait sibling of solar-panels-cloud-reflection; top 40% sky."
+  },
+  "solar-panels-hillside": {
+    "focus": "50% 75%",
+    "safe": [
+      0.0,
+      0.35,
+      1.0,
+      1.0
+    ],
+    "subject": "Clean solar array against desert hillside and blue sky",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 35% plain sky."
+  },
+  "solar-panels-pool-mountain-view": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.15,
+      1.0,
+      0.8
+    ],
+    "subject": "Clean rooftop panels above pool with golf course and mountains",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of solar-array-pool-golf-view; same sky stitching seam at x~0.5."
+  },
+  "solar-panels-pool-patio": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      1.0
+    ],
+    "subject": "Rooftop solar panels overlooking backyard pool",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Panels fill 70% of frame."
+  },
+  "solar-panels-roof-tucson": {
+    "focus": "50% 45%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.8
+    ],
+    "subject": "Solar array on tile roof overlooking Tucson neighbourhood",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Tilted horizon; cable loop on roof."
+  },
+  "solar-panels-tile-roof-closeup": {
+    "focus": "40% 65%",
+    "safe": [
+      0.0,
+      0.35,
+      1.0,
+      1.0
+    ],
+    "subject": "Low-angle dark solar panels on tile roof, blue sky",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 35% plain sky; panels very dark."
+  },
+  "solar-panels-tile-roof-neighborhood": {
+    "focus": "55% 65%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      1.0
+    ],
+    "subject": "Solar array on tile roof above street and neighbourhood",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 25% is street/houses, can be trimmed."
+  },
+  "solar-screen-gable-window": {
+    "focus": "45% 55%",
+    "safe": [
+      0.05,
+      0.3,
+      0.85,
+      0.85
+    ],
+    "subject": "Large dark solar screen on gable stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Clean; plants bottom right."
+  },
+  "solar-screen-large-window": {
+    "focus": "45% 45%",
+    "safe": [
+      0.1,
+      0.0,
+      0.8,
+      0.95
+    ],
+    "subject": "Large angled solar screen on stucco side wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of sun-screens-installed-1."
+  },
+  "solar-screen-side-yard": {
+    "focus": "45% 45%",
+    "safe": [
+      0.05,
+      0.2,
+      0.9,
+      0.9
+    ],
+    "subject": "Two solar screens on side-yard stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of sun-screens-tan-house. Top right overexposed sky."
+  },
+  "solar-screens-backyard": {
+    "focus": "45% 45%",
+    "safe": [
+      0.1,
+      0.1,
+      0.95,
+      0.85
+    ],
+    "subject": "Solar screens on backyard wall with garden and lawn",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Some clutter (bin, ladder) right."
+  },
+  "solar-screens-front-elevation": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.85
+    ],
+    "subject": "Gable wall with two solar screens above garden bed",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of sun-screens-installed-2. Ladder intrudes bottom-left."
+  },
+  "solar-screens-gable-garden": {
+    "focus": "62% 55%",
+    "safe": [
+      0.25,
+      0.15,
+      0.95,
+      1.0
+    ],
+    "subject": "Tall solar screen on gable wall, garden foreground",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Hose loop in foreground bottom."
+  },
+  "solar-screens-garden-home": {
+    "focus": "50% 55%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.9
+    ],
+    "subject": "Gable wall with two solar screens and landscaped yard",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Wide landscape version of solar-screens-front-elevation; ladder bottom right."
+  },
+  "solar-screens-side-yard-path": {
+    "focus": "70% 50%",
+    "safe": [
+      0.45,
+      0.0,
+      1.0,
+      1.0
+    ],
+    "subject": "Long run of solar screens along side-yard path",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Strong perspective; subject on right half."
+  },
+  "solar-screens-stucco-close": {
+    "focus": "45% 50%",
+    "safe": [
+      0.1,
+      0.0,
+      0.85,
+      1.0
+    ],
+    "subject": "Close angled solar screen on textured stucco",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Fills frame."
+  },
+  "solar-screens-two-windows-garden": {
+    "focus": "50% 40%",
+    "safe": [
+      0.0,
+      0.2,
+      1.0,
+      0.75
+    ],
+    "subject": "Two solar screens over garden bed, frontal",
+    "orientation_fit": "landscape-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Frontal and flat."
+  },
+  "sun-screens-installed-1": {
+    "focus": "45% 45%",
+    "safe": [
+      0.1,
+      0.0,
+      0.8,
+      0.95
+    ],
+    "subject": "Large angled solar screen on stucco side wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of solar-screen-large-window."
+  },
+  "sun-screens-installed-2": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      0.85
+    ],
+    "subject": "Gable wall with two solar screens above garden bed",
+    "orientation_fit": "both",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of solar-screens-front-elevation."
+  },
+  "sun-screens-tan-house": {
+    "focus": "45% 45%",
+    "safe": [
+      0.05,
+      0.2,
+      0.9,
+      0.9
+    ],
+    "subject": "Two solar screens on side-yard stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": false,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of solar-screen-side-yard."
+  },
+  "team-fire-station-truck": {
+    "focus": "48% 50%",
+    "safe": [
+      0.0,
+      0.2,
+      1.0,
+      0.82
+    ],
+    "subject": "Crew and firefighters before wrapped truck and fire engine",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of crew-firefighters-santa-rita (higher resolution)."
+  },
+  "team-on-truck-desert": {
+    "focus": "50% 50%",
+    "safe": [
+      0.0,
+      0.35,
+      1.0,
+      0.75
+    ],
+    "subject": "Crew sitting on wrapped truck in desert at sunrise",
+    "orientation_fit": "both",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 35% plain sky, bottom 25% dirt. Phone area on truck bed is mostly hidden by legs with a soft blur patch (x~0.72-0.8,y~0.6); not noticeable at normal size."
+  },
+  "team-trucks-desert-mountains": {
+    "focus": "50% 60%",
+    "safe": [
+      0.0,
+      0.4,
+      1.0,
+      0.75
+    ],
+    "subject": "Crew between two wrapped trucks with mountains behind",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Top 40% plain sky. People are small. Faint blur where phone number was on left truck bed (x~0.15-0.3,y~0.6)."
+  },
+  "tech-arched-door-ladder": {
+    "focus": "50% 40%",
+    "safe": [
+      0.1,
+      0.1,
+      0.95,
+      0.95
+    ],
+    "subject": "Tech on ladder cleaning transom above arched wood door",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Narrow portrait (1027x1800). Warm cast."
+  },
+  "tech-arizona-room-window": {
+    "focus": "55% 50%",
+    "safe": [
+      0.3,
+      0.25,
+      0.9,
+      0.95
+    ],
+    "subject": "Tech wiping Arizona room window with orange towel",
+    "orientation_fit": "landscape-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Back of shirt partly visible, number area out of view. Desk/plant clutter bottom."
+  },
+  "tech-cleaning-solar-commercial-roof": {
+    "focus": "45% 40%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      0.9
+    ],
+    "subject": "Tech scrubbing soapy solar panels on flat commercial roof",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of tech-scrubbing-solar-flat-roof."
+  },
+  "tech-cleaning-solar-mountains": {
+    "focus": "35% 35%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.95
+    ],
+    "subject": "Tech with brush pole cleaning rooftop panels, mountains behind",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of tech-solar-pole-clean. Tech at x 0.1-0.5, y 0.15-0.6."
+  },
+  "tech-crouching-gridded-door": {
+    "focus": "40% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      0.85,
+      0.8
+    ],
+    "subject": "Tech in white shirt squeegeeing gridded door glass",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shirt number area erased cleanly. Face in profile/turned away."
+  },
+  "tech-detailing-door-frame-pool": {
+    "focus": "62% 55%",
+    "safe": [
+      0.3,
+      0.2,
+      1.0,
+      0.85
+    ],
+    "subject": "Tech detailing French door frame overlooking pool",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Faint red specks remain where shirt phone number was erased (between 'Get A Free Quote' and website), not legible."
+  },
+  "tech-interior-window-golf-course": {
+    "focus": "55% 50%",
+    "safe": [
+      0.3,
+      0.0,
+      0.85,
+      0.9
+    ],
+    "subject": "Tech on step stool cleaning tall slider facing golf course",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Tech small, back to camera; recliner in foreground."
+  },
+  "tech-kneeling-french-doors-pool": {
+    "focus": "70% 65%",
+    "safe": [
+      0.35,
+      0.3,
+      1.0,
+      1.0
+    ],
+    "subject": "Tech kneeling to detail French doors facing pool",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shirt phone line removed cleanly; website legible."
+  },
+  "tech-kneeling-window-detail": {
+    "focus": "55% 50%",
+    "safe": [
+      0.0,
+      0.25,
+      1.0,
+      1.0
+    ],
+    "subject": "Masked tech kneeling, wiping low window with towel",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shirt phone area heavily blurred/smudged; visible as a soft patch when zoomed."
+  },
+  "tech-scrubbing-sliding-door": {
+    "focus": "30% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      0.8,
+      1.0
+    ],
+    "subject": "Tech in white shirt reaching up to clean slider frame",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shirt 'Get A Free Quote' partly smudged where number was removed; website partly smeared. Moderate."
+  },
+  "tech-scrubbing-solar-flat-roof": {
+    "focus": "45% 40%",
+    "safe": [
+      0.0,
+      0.1,
+      1.0,
+      0.9
+    ],
+    "subject": "Tech scrubbing soapy solar panels on flat commercial roof",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of tech-cleaning-solar-commercial-roof."
+  },
+  "tech-shirt-back-scrubbing": {
+    "focus": "50% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.9
+    ],
+    "subject": "Tech from behind scrubbing window, shirt slogan visible",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Backlit/washed out. Phone line smeared away and 'WildcatWashers' website partly erased; looks edited when zoomed."
+  },
+  "tech-slider-squeegee": {
+    "focus": "35% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      0.9,
+      0.95
+    ],
+    "subject": "Tech in white shirt squeegeeing sliding glass door",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "BAD EDIT: pink-grey blurred rectangle on shirt back (x~0.1-0.33,y~0.14-0.2) covers phone and part of 'Free Quote'/website. Crop or avoid showing shirt large."
+  },
+  "tech-solar-pole-clean": {
+    "focus": "35% 35%",
+    "safe": [
+      0.0,
+      0.05,
+      1.0,
+      0.95
+    ],
+    "subject": "Tech with brush pole cleaning rooftop panels, mountains behind",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of tech-cleaning-solar-mountains."
+  },
+  "tech-solar-screen-carry": {
+    "focus": "70% 55%",
+    "safe": [
+      0.0,
+      0.15,
+      1.0,
+      1.0
+    ],
+    "subject": "Tech handling a solar screen beside stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Navy rectangle painted over shirt phone line, also cuts through 'Get A Free Quote' (x~0.55-1.0,y~0.62-0.68). Noticeable at hero size."
+  },
+  "tech-spotless-reputation-shirt": {
+    "focus": "65% 55%",
+    "safe": [
+      0.1,
+      0.1,
+      1.0,
+      0.95
+    ],
+    "subject": "Tech's shirt back 'We have a spotless reputation' at window",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Dark navy box painted over phone line; it clips the 'Get A Free Quote' text (x~0.4-0.85,y~0.7-0.78). Visible edit at large sizes."
+  },
+  "tech-squeegee-desert-window": {
+    "focus": "45% 45%",
+    "safe": [
+      0.05,
+      0.1,
+      0.95,
+      0.95
+    ],
+    "subject": "Tech squeegeeing exterior window reflecting desert hills",
+    "orientation_fit": "both",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Shirt phone line removed; website line faded. Nearly square (1774x1800)."
+  },
+  "tech-squeegee-reflection-glass": {
+    "focus": "50% 35%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.7
+    ],
+    "subject": "Soapy glass reflecting tech squeegeeing, desert sky",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Low resolution (568x1000). Tech only visible as reflection; bottom 30% plain wall."
+  },
+  "tech-squeegee-soapy-window-sky": {
+    "focus": "50% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.75
+    ],
+    "subject": "Squeegee clearing soapy window reflecting sky and trees",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "soft",
+    "phone_number_seen": "none",
+    "notes": "Low resolution (584x1000). Person only as faint reflection; bottom 25% plain wall."
+  },
+  "tech-washing-screens": {
+    "focus": "40% 60%",
+    "safe": [
+      0.0,
+      0.3,
+      0.95,
+      1.0
+    ],
+    "subject": "Tech pressure-washing a removed solar screen against wall",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Near-duplicate of pressure-washing-solar-screen."
+  },
+  "tech-waterfed-pole-exterior": {
+    "focus": "50% 50%",
+    "safe": [
+      0.1,
+      0.15,
+      0.95,
+      1.0
+    ],
+    "subject": "Tech using water-fed pole on exterior stucco window",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Clean composition."
+  },
+  "tech-waterfed-pole-stucco": {
+    "focus": "40% 50%",
+    "safe": [
+      0.0,
+      0.15,
+      0.85,
+      1.0
+    ],
+    "subject": "Tech with water-fed pole cleaning window on stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of tech-waterfed-stucco-window."
+  },
+  "tech-waterfed-stucco-window": {
+    "focus": "40% 50%",
+    "safe": [
+      0.0,
+      0.15,
+      0.85,
+      1.0
+    ],
+    "subject": "Tech with water-fed pole cleaning window on stucco wall",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Exact duplicate of tech-waterfed-pole-stucco."
+  },
+  "two-techs-front-window": {
+    "focus": "55% 40%",
+    "safe": [
+      0.0,
+      0.0,
+      1.0,
+      0.95
+    ],
+    "subject": "Two techs from behind cleaning a front window",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Tight crop, heads near top edge (no top crop). Shirt phone line on right tech smudged; minor."
+  },
+  "two-techs-interior-modern": {
+    "focus": "55% 55%",
+    "safe": [
+      0.3,
+      0.2,
+      0.95,
+      1.0
+    ],
+    "subject": "Two techs cleaning tall glass in modern desert home",
+    "orientation_fit": "both",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Strong image; courtyard view through glass. Phone lines on shirts removed cleanly."
+  },
+  "two-techs-tall-glass": {
+    "focus": "45% 50%",
+    "safe": [
+      0.05,
+      0.0,
+      0.95,
+      1.0
+    ],
+    "subject": "Two techs reaching up to clean tall interior glass",
+    "orientation_fit": "portrait-ok",
+    "people": true,
+    "quality": "good",
+    "phone_number_seen": "none",
+    "notes": "Portrait sibling of two-techs-interior-modern. Arms/pole reach top edge."
+  }
+}

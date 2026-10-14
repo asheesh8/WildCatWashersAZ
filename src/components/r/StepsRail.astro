@@ -1,0 +1,30 @@
+---
+/** Steps that really are a sequence: a numbered rail (across on wide screens, down on phones). */
+export interface Props { title: string; steps: string[]; intro?: string; tone?: 'plain' | 'mist' }
+const { title, steps, intro, tone = 'plain' } = Astro.props;
+---
+<section class:list={['section-tight rail', tone === 'mist' && 'bg-mist']}>
+  <div class="wrap">
+    <div class="rail-head"><h2 class="h2">{title}</h2>{intro && <p>{intro}</p>}</div>
+    <ol class="rail-list" style={`--n:${Math.min(steps.length, 5)}`}>
+      {steps.map((t, i) => <li><span class="rail-n" aria-hidden="true">{i + 1}</span><p>{t}</p></li>)}
+    </ol>
+  </div>
+</section>
+<style>
+  .rail-head { display: grid; gap: .7rem; margin-bottom: clamp(1.4rem, 1rem + 2vw, 2.6rem); max-width: 50rem; }
+  .rail-head p { font-size: 1.15rem; color: var(--ink-2); line-height: 1.6; }
+  .rail-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.4rem; position: relative; }
+  .rail-list li { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: start; }
+  .rail-n { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: var(--navy); display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; position: relative; z-index: 1; box-shadow: 0 0 0 6px #fff; }
+  .bg-mist .rail-n { box-shadow: 0 0 0 6px var(--mist); }
+  .rail-list p { font-size: 1.14rem; line-height: 1.55; color: var(--ink-2); padding-top: .7rem; }
+  /* the line joining the dots */
+  .rail-list::before { content: ''; position: absolute; left: 25px; top: 26px; bottom: 26px; width: 3px; background: var(--blue-200); border-radius: 3px; }
+  @media (min-width: 1000px) {
+    .rail-list { grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 2rem; }
+    .rail-list li { grid-template-columns: 1fr; gap: .9rem; }
+    .rail-list p { padding-top: 0; }
+    .rail-list::before { left: 26px; right: 26px; top: 25px; bottom: auto; width: auto; height: 3px; }
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+/** The H1, sized by length: short titles stay bold uppercase headlines, long or
+    question titles read as sentences so they fit in four lines on a phone. */
+export interface Props { title: string; class?: string; size?: 'xl' | 'lg' | 'md' }
+const { title, class: cls, size = 'lg' } = Astro.props;
+const long = title.trim().split(/\s+/).length > 5 || title.trim().endsWith('?');
+/* A single long word (SaddleBrooke) in uppercase is wider than a small phone at full size. */
+const bigWord = Math.max(...title.split(/\s+/).map((w) => w.length)) >= 11;
+---
+<h1 class:list={['htitle', `ht-${size}`, long && 'is-long', bigWord && 'has-big-word', cls]}>{title.split(/(5-in-1)/).map((p) => (p === '5-in-1' ? <span class="nowrap">{p}</span> : p))}<slot /></h1>
+<style>
+  .htitle { font-family: var(--font-display); font-weight: 900; color: var(--navy); line-height: 1; letter-spacing: -0.015em; text-transform: uppercase; font-variation-settings: 'wdth' 110; overflow-wrap: break-word; max-width: 20ch; }
+  .ht-lg { font-size: clamp(2rem, 1.35rem + 2.6vw, 3.4rem); }
+  .ht-xl { font-size: clamp(2.3rem, 1.4rem + 3.8vw, 4.4rem); }
+  .ht-md { font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem); }
+  .is-long { text-transform: none; font-variation-settings: 'wdth' 100; letter-spacing: -0.012em; line-height: 1.06; max-width: 22ch; }
+  .ht-lg.is-long { font-size: clamp(1.85rem, 1.3rem + 2.1vw, 3rem); }
+  @media (max-width: 420px) { .ht-xl.has-big-word:not(.is-long), .ht-lg.has-big-word:not(.is-long) { font-size: 8.4vw; } }
+  .ht-xl.is-long { font-size: clamp(1.85rem, 1.3rem + 2.5vw, 3.4rem); }
+  .ht-md.is-long { font-size: clamp(1.75rem, 1.25rem + 1.8vw, 2.6rem); }
+  .nowrap { white-space: nowrap; }
+</style>

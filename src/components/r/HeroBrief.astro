@@ -1,0 +1,38 @@
+---
+/** Audience hero: a brief to one kind of customer. Words on the left; on the right a blue panel of what they get, no stock photo. */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import HeroTitle from './HeroTitle.astro';
+import HeroLede from './HeroLede.astro';
+import HeroCta from './HeroCta.astro';
+import Icon from '../Icon.astro';
+export interface Props { title: string; lede?: string; crumbs: { name: string; href: string }[]; who: string; points: string[]; ctaHref?: string; ctaLabel?: string }
+const { title, lede, crumbs, who, points, ctaHref, ctaLabel } = Astro.props;
+---
+<section class="hbrief">
+  <div class="wrap hb-grid">
+    <div class="hb-copy">
+      <Breadcrumbs items={crumbs} />
+      <HeroTitle title={title} size="xl" />
+      <HeroLede text={lede} />
+      <HeroCta href={ctaHref} label={ctaLabel} track="audience-hero" />
+    </div>
+    {points.length > 0 && (
+      <aside class="hb-panel">
+        <h2 class="hb-ph">What {who} get</h2>
+        <ul role="list">{points.slice(0, 5).map((p) => <li><Icon name="check" size={22} /><span>{p}</span></li>)}</ul>
+      </aside>
+    )}
+  </div>
+</section>
+<style>
+  .hbrief { background: linear-gradient(180deg, var(--blue-50), #fff); padding-block: clamp(1.3rem, 1rem + 2vw, 3rem) clamp(2.2rem, 1.6rem + 3vw, 4.5rem); }
+  .hb-grid { display: grid; gap: 1.6rem; }
+  @media (min-width: 1000px) { .hb-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; } }
+  .hb-copy { display: grid; gap: 1.1rem; justify-items: start; }
+  .hb-panel { background: var(--blue); color: var(--navy); border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.4rem); box-shadow: 0 24px 48px -30px rgb(18 24 50 / 55%); }
+  .hb-ph { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.35rem, 1.15rem + .8vw, 1.8rem); line-height: 1.1; margin-bottom: .9rem; }
+  .hb-panel ul { list-style: none; padding: 0; display: grid; gap: .1rem; }
+  .hb-panel li { display: flex; gap: .7rem; align-items: flex-start; padding: .75rem 0; border-top: 1px solid rgb(18 24 50 / 18%); font-size: 1.12rem; line-height: 1.45; font-weight: 600; }
+  .hb-panel li :global(svg) { flex: none; margin-top: .1rem; }
+  @media (max-width: 759px) { .hbrief :global(.crumbs li:last-child) { display: none; } .hb-panel li:nth-child(n+4) { display: none; } }
+</style>

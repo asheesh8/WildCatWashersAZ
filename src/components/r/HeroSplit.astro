@@ -1,0 +1,59 @@
+---
+/**
+ * Service hub hero: copy beside two overlapping prints of real jobs. Both photos keep
+ * their own shape (portrait shots stay portrait), so nothing is zoomed past recognition.
+ * Phones: headline, then the two prints side by side, then the action.
+ */
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Photo from './Photo.astro';
+import HeroTitle from './HeroTitle.astro';
+import HeroLede from './HeroLede.astro';
+import HeroCta from './HeroCta.astro';
+import { proof } from '@/data/business';
+export interface Props { title: string; lede?: string; crumbs: { name: string; href: string }[]; photos: string[]; ctaLabel?: string; ctaHref?: string; tagline?: string; flip?: boolean }
+const { title, lede, crumbs, photos, ctaLabel, ctaHref, tagline = 'We have a spotless reputation!', flip = false } = Astro.props;
+const [a, b] = photos;
+---
+<section class:list={['hsplit', flip && 'is-flip']}>
+  <div class="wrap hs-grid">
+    <div class="hs-copy">
+      <Breadcrumbs items={crumbs} />
+      <p class="hs-stars"><span class="stars" aria-hidden="true">★★★★★</span> {proof.reviews} five-star reviews</p>
+      <HeroTitle title={title} size="xl" />
+      <p class="script hs-tag" aria-hidden="true">{tagline}</p>
+      <div class="hs-prints" aria-hidden={false}>
+        {a && <Photo k={a} class="hs-a" look="print" shapes={[0.75, 0.8, 1, 4 / 3]} eager sizes="(min-width: 1000px) 30vw, 46vw" widths={[360, 520, 720, 900]} />}
+        {b && <Photo k={b} class="hs-b" look="print" shapes={[0.75, 0.8, 1, 4 / 3]} sizes="(min-width: 1000px) 18vw, 46vw" widths={[360, 520]} />}
+      </div>
+      <HeroCta label={ctaLabel} href={ctaHref} track="service-hero" />
+      <HeroLede text={lede} />
+    </div>
+  </div>
+</section>
+<style>
+  .hsplit { background: linear-gradient(180deg, var(--blue-50), #fff 92%); padding-block: clamp(1.4rem, 1rem + 2vw, 3rem) clamp(2rem, 1.4rem + 3vw, 4.5rem); overflow: hidden; }
+  .hs-copy { display: grid; gap: 1rem; justify-items: start; }
+  .hs-stars { font-weight: 700; color: var(--navy); font-size: 1.05rem; display: flex; gap: .5rem; align-items: center; }
+  .hs-tag { font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.5rem); color: var(--blue-700); line-height: 1; margin-top: -.2rem; }
+  .hs-prints { position: relative; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; align-items: start; }
+  .hs-prints :global(.hs-b) { margin-top: 2.2rem; }
+  @media (min-width: 1000px) {
+    .hs-copy { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); column-gap: clamp(2rem, 4vw, 5rem); align-items: start; }
+    .hs-copy > :not(.hs-prints) { grid-column: 1; }
+    .hs-prints { grid-column: 2; grid-row: 1 / span 7; display: block; min-height: 100%; }
+    .hs-prints :global(.hs-a) { width: 72%; margin-left: auto; }
+    .hs-prints :global(.hs-b) { position: absolute; left: 0; bottom: -1.5rem; width: 44%; margin: 0; rotate: -2.5deg; }
+    .hs-prints :global(.hs-a) { rotate: 1.2deg; }
+    .is-flip .hs-copy { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+    .is-flip .hs-copy > :not(.hs-prints) { grid-column: 2; }
+    .is-flip .hs-prints { grid-column: 1; }
+    .is-flip .hs-prints :global(.hs-a) { margin-left: 0; margin-right: auto; }
+    .is-flip .hs-prints :global(.hs-b) { left: auto; right: 0; rotate: 2.5deg; }
+  }
+  @media (max-width: 999px) {
+    .hs-prints { margin-block: .3rem .4rem; }
+    .hs-prints :global(.ph-frame) { aspect-ratio: 1 !important; }
+    .hs-prints :global(.hs-b) { margin-top: 1.2rem; }
+  }
+  @media (max-width: 759px) { :global(.crumbs li:last-child) { display: none; } .hs-stars { font-size: 1rem; } }
+</style>

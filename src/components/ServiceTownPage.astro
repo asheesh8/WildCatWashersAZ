@@ -6,7 +6,10 @@
  * short summary with a link to the service hub, not a copy of it.
  */
 import Base from '@/layouts/Base.astro';
-import PageHero from '@/components/PageHero.astro';
+import HeroField from '@/components/r/HeroField.astro';
+import Filmstrip from '@/components/r/Filmstrip.astro';
+import PullQuote from '@/components/r/PullQuote.astro';
+import { vary } from '@/lib/vary';
 import TrustRow from '@/components/TrustRow.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
@@ -22,7 +25,6 @@ import { depth, depthFor, withDepthFaqs, proofReviews, keptOut } from '@/data/de
 import { faqSchema, serviceSchema } from '@/lib/schema';
 import { fitTitle, fitDescription } from '@/lib/seo';
 import { serviceTownPhotos } from '@/data/placement';
-import Gallery from './Gallery.astro';
 import { faqRefs } from '@/data/faq';
 import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import { guideByUrl } from '@/data/guides';
@@ -86,6 +88,16 @@ const title = d?.title ?? fitTitle([`${s.name} ${t.name}`, `${s.name} ${short}`]
 const properStart = /^(Arizona|Pusch|Tucson|Santa|Catalina|Sonoran|Tortolita|Rincon|Tanque|Oro|Green|HOA)\b/.test(ls.angle.title);
 const angleLower = properStart ? ls.angle.title : ls.angle.title.charAt(0).toLowerCase() + ls.angle.title.slice(1);
 const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLower}. ${s.cardLine} You don’t pay until you’re happy. ${company.phone}.`);
+/* Redesign: facts true of this town for the hero panel. */
+const listNames = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0]);
+const facts = [
+  ...(localCount > 0 ? [{ term: 'Local reviews', body: `${localCount} five-star review${localCount === 1 ? '' : 's'} from ${t.name} customers mention our ${s.name.toLowerCase()}.` }] : []),
+  ...(az19 ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
+  ...(kids.length ? [{ term: 'Neighborhoods we visit', body: `${listNames(kids.slice(0, 4).map((k) => k.name))}${kids.length > 4 ? ', and more' : ''}.` }] : []),
+  { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes. You don’t pay until you’re happy.' },
+].slice(0, 3);
+const featured = set.local.find((r) => r.text.length >= 90 && r.text.length <= 320);
+const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== featured.n) } : set;
 ---
 <Base
   title={title}
@@ -96,19 +108,17 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <PageHero trust eyebrow={`${s.name} · ${t.name}`} title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} image={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} />
-  <TrustRow />
+  <HeroField title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} photo={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} facts={facts} factsTitle={`${s.name} in ${t.name}`} flip={vary(url, 2, 'hero') === 1} />
+  <TrustRow tone={vary(url, 2, 'trow') ? 'navy' : 'light'} />
 
   <section class="section">
     <div class="wrap local">
       <div class="local-copy">
-        <p class="eyebrow">{s.name} in {t.name}</p>
-        <h2 class="h2 sweep">{d?.heading ?? ls.angle.title}</h2>
+        <h2 class="h2">{d?.heading ?? ls.angle.title}</h2>
         {d?.sections ? <DepthSections sections={d.sections} variant="inline" /> : ls.angle.body.map((p, i) => <p class:list={[i === 0 && 'lede']}>{p}</p>)}
       </div>
       <aside class="svc reveal">
-        <p class="eyebrow">The basics</p>
-        <h3 class="h3">{s.name}</h3>
+        <h3 class="h3">{s.name}: the basics</h3>
         <p>{s.cardLine}</p>
         <ul role="list">
           <li><Icon name="check-circle" size={22} /><span>You don’t pay until you’re happy.</span></li>
@@ -119,10 +129,11 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
     </div>
   </section>
 
-  {/* No heading of its own: it sits right above the reviews heading. */}
-  <Gallery keys={photos.gallery} swipe />
+  {featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
 
-  <ReviewSetBlock set={set} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
+  <Filmstrip keys={photos.gallery} title={`More ${s.name.toLowerCase()} jobs`} avoid={[photo]} max={3} />
+
+  <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} customers say` : `${s.name} reviews from across Greater Tucson`} />
 
   {(answers.length > 0 || sharedFaqs.length > 0) && (
     <section class="section-tight bg-mist" data-mfold>
@@ -158,7 +169,8 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   @media (min-width: 1000px) { .local { grid-template-columns: 1.3fr 1fr; align-items: start; } }
   .local-copy { --stack-gap: 1.1rem; display: grid; gap: 1.1rem; }
   .local-copy p:not(.eyebrow):not(.lede) { font-size: 1.12rem; color: var(--ink-2); }
-  .svc { --stack-gap: .8rem; background: linear-gradient(180deg, #fff, var(--mist)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(1.4rem, 1rem + 2vw, 2.2rem); display: grid; gap: .8rem; align-content: start; box-shadow: var(--shadow-sm); }
+  .svc { --stack-gap: .8rem; border-top: 3px solid var(--navy); padding: 1.2rem 0 0; display: grid; gap: .8rem; align-content: start; }
+  @media (min-width: 1000px) { .svc { position: sticky; top: 110px; } }
   .svc ul { list-style: none; padding: 0; display: grid; gap: .6rem; }
   .svc li { display: flex; gap: .6rem; align-items: flex-start; color: var(--ink-2); }
   .svc li :global(svg) { flex: none; color: var(--blue-700); margin-top: .15rem; }
@@ -172,7 +184,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
   .ans span { color: var(--ink-2); }
   @media (max-width: 759px) {
     /* The basics card a little snugger (same type). */
-    .svc { padding: 1.2rem 1.2rem 1.25rem; gap: .6rem; }
+    .svc { padding: 1rem 0 0; gap: .6rem; }
     .svc .phone-cta { display: none; } /* the bottom bar has Call */
     .phone-cta { min-height: 48px; }
     .ans { gap: .55rem; }
