@@ -21,7 +21,7 @@ const r = (k: string) => Math.min(1.6, Math.max(0.7, ratioOf(k)));
   <section class:list={['section-tight fs', tone === 'mist' && 'bg-mist']} aria-label={title ? undefined : (label ?? 'Photos from our jobs')}>
     <div class="wrap">
       {title && <h2 class="h3 fs-title">{title}</h2>}
-      <ul class="fs-row" role="list">
+      <ul class="fs-row" role="list" tabindex="0" aria-label={title ?? label ?? 'Photos from our jobs'}>
         {list.map((k) => (
           <li style={`--r:${r(k).toFixed(3)}`}>
             <figure>

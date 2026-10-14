@@ -32,7 +32,7 @@ const r = (k: string) => Math.min(1.5, Math.max(0.72, ratioOf(k)));
     <p class="hp-proof"><span class="stars" aria-hidden="true">★★★★★</span> {proof.reviews} five-star reviews</p>
   </div>
   <div class="wrap hp-body">
-    <ul class="hp-strip" role="list">
+    <ul class="hp-strip" role="list" tabindex="0" aria-label={`Photos from ${place}`}>
       {shots.map((k, i) => (
         <li style={`--r:${r(k).toFixed(3)}`}>
           <figure>
