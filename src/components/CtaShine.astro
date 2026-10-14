@@ -5,13 +5,16 @@ import QuoteForm from './QuoteForm.astro';
 import { company, telHref, guarantees } from '@/data/business';
 export interface Props { service?: string; area?: string; place?: string }
 const { service, area, place } = Astro.props;
+/* Without a place, the line names what the page is about, so the band doesn't read the same on every page. */
+const things: Record<string, string> = { 'window-cleaning': 'your windows', 'solar-panel-cleaning': 'your solar panels', 'solar-panel-pigeon-proofing': 'your solar panels', 'screen-repair': 'your screens', 'pressure-washing': 'your driveway' };
+const l2 = place ? `your ${place} home` : (service && things[service]) || 'your place';
 ---
 <section class="shine" id="get-quote" aria-labelledby="shine-title">
   <div class="wrap shine-grid">
     <div class="shine-copy">
       <h2 id="shine-title" class="shine-title">
         <span class="l1">Let’s make</span>
-        <span class:list={['l2', place && place.length > 12 && 'l2-long', place && place.length > 22 && 'l2-xlong']}>{place ? `your ${place} home` : 'your place'}</span>
+        <span class:list={['l2', l2.length > 22 && 'l2-long', l2.length > 32 && 'l2-xlong']}>{l2}</span>
         <span class="l3 sweep">Shine</span>
       </h2>
       <p class="shine-lede">Call and we’ll quote most homes in a few minutes, right on the phone. Or send the form and we’ll call you right back.</p>
