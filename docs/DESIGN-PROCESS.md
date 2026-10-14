@@ -60,6 +60,7 @@ coupon stickers.
 | `StepsRail` | Numbered steps, only where the content is a sequence | service hubs, audience |
 | `NoteCard` | A short note for the neighborhood signed in the script face | HOAs |
 | `Toc` | Sticky table of contents beside the article | guides |
+| `WhoComes` | Who comes to your door: a crew photo, three facts about the people (uniform, background checks, training, crew leaders, founders; Doc 2 §3–5) and a real review that names a crew member, local when one exists. Lines, photo and review are picked per page | towns, service hubs, audience |
 
 ## Family rhythms
 

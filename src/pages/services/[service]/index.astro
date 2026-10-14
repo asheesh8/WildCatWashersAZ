@@ -3,6 +3,7 @@ import Base from '@/layouts/Base.astro';
 import HeroSplit from '@/components/r/HeroSplit.astro';
 import Ledger from '@/components/r/Ledger.astro';
 import ZigZag from '@/components/r/ZigZag.astro';
+import WhoComes from '@/components/r/WhoComes.astro';
 import Filmstrip from '@/components/r/Filmstrip.astro';
 import PullQuote from '@/components/r/PullQuote.astro';
 import { vary } from '@/lib/vary';
@@ -97,6 +98,7 @@ const areaLinks = towns.map((t) => (localTowns.has(t.slug) ? { href: `/services/
 
   <Filmstrip keys={film} title="From recent jobs" avoid={onPage} max={4} tone="mist" />
 
+  <WhoComes url={url} />
   <Ledger title="At a glance" tone="blue" rows={[
     { term: 'How it’s priced', body: s.pricing },
     { term: 'How often', body: s.frequency },

@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import HeroPlace from '@/components/r/HeroPlace.astro';
+import WhoComes from '@/components/r/WhoComes.astro';
 import RuledList from '@/components/r/RuledList.astro';
 import ZigZag from '@/components/r/ZigZag.astro';
 import Filmstrip from '@/components/r/Filmstrip.astro';
@@ -100,6 +101,8 @@ const place = {
       <p class="also">We also do <a href="/services/screen-repair/">screen repair</a>, <a href="/services/solar-panel-pigeon-proofing/">solar panel pigeon proofing</a>, <a href="/services/pressure-washing/patios-pool-decks/">patio and pool deck washing</a> and every other service in {t.name}.{kids.length > 0 && <> We also work with <a href="/who-we-help/hoas-communities/">HOAs and communities</a>.</>} <a href="/services/">See all services</a>.</p>
     </div>
   </section>
+
+  <WhoComes url={url} area={t.reviewArea} avoid={[...set.local, ...set.more].map((r) => r.n)} tone="mist" />
 
   {reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} />}
   {reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}

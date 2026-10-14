@@ -6,6 +6,7 @@
  */
 import Base from '@/layouts/Base.astro';
 import HeroBrief from '@/components/r/HeroBrief.astro';
+import WhoComes from '@/components/r/WhoComes.astro';
 import HeroBanner from '@/components/r/HeroBanner.astro';
 import HeroSplit from '@/components/r/HeroSplit.astro';
 import StepsRail from '@/components/r/StepsRail.astro';
@@ -102,6 +103,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
   {fam === 'sub' && <StepsRail title="How it works" steps={l.points} />}
   {fam === 'commercial' && <RuledList title="How it works on a commercial property" items={l.points} size="md" tone="plain" />}
   {fam === 'audience' && l.points.length > 5 && <RuledList title="Also worth knowing" items={l.points.slice(5)} size="md" tone="plain" />}
+  {fam === 'audience' && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
   {reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
