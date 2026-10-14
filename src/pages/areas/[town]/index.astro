@@ -11,7 +11,7 @@ import TrustRow from '@/components/TrustRow.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
 import { faqRefs } from '@/data/faq';
-import { ownerLinks } from '@/lib/faqOwner';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
 import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
@@ -39,7 +39,11 @@ const whereTotal = kids.length + secs.length;
 const whereFirst = whereTotal > 5 ? 4 : whereTotal;
 const d = depthFor(url);
 const set = withProof(townReviews(t, 6, hashSeed(t.slug)), proofReviews(d), (r) => r.area === t.reviewArea, 6, keptOut(d));
-const faqs = withDepthFaqs(faqRefs(planFor(url)?.faq_refs), d);
+const allFaqs = withDepthFaqs(faqRefs(planFor(url)?.faq_refs), d);
+/* Questions another page owns are linked, not reprinted (doorway guard). */
+const sharedQ = (n: number) => Boolean(faqOwner(n)) && faqOwner(n) !== url;
+const faqs = allFaqs.filter((f) => !sharedQ(f.n));
+const askedElsewhere = allFaqs.filter((f) => sharedQ(f.n)).map((f) => ({ q: f.q, href: faqOwner(f.n)! })).filter((f, i, a) => a.findIndex((x) => x.href === f.href) === i);
 const faqLinks = ownerLinks(faqs, url);
 const crumbs = [{ name: 'Areas', href: '/areas/' }, { name: t.name, href: url }];
 const photos = townPhotos(t);
@@ -86,7 +90,7 @@ const place = {
 
   {d?.sections && <DepthSections sections={d.sections} variant="prose" heading={d.heading ?? `${t.name}, up close`} intro={d.answer ? t.intro : undefined} mfold />}
 
-  <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold />
+  <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />
 
   <ZigZag title={`What we do most in ${t.name}`} rows={rows} startRight={vary(url, 2, 'zz') === 1} />
   <section class="section-tight also-sec">
@@ -110,11 +114,12 @@ const place = {
   {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
   <section class="section-tight bg-mist" data-mfold>
     <div class="wrap diy">
-      <h2 class="h3">Cleaning your own windows in {t.name}?</h2>
+      <h2 class="h3">More answers for {t.name} homeowners</h2>
       <ul class="diy-list" role="list">
         <li><a href="/guides/can-i-clean-my-own-windows/">Can I just clean my own windows?<Icon name="arrow" size={20} /></a></li>
         <li><a href="/guides/why-do-windows-look-worse-after-i-clean-them/">Why do my windows look worse after I clean them?<Icon name="arrow" size={20} /></a></li>
         <li><a href="/guides/should-i-hose-off-my-windows/">Should I rinse my windows with a hose?<Icon name="arrow" size={20} /></a></li>
+        {askedElsewhere.filter((f) => !['/guides/can-i-clean-my-own-windows/', '/guides/why-do-windows-look-worse-after-i-clean-them/', '/guides/should-i-hose-off-my-windows/'].includes(f.href)).map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}
       </ul>
     </div>
   </section>

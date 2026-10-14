@@ -1,11 +1,11 @@
 ---
 /** Sentences that matter one by one (local conditions), each on its own ruled line with a drawn icon. Heading to the side on wide screens. */
 import Icon from '../Icon.astro';
-export interface Props { title: string; items: string[]; intro?: string; tone?: 'plain' | 'mist' | 'blue'; mfold?: boolean; size?: 'lg' | 'md' }
-const { title, items, intro, tone = 'mist', mfold = false, size = 'lg' } = Astro.props;
+export interface Props { title: string; items: string[]; intro?: string; tone?: 'plain' | 'mist' | 'blue'; mfold?: boolean; size?: 'lg' | 'md'; id?: string }
+const { title, items, intro, tone = 'mist', mfold = false, size = 'lg', id } = Astro.props;
 const iconFor = (t: string) => (/water|mineral|sprinkler|rain|monsoon|spot/i.test(t) ? 'droplet' : /sun|heat|uv|summer|hot/i.test(t) ? 'sun' : /season|winter|snowbird|away|arrive|months/i.test(t) ? 'calendar' : /pigeon|bird/i.test(t) ? 'home' : 'sparkle');
 ---
-<section class:list={['section-tight rl', tone === 'mist' && 'bg-mist', tone === 'blue' && 'rl-blue', `rl-${size}`]} data-mfold={mfold ? '' : undefined}>
+<section id={id} class:list={['section-tight rl', tone === 'mist' && 'bg-mist', tone === 'blue' && 'rl-blue', `rl-${size}`]} data-mfold={mfold ? '' : undefined}>
   <div class="wrap rl-grid">
     <div class="rl-head"><h2 class="h2">{title}</h2>{intro && <p>{intro}</p>}</div>
     <ul role="list">{items.map((t) => <li><span class="rl-i" aria-hidden="true"><Icon name={iconFor(t)} size={22} /></span><p>{t}</p></li>)}</ul>

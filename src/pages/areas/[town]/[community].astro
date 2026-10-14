@@ -21,7 +21,7 @@ import Icon from '@/components/Icon.astro';
 import { communities, communityBySlug, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Community } from '@/data/areas';
 import { planFor } from '@/data/plan';
 import { faqRefs, type Faq } from '@/data/faq';
-import { ownerLinks } from '@/lib/faqOwner';
+import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import { communityReviews, servicesMentioned, withProof } from '@/lib/local';
 import DepthSections from '@/components/DepthSections.astro';
 import { depthFor, withDepthFaqs, proofReviews, keptOut } from '@/data/depth';
@@ -50,7 +50,10 @@ const mentioned = servicesMentioned(set.local);
 const refs = withDepthFaqs(faqRefs(row?.faq_refs), d);
 const hoaNs = [193, 194, 195];
 const hoaFaqs = refs.filter((f) => hoaNs.includes(f.n));
-const placeFaqs: Faq[] = refs.filter((f) => !hoaNs.includes(f.n));
+/* Questions another page owns are linked to it, not reprinted here (doorway guard); this page prints its own. */
+const sharedQ = (n: number) => Boolean(faqOwner(n)) && faqOwner(n) !== url;
+const placeFaqs: Faq[] = refs.filter((f) => !hoaNs.includes(f.n) && !sharedQ(f.n));
+const askedElsewhere = refs.filter((f) => !hoaNs.includes(f.n) && sharedQ(f.n)).map((f) => ({ q: f.q, href: faqOwner(f.n)! })).filter((f, i, a) => a.findIndex((x) => x.href === f.href) === i);
 const seniorFaqs: Faq[] = [];
 const faqLinks = ownerLinks(refs, url);
 
@@ -76,7 +79,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   breadcrumbs={crumbs}
   schema={[
     { '@type': 'Service', name: `Window cleaning in ${c.name}`, serviceType: 'Window Cleaning', provider: { '@id': `${company.url}/#business` }, areaServed: { '@type': 'Place', name: c.name, containedInPlace: { '@type': 'Place', name: `${townName.replace(/ AZ$/, '')}, AZ` } }, url: `${company.url}${url}` },
-    ...(refs.length ? [faqSchema(refs)] : []),
+    ...(placeFaqs.length ? [faqSchema(placeFaqs)] : []),
   ]}
   ctaArea={town.slug}
   ctaPlace={c.name}
@@ -94,15 +97,13 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
         {mentioned.length > 0 && (
           <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</p>
         )}
-        {mentioned.length === 0 && (
-          <p>Every window job here is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>: glass, frames, sills, tracks and screens, by hand, with hard water removal included. You don’t pay until you’re happy.</p>
-        )}
+        {/* The desert conditions are the town's (community angles are metro-wide), so they live on the town page, linked once here. */}
+        <p class="cond-link"><a href={`${townHref(town.slug)}#conditions`}>What {townName.endsWith('s') ? `${townName}’` : `${townName}’s`} dust and hard water do to glass</a>, and why it calls for the whole window cleaned.</p>
       </div>
       <NoteCard to={`${c.name} homeowners`} title={c.emphasis.title} body={c.emphasis.body} />
     </div>
   </section>
 
-  {condFirst && <RuledList title={`What the desert does to glass in ${c.name}`} items={c.angle} size="md" mfold />}
 
   {d?.sections && <DepthSections sections={d.sections} heading={d.heading ?? `Local to ${c.name}`} tone={condFirst ? 'plain' : 'mist'} mfold />}
 
@@ -116,7 +117,6 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  {!condFirst && <RuledList title={`What the desert does to glass in ${c.name}`} items={c.angle} size="md" tone="plain" mfold />}
 
   <Filmstrip keys={photos.gallery} title={photos.gallery.some((k) => photoTown[k] === town.slug) ? `More from ${townName} jobs` : 'Recent jobs across the Tucson area'} max={3} />
 
@@ -141,8 +141,18 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
         <div>
           <h2 class="h3">For HOA boards: common areas and community buildings</h2>
         </div>
-        <div class:list={['hoa-list', hoaFaqs.length > 1 && 'm-swipe']}>{hoaFaqs.map((f) => <dl><dt>{f.q}</dt><dd>{f.a}{faqLinks[f.n] && <> <a href={faqLinks[f.n].href}>{faqLinks[f.n].label}</a></>}</dd></dl>)}</div>
+        {/* The HOA answers are owned by the HOA page; here they are links, not reprints. */}
+        <ul class="hoa-links" role="list">{hoaFaqs.map((f) => <li><a href={faqOwner(f.n) && faqOwner(f.n) !== url ? faqOwner(f.n) : '/who-we-help/hoas-communities/'}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
         <a class="text-link" href="/who-we-help/hoas-communities/">HOA and community work <Icon name="arrow" size={20} /></a>
+      </div>
+    </section>
+  )}
+
+  {askedElsewhere.length > 0 && (
+    <section class="section-tight" data-mfold>
+      <div class="wrap">
+        <h2 class="h3" style="margin-bottom:.8rem">Questions {c.name} homeowners ask</h2>
+        <ul class="hoa-links" role="list">{askedElsewhere.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
       </div>
     </section>
   )}
@@ -182,6 +192,10 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   .hoa { display: grid; gap: 1.2rem; }
   /* The eyebrow's pull-up margin assumes a 1rem stack gap; without one a two-line eyebrow ran into its heading on phones. */
   :is(.hoa, .known) > div:first-child { display: grid; gap: 1rem; }
+  .hoa-links { list-style: none; padding: 0; display: grid; gap: 0 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .hoa-links a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 56px; border-bottom: 1px solid var(--line-strong); font-weight: 700; color: var(--navy); text-decoration: none; font-size: 1.08rem; }
+  .hoa-links a :global(svg) { flex: none; color: var(--blue-700); }
+  .cond-link a { font-weight: 700; }
   .hoa-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
   .hoa-list dl { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
   .hoa dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: .3rem; }
