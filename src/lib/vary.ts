@@ -7,3 +7,5 @@
 import { hashSeed } from '@/data/reviews';
 export const vary = (url: string, n: number, salt = '') => hashSeed(salt + url) % n;
 export const flip = (url: string, salt = 'flip') => vary(url, 2, salt) === 1;
+/** One of a few plain wordings for a heading every sibling carries, picked by the page's URL. */
+export const say = (url: string, salt: string, options: string[]) => options[vary(url, options.length, salt)];

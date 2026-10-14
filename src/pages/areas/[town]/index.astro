@@ -7,7 +7,7 @@ import ZigZag from '@/components/r/ZigZag.astro';
 import Filmstrip from '@/components/r/Filmstrip.astro';
 import Directory from '@/components/r/Directory.astro';
 import PullQuote from '@/components/r/PullQuote.astro';
-import { vary } from '@/lib/vary';
+import { vary, say } from '@/lib/vary';
 import TrustRow from '@/components/TrustRow.astro';
 import ReviewSetBlock from '@/components/ReviewSetBlock.astro';
 import FaqList from '@/components/FaqList.astro';
@@ -107,7 +107,7 @@ const place = {
   {reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} />}
   {reviewsFirst && <ReviewSetBlock set={restSet} title={set.count ? `What ${t.name} neighbors say` : 'What customers across the metro say'} />}
 
-  <Filmstrip keys={film} title={film.some((k) => photoTown[k] === t.slug) ? `More from ${t.name} jobs` : 'Recent jobs across the Tucson area'} max={4} />
+  <Filmstrip keys={film} title={film.some((k) => photoTown[k] === t.slug) ? `More from ${t.name} jobs` : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs'])} max={4} />
 
   {(kids.length > 0 || secs.length > 0) && (
     <Directory title={`Where we work in ${t.name}`} links={kids.map((c) => ({ name: c.name, href: communityHref(c) }))} named={secs} id="where" />
@@ -131,7 +131,7 @@ const place = {
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
-      <h2 class="h3" style="margin-bottom:1rem">Nearby areas we serve</h2>
+      <h2 class="h3" style="margin-bottom:1rem">{say(url, 'near-h', ['Nearby areas we serve', `Close to ${t.name}`, 'We also work next door'])}</h2>
       <ul class="chips m-grid" role="list">
         {t.nearby.map((n) => townBySlug[n]).filter(Boolean).map((n) => <li><a href={townHref(n.slug)}><Icon name="pin" size={18} />{n.name}</a></li>)}
         <li><a href="/areas/"><Icon name="plus" size={18} />All areas</a></li>
