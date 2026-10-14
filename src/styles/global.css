@@ -574,9 +574,15 @@ main > .bg-mist.section, main > .bg-mist.section-tight {
 main > .bg-mist.section-tight { --scene-h: calc(var(--section) * .5); }
 main > .bg-mist:nth-of-type(3n+1) { background-image: url(/scene/rincon-mist.svg); }
 main > .bg-mist:nth-of-type(3n+2) { background-image: url(/scene/santarita-mist.svg); }
-/* Every other plain white section gets a soft sky and a faint far range. */
-main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(even) {
-  background: url(/scene/rincon-white.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat, linear-gradient(180deg, #fff 30%, #f2fafe);
+/* Every other plain white section gets a soft sky; every fourth also a faint far range (kept rare so it never reads as a divider). */
+main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(even) { background: linear-gradient(180deg, #fff 30%, #f2fafe); }
+main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(4n) {
+  background: url(/scene/santarita-white.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat, linear-gradient(180deg, #fff 30%, #f2fafe);
 }
-main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(4n) { background-image: url(/scene/santarita-white.svg), linear-gradient(180deg, #fff 30%, #f2fafe); }
-@media (max-width: 760px) { :root { --scene-w: max(100%, 760px); } }
+@media (max-width: 760px) {
+  :root { --scene-w: max(100%, 760px); }
+  /* Phones: ridges only on full mist bands, never on folded (accordion) sections with no bottom room. */
+  main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(4n),
+  main > .bg-mist.section-tight, main > .is-mfold, main > [data-mfold] { background-image: none; }
+  main > .bg-mist.is-mfold, main > .bg-mist[data-mfold] { background: var(--mist); }
+}

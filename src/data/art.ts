@@ -11,16 +11,17 @@ export type ArtItem = { f: string; w: number; h: number; k: string };
 const all = index as ArtItem[];
 
 const WINDOW = ['squeegee', 'strip-washer', 'squeegee-and-scrubber-pair', 'window-bucket', 'microfiber-stack', 'microfiber-draped', 'buffing-kit', 'tool-belt', 'track-vacuum', 'window-screen', 'sliding-door-track', 'clean-window', 'step-ladder', 'water-fed-pole', 'glass-scraper'];
-const SOLAR = ['solar-panel', 'solar-brush', 'solar-panel-clean-half', 'water-fed-pole', 'pure-water-tank', 'water-droplets', 'sun-and-dust'];
+/* Left out after review: pure-water-tank reads as a chemical sprayer; sun-and-dust is off-palette. */
+const SOLAR = ['solar-panel', 'solar-brush', 'solar-panel-clean-half', 'water-fed-pole', 'water-droplets', 'monsoon-cloud'];
 const PIGEON = ['pigeon-mesh', 'solar-panel', 'checklist-clipboard', 'solar-brush'];
 const SCREENS = ['solar-screen-roll', 'window-screen', 'clean-window', 'screen-repair-kit'];
 const REPAIR = ['screen-repair-kit', 'window-screen', 'solar-screen-roll', 'sliding-door-track'];
 const PRESSURE = ['pressure-washer', 'surface-cleaner', 'spray-wand', 'deck-brush', 'hose-coil'];
 const DESERT = ['saguaro', 'desert-sprig'];
 const CARE = ['shoe-covers', 'checklist-clipboard', 'microfiber-stack', 'buffing-kit', 'tool-belt', 'window-bucket'];
-const COMMERCIAL = ['clean-window', 'water-fed-pole', 'pure-water-tank', 'pressure-washer', 'checklist-clipboard', 'squeegee-and-scrubber-pair', 'step-ladder'];
+const COMMERCIAL = ['clean-window', 'water-fed-pole', 'pressure-washer', 'checklist-clipboard', 'squeegee-and-scrubber-pair', 'step-ladder'];
 const HARD_WATER = ['water-droplets', 'buffing-kit', 'clean-window', 'glass-scraper'];
-const WEATHER = ['monsoon-cloud', 'sun-and-dust'];
+const WEATHER = ['monsoon-cloud'];
 
 /* Pages that stay clean: conversion, legal, and the home page (not part of this pass). */
 const SKIP = /^\/(|quote|contact|thank-you|privacy|404)\/?$/;
@@ -60,7 +61,7 @@ export function artSubjects(path: string): string[] {
   const extra: string[] = [];
   if (/hard-water|mineral|spot|etch|stain/.test(p)) extra.push(...HARD_WATER);
   if (/monsoon|season|time-of-year|rain|dust|weather|summer|winter/.test(p)) extra.push(...WEATHER);
-  if (p.startsWith('/areas/')) return [...extra, ...t.slice(0, 6), ...DESERT, ...t.slice(6)];
+  if (p.startsWith('/areas/')) return [...extra, DESERT[0], ...t.slice(0, 3), DESERT[1], ...t.slice(3)];
   if (p.startsWith('/commercial/')) return [...extra, ...COMMERCIAL, ...t];
   if (p.startsWith('/who-we-help/')) return [...extra, ...CARE, ...DESERT, ...t];
   if (p.startsWith('/services/') || p.startsWith('/guides/')) return [...extra, ...t, ...(p.startsWith('/guides/') ? CARE : [])];
