@@ -50,6 +50,9 @@ const json = JSON.stringify(pool);
             range.selectNodeContents(n);
             for (const r of range.getClientRects()) add(r);
           }
+          // The bottom padding holds the scenery ridgeline: keep art off it.
+          const pb = parseFloat(getComputedStyle(b).paddingBottom) || 0;
+          if (pb) rs.push([br.left + sx, br.bottom + sy - pb, br.right + sx, br.bottom + sy]);
           const area = br.width * br.height;
           b.querySelectorAll('*').forEach((el) => {
             const cs = getComputedStyle(el);

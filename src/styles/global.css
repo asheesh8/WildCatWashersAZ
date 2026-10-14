@@ -561,3 +561,22 @@ a:hover .photo img, a.photo:hover img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .mfold-plus::before, .mfold-plus::after { transition: none; } }
 /* The hidden attribute always wins over a component's display value. */
 [hidden] { display: none !important; }
+
+/* ---------------------------------------------------------- Scenery
+ * Original SVG ridgelines (public/scene/, sources in the artwork folder).
+ * Painted only inside a section's bottom padding, so never behind text.
+ * Pale on light sections; the one strong range is the band above the footer.
+ */
+:root { --scene-h: calc(var(--section) * .9); --scene-w: max(100%, 1100px); }
+main > .bg-mist.section, main > .bg-mist.section-tight {
+  background: var(--mist) url(/scene/catalina-mist.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat;
+}
+main > .bg-mist.section-tight { --scene-h: calc(var(--section) * .5); }
+main > .bg-mist:nth-of-type(3n+1) { background-image: url(/scene/rincon-mist.svg); }
+main > .bg-mist:nth-of-type(3n+2) { background-image: url(/scene/santarita-mist.svg); }
+/* Every other plain white section gets a soft sky and a faint far range. */
+main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(even) {
+  background: url(/scene/rincon-white.svg) center bottom / var(--scene-w) var(--scene-h) no-repeat, linear-gradient(180deg, #fff 30%, #f2fafe);
+}
+main > section.section:not([class*='bg-'], .pq, .promise-sec):nth-of-type(4n) { background-image: url(/scene/santarita-white.svg), linear-gradient(180deg, #fff 30%, #f2fafe); }
+@media (max-width: 760px) { :root { --scene-w: max(100%, 760px); } }
