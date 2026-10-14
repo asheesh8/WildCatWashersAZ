@@ -4,6 +4,7 @@
  * follows its ratio, so a portrait shot stays portrait and a wide one stays wide.
  * Ratios are clamped to 0.7–1.6 (a little crop at the extremes only).
  * Phones: one swipe row of fixed height. Captions name the work and the town.
+ * A lone photo is not a strip, so fewer than two leaves the section out.
  */
 import { Image } from 'astro:assets';
 import { img, altFor, focusFor, hasImg, sceneOf, ratioOf, captionFor } from '@/data/media';
@@ -11,9 +12,12 @@ export interface Props { keys: string[]; title?: string; avoid?: string[]; max?:
 const { keys, title, avoid = [], max = 4, tone = 'plain', caption = true, label } = Astro.props;
 const seen = new Set<string>(avoid.filter(Boolean).map(sceneOf));
 const list = keys.filter((k) => hasImg(k) && !seen.has(sceneOf(k)) && seen.add(sceneOf(k))).slice(0, max);
+/* Two photos from the same job would share a caption; only the first one says it. */
+const said = new Set<string>();
+const cap = (k: string) => { const c = captionFor(k); if (!c || said.has(c)) return undefined; said.add(c); return c; };
 const r = (k: string) => Math.min(1.6, Math.max(0.7, ratioOf(k)));
 ---
-{list.length > 0 && (
+{list.length > 1 && (
   <section class:list={['section-tight fs', tone === 'mist' && 'bg-mist']} aria-label={title ? undefined : (label ?? 'Photos from our jobs')}>
     <div class="wrap">
       {title && <h2 class="h3 fs-title">{title}</h2>}
@@ -22,7 +26,7 @@ const r = (k: string) => Math.min(1.6, Math.max(0.7, ratioOf(k)));
           <li style={`--r:${r(k).toFixed(3)}`}>
             <figure>
               <div class="fs-frame"><Image src={img(k)} alt={altFor(k)} widths={[300, 480, 720]} sizes="(min-width: 1000px) 30vw, 60vw" loading="lazy" decoding="async" quality={68} style={`object-position:${focusFor(k)}`} /></div>
-              {caption && captionFor(k) && <figcaption>{captionFor(k)}</figcaption>}
+              {caption && (() => { const c = cap(k); return c && <figcaption>{c}</figcaption>; })()}
             </figure>
           </li>
         ))}

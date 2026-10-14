@@ -22,7 +22,7 @@ const clamp = Boolean(text && text.length > clampAt);
   .hlede-more { display: none; }
   @media (max-width: 759px) {
     :global(.js) .hlede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    :global(.js) .hlede-more { all: unset; cursor: pointer; font-weight: 700; color: var(--blue-700); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; margin-top: -.5rem; }
+    :global(.js) .hlede-more { all: unset; cursor: pointer; font-weight: 700; color: var(--navy, #0f1a3a); text-decoration: underline; text-decoration-color: var(--blue-700); text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; margin-top: -.5rem; }
     .hlede-more:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
   }
 </style>

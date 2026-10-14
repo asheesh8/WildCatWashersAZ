@@ -51,11 +51,13 @@ const hasWindowPage = windowTownSlugs.includes(t.slug);
 const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowPage ? `/services/window-cleaning/${t.slug}/` : serviceHref(slug));
 /* Redesign: strip of three, one photo per service row (matching the service), the rest as a filmstrip. */
 const pool = [photos.hero, ...photos.gallery];
-const strip = pool.slice(0, 3);
+/* The hero strip shows this town's own jobs (or untagged ones) before another town's. */
+const isLocal = (x: string) => !photoTown[x] || photoTown[x] === t.slug;
+const strip = [...pool.filter(isLocal), ...pool.filter((x) => !isLocal(x))].slice(0, 3);
 const svcKinds: Record<string, string[]> = { 'window-cleaning': ['window-action', 'window-result'], 'solar-panel-cleaning': ['solar'], 'solar-screens': ['screens'], 'pressure-washing': ['pressure'], 'screen-repair': ['screens', 'pressure'] };
 const usedScenes = new Set(strip.map(sceneOf));
 const rowPhoto = (svc: string) => {
-  const k = pool.slice(3).find((x) => (svcKinds[svc] ?? []).includes(photoKind[x]) && !usedScenes.has(sceneOf(x)) && (!photoTown[x] || photoTown[x] === t.slug))
+  const k = pool.filter((x) => !strip.includes(x)).find((x) => (svcKinds[svc] ?? []).includes(photoKind[x]) && !usedScenes.has(sceneOf(x)) && (!photoTown[x] || photoTown[x] === t.slug))
     ?? (usedScenes.has(sceneOf(serviceBySlug[svc].image)) ? undefined : serviceBySlug[svc].image);
   if (k) usedScenes.add(sceneOf(k));
   return k;

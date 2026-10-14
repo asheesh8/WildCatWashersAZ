@@ -19,7 +19,7 @@ const place = placeLabel(r);
     <figure>
       <span class="stars pq-stars" role="img" aria-label="Five stars">★★★★★</span>
       <blockquote><p>“{text}”</p></blockquote>
-      <figcaption><strong>{displayName(r)}</strong>{place && <span>{place}</span>}<span>{r.platform} review</span></figcaption>
+      <figcaption><strong>{displayName(r)}</strong>{place && <span>{place}</span>}<span>{/review$/i.test(r.platform) ? r.platform : `${r.platform} review`}</span></figcaption>
     </figure>
   </div>
 </section>
