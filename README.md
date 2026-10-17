@@ -2,9 +2,20 @@
 
 The public website for Wildcat Washers: window cleaning, solar panel cleaning, pigeon proofing, solar screens, screen repair and pressure washing across Greater Tucson and Southern Arizona.
 
-Static Astro site. No database, no server runtime. Every page is generated at build time from typed data files.
+Static Astro site. No database. Every page is generated at build time from typed data files; the only server code is one small function that emails quote requests.
+
+**Live:** https://wildcatwashers.com (Vercel preview domain: `wildcatwashers-az.vercel.app`)
+
+## Tech stack
+
+- Astro 7, TypeScript data files, plain CSS (`src/styles/global.css`)
+- `@astrojs/sitemap`, `sharp` for image optimisation, self-hosted fonts via Fontsource
+- `api/quote.js` — a Vercel serverless function that sends quote requests through Resend
+- Hosted on Vercel (`vercel.json`); `netlify.toml` keeps a Netlify deploy working too
 
 ## Quick start
+
+Requires Node 22.12+.
 
 ```bash
 npm install
@@ -37,8 +48,32 @@ Light-blue forward (`#36C6F4`), navy (`#121832`) and red (`#D91E3D`) in support.
 
 ## Forms
 
-Set `PUBLIC_QUOTE_ENDPOINT` to any service that accepts a POST (Formspree, Basin, a Zapier hook). On Netlify the form works with no endpoint. With neither, the form shows a call/email fallback instead of pretending to send.
+The quote form (`src/components/QuoteForm.astro`) picks its target in this order:
 
-## Hosting
+1. `PUBLIC_QUOTE_ENDPOINT`, if set — any service that accepts a POST (Formspree, Basin, a Zapier hook).
+2. On Netlify, Netlify Forms natively.
+3. Otherwise `/api/quote` (`api/quote.js`), which emails the office through Resend. It validates origin, rate-limits, and silently "succeeds" for bots.
 
-`netlify.toml` and `vercel.json` both redirect `www` to `wildcatwashers.com` and map old paths to their new homes.
+If sending fails, the visitor sees a call/email fallback instead of a fake success.
+
+## Environment variables
+
+Names only — set values in Vercel's project settings (or `.env` locally). Never commit them.
+
+| Variable | Used by | Purpose |
+|---|---|---|
+| `PUBLIC_QUOTE_ENDPOINT` | Quote form (build time, public) | Optional third-party form endpoint |
+| `PUBLIC_FORM_PROVIDER` | Quote form (build time, public) | Optional; `netlify` forces Netlify Forms on a custom domain |
+| `RESEND_API_KEY` | `api/quote.js` | Required for `/api/quote` to send; without it the form shows the fallback |
+| `QUOTE_TO_EMAIL` | `api/quote.js` | Optional inbox override |
+| `QUOTE_FROM_EMAIL` | `api/quote.js` | Optional sender override (domain must be verified in Resend) |
+
+## Hosting & deploy
+
+- Vercel builds with `npm run build` and serves `dist/`; pushes to `main` go to production and branches get preview URLs.
+- `netlify.toml` and `vercel.json` both redirect `www` to `wildcatwashers.com` and map old paths to their new homes — keep the two in step when adding a redirect.
+- Security headers and long-cache rules for `/_astro/*` are set in the same two files.
+
+## More docs
+
+`docs/START-HERE.md` is the entry point for the AEO/GEO content engine (page plan, quality bar, measurement). `BRAND.md` and `ASSET-PROVENANCE.md` cover the visual identity and where each photo came from.
