@@ -72,7 +72,8 @@ const kindLabel = c.kind === 'hoa' || c.hoa ? 'HOA community' : 'Neighborhood';
 const flipHero = vary(url, 2, 'hero') === 1;
 const condFirst = vary(url, 2, 'cond') === 1;
 /* The link to the town's conditions is on every one of these pages, so its wording changes by page. */
-const condLine = vary(url, 3, 'condline');
+const condLine = vary(url, 5, 'condline');
+const fiveLine = vary(url, 3, 'fiveline');
 const townPoss = townName.endsWith('s') ? `${townName}’` : `${townName}’s`;
 /* The intro above already describes this place, so the "how it differs" line keeps only what it says
    about the neighbor, and links the neighbor when it has a page. Falls back to the whole line. */
@@ -116,10 +117,10 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
         <p class="lede">{c.intro}</p>
         <p class="differs"><Icon name="pin" size={20} /><span>{differsLink ? <>{differsText.slice(0, differsAt)}<a href={communityHref(differsLink)}>{differsLink.name}</a>{differsText.slice(differsAt + differsLink.name.length)}</> : differsText}</span></p>
         {mentioned.length > 0 && (
-          <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</p>
+          <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. {fiveLine === 0 && <>Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</>}{fiveLine === 1 && <>Windows get the full <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>: glass, frames, sills, tracks and screens.</>}{fiveLine === 2 && <>The bill comes after you’ve walked the job with the crew, and the windows are always the <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>.</>}</p>
         )}
         {/* The desert conditions are the town's (community angles are metro-wide), so they live on the town page, linked once here. */}
-        <p class="cond-link">{condLine === 0 && <><a href={`${townHref(town.slug)}#conditions`}>What {townPoss} dust and hard water do to glass</a>, and why it calls for the whole window cleaned.</>}{condLine === 1 && <>Dust and hard water are the same here as across {townName}. <a href={`${townHref(town.slug)}#conditions`}>How they mark the glass, and what we do about it</a>.</>}{condLine === 2 && <>Wondering why the spots come back? <a href={`${townHref(town.slug)}#conditions`}>The {townName} dust and water story</a> explains it.</>}</p>
+        <p class="cond-link">{condLine === 0 && <><a href={`${townHref(town.slug)}#conditions`}>What {townPoss} dust and hard water do to glass</a>, and why it calls for the whole window cleaned.</>}{condLine === 1 && <>Dust and hard water are the same here as across {townName}. <a href={`${townHref(town.slug)}#conditions`}>How they mark the glass, and what we do about it</a>.</>}{condLine === 2 && <>Wondering why the spots come back? <a href={`${townHref(town.slug)}#conditions`}>The {townName} dust and water story</a> explains it.</>}{condLine === 3 && <>The spots on the glass here have a cause. <a href={`${townHref(town.slug)}#conditions`}>What {townName} weather does to windows</a>.</>}{condLine === 4 && <>Dust, monsoon rain and hard water all leave marks. <a href={`${townHref(town.slug)}#conditions`}>Read how each one shows up in {townName}</a>.</>}</p>
       </div>
       <NoteCard to={`${c.name} homeowners`} title={c.emphasis.title} body={c.emphasis.body} />
     </div>

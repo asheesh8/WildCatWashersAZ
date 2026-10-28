@@ -90,6 +90,12 @@ const place = {
 const workFirst = vary(url, 2, 'workfirst') === 1;
 /* The phone number never breaks across lines in the hero copy. */
 const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
+const diyGuides = [
+  { href: '/guides/can-i-clean-my-own-windows/', q: 'Can I just clean my own windows?' },
+  { href: '/guides/why-do-windows-look-worse-after-i-clean-them/', q: 'Why do my windows look worse after I clean them?' },
+  { href: '/guides/should-i-hose-off-my-windows/', q: 'Should I rinse my windows with a hose?' },
+];
+const diyItems = [...diyGuides, ...askedElsewhere.filter((f) => !diyGuides.some((g) => g.href === f.href))];
 const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, `Reviews from ${t.name}`, `${t.name} customers, in their words`]) : say(url, 'rev-h', ['What customers across the metro say', 'Reviews from around Tucson', 'What Tucson-area customers say']);
 ---
 <Base
@@ -130,18 +136,22 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   {!reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone="mist" />}
   {!reviewsFirst && <ReviewSetBlock set={restSet} title={revTitle} />}
 
-  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
-  <section class="section-tight bg-mist" data-mfold>
-    <div class="wrap diy">
-      <h2 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h2>
-      <ul class="diy-list" role="list">
-        <li><a href="/guides/can-i-clean-my-own-windows/">Can I just clean my own windows?<Icon name="arrow" size={20} /></a></li>
-        <li><a href="/guides/why-do-windows-look-worse-after-i-clean-them/">Why do my windows look worse after I clean them?<Icon name="arrow" size={20} /></a></li>
-        <li><a href="/guides/should-i-hose-off-my-windows/">Should I rinse my windows with a hose?<Icon name="arrow" size={20} /></a></li>
-        {askedElsewhere.filter((f) => !['/guides/can-i-clean-my-own-windows/', '/guides/why-do-windows-look-worse-after-i-clean-them/', '/guides/should-i-hose-off-my-windows/'].includes(f.href)).map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}
-      </ul>
-    </div>
-  </section>
+  {/* One questions block: the town's own answers, then the guides, as links. Short FAQs no longer stand alone as a big section. */}
+  {faqs.length > 0 ? (
+    <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold>
+      <div class="diy diy-in">
+        <h3 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h3>
+        <ul class="diy-list" role="list">{diyItems.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </FaqList>
+  ) : (
+    <section class="section-tight bg-mist" data-mfold>
+      <div class="wrap diy">
+        <h2 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h2>
+        <ul class="diy-list" role="list">{diyItems.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </section>
+  )}
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
@@ -163,5 +173,6 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   .diy-list a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; border-bottom: 1px solid var(--line-strong); font-weight: 700; color: var(--navy); text-decoration: none; font-size: 1.08rem; }
   .diy-list a :global(svg) { flex: none; color: var(--blue-700); }
   .diy-list a:hover { color: var(--blue-700); }
+  .diy-in { margin-top: clamp(1.6rem, 1rem + 2vw, 2.4rem); }
   @media (max-width: 759px) { .also { font-size: 1rem; padding-top: 1rem; } }
 </style>

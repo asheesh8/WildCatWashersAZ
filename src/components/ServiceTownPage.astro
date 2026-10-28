@@ -145,7 +145,20 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
 
   <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${t.name} customers say`, `${s.name} reviews from ${t.name}`, `From customers in ${t.name}`]) : say(url, 'rev-h', [`${s.name} reviews from across Greater Tucson`, `What Tucson-area customers say about our ${s.name.toLowerCase()}`, `${s.name} reviews from around the metro`])} />
 
-  {(answers.length > 0 || sharedFaqs.length > 0) && (
+  {/* One questions block on the page: this town's answers, then the guides and shared answers as links. */}
+  {placeFaqs.length > 0 ? (
+    <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold>
+      {ansItems.length > 0 && (
+        <div class="ans-in">
+          <h3 class="h3">Straight answers for {t.name} owners</h3>
+          <ul class="ans" role="list" id="ans-list" data-pfold="2">
+            {ansItems.map((a) => <li><a href={a.href}><strong>{a.label}</strong></a></li>)}
+          </ul>
+          {ansItems.length > 3 && <button type="button" class="pf-more" aria-controls="ans-list" aria-expanded="false">Show {ansItems.length - 2} more answers</button>}
+        </div>
+      )}
+    </FaqList>
+  ) : ansItems.length > 0 && (
     <section class="section-tight bg-mist" data-mfold>
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
@@ -156,8 +169,6 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
       </div>
     </section>
   )}
-
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold />}
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
@@ -187,6 +198,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
   .svc .text-link { justify-self: start; }
   .phone-cta { display: inline-flex; align-items: center; gap: .6rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.4rem; text-decoration: none; }
   .phone-cta :global(svg) { color: var(--blue-700); }
+  .ans-in { display: grid; gap: 1rem; margin-top: clamp(1.6rem, 1rem + 2vw, 2.4rem); }
   .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .ans a { display: grid; gap: .4rem; height: 100%; min-height: 56px; align-content: center; padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-xs); }
   .ans a:hover { border-color: var(--blue); }
