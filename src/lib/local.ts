@@ -28,7 +28,7 @@ function metroReviews(slug: string) {
 export function townReviews(t: Town, count = 6, seed = 0): ReviewSet {
   const local = t.reviewArea ? reviewsByArea(t.reviewArea) : [];
   const shown = pick(local, count, { seed });
-  const more = shown.length < count ? pick(metroReviews(t.slug), count - shown.length, { seed }) : [];
+  const more = shown.length < count ? pick(metroReviews(t.slug).filter((r) => !ownPageOnly.has(r.n)), count - shown.length, { seed }) : [];
   return {
     local: shown, localLabel: `From ${t.name} customers`,
     more, moreLabel: 'From customers across the metro',
@@ -49,7 +49,7 @@ export function communityReviews(c: Community, count = 6, seed = 0): ReviewSet {
   const pool = parent.reviewArea ? reviewsByArea(parent.reviewArea).filter((r) => !own.includes(r)) : metroReviews(parent.slug);
   /* Siblings pass different seeds, and a parent-town review fills in on at most one
      community page, so the same neighbor's words don't repeat across a whole cluster. */
-  const fresh = pool.filter((r) => !borrowed.has(r.n));
+  const fresh = pool.filter((r) => !borrowed.has(r.n) && !ownPageOnly.has(r.n));
   const more = shown.length < 3 ? pick(fresh, 3, { seed: seed * 3 + 1 }) : [];
   more.forEach((r) => borrowed.add(r.n));
   return {
@@ -115,7 +115,11 @@ export function withProof(set: ReviewSet, proof: Review[], isLocal: (r: Review) 
 
 /** Metro-wide fill for service-by-town pages: each review fills in on one page only while fresh ones remain. */
 const metroUsed = new Set<number>();
+/* Reviews that stay on their own neighborhood's page and never fill in elsewhere:
+   R075 opens mid-sentence and its college lines are kept out of excerpts (depth round 5). */
+const ownPageOnly = new Set([75]);
 export function metroFill(pool: Review[], count: number, seed: number): Review[] {
+  pool = pool.filter((r) => !ownPageOnly.has(r.n));
   const fresh = pool.filter((r) => !metroUsed.has(r.n));
   const chosen = pick(fresh.length >= count ? fresh : pool, count, { seed });
   chosen.forEach((r) => metroUsed.add(r.n));
