@@ -65,7 +65,8 @@ const windowProof = new Set(s.slug === 'window-cleaning' ? [] : depth[`/services
 const set = withProof(baseSet, proofReviews(d).filter((r) => !windowProof.has(r.n)), (r) => r.area === t.reviewArea, 6, keptOut(d));
 const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
 /* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */
-const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Boolean(faqOwner(n));
+/* A town question owned by the town's window page ("Who does window cleaning in…?") is a link here too, not printed under another service's heading. */
+const isShared = (n: number) => ((n < 91 || n > 122) || s.slug !== 'window-cleaning') && faqOwner(n) !== url && Boolean(faqOwner(n));
 const placeFaqs = allFaqs.filter((f) => !isShared(f.n));
 const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
 const faqLinks = ownerLinks(placeFaqs, url);
@@ -100,7 +101,7 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
 const listNames = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0]);
 const facts = [
   ...(localCount > 0 ? [{ term: 'Local reviews', body: `${localCount} five-star review${localCount === 1 ? '' : 's'} from ${t.name} customers mention our ${s.name.toLowerCase()}.` }] : []),
-  ...(az19 ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
+  ...(az19 && s.slug === 'window-cleaning' ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
   ...(kids.length ? [{ term: 'Neighborhoods we visit', body: `${listNames(kids.slice(0, 4).map((k) => k.name))}${kids.length > 4 ? ', and more' : ''}.` }] : []),
   { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes. You don’t pay until you’re happy.' },
 ].slice(0, 3);
