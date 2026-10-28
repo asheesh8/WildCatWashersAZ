@@ -38,7 +38,9 @@ const quote = from.length ? from[hashSeed(url + 'who') % from.length] : undefine
 
 const photos = ['crew-yard-sign-arched-window', 'crew-yard-sign-patio', 'team-on-truck-desert', 'two-techs-front-window', 'award-az19-winner-2025'];
 const photo = photos[vary(url, photos.length, 'who-ph')];
-const headings = ['Who comes to your door', 'Who you’ll meet', 'Who shows up at your house'];
+/* Audience and commercial readers manage a building or a community, not just a house. */
+const property = /^\/(who-we-help|commercial)\//.test(url);
+const headings = property ? ['Who comes to your door', 'Who you’ll meet', 'Who shows up on site'] : ['Who comes to your door', 'Who you’ll meet', 'Who shows up at your house'];
 const heading = headings[vary(url, headings.length, 'who-h')];
 ---
 <section class:list={['section who', tone === 'mist' && 'bg-mist']}>

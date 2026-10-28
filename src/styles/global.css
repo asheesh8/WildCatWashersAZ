@@ -339,7 +339,7 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
 .chips a { display: inline-flex; align-items: center; gap: .45rem; padding: .7rem 1.1rem; border-radius: 999px; background: #fff; border: 2px solid var(--line); text-decoration: none; font-weight: 700; color: var(--navy); }
 .chips a:hover { border-color: var(--blue); background: var(--blue-50); }
-.chips svg { color: var(--blue-700); }
+.chips svg { color: var(--blue-700); flex: none; }
 /* Phones: a long run of link chips as a tidy two-column grid instead of ragged
    one-per-line pills (related-page lists at the foot of town and community pages). */
 @media (max-width: 759px) {

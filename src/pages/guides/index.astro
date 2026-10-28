@@ -44,7 +44,7 @@ const grouped = groups.map((gr) => ({ name: gr.name, items: answers.filter((p) =
 </Base>
 <style>
   .topics { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); margin-bottom: 2rem; }
-  .topics a { display: grid; grid-template-columns: 1fr auto; padding: 1.3rem 1.4rem; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; background: #fff; }
+  .topics a { display: grid; grid-template-columns: 1fr auto; padding: 1.3rem 1.4rem; border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; background: #fff; height: 100%; align-content: start; }
   .topics a:hover { border-color: var(--blue); }
   .topics strong { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
   .topics span { color: var(--ink-3); grid-row: 2; }

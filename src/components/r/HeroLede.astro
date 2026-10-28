@@ -1,18 +1,29 @@
 ---
-/** Hero lede. Phones show three lines of a long answer, then "Read the full answer";
-    the clamp is in the HTML from first paint so late fonts can't move the page. */
+/** Hero lede. Phones show the opening sentence(s) of a long answer, then "Read the full answer";
+    the cut is in the HTML from first paint so late fonts can't move the page. The cut falls on a
+    sentence end, never mid-word; a single very long sentence falls back to a three-line clamp. */
 export interface Props { text?: string; id?: string; clampAt?: number; class?: string }
 const { text, id = 'hero-lede', clampAt = 200, class: cls } = Astro.props;
 const clamp = Boolean(text && text.length > clampAt);
+let head = text ?? '', rest = '';
+if (clamp && text) {
+  const parts = text.split(/(?<=[.!?])\s+(?=[A-Z“"(])/);
+  head = parts.shift() ?? '';
+  while (parts.length && head.length + parts[0].length < clampAt * 0.8) head = `${head} ${parts.shift()}`;
+  rest = parts.join(' ');
+}
+const byLine = clamp && (!rest || head.length > clampAt * 1.15);
 ---
-{text && <p class:list={['hlede', clamp && 'is-clamp', cls]} id={id}>{text}</p>}
+{text && (byLine || !clamp
+  ? <p class:list={['hlede', clamp && 'is-clamp', cls]} id={id}>{text}</p>
+  : <p class:list={['hlede', 'is-cut', cls]} id={id}>{head}<span class="hlede-rest"> {rest}</span></p>)}
 {clamp && (
   <button type="button" class="hlede-more" aria-expanded="false" aria-controls={id} data-lede-more={id}>Read the full answer</button>
   <script is:inline define:vars={{ id }}>
     (function () {
       var b = document.querySelector('[data-lede-more="' + id + '"]'), p = document.getElementById(id);
       if (!b || !p) return;
-      b.addEventListener('click', function () { p.classList.remove('is-clamp'); b.remove(); p.setAttribute('tabindex', '-1'); p.focus(); });
+      b.addEventListener('click', function () { p.classList.remove('is-clamp', 'is-cut'); b.remove(); p.setAttribute('tabindex', '-1'); p.focus(); });
     })();
   </script>
 )}
@@ -21,6 +32,7 @@ const clamp = Boolean(text && text.length > clampAt);
   @media (max-width: 699px) { .hlede { font-size: 1.12rem; line-height: 1.55; } }
   .hlede-more { display: none; }
   @media (max-width: 759px) {
+    :global(.js) .hlede.is-cut .hlede-rest { display: none; }
     :global(.js) .hlede.is-clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
     :global(.js) .hlede-more { all: unset; cursor: pointer; font-weight: 700; color: var(--navy, #0f1a3a); text-decoration: underline; text-decoration-color: var(--blue-700); text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; margin-top: -.5rem; }
     .hlede-more:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
