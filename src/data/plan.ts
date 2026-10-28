@@ -15,4 +15,5 @@ export type PlanRow = {
 export const plan = rows as PlanRow[];
 const byUrl = new Map(plan.map((r) => [r.url, r]));
 export const planFor = (url: string) => byUrl.get(url);
-export const h1For = (url: string, fallback: string) => byUrl.get(url)?.h1 ?? fallback;
+/** The page's H1 from the plan, with typewriter apostrophes set as curly ones like the rest of the copy. */
+export const h1For = (url: string, fallback: string) => (byUrl.get(url)?.h1 ?? fallback).replace(/(\w)'(\w)/g, '$1’$2');

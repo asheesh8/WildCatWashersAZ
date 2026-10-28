@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
 import ProofBand from '@/components/ProofBand.astro';
-import { reviews, displayName, placeLabel, featured } from '@/data/reviews';
+import { reviews, displayName, placeLabel, featured, serviceLabels } from '@/data/reviews';
 import { proof } from '@/data/business';
 import { h1For } from '@/data/plan';
 const crumbs = [{ name: 'Reviews', href: '/reviews/' }];
@@ -38,7 +38,7 @@ const ordered = [featured.anneWebb, featured.rainTest, ...reviews.filter((r) => 
             <div class="rv-top"><span class="stars" aria-label="Five stars" role="img">★★★★★</span><span>{r.platform}</span></div>
             <blockquote><p class:list={[r.text.length > 240 && 'is-long']}>{r.text}</p></blockquote>
             {r.text.length > 240 && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
-            <figcaption><strong>{displayName(r)}</strong>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).length > 0 && <span>{[placeLabel(r), r.services.slice(0, 2).join(', ')].filter(Boolean).join(' · ')}</span>}</figcaption>
+            <figcaption><strong>{displayName(r)}</strong>{[placeLabel(r), serviceLabels(r).slice(0, 2).join(', ')].filter(Boolean).length > 0 && <span>{[placeLabel(r), serviceLabels(r).slice(0, 2).join(', ')].filter(Boolean).join(' · ')}</span>}</figcaption>
           </figure>
         ))}
       </div>
