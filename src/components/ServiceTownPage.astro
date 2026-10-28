@@ -28,6 +28,7 @@ import { serviceTownPhotos } from '@/data/placement';
 import { faqRefs } from '@/data/faq';
 import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import { guideByUrl } from '@/data/guides';
+import { allKeys, photoTown, photoKind, weakHero, sceneOf } from '@/data/media';
 
 export interface Props { ls: LocalService; t: Town }
 const { ls, t } = Astro.props as { ls: LocalService; t: Town };
@@ -68,7 +69,14 @@ const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Bo
 const placeFaqs = allFaqs.filter((f) => !isShared(f.n));
 const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
 const faqLinks = ownerLinks(placeFaqs, url);
-const photos = serviceTownPhotos(s.slug, t.slug, s.image);
+const placed = serviceTownPhotos(s.slug, t.slug, s.image);
+/* A town's hero never shows another town's job. When no photo of this service was taken here,
+   the hero is this town's own glass (or an untagged shot), and the service photo moves to the strip. */
+const foreign = (k: string) => Boolean(photoTown[k]) && photoTown[k] !== t.slug;
+const homeHero = (kinds: string[]) => allKeys.filter((k) => kinds.includes(photoKind[k]) && !weakHero.has(k) && !/^before-after|split$|^award-/.test(k)
+  && !placed.gallery.some((g) => sceneOf(g) === sceneOf(k)) && (photoTown[k] === t.slug)).sort((a, b) => hashSeed(url + a) - hashSeed(url + b))[0];
+const swap = foreign(placed.hero) ? (placed.gallery.find((g) => !foreign(g) && !weakHero.has(g)) ?? homeHero(['window-result', 'window-action'])) : undefined;
+const photos = swap ? { hero: swap, gallery: [placed.hero, ...placed.gallery.filter((g) => g !== swap)] } : placed;
 const photo = photos.hero;
 const kids = childrenOf(t.slug);
 /* Window pages also point to the do-it-yourself guide; solar screen pages to rescreening. */
@@ -96,6 +104,8 @@ const facts = [
   ...(kids.length ? [{ term: 'Neighborhoods we visit', body: `${listNames(kids.slice(0, 4).map((k) => k.name))}${kids.length > 4 ? ', and more' : ''}.` }] : []),
   { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes. You don’t pay until you’re happy.' },
 ].slice(0, 3);
+/* The phone number never breaks across lines in the hero copy. */
+const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
 const featured = set.local.find((r) => r.text.length >= 90 && r.text.length <= 320);
 const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== featured.n) } : set;
 ---
@@ -108,7 +118,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <HeroField title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} photo={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} facts={facts} factsTitle={`${s.name} in ${t.name}`} flip={vary(url, 2, 'hero') === 1} />
+  <HeroField title={h1} lede={keepPhone(d?.answer ?? proofLede)} crumbs={crumbs} photo={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} facts={facts} factsTitle={`${s.name} in ${t.name}`} flip={vary(url, 2, 'hero') === 1} />
   <TrustRow tone={vary(url, 2, 'trow') ? 'navy' : 'light'} />
 
   <section class="section">

@@ -74,6 +74,24 @@ const condFirst = vary(url, 2, 'cond') === 1;
 /* The link to the town's conditions is on every one of these pages, so its wording changes by page. */
 const condLine = vary(url, 3, 'condline');
 const townPoss = townName.endsWith('s') ? `${townName}’` : `${townName}’s`;
+/* The intro above already describes this place, so the "how it differs" line keeps only what it says
+   about the neighbor, and links the neighbor when it has a page. Falls back to the whole line. */
+const selfLead = c.name.split(' ').slice(0, 2).join(' ');
+const differsParts = c.differs.match(/[^.]+\.(\s|$)/g)?.map((x) => x.trim()) ?? [c.differs];
+const notPageNote = differsParts.filter((x) => !/^This (page|one)\b/.test(x));
+const otherParts = notPageNote.filter((x) => !x.startsWith(selfLead) && !x.startsWith(`${c.name.split(' ')[0]} is `));
+const differsText = (otherParts.length ? otherParts : notPageNote.length ? notPageNote : differsParts).join(' ');
+const differsLink = communities.filter((x) => x.slug !== c.slug && !x.pending && differsText.includes(x.name)).sort((a, b) => differsText.indexOf(a.name) - differsText.indexOf(b.name))[0];
+const differsAt = differsLink ? differsText.indexOf(differsLink.name) : -1;
+/* The strip's heading only names the town when its photos were taken there. */
+const filmShown = photos.gallery.slice(0, 3);
+const filmTitle = filmShown.every((k) => photoTown[k] === town.slug)
+  ? say(url, 'film-h', [`Recent work in ${townName}`, `From our ${townName} jobs`])
+  : filmShown.some((k) => photoTown[k] === town.slug)
+  ? `Recent jobs in ${townName} and nearby`
+  : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs']);
+/* The phone number never breaks across lines in the hero copy. */
+const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
 const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.replace(/^(Yes|We do|Wildcat Washers)\.\s*/, '')} Call ${company.phone}.`);
 ---
 <Base
@@ -88,7 +106,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   ctaPlace={c.name}
   noindex={c.pending}
 >
-  <HeroPostcard title={h1} lede={d?.answer ?? c.lead} crumbs={crumbs} photo={hero} place={c.name} town={townName} kind={kindLabel} ctaHref={`/quote/?area=${town.slug}`} flip={flipHero} />
+  <HeroPostcard title={h1} lede={keepPhone(d?.answer ?? c.lead)} crumbs={crumbs} photo={hero} place={c.name} town={townName} kind={kindLabel} ctaHref={`/quote/?area=${town.slug}`} flip={flipHero} />
   <TrustRow tone="light" />
 
   <section class="section">
@@ -96,7 +114,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
       <div class="place-copy">
         <h2 class="h2">{c.kind === 'hoa' ? `Serving ${c.name} homeowners${c.hoa ? ' and the HOA' : ''}` : `Window cleaning for ${c.name} homes`}</h2>
         <p class="lede">{c.intro}</p>
-        <p class="differs"><Icon name="pin" size={20} /><span>{c.differs}</span></p>
+        <p class="differs"><Icon name="pin" size={20} /><span>{differsLink ? <>{differsText.slice(0, differsAt)}<a href={communityHref(differsLink)}>{differsLink.name}</a>{differsText.slice(differsAt + differsLink.name.length)}</> : differsText}</span></p>
         {mentioned.length > 0 && (
           <p>{c.name} customers have reviewed us for {mentioned.map((m, i) => <>{i > 0 && (i === mentioned.length - 1 ? ' and ' : ', ')}<a href={m.href}>{m.label}</a></>)}. Every window job is our <a href="/services/window-cleaning/">5-in-1 Deep Clean</a>, and you don’t pay until you’re happy.</p>
         )}
@@ -121,7 +139,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   )}
 
 
-  <Filmstrip keys={photos.gallery} title={photos.gallery.some((k) => photoTown[k] === town.slug) ? `More from ${townName} jobs` : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs'])} max={3} />
+  <Filmstrip keys={photos.gallery} title={filmTitle} max={3} />
 
   {c.sections && c.sections.length > 0 && (
     <section class="section-tight" data-mfold>
@@ -151,7 +169,7 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  {askedElsewhere.length > 0 && (
+  {askedElsewhere.length > 0 && placeFaqs.length === 0 && (
     <section class="section-tight" data-mfold>
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:.8rem">Questions {c.name} homeowners ask</h2>
@@ -160,7 +178,17 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
     </section>
   )}
 
-  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} phoneClosed mfold />}
+  {(placeFaqs.length > 0 || seniorFaqs.length > 0) && (
+    <FaqList items={[...placeFaqs, ...seniorFaqs]} links={faqLinks} title={`${c.name} questions`} phoneClosed mfold>
+      {/* One questions section, not two: the ones answered on their own pages follow as links. */}
+      {askedElsewhere.length > 0 && (
+        <div class="asked">
+          <h3 class="h3">{say(url, 'asked-h', ['More answers, each on its own page', 'Also asked', 'Other questions we get'])}</h3>
+          <ul class="hoa-links" role="list">{askedElsewhere.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
+        </div>
+      )}
+    </FaqList>
+  )}
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
@@ -199,6 +227,8 @@ const description = d?.meta ?? fitDescription(`${c.name}, ${townName}: ${c.lead.
   .hoa-links a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 56px; border-bottom: 1px solid var(--line-strong); font-weight: 700; color: var(--navy); text-decoration: none; font-size: 1.08rem; }
   .hoa-links a :global(svg) { flex: none; color: var(--blue-700); }
   .cond-link a { font-weight: 700; }
+  .asked { display: grid; gap: .6rem; margin-top: clamp(1.6rem, 1rem + 2vw, 2.4rem); }
+  .differs a { color: inherit; }
   .hoa-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
   .hoa-list dl { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
   .hoa dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: .3rem; }

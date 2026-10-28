@@ -14,7 +14,8 @@ const fold = set.local.length > 0 && set.more.length > 0;
     </div>
     {set.local.length > 0 && (
       <>
-        <p class="rs-label">{set.localLabel}</p>
+        {/* The label only earns its line when a second, wider group follows; alone it repeats the heading. */}
+        {set.more.length > 0 && <p class="rs-label">{set.localLabel}</p>}
         <ReviewGrid reviews={set.local} />
       </>
     )}
