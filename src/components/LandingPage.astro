@@ -79,7 +79,7 @@ const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 
 const reviewsFirst = vary(l.url, 2, 'rev') === 1;
 /* Audience pages: the crew block comes before or after the details, by page. */
 const whoLate = vary(l.url, 2, 'wholate') === 1;
-const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'From businesses we work for', 'What our commercial customers say']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
+const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'How our crews work, in customers’ words', 'The crew you’d get, from their reviews']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
 const pool2 = (heroPools[family] ?? []).filter((k) => sceneOf(k) !== sceneOf(heroPhoto) && !weakHero.has(k));
 const second = pool2.length ? rotateFrom(pool2, siblings, l.url) : undefined;

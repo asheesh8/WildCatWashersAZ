@@ -7,6 +7,11 @@ export interface Props { service?: string; area?: string; place?: string }
 const { service, area, place } = Astro.props;
 /* Without a place, the line names what the page is about, so the band doesn't read the same on every page. */
 const things: Record<string, string> = { 'window-cleaning': 'your windows', 'solar-panel-cleaning': 'your solar panels', 'solar-panel-pigeon-proofing': 'your solar panels', 'screen-repair': 'your screens', 'pressure-washing': 'your driveway' };
+/* Commercial pages are read by managers: a building isn't quoted like a home. */
+const commercial = Astro.url.pathname.startsWith('/commercial/');
+const lede = commercial
+  ? 'Call and we’ll talk through your property and the schedule it needs. Or send the form and we’ll call you right back.'
+  : 'Call and we’ll quote most homes in a few minutes, right on the phone. Or send the form and we’ll call you right back.';
 const l2 = place ? `your ${place} home` : (service && things[service]) || 'your place';
 ---
 <section class="shine" id="get-quote" aria-labelledby="shine-title">
@@ -17,7 +22,7 @@ const l2 = place ? `your ${place} home` : (service && things[service]) || 'your 
         <span class:list={['l2', l2.length > 22 && 'l2-long', l2.length > 32 && 'l2-xlong']}>{l2}</span>
         <span class="l3 sweep">Shine</span>
       </h2>
-      <p class="shine-lede">Call and we’ll quote most homes in a few minutes, right on the phone. Or send the form and we’ll call you right back.</p>
+      <p class="shine-lede">{lede}</p>
       <a class="shine-phone" href={telHref} data-track="call-shine"><span class="shine-phone-icon"><Icon name="phone" size={30} /></span>{company.phone}</a>
       <ul class="shine-g" role="list">
         {guarantees.map((g) => <li><Icon name="check-circle" size={24} />{g.name}</li>)}
