@@ -8,12 +8,16 @@ export interface Props { exclude?: string; only?: string[] }
 const { exclude, only } = Astro.props;
 const list = services.filter((s) => s.slug !== exclude && (!only || only.includes(s.slug)));
 const bento = list.length === 6;
+/* The card photo, when the service's main photo crops badly into a short, wide card:
+   the dark flagstone close-up turned into a muddy strip, so pressure washing shows a clean patio. */
+const cardPhoto: Record<string, string> = { 'pressure-washing': 'clean-covered-patio' };
+const photoOf = (slug: string, image: string) => cardPhoto[slug] ?? image;
 /* Phones: the bento's first and last cards are full-width bands (about 2:1), so they get
    their own 2:1 crop; the rest are half-width tiles. */
 const wide = (i: number) => bento && (i === 0 || i === 5);
 const bandW = [480, 720, 960];
-const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
-  ? Promise.all(bandW.map((w) => getImage({ src: img(s.image), width: w, height: w / 2, fit: 'cover', position: bandFor(s.image), format: 'webp', quality: 66 })))
+const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(photoOf(s.slug, s.image))
+  ? Promise.all(bandW.map((w) => getImage({ src: img(photoOf(s.slug, s.image)), width: w, height: w / 2, fit: 'cover', position: bandFor(photoOf(s.slug, s.image)), format: 'webp', quality: 66 })))
       .then((b) => b.map((x, j) => `${x.src} ${bandW[j]}w`).join(', '))
   : Promise.resolve('')));
 ---
@@ -23,7 +27,7 @@ const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
       <a href={serviceHref(s.slug)}>
         <picture>
           {bands[i] && <source media="(max-width: 759px)" type="image/webp" srcset={bands[i]} sizes="calc(100vw - 2rem)" />}
-          <Image src={img(s.image)} alt={altFor(s.image)} widths={[320, 400, 640, 900]} sizes={`(min-width: 1000px) 33vw, (min-width: 640px) 50vw, ${wide(i) ? 'calc(100vw - 2rem)' : 'calc(50vw - 1.4rem)'}`} quality={70} style={`object-position:${focusFor(s.image)}`} />
+          <Image src={img(photoOf(s.slug, s.image))} alt={altFor(photoOf(s.slug, s.image))} widths={[320, 400, 640, 900]} sizes={`(min-width: 1000px) 33vw, (min-width: 640px) 50vw, ${wide(i) ? 'calc(100vw - 2rem)' : 'calc(50vw - 1.4rem)'}`} quality={70} style={`object-position:${focusFor(photoOf(s.slug, s.image))}`} />
         </picture>
         <span class="scard-body">
           <span class="scard-num">/{String(i + 1).padStart(2, '0')}</span>
@@ -60,7 +64,7 @@ const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
   .scard-body { position: absolute; inset: auto 0 0; padding: 1.4rem 1.4rem 1.3rem; display: grid; gap: .3rem; }
   .scard-num { font-family: var(--font-display); font-weight: 800; color: var(--blue); font-size: 1rem; }
   .scard-name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.5rem, 1.3rem + .8vw, 2rem); line-height: 1; font-variation-settings: 'wdth' 105; padding-right: 3rem; }
-  .scard-line { font-size: 1.08rem; color: #e3ecf8; max-width: 34ch; }
+  .scard-line { font-size: 1.08rem; color: #e3ecf8; max-width: 34ch; padding-right: 3.6rem; }
   .scard-go {
     position: absolute; right: 1.1rem; bottom: 1.2rem; width: 50px; height: 50px; border-radius: 50%;
     display: grid; place-items: center; background: var(--blue); color: var(--navy);
@@ -84,5 +88,8 @@ const bands = await Promise.all(list.map((s, i) => wide(i) && bandFor(s.image)
     .sgrid-bento .scard:nth-child(1) .scard-line { display: block; }
     .sgrid-bento .scard:nth-child(6) { grid-column: 1 / -1; }
     .sgrid-bento .scard:nth-child(6) a { min-height: 124px; }
+    /* An odd count (three related services) ends on a full-width band, not an orphan tile. */
+    .sgrid:not(.sgrid-bento) .scard:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .sgrid:not(.sgrid-bento) .scard:last-child:nth-child(odd) a { min-height: 124px; }
   }
 </style>

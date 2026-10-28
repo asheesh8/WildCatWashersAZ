@@ -174,9 +174,15 @@ const path = Astro.url.pathname;
     // come back on the first scroll up.
     let last = 0, ticking = false;
     const threshold = 180;
+    // A plain (non-overlay) header sits in the page flow. When it turns fixed, hold its
+    // place so the page doesn't jump up by the header's height mid-scroll.
+    const overlay = header.classList.contains('is-overlay');
     const update = () => {
       const y = window.scrollY;
       const float = y > threshold;
+      if (!overlay && float !== header.classList.contains('is-floating')) {
+        document.body.style.paddingTop = float ? header.offsetHeight + 'px' : '';
+      }
       header.classList.toggle('is-floating', float);
       header.classList.toggle('is-hidden', float && y > last + 4 && y > 600);
       last = y; ticking = false;

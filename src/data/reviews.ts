@@ -54,8 +54,22 @@ export function placeLabel(r: Review): string {
 export function displayName(r: Review): string {
   const parts = r.name.replace(/\s+/g, ' ').trim().split(' ');
   const cap = (w: string) => (w ? w[0].toUpperCase() + w.slice(1) : w);
+  /* "BeckyS" as published is a first name run into an initial. */
+  const run = parts.length === 1 && parts[0].match(/^([A-Z][a-z]+)([A-Z])$/);
+  if (run) return `${run[1]} ${run[2]}.`;
   if (parts.length < 2) return cap(parts[0]);
   return `${cap(parts[0])} ${cap(parts[parts.length - 1])[0]}.`;
+}
+
+/** The services a review names, as shown under it. Survey labels that read as notes
+ *  ("Windows (other wording)", "Other") or as work we don't offer (blinds, sealing) are
+ *  tidied or left off; the tags themselves still drive matching. */
+const serviceShown: Record<string, string> = {
+  'Windows (other wording)': 'Windows', 'Pressure/Power Washing': 'Pressure Washing', 'Patio Cleaning & Sealing': 'Patio Cleaning',
+  'Bird Nest Removal': 'Pigeon Proofing', Other: '', Blinds: '',
+};
+export function serviceLabels(r: Review): string[] {
+  return [...new Set(r.services.map((s) => serviceShown[s] ?? s).filter(Boolean))];
 }
 
 export const reviewsByArea = (area: string) => reviews.filter((r) => r.area === area);

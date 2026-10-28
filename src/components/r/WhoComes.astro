@@ -41,11 +41,13 @@ const photo = photos[vary(url, photos.length, 'who-ph')];
 /* Audience and commercial readers manage a building or a community, not just a house. */
 const property = /^\/(who-we-help|commercial)\//.test(url);
 const headings = property ? ['Who comes to your door', 'Who you’ll meet', 'Who shows up on site'] : ['Who comes to your door', 'Who you’ll meet', 'Who shows up at your house'];
+/* The truck shot is a third sky and a quarter dirt: frame it landscape so the crew fills it. */
+const shapes = photo === 'team-on-truck-desert' ? [4 / 3] : [4 / 5, 1, 4 / 3];
 const heading = headings[vary(url, headings.length, 'who-h')];
 ---
 <section class:list={['section who', tone === 'mist' && 'bg-mist']}>
   <div class="wrap who-grid">
-    <Photo k={photo} shapes={[4 / 5, 1, 4 / 3]} caption sizes="(min-width: 900px) 30vw, 120px" class="who-ph" look="print" />
+    <Photo k={photo} shapes={shapes} caption sizes="(min-width: 900px) 30vw, 120px" class="who-ph" look="print" />
     <div class="who-copy">
       <h2 class="h2">{heading}</h2>
       <ul class="who-list" role="list">{picked.map((f) => <li>{f}</li>)}</ul>
