@@ -35,7 +35,7 @@ const photo = img('hero-crew-trucks-sky');
     <p class="hero-sub">Wildcat Washers cleans windows, solar panels and solar screens and does pressure washing across Greater Tucson and Southern Arizona<span class="sub-tail">, seven days a week, backed by a 14-Day Spotless Guarantee</span>.</p>
     <div class="hero-cta">
       <a class="btn btn-lg btn-blue" href={cta.quoteHref} data-track="quote-hero"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></a>
-      <a class="hero-call" href={telHref} data-track="call-hero">or call <strong>{company.phone}</strong></a>
+      <a class="hero-call" href={telHref} data-track="call-hero">or call{" "}<strong>{company.phone}</strong></a>
     </div>
   </div>
 </section>
@@ -43,15 +43,19 @@ const photo = img('hero-crew-trucks-sky');
 <style>
   .hero {
     position: relative; isolation: isolate; overflow: hidden;
-    /* Tall enough to show the whole photo, so the crew is never cropped away. */
-    min-height: min(100svh, 1000px);
-    display: grid; grid-template-columns: minmax(0, 1fr); align-items: start;
-    background: #3b689c;
+    /* The words take the top rows; the photo sits at full width along the bottom, with
+       a band below the words (36vw) as tall as the crew, trucks and ground (the photo's
+       lower 45%, i.e. 33.75vw of a 4:3 frame). So the crew always lands under the button,
+       at any width and whatever the copy's height. */
+    display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 36vw; align-items: start;
+    background: linear-gradient(180deg, #2f5b93 0%, #3f6ea4 100%);
     color: #fff;
   }
   .hero-img {
-    position: absolute; inset: 0; z-index: -2;
-    width: 100%; height: 100%; object-fit: cover; object-position: 50% 5%;
+    position: absolute; left: 0; bottom: 0; z-index: -2;
+    width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    /* The photo's top edge melts into the matching sky blue behind it. */
+    -webkit-mask: linear-gradient(180deg, transparent 0, #000 14%); mask: linear-gradient(180deg, transparent 0, #000 14%);
   }
   /* Only darkens the sky behind the words; the crew below stays untouched. */
   .hero-shade {
@@ -93,7 +97,7 @@ const photo = img('hero-crew-trucks-sky');
   /* Phones: the photo is landscape, so stack it under the words instead of
      cropping the crew away. */
   @media (max-width: 760px) {
-    .hero { min-height: 0; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
+    .hero { min-height: 0; grid-template-rows: none; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
     .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 10; object-position: 50% 75%; order: 2; margin-top: -3.5rem;
       -webkit-mask: linear-gradient(180deg, transparent 0, #000 22%); mask: linear-gradient(180deg, transparent 0, #000 22%); }
     .hero-shade { display: none; }
