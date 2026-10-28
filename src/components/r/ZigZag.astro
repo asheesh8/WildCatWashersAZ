@@ -11,7 +11,7 @@ const { title, intro, rows, tone = 'plain', startRight = false } = Astro.props;
     <ul class="zz-list" role="list">
       {rows.map((r, i) => (
         <li class:list={['zz-row', (i % 2 === 1) !== startRight && 'is-flip', !r.photo && 'no-photo']}>
-          {r.photo && <Photo k={r.photo} shapes={[1, 4 / 3]} caption={r.caption ?? true} sizes="(min-width: 900px) 34vw, 100vw" class="zz-ph" />}
+          {r.photo && <Photo k={r.photo} shapes={[1, 4 / 3]} caption={r.caption ?? true} sizes="(min-width: 900px) 34vw, 88px" class="zz-ph" />}
           <div class="zz-copy">
             <h3 class="zz-t">{r.href ? <a href={r.href}>{r.title}</a> : r.title}</h3>
             <p>{r.body}</p>
