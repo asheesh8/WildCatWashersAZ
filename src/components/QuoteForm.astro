@@ -86,6 +86,7 @@ const here = Astro.url.pathname;
   .qf-status { text-align: center; font-weight: 700; color: var(--navy); }
   .qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .qf-note { display: flex; gap: .5rem; align-items: center; justify-content: center; text-align: center; color: var(--ink-2); font-weight: 600; font-size: 1.02rem; }
+  .qf-note :global(svg) { flex: none; }
   .qf-fallback { background: #fff8e6; border: 1px solid #f0d489; border-left: 5px solid #e0a800; border-radius: 12px; padding: 1rem 1.15rem; display: grid; gap: .5rem; color: #5b4500; }
   .qf-fallback[hidden] { display: none; }
   .qf-fallback-head { font-family: var(--font-display); font-weight: 800; }

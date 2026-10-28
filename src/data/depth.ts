@@ -916,7 +916,6 @@ export const depth: Record<string, Depth> = {
       { h: 'Screens and tracks, every time', p: 'Every window job is the full 5-in-1, so screens come out and tracks are vacuumed and washed along with the glass. See [window cleaning in Green Valley](/services/window-cleaning/green-valley/).', q: { text: 'The screens and windows look amazing too (even the window tracks are super clean).', by: 'Linda B., Legends' } },
       { h: 'Golf irrigation', p: 'If sprinklers keep reaching your glass, adjust the heads and keep a regular schedule. [How to stop sprinklers spotting windows](/guides/how-to-stop-sprinklers-spotting-windows/)' },
       { h: 'Panels while we’re there', p: 'Rooftop solar collects the same dust as your glass. Add [solar panel cleaning in Green Valley](/services/solar-panel-cleaning/green-valley/) to the window visit. Elsewhere nearby, see [Las Campanas](/areas/green-valley/las-campanas/).' },
-      { h: 'Another Legends review', p: 'In the customer’s own words.', q: { text: 'I had my windows washed today by Wildcat Washers and they did a fantastic job.', by: 'Anne D., Legends' } },
     ],
     // R064's blinds sentences and R075's college lines stay out: excerpts only.
     quoted: [64, 75],
@@ -1662,7 +1661,7 @@ const round9Add: Record<string, { sections: DepthSection[]; quoted?: number[] }>
   },
   '/areas/marana/the-highlands-at-dove-mountain/': {
     sections: [
-      { h: 'Established homes, honest answers', p: 'The Highlands is established, with single-story homes and views at the entrance to Dove Mountain. Glass that has seen years of hard water can carry buildup, and some of it may have etched. We inspect every window before we start and tell you what will come off and what won’t, before you’ve paid anything. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)', q: { text: 'I was impressed with professionalism, promptness, efficiency, and quality of their work. My windows are spotless.', by: 'Linda S., Oro Valley, Marana & Northwest Tucson area' } },
+      { h: 'Established homes, honest answers', p: 'The Highlands is established, with single-story homes and views at the entrance to Dove Mountain. Glass that has seen years of hard water can carry buildup, and some of it may have etched. We inspect every window before we start and tell you what will come off and what won’t, before you’ve paid anything. [Is hard water damage permanent?](/guides/is-hard-water-damage-on-glass-permanent/)' },
     ],
     quoted: [248],
   },
@@ -1712,7 +1711,7 @@ const round9Add: Record<string, { sections: DepthSection[]; quoted?: number[] }>
   },
   '/areas/sahuarita/rancho-sahuarita/': {
     sections: [
-      { h: 'Inside and out costs less together', p: 'One visit for inside and out is more efficient than two separate trips, and that shows up in the price. It’s also the better way to do it, since both sides get dirty at the same rate.', q: { text: 'The two young men did a splendid job on windows, screens, rails, etc. They were very efficient, polite, and respectful.', by: 'Wayne S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Inside and out costs less together', p: 'One visit for inside and out is more efficient than two separate trips, and that shows up in the price. It’s also the better way to do it, since both sides get dirty at the same rate.' },
     ],
     quoted: [163],
   },
@@ -1729,7 +1728,7 @@ const round9Add: Record<string, { sections: DepthSection[]; quoted?: number[] }>
   },
   '/areas/tucson/sam-hughes/': {
     sections: [
-      { h: 'Frames and sills, not just the pane', p: 'We clean the whole window, not only the glass in the middle of it. On older windows with more frame and more sill, that’s a big part of the job, and it’s hand work on every visit. Our office is next door in Blenman-Elm.', q: { text: 'Cooper and Jose were professional, on time and generally great guys.', by: 'Traci E., Tucson' } },
+      { h: 'Frames and sills, not just the pane', p: 'We clean the whole window, not only the glass in the middle of it. On older windows with more frame and more sill, that’s a big part of the job, and it’s hand work on every visit. Our office is next door in Blenman-Elm.' },
     ],
     quoted: [83],
   },
@@ -1780,7 +1779,7 @@ const round10Add: Record<string, { sections: DepthSection[]; quoted?: number[] }
   },
   '/areas/oro-valley/rancho-vistoso/': {
     sections: [
-      { h: 'Insurance, on paper', p: 'We’re fully insured, and if your village or HOA wants proof before work starts, ask for a certificate of insurance. A legitimate company provides it without hesitation, and we do.', q: { text: 'These young men do a great job washing my windows. It\'s great that they service Oro. Valley, AZ. They are friendly & professional. Would highly recommend!', by: 'Linda S., Oro Valley' } },
+      { h: 'Insurance, on paper', p: 'We’re fully insured, and if your village or HOA wants proof before work starts, ask for a certificate of insurance. A legitimate company provides it without hesitation, and we do.' },
     ],
     quoted: [103],
   },
@@ -1860,7 +1859,7 @@ const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/services/solar-panel-cleaning/sahuarita/': {
     sections: [
       { h: 'Newer stucco roofs, any array', p: 'Most Sahuarita homes are newer stucco houses in [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/), and plenty carry rooftop solar. We clean any panel type on any roof pitch, rooftop or ground mount. A residential array usually takes one to three hours, and we work from the roof surface, never standing on the panels.' },
-      { h: 'Photos from the roof', p: 'You can’t stand on your roof to check the work, so every job gets before and after photos. That’s how you see what came off.', q: { text: 'They did a great job of cleaning my solar panels yesterday! And it was cold and windy that day.', by: 'Barbara Z., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Photos from the roof', p: 'You can’t stand on your roof to check the work, so every job gets before and after photos. That’s how you see what came off.' },
     ],
     quoted: [243],
     faq: [95, 65, 69],
@@ -1897,7 +1896,7 @@ const round12Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/services/window-cleaning/sahuarita/': {
     sections: [
-      { h: 'Rancho Sahuarita and the 55+ side', p: 'Most Sahuarita residents live in [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/), around the lake, and we also work in [Sonora at Rancho Sahuarita](/areas/sahuarita/sonora-at-rancho-sahuarita/) and [Rancho Resort](/areas/sahuarita/rancho-resort/).', q: { text: 'Our windows are so clean, it appears there is no glass in the frames.', by: 'Carol J., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Rancho Sahuarita and the 55+ side', p: 'Most Sahuarita residents live in [Rancho Sahuarita](/areas/sahuarita/rancho-sahuarita/), around the lake, and we also work in [Sonora at Rancho Sahuarita](/areas/sahuarita/sonora-at-rancho-sahuarita/) and [Rancho Resort](/areas/sahuarita/rancho-resort/).' },
     ],
     quoted: [141],
     faq: [95],
@@ -1993,7 +1992,7 @@ const round13Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/rancho-sahuarita/': {
     sections: [
-      { h: 'Seven days a week', p: 'We work seven days a week, and most people are scheduled within a week or two, often sooner. Same-day is possible more often than you’d think, so just ask.', q: { text: 'They arrived on time, were friendly and considerate of our property, AND did an excellent job washing windows and screens inside and out.', by: 'Bonnie S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Seven days a week', p: 'We work seven days a week, and most people are scheduled within a week or two, often sooner. Same-day is possible more often than you’d think, so just ask.' },
       { h: 'Getting ready to sell?', p: 'Clean windows make a home look well kept, in person and in listing photos. Real estate agents use us for listing prep, and every agent who’s hired us once has kept coming back.' },
     ],
     quoted: [190],
@@ -2015,7 +2014,7 @@ const round13Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/rancho-resort/': {
     sections: [
-      { h: 'Out of town for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time. For exterior work you don’t need to be home: we can keep a card on file and charge after the job.', q: { text: 'Had my windows washed today and they did a great job. Showed up on time and worked till the job was done.', by: 'Denise L., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Out of town for part of the year?', p: 'We clean for seasonal residents and out-of-state owners all the time. For exterior work you don’t need to be home: we can keep a card on file and charge after the job.' },
     ],
     quoted: [226],
     faq: [145, 153],
@@ -2030,7 +2029,7 @@ const round13Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   '/areas/green-valley/links-at-santa-rita-springs/': {
     sections: [
       { h: 'Right after the monsoon', p: 'Monsoon storms leave heavy dirt and dust behind, so right after summer is the natural time for a clean. It resets everything going into fall.' },
-      { h: 'The glass, not just the view', p: 'Hard water left on a pane long enough etches it permanently, and etched glass has to be replaced. Maintaining your windows is far cheaper than replacing them.', q: { text: 'Everything the trees and flowers and mountains in the sky look brighter because my windows are so clean.', by: 'Betsy R., Green Valley' } },
+      { h: 'The glass, not just the view', p: 'Hard water left on a pane long enough etches it permanently, and etched glass has to be replaced. Maintaining your windows is far cheaper than replacing them.' },
     ],
     quoted: [52],
     faq: [163, 173],
@@ -2072,7 +2071,7 @@ const round13Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
     sections: [
-      { h: 'Will the same crew come?', p: 'We try for continuity, but we can’t promise the same technician every visit. What we can promise is that every technician is trained to the same standard and held to the same guarantees.', q: { text: 'They do an excellent job and are very professional. They also clean the frames and tracks.', by: 'Irene G., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Will the same crew come?', p: 'We try for continuity, but we can’t promise the same technician every visit. What we can promise is that every technician is trained to the same standard and held to the same guarantees.' },
       { h: 'Senior and veteran discounts', p: 'Both are available. Let us know when you call and we’ll take care of it. [Senior and veteran discounts](/guides/senior-and-veteran-discounts-window-cleaning/)' },
     ],
     quoted: [192],
@@ -2296,7 +2295,7 @@ const round15Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/las-campanas/': {
     sections: [
-      { h: 'Same pricing in Green Valley', p: 'Las Campanas homes are priced exactly like every other home we serve: by the pane, with no trip charge, and quoted on a short call.', q: { text: 'We are very pleased with the window cleaning and the customer service.', by: 'Lyle L., Green Valley' } },
+      { h: 'Same pricing in Green Valley', p: 'Las Campanas homes are priced exactly like every other home we serve: by the pane, with no trip charge, and quoted on a short call.' },
       { h: 'Wash It Forward started here', p: 'Our annual free community cleaning began in Green Valley, at the Santa Rita Fire Department. [Wash It Forward](/wash-it-forward/)' },
     ],
     quoted: [24],
@@ -2352,7 +2351,7 @@ const round16Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/oro-valley/stone-canyon/': {
     sections: [
-      { h: 'Among the boulders', p: 'Custom homes set among the boulders at the top of Rancho Vistoso tend to carry enormous, specialty glass. Coatings and films are identified before anything touches a pane, and no type of glass is turned away.', q: { text: 'Great team of personable young men did professional job on my home in Oro Valley', by: 'Diane, Oro Valley' } },
+      { h: 'Among the boulders', p: 'Custom homes set among the boulders at the top of Rancho Vistoso tend to carry enormous, specialty glass. Coatings and films are identified before anything touches a pane, and no type of glass is turned away.' },
     ],
     quoted: [106],
   },
@@ -2364,7 +2363,7 @@ const round16Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/tucson/sam-hughes/': {
     sections: [
-      { h: 'Original glass, handled with care', p: 'Many Sam Hughes owners are keeping original windows, so each one is looked over before we start. Existing chips, scratches or failed seals get pointed out to you first.', q: { text: 'The guys showed up on time, we\'re professional and explained everything I needed to know!', by: 'Kathy B., Tucson' } },
+      { h: 'Original glass, handled with care', p: 'Many Sam Hughes owners are keeping original windows, so each one is looked over before we start. Existing chips, scratches or failed seals get pointed out to you first.' },
     ],
     quoted: [92],
   },
@@ -2578,7 +2577,7 @@ const round18Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/sonora-at-rancho-sahuarita/': {
     sections: [
-      { h: 'Patios, pavers and walkways', p: 'Brick and paver patios, walkways and entries are pressure washed to lift the dust and dirt that settle on them. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)', q: { text: 'they did an excellent job and are very polite I definitely recommend them', by: 'Peggy S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'Patios, pavers and walkways', p: 'Brick and paver patios, walkways and entries are pressure washed to lift the dust and dirt that settle on them. [Patios and pool decks](/services/pressure-washing/patios-pool-decks/)' },
       { h: 'A three-hour window', p: 'Arrival falls within a three-hour window, with a text when the crew heads your way.' },
     ],
     quoted: [195],
@@ -2672,14 +2671,14 @@ const round19Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/canoa-ranch/': {
     sections: [
-      { h: 'Spots off, on every visit', p: 'Hard-water spotting on the glass is buffed away as part of the clean rather than billed separately, and regular visits stop it before it etches.', q: { text: 'Had the wildcat washers come to wash my windows in green valley today. They were very respectful, thorough, and would definitely recommend!', by: 'Sandra T., Green Valley' } },
+      { h: 'Spots off, on every visit', p: 'Hard-water spotting on the glass is buffed away as part of the clean rather than billed separately, and regular visits stop it before it etches.' },
       { h: 'Tracks and screens included', p: 'Tracks get vacuumed and hand wiped and screens come out for a wash, on every job, with nothing extra to add.' },
     ],
     quoted: [11],
   },
   '/areas/green-valley/springs-at-canoa/': {
     sections: [
-      { h: 'Three window visits a year', p: 'After monsoon, around the holidays and in spring is the rhythm that keeps glass from ever reaching the point of etching.', q: { text: 'Wonderful job and courteous associates. Would hire again. Green Valley, AZ.', by: 'Deborah D., Green Valley' } },
+      { h: 'Three window visits a year', p: 'After monsoon, around the holidays and in spring is the rhythm that keeps glass from ever reaching the point of etching.' },
       { h: 'Screened rooms out back', p: 'Arizona room mesh is scrubbed by hand, flushed through from both sides with pressure, and the floor gets washed too. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
     ],
     quoted: [18],
@@ -2784,14 +2783,14 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/links-at-santa-rita-springs/': {
     sections: [
-      { h: 'Checked before you see it', p: 'The crew goes back over every pane before calling you out for the walkthrough.', q: { text: 'Amazing job, done neatly and a wonderful experience. The crew is excellent and polite and the windows look great.', by: 'Dennis H., Green Valley' } },
+      { h: 'Checked before you see it', p: 'The crew goes back over every pane before calling you out for the walkthrough.' },
       { h: 'When pigeons move in', p: 'Nests and droppings come out first, then a clip-fastened mesh skirt closes the gap beneath the panels, and nothing is screwed into the roof. [Keeping birds out from under panels](/services/solar-panel-pigeon-proofing/)' },
     ],
     quoted: [21],
   },
   '/areas/green-valley/quail-creek/': {
     sections: [
-      { h: 'Screens out, every visit', p: 'Screens get removed and washed and tracks get cleaned each time, which keeps dust from drifting back onto the glass.', q: { text: 'Great job! They were on time, reliable, proud of their work, and very friendly. We\'ll see them next year.', by: 'Richard B., Green Valley' } },
+      { h: 'Screens out, every visit', p: 'Screens get removed and washed and tracks get cleaned each time, which keeps dust from drifting back onto the glass.' },
       { h: 'Panels once or twice a year', p: 'That’s the usual rhythm for home arrays, hand washed with pure water. [Solar panel cleaning](/services/solar-panel-cleaning/)' },
     ],
     quoted: [39],
@@ -2810,7 +2809,7 @@ const round20Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/green-valley/las-campanas/': {
     sections: [
-      { h: 'Spots gone, glass protected', p: 'Mineral spots are removed on every visit at no extra cost, before they can etch.', q: { text: 'Wildcat Washers have done a very nice job for me and are most courteous . I highly recommend them.', by: 'Elaine O., Green Valley' } },
+      { h: 'Spots gone, glass protected', p: 'Mineral spots are removed on every visit at no extra cost, before they can etch.' },
       { h: 'Arizona rooms', p: 'Enclosure screens are scrubbed and rinsed through with pressure from inside and out, then the floor is washed. [Arizona rooms](/services/pressure-washing/arizona-rooms/)' },
     ],
     quoted: [16],
@@ -2859,7 +2858,7 @@ const round21Add: Record<string, { sections: DepthSection[]; quoted?: number[]; 
   },
   '/areas/sahuarita/rancho-resort/': {
     sections: [
-      { h: 'The thrice-yearly plan', p: 'One customer’s name for the Wildcat Club, and it fits: windows on a steady rhythm without you having to remember when.', q: { text: 'On time, fabulous job cleaning windows and screens, very friendly. Will definitely use them again. 5stars!', by: 'Julie S., Tucson, Sahuarita & Green Valley area' } },
+      { h: 'The thrice-yearly plan', p: 'One customer’s name for the Wildcat Club, and it fits: windows on a steady rhythm without you having to remember when.' },
       { h: 'Dry floors inside', p: 'Towels go down under interior work, and no drips are left on sills or floors.' },
     ],
     quoted: [172],

@@ -125,7 +125,7 @@ const json = JSON.stringify(pool);
           const me = ++run;
           if (layer) layer.remove();
           const vw = document.documentElement.clientWidth, desk = vw >= 1100;
-          const max = desk ? 6 : 2, gap = desk ? 620 : 1400, pad = desk ? 44 : 16;
+          const max = desk ? 3 : 2, gap = desk ? 620 : 1400, pad = desk ? 44 : 16;
           layer = document.createElement('div');
           layer.className = 'art-layer';
           layer.setAttribute('aria-hidden', 'true');

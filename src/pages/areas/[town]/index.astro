@@ -16,7 +16,7 @@ import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
 import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
-import { photoTown, photoKind, sceneOf } from '@/data/media';
+import { photoTown, photoKind, sceneOf, captionFor, allKeys, weakHero } from '@/data/media';
 import { townPhotos } from '@/data/placement';
 import { h1For, planFor } from '@/data/plan';
 import { townReviews, withProof } from '@/lib/local';
@@ -54,7 +54,11 @@ const emphasisHref = (slug: string) => (slug === 'window-cleaning' && hasWindowP
 const pool = [photos.hero, ...photos.gallery];
 /* The hero strip shows this town's own jobs (or untagged ones) before another town's. */
 const isLocal = (x: string) => !photoTown[x] || photoTown[x] === t.slug;
-const strip = [...pool.filter(isLocal), ...pool.filter((x) => !isLocal(x))].slice(0, 3);
+/* Short of three, it tops up with untagged metro shots (never another town's), and only then
+   falls back to another town's job rather than leave the strip thin. */
+const untagged = allKeys.filter((k) => !photoTown[k] && ['window-action', 'window-result', 'team'].includes(photoKind[k]) && !weakHero.has(k)
+  && !/^before-after|split$|^award-/.test(k) && !pool.some((p) => sceneOf(p) === sceneOf(k))).sort((a, b) => hashSeed(url + a) - hashSeed(url + b));
+const strip = [...pool.filter(isLocal), ...untagged, ...pool.filter((x) => !isLocal(x))].filter((k, i, a) => a.findIndex((x) => sceneOf(x) === sceneOf(k)) === i).slice(0, 3);
 const svcKinds: Record<string, string[]> = { 'window-cleaning': ['window-action', 'window-result'], 'solar-panel-cleaning': ['solar'], 'solar-screens': ['screens'], 'pressure-washing': ['pressure'], 'screen-repair': ['screens', 'pressure'] };
 const usedScenes = new Set(strip.map(sceneOf));
 const rowPhoto = (svc: string) => {
@@ -65,7 +69,10 @@ const rowPhoto = (svc: string) => {
 };
 const rows = t.emphasis.map((e) => {
   const s = serviceBySlug[e.service];
-  return { title: `${s.name}${e.service === 'window-cleaning' && hasWindowPage ? ` in ${t.name}` : ''}`, body: e.why, photo: rowPhoto(e.service), href: emphasisHref(e.service), linkLabel: `More on ${s.name.toLowerCase()}` };
+  const photo = rowPhoto(e.service);
+  /* A row headed "in <this town>" doesn't print another town's name under its photo; the caption names the work only. */
+  const caption = photo && photoTown[photo] && photoTown[photo] !== t.slug ? captionFor(photo).replace(/ in .+$/, '') : undefined;
+  return { title: `${s.name}${e.service === 'window-cleaning' && hasWindowPage ? ` in ${t.name}` : ''}`, body: e.why, photo, caption, href: emphasisHref(e.service), linkLabel: `More on ${s.name.toLowerCase()}` };
 });
 const film = pool.filter((k) => !usedScenes.has(sceneOf(k)));
 const whereTotalUnused = whereTotal + whereFirst;
@@ -81,6 +88,14 @@ const place = {
 };
 /* Half the towns lead with the work we do there, then what the desert does to the glass. */
 const workFirst = vary(url, 2, 'workfirst') === 1;
+/* The phone number never breaks across lines in the hero copy. */
+const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
+const diyGuides = [
+  { href: '/guides/can-i-clean-my-own-windows/', q: 'Can I just clean my own windows?' },
+  { href: '/guides/why-do-windows-look-worse-after-i-clean-them/', q: 'Why do my windows look worse after I clean them?' },
+  { href: '/guides/should-i-hose-off-my-windows/', q: 'Should I rinse my windows with a hose?' },
+];
+const diyItems = [...diyGuides, ...askedElsewhere.filter((f) => !diyGuides.some((g) => g.href === f.href))];
 const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, `Reviews from ${t.name}`, `${t.name} customers, in their words`]) : say(url, 'rev-h', ['What customers across the metro say', 'Reviews from around Tucson', 'What Tucson-area customers say']);
 ---
 <Base
@@ -91,7 +106,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   ctaArea={t.slug}
   ctaPlace={t.slug === 'vail-az' ? t.name : t.name.replace(/ AZ$/, '')}
 >
-  <HeroPlace title={title} place={t.name} lede={d?.answer ?? t.intro} crumbs={crumbs} photos={strip} ctaHref={`/quote/?area=${t.slug}`} />
+  <HeroPlace title={title} place={t.name} lede={keepPhone(d?.answer ?? t.intro)} crumbs={crumbs} photos={strip} ctaHref={`/quote/?area=${t.slug}`} />
   <TrustRow />
 
   {d?.sections && <DepthSections sections={d.sections} variant="prose" heading={d.heading ?? `${t.name}, up close`} intro={d.answer ? t.intro : undefined} mfold />}
@@ -112,7 +127,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   {reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} />}
   {reviewsFirst && <ReviewSetBlock set={restSet} title={revTitle} />}
 
-  <Filmstrip keys={film} title={film.some((k) => photoTown[k] === t.slug) ? `More from ${t.name} jobs` : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs'])} max={4} />
+  <Filmstrip keys={film} title={film.slice(0, 4).every((k) => photoTown[k] === t.slug) ? say(url, 'film-h', [`Recent work in ${t.name}`, `From our ${t.name} jobs`]) : film.slice(0, 4).some((k) => photoTown[k] === t.slug) ? `Recent jobs in ${t.name} and nearby` : say(url, 'film-h', ['Recent jobs across the Tucson area', 'Recent work around Tucson', 'A few of our recent jobs'])} max={4} />
 
   {(kids.length > 0 || secs.length > 0) && (
     <Directory title={`Where we work in ${t.name}`} links={kids.map((c) => ({ name: c.name, href: communityHref(c) }))} named={secs} id="where" />
@@ -121,18 +136,22 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   {!reviewsFirst && featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone="mist" />}
   {!reviewsFirst && <ReviewSetBlock set={restSet} title={revTitle} />}
 
-  {faqs.length > 0 && <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold />}
-  <section class="section-tight bg-mist" data-mfold>
-    <div class="wrap diy">
-      <h2 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h2>
-      <ul class="diy-list" role="list">
-        <li><a href="/guides/can-i-clean-my-own-windows/">Can I just clean my own windows?<Icon name="arrow" size={20} /></a></li>
-        <li><a href="/guides/why-do-windows-look-worse-after-i-clean-them/">Why do my windows look worse after I clean them?<Icon name="arrow" size={20} /></a></li>
-        <li><a href="/guides/should-i-hose-off-my-windows/">Should I rinse my windows with a hose?<Icon name="arrow" size={20} /></a></li>
-        {askedElsewhere.filter((f) => !['/guides/can-i-clean-my-own-windows/', '/guides/why-do-windows-look-worse-after-i-clean-them/', '/guides/should-i-hose-off-my-windows/'].includes(f.href)).map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}
-      </ul>
-    </div>
-  </section>
+  {/* One questions block: the town's own answers, then the guides, as links. Short FAQs no longer stand alone as a big section. */}
+  {faqs.length > 0 ? (
+    <FaqList items={faqs} links={faqLinks} title={`${t.name} questions`} phoneClosed mfold>
+      <div class="diy diy-in">
+        <h3 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h3>
+        <ul class="diy-list" role="list">{diyItems.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </FaqList>
+  ) : (
+    <section class="section-tight bg-mist" data-mfold>
+      <div class="wrap diy">
+        <h2 class="h3">{say(url, 'diy-h', [`More answers for ${t.name} homeowners`, 'Doing it yourself?', 'Before you grab a squeegee'])}</h2>
+        <ul class="diy-list" role="list">{diyItems.map((f) => <li><a href={f.href}>{f.q}<Icon name="arrow" size={20} /></a></li>)}</ul>
+      </div>
+    </section>
+  )}
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
@@ -154,5 +173,6 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
   .diy-list a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; border-bottom: 1px solid var(--line-strong); font-weight: 700; color: var(--navy); text-decoration: none; font-size: 1.08rem; }
   .diy-list a :global(svg) { flex: none; color: var(--blue-700); }
   .diy-list a:hover { color: var(--blue-700); }
+  .diy-in { margin-top: clamp(1.6rem, 1rem + 2vw, 2.4rem); }
   @media (max-width: 759px) { .also { font-size: 1rem; padding-top: 1rem; } }
 </style>
