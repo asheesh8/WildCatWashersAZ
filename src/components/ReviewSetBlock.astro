@@ -14,13 +14,14 @@ const fold = set.local.length > 0 && set.more.length > 0;
     </div>
     {set.local.length > 0 && (
       <>
-        <p class="rs-label">{set.localLabel}</p>
+        {/* The label only earns its line when a second, wider group follows; alone it repeats the heading. */}
+        {set.more.length > 0 && <p class="rs-label">{set.localLabel}</p>}
         <ReviewGrid reviews={set.local} />
       </>
     )}
     {set.more.length > 0 && (
       <div id="rs-more" class:list={['rs-more', fold && 'is-fold']}>
-        <p class="rs-label" style="margin-top:2rem">{set.moreLabel}</p>
+        {set.local.length > 0 && <p class="rs-label" style="margin-top:2rem">{set.moreLabel}</p>}
         <ReviewGrid reviews={set.more} />
       </div>
     )}

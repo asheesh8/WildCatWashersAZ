@@ -28,6 +28,7 @@ import { serviceTownPhotos } from '@/data/placement';
 import { faqRefs } from '@/data/faq';
 import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import { guideByUrl } from '@/data/guides';
+import { allKeys, photoTown, photoKind, weakHero, sceneOf } from '@/data/media';
 
 export interface Props { ls: LocalService; t: Town }
 const { ls, t } = Astro.props as { ls: LocalService; t: Town };
@@ -64,11 +65,19 @@ const windowProof = new Set(s.slug === 'window-cleaning' ? [] : depth[`/services
 const set = withProof(baseSet, proofReviews(d).filter((r) => !windowProof.has(r.n)), (r) => r.area === t.reviewArea, 6, keptOut(d));
 const allFaqs = withDepthFaqs(faqRefs(row?.faq_refs).filter((f) => f.n >= 91 && f.n <= 122), d);
 /* Town questions print in full; general questions shared across towns are linked to their owner page, not reprinted. */
-const isShared = (n: number) => (n < 91 || n > 122) && faqOwner(n) !== url && Boolean(faqOwner(n));
+/* A town question owned by the town's window page ("Who does window cleaning in…?") is a link here too, not printed under another service's heading. */
+const isShared = (n: number) => ((n < 91 || n > 122) || s.slug !== 'window-cleaning') && faqOwner(n) !== url && Boolean(faqOwner(n));
 const placeFaqs = allFaqs.filter((f) => !isShared(f.n));
 const sharedFaqs = allFaqs.filter((f) => isShared(f.n)).map((f) => ({ href: faqOwner(f.n)!, q: f.q }));
 const faqLinks = ownerLinks(placeFaqs, url);
-const photos = serviceTownPhotos(s.slug, t.slug, s.image);
+const placed = serviceTownPhotos(s.slug, t.slug, s.image);
+/* A town's hero never shows another town's job. When no photo of this service was taken here,
+   the hero is this town's own glass (or an untagged shot), and the service photo moves to the strip. */
+const foreign = (k: string) => Boolean(photoTown[k]) && photoTown[k] !== t.slug;
+const homeHero = (kinds: string[]) => allKeys.filter((k) => kinds.includes(photoKind[k]) && !weakHero.has(k) && !/^before-after|split$|^award-/.test(k)
+  && !placed.gallery.some((g) => sceneOf(g) === sceneOf(k)) && (photoTown[k] === t.slug)).sort((a, b) => hashSeed(url + a) - hashSeed(url + b))[0];
+const swap = foreign(placed.hero) ? (placed.gallery.find((g) => !foreign(g) && !weakHero.has(g)) ?? homeHero(['window-result', 'window-action'])) : undefined;
+const photos = swap ? { hero: swap, gallery: [placed.hero, ...placed.gallery.filter((g) => g !== swap)] } : placed;
 const photo = photos.hero;
 const kids = childrenOf(t.slug);
 /* Window pages also point to the do-it-yourself guide; solar screen pages to rescreening. */
@@ -92,10 +101,12 @@ const description = d?.meta ?? fitDescription(`${s.name} in ${t.name}: ${angleLo
 const listNames = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}` : xs[0]);
 const facts = [
   ...(localCount > 0 ? [{ term: 'Local reviews', body: `${localCount} five-star review${localCount === 1 ? '' : 's'} from ${t.name} customers mention our ${s.name.toLowerCase()}.` }] : []),
-  ...(az19 ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
+  ...(az19 && s.slug === 'window-cleaning' ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
   ...(kids.length ? [{ term: 'Neighborhoods we visit', body: `${listNames(kids.slice(0, 4).map((k) => k.name))}${kids.length > 4 ? ', and more' : ''}.` }] : []),
   { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes. You don’t pay until you’re happy.' },
 ].slice(0, 3);
+/* The phone number never breaks across lines in the hero copy. */
+const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
 const featured = set.local.find((r) => r.text.length >= 90 && r.text.length <= 320);
 const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== featured.n) } : set;
 ---
@@ -108,7 +119,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
   ctaArea={t.slug}
   ctaPlace={short}
 >
-  <HeroField title={h1} lede={d?.answer ?? proofLede} crumbs={crumbs} photo={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} facts={facts} factsTitle={`${s.name} in ${t.name}`} flip={vary(url, 2, 'hero') === 1} />
+  <HeroField title={h1} lede={keepPhone(d?.answer ?? proofLede)} crumbs={crumbs} photo={photo} ctaLabel={s.cta} ctaHref={`/quote/?service=${s.slug}&area=${t.slug}`} facts={facts} factsTitle={`${s.name} in ${t.name}`} flip={vary(url, 2, 'hero') === 1} />
   <TrustRow tone={vary(url, 2, 'trow') ? 'navy' : 'light'} />
 
   <section class="section">
@@ -135,7 +146,20 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
 
   <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${t.name} customers say`, `${s.name} reviews from ${t.name}`, `From customers in ${t.name}`]) : say(url, 'rev-h', [`${s.name} reviews from across Greater Tucson`, `What Tucson-area customers say about our ${s.name.toLowerCase()}`, `${s.name} reviews from around the metro`])} />
 
-  {(answers.length > 0 || sharedFaqs.length > 0) && (
+  {/* One questions block on the page: this town's answers, then the guides and shared answers as links. */}
+  {placeFaqs.length > 0 ? (
+    <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold>
+      {ansItems.length > 0 && (
+        <div class="ans-in">
+          <h3 class="h3">Straight answers for {t.name} owners</h3>
+          <ul class="ans" role="list" id="ans-list" data-pfold="2">
+            {ansItems.map((a) => <li><a href={a.href}><strong>{a.label}</strong></a></li>)}
+          </ul>
+          {ansItems.length > 3 && <button type="button" class="pf-more" aria-controls="ans-list" aria-expanded="false">Show {ansItems.length - 2} more answers</button>}
+        </div>
+      )}
+    </FaqList>
+  ) : ansItems.length > 0 && (
     <section class="section-tight bg-mist" data-mfold>
       <div class="wrap">
         <h2 class="h3" style="margin-bottom:1rem">Straight answers for {t.name} owners</h2>
@@ -146,8 +170,6 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
       </div>
     </section>
   )}
-
-  {placeFaqs.length > 0 && <FaqList items={placeFaqs} links={faqLinks} title={d?.faq ? `${s.name} in ${t.name}: questions` : `Serving ${t.name}`} phoneClosed mfold />}
 
   <section class="section-tight" data-mfold>
     <div class="wrap">
@@ -177,6 +199,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
   .svc .text-link { justify-self: start; }
   .phone-cta { display: inline-flex; align-items: center; gap: .6rem; color: var(--navy); font-family: var(--font-display); font-weight: 850; font-size: 1.4rem; text-decoration: none; }
   .phone-cta :global(svg) { color: var(--blue-700); }
+  .ans-in { display: grid; gap: 1rem; margin-top: clamp(1.6rem, 1rem + 2vw, 2.4rem); }
   .ans { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .ans a { display: grid; gap: .4rem; height: 100%; min-height: 56px; align-content: center; padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; box-shadow: var(--shadow-xs); }
   .ans a:hover { border-color: var(--blue); }
