@@ -452,6 +452,8 @@ const focusOverride: Record<string, string> = {
   'crew-yard-sign-arched-window': '50% 55%',
   'crew-yard-sign-living-room': '45% 50%',
   'team-on-truck-desert': '50% 60%',
+  /* The two techs stand in the lower half; anchor low so wide crops keep them whole. */
+  'crew-fire-station-commercial': '45% 100%',
   'team-trucks-desert-mountains': '50% 70%',
   'hero-crew-trucks-sky': '50% 65%',
   'tech-shirt-back-scrubbing': '50% 30%',

@@ -35,7 +35,7 @@ const photo = img('hero-crew-trucks-sky');
     <p class="hero-sub">Wildcat Washers cleans windows, solar panels and solar screens and does pressure washing across Greater Tucson and Southern Arizona<span class="sub-tail">, seven days a week, backed by a 14-Day Spotless Guarantee</span>.</p>
     <div class="hero-cta">
       <a class="btn btn-lg btn-blue" href={cta.quoteHref} data-track="quote-hero"><span>{cta.primary}</span><span class="chip"><Icon name="arrow" /></span></a>
-      <a class="hero-call" href={telHref} data-track="call-hero">or call <strong>{company.phone}</strong></a>
+      <a class="hero-call" href={telHref} data-track="call-hero">or call&nbsp;<strong>{company.phone}</strong></a>
     </div>
   </div>
 </section>
@@ -43,15 +43,19 @@ const photo = img('hero-crew-trucks-sky');
 <style>
   .hero {
     position: relative; isolation: isolate; overflow: hidden;
-    /* Tall enough to show the whole photo, so the crew is never cropped away. */
-    min-height: min(100svh, 1000px);
-    display: grid; grid-template-columns: minmax(0, 1fr); align-items: start;
-    background: #3b689c;
+    /* The words take the top rows; the photo sits at full width along the bottom with its
+       bare ground cropped off (the lowest 16%, i.e. 12vw of a 4:3 frame). The band under the
+       words (24vw) is just taller than the crew and trucks (heads at 55% of the photo, so
+       21.4vw up from the cut), so the button ends right above their heads at any width. */
+    display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 24vw; align-items: start;
+    background: linear-gradient(180deg, #2f5b93 0%, #3f6ea4 100%);
     color: #fff;
   }
   .hero-img {
-    position: absolute; inset: 0; z-index: -2;
-    width: 100%; height: 100%; object-fit: cover; object-position: 50% 5%;
+    position: absolute; left: 0; bottom: -12vw; z-index: -2;
+    width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    /* The photo's top edge melts into the matching sky blue behind it. */
+    -webkit-mask: linear-gradient(180deg, transparent 0, #000 14%); mask: linear-gradient(180deg, transparent 0, #000 14%);
   }
   /* Only darkens the sky behind the words; the crew below stays untouched. */
   .hero-shade {
@@ -60,7 +64,7 @@ const photo = img('hero-crew-trucks-sky');
   }
   .hero-copy {
     display: grid; justify-items: center; text-align: center; gap: .8rem;
-    padding-top: calc(var(--header-h) + clamp(1rem, .5rem + 2vw, 2.5rem));
+    padding-top: calc(var(--header-h) + clamp(.8rem, .4rem + 1vw, 1.5rem));
     padding-bottom: 2rem;
   }
   .hero-pill {
@@ -73,8 +77,8 @@ const photo = img('hero-crew-trucks-sky');
   .hero-title {
     font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
     font-variation-settings: 'wdth' 112; letter-spacing: -.02em; line-height: .95;
-    font-size: clamp(2.3rem, 1.2rem + 3.6vw, 5rem);
-    max-width: 24ch;
+    font-size: clamp(2.3rem, 1.2rem + 3.6vw, 4.5rem);
+    max-width: 32ch; text-wrap: balance;
     text-shadow: 0 2px 24px rgb(18 24 50 / 35%);
   }
   .nowrap { white-space: nowrap; }
@@ -84,7 +88,7 @@ const photo = img('hero-crew-trucks-sky');
     text-shadow: 0 2px 14px rgb(18 24 50 / 45%);
   }
   .hero-script::first-letter { color: inherit; }
-  .hero-sub { font-size: var(--step-1); max-width: 46ch; line-height: 1.45; text-shadow: 0 1px 12px rgb(18 24 50 / 50%); font-weight: 500; }
+  .hero-sub { font-size: var(--step-1); max-width: 60ch; line-height: 1.45; text-shadow: 0 1px 12px rgb(18 24 50 / 50%); font-weight: 500; }
   .hero-cta { display: grid; justify-items: center; gap: .7rem; margin-top: .6rem; }
   .hero-call { color: #fff; text-decoration: none; font-size: 1.1rem; text-shadow: 0 1px 10px rgb(18 24 50 / 60%); }
   .hero-call strong { font-family: var(--font-display); font-weight: 800; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 4px; }
@@ -93,7 +97,7 @@ const photo = img('hero-crew-trucks-sky');
   /* Phones: the photo is landscape, so stack it under the words instead of
      cropping the crew away. */
   @media (max-width: 760px) {
-    .hero { min-height: 0; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
+    .hero { min-height: 0; grid-template-rows: none; background: linear-gradient(180deg, #33609a 0%, #4f86bf 55%, #5f97cf 100%); }
     .hero-img { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 10; object-position: 50% 75%; order: 2; margin-top: -3.5rem;
       -webkit-mask: linear-gradient(180deg, transparent 0, #000 22%); mask: linear-gradient(180deg, transparent 0, #000 22%); }
     .hero-shade { display: none; }
