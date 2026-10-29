@@ -20,7 +20,7 @@ const groups: { name: string; test: (s?: string) => boolean }[] = [
 const grouped = groups.map((gr) => ({ name: gr.name, items: answers.filter((p) => gr.test(p.g.service)) })).filter((gr) => gr.items.length);
 ---
 <Base title="Guides & Answers for Tucson Homes | Wildcat Washers" description="Straight answers about keeping Tucson windows, solar panels, screens and patios clean, from the crew that does it every day." breadcrumbs={crumbs}>
-  <PageHero eyebrow="Learn before you book" title={h1For('/guides/', 'Guides and Answers')} lede="Desert dust, hard water, monsoon season, pigeons and sun. Here’s what we’ve learned cleaning Tucson homes every day, answered plainly." crumbs={crumbs} rating={false} />
+  <PageHero title={h1For('/guides/', 'Guides and Answers')} lede="Desert dust, hard water, monsoon season, pigeons and sun. Here’s what we’ve learned cleaning Tucson homes every day, answered plainly." crumbs={crumbs} rating={false} />
   <section class="section-tight">
     <div class="wrap">
       <h2 class="h3" style="margin-bottom:1rem">Start with a guide</h2>

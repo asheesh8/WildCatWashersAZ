@@ -26,10 +26,13 @@ export const ownsFaq = (n: number, url: string) => owner.get(n) === url;
 /** "Read more" links from a shown question to the page that owns it. */
 export function ownerLinks(items: Faq[], url: string) {
   const out: Record<number, { href: string; label: string }> = {};
+  // One "More on this" per target page: seven answers ending in the same link read as filler.
+  const seen = new Set<string>();
   for (const f of items) {
     const href = owner.get(f.n);
     const row = href ? rowByUrl.get(href) : undefined;
-    if (!href || href === url || !row || !isBuilt(href, row.family)) continue;
+    if (!href || href === url || !row || !isBuilt(href, row.family) || seen.has(href)) continue;
+    seen.add(href);
     out[f.n] = { href, label: `More on this: ${row.h1.replace(/\?$/, '')}` };
   }
   return out;

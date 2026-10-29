@@ -15,10 +15,10 @@ export const landings: Landing[] = [
     ],
     sections: [
       {
-        h: "Why a hose and a broom don't get it clean",
+        h: "Why a hose and a broom don’t get it clean",
         p: [
-          "Screen mesh in Tucson collects a fine layer of dust that works its way into the weave. Spraying from one side mostly moves it around or pushes it deeper. That's why so many people who have tried to clean their own Arizona room end up calling us. It looks a little better for a day, then goes dull again.",
-          "Our process works on the mesh from both directions. The hand scrub loosens what's embedded, the inside-out rinse carries it away, and the outside-in pass lifts whatever is left. The cleaning solution is scrubbed in by hand where the screens need it. We don't soft wash, which relies on chemicals doing the work, and we don't seal or coat the floor afterward.",
+          "Screen mesh in Tucson collects a fine layer of dust that works its way into the weave. Spraying from one side mostly moves it around or pushes it deeper. That’s why so many people who have tried to clean their own Arizona room end up calling us. It looks a little better for a day, then goes dull again.",
+          "Our process works on the mesh from both directions. The hand scrub loosens what’s embedded, the inside-out rinse carries it away, and the outside-in pass lifts whatever is left. The cleaning solution is scrubbed in by hand where the screens need it. We don’t soft wash, which relies on chemicals doing the work, and we don’t seal or coat the floor afterward.",
         ],
       },
       {
@@ -31,7 +31,7 @@ export const landings: Landing[] = [
         h: 'Easy to add to other work',
         p: [
           "Our trucks carry equipment for every service we offer. If a crew is at your house for windows, solar screens or a patio, the Arizona room can often be added the same day. Doing several services in one trip saves us time and routing, and that shows up in your quote. Wildcat Club members also save 10 percent on add-on services like this one.",
-          "Every job ends with a walkthrough. You look it over with the crew, anything not right gets fixed on the spot, and payment waits until you're satisfied.",
+          "Every job ends with a walkthrough. You look it over with the crew, anything not right gets fixed on the spot, and payment waits until you’re satisfied.",
         ],
       },
     ],
@@ -59,21 +59,21 @@ export const landings: Landing[] = [
       {
         h: 'Why paint fails on dusty walls',
         p: [
-          "Paint is only as good as what it sticks to. In Southern Arizona, exterior walls hold a steady layer of fine dust, and older paint breaks down in the sun into a chalky surface. Roll new paint over that and it bonds to the loose layer instead of the wall underneath. That's when you see peeling and flaking years before you should.",
-          "A proper wash takes that layer off so the new coat grips the real surface. It's a small step next to the cost of the paint job, and it protects what you're paying for.",
+          "Paint is only as good as what it sticks to. In Southern Arizona, exterior walls hold a steady layer of fine dust, and older paint breaks down in the sun into a chalky surface. Roll new paint over that and it bonds to the loose layer instead of the wall underneath. That’s when you see peeling and flaking years before you should.",
+          "A proper wash takes that layer off so the new coat grips the real surface. It’s a small step next to the cost of the paint job, and it protects what you’re paying for.",
         ],
       },
       {
-        h: "What the wash covers, and what it doesn't",
+        h: "What the wash covers, and what it doesn’t",
         p: [
-          "We pressure wash to clean. Where a surface needs extra help, we scrub in a cleaning solution by hand and rinse it off. We don't soft wash, and we don't strip paint either. Paint removal depends on chemicals, and we've discontinued it. Rust, oil and deep masonry stains are outside our scope for the same reason.",
+          "We pressure wash to clean. Where a surface needs extra help, we scrub in a cleaning solution by hand and rinse it off. We don’t soft wash, and we don’t strip paint either. Paint removal depends on chemicals, and we’ve discontinued it. Rust, oil and deep masonry stains are outside our scope for the same reason.",
         ],
       },
       {
         h: 'For homeowners and for painters',
         p: [
           "Planning to repaint your own house? Book the wash yourself and have it done before the paint crew arrives. If you run a painting company, you can hand the prep off to us instead of hauling equipment to every job. We work with both, and we schedule around the paint start date.",
-          "Either way, you get a quote over the phone in a few minutes, reminder texts before the visit, and a walkthrough at the end. Payment comes only after you're happy with the result.",
+          "Either way, you get a quote over the phone in a few minutes, reminder texts before the visit, and a walkthrough at the end. Payment comes only after you’re happy with the result.",
         ],
       },
     ],
@@ -88,21 +88,21 @@ export const landings: Landing[] = [
   {
     url: '/services/pressure-washing/driveways-garage-floors/',
     lede:
-      "Driveway and garage floor cleaning from Wildcat Washers lifts years of dust, dirt and tire marks off concrete with pressure washing. Most driveways take one to three hours, and concrete that has gone grey is often still tan underneath. We're upfront about the limits, too: oil stain and rust stain removal aren't services we offer.",
+      "Driveway and garage floor cleaning from Wildcat Washers lifts years of dust, dirt and tire marks off concrete with pressure washing. Most driveways take one to three hours, and concrete that has gone grey is often still tan underneath. We’re upfront about the limits, too: oil stain and rust stain removal aren’t services we offer.",
     service: 'pressure-washing',
     points: [
       "Driveways, garage floors, walkways, sidewalks, entryways and porches are all common jobs.",
       "Tire marks come off readily and make one of the most striking before-and-after results we see.",
       "Pressure is matched to the surface, and nearby stucco, paint and landscaping are protected.",
-      "Oil stains, rust stains and deep masonry stains need heavy chemical treatment, so we don't take them on.",
+      "Oil stains, rust stains and deep masonry stains need heavy chemical treatment, so we don’t take them on.",
       "For most homes, a couple of washes a year keeps concrete from sliding back to grey.",
     ],
     sections: [
       {
-        h: "What comes up, and what doesn't",
+        h: "What comes up, and what doesn’t",
         p: [
-          "Dust, dirt, debris and rubber marks sit on top of the concrete, and pressure washing removes them well. That's most of what makes a driveway or garage floor look tired. One customer had us take 15 years of tire marks off a garage floor, and a surface that's never been washed is usually the most satisfying to clean.",
-          "Oil, rust, graffiti and deep stains are a different problem. They soak into the concrete, and getting them out depends on strong chemicals. We keep chemical use low, so we don't offer that work. We'd rather tell you on the phone than leave you disappointed on the day.",
+          "Dust, dirt, debris and rubber marks sit on top of the concrete, and pressure washing removes them well. That’s most of what makes a driveway or garage floor look tired. One customer had us take 15 years of tire marks off a garage floor, and a surface that’s never been washed is usually the most satisfying to clean.",
+          "Oil, rust, graffiti and deep stains are a different problem. They soak into the concrete, and getting them out depends on strong chemicals. We keep chemical use low, so we don’t offer that work. We’d rather tell you on the phone than leave you disappointed on the day.",
         ],
       },
       {
@@ -114,7 +114,7 @@ export const landings: Landing[] = [
       {
         h: 'How a visit works',
         p: [
-          "Call or send the quote form and we'll price the job by surface area and scope over the phone. You'll get a text a week before, another the day before, and one when the crew is on the way. You don't need to be home for outside work. When the crew finishes, they check the whole surface, and you pay only once you're happy.",
+          "Call or send the quote form and we’ll price the job by surface area and scope over the phone. You’ll get a text a week before, another the day before, and one when the crew is on the way. You don’t need to be home for outside work. When the crew finishes, they check the whole surface, and you pay only once you’re happy.",
         ],
       },
     ],
@@ -129,13 +129,13 @@ export const landings: Landing[] = [
   {
     url: '/services/pressure-washing/patios-pool-decks/',
     lede:
-      "Patio and pool deck cleaning from Wildcat Washers takes desert dust off concrete, pavers and pool surrounds, then keeps going to the furniture, tables, chairs and grill. We use the right pressure for each surface, keep chemicals low near the water, and protect the plants around it. We clean patios; we don't seal, stain or coat them.",
+      "Patio and pool deck cleaning from Wildcat Washers takes desert dust off concrete, pavers and pool surrounds, then keeps going to the furniture, tables, chairs and grill. We use the right pressure for each surface, keep chemicals low near the water, and protect the plants around it. We clean patios; we don’t seal, stain or coat them.",
     service: 'pressure-washing',
     points: [
       "Patios, pool decks, pavers, walkways and entryways are cleaned by pressure washing.",
       "Outdoor furniture, tables, chairs, grills, BBQ areas and trash cans can be done in the same visit.",
       "Pavers get the right pressure and technique so the joints stay intact.",
-      "Around the pool, chemical use stays light and we're careful about where the water runs.",
+      "Around the pool, chemical use stays light and we’re careful about where the water runs.",
       "Sealing, staining, coating and soft washing are not part of the service.",
     ],
     sections: [
@@ -143,20 +143,20 @@ export const landings: Landing[] = [
         h: 'The whole outdoor space, not just the slab',
         p: [
           "A Tucson patio collects dust fast, and it lands on everything, not only the ground. Tabletops, chair seats, the grill and the shade of the porch all hold a gritty film. We treat the area as one job, so when you step outside the entire space looks ready to use.",
-          "Outdoor furniture and patio dust buildup is one of the most common reasons people call us for pressure washing. It's also one of the easiest jobs to add when we're already out for windows.",
+          "Outdoor furniture and patio dust buildup is one of the most common reasons people call us for pressure washing. It’s also one of the easiest jobs to add when we’re already out for windows.",
         ],
       },
       {
         h: 'Near the pool and the plants',
         p: [
-          "Pool decks call for care about runoff. We clean with water pressure, and hand scrubbing where a spot needs it, rather than leaning on heavy chemicals. Water gets directed away from where it shouldn't go. Desert landscaping gets the same attention, with crews watching their footing and where equipment sits.",
+          "Pool decks call for care about runoff. We clean with water pressure, and hand scrubbing where a spot needs it, rather than leaning on heavy chemicals. Water gets directed away from where it shouldn’t go. Desert landscaping gets the same attention, with crews watching their footing and where equipment sits.",
         ],
       },
       {
         h: 'Clean, not sealed',
         p: [
-          "Sealing and staining aren't something we do. Our work is cleaning: removing dirt, dust and debris so the original surface shows again. If you plan to seal pavers, a clean surface is a good starting point, but the sealing itself would be someone else's job. Oil and rust stains are outside our scope as well.",
-          "Quotes are based on surface area and scope and take a few minutes on the phone. You don't pay until the crew has walked the patio with you and you're happy with it.",
+          "Sealing and staining aren’t something we do. Our work is cleaning: removing dirt, dust and debris so the original surface shows again. If you plan to seal pavers, a clean surface is a good starting point, but the sealing itself would be someone else’s job. Oil and rust stains are outside our scope as well.",
+          "Quotes are based on surface area and scope and take a few minutes on the phone. You don’t pay until the crew has walked the patio with you and you’re happy with it.",
         ],
       },
     ],
@@ -171,7 +171,7 @@ export const landings: Landing[] = [
   {
     url: '/services/solar-screens/repair-rescreening/',
     lede:
-      "Solar screen repair at Wildcat Washers means new mesh in your existing frame. When sun screens fade, tear or sag, we take them off, rescreen them with top-grade Phifer material, and bring them back to reinstall. If a frame is badly damaged, we'll tell you and recommend a new custom screen instead, even though repair is the smaller job.",
+      "Solar screen repair at Wildcat Washers means new mesh in your existing frame. When sun screens fade, tear or sag, we take them off, rescreen them with top-grade Phifer material, and bring them back to reinstall. If a frame is badly damaged, we’ll tell you and recommend a new custom screen instead, even though repair is the smaller job.",
     service: 'solar-screens',
     points: [
       "Repair replaces the mesh and keeps the frame you already have.",
@@ -185,20 +185,20 @@ export const landings: Landing[] = [
         h: 'Repair or replace?',
         p: [
           "Most solar screens wear out slowly. Heavy sun fades the mesh over the years, and cheaper material fades faster. Pets, wind and yard work can tear it. In all of those cases the frame is usually fine, and fresh mesh gives you a screen that looks and works like new without building one from scratch.",
-          "The exception is the frame itself. If it's bent, broken or badly damaged, we'll say so and recommend replacement. We'd rather you spend once on something that lasts than patch a screen that won't hold up.",
+          "The exception is the frame itself. If it’s bent, broken or badly damaged, we’ll say so and recommend replacement. We’d rather you spend once on something that lasts than patch a screen that won’t hold up.",
         ],
       },
       {
         h: 'A chance to change the shade or color',
         p: [
-          "Because repair means brand-new mesh, you don't have to match what was there before. A 90 percent mesh blocks up to 90 percent of the sun's heat and glare, compared with 80 percent for an 80 mesh, so a room that still runs hot can get more shade. Black and beige are the most common colors, and beige is often picked to blend with stucco.",
+          "Because repair means brand-new mesh, you don’t have to match what was there before. A 90 percent mesh blocks up to 90 percent of the sun’s heat and glare, compared with 80 percent for an 80 mesh, so a room that still runs hot can get more shade. Black and beige are the most common colors, and beige is often picked to blend with stucco.",
           "The Phifer material we use is fade resistant and carries a manufacturer warranty, which is a big part of why we use it.",
         ],
       },
       {
-        h: "What we don't repair",
+        h: "What we don’t repair",
         p: [
-          "Heavy-duty metal security gate screens and retractable screens with electric or mechanical hardware are outside what we build or repair, though we can clean and recondition them. People often call solar screens security screens, so if you're not sure what you have, describe it on the phone and we'll sort it out together.",
+          "Heavy-duty metal security gate screens and retractable screens with electric or mechanical hardware are outside what we build or repair, though we can clean and recondition them. People often call solar screens security screens, so if you’re not sure what you have, describe it on the phone and we’ll sort it out together.",
           "While your screens are in the shop is also a good time to have the windows behind them cleaned. When we reinstall, the brackets rotate in and out, so you can pop the screens off yourself later if you ever need to.",
         ],
       },
@@ -227,20 +227,20 @@ export const landings: Landing[] = [
       {
         h: 'What buyers notice',
         p: [
-          "Clean glass lets a room look brighter in listing photos. Up close, at a showing, it's the details around the glass that stand out: dusty tracks, spotted sills and grimy or torn screens can make a house look less cared for than it is. Because our service covers every part of the window, the whole thing presents well, not just the pane.",
+          "Clean glass lets a room look brighter in listing photos. Up close, at a showing, it’s the details around the glass that stand out: dusty tracks, spotted sills and grimy or torn screens can make a house look less cared for than it is. Because our service covers every part of the window, the whole thing presents well, not just the pane.",
         ],
       },
       {
         h: 'Built around your listing date',
         p: [
-          "Tell us when photos are booked and we'll work back from that date. Crews work seven days a week, and we usually aren't booked far out. You'll get texts a week out, 24 hours out and as we head over, which makes coordinating with your sellers easy. If the sellers have already moved out, the work can be done with nobody home.",
+          "Tell us when photos are booked and we’ll work back from that date. Crews work seven days a week, and we usually aren’t booked far out. You’ll get texts a week out, 24 hours out and as we head over, which makes coordinating with your sellers easy. If the sellers have already moved out, the work can be done with nobody home.",
           "Timelines slip. If rain, sprinklers or dust hit the windows within 14 days of our visit, we come back and touch them up free under our 14-Day Spotless Guarantee. That helps when photos get pushed or an open house lands a week later.",
         ],
       },
       {
         h: 'Straight answers about the glass',
         p: [
-          "Before we start, we check every window and point out anything already there. Fogging between double panes is a failed seal and means the glass needs replacing, and glass that minerals have etched can't be cleaned back to clear. We tell you that up front, so you and your sellers can plan rather than be surprised.",
+          "Before we start, we check every window and point out anything already there. Fogging between double panes is a failed seal and means the glass needs replacing, and glass that minerals have etched can’t be cleaned back to clear. We tell you that up front, so you and your sellers can plan rather than be surprised.",
         ],
       },
     ],
@@ -261,7 +261,7 @@ export const landings: Landing[] = [
       "Turnover cleans cover glass, frames, sills, vacuumed tracks and reconditioned screens, inside and out.",
       "Several properties can share one schedule, which saves us routing and lowers what you pay.",
       "Licensed and fully insured, we can supply insurance certificates for your files.",
-      "Ongoing visits run on a plan tailored to each property's services and timing.",
+      "Ongoing visits run on a plan tailored to each property’s services and timing.",
       "Pressure washing, screen repair, solar panel cleaning and solar screens are available at the same addresses.",
     ],
     sections: [
@@ -275,13 +275,13 @@ export const landings: Landing[] = [
       {
         h: 'Vacation rentals and absentee owners',
         p: [
-          "Short-term rentals and homes whose owners live out of state are routine for us. Outside work regularly happens with nobody there, and the card on file is charged once it's done. Texts go out seven days ahead, 24 hours ahead and again as the truck heads over, so there's no guessing.",
+          "Short-term rentals and homes whose owners live out of state are routine for us. Outside work regularly happens with nobody there, and the card on file is charged once it’s done. Texts go out seven days ahead, 24 hours ahead and again as the truck heads over, so there’s no guessing.",
         ],
       },
       {
         h: 'A portfolio on one calendar',
         p: [
-          "Managing several addresses is easier with one company on a shared calendar. There's no fixed rate card. Each portfolio is quoted as a whole based on the properties and the services, and the time we save on the road comes back to you. Call and we'll walk through the list together.",
+          "Managing several addresses is easier with one company on a shared calendar. There’s no fixed rate card. Each portfolio is quoted as a whole based on the properties and the services, and the time we save on the road comes back to you. Call and we’ll walk through the list together.",
         ],
       },
     ],
@@ -301,8 +301,8 @@ export const landings: Landing[] = [
     points: [
       "Exterior prep is timed to the day your paint crew needs it, weekends included.",
       "Pressure is matched to the surface, with stucco, sills and landscaping protected.",
-      "Your client doesn't need to be home for exterior prep.",
-      "We're licensed and fully insured, and happy to provide documentation before we start.",
+      "Your client doesn’t need to be home for exterior prep.",
+      "We’re licensed and fully insured, and happy to provide documentation before we start.",
       "Pricing is quoted per job by surface area and scope, over the phone.",
     ],
     sections: [
@@ -316,12 +316,12 @@ export const landings: Landing[] = [
       {
         h: 'Scope of the prep',
         p: [
-          "We remove dirt, dust, debris and the loose, chalky film that builds up on sun-beaten walls. Where a surface needs more, we scrub in a cleaning solution by hand and rinse. We don't soft wash, strip paint or treat rust and oil stains, since those depend on heavy chemicals we don't use. Any paint removal the job calls for stays with you.",
-          "After the paint is dry, we can come back for the glass. Construction dust and overspray on windows are in scope, and hardened overspray usually comes off with quad-zero steel wool or a scraper, though heavy spots aren't guaranteed to come off completely.",
+          "We remove dirt, dust, debris and the loose, chalky film that builds up on sun-beaten walls. Where a surface needs more, we scrub in a cleaning solution by hand and rinse. We don’t soft wash, strip paint or treat rust and oil stains, since those depend on heavy chemicals we don’t use. Any paint removal the job calls for stays with you.",
+          "After the paint is dry, we can come back for the glass. Construction dust and overspray on windows are in scope, and hardened overspray usually comes off with quad-zero steel wool or a scraper, though heavy spots aren’t guaranteed to come off completely.",
         ],
       },
       {
-        h: "How we treat your client's property",
+        h: "How we treat your client’s property",
         p: [
           "Our crews are uniformed, background checked and arrive in marked trucks. Plants get protected, equipment gets set down with care, and nothing is left behind. When the prep crew is as careful as the paint crew, it reflects well on you.",
         ],
@@ -338,11 +338,11 @@ export const landings: Landing[] = [
   {
     url: '/who-we-help/builders-new-construction/',
     lede:
-      "New construction window cleaning from Wildcat Washers clears builder dust, debris and residue from glass, frames and tracks so a finished home or building is ready to hand over. We also pressure wash walls, walkways and driveways. Heavy paint or stucco overspray stuck to the glass is usually solvable, though we won't promise every spot comes off.",
+      "New construction window cleaning from Wildcat Washers clears builder dust, debris and residue from glass, frames and tracks so a finished home or building is ready to hand over. We also pressure wash walls, walkways and driveways. Heavy paint or stucco overspray stuck to the glass is usually solvable, though we won’t promise every spot comes off.",
     service: 'window-cleaning',
     points: [
       "Construction dust, debris and glass cleanup are in scope on residential and commercial builds.",
-      "Overspray is worked off with 0000 steel wool or a scraper, used correctly so the glass isn't scratched.",
+      "Overspray is worked off with 0000 steel wool or a scraper, used correctly so the glass isn’t scratched.",
       "Tracks are vacuumed out first, then washed, so grit is removed instead of pushed around.",
       "Driveways, walkways, entryways and exterior walls can be pressure washed on the same visit.",
       "Every service we offer, from windows to solar panels and solar screens, is available on a new build.",
@@ -358,7 +358,7 @@ export const landings: Landing[] = [
         h: 'Straight talk on overspray',
         p: [
           "Paint or stucco that has hardened onto the glass is the hardest part of a post-construction clean. We usually get it with quad-zero steel wool or a scraper. Coarser grades of steel wool scratch glass, and scratched glass has to be replaced, so technique matters here.",
-          "We'll tell you honestly if a spot won't come fully clean. We also inspect the glass before starting and point out any chips, scratches or failed seals already there, so nothing is a surprise at handover.",
+          "We’ll tell you honestly if a spot won’t come fully clean. We also inspect the glass before starting and point out any chips, scratches or failed seals already there, so nothing is a surprise at handover.",
         ],
       },
       {
@@ -384,15 +384,15 @@ export const landings: Landing[] = [
     points: [
       "Clubhouses, community centers, pools, rec centers, leasing offices and common-area glass are all in scope.",
       "Pressure washing for walkways, entryways, gates, block walls and outdoor furniture can run alongside the window visits.",
-      "Visits can be set for quiet hours so residents aren't disrupted.",
-      "We're licensed and fully insured, with insurance documents ready for your board or manager.",
+      "Visits can be set for quiet hours so residents aren’t disrupted.",
+      "We’re licensed and fully insured, with insurance documents ready for your board or manager.",
       "Condo associations, 55+ communities and mobile home and RV resorts are welcome too.",
     ],
     sections: [
       {
         h: 'How community pricing works',
         p: [
-          "When several buildings or homes are serviced in one trip, there's less driving and less routing for us, and we pass that back. There's no fixed rate card. Each association gets a custom quote based on what's being cleaned and how often, and the service mix can include windows, pressure washing, solar panels and screens.",
+          "When several buildings or homes are serviced in one trip, there’s less driving and less routing for us, and we pass that back. There’s no fixed rate card. Each association gets a custom quote based on what’s being cleaned and how often, and the service mix can include windows, pressure washing, solar panels and screens.",
         ],
       },
       {
@@ -405,7 +405,7 @@ export const landings: Landing[] = [
       {
         h: 'Homeowners can book us too',
         p: [
-          "Residents in your community can book their own home service with us whenever they like, whether that's a one-time clean or the Wildcat Club at three visits a year. Nobody needs to go through the association to get on the schedule.",
+          "Residents in your community can book their own home service with us whenever they like, whether that’s a one-time clean or the Wildcat Club at three visits a year. Nobody needs to go through the association to get on the schedule.",
         ],
       },
     ],
@@ -433,7 +433,7 @@ export const landings: Landing[] = [
       {
         h: 'Why clean windows matter where people live',
         p: [
-          "In a building that is someone's home, clean windows are part of how a room feels. Clear glass, clean sills and reconditioned screens make a space brighter and show that the building is looked after. Families visiting notice it, and so do the people who live there every day.",
+          "In a building that is someone’s home, clean windows are part of how a room feels. Clear glass, clean sills and reconditioned screens make a space brighter and show that the building is looked after. Families visiting notice it, and so do the people who live there every day.",
         ],
       },
       {
@@ -446,7 +446,7 @@ export const landings: Landing[] = [
       {
         h: 'Paperwork and service plans',
         p: [
-          "Certificates of insurance and standard compliance paperwork are ready before the first visit. A recurring service plan is built for you, so the schedule, the services and the frequency match your building rather than a template. There's no rate sheet; we quote each building. Call and we'll talk it through with your executive director or facilities lead.",
+          "Certificates of insurance and standard compliance paperwork are ready before the first visit. A recurring service plan is built for you, so the schedule, the services and the frequency match your building rather than a template. There’s no rate sheet; we quote each building. Call and we’ll talk it through with your executive director or facilities lead.",
         ],
       },
     ],
@@ -461,7 +461,7 @@ export const landings: Landing[] = [
   {
     url: '/who-we-help/snowbirds-seasonal-residents/',
     lede:
-      "For snowbirds, Wildcat Washers times window cleaning to your arrival. Share your travel dates and we'll pre-schedule the visit so the house is clean and ready the day you get to Tucson. Nobody has to be home for it. Seasonal residents and out-of-state owners are a regular part of our schedule.",
+      "For snowbirds, Wildcat Washers times window cleaning to your arrival. Share your travel dates and we’ll pre-schedule the visit so the house is clean and ready the day you get to Tucson. Nobody has to be home for it. Seasonal residents and out-of-state owners are a regular part of our schedule.",
     service: 'window-cleaning',
     points: [
       "Service is arranged around your travel dates, not the other way around.",
@@ -472,7 +472,7 @@ export const landings: Landing[] = [
     ],
     sections: [
       {
-        h: "What a house collects while you're away",
+        h: "What a house collects while you’re away",
         p: [
           "A home that sits empty through a Tucson summer still gets the dust, the monsoon storms and the sprinkler spray. Tracks fill up, screens hold grit, and hard water spots dry onto the glass in the heat. Coming back to that means spending your first week cleaning instead of settling in.",
           "Our arrival clean takes all of it off, including mineral buildup, which is removed at no extra charge. You walk into a house that looks the way you left it, or better.",
@@ -481,13 +481,13 @@ export const landings: Landing[] = [
       {
         h: 'Why we time it to arrival, not departure',
         p: [
-          "Cleaning right before you leave isn't something we recommend. Windows washed in spring and left through the summer are dirty again by the time you're back. A visit just before you land means you get the full benefit. If your plans shift, rescheduling needs only 48 hours' notice.",
+          "Cleaning right before you leave isn’t something we recommend. Windows washed in spring and left through the summer are dirty again by the time you’re back. A visit just before you land means you get the full benefit. If your plans shift, rescheduling needs only 48 hours' notice.",
         ],
       },
       {
         h: 'Staying on schedule while in town',
         p: [
-          "Mineral buildup doesn't take the season off, and our recommendation for Tucson is three cleanings a year. You can pair the arrival clean with visits while you're here, or join the Wildcat Club and let us handle the scheduling and reminders. One-time service is always available too.",
+          "Mineral buildup doesn’t take the season off, and our recommendation for Tucson is three cleanings a year. You can pair the arrival clean with visits while you’re here, or join the Wildcat Club and let us handle the scheduling and reminders. One-time service is always available too.",
         ],
       },
     ],
@@ -508,21 +508,21 @@ export const landings: Landing[] = [
       "Entry doors, display windows and storefront glass are cleaned without getting in your customers' way.",
       "Big panes and high glass can be washed with pure deionized water fed through a pole brush, so they dry spot-free.",
       "Your sidewalk and entryway can go on the same plan for pressure washing.",
-      "Need a certificate of insurance on file? We're happy to provide it.",
+      "Need a certificate of insurance on file? We’re happy to provide it.",
       "Single storefronts, shopping centers, pharmacies and grocery stores are all welcome.",
     ],
     sections: [
       {
         h: 'Why entry glass needs extra attention',
         p: [
-          "Storefront doors collect handprints all day, and Tucson dust settles on glass facing a parking lot. The entrance is the first thing a shopper sees, and it gets dirty fastest. That's why storefront entryways are often cleaned monthly, biweekly or even weekly when the owner wants them spotless without having to think about it.",
+          "Storefront doors collect handprints all day, and Tucson dust settles on glass facing a parking lot. The entrance is the first thing a shopper sees, and it gets dirty fastest. That’s why storefront entryways are often cleaned monthly, biweekly or even weekly when the owner wants them spotless without having to think about it.",
         ],
       },
       {
         h: 'A plan built for your store',
         p: [
           "Recurring commercial work runs as a custom service plan. We set the mix and the frequency together: entry glass often, the full exterior less often, and the sidewalk pressure washed when it needs it. Window work is priced per pane, with glass size, access and difficulty factored in, and every job is quoted individually.",
-          "Payment can be kept on file and charged after each visit, so there's nothing for your staff to handle while the crew works.",
+          "Payment can be kept on file and charged after each visit, so there’s nothing for your staff to handle while the crew works.",
         ],
       },
       {
@@ -543,12 +543,12 @@ export const landings: Landing[] = [
   {
     url: '/commercial/office-buildings/',
     lede:
-      "Wildcat Washers cleans office building windows for business parks, professional complexes, co-working spaces and corporate headquarters across Greater Tucson. We work before the workday, after hours or on weekends so nobody's meeting gets interrupted, and each window is cleaned as a whole, not just the pane.",
+      "Wildcat Washers cleans office building windows for business parks, professional complexes, co-working spaces and corporate headquarters across Greater Tucson. We work before the workday, after hours or on weekends so nobody’s meeting gets interrupted, and each window is cleaned as a whole, not just the pane.",
     service: 'window-cleaning',
     points: [
       "Exterior and interior glass are both available, cleaned by hand by trained technicians.",
       "Upper-story and hard-to-reach glass can be cleaned from the ground with a water-fed pole and deionized water.",
-      "Licensed and fully insured, with a certificate available for your building's records.",
+      "Licensed and fully insured, with a certificate available for your building’s records.",
       "Recurring visits are set up as a service agreement at the frequency your property needs.",
       "Solar panel cleaning, pressure washing and screen repair can be added for the same building.",
     ],
@@ -556,7 +556,7 @@ export const landings: Landing[] = [
       {
         h: 'Interior work in a working office',
         p: [
-          "Interior glass means walking through suites, conference rooms and lobbies. Our crews are uniformed, wear shoe covers indoors, protect floors and furniture from drips, and leave no mess behind. If you'd rather we come in before staff arrive or after they go home, that's an easy arrangement.",
+          "Interior glass means walking through suites, conference rooms and lobbies. Our crews are uniformed, wear shoe covers indoors, protect floors and furniture from drips, and leave no mess behind. If you’d rather we come in before staff arrive or after they go home, that’s an easy arrangement.",
         ],
       },
       {
@@ -569,7 +569,7 @@ export const landings: Landing[] = [
       {
         h: 'Getting started',
         p: [
-          "Call or send the quote form and we'll call back right away. For a larger building we talk through pane count, access and glass size, then set a schedule that works for your tenants. At the end of each visit the crew double checks the work and walks it with your contact before payment.",
+          "Call or send the quote form and we’ll call back right away. For a larger building we talk through pane count, access and glass size, then set a schedule that works for your tenants. At the end of each visit the crew double checks the work and walks it with your contact before payment.",
         ],
       },
     ],
@@ -587,7 +587,7 @@ export const landings: Landing[] = [
       "Medical and dental office windows get cleaned around patient hours when Wildcat Washers does the work. We serve medical plazas, multi-provider dental offices, urgent care, physical therapy and imaging centers, and veterinary clinics, working before patients arrive, once the doors close, or on a Saturday. Every visit brings the same professionally hand-cleaned glass, careful crews and walkthrough before payment.",
     service: 'window-cleaning',
     points: [
-      "Visits are timed so exam rooms and reception areas aren't disrupted.",
+      "Visits are timed so exam rooms and reception areas aren’t disrupted.",
       "Crews are background checked, uniformed and trained, with shoe covers on before they step inside.",
       "Proof of insurance and compliance documents can be provided ahead of the first appointment.",
       "Interior work stays dry, with towels protecting against drips.",
@@ -597,7 +597,7 @@ export const landings: Landing[] = [
       {
         h: 'Why timing matters in a clinic',
         p: [
-          "In a clinic, the entrance and reception area are in use all day. Cleaning before open or after close means patients never have to step around a ladder. A Saturday or early-morning slot is simple to arrange, and we'll text you once the technicians head your way.",
+          "In a clinic, the entrance and reception area are in use all day. Cleaning before open or after close means patients never have to step around a ladder. A Saturday or early-morning slot is simple to arrange, and we’ll text you once the technicians head your way.",
         ],
       },
       {
@@ -609,7 +609,7 @@ export const landings: Landing[] = [
       {
         h: 'One office or many',
         p: [
-          "A single dental office and a multi-building medical campus both run on custom service plans. If you manage several locations, they can share one schedule and one point of contact. Each quote reflects pane count, access and glass size. Call and we'll put a plan together that suits your hours.",
+          "A single dental office and a multi-building medical campus both run on custom service plans. If you manage several locations, they can share one schedule and one point of contact. Each quote reflects pane count, access and glass size. Call and we’ll put a plan together that suits your hours.",
           "Veterinary clinics and animal hospitals are welcome too. Our crews like animals.",
         ],
       },
@@ -625,7 +625,7 @@ export const landings: Landing[] = [
   {
     url: '/commercial/restaurants-hospitality/',
     lede:
-      "Restaurant and hotel window cleaning should work around service, not through it, and that's how Wildcat Washers schedules it. Cafés, breweries, tasting rooms, hotels, resorts, event venues and banquet halls can book early or after close, any day. Glass, frames, sills, tracks and screens are cleaned by hand, and patios can be pressure washed the same visit.",
+      "Restaurant and hotel window cleaning should work around service, not through it, and that’s how Wildcat Washers schedules it. Cafés, breweries, tasting rooms, hotels, resorts, event venues and banquet halls can book early or after close, any day. Glass, frames, sills, tracks and screens are cleaned by hand, and patios can be pressure washed the same visit.",
     service: 'window-cleaning',
     points: [
       "Front windows, entry doors and patio glass are cleaned outside your service hours.",
@@ -644,7 +644,7 @@ export const landings: Landing[] = [
       {
         h: 'Patios and outdoor seating',
         p: [
-          "Outdoor seating collects dust, spills and grime. We pressure wash patios, walkways, furniture, BBQ areas and trash can areas, scrubbing by hand where a spot needs it. We don't seal or stain patios, and deep grease, oil or rust stains in concrete aren't work we take on, since removing them depends on heavy chemicals.",
+          "Outdoor seating collects dust, spills and grime. We pressure wash patios, walkways, furniture, BBQ areas and trash can areas, scrubbing by hand where a spot needs it. We don’t seal or stain patios, and deep grease, oil or rust stains in concrete aren’t work we take on, since removing them depends on heavy chemicals.",
         ],
       },
       {
@@ -725,14 +725,14 @@ export const landings: Landing[] = [
       {
         h: 'Turnovers and screens',
         p: [
-          "Torn and bent screens tend to surface at unit turnover. Screen repair means new mesh on the existing frame, and standard screens can usually be done on site during the same visit. If a frame is too far gone, we'll recommend a replacement instead of patching it.",
-          "Inside the unit, tracks get vacuumed out before they're washed, so the next resident isn't sliding a door over a line of grit.",
+          "Torn and bent screens tend to surface at unit turnover. Screen repair means new mesh on the existing frame, and standard screens can usually be done on site during the same visit. If a frame is too far gone, we’ll recommend a replacement instead of patching it.",
+          "Inside the unit, tracks get vacuumed out before they’re washed, so the next resident isn’t sliding a door over a line of grit.",
         ],
       },
       {
         h: 'Pricing across a portfolio',
         p: [
-          "Multifamily work is custom quoted. Window cleaning is priced per pane, with access and glass size factored in, and servicing several buildings in one trip lowers the cost of each. Call and we'll put together a quote for the whole property or the whole portfolio.",
+          "Multifamily work is custom quoted. Window cleaning is priced per pane, with access and glass size factored in, and servicing several buildings in one trip lowers the cost of each. Call and we’ll put together a quote for the whole property or the whole portfolio.",
         ],
       },
     ],
@@ -760,20 +760,20 @@ export const landings: Landing[] = [
       {
         h: 'Why arrays lose output in Southern Arizona',
         p: [
-          "Our arid climate and frequent winds keep dust, pollen and mineral residue in the air, and it settles evenly across panels. That layer blocks light before it reaches the cells, which costs production. Published research puts the efficiency loss from debris at 5 to 30 percent depending on local conditions. How much a given array loses depends on how dirty it is, so we won't promise a specific recovery figure.",
+          "Our arid climate and frequent winds keep dust, pollen and mineral residue in the air, and it settles evenly across panels. That layer blocks light before it reaches the cells, which costs production. Published research puts the efficiency loss from debris at 5 to 30 percent depending on local conditions. How much a given array loses depends on how dirty it is, so we won’t promise a specific recovery figure.",
           "Cleaning also protects the glass. Hard water residue from rain or irrigation dries into mineral deposits that wear on the surface over time, and a commercial array is a large investment to leave exposed to that.",
         ],
       },
       {
-        h: "Rain won't do it for you",
+        h: "Rain won’t do it for you",
         p: [
-          "It's easy to assume a monsoon storm rinses a big array. It doesn't. Rain moves dust around rather than washing it off, and as it dries it can leave mineral spotting behind. Panels need physical agitation with a brush and soap to come clean.",
+          "It’s easy to assume a monsoon storm rinses a big array. It doesn’t. Rain moves dust around rather than washing it off, and as it dries it can leave mineral spotting behind. Panels need physical agitation with a brush and soap to come clean.",
         ],
       },
       {
         h: 'Scheduling, paperwork and pricing',
         p: [
-          "Because we're available any day of the week, the cleaning can happen during a quiet stretch. Documentation is ready before we start. Pricing is quoted per job, based on panel count and array size, and your windows, screens and pressure washing can be folded into the same service plan.",
+          "Because we’re available any day of the week, the cleaning can happen during a quiet stretch. Documentation is ready before we start. Pricing is quoted per job, based on panel count and array size, and your windows, screens and pressure washing can be folded into the same service plan.",
         ],
       },
     ],
@@ -801,7 +801,7 @@ export const landings: Landing[] = [
       {
         h: 'Working around a busy building',
         p: [
-          "Schools have classes, churches have services and events, and civic buildings have public hours. We schedule the work when the building is quiet, whether that's an early weekday, a late afternoon or a Saturday. Reminder texts go out before the visit, and the crew texts when they're on the way, so whoever unlocks the door knows when to expect them.",
+          "Schools have classes, churches have services and events, and civic buildings have public hours. We schedule the work when the building is quiet, whether that’s an early weekday, a late afternoon or a Saturday. Reminder texts go out before the visit, and the crew texts when they’re on the way, so whoever unlocks the door knows when to expect them.",
           "For higher windows, deionized water through a pole brush lets the crew work from the ground, which keeps ladders out of busy areas.",
         ],
       },
@@ -814,7 +814,7 @@ export const landings: Landing[] = [
       {
         h: 'Plans and pricing',
         p: [
-          "Ongoing work follows a plan shaped around what your building needs and how often. Quotes depend on the number of panes, how they're reached and how big the glass is. At the end of each visit, the crew double checks every pane and walks the job with your contact, and payment comes only when you're happy.",
+          "Ongoing work follows a plan shaped around what your building needs and how often. Quotes depend on the number of panes, how they’re reached and how big the glass is. At the end of each visit, the crew double checks every pane and walks the job with your contact, and payment comes only when you’re happy.",
         ],
       },
     ],
