@@ -14,7 +14,7 @@ import FaqList from '@/components/FaqList.astro';
 import { faqRefs } from '@/data/faq';
 import { ownerLinks, faqOwner } from '@/lib/faqOwner';
 import Icon from '@/components/Icon.astro';
-import { towns, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
+import { towns, metroConditions, townBySlug, childrenOf, townHref, communityHref, windowTownSlugs, type Town } from '@/data/areas';
 import { serviceBySlug, serviceHref } from '@/data/business';
 import { photoTown, photoKind, sceneOf, captionFor, allKeys, weakHero } from '@/data/media';
 import { townPhotos } from '@/data/placement';
@@ -31,6 +31,29 @@ export function getStaticPaths() {
 }
 const { t } = Astro.props as { t: Town };
 const url = townHref(t.slug);
+/* Metro-wide conditions repeat across towns, so each town page words them its own way (same facts). */
+const condWords: Record<string, string[]> = {
+  [metroConditions.water]: [
+    metroConditions.water,
+    'The water here is hard. Sprinkler and rain drops dry into mineral spots, and spots left on glass long enough etch in for good.',
+    'Hard, mineral-heavy water leaves white spots as it dries. Given enough time, those spots etch into the glass permanently.',
+    'Every drop of Tucson water carries minerals. They stay behind as spots, and old spots can etch the glass beyond cleaning.',
+  ],
+  [metroConditions.dust]: [
+    metroConditions.dust,
+    'Dust lands on the glass all year. The worst of it comes after monsoon storms, from about June through September.',
+    'Monsoon season, roughly June to September, brings the heaviest dust, on top of a steady film the rest of the year.',
+  ],
+  [metroConditions.mine]: [
+    metroConditions.mine,
+    'Mines to the south add real dust to the air in Green Valley, Sahuarita and the southern metro.',
+  ],
+  [metroConditions.snowbird]: [
+    metroConditions.snowbird,
+    'Lots of homes here are seasonal. Tell us when you arrive and we schedule ahead, so the windows are clean the day you get in. You don’t need to be in town.',
+  ],
+};
+const conditions = t.conditions.map((c) => (condWords[c] ? say(url, `cond-${c.slice(0, 12)}`, condWords[c]) : c));
 const title = h1For(url, `Window cleaning and exterior cleaning in ${t.name}`);
 const kids = childrenOf(t.slug);
 /* Named sections without a page of their own, listed under the neighborhood links. */
@@ -111,7 +134,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
 
   {d?.sections && <DepthSections sections={d.sections} variant="prose" heading={d.heading ?? `${t.name}, up close`} intro={d.answer ? t.intro : undefined} mfold />}
 
-  {!workFirst && <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />}
+  {!workFirst && <RuledList title={`What ${t.name} does to your glass`} items={conditions} mfold id="conditions" />}
 
   <ZigZag title={`What we do most in ${t.name}`} rows={rows} startRight={vary(url, 2, 'zz') === 1} />
   <section class="section-tight also-sec">
@@ -120,7 +143,7 @@ const revTitle = set.count ? say(url, 'rev-h', [`What ${t.name} neighbors say`, 
     </div>
   </section>
 
-  {workFirst && <RuledList title={`What ${t.name} does to your glass`} items={t.conditions} mfold id="conditions" />}
+  {workFirst && <RuledList title={`What ${t.name} does to your glass`} items={conditions} mfold id="conditions" />}
 
   <WhoComes url={url} area={t.reviewArea} avoid={[...set.local, ...set.more].map((r) => r.n)} tone="mist" />
 

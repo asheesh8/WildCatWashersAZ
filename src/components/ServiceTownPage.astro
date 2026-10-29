@@ -52,11 +52,17 @@ const proofElsewhere = new Set(Object.entries(depth).filter(([u]) => u !== url).
 /* Pages without a researched answer open with one line of proof instead. */
 const localCount = base.local.filter((r) => r.services.some((x) => tags.includes(x))).length;
 const az19 = t.slug === 'green-valley' || t.slug === 'sahuarita';
+/* The pay-when-happy promise is said once per page, in one of a few wordings. */
+const payLine = say(url, 'pay', [
+  'Every job is quoted up front, and you don’t pay until you’re happy.',
+  'You get the price before we start, and you pay only once you’re happy with the work.',
+  'The price is set on the phone, and payment waits until you’ve walked the job with us.',
+]);
 const proofLede = az19
-  ? `${s.name} in ${t.name} from the team readers voted Best Window Cleaners in Green Valley and Sahuarita (2025 AZ-19 Readers’ Pick). Every job is quoted up front, and you don’t pay until you’re happy.`
+  ? `${s.name} in ${t.name} from the team readers voted Best Window Cleaners in Green Valley and Sahuarita (2025 AZ-19 Readers’ Pick). ${payLine}`
   : localCount >= 5
-  ? `${localCount} ${t.name} customers have left five-star reviews for our ${s.name.toLowerCase()}. Every job is quoted up front, and you don’t pay until you’re happy.`
-  : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. Every job is quoted up front, and you don’t pay until you’re happy.`;
+  ? `${localCount} ${t.name} customers have left five-star reviews for our ${s.name.toLowerCase()}. ${payLine}`
+  : `${s.name} in ${t.name} from a local team with 400+ five-star reviews. ${payLine}`;
 const baseSet: ReviewSet = localForService.length
   ? { ...base, local: localForService.slice(0, 6), localLabel: `${s.name} reviews from ${t.name}`, more: [], count: localForService.length }
   : { local: [], localLabel: '', more: metroFill(reviewsForService(tags).filter((r) => !proofElsewhere.has(r.n)), 3, hashSeed(url)), moreLabel: `${s.name} reviews from across the metro`, count: 0 };
@@ -103,7 +109,11 @@ const facts = [
   ...(localCount > 0 ? [{ term: 'Local reviews', body: `${localCount} five-star review${localCount === 1 ? '' : 's'} from ${t.name} customers mention our ${s.name.toLowerCase()}.` }] : []),
   ...(az19 && s.slug === 'window-cleaning' ? [{ term: 'Readers’ pick', body: 'Voted Best Window Cleaners in Green Valley and Sahuarita, 2025 AZ-19 Readers’ Picks.' }] : []),
   ...(kids.length ? [{ term: 'Neighborhoods we visit', body: `${listNames(kids.slice(0, 4).map((k) => k.name))}${kids.length > 4 ? ', and more' : ''}.` }] : []),
-  { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes. You don’t pay until you’re happy.' },
+  [
+    { term: 'How it’s quoted', body: 'Up front, by phone, in a few minutes.' },
+    { term: 'Getting a price', body: 'One short call, and you have a set price before anyone comes out.' },
+    { term: 'Pricing', body: 'Quoted by phone in a few minutes, with no visit needed first.' },
+  ][vary(url, 3, 'quoted')],
 ].slice(0, 3);
 /* The phone number never breaks across lines in the hero copy. */
 const keepPhone = (s: string) => s.replace(/\(520\) 525-0084/g, '(520)\u00a0525-\u20600084');
@@ -132,7 +142,7 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
         <h3 class="h3">{say(url, 'basics-h', [`${s.name}: the basics`, `${s.name} at a glance`, `About our ${s.name.toLowerCase()}`])}</h3>
         <p>{s.cardLine}</p>
         <ul role="list">
-          <li><Icon name="check-circle" size={22} /><span>You don’t pay until you’re happy.</span></li>
+          <li><Icon name="check-circle" size={22} /><span>{say(url, 'basics-li', ['Free touch-ups for 14 days after every visit.', 'Covered by our 14-Day Spotless Guarantee.', 'If rain or sprinklers hit it within 14 days, we touch it up free.'])}</span></li>
         </ul>
         <a class="text-link" href={serviceHref(s.slug)}>Everything about {s.name.toLowerCase()} <Icon name="arrow" size={20} /></a>
         <a class="phone-cta" href={telHref} data-track="call-service-town"><Icon name="phone" size={22} />{company.phone}</a>
