@@ -54,7 +54,10 @@ const links = ownerLinks(items, l.url);
 const isCommercial = l.url.startsWith('/commercial/');
 /* Commercial pages: no commercial reviews exist, so prefer ones that don't talk about a home. */
 const homey = /\b(home|house|live|neighbou?r|neighborhood|saddlebrooke|preserve|wife|husband|our windows)\b/i;
-const pool = reviewsForService(s.reviewTags);
+const tagged = reviewsForService(s.reviewTags);
+/* Prefer reviews whose headline service is this one, so a solar page doesn't lead with a screen review. */
+const primary = tagged.filter((r) => s.reviewTags.includes(r.services[0]));
+const pool = primary.length >= 6 ? primary : tagged;
 const reviewPool = isCommercial && pool.filter((r) => !homey.test(r.text)).length >= 3 ? pool.filter((r) => !homey.test(r.text)) : pool;
 const set: ReviewSet = { local: [], localLabel: '', more: pick(reviewPool, 3, { seed: hashSeed(l.url) }), moreLabel: isCommercial ? 'From customers across Greater Tucson' : `${s.name} reviews from across Greater Tucson`, count: 0 };
 const pending = new Set(pendingUrls);
