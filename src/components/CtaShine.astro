@@ -57,6 +57,10 @@ const l2 = place ? `your ${place} home` : (service && things[service]) || 'your 
     display: inline-flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--navy);
     font-family: var(--font-display); font-weight: 900; font-size: clamp(2.1rem, 1.5rem + 3vw, 3.8rem); font-variation-settings: 'wdth' 105; letter-spacing: -.01em;
   }
+  /* The number stays on one line: it shrinks on narrow phones and, from 1000px, with its column. */
+  .shine-phone { white-space: nowrap; }
+  @media (max-width: 400px) { .shine-phone { font-size: min(2.1rem, 8.6vw); gap: .6rem; } }
+  @media (min-width: 1000px) { .shine-phone { font-size: min(clamp(2.1rem, 1.5rem + 3vw, 3.8rem), 4.4vw); } }
   .shine-phone-icon { width: 1.4em; height: 1.4em; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: var(--blue); flex: none; font-size: .7em; }
   .shine-phone:hover { text-decoration: underline; text-decoration-thickness: 4px; }
   .shine-g { list-style: none; padding: 0; margin-top: 1.4rem; display: grid; gap: .5rem; font-weight: 700; font-size: 1.1rem; }

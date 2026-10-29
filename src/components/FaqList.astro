@@ -17,7 +17,7 @@ const extra = items.length > PHONE_LIMIT + 1 ? items.length - PHONE_LIMIT : 0;
       {items.map((f, i) => (
         <details open={openFirst && i === 0} class:list={[extra && i >= PHONE_LIMIT && 'faq-x']}>
           <summary><span>{f.q}</span><span class="plus" aria-hidden="true"></span></summary>
-          <div class="faq-a"><p>{f.a}</p>{links[f.n] && <a class="faq-more" href={links[f.n].href}>{links[f.n].label}</a>}</div>
+          <div class="faq-a"><p>{f.a.replace(/\((\d{3})\) /g, "($1)\u00a0")}</p>{links[f.n] && <a class="faq-more" href={links[f.n].href}>{links[f.n].label}</a>}</div>
         </details>
       ))}
     </div>

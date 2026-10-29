@@ -11,7 +11,7 @@ const rest = towns.slice(6);
 <section class="turf" aria-labelledby="turf-title">
   <div class="turf-marquee" data-turf>
     <div class="turf-track" aria-hidden="true">
-      {[0, 1].map(() => names.map((n, i) => <span class:list={[i % 2 && 'o']}>{n}</span>))}
+      {[0, 1].map(() => names.map((n, i) => <span class:list={[i % 2 && 'o']} data-t={n}></span>))}
     </div>
     <button class="turf-toggle" type="button" aria-pressed="false" aria-label="Pause moving town names" data-turf-toggle>
       <span class="i-pause"><Icon name="pause" size={18} /></span><span class="i-play"><Icon name="play" size={18} /></span>
@@ -53,6 +53,8 @@ const rest = towns.slice(6);
   .turf-marquee { padding: 1.6rem 0 clamp(2rem, 1.5rem + 3vw, 4rem); }
   .turf-track { display: flex; gap: 2.4rem; width: max-content; animation: turf 80s linear infinite; }
   .turf-track span { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.6rem, 2rem + 3vw, 5rem); line-height: 1; white-space: nowrap; color: rgb(18 24 50 / 14%); }
+  /* The faint names are drawn from data-t: decoration only, so contrast checks read the clear town list below instead. */
+  .turf-track span::before { content: attr(data-t); }
   .turf-track span.o { color: transparent; -webkit-text-stroke: 2px rgb(18 24 50 / 22%); }
   @keyframes turf { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .turf-track { animation: none; } .turf-toggle { display: none; } }

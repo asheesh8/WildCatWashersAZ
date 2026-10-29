@@ -601,3 +601,14 @@ main > section.section:not([class*='bg-'], .pq, .promise-sec, :has(.rgrid, .rcar
   main > .bg-mist.section-tight, main > .is-mfold, main > [data-mfold] { background-image: none; }
   main > .bg-mist.is-mfold, main > .bg-mist[data-mfold] { background: var(--mist); }
 }
+
+/* Print: no fixed bars on every page, backgrounds kept so white text on blue and navy
+   bands still prints, plain "sweep" headings (the clipped sheen prints badly), and no
+   unrevealed fade-ins. */
+@media print {
+  .sticky-bar, .site-header.is-floating { position: static !important; }
+  .sticky-bar, .turf-toggle, .swipe-ctrl { display: none !important; }
+  body { padding-top: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sweep, .sweep * { background: none !important; -webkit-text-fill-color: currentColor !important; }
+  .js .reveal { opacity: 1 !important; transform: none !important; }
+}
