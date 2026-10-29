@@ -61,7 +61,7 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
           {lead.text.length > 150 && <button type="button" class="more-btn" aria-expanded="false">Read the whole review</button>}
           <figcaption><strong>{displayName(lead)}</strong> · {placeLabel(lead)} · {lead.platform}</figcaption>
         </figure>
-        {more.slice(0, 4).map((r) => <ReviewCard review={r} />)}
+        {more.slice(0, 4).map((r) => <ReviewCard review={r} deskClamp />)}
       </div>
       <figure class="rev-inst reveal">
         <blockquote><p class:list={[arroyoGardens.quote.length > 180 && 'is-long']}>“{arroyoGardens.quote}”</p></blockquote>
@@ -111,6 +111,13 @@ const more = featured.home.filter((r) => r.n !== lead.n).slice(0, 6);
   @media (min-width: 1000px) {
     .rev-layout { grid-template-columns: 1.6fr 1fr 1fr; }
     .rev-lead { grid-column: 1; grid-row: span 2; }
+    /* Desktop: a very long card stops at eleven lines and the lead quote at twenty (about the two card rows beside it), so one review doesn't stretch the whole row. */
+    :global(.js :is(.rev-lead blockquote p.is-long, .rev-layout blockquote p.is-xlong):not(.open)) { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 11; line-clamp: 11; overflow: hidden; }
+    :global(.js .rev-lead blockquote p.is-long:not(.open)) { -webkit-line-clamp: 20; line-clamp: 20; }
+    :global(.js :is(.rev-lead .more-btn, .rev-layout blockquote:has(.is-xlong) + .more-btn)) {
+      display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; cursor: pointer;
+      font-weight: 800; font-size: 1.05rem; color: inherit; text-decoration: underline; text-underline-offset: 3px; justify-self: start; align-self: flex-start;
+    }
   }
   .rev-lead {
     position: relative; background: var(--blue); color: var(--navy); border-radius: var(--radius-lg);

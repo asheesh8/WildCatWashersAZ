@@ -28,12 +28,14 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
         ))}
       </div>
       <script is:inline>
-        // Phones: topics start closed so the page is a short list; a link to a topic or question opens it.
-        // Runs right after the list, and CSS shows the topics closed from first paint, so nothing jumps.
+        // Topics start closed so the page is a short list (desktop keeps the first one open beside the topic list);
+        // a link to a topic or question opens it. Runs right after the list, and CSS shows the topics closed
+        // from first paint, so nothing jumps.
         (() => {
           const cats = document.querySelectorAll('[data-cat]');
           const openFor = () => { const t = location.hash && document.getElementById(location.hash.slice(1)); if (!t) return; const c = t.closest('[data-cat]'); if (c) c.open = true; if (t.matches('.q')) t.open = true; t.scrollIntoView(); };
-          if (matchMedia('(max-width: 999px)').matches) cats.forEach((c) => { c.open = false; });
+          const desk = matchMedia('(min-width: 1000px)').matches;
+          cats.forEach((c, i) => { if (!(desk && i === 0)) c.open = false; });
           document.querySelector('.cats')?.classList.add('is-ready');
           openFor();
           addEventListener('hashchange', openFor);
@@ -54,6 +56,10 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
   @media (max-width: 999px) {
     :global(.js) .cats:not(.is-ready) .cat > :not(summary) { display: none; }
     :global(.js) .cats:not(.is-ready) .cat[open] { border-color: var(--line); padding-bottom: 0; }
+  }
+  @media (min-width: 1000px) {
+    :global(.js) .cats:not(.is-ready) .cat:not(:first-child) > :not(summary) { display: none; }
+    :global(.js) .cats:not(.is-ready) .cat[open]:not(:first-child) { border-color: var(--line); padding-bottom: 0; }
   }
   .cat-sum { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 0; }
   .cat-sum::-webkit-details-marker { display: none; }
