@@ -35,8 +35,17 @@ export type Depth = {
 
 /** FAQ shown on every window × town page, linked to its owner (no schema here). */
 const windowFaqs = [25, 34, 159, 187];
-const threeAYear = (club = true) =>
-  `Right after summer and monsoon season, around the holidays, and in spring. That spacing stops mineral buildup before it can etch the glass.${club ? ' The [Wildcat Club](/wildcat-club/) books all three visits for you, and one-time cleans are always available.' : ''}`;
+/* The three-a-year answer appears on several window pages, so successive uses rotate through its wordings. */
+const threeWords = [
+  ['Right after summer and monsoon season, around the holidays, and in spring. That spacing stops mineral buildup before it can etch the glass.', ' The [Wildcat Club](/wildcat-club/) books all three visits for you, and one-time cleans are always available.'],
+  ['Once after the monsoon, once before the holidays and once in spring. Cleaning that often keeps mineral spots from setting into the glass.', ' Wildcat Club members get all three booked for them, and a one-time clean is always an option.'],
+  ['Spring, after the summer storms, and around the holidays. At that pace hard water never sits long enough to etch.', ' The [Wildcat Club](/wildcat-club/) schedules the three visits for you. One-time cleans are fine too.'],
+];
+let threeUse = 0;
+const threeAYear = (club = true) => {
+  const [p, c] = threeWords[threeUse++ % threeWords.length];
+  return `${p}${club ? c : ''}`;
+};
 
 export const depth: Record<string, Depth> = {
   /* ============================== Round 1 ============================== */

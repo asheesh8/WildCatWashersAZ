@@ -13,14 +13,22 @@ export interface Props { url: string; area?: string; avoid?: number[]; tone?: 'p
 const { url, area, avoid = [], tone = 'plain' } = Astro.props;
 
 const [lead1, lead2] = company.crewLeaders;
-const facts = [
-  'You’ll see a uniformed technician in a polo, suit pants, black Oxford shoes and a matching hat, arriving in a marked Wildcat Washers truck.',
-  'Every technician is background-checked before they are hired.',
-  'Nobody works on a customer’s home until they have finished training, shadowed experienced technicians and done ride-alongs.',
-  `Our crew leaders, ${lead1} and ${lead2}, have each been with us for more than a year.`,
-  'Cooper and Jose, who started the company in 2024, are mostly off the trucks now but still step in when needed.',
-  'We keep the team small on purpose. We’d rather be the best than the biggest.',
+/* Each fact has two wordings, picked per page, so pages that share a fact rarely share the sentence. */
+const factWords = [
+  ['You’ll see a uniformed technician in a polo, suit pants, black Oxford shoes and a matching hat, arriving in a marked Wildcat Washers truck.',
+    'The technician arrives in a marked Wildcat Washers truck, in uniform: polo, suit pants, black Oxford shoes and a matching hat.'],
+  ['Every technician is background-checked before they are hired.',
+    'No one joins the team without passing a background check first.'],
+  ['Nobody works on a customer’s home until they have finished training, shadowed experienced technicians and done ride-alongs.',
+    'New hires train, shadow experienced technicians and do ride-alongs before they ever work on a customer’s home.'],
+  [`Our crew leaders, ${lead1} and ${lead2}, have each been with us for more than a year.`,
+    `${lead1} and ${lead2} lead our crews, and both have been with us for more than a year.`],
+  ['Cooper and Jose, who started the company in 2024, are mostly off the trucks now but still step in when needed.',
+    'Our founders, Cooper and Jose, started the company in 2024. They’re mostly off the trucks now, but they still pitch in when needed.'],
+  ['We keep the team small on purpose. We’d rather be the best than the biggest.',
+    'The team stays small on purpose, because we’d rather be the best than the biggest.'],
 ];
+const facts = factWords.map((w, i) => w[vary(url, w.length, `who-w${i}`)]);
 /* A seeded shuffle per page, so neighbors rarely share the same three lines. */
 const picked = facts
   .map((f, i) => ({ f, k: hashSeed(`${i}who${url}`) }))
