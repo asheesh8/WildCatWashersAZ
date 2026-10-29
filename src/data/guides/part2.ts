@@ -45,7 +45,7 @@ export const guides: Guide[] = [
       {
         h: "How a cleaning bill turns into a replacement bill",
         p: [
-          "Tucson's water carries a lot of dissolved minerals. Every time sprinkler spray, hose water, or a passing storm dries on your glass, it leaves a thin layer of those minerals behind. At first that layer sits on the surface, and it can be buffed off.",
+          "Tucson’s water carries a lot of dissolved minerals. Every time sprinkler spray, hose water, or a passing storm dries on your glass, it leaves a thin layer of those minerals behind. At first that layer sits on the surface, and it can be buffed off.",
           "Left long enough, the minerals eat into the glass itself. At that point it is physical damage, not a deposit, and nobody can reverse it. Scratched glass is in the same category. The only fix for either one is a new pane."
         ]
       },
@@ -76,7 +76,7 @@ export const guides: Guide[] = [
   {
     slug: "how-to-keep-windows-clean-longer",
     service: "window-cleaning",
-    answer: "Keeping windows clean longer comes down to three habits. Don't rinse them with a hose, because it leaves mineral deposits that lead to etching. Keep irrigation off the glass. And clean on a schedule so buildup never gets ahead of you. Cleaning the tracks and screens, not just the glass, helps most of all.",
+    answer: "Keeping windows clean longer comes down to three habits. Don’t rinse them with a hose, because it leaves mineral deposits that lead to etching. Keep irrigation off the glass. And clean on a schedule so buildup never gets ahead of you. Cleaning the tracks and screens, not just the glass, helps most of all.",
     sections: [
       {
         h: "Why freshly cleaned glass gets dusty so fast",
@@ -88,7 +88,7 @@ export const guides: Guide[] = [
       {
         h: "Habits that help in a desert climate",
         p: [
-          "Put the hose down. Rinsing windows feels helpful, but Tucson's hard water dries into spots, and those spots are the start of permanent etching.",
+          "Put the hose down. Rinsing windows feels helpful, but Tucson’s hard water dries into spots, and those spots are the start of permanent etching.",
           "Check where your sprinklers land. If irrigation is hitting the glass, adjusting a head or two can save a lot of spotting.",
           "If you have solar screens, keep them clean too, because dirty screens shed dust onto the window behind them. On our visits, solar screens come down so the glass underneath can be cleaned, and they are usually pressure washed and reconditioned before going back up."
         ]
@@ -300,7 +300,7 @@ export const guides: Guide[] = [
       {
         h: "What monsoon season does to glass",
         p: [
-          "Tucson's monsoon runs roughly June through September. The storms bring wind that throws dust against every exterior surface, and short bursts of rain that mix with it and dry on the glass. Since local water is mineral heavy, what dries there leaves spots as well as grime.",
+          "Tucson’s monsoon runs roughly June through September. The storms bring wind that throws dust against every exterior surface, and short bursts of rain that mix with it and dry on the glass. Since local water is mineral heavy, what dries there leaves spots as well as grime.",
           "Late summer is when most homes look their dustiest, and it is when dust across the area peaks."
         ]
       },
@@ -472,7 +472,7 @@ export const guides: Guide[] = [
   {
     slug: "does-rain-clean-solar-panels",
     service: "solar-panel-cleaning",
-    answer: "Rain doesn't clean solar panels. It moves dust around rather than washing it off, and the dust sticks to the glass. When the water dries, Tucson's hard water leaves mineral spots behind, so panels can look worse after a storm than before. Clean panels need gentle scrubbing with a brush and soap.",
+    answer: "Rain doesn’t clean solar panels. It moves dust around rather than washing it off, and the dust sticks to the glass. When the water dries, Tucson’s hard water leaves mineral spots behind, so panels can look worse after a storm than before. Clean panels need gentle scrubbing with a brush and soap.",
     sections: [
       {
         h: "Why this myth is so easy to believe",
@@ -514,7 +514,7 @@ export const guides: Guide[] = [
   {
     slug: "white-spots-on-solar-panels-after-rain",
     service: "solar-panel-cleaning",
-    answer: "White spots on solar panels after it rains are mineral deposits. Tucson's water is hard, and when rain dries on the panel glass it leaves those minerals behind. That is part of why rain doesn't clean panels. It can actually add to the problem, blocking light and wearing on the glass over time.",
+    answer: "White spots on solar panels after it rains are mineral deposits. Tucson’s water is hard, and when rain dries on the panel glass it leaves those minerals behind. That is part of why rain doesn’t clean panels. It can actually add to the problem, blocking light and wearing on the glass over time.",
     sections: [
       {
         h: "Where the minerals come from",
@@ -655,7 +655,7 @@ export const guides: Guide[] = [
   {
     slug: "does-cleaning-void-solar-warranty",
     service: "solar-panel-cleaning",
-    answer: "Cleaning solar panels will not void your warranty when it is done the right way. We avoid harsh chemicals, stiff brushes, and pressure washers specifically to protect your panels and your warranty. If you have questions about your specific manufacturer's terms, we are happy to talk them through with you before we start.",
+    answer: "Cleaning solar panels will not void your warranty when it is done the right way. We avoid harsh chemicals, stiff brushes, and pressure washers specifically to protect your panels and your warranty. If you have questions about your specific manufacturer’s terms, we are happy to talk them through with you before we start.",
     sections: [
       {
         h: "What puts a panel at risk",
@@ -690,7 +690,7 @@ export const guides: Guide[] = [
   {
     slug: "can-you-pressure-wash-solar-panels",
     service: "solar-panel-cleaning",
-    answer: "You should never pressure wash solar panels. High pressure can crack panels and force water into places it shouldn't be. Solar panels need gentle hand cleaning with a soft brush, mild soap when needed, and deionized water. That approach removes stuck-on dust and minerals without putting the glass at risk.",
+    answer: "You should never pressure wash solar panels. High pressure can crack panels and force water into places it shouldn’t be. Solar panels need gentle hand cleaning with a soft brush, mild soap when needed, and deionized water. That approach removes stuck-on dust and minerals without putting the glass at risk.",
     sections: [
       {
         h: "What the pressure does",

@@ -17,7 +17,7 @@ export const guides: Guide[] = [
         h: "What the job includes beyond the mesh",
         p: [
           "The crew first encourages any birds to leave, then clears droppings and debris from above and below the panels. Droppings are a genuine biohazard, so technicians wear protective equipment and you never have to handle any of it.",
-          "While they're up on the roof, the panels get a full cleaning, especially the tops, and the affected area of roof is cleaned too. You also get a roof and solar panel inspection with before-and-after photos, which matters when the roof is somewhere you can't easily see for yourself."
+          "While they’re up on the roof, the panels get a full cleaning, especially the tops, and the affected area of roof is cleaned too. You also get a roof and solar panel inspection with before-and-after photos, which matters when the roof is somewhere you can’t easily see for yourself."
         ]
       },
       {
@@ -27,7 +27,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers installs galvanized steel mesh around the edge of your array after clearing out every bit of nesting material and droppings. The panels get cleaned while technicians are up top, and you see the before-and-after photos. Club members save 10 percent on pigeon proofing, since it counts as an added service, and payment only happens once you've seen the result and you're happy.",
+    doAbout: "Wildcat Washers installs galvanized steel mesh around the edge of your array after clearing out every bit of nesting material and droppings. The panels get cleaned while technicians are up top, and you see the before-and-after photos. Club members save 10 percent on pigeon proofing, since it counts as an added service, and payment only happens once you’ve seen the result and you’re happy.",
     related: [
       "/guides/pigeon-proofing-vs-pest-control/",
       "/guides/should-i-pigeon-proof-before-birds-arrive/",
@@ -38,7 +38,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "how-much-does-pressure-washing-cost-tucson",
-    answer: "Pressure washing in Tucson is priced by the surface and the scope of the job, so there isn't one set price. A driveway, a patio with a pool deck, and an Arizona room are each quoted on what's being cleaned. Wildcat Washers quotes pressure washing by phone in a couple of minutes, with no trip charge.",
+    answer: "Pressure washing in Tucson is priced by the surface and the scope of the job, so there isn’t one set price. A driveway, a patio with a pool deck, and an Arizona room are each quoted on what’s being cleaned. Wildcat Washers quotes pressure washing by phone in a couple of minutes, with no trip charge.",
     service: "pressure-washing",
     sections: [
       {
@@ -57,7 +57,7 @@ export const guides: Guide[] = [
       {
         h: "What falls outside a pressure washing quote",
         p: [
-          "Our pressure washing is about removing dirt, dust, and debris. We don't soft wash, and we don't take on rust stains, oil stains, graffiti, or deep masonry stains, since those depend on heavy chemical treatment. We also don't seal or stain patios. If any of that comes up on the call, we'll tell you plainly so you know where things stand."
+          "Our pressure washing is about removing dirt, dust, and debris. We don’t soft wash, and we don’t take on rust stains, oil stains, graffiti, or deep masonry stains, since those depend on heavy chemical treatment. We also don’t seal or stain patios. If any of that comes up on the call, we’ll tell you plainly so you know where things stand."
         ]
       },
       {
@@ -67,7 +67,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers matches the pressure to each surface and protects stucco, paint, sills, plants, and landscaping as we work. Where a surface needs it, we scrub in a cleaning solution by hand before rinsing. When the job is done, we walk it with you so you can see the result, and you pay only after that, once you're satisfied.",
+    doAbout: "Wildcat Washers matches the pressure to each surface and protects stucco, paint, sills, plants, and landscaping as we work. Where a surface needs it, we scrub in a cleaning solution by hand before rinsing. When the job is done, we walk it with you so you can see the result, and you pay only after that, once you’re satisfied.",
     related: [
       "/guides/how-often-pressure-wash-driveway-arizona/",
       "/guides/can-you-pressure-wash-a-pool-deck-safely/",
@@ -78,30 +78,30 @@ export const guides: Guide[] = [
   },
   {
     slug: "do-window-cleaners-charge-extra-for-screens-and-tracks",
-    answer: "Wildcat Washers doesn't charge extra for screens, tracks, or hard water removal. All three are part of every 5-in-1 Deep Clean, along with the glass, frames, and sills. Tracks are vacuumed and hand washed, screens are reconditioned and reinstalled, and mineral buildup is buffed off the glass at no added cost.",
+    answer: "Wildcat Washers doesn’t charge extra for screens, tracks, or hard water removal. All three are part of every 5-in-1 Deep Clean, along with the glass, frames, and sills. Tracks are vacuumed and hand washed, screens are reconditioned and reinstalled, and mineral buildup is buffed off the glass at no added cost.",
     service: "window-cleaning",
     sections: [
       {
         h: "Why some window cleaning quotes look lower",
         p: [
-          "Many quotes cover the glass and nothing else. Screens, tracks, and mineral removal then show up as separate line items, or they simply don't get done. When you compare prices, ask exactly what's included. A glass-only number and a whole-window number are not quotes for the same job."
+          "Many quotes cover the glass and nothing else. Screens, tracks, and mineral removal then show up as separate line items, or they simply don’t get done. When you compare prices, ask exactly what’s included. A glass-only number and a whole-window number are not quotes for the same job."
         ]
       },
       {
         h: "Why screens and tracks matter so much in Tucson",
         p: [
-          "Desert dust settles into tracks and screens all year and piles up after monsoon storms. If it stays there, the next gust of wind or light rain carries it right back onto the glass you just paid to have cleaned. That's the main reason glass-only results fade so quickly.",
+          "Desert dust settles into tracks and screens all year and piles up after monsoon storms. If it stays there, the next gust of wind or light rain carries it right back onto the glass you just paid to have cleaned. That’s the main reason glass-only results fade so quickly.",
           "Hard, mineral-heavy water is the other half of the story. Sprinklers and hoses leave spots that build up over time, and deposits left long enough etch into the glass. Cleaning the whole window and removing the minerals every visit deals with both problems together."
         ]
       },
       {
         h: "What is quoted separately",
         p: [
-          "Window cleaning is priced per pane, so skylights, mirrors, glass doors, and high interior glass are counted as additional panes. Solar screen cleaning is a pressure washing service rather than part of the 5-in-1. Screen repair and rescreening are their own service, priced by screen size. Etched glass can't be cleaned back to clear by anyone, and we'll point it out before we start."
+          "Window cleaning is priced per pane, so skylights, mirrors, glass doors, and high interior glass are counted as additional panes. Solar screen cleaning is a pressure washing service rather than part of the 5-in-1. Screen repair and rescreening are their own service, priced by screen size. Etched glass can’t be cleaned back to clear by anyone, and we’ll point it out before we start."
         ]
       }
     ],
-    doAbout: "Wildcat Washers offers one window cleaning service, the 5-in-1 Deep Clean, so there's no basic tier to be upsold from. Your phone quote covers glass, frames, sills, tracks, and screens, with hard water removal built in. Every pane is checked twice and walked with you before payment, and the 14-Day Spotless Guarantee covers the two weeks after.",
+    doAbout: "Wildcat Washers offers one window cleaning service, the 5-in-1 Deep Clean, so there’s no basic tier to be upsold from. Your phone quote covers glass, frames, sills, tracks, and screens, with hard water removal built in. Every pane is checked twice and walked with you before payment, and the 14-Day Spotless Guarantee covers the two weeks after.",
     related: [
       "/guides/how-to-compare-window-cleaning-quotes/",
       "/guides/can-hard-water-stains-be-removed-from-windows/",
@@ -112,7 +112,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "two-story-window-cleaning",
-    answer: "Wildcat Washers cleans second-story windows regularly and quotes them per pane, the same as any other glass. Accessibility can factor into a quote on some jobs, but there's no separate surcharge for the second floor. High glass is reached with a water-fed pole using pure deionized water, or with a safely placed ladder where that works better.",
+    answer: "Wildcat Washers cleans second-story windows regularly and quotes them per pane, the same as any other glass. Accessibility can factor into a quote on some jobs, but there’s no separate surcharge for the second floor. High glass is reached with a water-fed pole using pure deionized water, or with a safely placed ladder where that works better.",
     service: "window-cleaning",
     sections: [
       {
@@ -125,8 +125,8 @@ export const guides: Guide[] = [
       {
         h: "Two ways to reach high glass",
         p: [
-          "Hand washing is the main method for residential work, because being right at the glass is how technicians catch every detail and buff off mineral buildup. Where a ladder is the right tool, it's placed properly and safely.",
-          "For very high or hard-to-reach glass, a water-fed pole carries pure deionized water up to a brush head. Technicians can clean from the ground, and the glass dries without mineral spots. That method has real advantages of its own. It isn't a shortcut."
+          "Hand washing is the main method for residential work, because being right at the glass is how technicians catch every detail and buff off mineral buildup. Where a ladder is the right tool, it’s placed properly and safely.",
+          "For very high or hard-to-reach glass, a water-fed pole carries pure deionized water up to a brush head. Technicians can clean from the ground, and the glass dries without mineral spots. That method has real advantages of its own. It isn’t a shortcut."
         ]
       },
       {
@@ -147,31 +147,31 @@ export const guides: Guide[] = [
   },
   {
     slug: "senior-and-veteran-discounts-window-cleaning",
-    answer: "Wildcat Washers offers a senior discount and a veteran discount. There's no coupon or paperwork to deal with. Mention it when you call for your quote and it's taken care of. That same call gets you a free quote in a few minutes, with no site visit needed.",
+    answer: "Wildcat Washers offers a senior discount and a veteran discount. There’s no coupon or paperwork to deal with. Mention it when you call for your quote and it’s taken care of. That same call gets you a free quote in a few minutes, with no site visit needed.",
     service: "window-cleaning",
     sections: [
       {
         h: "How to use a senior or veteran discount",
         p: [
-          "Just tell us on the phone. Quotes are built during the call: for windows, we walk you through counting your panes, and you have a number before you hang up. Letting us know you're a senior or a veteran at that point means the discount is part of the quote from the start.",
+          "Just tell us on the phone. Quotes are built during the call: for windows, we walk you through counting your panes, and you have a number before you hang up. Letting us know you’re a senior or a veteran at that point means the discount is part of the quote from the start.",
           "If you submit the short quote form instead of calling, we call you right back, and you can mention it then."
         ]
       },
       {
         h: "Other ways the price comes down",
         p: [
-          "Having the inside and outside cleaned in one visit is more efficient for us than two separate trips, and that shows up in the price. Booking several services together works the same way, because we're making one trip instead of several.",
-          "Anyone in the Wildcat Club saves 10 percent on each added service, from solar panel cleaning to pressure washing. There's also a referral program: Give $25, Get $50. The referral has to go through the text or email link before your friend's service, so ask us if you're not sure how."
+          "Having the inside and outside cleaned in one visit is more efficient for us than two separate trips, and that shows up in the price. Booking several services together works the same way, because we’re making one trip instead of several.",
+          "Anyone in the Wildcat Club saves 10 percent on each added service, from solar panel cleaning to pressure washing. There’s also a referral program: Give $25, Get $50. The referral has to go through the text or email link before your friend’s service, so ask us if you’re not sure how."
         ]
       },
       {
-        h: "Costs you won't see",
+        h: "Costs you won’t see",
         p: [
-          "There's no deposit and no trip charge. Screens, tracks, and hard water removal are part of every window cleaning rather than add-ons. Payment happens after a walkthrough with you, once you're happy with it."
+          "There’s no deposit and no trip charge. Screens, tracks, and hard water removal are part of every window cleaning rather than add-ons. Payment happens after a walkthrough with you, once you’re happy with it."
         ]
       }
     ],
-    doAbout: "Wildcat Washers keeps savings simple and honest. Say you're a senior or a veteran when you call (520) 525-0084, and it goes into your quote. We'll also point out any bundle that makes sense for your home, and explain how the Wildcat Club works if three cleanings a year sounds right for you.",
+    doAbout: "Wildcat Washers keeps savings simple and honest. Say you’re a senior or a veteran when you call (520) 525-0084, and it goes into your quote. We’ll also point out any bundle that makes sense for your home, and explain how the Wildcat Club works if three cleanings a year sounds right for you.",
     related: [
       "/guides/how-much-does-window-cleaning-cost-tucson/",
       "/guides/window-cleaning-cost-guide/",
@@ -182,31 +182,31 @@ export const guides: Guide[] = [
   },
   {
     slug: "when-do-i-pay-for-window-cleaning",
-    answer: "Wildcat Washers doesn't take a deposit for window cleaning. Payment comes after the work is finished, after the crew has walked it with you, and only once you're happy. All standard payment methods are accepted, and a card can be kept on file and charged after service if you won't be home.",
+    answer: "Wildcat Washers doesn’t take a deposit for window cleaning. Payment comes after the work is finished, after the crew has walked it with you, and only once you’re happy. All standard payment methods are accepted, and a card can be kept on file and charged after service if you won’t be home.",
     service: "window-cleaning",
     sections: [
       {
         h: "What happens before you pay",
         p: [
-          "When the cleaning is done, the crew double checks every pane before you see anything. Then they walk the property with you. Anything that isn't right gets fixed on the spot, and they'll mention anything else they noticed that we could help with.",
+          "When the cleaning is done, the crew double checks every pane before you see anything. Then they walk the property with you. Anything that isn’t right gets fixed on the spot, and they’ll mention anything else they noticed that we could help with.",
           "Only after that walkthrough does payment come up. That order is how the 100% Satisfaction Guarantee works in practice, rather than being a promise on paper."
         ]
       },
       {
         h: "Why no deposit is worth looking for",
         p: [
-          "Large deposits and cash-only terms are worth being wary of when you hire any home service. With nothing paid up front, you carry no risk before seeing the result. And if someone has already paid and isn't happy, Wildcat Washers makes it right, up to and including a refund.",
+          "Large deposits and cash-only terms are worth being wary of when you hire any home service. With nothing paid up front, you carry no risk before seeing the result. And if someone has already paid and isn’t happy, Wildcat Washers makes it right, up to and including a refund.",
           "Wildcat Club members pay the same way, after each visit, with the rate locked for the agreement year."
         ]
       },
       {
-        h: "If you're not home on service day",
+        h: "If you’re not home on service day",
         p: [
-          "Plenty of exterior jobs happen with nobody home. Keep a card on file, and it's charged once the job is complete. The 14-Day Spotless Guarantee still applies, so if anything catches your eye when you get back, call or text and we'll return and touch it up free."
+          "Plenty of exterior jobs happen with nobody home. Keep a card on file, and it’s charged once the job is complete. The 14-Day Spotless Guarantee still applies, so if anything catches your eye when you get back, call or text and we’ll return and touch it up free."
         ]
       }
     ],
-    doAbout: "Wildcat Washers puts the result ahead of the invoice on every service, whether that's windows, solar panels, screens, or pressure washing. We quote by phone, arrive inside a three-hour window, finish the work, check it twice, and walk it with you. Payment is the last step, and the spotless guarantee keeps you covered for two weeks after.",
+    doAbout: "Wildcat Washers puts the result ahead of the invoice on every service, whether that’s windows, solar panels, screens, or pressure washing. We quote by phone, arrive inside a three-hour window, finish the work, check it twice, and walk it with you. Payment is the last step, and the spotless guarantee keeps you covered for two weeks after.",
     related: [
       "/guides/do-i-need-to-be-home-for-window-cleaning/",
       "/guides/do-i-tip-window-cleaners/",
@@ -223,24 +223,24 @@ export const guides: Guide[] = [
       {
         h: "Is a tip part of the price?",
         p: [
-          "No. Your phone quote covers the whole job, and that is what you pay. A tip is a thank-you on top, if you'd like to give one. Skipping it is completely fine, and it won't change the care your home gets on this visit or the next. There's no deposit to factor in either, and payment only happens after the walkthrough."
+          "No. Your phone quote covers the whole job, and that is what you pay. A tip is a thank-you on top, if you’d like to give one. Skipping it is completely fine, and it won’t change the care your home gets on this visit or the next. There’s no deposit to factor in either, and payment only happens after the walkthrough."
         ]
       },
       {
         h: "Where your tip ends up",
         p: [
-          "Every dollar goes to the technicians who were at your home, whether it's left by check or added when you pay online. None of it is kept by the company.",
-          "Wildcat Washers already pays its technicians well above the industry standard. That's how the company hires and keeps skilled window cleaners, and it shows up in the work. A tip is a personal thanks from you on top of that."
+          "Every dollar goes to the technicians who were at your home, whether it’s left by check or added when you pay online. None of it is kept by the company.",
+          "Wildcat Washers already pays its technicians well above the industry standard. That’s how the company hires and keeps skilled window cleaners, and it shows up in the work. A tip is a personal thanks from you on top of that."
         ]
       },
       {
         h: "Other ways to thank a crew",
         p: [
-          "A kind word at the walkthrough goes a long way. So does passing the name along. About two hours after the job, you'll get a referral link by text and email. Give $25, Get $50: a friend who books through your link gets $25 off their first service, and you get $50 off your next one. The referral needs to be submitted through that link before their service."
+          "A kind word at the walkthrough goes a long way. So does passing the name along. About two hours after the job, you’ll get a referral link by text and email. Give $25, Get $50: a friend who books through your link gets $25 off their first service, and you get $50 off your next one. The referral needs to be submitted through that link before their service."
         ]
       }
     ],
-    doAbout: "Wildcat Washers trains every technician to the same standard, and it shows in the double check and final walkthrough on each visit. Tip or no tip, you get identical care, the same respect for your home, and every guarantee, starting with not paying until you're satisfied.",
+    doAbout: "Wildcat Washers trains every technician to the same standard, and it shows in the double check and final walkthrough on each visit. Tip or no tip, you get identical care, the same respect for your home, and every guarantee, starting with not paying until you’re satisfied.",
     related: [
       "/guides/when-do-i-pay-for-window-cleaning/",
       "/guides/is-it-safe-to-let-window-cleaners-inside/",
@@ -269,11 +269,11 @@ export const guides: Guide[] = [
       {
         h: "Insurance is the backstop, not the plan",
         p: [
-          "The better protection is care on the job. Every technician is background checked and trained through a defined process before working at a customer's home. Each window is inspected with you before work starts, and anything already there gets pointed out. Ladders are placed properly, and landscaping is protected."
+          "The better protection is care on the job. Every technician is background checked and trained through a defined process before working at a customer’s home. Each window is inspected with you before work starts, and anything already there gets pointed out. Ladders are placed properly, and landscaping is protected."
         ]
       }
     ],
-    doAbout: "Wildcat Washers carries the licensing and insurance you should expect from any window cleaner, and hands over insurance certificates whenever a property manager, HOA, or business needs one. On every job, the crew protects your property as if the insurance never existed, and you don't pay until the walkthrough is done and you're happy.",
+    doAbout: "Wildcat Washers carries the licensing and insurance you should expect from any window cleaner, and hands over insurance certificates whenever a property manager, HOA, or business needs one. On every job, the crew protects your property as if the insurance never existed, and you don’t pay until the walkthrough is done and you’re happy.",
     related: [
       "/guides/how-to-choose-a-window-cleaner/",
       "/guides/what-if-a-window-cleaner-breaks-something/",
@@ -291,7 +291,7 @@ export const guides: Guide[] = [
         h: "The inspection that happens first",
         p: [
           "Before any cleaning starts, the crew checks every window with you and points out anything already there: chips, scratches, etching, failed seals, or earlier damage. You should never find out about a pre-existing problem after the crew has left.",
-          "Some things simply can't be cleaned away. Fogging between double-pane glass is a failed seal, and that unit needs replacing. Etched or scratched glass can't be repaired by anyone. We tell you before we start, not after."
+          "Some things simply can’t be cleaned away. Fogging between double-pane glass is a failed seal, and that unit needs replacing. Etched or scratched glass can’t be repaired by anyone. We tell you before we start, not after."
         ]
       },
       {
@@ -301,13 +301,13 @@ export const guides: Guide[] = [
         ]
       },
       {
-        h: "If something isn't right",
+        h: "If something isn’t right",
         p: [
-          "You'd hear about it immediately, and it would be fixed. Wildcat Washers would rather make something right than argue about it. That attitude runs through the 100% Satisfaction Guarantee as well: payment waits until you've walked the job and you're happy, and if you've already paid and aren't, we make it right, including a refund."
+          "You’d hear about it immediately, and it would be fixed. Wildcat Washers would rather make something right than argue about it. That attitude runs through the 100% Satisfaction Guarantee as well: payment waits until you’ve walked the job and you’re happy, and if you’ve already paid and aren’t, we make it right, including a refund."
         ]
       }
     ],
-    doAbout: "Wildcat Washers starts every window cleaning with a walk-around inspection, protects floors, stucco, and plants as the crew works, and finishes with a double check and a walkthrough. Licensed and fully insured, we stand behind the work, and nobody pays until they've seen the result and are satisfied with it.",
+    doAbout: "Wildcat Washers starts every window cleaning with a walk-around inspection, protects floors, stucco, and plants as the crew works, and finishes with a double check and a walkthrough. Licensed and fully insured, we stand behind the work, and nobody pays until they’ve seen the result and are satisfied with it.",
     related: [
       "/guides/are-window-cleaners-licensed-and-insured-arizona/",
       "/guides/is-it-safe-to-let-window-cleaners-inside/",
@@ -324,12 +324,12 @@ export const guides: Guide[] = [
       {
         h: "Who comes to your door",
         p: [
-          "Hiring is deliberate and focused on reliability and trustworthiness. Every hire is background checked. Training follows a defined process: a training period, shadowing, ride-alongs with experienced technicians, and checklists for the work. Technicians are only sent to customers once they're performing at a high level.",
-          "We aim for the same technicians on recurring visits but can't promise it every time. Every technician is trained to the same standard."
+          "Hiring is deliberate and focused on reliability and trustworthiness. Every hire is background checked. Training follows a defined process: a training period, shadowing, ride-alongs with experienced technicians, and checklists for the work. Technicians are only sent to customers once they’re performing at a high level.",
+          "We aim for the same technicians on recurring visits but can’t promise it every time. Every technician is trained to the same standard."
         ]
       },
       {
-        h: "You'll know exactly who is coming and when",
+        h: "You’ll know exactly who is coming and when",
         p: [
           "You get a reminder text a week before, another the day before, and a text when the crew is on the way, with a three-hour arrival window. The truck is marked, the technicians are in uniform, and they introduce themselves at the door. With your okay, a small Wildcat Washers yard sign goes out front while they work."
         ]
@@ -352,30 +352,30 @@ export const guides: Guide[] = [
   },
   {
     slug: "do-i-need-to-be-home-for-window-cleaning",
-    answer: "You don't need to be home for window cleaning. Wildcat Washers prefers it, because the walkthrough at the end is where you confirm you're completely happy. Still, exterior work is routinely done with nobody there, including for seasonal residents and out-of-state owners, and a card on file can be charged after the job.",
+    answer: "You don’t need to be home for window cleaning. Wildcat Washers prefers it, because the walkthrough at the end is where you confirm you’re completely happy. Still, exterior work is routinely done with nobody there, including for seasonal residents and out-of-state owners, and a card on file can be charged after the job.",
     service: "window-cleaning",
     sections: [
       {
         h: "Why we like you to be there",
         p: [
-          "The final walkthrough is the best part of the visit. You see the result with the crew, anything you want touched up gets handled on the spot, and they can mention other things around the house we might help with. It's also your chance to ask questions face to face.",
-          "The same goes for pressure washing. You don't need to be there for the work, but seeing the finished driveway or patio with the crew is worth it if you can."
+          "The final walkthrough is the best part of the visit. You see the result with the crew, anything you want touched up gets handled on the spot, and they can mention other things around the house we might help with. It’s also your chance to ask questions face to face.",
+          "The same goes for pressure washing. You don’t need to be there for the work, but seeing the finished driveway or patio with the crew is worth it if you can."
         ]
       },
       {
         h: "Snowbirds and out-of-town owners",
         p: [
-          "Seasonal residents are a big part of who we serve, especially in the 55+ communities. The usual approach is to pre-schedule service around your travel dates so the house is clean and ready the day you arrive in Tucson. You don't have to be in town to set it up. Just call and tell us when you're coming."
+          "Seasonal residents are a big part of who we serve, especially in the 55+ communities. The usual approach is to pre-schedule service around your travel dates so the house is clean and ready the day you arrive in Tucson. You don’t have to be in town to set it up. Just call and tell us when you’re coming."
         ]
       },
       {
         h: "Staying in the loop from anywhere",
         p: [
-          "Reminder texts arrive seven days out and 24 hours out, plus a final one when technicians are en route. For interior glass, we'll sort out access with you when you book. If anything looks off once you're back, the 14-Day Spotless Guarantee covers a free touch-up."
+          "Reminder texts arrive seven days out and 24 hours out, plus a final one when technicians are en route. For interior glass, we’ll sort out access with you when you book. If anything looks off once you’re back, the 14-Day Spotless Guarantee covers a free touch-up."
         ]
       }
     ],
-    doAbout: "Wildcat Washers works around your schedule, seven days a week, whether you're home, at work, or across the country. We keep payment on file, clean every part of every window, and double check every pane before we leave. When you're around, we'll walk it with you. When you're not, the guarantee has you covered.",
+    doAbout: "Wildcat Washers works around your schedule, seven days a week, whether you’re home, at work, or across the country. We keep payment on file, clean every part of every window, and double check every pane before we leave. When you’re around, we’ll walk it with you. When you’re not, the guarantee has you covered.",
     related: [
       "/guides/is-it-safe-to-let-window-cleaners-inside/",
       "/guides/when-do-i-pay-for-window-cleaning/",
@@ -386,20 +386,20 @@ export const guides: Guide[] = [
   },
   {
     slug: "how-to-prepare-for-window-cleaning",
-    answer: "Nothing needs to be done before window cleaners arrive. Wildcat Washers handles everything, including moving furniture and putting it back exactly where it was. If it's convenient, raising delicate blinds and clearing small decorations off interior sills helps the crew move a little faster, but none of it is required.",
+    answer: "Nothing needs to be done before window cleaners arrive. Wildcat Washers handles everything, including moving furniture and putting it back exactly where it was. If it’s convenient, raising delicate blinds and clearing small decorations off interior sills helps the crew move a little faster, but none of it is required.",
     service: "window-cleaning",
     sections: [
       {
         h: "What the crew takes care of",
         p: [
-          "Shoe covers go on at the door. Furniture near the windows gets moved and returned to its spot. Screens come off, get reconditioned, and go back on at the end. Tracks are vacuumed out and hand washed. Towels catch drips indoors, so floors stay dry. You don't need to set anything up or clear a path."
+          "Shoe covers go on at the door. Furniture near the windows gets moved and returned to its spot. Screens come off, get reconditioned, and go back on at the end. Tracks are vacuumed out and hand washed. Towels catch drips indoors, so floors stay dry. You don’t need to set anything up or clear a path."
         ]
       },
       {
         h: "A few optional things that help",
         p: [
-          "Raising blinds, especially delicate ones, clears the way to the glass. Blinds themselves aren't something we clean, so lifting them simply saves a step. Moving small decorations off interior sills does the same.",
-          "If there's a window you care about most, like a slider covered in pet nose prints, mention it at the start. It's also helpful to tell us about pets so the crew knows who they'll be meeting."
+          "Raising blinds, especially delicate ones, clears the way to the glass. Blinds themselves aren’t something we clean, so lifting them simply saves a step. Moving small decorations off interior sills does the same.",
+          "If there’s a window you care about most, like a slider covered in pet nose prints, mention it at the start. It’s also helpful to tell us about pets so the crew knows who they’ll be meeting."
         ]
       },
       {
@@ -410,7 +410,7 @@ export const guides: Guide[] = [
         ]
       }
     ],
-    doAbout: "Wildcat Washers makes window cleaning something you don't have to plan around. Book by phone, and our technicians handle the furniture, the screens, the tracks, and the cleanup, then go over the results with you. You pay only once you're satisfied, and any touch-up in the next 14 days is free.",
+    doAbout: "Wildcat Washers makes window cleaning something you don’t have to plan around. Book by phone, and our technicians handle the furniture, the screens, the tracks, and the cleanup, then go over the results with you. You pay only once you’re satisfied, and any touch-up in the next 14 days is free.",
     related: [
       "/guides/how-long-does-window-cleaning-take/",
       "/guides/do-i-need-to-be-home-for-window-cleaning/",
@@ -427,20 +427,20 @@ export const guides: Guide[] = [
       {
         h: "Why rain spots freshly cleaned windows",
         p: [
-          "Rain on its own is rarely the real culprit. The trouble is the dust left behind in tracks, frames, sills, and screens when only the glass gets cleaned. A breeze or a passing shower then carries that dust straight back down onto the pane. In Tucson, with desert dust settling year-round and heavy storms during monsoon season, there's usually plenty of it waiting."
+          "Rain on its own is rarely the real culprit. The trouble is the dust left behind in tracks, frames, sills, and screens when only the glass gets cleaned. A breeze or a passing shower then carries that dust straight back down onto the pane. In Tucson, with desert dust settling year-round and heavy storms during monsoon season, there’s usually plenty of it waiting."
         ]
       },
       {
         h: "Why the 5-in-1 holds up",
         p: [
-          "Because every part of the window gets cleaned, there's nothing left on the frame or screen to wash back down. Customers have told us over and over that after light rain they genuinely can't tell it rained. That thoroughness is the reason for the 5-in-1, and it's why we're confident offering a guarantee this broad."
+          "Because every part of the window gets cleaned, there’s nothing left on the frame or screen to wash back down. Customers have told us over and over that after light rain they genuinely can’t tell it rained. That thoroughness is the reason for the 5-in-1, and it’s why we’re confident offering a guarantee this broad."
         ]
       },
       {
         h: "Is there a rain guarantee?",
         p: [
-          "Not as a separate product. The 14-Day Spotless Guarantee is what covers rain, and it also covers sprinklers, dust, and anything else. If weather does spot the glass, reach out and we'll come back at no charge.",
-          "On the day of your appointment, we reschedule if it's pouring and work through a light drizzle. Monsoon season runs roughly June through September, and the clean right after summer is one of the three Wildcat Club visits for exactly that reason."
+          "Not as a separate product. The 14-Day Spotless Guarantee is what covers rain, and it also covers sprinklers, dust, and anything else. If weather does spot the glass, reach out and we’ll come back at no charge.",
+          "On the day of your appointment, we reschedule if it’s pouring and work through a light drizzle. Monsoon season runs roughly June through September, and the clean right after summer is one of the three Wildcat Club visits for exactly that reason."
         ]
       }
     ],
@@ -455,7 +455,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "window-cleaning-vs-window-washing",
-    answer: "Window cleaning and window washing are the same service described with different words. There's no difference in what gets done. Wildcat Washers customers use both terms about equally, and so does the company. What does matter is whether the whole window gets cleaned or just the glass.",
+    answer: "Window cleaning and window washing are the same service described with different words. There’s no difference in what gets done. Wildcat Washers customers use both terms about equally, and so does the company. What does matter is whether the whole window gets cleaned or just the glass.",
     service: "window-cleaning",
     sections: [
       {
@@ -467,18 +467,18 @@ export const guides: Guide[] = [
       {
         h: "The difference that actually matters",
         p: [
-          "Some companies clean the glass and stop there. Others take care of the entire window. Wildcat Washers' 5-in-1 Deep Clean covers the glass, frames, sills, tracks, and screens on every job. Tracks are vacuumed out before they're washed, and screens are removed, reconditioned, and reinstalled at the end.",
-          "Every part is professionally hand cleaned by trained technicians, not sprayed down and rinsed. That's what lets them buff mineral buildup off the glass and catch the details."
+          "Some companies clean the glass and stop there. Others take care of the entire window. Wildcat Washers' 5-in-1 Deep Clean covers the glass, frames, sills, tracks, and screens on every job. Tracks are vacuumed out before they’re washed, and screens are removed, reconditioned, and reinstalled at the end.",
+          "Every part is professionally hand cleaned by trained technicians, not sprayed down and rinsed. That’s what lets them buff mineral buildup off the glass and catch the details."
         ]
       },
       {
-        h: "Washing doesn't mean hosing",
+        h: "Washing doesn’t mean hosing",
         p: [
-          "The word washing can make people think of a garden hose. Please don't hose off your windows. Tucson's mineral-heavy water dries on the glass and leaves deposits that, over time, etch into it permanently. Professional washing means hand scrubbing and squeegeeing, or pure deionized water on a pole for high glass, which dries without spots."
+          "The word washing can make people think of a garden hose. Please don’t hose off your windows. Tucson’s mineral-heavy water dries on the glass and leaves deposits that, over time, etch into it permanently. Professional washing means hand scrubbing and squeegeeing, or pure deionized water on a pole for high glass, which dries without spots."
         ]
       }
     ],
-    doAbout: "Wildcat Washers answers to both names. Whichever you say, you're booking the 5-in-1 Deep Clean with mineral removal included. The crew reviews every pane, then walks it with you ahead of payment, and two weeks of free touch-ups follow. Quotes take a few minutes on the phone.",
+    doAbout: "Wildcat Washers answers to both names. Whichever you say, you’re booking the 5-in-1 Deep Clean with mineral removal included. The crew reviews every pane, then walks it with you ahead of payment, and two weeks of free touch-ups follow. Quotes take a few minutes on the phone.",
     related: [
       "/guides/should-i-hose-off-my-windows/",
       "/guides/do-window-cleaners-charge-extra-for-screens-and-tracks/",
@@ -495,20 +495,20 @@ export const guides: Guide[] = [
       {
         h: "What window work really involves",
         p: [
-          "Clean glass is only part of it. Frames, sills, tracks, and screens hold the dust that ends up back on the glass. Tucson's hard water leaves mineral deposits that need to be buffed off with the right material. Wildcat Washers uses 0000-grade steel wool, because coarser grades scratch glass, and scratches in glass are permanent.",
+          "Clean glass is only part of it. Frames, sills, tracks, and screens hold the dust that ends up back on the glass. Tucson’s hard water leaves mineral deposits that need to be buffed off with the right material. Wildcat Washers uses 0000-grade steel wool, because coarser grades scratch glass, and scratches in glass are permanent.",
           "Tint, low-E coatings, and security film need to be identified before anything touches the pane. Scrapers have to be used correctly. And in Arizona heat, cleaning solution dries before you can pull it off unless you work fast and know the technique."
         ]
       },
       {
         h: "Where a generalist is the right call",
         p: [
-          "Handymen are useful for all kinds of jobs around the house. Wildcat Washers doesn't do plumbing, electrical, or other licensed trade work, so there are plenty of projects where someone else is the right person. Windows, solar panels, screens, and exterior pressure washing are what we focus on."
+          "Handymen are useful for all kinds of jobs around the house. Wildcat Washers doesn’t do plumbing, electrical, or other licensed trade work, so there are plenty of projects where someone else is the right person. Windows, solar panels, screens, and exterior pressure washing are what we focus on."
         ]
       },
       {
         h: "Height, insurance, and a guarantee",
         p: [
-          "Second-story glass, skylights, and tall interior glass call for proper ladders or a water-fed pole. We're licensed and fully insured, and the result is guaranteed twice over: you pay only after the walkthrough, and touch-ups are free for 14 days after."
+          "Second-story glass, skylights, and tall interior glass call for proper ladders or a water-fed pole. We’re licensed and fully insured, and the result is guaranteed twice over: you pay only after the walkthrough, and touch-ups are free for 14 days after."
         ]
       }
     ],
@@ -523,13 +523,13 @@ export const guides: Guide[] = [
   },
   {
     slug: "is-professional-window-cleaning-worth-it",
-    answer: "Professional window cleaning is worth the money because it protects the glass, not just the view. Hard water left on a pane long enough etches it permanently, and etched glass has to be replaced. Maintaining windows costs far less than replacing them, and with Wildcat Washers you don't pay until you're happy.",
+    answer: "Professional window cleaning is worth the money because it protects the glass, not just the view. Hard water left on a pane long enough etches it permanently, and etched glass has to be replaced. Maintaining windows costs far less than replacing them, and with Wildcat Washers you don’t pay until you’re happy.",
     service: "window-cleaning",
     sections: [
       {
         h: "Protective, not just cosmetic",
         p: [
-          "Water across Southern Arizona is hard and mineral-heavy. When it dries on glass from sprinklers, hoses, or rain, it leaves deposits behind. Early on, those minerals sit on the surface and can be buffed off. Left long enough, they eat into the glass itself. That's etching, and it's physical damage no one can reverse.",
+          "Water across Southern Arizona is hard and mineral-heavy. When it dries on glass from sprinklers, hoses, or rain, it leaves deposits behind. Early on, those minerals sit on the surface and can be buffed off. Left long enough, they eat into the glass itself. That’s etching, and it’s physical damage no one can reverse.",
           "Regular cleaning removes deposits before they get thick enough to cause harm. Windows kept on a schedule never reach that point."
         ]
       },
@@ -541,7 +541,7 @@ export const guides: Guide[] = [
         ]
       },
       {
-        h: "What you're actually paying for",
+        h: "What you’re actually paying for",
         p: [
           "Every piece of the window, from frames and sills to tracks and screens. With nothing left behind to blow back on, results last much longer. Add a double check, a walkthrough, and 14 days of free touch-ups, and the risk of trying it is close to zero."
         ]
@@ -558,7 +558,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "will-window-cleaning-damage-tint-or-low-e",
-    answer: "Window cleaning won't damage tint, low-E coatings, or security film when it's done correctly. Wildcat Washers checks for tint, film, and coatings before anything touches the glass, then adjusts the method to suit each one. No type of glass is off limits, and tinted and coated glass is regular work for the crew.",
+    answer: "Window cleaning won’t damage tint, low-E coatings, or security film when it’s done correctly. Wildcat Washers checks for tint, film, and coatings before anything touches the glass, then adjusts the method to suit each one. No type of glass is off limits, and tinted and coated glass is regular work for the crew.",
     service: "window-cleaning",
     sections: [
       {
@@ -571,13 +571,13 @@ export const guides: Guide[] = [
       {
         h: "Coated glass still collects hard water",
         p: [
-          "Film and coatings don't keep minerals off. Sprinkler overspray and hose water dry on tinted and low-E glass the same way they dry on clear panes, and the spots build up over time. Removing that buildup is included whenever we clean your windows, with the approach matched to the surface in front of us."
+          "Film and coatings don’t keep minerals off. Sprinkler overspray and hose water dry on tinted and low-E glass the same way they dry on clear panes, and the spots build up over time. Removing that buildup is included whenever we clean your windows, with the approach matched to the surface in front of us."
         ]
       },
       {
         h: "What to mention on the call",
         p: [
-          "If you know which windows have film or a coating, mention it while we're counting panes on the phone. If you're not sure, that's fine. The crew checks anyway, and they'll tell you what they find before they begin."
+          "If you know which windows have film or a coating, mention it while we’re counting panes on the phone. If you’re not sure, that’s fine. The crew checks anyway, and they’ll tell you what they find before they begin."
         ]
       },
       {
@@ -598,17 +598,17 @@ export const guides: Guide[] = [
   },
   {
     slug: "do-you-clean-skylights-and-high-windows",
-    answer: "Wildcat Washers cleans skylights and high interior windows, including clerestories and transom and entryway glass. Skylights and high glass count as extra panes and are handled in the same visit as the rest of your windows. It's exactly the kind of work most people would rather not climb a ladder for.",
+    answer: "Wildcat Washers cleans skylights and high interior windows, including clerestories and transom and entryway glass. Skylights and high glass count as extra panes and are handled in the same visit as the rest of your windows. It’s exactly the kind of work most people would rather not climb a ladder for.",
     service: "window-cleaning",
     sections: [
       {
         h: "How skylights and high glass are quoted",
         p: [
-          "Because pricing works per pane, a skylight or a clerestory simply joins the count. We walk through it with you on the phone. Mirrors, glass doors, shower glass, and patio enclosures are handled the same way. Accessibility can factor into the quote for glass that's genuinely hard to reach."
+          "Because pricing works per pane, a skylight or a clerestory simply joins the count. We walk through it with you on the phone. Mirrors, glass doors, shower glass, and patio enclosures are handled the same way. Accessibility can factor into the quote for glass that’s genuinely hard to reach."
         ]
       },
       {
-        h: "Reaching glass that's up high",
+        h: "Reaching glass that’s up high",
         p: [
           "Indoors, ladders are placed carefully, towels catch drips, and shoe covers stay on. Furniture below is shifted aside and set back afterward. When glass sits too high for a ladder to make sense, a water-fed pole carrying deionized water lets technicians clean from below, and it dries spot-free.",
           "Decorative glass high up on a wall is something customers have had us take down and clean, too."
@@ -617,12 +617,12 @@ export const guides: Guide[] = [
       {
         h: "High glass gets dusty like everything else",
         p: [
-          "Tucson dust doesn't skip the windows you can't reach. Interior glass, high or low, is worth cleaning as often as the exterior. Chandeliers are the one thing up there we don't offer.",
+          "Tucson dust doesn’t skip the windows you can’t reach. Interior glass, high or low, is worth cleaning as often as the exterior. Chandeliers are the one thing up there we don’t offer.",
           "In the Wildcat Club, skylights and high windows can be part of every visit, three times a year, and a one-time clean is always available too. If you spot a skylight you forgot to mention, it can usually be added the same day, since crews carry equipment for every service."
         ]
       }
     ],
-    doAbout: "Wildcat Washers adds skylights, clerestories, and transom glass to the same visit as your regular window cleaning, so there's no second appointment and no ladder for you to climb. Every pane gets the same careful hand cleaning, and you check the whole job with the crew before paying.",
+    doAbout: "Wildcat Washers adds skylights, clerestories, and transom glass to the same visit as your regular window cleaning, so there’s no second appointment and no ladder for you to climb. Every pane gets the same careful hand cleaning, and you check the whole job with the crew before paying.",
     related: [
       "/guides/two-story-window-cleaning/",
       "/guides/water-fed-pole-vs-hand-washing/",
@@ -639,13 +639,13 @@ export const guides: Guide[] = [
       {
         h: "Why divided-light glass takes more care",
         p: [
-          "A divided-light window is many small pieces of glass instead of one large one, and every piece has its own edges and corners. Working by hand, the technician is right at each pane, so corners get cleaned properly and mineral buildup can be buffed off the glass rather than left in the edges. It's detail work, and it's the kind we like best."
+          "A divided-light window is many small pieces of glass instead of one large one, and every piece has its own edges and corners. Working by hand, the technician is right at each pane, so corners get cleaned properly and mineral buildup can be buffed off the glass rather than left in the edges. It’s detail work, and it’s the kind we like best."
         ]
       },
       {
         h: "How these windows are priced",
         p: [
-          "Wildcat Washers prices window cleaning per pane, meaning each individual piece of glass. A French pane window has more panes than a single sheet of the same size, so it's counted that way. We count them together during the call, and you get your quote on the spot."
+          "Wildcat Washers prices window cleaning per pane, meaning each individual piece of glass. A French pane window has more panes than a single sheet of the same size, so it’s counted that way. We count them together during the call, and you get your quote on the spot."
         ]
       },
       {
@@ -673,7 +673,7 @@ export const guides: Guide[] = [
       {
         h: "Where hand washing shines",
         p: [
-          "Most residential glass is hand washed: scrubbed, washed, and squeegeed by a trained technician. Being right at the pane allows far more attention to detail. It's also how hard water deposits come off, buffed with 0000-grade steel wool and walnut pads. Frames, sills, and tracks get the same hands-on attention."
+          "Most residential glass is hand washed: scrubbed, washed, and squeegeed by a trained technician. Being right at the pane allows far more attention to detail. It’s also how hard water deposits come off, buffed with 0000-grade steel wool and walnut pads. Frames, sills, and tracks get the same hands-on attention."
         ]
       },
       {
@@ -683,7 +683,7 @@ export const guides: Guide[] = [
         ]
       },
       {
-        h: "Why it isn't either-or",
+        h: "Why it isn’t either-or",
         p: [
           "Many homes get both. Ground-floor windows might be hand washed while a tall pane over the entry is cleaned with the pole. The choice is made on site based on the glass in front of the crew, and neither method is a shortcut. The goal in both cases is the same result, and the closing walkthrough lets you see it on every window before paying.",
           "One thing that is not a method: a garden hose. Hose water in Southern Arizona dries into mineral deposits on the glass, which is the opposite of what you want."
@@ -701,31 +701,31 @@ export const guides: Guide[] = [
   },
   {
     slug: "how-far-outside-tucson-do-you-travel",
-    answer: "Wildcat Washers serves Greater Tucson and surrounding Southern Arizona, generally within about an hour's drive of central Tucson, and travels farther for the right job. That covers everywhere from SaddleBrooke to Sonoita and Marana to Tubac, with no trip charge anywhere. If you're not sure you're in range, call and ask. The answer is usually yes.",
+    answer: "Wildcat Washers serves Greater Tucson and surrounding Southern Arizona, generally within about an hour’s drive of central Tucson, and travels farther for the right job. That covers everywhere from SaddleBrooke to Sonoita and Marana to Tubac, with no trip charge anywhere. If you’re not sure you’re in range, call and ask. The answer is usually yes.",
     service: "window-cleaning",
     sections: [
       {
         h: "Where our crews work",
         p: [
-          "Coverage includes Tucson itself plus Oro Valley, Catalina Foothills, Casas Adobes, Catalina, Tanque Verde, Marana, Vail AZ, Corona de Tucson, Sahuarita, Green Valley, Tubac, Sonoita, and SaddleBrooke. That's most of Pima County plus parts of Pinal and Santa Cruz counties.",
-          "Wildcat Washers has real customers in every one of these communities, so local experience isn't a stretch anywhere on the map. Seasonal residents in places like Green Valley, SaddleBrooke, and Tubac can have service timed to their arrival, so everything's spotless when they walk in."
+          "Coverage includes Tucson itself plus Oro Valley, Catalina Foothills, Casas Adobes, Catalina, Tanque Verde, Marana, Vail AZ, Corona de Tucson, Sahuarita, Green Valley, Tubac, Sonoita, and SaddleBrooke. That’s most of Pima County plus parts of Pinal and Santa Cruz counties.",
+          "Wildcat Washers has real customers in every one of these communities, so local experience isn’t a stretch anywhere on the map. Seasonal residents in places like Green Valley, SaddleBrooke, and Tubac can have service timed to their arrival, so everything’s spotless when they walk in."
         ]
       },
       {
         h: "No trip charge, no route days",
         p: [
-          "Distance doesn't change your price. There's no trip charge in any community, and no area is served only on certain days. A home in Tubac gets the same scheduling flexibility, seven days a week, as a home near downtown."
+          "Distance doesn’t change your price. There’s no trip charge in any community, and no area is served only on certain days. A home in Tubac gets the same scheduling flexibility, seven days a week, as a home near downtown."
         ]
       },
       {
         h: "Beyond the usual range",
         p: [
-          "The hour's drive, roughly 50 miles, is a guideline rather than a wall. Farther jobs are considered case by case. Every truck is stocked for all six services, so a longer trip can cover windows, solar panels, and pressure washing in one visit.",
+          "The hour’s drive, roughly 50 miles, is a guideline rather than a wall. Farther jobs are considered case by case. Every truck is stocked for all six services, so a longer trip can cover windows, solar panels, and pressure washing in one visit.",
           "Local conditions shift a little across the region. Desert dust and hard water are everywhere, and in Green Valley, Sahuarita, and the southern metro, nearby mining activity adds to the dust that settles on solar panels."
         ]
       }
     ],
-    doAbout: "Wildcat Washers brings its 5-in-1 Deep Clean, its guarantees, and its reminder texts to every corner of the service area. Call (520) 525-0084 with your address, and we'll confirm coverage and quote the job in a few minutes. Farther out than usual? Ask anyway.",
+    doAbout: "Wildcat Washers brings its 5-in-1 Deep Clean, its guarantees, and its reminder texts to every corner of the service area. Call (520) 525-0084 with your address, and we’ll confirm coverage and quote the job in a few minutes. Farther out than usual? Ask anyway.",
     related: [
       "/areas/",
       "/guides/how-soon-can-a-window-cleaner-come-out/",

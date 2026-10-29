@@ -23,7 +23,7 @@ import DepthText from '@/components/DepthText.astro';
 import ReviewGrid from '@/components/ReviewGrid.astro';
 import { depthFor, withDepthFaqs, proofReviews } from '@/data/depth';
 import { getImage } from 'astro:assets';
-import { img, hasImg, heroPools, weakHero } from '@/data/media';
+import { img, hasImg, heroPools, weakHero, captionFor } from '@/data/media';
 
 export function getStaticPaths() {
   return guidePages.map((p) => ({ params: { slug: p.g.slug }, props: { p } }));
@@ -107,7 +107,7 @@ const article = {
         {g.sections.map((sec, i) => (
           <details class="gsec" open>
             <summary><h2 class="h3" id={slugify(sec.h)}>{sec.h}</h2><span class="gsec-plus" aria-hidden="true"></span></summary>
-            <div class="gsec-b">{sec.p.map((t) => <p>{t}</p>)}{i === figAt && figure && !guideLoop[g.slug] && <Photo k={figure} caption shapes={[1, 4 / 3, 3 / 2]} class="g-fig" sizes="(min-width: 900px) 640px, 100vw" />}</div>
+            <div class="gsec-b">{sec.p.map((t) => <p>{t}</p>)}{i === figAt && figure && !guideLoop[g.slug] && <Photo k={figure} caption={/ in /.test(captionFor(figure))} shapes={[1, 4 / 3, 3 / 2]} class="g-fig" sizes="(min-width: 900px) 640px, 100vw" />}</div>
           </details>
         ))}
         {depthSections.map((sec) => (
