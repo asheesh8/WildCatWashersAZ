@@ -61,6 +61,8 @@ const extra = items.length > PHONE_LIMIT + 1 ? items.length - PHONE_LIMIT : 0;
     .plus { width: 36px; height: 36px; }
     .faq-a { padding: 0 1.1rem 1.1rem; }
   }
+  /* A folded FAQ's heading is the left-aligned toggle, so the centered "FAQ" label would float above it. */
+  @media (max-width: 759px) { section[data-mfold] .section-head .eyebrow { display: none; } }
   .faq-all { display: none; }
   .faq-all[hidden] { display: none !important; }
   @media (max-width: 759px) {

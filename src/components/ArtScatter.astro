@@ -29,7 +29,8 @@ const json = JSON.stringify(pool);
 
         const blocks = () => {
           const out = [];
-          [...main.children].forEach((el) => {
+          // Thin strips (the guides' reading bar) and scripts aren't blocks, so the hero is always the first one skipped.
+          [...main.children].filter((el) => el.offsetHeight > 40).forEach((el) => {
             const inner = el.matches('section') ? [] : [...el.querySelectorAll(':scope > section')];
             (inner.length ? inner : [el]).forEach((b) => out.push(b));
           });
@@ -39,9 +40,12 @@ const json = JSON.stringify(pool);
         // Every box inside a block that art must keep clear of, in page coordinates.
         const obstacles = (b, br) => {
           const rs = [], sx = scrollX, sy = scrollY;
-          const add = (r, stickyTo) => {
+          // Anything still waiting to fade up is drawn 18px low; it will rise
+          // into place later, so its box reaches 22px higher than measured.
+          const add = (r, stickyTo, el) => {
             if (r.width < 1 || r.height < 1) return;
-            rs.push([r.left + sx, r.top + sy, r.right + sx, (stickyTo || r.bottom) + sy]);
+            const lift = el && el.closest('.reveal:not(.in)') ? 22 : 0;
+            rs.push([r.left + sx, r.top + sy - lift, r.right + sx, (stickyTo || r.bottom) + sy]);
           };
           const walker = document.createTreeWalker(b, NodeFilter.SHOW_TEXT);
           const range = document.createRange();
@@ -50,7 +54,7 @@ const json = JSON.stringify(pool);
             range.selectNodeContents(n);
             // Headings get extra air so art never crowds them.
             const hp = n.parentElement.closest('h1, h2, h3') ? 20 : 0;
-            for (const r of range.getClientRects()) add(hp ? { left: r.left - hp, top: r.top - hp, right: r.right + hp, bottom: r.bottom + hp, width: r.width, height: r.height } : r);
+            for (const r of range.getClientRects()) add(hp ? { left: r.left - hp, top: r.top - hp, right: r.right + hp, bottom: r.bottom + hp, width: r.width, height: r.height } : r, 0, n.parentElement);
           }
           // The bottom padding holds the scenery ridgeline: keep art off it.
           const pb = parseFloat(getComputedStyle(b).paddingBottom) || 0;
@@ -64,13 +68,13 @@ const json = JSON.stringify(pool);
             const r = el.getBoundingClientRect();
             // A sticky panel slides down its column, so block the whole column.
             const stick = cs.position === 'sticky' ? el.parentElement.getBoundingClientRect().bottom : 0;
-            if (/^(IMG|PICTURE|VIDEO|SVG|svg|IFRAME|CANVAS|INPUT|SELECT|TEXTAREA|BUTTON|HR|TABLE|LI|ARTICLE|FIGURE|DETAILS)$/.test(el.tagName) || stick) return add(r, stick);
+            if (/^(IMG|PICTURE|VIDEO|SVG|svg|IFRAME|CANVAS|INPUT|SELECT|TEXTAREA|BUTTON|HR|TABLE|LI|ARTICLE|FIGURE|DETAILS)$/.test(el.tagName) || stick) return add(r, stick, el);
             // Swipe rows and their pager: block the row plus the pager band under it.
             if (el.matches('.m-swipe, .swipe-ctrl')) return add({ left: r.left, top: r.top, right: r.right, bottom: r.bottom + 56, width: r.width, height: r.height + 56 });
             const bg = cs.backgroundColor, img = cs.backgroundImage;
             const painted = (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') || img !== 'none' ||
               cs.boxShadow !== 'none' || ['Top', 'Right', 'Bottom', 'Left'].some((s) => parseFloat(cs['border' + s + 'Width']) > 0 && cs['border' + s + 'Style'] !== 'none');
-            if (painted && r.width * r.height < area * 0.85) add(r);
+            if (painted && r.width * r.height < area * 0.85) add(r, 0, el);
           });
           return rs;
         };
@@ -121,7 +125,7 @@ const json = JSON.stringify(pool);
           const me = ++run;
           if (layer) layer.remove();
           const vw = document.documentElement.clientWidth, desk = vw >= 1100;
-          const max = desk ? 6 : 2, gap = desk ? 620 : 1400, pad = desk ? 44 : 16;
+          const max = desk ? 3 : 2, gap = desk ? 620 : 1400, pad = desk ? 44 : 16;
           layer = document.createElement('div');
           layer.className = 'art-layer';
           layer.setAttribute('aria-hidden', 'true');
