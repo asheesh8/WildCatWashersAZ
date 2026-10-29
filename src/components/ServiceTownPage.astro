@@ -79,6 +79,9 @@ const homeHero = (kinds: string[]) => allKeys.filter((k) => kinds.includes(photo
 const swap = foreign(placed.hero) ? (placed.gallery.find((g) => !foreign(g) && !weakHero.has(g)) ?? homeHero(['window-result', 'window-action'])) : undefined;
 const photos = swap ? { hero: swap, gallery: [placed.hero, ...placed.gallery.filter((g) => g !== swap)] } : placed;
 const photo = photos.hero;
+/* The photo strip sits before the customer quote, after it, or after the reviews, by page. */
+const filmAt = vary(url, 3, 'filmat');
+const film = { keys: photos.gallery, title: say(url, 'film-h', [`More ${s.name.toLowerCase()} jobs`, `Recent ${s.name.toLowerCase()} work`, 'From our recent jobs']), avoid: [photo], max: 3 };
 const kids = childrenOf(t.slug);
 /* Window pages also point to the do-it-yourself guide; solar screen pages to rescreening. */
 const extraGuides = s.slug === 'window-cleaning' ? ['/guides/can-i-clean-my-own-windows/'] : [];
@@ -140,11 +143,15 @@ const restSet = featured ? { ...set, local: set.local.filter((r) => r.n !== feat
     </div>
   </section>
 
+  {filmAt === 0 && <Filmstrip {...film} />}
+
   {featured && <PullQuote review={featured} heading={`${/^[AEIOU]/.test(t.name) ? "An" : "A"} ${t.name} customer`} tone={vary(url, 2, 'pq') ? 'blue' : 'mist'} />}
 
-  <Filmstrip keys={photos.gallery} title={say(url, 'film-h', [`More ${s.name.toLowerCase()} jobs`, `Recent ${s.name.toLowerCase()} work`, 'From our recent jobs'])} avoid={[photo]} max={3} />
+  {filmAt === 1 && <Filmstrip {...film} />}
 
   <ReviewSetBlock set={restSet} title={set.count ? say(url, 'rev-h', [`What ${t.name} customers say`, `${s.name} reviews from ${t.name}`, `From customers in ${t.name}`]) : say(url, 'rev-h', [`${s.name} reviews from across Greater Tucson`, `What Tucson-area customers say about our ${s.name.toLowerCase()}`, `${s.name} reviews from around the metro`])} />
+
+  {filmAt === 2 && <Filmstrip {...film} />}
 
   {/* One questions block on the page: this town's answers, then the guides and shared answers as links. */}
   {placeFaqs.length > 0 ? (

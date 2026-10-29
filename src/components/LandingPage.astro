@@ -78,6 +78,8 @@ const commercialWide = (heroPools.commercial ?? []).filter((k) => ratioOf(k) >= 
 /* Siblings vary: about half the pages show reviews before the detail sections. */
 const reviewsFirst = vary(l.url, 2, 'rev') === 1;
 /* Audience pages: the crew block comes before or after the details, by page. */
+/* Commercial pages: "how it works" comes before or after the details, by page. */
+const howLate = vary(l.url, 2, 'howlate') === 1;
 const whoLate = vary(l.url, 2, 'wholate') === 1;
 const reviewsTitle = isCommercial ? say(l.url, 'rev-h', ['What customers say about our crews', 'How our crews work, in customers’ words', 'The crew you’d get, from their reviews']) : say(l.url, 'rev-h', [`${s.name} reviews`, `What customers say about our ${s.name.toLowerCase()}`, `${s.name}, in customers’ words`]);
 const bannerPhoto = fam === 'commercial' && commercialWide.length ? rotateFrom(commercialWide, siblings, l.url) : heroPhoto;
@@ -103,7 +105,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
     </section>
   )}
   {fam === 'sub' && <StepsRail title="How it works" steps={l.points} />}
-  {fam === 'commercial' && <RuledList title={say(l.url, 'how-h', ['How it works on a commercial property', 'How a commercial job runs', 'Working on your property'])} items={l.points} size="md" tone="plain" />}
+  {fam === 'commercial' && !howLate && <RuledList title={say(l.url, 'how-h', ['How it works on a commercial property', 'How a commercial job runs', 'Working on your property'])} items={l.points} size="md" tone="plain" />}
   {fam === 'audience' && l.points.length > 5 && <RuledList title="Also worth knowing" items={l.points.slice(5)} size="md" tone="plain" />}
   {fam === 'audience' && !whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
@@ -125,6 +127,7 @@ const propertyLabel = row.h1.replace(/^(Commercial )?(Window Cleaning|Exterior C
 
   {fam === 'audience' && whoLate && <WhoComes url={l.url} avoid={[...set.local, ...set.more].map((r) => r.n)} />}
 
+  {fam === 'commercial' && howLate && <RuledList title={say(l.url, 'how-h', ['How it works on a commercial property', 'How a commercial job runs', 'Working on your property'])} items={l.points} size="md" tone="plain" />}
   {!reviewsFirst && <ReviewSetBlock set={set} title={reviewsTitle} />}
 
   {sharedFaqs.length > 0 && (
