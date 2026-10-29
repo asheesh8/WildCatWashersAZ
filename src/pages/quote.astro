@@ -41,6 +41,9 @@ const crumbs = [{ name: 'Free quote', href: '/quote/' }];
     .q-g { order: 2; }
   }
   .q-phone { display: inline-flex; align-items: center; gap: .9rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.5rem + 2.5vw, 3.4rem); color: var(--navy); text-decoration: none; }
+  /* Narrow phones: a smaller badge and type so the number stays on one line. */
+  .q-phone { white-space: nowrap; }
+  @media (max-width: 400px) { .q-phone { gap: .6rem; font-size: min(2rem, 8.4vw); } .q-phone span { width: 52px !important; height: 52px !important; } }
   .q-phone span { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); color: var(--blue); display: grid; place-items: center; }
   .q-g { list-style: none; padding: 0; display: grid; gap: .8rem; }
   .q-g li { display: flex; gap: .7rem; }

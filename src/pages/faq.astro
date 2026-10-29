@@ -22,7 +22,7 @@ const slug = (c: string) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
           <details id={slug(c)} class="cat" open data-cat>
             <summary class="cat-sum"><h2 class="h3">{c}</h2><span class="cat-n">{faqs.filter((f) => f.category === c).length}</span></summary>
             {faqs.filter((f) => f.category === c).map((f) => (
-              <details id={`q${f.n}`} class="q"><summary>{f.q}</summary><p>{f.a}</p>{links[f.n] && <a class="q-more" href={links[f.n].href}>{links[f.n].label}</a>}</details>
+              <details id={`q${f.n}`} class="q"><summary>{f.q}</summary><p>{f.a.replace(/\((\d{3})\) /g, "($1)\u00a0")}</p>{links[f.n] && <a class="q-more" href={links[f.n].href}>{links[f.n].label}</a>}</details>
             ))}
           </details>
         ))}
